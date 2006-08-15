@@ -1,0 +1,21 @@
+#VRML V1.0 ascii
+
+Group{
+  Separator {
+    Rotation { rotation 1 0 0 1.57 }
+    Background {
+      skyColor [ 0.5 0.5 1, 1 1 1, 0 0 0.5, ]
+      skyAngle [            0.78,  1.57     ]
+      groundColor [ 0 0.5 0, 0.25 1 0.25, ]
+      groundAngle [          1.57         ]
+      backUrl "../skies/alpha_sky_back.png"
+      bottomUrl "../skies/alpha_sky_bottom.png"
+      frontUrl "../skies/alpha_sky_front.png"
+      leftUrl "../skies/alpha_sky_left.png"
+      rightUrl "../skies/alpha_sky_right.png"
+      topUrl "../skies/alpha_sky_top.png"            
+    }
+  }
+    
+  WWWInline { name "../castle_with_lights_and_camera.wrl" }
+}

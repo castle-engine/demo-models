@@ -1,0 +1,89 @@
+#VRML V1.0 ascii
+
+# test of optimization that can be achieved using ShapeHints node :
+# backface culling. You should see here four cubes :
+#
+# - top two are defined CCW (counterclockwise) outside, bottom two are
+#   defined CW (clockwise) outside.
+#   Top ones have a yellow spheres inside them, bottom ones have blue spheres.
+# - left two have CCW culled, right two have CW culled.
+#
+#   Therefore, the top right (CCW outside, CW culled) and
+#   bottom left (CW outside, CCW culled) are rendered correct
+#   (and you can see in view3dscene using "w" key (show wireframe)
+#   that they are really  backface culled) ...
+#
+#   ... while bottom right and top left are rendered wrong (front faces are
+#   culled - this is not what you usually want).
+
+# In real VRMLs you should always take care to cull the right
+# sides.
+
+# Note that comments above apply to view3dscene.
+# VRML browsers are not required to implement backface culling,
+# so in other VRML browsers you may also see just 4 cubes ---
+# this is valid behavior.
+
+Group {
+  Coordinate3 { point [-1 -1 -1, -1 -1 1, -1 1 -1, -1 1 1,
+                       1 -1 -1, 1 -1 1, 1 1 -1, 1 1 1  ] }
+  Switch {
+    DEF CubeCCWOutside Separator {
+      IndexedFaceSet {
+        coordIndex [ 0, 2, 6, 4, -1,
+                     4, 5, 1, 0, -1,
+                     6, 7, 5, 4, -1,
+                     2, 3, 7, 6, -1,
+                     0, 1, 3, 2, -1,
+                     5, 7, 3, 1, -1 ] }
+      Material { diffuseColor 1 1 0 }
+      Sphere { radius 1 }
+    }
+
+
+    DEF CubeCWOutside Separator {
+      IndexedFaceSet {
+        coordIndex [ 4, 6, 2, 0, -1,
+                     0, 1, 5, 4, -1,
+                     4, 5, 7, 6, -1,
+                     6, 7, 3, 2, -1,
+                     2, 3, 1, 0, -1,
+                     1, 3, 7, 5, -1 ] }
+      Material { diffuseColor 0 0 1 }
+      Sphere { radius 1 }
+    }
+  }
+
+  FontStyle { size 1 }
+  AsciiText { string [ "you should see spheres only in",
+                       "bottom right and top left boxes" ] }
+
+  # bottom left
+  Separator {
+    Translation { translation -3 -3 0 }
+    ShapeHints { shapeType SOLID vertexOrdering CLOCKWISE }
+    USE CubeCWOutside
+  }
+
+  # bottom right
+  Separator {
+    Translation { translation 3 -3 0 }
+    ShapeHints { shapeType SOLID vertexOrdering COUNTERCLOCKWISE }
+    USE CubeCWOutside
+  }
+
+  # top left
+  Separator {
+    Translation { translation -3 3 0 }
+    ShapeHints { shapeType SOLID vertexOrdering CLOCKWISE }
+    USE CubeCCWOutside
+  }
+
+  # top right
+  Separator {
+    Translation { translation 3 3 0 }
+    ShapeHints { shapeType SOLID vertexOrdering COUNTERCLOCKWISE }
+    USE CubeCCWOutside
+  }
+}
+

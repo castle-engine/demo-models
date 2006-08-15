@@ -1,0 +1,41 @@
+#VRML V1.0 ascii
+
+# This demonstrates volumetric fog, showing also example
+# where separate-shape-states-no-transform optimization
+# fails (volumetric fog is rendered bad --- it should be rendered
+# differently on each tree, but it's the same).
+#
+# Try these 2 commands:
+#
+#   view3dscene break_no_transform_final.wrl \
+#     --renderer-optimization separate-shape-states-no-transform
+#
+#   view3dscene break_no_transform_final.wrl \
+#     --renderer-optimization separate-shape-states
+#
+# and compare results, you'll see what I mean.
+
+Group {
+  PerspectiveCamera {
+    position -2.443910360336304 -16.5615234375 5.299179553985596
+    orientation 0.999258041381836 -0.027232240885496 -0.027232093736529 1.57153856754303
+  }
+
+  NavigationInfo {
+    type ["ANY", "FLY"]
+    avatarSize [ 0.5, 2 ]
+    speed 1.0
+    headlight TRUE
+  }
+
+  Fog {
+    color 0.2 0.2 1
+    fogType "LINEAR"
+    volumetric TRUE
+    volumetricDirection 0 0 1
+    volumetricVisibilityStart -0
+    visibilityRange 10
+  }
+
+  WWWInline { name "break_no_transform.wrl" }
+}

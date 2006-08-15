@@ -1,0 +1,27 @@
+#VRML V1.0 ascii
+
+# This demonstrates a simple extension to the VRML 1.0 specification
+# that is implemented in many VRML 1.0 browsers (because it's comfortable,
+# because it's allowed by the VRML 97 specification and because
+# it's implemented in many VRML 1.0 browsers (because it's comfortable,
+# ...)). So I implemented it in my view3dscene too.
+#
+# The extension is that you can define multiple root nodes in VRML
+# nodes hierarchy (i.e., VRML file does not consists of EXACTLY ONE
+# node; it consists of as many VRML nodes as you like (but at least one
+# node is required)).
+
+Cylinder {}
+Translation { translation 2 0 0 }
+Separator {
+  Material { diffuseColor 1 1 0 }
+  Cone {}
+}
+Translation { translation 2 0 0 }
+Sphere {}
+
+
+
+
+
+

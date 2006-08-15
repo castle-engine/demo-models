@@ -1,0 +1,12 @@
+#VRML V1.0 ascii
+
+Group{
+  Fog {
+    color 0 1 0
+    visibilityRange 10
+    volumetric TRUE
+    volumetricDirection 0 0 -1
+    volumetricVisibilityStart -30
+  }
+  WWWInline { name "../../castle_with_lights_and_camera.wrl" }
+}

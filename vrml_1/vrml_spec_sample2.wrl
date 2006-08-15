@@ -1,0 +1,66 @@
+#VRML V1.0 ascii
+Separator {
+    Separator {       # Simple track-light geometry:
+        Translation { translation 0 4 0 }
+        Separator {
+            Material { emissiveColor 0.1 0.3 0.3 }
+            Cube {
+                width   0.1
+                height  0.1
+                depth   4
+            }
+        }
+        Rotation { rotation 0 1 0  1.57079 }
+        Separator {
+            Material { emissiveColor 0.3 0.1 0.3 }
+            Cylinder {
+                radius  0.1
+                height  .2
+            }
+        }
+        Rotation { rotation -1 0 0  1.57079 }
+        Separator {
+            Material { emissiveColor 0.3 0.3 0.1 }
+            Rotation { rotation 1 0 0  1.57079 }
+            Translation { translation 0 -.2 0 }
+            Cone {
+                height  .4
+                bottomRadius .2
+            }
+            Translation { translation 0 .4 0 }
+            Cylinder {
+                radius  0.02
+                height  .4
+            }
+        }
+    }
+    SpotLight {      # Light from above
+        location 0 4 0
+        direction 0 -1 0
+        intensity       0.9
+        cutOffAngle     0.7
+    }
+    Separator {
+        # Wall geometry; just three flat polygons
+        Coordinate3 {
+            point [
+                   -2 0 -2, -2 0 2, 2 0 2, 2 0 -2,
+                   -2 4 -2, -2 4 2, 2 4 2, 2 4 -2]
+        }
+        IndexedFaceSet {
+            coordIndex [ 0, 1, 2, 3, -1,
+                        0, 4, 5, 1, -1,
+                        0, 3, 7, 4, -1
+                        ]
+        }
+    }
+    WWWAnchor {   # A hyper-linked cow:
+      name "http://www.foo.edu/CowProject/AboutCows.html"
+      Separator {
+            Translation { translation 0 1 0 }
+#            WWWInline {   # Reference another object
+#                name "http://www.foo.edu/3DObjects/cow.wrl"
+#            }
+        }
+    }
+}

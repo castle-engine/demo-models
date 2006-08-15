@@ -1,0 +1,140 @@
+#VRML V1.0 ascii
+
+# test of textures inlining : textures content can be specified
+# directly in VRML file.
+
+Group {
+  Separator{
+    # first grayscale (1 component) texture 2x2 pixels :
+    #    white light
+    #    black dark
+    Texture2 { image 2 2 1  0 0x50 0xFF 0xA0 }
+    Cube {}
+
+    # now rgb (3 components) 4x3 pixels :
+    Translation { translation +3 0 0 }
+    Texture2 { image 4 3  3
+      0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF # bottom row : red white white blue
+      0 0x00FF00 0x00FF00 0 # middle row : black green green black
+      0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF # top row : yellow something something something
+    }
+    Cube {}
+
+    # same as above but scaled
+    Translation { translation +3 0 0 }
+    Separator
+    {
+      Texture2Transform { scaleFactor 2 2 }
+      Cube {}
+    }
+
+    # now grayscale with alpha (2 components).
+    #    transparent light
+    #    black transparent
+    # BTW. we supply incorrent value for filename - my view3dscene should
+    # show a warning and use inlined texture instead.
+    Translation { translation +3 0 0 }
+    Texture2 {
+      image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
+      filename "not_existing_texture_filename"
+    }
+    Cube {}
+
+    # now rgb with alpha. Only corners are visible, rest is transparent.
+    # In my view3dscene you should now see clearly that texture 4x3 is actually
+    # resized to 4x4 before giving it to OpenGL. This is an OpenGL requirement
+    # and so this a limitation in my view3dscene.
+    Translation { translation +3 0 0 }
+    Texture2 { image 4 3 4
+      0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF # bottom row : red white white blue
+      0 0x00FF0000 0x00FF0000 0 # middle row : black green green black
+      0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF # top row : yellow something something something
+    }
+    Cube {}
+  }
+
+# --------------------------------------------------------------------------
+# second row : all the same as the first (top) one but now all
+# textures are CLAMPed in both directions.
+# In my view3dscene you should now see that texture colors are differently
+# interpolated at the borders. And the wire lines in the grayscale+alpha
+# cube disappear now. And the cube with scaled texture coordinates on it
+# looks different now (scaling coordinates doesn't mean scaling the texture
+# is wrap* mode is CLAMP)
+
+  Separator {
+    Translation { translation 0 -3 0 }
+
+    Texture2 { image 2 2 1  0 0x50 0xFF 0xA0 wrapS CLAMP wrapT CLAMP }
+    Cube {}
+
+    Translation { translation +3 0 0 }
+    Texture2 { image 4 3  3
+      0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
+      0 0x00FF00 0x00FF00 0
+      0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
+      wrapS CLAMP wrapT CLAMP
+    }
+    Cube {}
+
+    Translation { translation +3 0 0 }
+    Separator
+    {
+      Texture2Transform { scaleFactor 2 2 }
+      Cube {}
+    }
+
+    Translation { translation +3 0 0 }
+    Texture2 { image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF wrapS CLAMP wrapT CLAMP }
+    Cube {}
+
+    Translation { translation +3 0 0 }
+    Texture2 { image 4 3 4
+      0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
+      0 0x00FF0000 0x00FF0000 0
+      0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
+      wrapS CLAMP wrapT CLAMP
+    }
+    Cube {}
+  }
+
+# --------------------------------------------------------------------------
+# third row: tired of cubes ? Lets put these textures on some other things.
+
+  Separator {
+    Translation { translation 0 -6 0 }
+
+    Texture2 { image 2 2 1  0 0x50 0xFF 0xA0 wrapS CLAMP wrapT CLAMP }
+    Cone {}
+
+    Translation { translation +3 0 0 }
+    Texture2 { image 4 3  3
+      0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
+      0 0x00FF00 0x00FF00 0
+      0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
+      wrapS CLAMP wrapT CLAMP
+    }
+    Cylinder {}
+
+    Translation { translation +3 0 0 }
+    Separator
+    {
+      Texture2Transform { scaleFactor 2 2 }
+      Cylinder {}
+    }
+
+    Translation { translation +3 0 0 }
+    Texture2 { image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF wrapS CLAMP wrapT CLAMP }
+    Sphere {}
+
+    Translation { translation +3 0 0 }
+    Texture2 { image 4 3 4
+      0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
+      0 0x00FF0000 0x00FF0000 0
+      0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
+      wrapS CLAMP wrapT CLAMP
+    }
+    Cone {}
+
+  }
+}

@@ -1,0 +1,43 @@
+#VRML V1.0 ascii
+
+# This is a test of separate field for WWWInline.
+
+Group {
+  # Use some background, otherwise 1st two cubes will not be visible at all
+  # (because the scene contains some lights, but none of them shine on
+  # the 1st two cubes, so these two cubes are black).
+  Background { skyColor [ 0.2 0.2 1 ] }
+
+  # Normal WWWInline use. Note that the lights defined in inlined file,
+  # the last material in inlined file, the matrix state at the end of
+  # the inlined file do not change our Cube in any way.
+  Separator {
+    WWWInline { name "../materials.wrl" }
+    Translation { translation 40 0 0 }
+    Cube { }
+  }
+
+  Translation { translation 0 -10 0 }
+
+  # Same as above, just value of separate is specified explicitly.
+  Separator {
+    WWWInline {
+      name "../materials.wrl"
+      separate TRUE }
+    Translation { translation 40 0 0 }
+    Cube { }
+  }
+
+  Translation { translation 0 -10 0 }
+
+  # Now the real test: WWWInline with separate = FALSE.
+  # Note that right now the state at the end of inlined file
+  # changes the way Cube is displayed.
+  Separator {
+    WWWInline {
+      name "../materials.wrl"
+      separate FALSE }
+    Translation { translation 40 0 0 }
+    Cube { }
+  }
+}

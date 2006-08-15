@@ -1,0 +1,23 @@
+#VRML V1.0 ascii
+
+# Demonstrates Fog node that I implemented in view3dscene as part
+# of VRML 1.0. The fog handling is the same as in VRML 97.
+# (I implemented it in VRML 1.0 because I don't support VRML 97
+# yet; when view3dscene will be able to handle some basic
+# VRMl 97 files I probably disallow Fog node in VRML 1.0).
+
+
+Group {  
+  PerspectiveCamera {
+    position -12.041908264160156 -61.640647888183594 10.612056732177734
+    orientation 0.99946117401123046 -0.0232076570391655 -0.02321089617908001 1.5713337659835815
+  }
+  # bg color matching fog color
+  Background { skyColor [ 0 0.5 0 ] } 
+  Fog {
+    color 0 0.5 0
+    visibilityRange 160
+    fogType "EXPONENTIAL"
+  }
+  WWWInline { name "../castle_with_lights.wrl" }
+}

@@ -1,0 +1,23 @@
+#VRML V1.0 ascii
+
+# Demonstrates textured text.
+
+Group{
+  Texture2 { filename "textures/brick031marked.jpg" }
+  FontStyle { style BOLD }
+  AsciiText { string ["just a few", "lines", "of textured text"] }
+
+  Translation { translation 0 -30 0 }
+  Rotation { rotation 1 0 0 0.7 }
+
+  # Below is an additional VRMLLexer test, string not enclosed in
+  # double quotes.
+  # textures/renifery.jpg instead of "textures/renifery.jpg"
+  # It's rather stupid "feature" of VRML 1.0,
+  # but, well, I must support such things because Blender generates
+  # files with such Texture2.filename fields (i.e. not enclosed in 
+  # double quotes).
+
+  Texture2 { filename textures/renifery.jpg }
+  AsciiText { string ["and a few more", "lines", "of textured text"] }
+}

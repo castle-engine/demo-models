@@ -1,0 +1,32 @@
+#VRML V1.0 ascii
+
+# Just like fog_linear.wrl with fogImmume demo added.
+
+Group {
+  PerspectiveCamera {
+    position -12.041908264160156 -61.640647888183594 10.612056732177734
+    orientation 0.99946117401123046 -0.0232076570391655 -0.02321089617908001 1.5713337659835815
+  }
+
+  # bg color matching fog color
+  Background { skyColor [ 0.6 0.6 0.6 ] }
+  Fog {
+    color 0.6 0.6 0.6
+    visibilityRange 160
+  }
+
+  # separate FALSE is used below to allow lights from castle_with_lights.wrl
+  # to shine on test cube (with fogImmune) below.
+  WWWInline {
+    separate FALSE
+    name "../castle_with_lights.wrl"
+  }
+
+  Separator {
+    Material {
+      fogImmune TRUE
+    }
+    Translation { translation -10 -10 10 }
+    Cube { }
+  }
+}

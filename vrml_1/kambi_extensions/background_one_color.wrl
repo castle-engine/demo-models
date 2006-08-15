@@ -1,0 +1,13 @@
+#VRML V1.0 ascii
+
+Group{
+  Background { skyColor [ 0.2 0.2 1 ] }
+  AsciiText { string [ 
+    "This text should be displayed",
+    "on one-coloured lightblue background.",
+    "You can see (using \"w\" key)",
+    "that this case is optimized and",
+    "it is implemented by one simple",
+    "glClearColor call to OpenGL" ]
+  }
+}

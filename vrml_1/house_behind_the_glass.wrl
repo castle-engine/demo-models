@@ -1,0 +1,23 @@
+#VRML V1.0 ascii
+
+Group{
+  PointLight { location -1.2589397430 0.8505120595 1.0379848321 }
+  
+  # Sphere is added by hand (not using Blender) because I need to control
+  # sphere triangulation using --detail-quadric-* params and I need this control
+  # because rayhunter currently does not handle smooth normals (so I have
+  # to use largre --detail-quadric-* values to get nice sphere renderings
+  # with rayhunter)
+  Separator {
+    DEF MatGlass
+    Material {
+	    diffuseColor 0.300722 0.658765 1.000000
+	    specularColor 0.488773 0.488724 0.488724
+	    shininess 0.500000 
+	    transparency 0.575540 
+    }  
+    Sphere { radius 0.562 } 
+  }
+
+  WWWInline { name "house_behind_the_glass_b.wrl" }
+}

@@ -1,0 +1,36 @@
+#VRML V1.0 ascii
+
+# Test of KambiTriangulation node.
+#
+# Shows five rows of shapes.
+# First (upper) row = quadric-slices, quadric-stacks and rect-divisions at default
+# values (e.g. set by appropriate parameters in my view3dscene and rayhunter).
+# Next three rows = some parameters set to very high values,
+# next three rows = some parameters set to very low values.
+#
+# Bets viewed in 'wireframe' mode with lighting off.
+
+# Additional test: does view3dscene can handle wrong values ?
+#KambiTriangulation { rectDivisions -299 }
+#KambiTriangulation { quadricSlices -3 }
+#KambiTriangulation { quadricSlices 1 }
+
+DEF Row Separator {
+  Sphere {}
+  Translation { translation 2 0 0 }
+  Cone {}
+  Translation { translation 2 0 0 }
+  Cylinder {}
+  Translation { translation 2 0 0 }
+  Cube {}
+}  
+
+DEF RowDown Translation { translation 0 -2.5 0 }
+
+Separator { KambiTriangulation { quadricSlices 100 } USE Row } USE RowDown
+Separator { KambiTriangulation { quadricStacks 100 } USE Row } USE RowDown
+Separator { KambiTriangulation { rectDivisions 100 } USE Row } USE RowDown
+
+Separator { KambiTriangulation { quadricSlices 3 } USE Row } USE RowDown
+Separator { KambiTriangulation { quadricStacks 3 } USE Row } USE RowDown
+Separator { KambiTriangulation { rectDivisions 0 } USE Row } USE RowDown

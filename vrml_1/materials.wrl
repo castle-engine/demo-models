@@ -1,0 +1,89 @@
+#VRML V1.0 ascii
+
+# A few simple VRML material demos by Kambi.
+# Some things to notice (at least when viewing them is view3dscene) :
+# - textures are modulated by material color.
+# - different materials bound to each vertex of the same polygon
+#   are supported.
+
+Group {
+  PointLight { location 0 0 10 }
+  
+  DEF MatMultiColor Material {
+    ambientColor 0.2 0.2 0.2
+    diffuseColor [1 1 1, 1 0 0, 0 0 1, 0 1 0, 0 1 1, 1 0 1]
+    specularColor [] # browser should use default specular color
+  }
+  MaterialBinding { value PER_PART }
+  Texture2 { filename "textures/brick031.jpg" }
+
+  FontStyle { size 2 }
+  AsciiText { string "once upon a time" }
+  Translation { translation 1 -1 0 }
+  Cone {}
+  Translation { translation 3 0 0 }
+  Cube {}
+  Translation { translation 3 0 0 }
+  Cylinder {}
+  Translation { translation 3 0 0 }
+  Sphere {}
+  Translation { translation 3 0 0 }
+
+  # indexed nodes with materials  
+  Coordinate3 { point [0 0 0, 2 0 0, 2 1 0, 0 1 0] }
+  MaterialBinding { value DEFAULT }
+  # first one is simple : whole figure has material num 0
+  IndexedFaceSet { coordIndex [0, 1, 2, 3]  }
+  Translation { translation 3 0 0 }
+  
+  MaterialBinding { value PER_VERTEX }
+  # PER_VERTEX means : mat number := vertex index.
+  IndexedFaceSet { coordIndex [0, 1, 2, 3]  }
+  Translation { translation 3 0 0 }
+  
+  Texture2 { }
+    
+  MaterialBinding { value PER_VERTEX }
+  # PER_VERTEX means : mat number := vertex index.
+  IndexedFaceSet { coordIndex [0, 1, 2, 3]  }
+  Translation { translation 3 0 0 }
+  
+  MaterialBinding { value PER_VERTEX_INDEXED }
+  # PER_VERTEX_INDEXED : take material indexes
+  IndexedFaceSet {
+    coordIndex [0, 1, 2, 3]
+    materialIndex [0, 3, 0, 5]
+  }  
+  Translation { translation 3 0 0 }
+  
+  # test specifying precalculated lighting :
+  # specify empty ambientColor, diffuseColor and specularColor 
+  # and give precalculated colors in emissionColor
+  
+  Switch {
+    DEF ObjectsRow Separator {
+      Sphere {}
+      Translation { translation 3 0 0 }
+      Cone {}
+      Translation { translation 3 0 0 }
+      Cylinder {}   
+    }
+  }	    
+  
+  # first row uses precalculated colors
+  MaterialBinding { value PER_PART }
+  DEF MatRedYellowWhiteEmissive Material { 
+    ambientColor [] diffuseColor [] specularColor [] 
+    emissiveColor [1 0 0, 1 1 0, 1 1 1]
+  }    
+  USE ObjectsRow
+  
+  # second row uses same colors but as diffuse (not precalculated)
+  DEF MatRedYellowWhiteDiffuse Material { 
+    diffuseColor [1 0 0, 1 1 0, 1 1 1]
+  }  
+  Separator {
+    Translation { translation 0 3 0 }    
+    USE ObjectsRow
+  }  
+}

@@ -1,0 +1,96 @@
+#VRML V1.0 ascii
+
+# Kambi text test - FontStyle and AsciiText nodes test & demo
+
+Group {
+  Material { diffuseColor 1 0 0 }
+  Coordinate3 { point [ -10 -10 0, -10 10 0, 10 10 0, 10 -10 0 ] }
+#  IndexedLineSet { coordIndex [ 0, 1, 2, 3, 0 ] }
+
+  Rotation { rotation 1 0 0 -1 }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SANS }
+  AsciiText { string "this is sans-serif" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SANS style ITALIC }
+  AsciiText { string "this is sans-serif italic" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SANS style BOLD }
+  AsciiText { string "this is sans-serif bold" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SANS style (ITALIC|BOLD) }
+  AsciiText { string "this is sans-serif italic+bold" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SERIF }
+  AsciiText { string "this is SERIF" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SERIF style ITALIC }
+  AsciiText { string "this is SERIF italic" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SERIF style BOLD }
+  AsciiText { string "this is SERIF bold" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family SERIF style (ITALIC|BOLD) }
+  AsciiText { string "this is SERIF italic+bold" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family TYPEWRITER }
+  AsciiText { string "this is TYPEWRITER" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family TYPEWRITER style ITALIC }
+  AsciiText { string "this is TYPEWRITER italic" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family TYPEWRITER style BOLD }
+  AsciiText { string "this is TYPEWRITER bold" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family TYPEWRITER style (ITALIC|BOLD) }
+  AsciiText { string "this is TYPEWRITER italic+bold" }
+
+  Translation { translation 0 -10 0 }
+  FontStyle { family TYPEWRITER style (ITALIC|BOLD) size 5 }
+  AsciiText { string "this is two times smaller than above" }
+
+  Translation { translation 0 -10 0 }
+  Material { diffuseColor 0 1 0 }
+  AsciiText { string [ "and here we have", "a few lines", "all in one AsciiText"] }
+  Translation { translation 0 -20 0 }
+  AsciiText { spacing 0.5 string [ "and a few more lines", "but now", "with different spacing"] }
+
+  Material { diffuseColor 1 1 1 }
+
+  FontStyle {  } # back to defaults
+  
+  Translation { translation 0 -20 0 }
+  AsciiText {
+    justification CENTER
+    string [ "And here we have", 
+             "a few lines", 
+             "using CENTER justification.",
+             "This text is white and uses default FontStyle",
+             "so it's normal serif font, 10 units tall." ]
+  }
+
+  Translation { translation 0 -55 0 }
+  AsciiText {
+    justification RIGHT
+    string [ "And a few more lines",
+             "with some unimportant text",
+             "using RIGHT justification." ]
+  }
+
+  Info { string "by the way :
+you should note
+that newlines (#10, #13 's) are also allowed in VRML's strings" }
+
+}

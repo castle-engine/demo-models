@@ -1,0 +1,12 @@
+#VRML V1.0 ascii
+
+Group{
+  OrthographicCamera {
+    position 0 0 133.75753784179687
+    direction 0 0 -0.45918551087379455
+    up 0.99999994039535522 0 4.37113882867379E-008
+  }
+  WWWInline { name "../castle_with_lights.wrl" }
+}
+
+

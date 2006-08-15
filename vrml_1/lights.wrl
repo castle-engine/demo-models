@@ -1,0 +1,88 @@
+#VRML V1.0 ascii
+
+# VRML 1.0 lights demo
+# We have three lights : point light (the red one; has position),
+# spot light (the blue one; has position AND direction) and
+# directional light (green one; has only direction).
+#
+# We can see the same scene duplicated three times.
+# The left one is illuminated by the point light and spot light.
+# The middle one is illuminated only by the directional light.
+# And the right one is illuminated by all three kinds of lights.
+#
+# You can use color modulators in view3dscene to view separate lights.
+# (view only one color channel). You can also use built-in raytracer
+# in view3dscene (use "classic" raytracer for this model)
+# to render view of this model with shadows.
+
+Group{
+  Switch{
+    # setup point light
+    DEF LightPoint Group{      
+      Material { diffuseColor 1 0 0 }
+      Coordinate3 { point 10 0 0 }
+      PointSet { }
+      PointLight { 
+        location 10 0 0
+        color 1 0 0
+#        attenuation 1 0.01 0.01
+      }
+    }
+    
+    # setup spot light
+    DEF LightSpot Group{
+      Material { diffuseColor 0 0 1 }
+      Coordinate3 { point 4 1.6 1 }
+      PointSet { }
+      SpotLight { 
+        location 4 1.6 1
+        direction -0.2 0 -1
+        color 0 0 1
+        cutOffAngle 0.1
+      }
+    }
+
+    # setup directional light
+    DEF LightDir Group{
+      DirectionalLight {
+        color 0 1 0 
+        direction 1 0 -1
+      }
+    }
+ 
+    DEF Objects Group{
+      Material { diffuseColor 1 1 1 }
+      Cylinder {}
+      Translation { translation 4 0 0 }
+      Cube {}
+      Translation { translation -4 4 0 }
+      Sphere {}
+      Translation { translation 0 -4 4 }
+      Texture2 { filename "textures/brick031.jpg" }
+      Cone {}
+      Translation { translation 0 0 -20 }
+      Texture2 { } 
+      Sphere { radius 4 }
+    }
+  }
+  
+  Separator{
+    USE LightPoint
+    USE LightSpot
+    USE Objects
+  }
+  
+  Translation { translation 20 0 0 } 
+  Separator{
+    USE LightDir
+    USE Objects
+  }
+
+  Translation { translation 20 0 0 } 
+  Separator{
+    USE LightPoint
+    USE LightSpot
+    USE LightDir
+    USE Objects
+  }
+}

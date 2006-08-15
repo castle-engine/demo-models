@@ -1,0 +1,9 @@
+#VRML V1.0 ascii
+
+Group{
+PerspectiveCamera {
+    position -0.73146653175354004 -1.000260591506958 0.20115575194358826
+    orientation 0.90674430131912231 -0.29817324876785278 -0.29817318916320801 1.6685364246368408
+  }
+  WWWInline { name "house_behind_the_glass.wrl" }
+}

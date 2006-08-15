@@ -1,0 +1,17 @@
+#VRML V1.0 ascii
+
+# This is an empty scene (i.e., no triangles defined, empty bounding 
+# box etc.). But it has defined Background node.
+# My view3dscene should not fail on such scene. 
+# User should be able to view and navigate (to watch Background).
+
+Group {
+  Background {
+    backUrl "../skies/sky_lake_back.jpg"
+    bottomUrl "../skies/sky_lake_bottom.jpg"
+    frontUrl "../skies/sky_lake_front.jpg"
+    leftUrl "../skies/sky_lake_left.jpg"
+    rightUrl "../skies/sky_lake_right.jpg"
+    topUrl "../skies/sky_lake_top.jpg"
+  }
+}

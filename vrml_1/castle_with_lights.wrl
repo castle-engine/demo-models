@@ -1,0 +1,16 @@
+#VRML V1.0 ascii
+
+# castle.wrl + some lights.
+
+Group{
+  PointLight { 
+    location -0.48424467735151117 2.030553575594324 5.9872039198498008
+    color 1 0.5 0.5 
+  }
+  PointLight { 
+    location -11.109210014343262 -36.451499938964844 88.175689697265625
+    color 0.8 0.8 0.8 
+  }  
+  WWWInline { name "castle.wrl" }
+}
+

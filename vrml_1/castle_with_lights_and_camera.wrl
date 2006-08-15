@@ -1,0 +1,16 @@
+#VRML V1.0 ascii
+
+Group{
+  PerspectiveCamera {
+    position 0.00461831502616405 -94.837326049804687 6.3310680389404297
+    orientation 1 0 0 1.5711416006088257
+  }
+
+#   PerspectiveCamera {
+#     position -0.12274461984634399 -66.242698669433594 5.3918485641479492
+#     orientation 0.99999821186065673 -0.00134482316207141 -0.00133721216116101 1.5707980394363403
+#   }
+
+  WWWInline { name "castle_with_lights.wrl" }
+}
+

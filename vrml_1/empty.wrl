@@ -1,0 +1,7 @@
+#VRML V1.0 ascii
+
+# This is an example of the empty scene.
+# This is a test of view3dscene : it should not fail with error
+# on such strange scene.
+
+Group {}
