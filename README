@@ -1,0 +1,62 @@
+VRML 1.0 and 2.0 test suite
+----------------------------------------
+
+This is a collection of VRML 1.0 and 2.0 demo and test files.
+They are rather simple - they just demonstrate
+some nice things that can be achieved with VRML 1.0 and 2.0.
+At the beginning of each file you can read some comments explaining what
+this file demonstrates and how.
+
+I created those files to test my VRML (and 3DS, OBJ and GEO) viewer
+view3dscene, look for it at [http://www.camelot.homedns.org/~michalis/].
+However, most of them should be properly readable by any VRML 1.0 or 2.0
+viewer closely following appropriate VRML specifications.
+
+The exception to the above are files inside kambi_extensions
+subdirectiories (vrml_1/kambi_extensions and vrml_2/kambi_extensions).
+They may not be readable by other VRML browsers,
+they use some specific extensions implemented in view3dscene and my
+other programs that deal with VRML (like rayhunter).
+See [http://www.camelot.homedns.org/~michalis/kambi_vrml_extensions.php]
+for specification of how you can use these extensions.
+
+I am constantly adding more test files to this archive as I'm
+implementing more features in view3dscene.
+
+Who made this ?
+----------------------------------------
+
+Models:
+- vrml_1/instancing.wrl and vrml_1/vrml_spec_sample*.wrl were extracted from
+  VRML 1.0 specification [http://www.web3d.org/]
+
+- p47d.3ds by Orin Palmer, downloaded from [http://www.3dcafe.com/]
+  (from free models section), see attached vrml_1/p47s.txt
+
+- Everything else was created by me (Kambi).
+  Some models (castle.wrl, house_behind_the_glass_b.wrl,
+  transparent_materials.wrl) were created using Blender
+  [http://www.blender3d.org/], most of the models were just
+  written by hand.
+
+Textures :
+- textures/castle/ are from [http://www.jonathanclark.com/],
+  those are public domain textures from unfinished game "Golgotha",
+- brick031.jpg from [http://www.grsites.com/],
+- renifery.jpg - author unknown,
+- rest created by Kambi using gimp [http://www.gimp.org/]
+
+Skies in skies/ done with Terragen
+[http://www.planetside.co.uk/]. They have rather poor quality ---
+I had to resize sky_red_* to 256x256 and convert sky_lake_* to JPEGs
+to make them easier to download (original 512x512 PNGs were taking 6 MB !).
+
+----------------------------------------
+Any comments are welcome.
+
+Feel free to expand, modify, redistribute these test files
+--- they are covered by GNU GPL license.
+
+Kambi (aka Michalis Kamburelis)
+<michalis@camelot.homedns.org>
+http://www.camelot.homedns.org/~michalis/
