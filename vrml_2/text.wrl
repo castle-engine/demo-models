@@ -1,0 +1,216 @@
+#VRML V2.0 utf8
+
+# Kambi text test - FontStyle and Text nodes test & demo
+
+Transform {
+  rotation 1 0 0 -1
+  children [
+    Transform {
+      translation 0 -10 0
+      children Shape {
+        appearance
+          DEF RedApp Appearance { material Material { diffuseColor 1 0 0 } }
+        geometry Text {
+          string "this is sans-serif"
+          fontStyle FontStyle { size 10 family "SANS" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -20 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is sans-serif italic"
+          fontStyle FontStyle { size 10 family "SANS" style "ITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -30 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is sans-serif bold"
+          fontStyle FontStyle { size 10 family "SANS" style "BOLD" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -40 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is sans-serif italic+bold"
+          fontStyle FontStyle { size 10 family "SANS" style "BOLDITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -50 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is SERIF"
+          fontStyle FontStyle { size 10 family "SERIF" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -60 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is SERIF italic"
+          fontStyle FontStyle { size 10 family "SERIF" style "ITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -70 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is SERIF bold"
+          fontStyle FontStyle { size 10 family "SERIF" style "BOLD" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -80 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is SERIF italic+bold"
+          fontStyle FontStyle { size 10 family "SERIF" style "BOLDITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -90 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is TYPEWRITER"
+          fontStyle FontStyle { size 10 family "TYPEWRITER" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -100 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is TYPEWRITER italic"
+          fontStyle FontStyle { size 10 family "TYPEWRITER" style "ITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -110 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is TYPEWRITER bold"
+          fontStyle FontStyle { size 10 family "TYPEWRITER" style "BOLD" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -120 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is TYPEWRITER italic+bold"
+          fontStyle FontStyle { size 10 family "TYPEWRITER" style "BOLDITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -130 0
+      children Shape {
+        appearance USE RedApp
+        geometry Text {
+          string "this is two times smaller than above"
+          fontStyle DEF FS5 FontStyle { size 5 family "TYPEWRITER" style "BOLDITALIC" }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -140 0
+      children Shape {
+        appearance
+          DEF GreenApp Appearance { material Material { diffuseColor 0 1 0 } }
+        geometry Text {
+          string [ "and here we have", "a few lines", "all in one Text node"]
+          fontStyle USE FS5
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -160 0
+      children Shape {
+        appearance
+          DEF GreenApp Appearance { material Material { diffuseColor 0 1 0 } }
+        geometry Text {
+          string [ "and a few more lines", "but now", "with different spacing"]
+          fontStyle FontStyle {
+            size 5 family "TYPEWRITER" style "BOLDITALIC" spacing 0.5 }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -180 0
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 1 } }
+        geometry Text {
+          string [ "And here we have",
+                   "a few lines",
+                   "using MIDDLE justification.",
+                   "This text is white and uses FontStyle",
+                   "such that it's normal serif font, 10 units tall." ]
+          fontStyle FontStyle {
+            size 10
+            justify "MIDDLE"
+          }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -235 0
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 1 } }
+        geometry Text {
+          string [ "And a few more lines",
+                   "with some unimportant text",
+                   "using END justification." ]
+          fontStyle FontStyle {
+            size 10
+            justify "END"
+          }
+        }
+      }
+    }
+
+    WorldInfo { info "by the way :
+you should note
+that newlines (#10, #13 's) are also allowed in VRML's strings" }
+
+  ]
+}

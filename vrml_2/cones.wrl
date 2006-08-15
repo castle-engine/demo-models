@@ -7,10 +7,13 @@ Group {
   children [
     DEF RenderBefore Group {
       children [
-        # TODO: transl this to VRML 2.0
-        # Coordinate3 { point [ 0 -2 0, 0 2 0 ] }
-        # Material { diffuseColor 1 0 0 }
-        # IndexedLineSet { coordIndex [ 0, 1 ] }
+        Shape {
+          appearance
+            DEF AppRed Appearance { material Material { diffuseColor 1 0 0 } }
+            # TODO: transl this to VRML 2.0
+            # Coordinate3 { point [ 0 -2 0, 0 2 0 ] }
+            # IndexedLineSet { coordIndex [ 0, 1 ] }
+        }
 
         Transform {
           translation 0 -1 0
@@ -27,10 +30,16 @@ Group {
         }
         Transform {
           translation 0 1 0
-          children USE Krzyzyk
-          # TODO: transl this to VRML 2.0
-          # FontStyle { size 0.5 }
-          # AsciiText { string "We are above... I hope so" }
+          children [
+            USE Krzyzyk
+            Shape {
+              appearance USE AppRed
+              geometry Text {
+                fontStyle FontStyle { size 0.5 }
+                string "We are above... I hope so"
+              }
+            }
+          ]
         }
       ]
     }
