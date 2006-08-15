@@ -39,6 +39,10 @@ Models:
   [http://www.blender3d.org/], most of the models were just
   written by hand.
 
+  Note that many models in vrml_2/ were created by translating
+  (by hand) appropriate vrml_1/ files. In most cases these
+  two versions (VRML 1.0 and 2.0) should render *exactly* the same.
+
 Textures :
 - textures/castle/ are from [http://www.jonathanclark.com/],
   those are public domain textures from unfinished game "Golgotha",

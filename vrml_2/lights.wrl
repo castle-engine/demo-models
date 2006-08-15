@@ -1,5 +1,21 @@
 #VRML V2.0 utf8
 
+# VRML 2.0 lights demo
+# We have three lights : point light (the red one; has position),
+# spot light (the blue one; has position AND direction) and
+# directional light (green one; has only direction).
+#
+# We can see the same scene duplicated three times.
+# The left one is illuminated by the point light and spot light.
+# The middle one is illuminated only by the directional light.
+# And the right one is illuminated by all three kinds of lights.
+#
+# You can use color modulators in view3dscene to view separate lights.
+# (view only one color channel). You can also use built-in raytracer
+# in view3dscene (use "classic" raytracer for this model)
+# to render view of this model with shadows.
+
+# VRML 2.0 notes:
 # I use "ambientIntensity 1" for evey light to make this look the same
 # as VRML 1.0 analogous file. In VRML 1.0 ambientIntensity is taken from
 # intensity, and default intensity is 1. In VRML 2.0 default ambientIntensity

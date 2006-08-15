@@ -43,7 +43,7 @@ Group {
     # now rgb with alpha. Only corners are visible, rest is transparent.
     # In my view3dscene you should now see clearly that texture 4x3 is actually
     # resized to 4x4 before giving it to OpenGL. This is an OpenGL requirement
-    # and so this a limitation in my view3dscene.
+    # and so this is a limitation in my view3dscene.
     Translation { translation +3 0 0 }
     Texture2 { image 4 3 4
       0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF # bottom row : red white white blue
@@ -57,10 +57,10 @@ Group {
 # second row : all the same as the first (top) one but now all
 # textures are CLAMPed in both directions.
 # In my view3dscene you should now see that texture colors are differently
-# interpolated at the borders. And the wire lines in the grayscale+alpha
-# cube disappear now. And the cube with scaled texture coordinates on it
+# interpolated at the borders.
+# And the cube with scaled texture coordinates on it
 # looks different now (scaling coordinates doesn't mean scaling the texture
-# is wrap* mode is CLAMP)
+# if wrap* mode is CLAMP)
 
   Separator {
     Translation { translation 0 -3 0 }

@@ -1,7 +1,13 @@
 #VRML V2.0 utf8
 
+# test of textures inlining : textures content can be specified
+# directly in VRML file.
+
 Group {
   children [
+    # first grayscale (1 component) texture 2x2 pixels :
+    #    white light
+    #    black dark
     Shape {
       appearance Appearance {
         # Every Appearance here uses EmptyMaterial
@@ -24,21 +30,23 @@ Group {
       geometry Box { }
     }
 
+    # now rgb (3 components) 4x3 pixels :
     Transform {
       translation +3 0 0
       children Shape {
         appearance Appearance {
           material USE EmptyMaterial
           texture DEF Tex1 PixelTexture { image 4 3  3
-            0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
-            0 0x00FF00 0x00FF00 0
-            0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
+            0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF  # bottom row : red white white blue
+            0 0x00FF00 0x00FF00 0 # middle row : black green green black
+            0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF # top row : yellow something something something
           }
         }
         geometry Box { }
       }
     }
 
+    # same as above but scaled
     Transform {
       translation +6 0 0
       children Shape {
@@ -51,6 +59,9 @@ Group {
       }
     }
 
+    # now grayscale with alpha (2 components).
+    #    transparent light
+    #    black transparent
     Transform {
       translation +9 0 0
       children Shape {
@@ -64,6 +75,10 @@ Group {
       }
     }
 
+    # now rgb with alpha. Only corners are visible, rest is transparent.
+    # In my view3dscene you should now see clearly that texture 4x3 is actually
+    # resized to 4x4 before giving it to OpenGL. This is an OpenGL requirement
+    # and so this is a limitation in my view3dscene.
     Transform {
       translation +12 0 0
       children Shape {
@@ -81,6 +96,15 @@ Group {
     }
   ]
 }
+
+# --------------------------------------------------------------------------
+# second row : all the same as the first (top) one but now all
+# textures have repeat FALSE in both directions.
+# In my view3dscene you should now see that texture colors are differently
+# interpolated at the borders.
+# And the cube with scaled texture coordinates on it
+# looks different now (scaling coordinates doesn't mean scaling the texture
+# if repeat is FALSE)
 
 Transform {
   translation 0 -3 0
@@ -157,6 +181,9 @@ Transform {
     }
   ]
 }
+
+# --------------------------------------------------------------------------
+# third row: tired of cubes ? Lets put these textures on some other things.
 
 Transform {
   translation 0 -6 0

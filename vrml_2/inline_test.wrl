@@ -1,10 +1,6 @@
 #VRML V2.0 utf8
 
-# WWWInline node tests by Kambi.
-# note : WWWInline and Texture filenames can be URL's, according to
-# VRML specification.
-# But it's not implemented in my view3dscene - for now, I support only
-# local filenames here.
+# Inline node tests by Kambi.
 
 # VRML 2 notes: in VRML 1.0 these scale + translation pairs
 # were expressed as Scale node followed by Translate node.
