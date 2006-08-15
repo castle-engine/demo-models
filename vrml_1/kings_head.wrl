@@ -18,7 +18,7 @@ Group{
     DirectionalLight {}    
   }
 
-  Texture2 { filename "textures/crown.png" wrapT CLAMP }
+  Texture2 { filename "../textures/crown.png" wrapT CLAMP }
   Cylinder { parts SIDES }
   Texture2 { }
   Translation { translation 0 -2 0 }

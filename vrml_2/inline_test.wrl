@@ -46,12 +46,12 @@ Transform {
   translation 0 5 0
   children [
     # TODO: this should include VRML 2.0 version of relative_names
-    Inline { url "../relative_names.wrl" }
+    Inline { url "../vrml_1/relative_names.wrl" }
     Transform {
       translation 0 5 0
       children [
         InlineLoadControl {
           url "kings_head.wrl"
-          load FALSE
+          #load FALSE
         }
       ] } ] }

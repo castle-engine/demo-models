@@ -16,17 +16,17 @@ Group{
       # nonsense, it's here only to test view3dscene.
 
       # note : "not_existing_texture" can't be loaded so
-      # "../skies/sky_red_back.bmp" is use instead
-      backUrl [ "not_existing_texture", "../skies/sky_red_back.bmp" ]
+      # "../../skies/sky_red_back.bmp" is use instead
+      backUrl [ "not_existing_texture", "../../skies/sky_red_back.bmp" ]
 
-      # note : "../skies/sky_red_bottom.png" CAN be loaded so
-      # "../textures/renifery.jpg" is not used (it is not even loaded)
+      # note : "../../skies/sky_red_bottom.png" CAN be loaded so
+      # "../../textures/renifery.jpg" is not used (it is not even loaded)
 
-      bottomUrl [ "../skies/sky_red_bottom.png", "../textures/renifery.jpg" ]
-      frontUrl "../skies/sky_red_front.jpg"
-      leftUrl "../skies/sky_red_left.ppm"
-      rightUrl "../skies/sky_red_right.rgbe"
-      topUrl "../skies/sky_red_top.png"
+      bottomUrl [ "../../skies/sky_red_bottom.png", "../../../textures/renifery.jpg" ]
+      frontUrl "../../skies/sky_red_front.jpg"
+      leftUrl "../../skies/sky_red_left.ppm"
+      rightUrl "../../skies/sky_red_right.rgbe"
+      topUrl "../../skies/sky_red_top.png"
     }
   }
 

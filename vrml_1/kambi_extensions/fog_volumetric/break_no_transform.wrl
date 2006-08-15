@@ -16,7 +16,7 @@ Switch {
 	DEF MeshTree
 	Separator {
 		Texture2 {
-			filename ../../textures/tree_texture.jpg
+			filename ../../../textures/tree_texture.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}

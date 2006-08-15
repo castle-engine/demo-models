@@ -9,7 +9,7 @@ Group{
 	# powinno wygladac to tak:
 	# pomiedzy katem 0 - 0.8 kolor interpolowany red - yellow
 	#                0.8 - 2 yellow - green
-	#                2 - 2.5 green - blue 
+	#                2 - 2.5 green - blue
 	#                2.5 - Pi constant blue
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
 	skyAngle [        0.8,   2,     2.5   ]
@@ -18,8 +18,8 @@ Group{
         # same as before, but with _some_ textures added
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
 	skyAngle [        0.8,   2,     2.5   ]
-	backUrl "../skies/sky_lake_back.png"
-      }      
+	backUrl "../skies/sky_lake_back.jpg"
+      }
       Background {
         # This (one simple color for sky) should be rendered with view3dscene
 	# using simple glClearColor. Check it using wireframe view.
@@ -28,52 +28,52 @@ Group{
       Background {
         # same as before, but with _some_ textures added
         skyColor 0 1 1
-        leftUrl "../skies/sky_lake_left.png"
-        frontUrl "../skies/sky_lake_front.png"	
+        leftUrl "../../skies/sky_lake_left.jpg"
+        frontUrl "../../skies/sky_lake_front.jpg"
       }
       Background {
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
 	skyAngle [        0.8,   2,     2.5   ]
-	# to nic nie zmienia - gdy nie ma groundAngle, 
+	# to nic nie zmienia - gdy nie ma groundAngle,
 	# groundColor jest bez znaczenia
-	groundColor [ 1 0 0 ] 
-      }      
+	groundColor [ 1 0 0 ]
+      }
       Background {
 	# powinno wygladac to tak:
 	#  0 - 0.8 kolor interpolowany red - yellow
 	#  0.8 - 2 yellow - green
-	#  2 - 2.14 green - green/blue 
+	#  2 - 2.14 green - green/blue
 	#  2.14 - Pi dark navy green - dark green (this is ground)
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
 	skyAngle [        0.8,   2,     2.5   ]
-	groundColor [ 0 0.5 0, 0 0.25 0.25 ] 
+	groundColor [ 0 0.5 0, 0 0.25 0.25 ]
 	groundAngle [          1 ]
-      }            
+      }
       Background {
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0, ]
 	skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9,]
-	# groundColor [ 0 0.5 0, 0 0.25 0.25 ] 
+	# groundColor [ 0 0.5 0, 0 0.25 0.25 ]
 	# groundAngle [          1 ]
-      }                        
+      }
       Background {
         # Last parts of the sky should not be rendered because they will
 	# always be covered by ground.
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0, ]
 	skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9, ]
-	groundColor [ 0 0.5 0, 0 0.25 0.25 ] 
+	groundColor [ 0 0.5 0, 0 0.25 0.25 ]
 	groundAngle [          1 ]
       }
       Background {
         # add some textures
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0, ]
 	skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9, ]
-	groundColor [ 0 0.5 0, 0 0.25 0.25 ] 
+	groundColor [ 0 0.5 0, 0 0.25 0.25 ]
 	groundAngle [          1 ]
-        leftUrl "../skies/sky_lake_left.png"
-        backUrl "../skies/sky_lake_back.png"
+        leftUrl "../../skies/sky_lake_left.jpg"
+        backUrl "../../skies/sky_lake_back.jpg"
       }
     }
   }
-    
+
   WWWInline { name "../castle_with_lights_and_camera.wrl" }
 }
