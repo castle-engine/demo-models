@@ -1,0 +1,235 @@
+#VRML V2.0 utf8
+
+Group {
+  children [
+    Shape {
+      appearance Appearance {
+        # Every Appearance here uses EmptyMaterial
+        # to look exactly like VRML 1.0 analogous file
+        # (otherwise VRML 2.0 spec says that nodes without
+        # material stay unlit).
+        #
+        # Actually, without this material node, even when we would
+        # render VRML 1.0 with lighting disabled,
+        # we would get different results:
+        # VRML 1.0 would be a little darker, because in VRML 1.0
+        # diffuse color of default material would be used
+        # (which is 0.8, 0.8, 0.8) as a glColor, while in VRML 2.0
+        # white (as specified by VRML 2.0) spec would be used
+        # since the node is unlit.
+        #
+        material DEF EmptyMaterial Material { }
+        texture PixelTexture { image 2 2 1  0 0x50 0xFF 0xA0 }
+      }
+      geometry Box { }
+    }
+
+    Transform {
+      translation +3 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture DEF Tex1 PixelTexture { image 4 3  3
+            0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
+            0 0x00FF00 0x00FF00 0
+            0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
+          }
+        }
+        geometry Box { }
+      }
+    }
+
+    Transform {
+      translation +6 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture USE Tex1
+          textureTransform TextureTransform { scale 2 2 }
+        }
+        geometry Box { }
+      }
+    }
+
+    Transform {
+      translation +9 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture PixelTexture {
+            image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
+          }
+        }
+        geometry Box { }
+      }
+    }
+
+    Transform {
+      translation +12 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture PixelTexture {
+            image 4 3 4
+              0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
+              0 0x00FF0000 0x00FF0000 0
+              0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
+          }
+        }
+        geometry Box { }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 -3 0
+  children [
+    Shape {
+      appearance Appearance {
+        material USE EmptyMaterial
+        texture PixelTexture {
+          image 2 2 1  0 0x50 0xFF 0xA0
+          repeatS FALSE repeatT FALSE
+        }
+      }
+      geometry Box { }
+    }
+
+    Transform {
+      translation +3 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture DEF Tex1 PixelTexture {
+            image 4 3  3
+              0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
+              0 0x00FF00 0x00FF00 0
+              0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
+            repeatS FALSE repeatT FALSE
+          }
+        }
+        geometry Box { }
+      }
+    }
+
+    Transform {
+      translation +6 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture USE Tex1
+          textureTransform TextureTransform { scale 2 2 }
+        }
+        geometry Box { }
+      }
+    }
+
+    Transform {
+      translation +9 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture PixelTexture {
+            image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
+            repeatS FALSE repeatT FALSE
+          }
+        }
+        geometry Box { }
+      }
+    }
+
+    Transform {
+      translation +12 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture PixelTexture {
+            image 4 3 4
+              0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
+              0 0x00FF0000 0x00FF0000 0
+              0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
+            repeatS FALSE repeatT FALSE
+          }
+        }
+        geometry Box { }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 -6 0
+  children [
+    Shape {
+      appearance Appearance {
+        material USE EmptyMaterial
+        texture PixelTexture {
+          image 2 2 1  0 0x50 0xFF 0xA0
+          repeatS FALSE repeatT FALSE
+        }
+      }
+      geometry Cone { }
+    }
+
+    Transform {
+      translation +3 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture DEF Tex1 PixelTexture {
+            image 4 3  3
+              0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
+              0 0x00FF00 0x00FF00 0
+              0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
+            repeatS FALSE repeatT FALSE
+          }
+        }
+        geometry Cylinder { }
+      }
+    }
+
+    Transform {
+      translation +6 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture USE Tex1
+          textureTransform TextureTransform { scale 2 2 }
+        }
+        geometry Cylinder { }
+      }
+    }
+
+    Transform {
+      translation +9 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture PixelTexture {
+            image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
+            repeatS FALSE repeatT FALSE
+          }
+        }
+        geometry Sphere { }
+      }
+    }
+
+    Transform {
+      translation +12 0 0
+      children Shape {
+        appearance Appearance {
+          material USE EmptyMaterial
+          texture PixelTexture {
+            image 4 3 4
+              0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
+              0 0x00FF0000 0x00FF0000 0
+              0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
+            repeatS FALSE repeatT FALSE
+          }
+        }
+        geometry Cone { }
+      }
+    }
+  ]
+}

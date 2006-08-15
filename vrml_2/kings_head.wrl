@@ -1,0 +1,66 @@
+#VRML V2.0 utf8
+
+# crown.png texture is a demo of texture with simple transparency :
+# some pixels of this texture are fully opaque and some are
+# fully transparent. (I created crown.png with GIMP,
+# http://www.gimp.org)
+#
+# My program view3dscene does not display properly partial transparency
+# with textures (with pixels like "30% opaque 70% transparent") YET.
+# (Partial transparency with materials is implemented, see e.g.
+# house_behind_the_glass_final.wrl)
+
+Group {
+  children [
+    Switch {
+      choice [
+        # some additional test; light below will not be used and view3dscene
+        # should turn "default OpenGL light num 0" on.
+        # Ignore this, this is not related to the rest of the model.
+        DirectionalLight { }
+      ]
+    }
+
+    Shape {
+      appearance Appearance {
+        texture ImageTexture  { url "../textures/crown.png" repeatT FALSE }
+        material Material { }
+      }
+      geometry Cylinder { top FALSE bottom FALSE }
+    }
+
+    Transform {
+      translation 0 -2 0
+      children [
+        Transform {
+          scale  1.2 2 1.2
+          children Shape {
+            appearance Appearance { material Material { } }
+            geometry Sphere { }
+          }
+        }
+
+        Transform {
+          translation 0.8 0.4 0.8
+          children DEF KingsEye Shape {
+            appearance Appearance { material Material { diffuseColor 1 0 0 } }
+            geometry Sphere { radius 0.2 }
+          }
+        }
+
+        Transform {
+          translation -0.8 0.4 0.8
+          children USE KingsEye
+        }
+
+        DEF KingsNose Transform {
+          translation 0 0 1.3
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 0 0 1 } }
+            geometry Sphere { radius 0.4 }
+          }
+        }
+      ]
+    }
+  ]
+}

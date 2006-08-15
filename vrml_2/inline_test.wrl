@@ -1,0 +1,57 @@
+#VRML V2.0 utf8
+
+# WWWInline node tests by Kambi.
+# note : WWWInline and Texture filenames can be URL's, according to
+# VRML specification.
+# But it's not implemented in my view3dscene - for now, I support only
+# local filenames here.
+
+# VRML 2 notes: in VRML 1.0 these scale + translation pairs
+# were expressed as Scale node followed by Translate node.
+# Note that when I have to convert them to Transform node,
+# I have to convert each pair to 2 Transform nodes, i.e.
+# I cannot use just one Transform { scale 1.2 1.2 1.2 translation +3 0 0 }
+# because this would reverse the effects of translation and scaling
+# and so results would be different then in analogous VRML 1.0 file.
+
+Group {
+  children [
+    Inline { url "kings_head.wrl" }
+    Transform {
+      scale 1.2 1.2 1.2
+      children Transform {
+        translation +3 0 0
+        children [
+          Inline { url "kings_head.wrl" }
+          Transform {
+            scale 1.2 1.2 1.2
+            children Transform {
+              translation +3 0 0
+              children [
+                Inline { url "kings_head.wrl" }
+                Transform {
+                  scale 1.2 1.2 1.2
+                  children Transform {
+                    translation +3 0 0
+                    children [
+                      Inline { url "kings_head.wrl" }
+                      Transform {
+                        scale 1.2 1.2 1.2
+                        children Transform {
+                          translation +3 0 0
+                          children Inline { url "kings_head.wrl" }
+                        } } ] } } ] } } ] } } ] }
+
+Transform {
+  translation 0 5 0
+  children [
+    # TODO: this should include VRML 2.0 version of relative_names
+    Inline { url "../relative_names.wrl" }
+    Transform {
+      translation 0 5 0
+      children [
+        InlineLoadControl {
+          url "kings_head.wrl"
+          load FALSE
+        }
+      ] } ] }

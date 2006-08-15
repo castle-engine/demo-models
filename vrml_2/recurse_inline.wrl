@@ -1,0 +1,11 @@
+#VRML V2.0 utf8
+
+# This file includes itself.
+# What will happen ?
+
+Group {
+  children [
+    Shape { geometry Box { } }
+    Inline { url "recurse_inline.wrl" }
+  ]
+}
