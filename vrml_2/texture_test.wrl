@@ -1,0 +1,77 @@
+#VRML V2.0 utf8
+
+# A few texture tests by Kambi. Note how texture coordinates are
+# automatically generated for IndexedFaceSet node.
+
+Group {
+  children [
+    Shape {
+      appearance DEF A Appearance {
+        material Material { }
+        texture DEF ReniferyTex ImageTexture {
+          url "../textures/renifery.jpg"
+        }
+      }
+      geometry Cone { }
+    }
+
+    Transform {
+      translation 2 0 0
+      children [
+        Shape {
+          appearance USE A
+          geometry Cylinder { }
+        }
+        Transform {
+          translation 2 0 0
+          children [
+            Shape {
+              appearance USE A
+              geometry Sphere { }
+            }
+            Transform {
+              translation 2 0 0
+              children [
+                Shape {
+                  appearance DEF B Appearance {
+                    material Material { diffuseColor 1 0 0 }
+                    texture USE ReniferyTex
+                    textureTransform TextureTransform { scale 2 2 }
+                  }
+                  geometry Box { }
+                }
+                Transform {
+                  translation 2 -1 0
+                  children Shape {
+                    appearance DEF B Appearance {
+                      material Material { diffuseColor 0 1 0 }
+                      texture USE ReniferyTex
+                    }
+                    geometry IndexedFaceSet {
+                      solid FALSE
+                      coord Coordinate {
+                        point [0 0 0, 2 0 0, 3 2 0, 2 4 0, 0 4 0]
+                      }
+                      #texCoord TextureCoordinate {
+                      #  point [.1 .2, .4 .5, 0 0, 1 0, 1.5 0.5, 1 1, 0 1] }
+                      #texCoordIndex [2, 3, 4, 5, 6]
+                      coordIndex [0, 1, 2, 3, 4]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+    Transform {
+      translation 12 0 0
+      children Shape {
+        appearance Appearance { material Material { } }
+        geometry Sphere { }
+      }
+    }
+  ]
+}
