@@ -1,10 +1,18 @@
 #VRML V2.0 utf8
 
+# Simple test of Viewpoint node.
+# I also add here WorldInfo with a title --- it should be used
+# by VRML browsers.
+
 Group{
   children [
     Viewpoint {
       position 0.00461831502616405 -94.837326049804687 6.3310680389404297
       orientation 1 0 0 1.5711416006088257
+    }
+
+    WorldInfo {
+      title "The Castle model"
     }
 
     # TODO: VRMl 1.0 version is included for now

@@ -1,0 +1,60 @@
+#VRML V2.0 utf8
+
+# Test of Viewpoint nodes handling.
+
+Group{
+  children [
+    Viewpoint {
+      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
+      orientation 1 0 0 1.5711416006088257
+    }
+
+    Viewpoint {
+      position 0 0 0
+      orientation 1 0 0 1.5711416006088257
+      description "0 0 0 viewpoint"
+    }
+
+    DEF V1 Viewpoint {
+      position 1 1 1
+      orientation 1 0 0 1.5711416006088257
+      description "Some viewpoint on position 1,1,1"
+    }
+
+    Viewpoint {
+      position 1 1 10
+      orientation 1 0 0 1.5711416006088257
+      description "Yet another viewpoint on z = 10
+with a dummy descriptio, that is very long and
+spans multiple lines. VRML browser should still show a sensible
+UI for this viewpoint, right ?
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+"
+    }
+
+    Transform {
+      translation 10 10 10
+      children [
+        Viewpoint {
+          position 2 2 2
+          orientation 1 0 0 1.5711416006088257
+          description "translated viewpoint"
+        }
+      ]
+    }
+
+    USE V1
+    USE V1
+    USE V1
+
+    # TODO: VRMl 1.0 version is included for now
+    Inline { url "../vrml_1/castle_with_lights.wrl" }
+  ]
+}

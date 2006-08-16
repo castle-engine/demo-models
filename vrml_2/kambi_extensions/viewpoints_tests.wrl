@@ -1,0 +1,69 @@
+#VRML V2.0 utf8
+
+# This is a test of mixing Viewpoint, PerspectiveCamera and
+# OrthographicCamera nodes in one VRML file.
+
+Group{
+  children [
+    Viewpoint {
+      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
+      orientation 1 0 0 1.5711416006088257
+    }
+
+    PerspectiveCamera {
+      position 2 2 2
+      orientation 1 0 0 1.5711416006088257
+    }
+
+    DEF Camera3_3_3 PerspectiveCamera {
+      position 3 3 3
+      orientation 1 0 0 1.5711416006088257
+    }
+
+    Viewpoint {
+      position 1 1 10
+      orientation 1 0 0 1.5711416006088257
+      description "Yet another viewpoint on z = 10
+with a dummy descriptio, that is very long and
+spans multiple lines. VRML browser should still show a sensible
+UI for this viewpoint, right ?
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+More text... More text... More text... More text... More text... More text...
+"
+    }
+
+    DEF OrtoCamera OrthographicCamera{
+      position 4 4 4
+      orientation 1 0 0 1.5711416006088257
+    }
+
+    OrthographicCamera{
+      position 5 5 5
+      orientation 1 0 0 1.5711416006088257
+    }
+
+    Transform {
+      translation 10 10 10
+      children [
+        DEF CameraTranslated PerspectiveCamera {
+          position 1 1 1
+          orientation 1 0 0 1.5711416006088257
+        }
+        Viewpoint {
+          position 2 2 2
+          orientation 1 0 0 1.5711416006088257
+          description "translated viewpoint"
+        }
+      ]
+    }
+
+    # TODO: VRMl 1.0 version is included for now
+    Inline { url "../../vrml_1/castle_with_lights.wrl" }
+  ]
+}
