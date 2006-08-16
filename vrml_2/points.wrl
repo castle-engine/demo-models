@@ -1,0 +1,94 @@
+#VRML V2.0 utf8
+
+# Test of PointSet nodes
+
+Group {
+  children [
+    Background { skyColor [ 0.5 0.5 0.5 ] }
+
+    # This will use default Material.emissiveColor, which is black
+    Shape {
+      appearance Appearance { material Material { } }
+      geometry PointSet {
+        coord DEF C Coordinate {
+          point [ -1 -1  0
+                   0  0  0
+                   1  1  0
+                  -1  1  0
+                   1 -1  0 ]
+        }
+      }
+    }
+
+    # This will use Material.emissiveColor (yellow)
+    Transform {
+      translation 3 0 0
+      children Shape {
+        appearance Appearance { material Material { emissiveColor 1 1 0 } }
+        geometry PointSet {
+          coord USE C
+        }
+      }
+    }
+
+    # This will use white color
+    Transform {
+      translation 6 0 0
+      children Shape {
+        geometry PointSet {
+          coord USE C
+        }
+      }
+    }
+
+    # This will use supplied colors, different for each point
+    Transform {
+      translation 9 0 0
+      children Shape {
+        geometry PointSet {
+          coord USE C
+          color Color {
+            color [ 1 0 0
+                    0 1 0
+                    0 0 1
+                    1 1 0
+                    0 1 1 ]
+          }
+        }
+      }
+    }
+
+    # This will produce a warning, because not enough colors are
+    # available, and then white will be used.
+    Transform {
+      translation 12 0 0
+      children Shape {
+        geometry PointSet {
+          coord USE C
+          color Color {
+            color [ 1 0 0
+                    0 0 1
+                    1 1 0
+                    0 1 1 ]
+          }
+        }
+      }
+    }
+
+    # This will not be rendred at all (no coord)
+    Transform {
+      translation 15 0 0
+      children Shape {
+        geometry PointSet {
+          color Color {
+            color [ 1 0 0
+                    0 1 0
+                    0 0 1
+                    1 1 0
+                    0 1 1 ]
+          }
+        }
+      }
+    }
+  ]
+}

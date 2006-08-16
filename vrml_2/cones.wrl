@@ -17,15 +17,31 @@ Group {
 
         Transform {
           translation 0 -1 0
-          children DEF Krzyzyk Shape {
-            # TODO: transl this to VRML 2.0
-            # Separator {
-            #   Material { diffuseColor 0 0 1 }
-            #   Coordinate3 { point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ] }
-            #   IndexedLineSet { coordIndex [ 0, 1, -1, 2, 3, ] }
-            #   Material { diffuseColor 1 1 1 }
-            #   PointSet { startIndex 0 }
-            # }
+          children DEF Krzyzyk Group {
+            children [
+#               Shape {
+#                 appearance Appearance {
+#                   material Material { emissiveColor 0 0 1 }
+#                 }
+#                 geometry IndexedLineSet {
+#                   coord DEF KrzyzykCoord Coordinate {
+#                     point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ]
+#                   }
+#                   coordIndex [ 0, 1, -1, 2, 3, ]
+#                 }
+#               }
+              Shape {
+                appearance Appearance {
+                  material Material { emissiveColor 1 1 1 }
+                }
+                geometry PointSet {
+#                  coord USE KrzyzykCoord
+                  coord DEF KrzyzykCoord Coordinate {
+                    point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ]
+                  }
+                }
+              }
+            ]
           }
         }
         Transform {
