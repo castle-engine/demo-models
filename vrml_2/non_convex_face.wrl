@@ -5,6 +5,7 @@
 Shape {
   geometry IndexedFaceSet {
     convex FALSE
+    solid FALSE
     coord Coordinate {
 	  point [ +0.000000000e+00 +5.000000000e-01 +0.000000000e+00,
 
