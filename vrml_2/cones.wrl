@@ -8,37 +8,34 @@ Group {
     DEF RenderBefore Group {
       children [
         Shape {
-          appearance
-            DEF AppRed Appearance { material Material { diffuseColor 1 0 0 } }
-            # TODO: transl this to VRML 2.0
-            # Coordinate3 { point [ 0 -2 0, 0 2 0 ] }
-            # IndexedLineSet { coordIndex [ 0, 1 ] }
+          appearance Appearance { material Material { emissiveColor 1 0 0 } }
+          geometry IndexedLineSet {
+            coord Coordinate { point [ 0 -2 0, 0 2 0 ] }
+            coordIndex [ 0, 1 ]
+          }
         }
 
         Transform {
           translation 0 -1 0
           children DEF Krzyzyk Group {
             children [
-#               Shape {
-#                 appearance Appearance {
-#                   material Material { emissiveColor 0 0 1 }
-#                 }
-#                 geometry IndexedLineSet {
-#                   coord DEF KrzyzykCoord Coordinate {
-#                     point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ]
-#                   }
-#                   coordIndex [ 0, 1, -1, 2, 3, ]
-#                 }
-#               }
+              Shape {
+                appearance Appearance {
+                  material Material { emissiveColor 0 0 1 }
+                }
+                geometry IndexedLineSet {
+                  coord DEF KrzyzykCoord Coordinate {
+                    point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ]
+                  }
+                  coordIndex [ 0, 1, -1, 2, 3, ]
+                }
+              }
               Shape {
                 appearance Appearance {
                   material Material { emissiveColor 1 1 1 }
                 }
                 geometry PointSet {
-#                  coord USE KrzyzykCoord
-                  coord DEF KrzyzykCoord Coordinate {
-                    point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ]
-                  }
+                  coord USE KrzyzykCoord
                 }
               }
             ]
@@ -49,7 +46,7 @@ Group {
           children [
             USE Krzyzyk
             Shape {
-              appearance USE AppRed
+              appearance Appearance { material Material { diffuseColor 1 0 0 } }
               geometry Text {
                 fontStyle FontStyle { size 0.5 }
                 string "We are above... I hope so"
