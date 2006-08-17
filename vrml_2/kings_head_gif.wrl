@@ -1,0 +1,61 @@
+#VRML V2.0 utf8
+
+# This is copied from kings_head.wrl, but uses GIF version of
+# the texture.
+# Will work with my view3dscene only if ImageMagick's `convert'
+# is available on $PATH.
+
+Group {
+  children [
+    Switch {
+      choice [
+        # some additional test; light below will not be used and view3dscene
+        # should turn "default OpenGL light num 0" on.
+        # Ignore this, this is not related to the rest of the model.
+        DirectionalLight { }
+      ]
+    }
+
+    Shape {
+      appearance Appearance {
+        texture ImageTexture  { url "../textures/crown.gif" repeatT FALSE }
+        material Material { }
+      }
+      geometry Cylinder { top FALSE bottom FALSE }
+    }
+
+    Transform {
+      translation 0 -2 0
+      children [
+        Transform {
+          scale  1.2 2 1.2
+          children Shape {
+            appearance Appearance { material Material { } }
+            geometry Sphere { }
+          }
+        }
+
+        Transform {
+          translation 0.8 0.4 0.8
+          children DEF KingsEye Shape {
+            appearance Appearance { material Material { diffuseColor 1 0 0 } }
+            geometry Sphere { radius 0.2 }
+          }
+        }
+
+        Transform {
+          translation -0.8 0.4 0.8
+          children USE KingsEye
+        }
+
+        DEF KingsNose Transform {
+          translation 0 0 1.3
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 0 0 1 } }
+            geometry Sphere { radius 0.4 }
+          }
+        }
+      ]
+    }
+  ]
+}
