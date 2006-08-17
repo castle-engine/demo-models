@@ -1,0 +1,18 @@
+#VRML V1.0 ascii
+
+Group {
+  # Additional test of transparent material and of view3dscene
+  # "Write scene bounding box" function  below
+  DEF BoundingBox Separator {
+    Material { transparency 0.7 }
+    Translation {
+      translation 0 -1.5 0.249999940395355
+    }
+    Cube {
+      width 2.400000095367432
+      height 5
+      depth 2.900000095367432
+    } }
+
+  WWWInline { name "kings_head.wrl" }
+}
