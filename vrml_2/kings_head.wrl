@@ -10,6 +10,16 @@
 # (Partial transparency with materials is implemented, see e.g.
 # house_behind_the_glass_final.wrl)
 
+# Additional test of transparent material and of view3dscene
+# "Write scene bounding box" function  below
+DEF BoundingBox Transform {
+  translation 0 -1.5 0.249999940395355
+  children Shape {
+    appearance Appearance { material Material { transparency 0.7 } }
+    geometry Box {
+      size 2.400000095367432 5 2.900000095367432
+    } } }
+
 Group {
   children [
     Switch {
