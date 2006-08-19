@@ -1,0 +1,7 @@
+#VRML V2.0 utf8
+
+NavigationInfo {
+  type ["ANY", "FLY"]
+  avatarSize [ 1.75, 3.5, 3.5 ]
+}
+Inline { url "../castle_with_lights_and_camera.wrl" }
