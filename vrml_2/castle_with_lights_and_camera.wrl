@@ -15,8 +15,7 @@ Group{
       title "The Castle model"
     }
 
-    # TODO: VRMl 1.0 version is included for now
-    Inline { url "../vrml_1/castle_with_lights.wrl" }
+    Inline { url "castle_with_lights.wrl" }
   ]
 }
 

@@ -1,0 +1,19 @@
+#VRML V2.0 utf8
+
+Group {
+  children [
+    Transform {
+      rotation 1 0 0 1.57
+      children Background {
+        backUrl "../skies/sky_lake_back.jpg"
+        bottomUrl "../skies/sky_lake_bottom.jpg"
+        frontUrl "../skies/sky_lake_front.jpg"
+        leftUrl "../skies/sky_lake_left.jpg"
+        rightUrl "../skies/sky_lake_right.jpg"
+        topUrl "../skies/sky_lake_top.jpg"
+      }
+    }
+
+    Inline { url "castle_with_lights_and_camera.wrl" }
+  ]
+}

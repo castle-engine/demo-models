@@ -1,0 +1,22 @@
+#VRML V2.0 utf8
+
+# Demonstrates Fog node
+
+NavigationInfo {
+  type "WALK"
+  avatarSize [ 0.5 2 0.5 ]
+  speed 2
+}
+
+Viewpoint {
+  position -12.041908264160156 -61.640647888183594 2.0
+  orientation 0.99946117401123046 -0.0232076570391655 -0.02321089617908001 1.5713337659835815
+}
+
+# bg color matching fog color
+Background { skyColor [ 0.6 0.6 0.6 ] }
+Fog {
+  color 0.6 0.6 0.6
+  visibilityRange 80
+}
+Inline { url "castle_with_lights.wrl" }

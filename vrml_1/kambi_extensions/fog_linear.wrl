@@ -1,11 +1,7 @@
 #VRML V1.0 ascii
 
-# Demonstrates Fog node that I implemented in view3dscene as part
-# of VRML 1.0. The fog handling is the same as in VRML 97.
-# (I implemented it in VRML 1.0 because I don't support VRML 97
-# yet; when view3dscene will be able to handle some basic
-# VRMl 97 files I probably disallow Fog node in VRML 1.0).
-
+# Demonstrates Fog node, I allows this in view3dscene for VRML 1.0 too.
+# The fog handling is the same as in VRML 97.
 
 Group {
   PerspectiveCamera {
