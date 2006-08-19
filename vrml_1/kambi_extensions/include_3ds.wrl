@@ -19,5 +19,5 @@ Group{
     }
   }  
 
-  WWWInline { name "p47d.3ds" }
+  WWWInline { name "../../3ds/p47d.3ds" }
 }

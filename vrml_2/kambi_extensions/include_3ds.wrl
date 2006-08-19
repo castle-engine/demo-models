@@ -1,0 +1,22 @@
+#VRML V2.0 utf8
+
+Viewpoint {
+  position 178.3546142578125 -222.29991149902344 -27.883052825927734
+  orientation 0.90188115835189819 0.30545860528945923 0.30545902252197266 1.6738854646682739
+}
+
+PointLight {
+  ambientIntensity 0.5
+  intensity 0.5
+  location 65.789054870605469 -142.12141418457031 405.14190673828125
+}
+
+Transform {
+  rotation 1 0 0 1.57
+  children Background {
+    skyColor [ 0 1 1, 0.5 0.5 1, 0 0 0.5 ]
+    skyAngle [        1.57,      3 ]
+  }
+}
+
+Inline { url "../../3ds/p47d.3ds" }

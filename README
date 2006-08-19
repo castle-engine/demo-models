@@ -30,8 +30,8 @@ Models:
 - vrml_1/instancing.wrl and vrml_1/vrml_spec_sample*.wrl were extracted from
   VRML 1.0 specification [http://www.web3d.org/]
 
-- p47d.3ds by Orin Palmer, downloaded from [http://www.3dcafe.com/]
-  (from free models section), see attached vrml_1/p47s.txt
+- 3ds/p47d.3ds by Orin Palmer, downloaded from [http://www.3dcafe.com/]
+  (from free models section), see attached 3ds/p47d.txt
 
 - Everything else was created by me (Kambi).
   Some models (castle.wrl, house_behind_the_glass_b.wrl,
