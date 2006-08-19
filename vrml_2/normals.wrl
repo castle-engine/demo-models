@@ -1,0 +1,51 @@
+#VRML V2.0 utf8
+
+# Demonstrates specifying precalculated normals in VRML file.
+# Note that some normals are intentionally set to wrong values
+# in this file --- to actually see how VRML browser uses them.
+#
+# Note that this is a little smaller than corresponding VRML 1.0
+# test file in ../vrml_1/normals.wrl since VRML 2.0 approach
+# is a little simpler, and you just can't express some things
+# --- e.g. IndexedLineSet is always unlit, so it never has
+# normals.
+
+# generate normals automatically
+Transform {
+  children Shape {
+    appearance DEF App Appearance { material Material { } }
+    geometry IndexedFaceSet {
+      coord DEF C Coordinate { point [0 0 0, 10 0 0, 10 5 0, 0 5 0] }
+      coordIndex [0, 1, 2, 3]
+    }
+  }
+}
+
+# use normalIndex (last vertex will have wrong normal)
+Transform {
+  translation 20 0 0
+  children Shape {
+    appearance USE App
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [0, 1, 2, 3]
+      # normal 1 is intentionally wrong.
+      normal DEF NWrong Normal { vector [0 0 1, 1 0 0, 0 0 1, 0 0 1] }
+      normalIndex [0, 0, 0, 1]
+    }
+  }
+}
+
+# use normals indexed by coordIndex.
+# vertex 10 0 0 (nr 1) will have wrong normal.
+Transform {
+  translation 40 0 0
+  children Shape {
+    appearance USE App
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [0, 1, 2, 3]
+      normal USE NWrong
+    }
+  }
+}

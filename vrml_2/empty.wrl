@@ -1,0 +1,6 @@
+#VRML V2.0 utf8
+
+# This is an example of the empty scene.
+# VRML browser should not fail with error on such strange scene.
+
+Group { }
