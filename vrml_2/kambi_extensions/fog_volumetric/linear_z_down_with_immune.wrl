@@ -1,0 +1,40 @@
+#VRML V2.0 utf8
+
+Viewpoint {
+  position -38.797637939453125 -64.529296875 16.095060348510742
+  orientation 0.92511248588562 -0.285878688097 -0.249880656599998 1.782321929931641
+}
+
+Fog {
+  color 0 1 0
+  visibilityRange 10
+  volumetric TRUE
+  volumetricDirection 0 0 -1
+  volumetricVisibilityStart -30
+}
+
+Inline { url "../../castle_with_lights.wrl" }
+
+# TODO: light from inlined VRML should light also this box below,
+# in VRML 2.0. In VRML 1.0 we used "separate" extension for WWWInline.
+# For now, we just copy here nodes from castle_with_lights.wrl.
+
+PointLight {
+  ambientIntensity 1
+  location -0.48424467735151117 2.030553575594324 5.9872039198498008
+  color 1 0.5 0.5
+}
+
+PointLight {
+  ambientIntensity 1
+  location -11.109210014343262 -36.451499938964844 88.175689697265625
+  color 0.8 0.8 0.8
+}
+
+Transform {
+  translation -10 -10 10
+  children Shape {
+    appearance Appearance { material Material { fogImmune TRUE } }
+    geometry Box { }
+  }
+}
