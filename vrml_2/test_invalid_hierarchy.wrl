@@ -1,0 +1,17 @@
+#VRML V2.0 utf8
+
+# This is an invalid VRML file, to test what will happen.
+# Good VRML browser (like my own, view3dscene :) )
+# should report some warnings.
+
+Group {
+  children [
+    Coordinate { }
+    Text {
+      fontStyle Color { }
+    }
+    Shape {
+      geometry Text { string "blah blah" }
+    }
+  ]
+}
