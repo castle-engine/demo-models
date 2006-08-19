@@ -65,8 +65,6 @@ Switch {
       direction 1 0 -1
     }
 
-    DEF DefLitAppearance Appearance { material Material { } }
-
     DEF Objects Group {
       children [
         Shape {
@@ -76,7 +74,8 @@ Switch {
         Transform {
           translation 4 0 0
           children Shape {
-            appearance USE DefLitAppearance
+            appearance
+              DEF DefLitAppearance Appearance { material Material { } }
             geometry Box { }
           }
         }
