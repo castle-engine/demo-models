@@ -34,10 +34,13 @@ Models:
   (from free models section), see attached 3ds/p47d.txt
 
 - Everything else was created by me (Kambi).
-  Some models (castle.wrl, house_behind_the_glass_b.wrl,
-  transparent_materials.wrl) were created using Blender
-  [http://www.blender3d.org/], most of the models were just
-  written by hand.
+
+  Some models (castle, house_behind_the_glass, break_no_transform,
+  transparent_materials, alien_mirror) were created using Blender
+  [http://www.blender3d.org/], some of their Blender source files
+  are available in blender/ subdirectory.
+
+  Most of the models were just written by hand.
 
   Note that many models in vrml_2/ were created by translating
   (by hand) appropriate vrml_1/ files. In most cases these
