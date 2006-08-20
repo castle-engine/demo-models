@@ -22,15 +22,21 @@
 # is 0. So lights in VRML 2.0 by default are darker (and usually better-looking,
 # actually) than VRML 1.0.
 
+Viewpoint {
+  position 26.037553787231445 -0.00000117056959 37.542552947998047
+  orientation -0.000000000723908 1.000034332275391 0 0.033117223531008
+  # alternative representation of "orientation" :
+  # direction -0.003887364408001 -0.000000000002814 -0.117335610091686
+  # up 0 1 4.37113882867379E-008
+}
+
 Switch {
   choice [
     # setup point light
-    DEF LightPointPos Transform {
-      translation 10 0 0
-      children Shape {
-        appearance Appearance { material Material { diffuseColor 1 0 0 } }
-        # TODO: convert this to pointset with one point
-        geometry Box { size 0.1 0.1 0.1 }
+    DEF LightPointPos Shape {
+      geometry PointSet {
+        coord Coordinate { point 10 0 0 }
+        color Color { color 1 0 0 }
       }
     }
 
@@ -41,12 +47,10 @@ Switch {
     }
 
     # setup spot light
-    DEF LightSpotPos Transform {
-      translation 4 1.6 1
-      children Shape {
-        appearance Appearance { material Material { diffuseColor 0 0 1 } }
-        # TODO: convert this to pointset with one point
-        geometry Box { size 0.1 0.1 0.1 }
+    DEF LightSpotPos Shape {
+      geometry PointSet {
+        coord Coordinate { point 4 1.6 1 }
+        color Color { color 0 0 1 }
       }
     }
 

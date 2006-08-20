@@ -16,6 +16,14 @@
 # to render view of this model with shadows.
 
 Group{
+  PerspectiveCamera {
+    position 26.037553787231445 -0.00000117056959 37.542552947998047
+    orientation -0.000000000723908 1.000034332275391 0 0.033117223531008
+    # alternative representation of "orientation" :
+    # direction -0.003887364408001 -0.000000000002814 -0.117335610091686
+    # up 0 1 4.37113882867379E-008
+  }
+
   Switch{
     # setup point light
     DEF LightPoint Group{      
