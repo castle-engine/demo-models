@@ -15,5 +15,23 @@ Group {
     }
 
     Inline { url "castle_with_lights_and_camera.wrl" }
+
+    # Making screenshot for freshmeat (must be 800x600) :
+    # - use sky_lake_2_xxx.png above, to have higher-quality skies
+    # - open this by
+    #     view3dscene background_texture2.wrl --geometry 790x543
+    #   ...or something like this, depending on your theme.
+    # - jump to viewpoint below
+    # - take a screenshot of view3dscene window by GIMP
+    #   (we take a screenshot from GIMP because we want to show our
+    #   menu bar and window frame)
+    Viewpoint  {
+      position -52.59613037109375 -106.26814270019531 3.557910442352295
+      orientation 0.960664927959442 -0.209482714533806 -0.182317987084389 1.749552965164185
+      # alternative representation of "orientation" :
+      # direction 0.288985729217529 0.630878210067749 0.097154222428799
+      # up -0.057612244039774 -0.126120537519455 0.99034196138382
+      description "Viewpoint for freshmeat screenshot"
+    }
   ]
 }
