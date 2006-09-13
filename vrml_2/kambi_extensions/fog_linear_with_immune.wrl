@@ -18,7 +18,7 @@ Fog {
 # TODO: this is VRML 1.0 construct, should be in VRML 2.0
 WWWInline {
   separate FALSE
-  name "../../castle_with_lights.wrl"
+  name "../castle_with_lights.wrl"
 }
 
 Transform {
