@@ -5,12 +5,34 @@
 
 Group{
   children [
+    # Camera settings "encoded" in the VRML declaration below :
+    # direction 0 0.700684607028961 0.000241928064497
+    # up 0 -0.000345317530446 0.999999940395355
+    # gravity-up 0 0 1
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+      }
+    }
+
     Viewpoint {
       position 0.00461831502616405 -94.837326049804687 6.3310680389404297
       orientation 1 0 0 1.5711416006088257
     }
 
-    PerspectiveCamera {
+    Transform {
+      translation 2 2 2
+      rotation 1 0 0 1.570796370506287
+      children PerspectiveCamera {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+      }
+    }
+
+    DEF Same_as_before_but_without_correct_gravity PerspectiveCamera {
       position 2 2 2
       orientation 1 0 0 1.5711416006088257
     }
@@ -61,6 +83,35 @@ More text... More text... More text... More text... More text... More text...
           description "translated viewpoint"
         }
       ]
+    }
+
+    # Camera settings "encoded" in the VRML declaration below :
+    # direction 0 0.700684666633606 0.000241897432716
+    # up 0 -0.000345273787389 0.999999940395355
+    # gravity-up 0 0 1
+    Transform {
+      translation 12 12 12
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        description "translated viewpoint with fixed gravity up"
+      }
+    }
+
+    Transform {
+      rotation 1 0 0 1.57
+      translation 0.00461831502616405 -94.837326049804687 6.3310680389404297
+      children Viewpoint {
+        description "viewpoint up = gravity = +Z"
+      }
+    }
+
+    Viewpoint {
+      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
+      direction 0 1 0
+      up 0 0 1
+      description "viewpoint up = +Z but gravity = +Y"
     }
 
     # TODO: VRMl 1.0 version is included for now

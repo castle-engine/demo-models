@@ -16,33 +16,34 @@
 # to render view of this model with shadows.
 
 Group{
+  # Camera settings "encoded" in the VRML declaration below :
+  # direction -0.003885044017807 -0.000000000002812 -0.11726900190115
+  # up 1.56576085430515E-009 1 4.36595186670274E-008
+  # gravityUp 0 1 0
   PerspectiveCamera {
     position 26.037553787231445 -0.00000117056959 37.542552947998047
-    orientation -0.000000000723908 1.000034332275391 0 0.033117223531008
-    # alternative representation of "orientation" :
-    # direction -0.003887364408001 -0.000000000002814 -0.117335610091686
-    # up 0 1 4.37113882867379E-008
+    orientation 0.010424139909446 0.999979853630066 -0.000200989466975 0.033117223531008
   }
 
   Switch{
     # setup point light
-    DEF LightPoint Group{      
+    DEF LightPoint Group{
       Material { diffuseColor 1 0 0 }
       Coordinate3 { point 10 0 0 }
       PointSet { }
-      PointLight { 
+      PointLight {
         location 10 0 0
         color 1 0 0
 #        attenuation 1 0.01 0.01
       }
     }
-    
+
     # setup spot light
     DEF LightSpot Group{
       Material { diffuseColor 0 0 1 }
       Coordinate3 { point 4 1.6 1 }
       PointSet { }
-      SpotLight { 
+      SpotLight {
         location 4 1.6 1
         direction -0.2 0 -1
         color 0 0 1
@@ -53,11 +54,11 @@ Group{
     # setup directional light
     DEF LightDir Group{
       DirectionalLight {
-        color 0 1 0 
+        color 0 1 0
         direction 1 0 -1
       }
     }
- 
+
     DEF Objects Group{
       Material { diffuseColor 1 1 1 }
       Cylinder {}
@@ -69,24 +70,24 @@ Group{
       Texture2 { filename "../textures/brick031.jpg" }
       Cone {}
       Translation { translation 0 0 -20 }
-      Texture2 { } 
+      Texture2 { }
       Sphere { radius 4 }
     }
   }
-  
+
   Separator{
     USE LightPoint
     USE LightSpot
     USE Objects
   }
-  
-  Translation { translation 20 0 0 } 
+
+  Translation { translation 20 0 0 }
   Separator{
     USE LightDir
     USE Objects
   }
 
-  Translation { translation 20 0 0 } 
+  Translation { translation 20 0 0 }
   Separator{
     USE LightPoint
     USE LightSpot

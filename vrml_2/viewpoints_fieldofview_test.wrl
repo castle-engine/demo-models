@@ -2,77 +2,122 @@
 
 # Test of Viewpoint nodes handling.
 
+# Camera settings "encoded" in all VRML declaration below :
+# direction 0 0.700684607028961 0.000241928064497
+# up 0 -0.000345317530446 0.999999940395355
+# gravityUp 0 0 1
+
 Group{
   children [
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      description "45 degrees (default) field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        description "45 degrees (default) field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      # dummy value, should be clamped to min value by VRML browser
-      fieldOfView -10000
-      description "MIN field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        # dummy value, should be clamped to min value by VRML browser
+        fieldOfView -10000
+        description "MIN field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 0.0872664626
-      description "5 degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 0.0872664626
+        description "5 degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 0.3490658504
-      description "20 degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 0.3490658504
+        description "20 degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 1.04
-      description "60 degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 1.04
+        description "60 degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 1.57
-      description "90 degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 1.57
+        description "90 degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 2.0943951024
-      description "120 degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 2.0943951024
+        description "120 degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 2.6179938780
-      description "150 degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 2.6179938780
+        description "150 degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      fieldOfView 3.1415926536
-      description "180 (Pi) degress field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        fieldOfView 3.1415926536
+        description "180 (Pi) degress field of view"
+      }
     }
 
-    Viewpoint {
-      position 0.00461831502616405 -94.837326049804687 6.3310680389404297
-      orientation 1 0 0 1.5711416006088257
-      # dummy value, should be clamped to max value by VRML browser
-      fieldOfView 10000
-      description "MAX field of view"
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+        # dummy value, should be clamped to max value by VRML browser
+        fieldOfView 10000
+        description "MAX field of view"
+      }
     }
 
     # TODO: VRMl 1.0 version is included for now

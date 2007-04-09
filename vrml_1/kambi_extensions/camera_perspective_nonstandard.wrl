@@ -1,17 +1,17 @@
 #VRML V1.0 ascii
 
-# In this file we define the same camera as in castle-final-1.wrl
-# but this time we use view3dscene-specific camera fields:
-# direction and up. There look more natural for me, it's easier
-# to type them by hand - that's why I implemented them in view3dscene.
+# In this file we define the same camera as in
+# ../castle_with_lights_and_camera.wrl
+# but this time we use view3dscene-specific camera fields.
+# See
+# [http://127.0.0.1/mojewww/camelot/kambi_vrml_extensions.php#ext_cameras_alt_orient]
 
 Group{
   PerspectiveCamera {
     position -0.12274461984634399 -66.242698669433594 5.3918485641479492
     direction 0.00268203555606306 0.99999642372131347 -0.00000000000010494
     up 1.82407257701134E-014 -0.00000004371146289 1
+    gravityUp 0 0 1
   }
   WWWInline { name "../castle_with_lights.wrl" }
 }
-
-

@@ -8,9 +8,17 @@ NavigationInfo {
   speed 2
 }
 
-Viewpoint {
-  position -12.041908264160156 -61.640647888183594 2.0
-  orientation 0.99946117401123046 -0.0232076570391655 -0.02321089617908001 1.5713337659835815
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.018567405641079 0.399568855762482 -0.000000638432709
+# up 3.27224097418366E-006 1.40198903864075E-006 1
+# gravityUp 0 0 1
+Transform {
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+  }
 }
 
 # bg color matching fog color

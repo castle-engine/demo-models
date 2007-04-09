@@ -4,10 +4,21 @@
 # The fog handling is the same as in VRML 97.
 
 Group {
-  PerspectiveCamera {
-    position -12.041908264160156 -61.640647888183594 10.612056732177734
-    orientation 0.99946117401123046 -0.0232076570391655 -0.02321089617908001 1.5713337659835815
+  # Camera settings "encoded" in the VRML declaration below :
+  # direction 0.032524742186069 0.699929416179657 -0.000001118350042
+  # up 3.27448242387618E-006 1.4018849014974E-006 1
+  # gravity-up 0 0 1
+  Separator {
+    Transform {
+      translation -12.041908264160156 -61.640647888183594 10.612056732177734
+      rotation 1 0 0 1.570796370506287
+    }
+    PerspectiveCamera {
+      position 0 0 0 # camera position is expressed by translation
+      orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+    }
   }
+
   # bg color matching fog color
   Background { skyColor [ 0 0.5 0 ] }
   Fog {
