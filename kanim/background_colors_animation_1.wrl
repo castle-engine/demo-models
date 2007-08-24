@@ -2,6 +2,19 @@
 
 Group {
   children [
+    # Camera settings "encoded" in the VRML declaration below :
+    # direction -0.002455162582919 0.018439183011651 -0.000000000813115
+    # up 0 0 1
+    # gravityUp 0 0 1
+    Transform {
+      translation 2.250717401504517 -6.162318706512451 2.566258668899536
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation -0.000000659474324 0.999999463558197 0 0.13237090408802
+      }
+    }
+
     Transform {
       rotation 1 0 0 1
       children Background {
@@ -13,6 +26,6 @@ Group {
       }
     }
 
-    Inline { url "../vrml_2/castle_with_lights_and_camera.wrl" }
+    Inline { url "boat.wrl" }
   ]
 }
