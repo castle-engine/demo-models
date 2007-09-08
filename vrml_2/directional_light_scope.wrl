@@ -1,0 +1,61 @@
+#VRML V2.0 utf8
+
+# This is to test VRML 2.0 light scopes.
+# DirectionalLight should be visible everywhere inside it's siblings.
+
+Group {
+  children [
+    # Camera settings "encoded" in the VRML declaration below :
+    # direction -0.006129755172879 -0.010663437657058 -0.015770792961121
+    # up -0.193155229091644 0.846007108688354 -0.496953785419464
+    # gravityUp 0 1 0
+    Viewpoint {
+      position 2.978011131286621 2.89250373840332 6.258864879608154
+      orientation -0.828563451766968 0.537907838821411 0.155361413955688 0.670826137065887
+    }
+
+    Transform {
+      translation -3 0 0
+      children [
+        DEF SNormal Shape { geometry Sphere { }
+          appearance Appearance { material Material { } } }
+      ]
+    }
+
+    DEF STransp Shape { geometry Sphere { }
+      appearance Appearance { material Material { transparency 0.5 } } }
+
+    # All objects should be illuminated by this light.
+    DirectionalLight { color 1 0 0 }
+
+    DEF LowerTransform Transform {
+      translation 0 -3 0
+      children [
+        Transform {
+          translation -3 0 0
+          children USE SNormal
+        }
+
+       USE STransp
+
+        # Only four lower spheres should be illuminated by this light.
+        DirectionalLight { color 0 0 1 direction 1 0 0 ambientIntensity 0.5 }
+
+        DEF SSmall Shape { geometry Sphere { radius 0.5 }
+          appearance Appearance { material Material { } } }
+
+        Transform {
+          translation 3 0 0
+          children USE SNormal
+        }
+      ]
+    }
+
+   USE SSmall
+
+    Transform {
+      translation 3 0 0
+      children USE SNormal
+    }
+  ]
+}
