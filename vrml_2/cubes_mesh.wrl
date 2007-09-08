@@ -1,0 +1,4151 @@
+#VRML V2.0 utf8
+
+# This file was authored with Blender (http://www.blender.org/)
+# Blender version 244
+# Blender file cubes_mesh.blend
+# Exported using VRML97 exporter v1.55 (2006/01/17)
+
+
+NavigationInfo {
+	headlight TRUE
+	visibilityLimit 0.0
+	type ["EXAMINE", "ANY"]
+	avatarSize [0.25, 1.75, 0.75]
+} 
+ 
+DEF OB_Cube_511 Transform {
+	translation -5.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		DEF ME_Cube Group {
+			children [
+				Shape {
+					appearance Appearance {
+						material DEF MA_Material Material {
+							diffuseColor 0.8 0.8 0.8
+							ambientIntensity 0.1666667
+							specularColor 0.4012008 0.4012008 0.4012008
+							emissiveColor  0.0 0.0 0.0
+							shininess 0.0976563
+							transparency 0.3429425
+						}
+					}
+					geometry IndexedFaceSet {
+						solid TRUE
+						coord DEF coord_Cube Coordinate {
+							point [
+1.0 -1.0 -0.999999940395
+ 1.0 -1.0 1.0
+ -1.00000011921 -1.0 0.999999821186
+ -0.999999642372 -1.0 -1.00000035763
+ 1.00000047684 1.0 -0.999999463558
+ 0.999999344349 1.0 1.00000059605
+ -1.00000035763 1.0 0.999999642372
+ -0.999999940395 1.0 -1.0
+ 							]
+						}
+						
+						coordIndex [
+0 1 2 3 -1, 
+4 7 6 5 -1, 
+0 4 5 1 -1, 
+1 5 6 2 -1, 
+2 6 7 3 -1, 
+4 0 3 7 -1, 
+						]
+					}
+				}
+			]
+		}
+	]
+}
+DEF OB_Cube_510 Transform {
+	translation -15.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_509 Transform {
+	translation -25.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_508 Transform {
+	translation -35.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_507 Transform {
+	translation -35.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_506 Transform {
+	translation -25.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_505 Transform {
+	translation -15.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_504 Transform {
+	translation -5.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_503 Transform {
+	translation -5.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_502 Transform {
+	translation -15.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_501 Transform {
+	translation -25.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_500 Transform {
+	translation -35.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_499 Transform {
+	translation -35.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_498 Transform {
+	translation -25.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_497 Transform {
+	translation -15.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_496 Transform {
+	translation -5.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_495 Transform {
+	translation -5.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_494 Transform {
+	translation -15.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_493 Transform {
+	translation -25.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_492 Transform {
+	translation -35.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_491 Transform {
+	translation -35.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_490 Transform {
+	translation -25.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_489 Transform {
+	translation -15.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_488 Transform {
+	translation -5.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_487 Transform {
+	translation -5.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_486 Transform {
+	translation -15.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_485 Transform {
+	translation -25.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_484 Transform {
+	translation -35.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_483 Transform {
+	translation -35.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_482 Transform {
+	translation -25.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_481 Transform {
+	translation -15.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_480 Transform {
+	translation -5.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_479 Transform {
+	translation -5.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_478 Transform {
+	translation -15.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_477 Transform {
+	translation -25.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_476 Transform {
+	translation -35.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_475 Transform {
+	translation -35.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_474 Transform {
+	translation -25.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_473 Transform {
+	translation -15.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_472 Transform {
+	translation -5.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_471 Transform {
+	translation -5.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_470 Transform {
+	translation -15.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_469 Transform {
+	translation -25.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_468 Transform {
+	translation -35.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_467 Transform {
+	translation -35.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_466 Transform {
+	translation -25.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_465 Transform {
+	translation -15.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_464 Transform {
+	translation -5.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_463 Transform {
+	translation -5.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_462 Transform {
+	translation -15.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_461 Transform {
+	translation -25.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_460 Transform {
+	translation -35.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_459 Transform {
+	translation -35.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_458 Transform {
+	translation -25.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_457 Transform {
+	translation -15.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_456 Transform {
+	translation -5.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_455 Transform {
+	translation -5.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_454 Transform {
+	translation -15.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_453 Transform {
+	translation -25.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_452 Transform {
+	translation -35.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_451 Transform {
+	translation -35.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_450 Transform {
+	translation -25.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_449 Transform {
+	translation -15.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_448 Transform {
+	translation -5.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_447 Transform {
+	translation -5.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_446 Transform {
+	translation -15.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_445 Transform {
+	translation -25.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_444 Transform {
+	translation -35.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_443 Transform {
+	translation -35.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_442 Transform {
+	translation -25.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_441 Transform {
+	translation -15.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_440 Transform {
+	translation -5.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_439 Transform {
+	translation -5.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_438 Transform {
+	translation -15.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_437 Transform {
+	translation -25.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_436 Transform {
+	translation -35.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_435 Transform {
+	translation -35.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_434 Transform {
+	translation -25.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_433 Transform {
+	translation -15.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_432 Transform {
+	translation -5.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_431 Transform {
+	translation -5.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_430 Transform {
+	translation -15.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_429 Transform {
+	translation -25.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_428 Transform {
+	translation -35.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_427 Transform {
+	translation -35.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_426 Transform {
+	translation -25.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_425 Transform {
+	translation -15.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_424 Transform {
+	translation -5.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_423 Transform {
+	translation -5.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_422 Transform {
+	translation -15.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_421 Transform {
+	translation -25.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_420 Transform {
+	translation -35.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_419 Transform {
+	translation -35.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_418 Transform {
+	translation -25.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_417 Transform {
+	translation -15.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_416 Transform {
+	translation -5.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_415 Transform {
+	translation -5.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_414 Transform {
+	translation -15.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_413 Transform {
+	translation -25.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_412 Transform {
+	translation -35.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_411 Transform {
+	translation -35.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_410 Transform {
+	translation -25.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_409 Transform {
+	translation -15.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_408 Transform {
+	translation -5.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_407 Transform {
+	translation -5.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_406 Transform {
+	translation -15.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_405 Transform {
+	translation -25.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_404 Transform {
+	translation -35.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_403 Transform {
+	translation -35.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_402 Transform {
+	translation -25.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_401 Transform {
+	translation -15.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_400 Transform {
+	translation -5.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_399 Transform {
+	translation -5.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_398 Transform {
+	translation -15.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_397 Transform {
+	translation -25.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_396 Transform {
+	translation -35.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_395 Transform {
+	translation -35.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_394 Transform {
+	translation -25.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_393 Transform {
+	translation -15.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_392 Transform {
+	translation -5.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_391 Transform {
+	translation -5.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_390 Transform {
+	translation -15.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_389 Transform {
+	translation -25.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_388 Transform {
+	translation -35.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_387 Transform {
+	translation -35.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_386 Transform {
+	translation -25.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_385 Transform {
+	translation -15.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_384 Transform {
+	translation -5.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_383 Transform {
+	translation 35.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_382 Transform {
+	translation 25.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_381 Transform {
+	translation 15.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_380 Transform {
+	translation 5.000000 5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_379 Transform {
+	translation 5.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_378 Transform {
+	translation 15.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_377 Transform {
+	translation 25.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_376 Transform {
+	translation 35.000000 5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_375 Transform {
+	translation 35.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_374 Transform {
+	translation 25.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_373 Transform {
+	translation 15.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_372 Transform {
+	translation 5.000000 5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_371 Transform {
+	translation 5.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_370 Transform {
+	translation 15.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_369 Transform {
+	translation 25.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_368 Transform {
+	translation 35.000000 5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_367 Transform {
+	translation 35.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_366 Transform {
+	translation 25.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_365 Transform {
+	translation 15.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_364 Transform {
+	translation 5.000000 15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_363 Transform {
+	translation 5.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_362 Transform {
+	translation 15.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_361 Transform {
+	translation 25.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_360 Transform {
+	translation 35.000000 15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_359 Transform {
+	translation 35.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_358 Transform {
+	translation 25.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_357 Transform {
+	translation 15.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_356 Transform {
+	translation 5.000000 15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_355 Transform {
+	translation 5.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_354 Transform {
+	translation 15.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_353 Transform {
+	translation 25.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_352 Transform {
+	translation 35.000000 15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_351 Transform {
+	translation 35.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_350 Transform {
+	translation 25.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_349 Transform {
+	translation 15.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_348 Transform {
+	translation 5.000000 25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_347 Transform {
+	translation 5.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_346 Transform {
+	translation 15.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_345 Transform {
+	translation 25.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_344 Transform {
+	translation 35.000000 25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_343 Transform {
+	translation 35.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_342 Transform {
+	translation 25.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_341 Transform {
+	translation 15.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_340 Transform {
+	translation 5.000000 25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_339 Transform {
+	translation 5.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_338 Transform {
+	translation 15.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_337 Transform {
+	translation 25.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_336 Transform {
+	translation 35.000000 25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_335 Transform {
+	translation 35.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_334 Transform {
+	translation 25.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_333 Transform {
+	translation 15.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_332 Transform {
+	translation 5.000000 35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_331 Transform {
+	translation 5.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_330 Transform {
+	translation 15.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_329 Transform {
+	translation 25.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_328 Transform {
+	translation 35.000000 35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_327 Transform {
+	translation 35.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_326 Transform {
+	translation 25.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_325 Transform {
+	translation 15.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_324 Transform {
+	translation 5.000000 35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_323 Transform {
+	translation 5.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_322 Transform {
+	translation 15.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_321 Transform {
+	translation 25.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_320 Transform {
+	translation 35.000000 35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_319 Transform {
+	translation 35.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_318 Transform {
+	translation 25.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_317 Transform {
+	translation 15.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_316 Transform {
+	translation 5.000000 35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_315 Transform {
+	translation 5.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_314 Transform {
+	translation 15.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_313 Transform {
+	translation 25.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_312 Transform {
+	translation 35.000000 35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_311 Transform {
+	translation 35.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_310 Transform {
+	translation 25.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_309 Transform {
+	translation 15.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_308 Transform {
+	translation 5.000000 35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_307 Transform {
+	translation 5.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_306 Transform {
+	translation 15.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_305 Transform {
+	translation 25.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_304 Transform {
+	translation 35.000000 35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_303 Transform {
+	translation 35.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_302 Transform {
+	translation 25.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_301 Transform {
+	translation 15.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_300 Transform {
+	translation 5.000000 25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_299 Transform {
+	translation 5.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_298 Transform {
+	translation 15.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_297 Transform {
+	translation 25.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_296 Transform {
+	translation 35.000000 25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_295 Transform {
+	translation 35.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_294 Transform {
+	translation 25.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_293 Transform {
+	translation 15.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_292 Transform {
+	translation 5.000000 25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_291 Transform {
+	translation 5.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_290 Transform {
+	translation 15.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_289 Transform {
+	translation 25.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_288 Transform {
+	translation 35.000000 25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_287 Transform {
+	translation 35.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_286 Transform {
+	translation 25.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_285 Transform {
+	translation 15.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_284 Transform {
+	translation 5.000000 15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_283 Transform {
+	translation 5.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_282 Transform {
+	translation 15.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_281 Transform {
+	translation 25.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_280 Transform {
+	translation 35.000000 15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_279 Transform {
+	translation 35.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_278 Transform {
+	translation 25.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_277 Transform {
+	translation 15.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_276 Transform {
+	translation 5.000000 15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_275 Transform {
+	translation 5.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_274 Transform {
+	translation 15.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_273 Transform {
+	translation 25.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_272 Transform {
+	translation 35.000000 15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_271 Transform {
+	translation 35.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_270 Transform {
+	translation 25.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_269 Transform {
+	translation 15.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_268 Transform {
+	translation 5.000000 5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_267 Transform {
+	translation 5.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_266 Transform {
+	translation 15.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_265 Transform {
+	translation 25.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_264 Transform {
+	translation 35.000000 5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_263 Transform {
+	translation 35.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_262 Transform {
+	translation 25.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_261 Transform {
+	translation 15.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_260 Transform {
+	translation 5.000000 5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_259 Transform {
+	translation 5.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_258 Transform {
+	translation 15.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_257 Transform {
+	translation 25.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_256 Transform {
+	translation 35.000000 5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_255 Transform {
+	translation 35.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_254 Transform {
+	translation 25.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_253 Transform {
+	translation 15.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_252 Transform {
+	translation 5.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_251 Transform {
+	translation 5.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_250 Transform {
+	translation 15.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_249 Transform {
+	translation 25.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_248 Transform {
+	translation 35.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_247 Transform {
+	translation 35.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_246 Transform {
+	translation 25.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_245 Transform {
+	translation 15.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_244 Transform {
+	translation 5.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_243 Transform {
+	translation 5.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_242 Transform {
+	translation 15.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_241 Transform {
+	translation 25.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_240 Transform {
+	translation 35.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_239 Transform {
+	translation 35.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_238 Transform {
+	translation 25.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_237 Transform {
+	translation 15.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_236 Transform {
+	translation 5.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_235 Transform {
+	translation 5.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_234 Transform {
+	translation 15.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_233 Transform {
+	translation 25.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_232 Transform {
+	translation 35.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_231 Transform {
+	translation 35.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_230 Transform {
+	translation 25.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_229 Transform {
+	translation 15.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_228 Transform {
+	translation 5.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_227 Transform {
+	translation 5.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_226 Transform {
+	translation 15.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_225 Transform {
+	translation 25.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_224 Transform {
+	translation 35.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_223 Transform {
+	translation 35.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_222 Transform {
+	translation 25.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_221 Transform {
+	translation 15.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_220 Transform {
+	translation 5.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_219 Transform {
+	translation 5.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_218 Transform {
+	translation 15.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_217 Transform {
+	translation 25.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_216 Transform {
+	translation 35.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_215 Transform {
+	translation 35.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_214 Transform {
+	translation 25.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_213 Transform {
+	translation 15.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_212 Transform {
+	translation 5.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_211 Transform {
+	translation 5.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_210 Transform {
+	translation 15.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_209 Transform {
+	translation 25.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_208 Transform {
+	translation 35.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_207 Transform {
+	translation 35.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_206 Transform {
+	translation 25.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_205 Transform {
+	translation 15.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_204 Transform {
+	translation 5.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_203 Transform {
+	translation 5.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_202 Transform {
+	translation 15.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_201 Transform {
+	translation 25.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_200 Transform {
+	translation 35.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_199 Transform {
+	translation 35.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_198 Transform {
+	translation 25.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_197 Transform {
+	translation 15.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_196 Transform {
+	translation 5.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_195 Transform {
+	translation 5.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_194 Transform {
+	translation 15.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_193 Transform {
+	translation 25.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_192 Transform {
+	translation 35.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_191 Transform {
+	translation 35.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_190 Transform {
+	translation 25.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_189 Transform {
+	translation 15.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_188 Transform {
+	translation 5.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_187 Transform {
+	translation 5.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_186 Transform {
+	translation 15.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_185 Transform {
+	translation 25.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_184 Transform {
+	translation 35.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_183 Transform {
+	translation 35.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_182 Transform {
+	translation 25.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_181 Transform {
+	translation 15.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_180 Transform {
+	translation 5.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_179 Transform {
+	translation 5.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_178 Transform {
+	translation 15.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_177 Transform {
+	translation 25.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_176 Transform {
+	translation 35.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_175 Transform {
+	translation 35.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_174 Transform {
+	translation 25.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_173 Transform {
+	translation 15.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_172 Transform {
+	translation 5.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_171 Transform {
+	translation 5.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_170 Transform {
+	translation 15.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_169 Transform {
+	translation 25.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_168 Transform {
+	translation 35.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_167 Transform {
+	translation 35.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_166 Transform {
+	translation 25.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_165 Transform {
+	translation 15.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_164 Transform {
+	translation 5.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_163 Transform {
+	translation 5.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_162 Transform {
+	translation 15.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_161 Transform {
+	translation 25.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_160 Transform {
+	translation 35.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_159 Transform {
+	translation 35.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_158 Transform {
+	translation 25.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_157 Transform {
+	translation 15.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_156 Transform {
+	translation 5.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_155 Transform {
+	translation 5.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_154 Transform {
+	translation 15.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_153 Transform {
+	translation 25.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_152 Transform {
+	translation 35.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_151 Transform {
+	translation 35.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_150 Transform {
+	translation 25.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_149 Transform {
+	translation 15.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_148 Transform {
+	translation 5.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_147 Transform {
+	translation 5.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_146 Transform {
+	translation 15.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_145 Transform {
+	translation 25.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_144 Transform {
+	translation 35.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_143 Transform {
+	translation 35.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_142 Transform {
+	translation 25.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_141 Transform {
+	translation 15.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_140 Transform {
+	translation 5.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_139 Transform {
+	translation 5.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_138 Transform {
+	translation 15.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_137 Transform {
+	translation 25.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_136 Transform {
+	translation 35.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_135 Transform {
+	translation 35.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_134 Transform {
+	translation 25.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_133 Transform {
+	translation 15.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_132 Transform {
+	translation 5.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_131 Transform {
+	translation 5.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_130 Transform {
+	translation 15.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_129 Transform {
+	translation 25.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_128 Transform {
+	translation 35.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_127 Transform {
+	translation -5.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_126 Transform {
+	translation -15.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_125 Transform {
+	translation -25.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_124 Transform {
+	translation -35.000000 -35.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_123 Transform {
+	translation -35.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_122 Transform {
+	translation -25.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_121 Transform {
+	translation -15.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_120 Transform {
+	translation -5.000000 -35.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_119 Transform {
+	translation -5.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_118 Transform {
+	translation -15.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_117 Transform {
+	translation -25.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_116 Transform {
+	translation -35.000000 -35.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_115 Transform {
+	translation -35.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_114 Transform {
+	translation -25.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_113 Transform {
+	translation -15.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_112 Transform {
+	translation -5.000000 -35.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_111 Transform {
+	translation -5.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_110 Transform {
+	translation -15.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_109 Transform {
+	translation -25.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_108 Transform {
+	translation -35.000000 -25.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_107 Transform {
+	translation -35.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_106 Transform {
+	translation -25.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_105 Transform {
+	translation -15.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_104 Transform {
+	translation -5.000000 -25.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_103 Transform {
+	translation -5.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_102 Transform {
+	translation -15.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_101 Transform {
+	translation -25.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_100 Transform {
+	translation -35.000000 -25.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_099 Transform {
+	translation -35.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_098 Transform {
+	translation -25.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_097 Transform {
+	translation -15.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_096 Transform {
+	translation -5.000000 -25.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_095 Transform {
+	translation -5.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_094 Transform {
+	translation -15.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_093 Transform {
+	translation -25.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_092 Transform {
+	translation -35.000000 -15.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_091 Transform {
+	translation -35.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_090 Transform {
+	translation -25.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_089 Transform {
+	translation -15.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_088 Transform {
+	translation -5.000000 -15.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_087 Transform {
+	translation -5.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_086 Transform {
+	translation -15.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_085 Transform {
+	translation -25.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_084 Transform {
+	translation -35.000000 -15.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_083 Transform {
+	translation -35.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_082 Transform {
+	translation -25.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_081 Transform {
+	translation -15.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_080 Transform {
+	translation -5.000000 -15.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_079 Transform {
+	translation -5.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_078 Transform {
+	translation -15.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_077 Transform {
+	translation -25.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_076 Transform {
+	translation -35.000000 -5.000000 5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_075 Transform {
+	translation -35.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_074 Transform {
+	translation -25.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_073 Transform {
+	translation -15.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_072 Transform {
+	translation -5.000000 -5.000000 15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_071 Transform {
+	translation -5.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_070 Transform {
+	translation -15.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_069 Transform {
+	translation -25.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_068 Transform {
+	translation -35.000000 -5.000000 25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_067 Transform {
+	translation -35.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_066 Transform {
+	translation -25.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_065 Transform {
+	translation -15.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_064 Transform {
+	translation -5.000000 -5.000000 35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_063 Transform {
+	translation -5.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_062 Transform {
+	translation -15.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_061 Transform {
+	translation -25.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_060 Transform {
+	translation -35.000000 -5.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_059 Transform {
+	translation -35.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_058 Transform {
+	translation -25.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_057 Transform {
+	translation -15.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_056 Transform {
+	translation -5.000000 -5.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_055 Transform {
+	translation -5.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_054 Transform {
+	translation -15.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_053 Transform {
+	translation -25.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_052 Transform {
+	translation -35.000000 -5.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_051 Transform {
+	translation -35.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_050 Transform {
+	translation -25.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_049 Transform {
+	translation -15.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_048 Transform {
+	translation -5.000000 -5.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_047 Transform {
+	translation -5.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_046 Transform {
+	translation -15.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_045 Transform {
+	translation -25.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_044 Transform {
+	translation -35.000000 -15.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_043 Transform {
+	translation -35.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_042 Transform {
+	translation -25.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_041 Transform {
+	translation -15.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_040 Transform {
+	translation -5.000000 -15.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_039 Transform {
+	translation -5.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_038 Transform {
+	translation -15.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_037 Transform {
+	translation -25.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_036 Transform {
+	translation -35.000000 -15.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_035 Transform {
+	translation -35.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_034 Transform {
+	translation -25.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_033 Transform {
+	translation -15.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_032 Transform {
+	translation -5.000000 -15.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_031 Transform {
+	translation -5.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_030 Transform {
+	translation -15.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_029 Transform {
+	translation -25.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_028 Transform {
+	translation -35.000000 -25.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_027 Transform {
+	translation -35.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_026 Transform {
+	translation -25.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_025 Transform {
+	translation -15.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_024 Transform {
+	translation -5.000000 -25.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_023 Transform {
+	translation -5.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_022 Transform {
+	translation -15.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_021 Transform {
+	translation -25.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_020 Transform {
+	translation -35.000000 -25.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_019 Transform {
+	translation -35.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_018 Transform {
+	translation -25.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_017 Transform {
+	translation -15.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_016 Transform {
+	translation -5.000000 -25.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_015 Transform {
+	translation -5.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_014 Transform {
+	translation -15.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_013 Transform {
+	translation -25.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_012 Transform {
+	translation -35.000000 -35.000000 -35.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_011 Transform {
+	translation -35.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_010 Transform {
+	translation -25.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_009 Transform {
+	translation -15.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_008 Transform {
+	translation -5.000000 -35.000000 -25.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_007 Transform {
+	translation -5.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_006 Transform {
+	translation -15.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_005 Transform {
+	translation -25.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_004 Transform {
+	translation -35.000000 -35.000000 -15.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_003 Transform {
+	translation -35.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_002 Transform {
+	translation -25.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube_001 Transform {
+	translation -15.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+DEF OB_Cube Transform {
+	translation -5.000000 -35.000000 -5.000000
+	rotation 1.000000 0.000000 0.000000 0.000000
+	scale 1.000000 1.000000 1.000000
+	children [
+		USE ME_Cube
+	]
+}
+

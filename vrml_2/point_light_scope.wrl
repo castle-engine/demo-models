@@ -1,0 +1,42 @@
+#VRML V2.0 utf8
+
+# This is to test VRML 2.0 light scopes.
+# Point and Spot lights should be visible within their radius, regardless
+# of VRML hierarchy placement.
+# You should see the spherical illumination reflecting two lights' radius
+# on the cubes mesh.
+
+NavigationInfo {
+	headlight FALSE
+	type ["EXAMINE", "ANY"]
+}
+
+# Looks best on dark but not totally black color, too see other cubes
+# (not illuminated)
+Background { skyColor [ 0.2 0.2 0.2 ] }
+
+Group {
+  children [
+    PointLight { radius 30 color 0 1 1 }
+    Shape { geometry PointSet {
+          coord Coordinate { point [ 0 0 0 ] }
+          color Color { color [ 0 1 1 ] }
+        } }
+
+    DEF CMesh Inline { url "cubes_mesh.wrl" }
+
+    Transform {
+      translation 100 0 0
+      children [
+
+        SpotLight { radius 70 color 1 1 0 location 0 0 40 }
+        Shape { geometry PointSet {
+          coord Coordinate { point [ 0 0 40 ] }
+          color Color { color [ 1 1 0 ] }
+        } }
+
+        USE CMesh
+      ]
+    }
+  ]
+}
