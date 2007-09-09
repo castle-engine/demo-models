@@ -16,18 +16,24 @@
 # to render view of this model with shadows.
 
 # VRML 2.0 notes:
-# I use "ambientIntensity 1" for evey light to make this look the same
-# as VRML 1.0 analogous file. In VRML 1.0 ambientIntensity is taken from
-# intensity, and default intensity is 1. In VRML 2.0 default ambientIntensity
-# is 0. So lights in VRML 2.0 by default are darker (and usually better-looking,
-# actually) than VRML 1.0.
+# - In VRML 2.0, positional lights affect everything within their radius,
+#   regardless of position in VRML node hierarchy. So I had to set appropriate
+#   radius for them and make the three object instances far away to actually
+#   make this test accurate (otherwise e.g. point light from leftmost instance
+#   would illuminate also middle and rightmost instance).
+# - I use "ambientIntensity 1" for evey light to make this look the same
+#   as VRML 1.0 analogous file. In VRML 1.0 ambientIntensity is taken from
+#   intensity, and default intensity is 1. In VRML 2.0 default ambientIntensity
+#   is 0. So lights in VRML 2.0 by default are darker (and usually better-looking,
+#   actually) than VRML 1.0.
 
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.001740425010212 -0.029249431565404 -0.113615833222866
+# up -0.003818256547675 0.968430042266846 -0.249255642294884
+# gravityUp 0 1 0
 Viewpoint {
-  position 26.037553787231445 -0.00000117056959 37.542552947998047
-  orientation -0.000000000723908 1.000034332275391 0 0.033117223531008
-  # alternative representation of "orientation" :
-  # direction -0.003887364408001 -0.000000000002814 -0.117335610091686
-  # up 0 1 4.37113882867379E-008
+  position 43.164356231689453 15.558923721313477 69.951637268066406
+  orientation -0.998149335384369 0.060339916497469 0.007452552206814 0.25240433216095
 }
 
 Switch {
@@ -44,6 +50,7 @@ Switch {
       ambientIntensity 1
       location 10 0 0
       color 1 0 0
+      radius 20
     }
 
     # setup spot light
@@ -60,6 +67,7 @@ Switch {
       direction -0.2 0 -1
       color 0 0 1
       cutOffAngle 0.1
+      radius 20
     }
 
     # setup directional light
@@ -126,7 +134,7 @@ Transform {
 }
 
 Transform {
-  translation 20 0 0
+  translation 40 0 0
   children [
     USE LightDir
     USE Objects
@@ -134,7 +142,7 @@ Transform {
 }
 
 Transform {
-  translation 40 0 0
+  translation 80 0 0
   children [
     USE LightPointPos
     USE LightPoint
