@@ -2,8 +2,5 @@
 
 <animation backwards="false" loop="true">
   <frame file_name="specular_demo_1.wrl" time="0" />
-  <frame file_name="specular_demo_2.wrl" time="1" />
-  <frame file_name="specular_demo_3.wrl" time="2" />
-  <frame file_name="specular_demo_4.wrl" time="3" />
-  <frame file_name="specular_demo_1.wrl" time="4" />
+  <frame file_name="specular_demo_2.wrl" time="4" />
 </animation>

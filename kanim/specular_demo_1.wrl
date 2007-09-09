@@ -3,12 +3,31 @@
 # Copied from ../vrml_2/specular_demo.wrl for kanim demo.
 
 NavigationInfo {
-  type "WALK"
+  type "FLY"
   headlight FALSE
 }
 
-PointLight {
-  location -10 0 10
+Transform {
+  center 0 0 0
+  rotation 0 0 1 0
+  children Transform {
+    translation 10 0 10
+    children [
+      PointLight { location 0 0 0 }
+      # point to indicate light position
+      Shape {
+        geometry PointSet {
+          coord Coordinate { point 0 0 0 }
+          color Color { color 1 1 1 }
+        }
+      }
+      # sphere to indicate light radius
+#       Shape {
+#         appearance Appearance { material Material { transparency 0.5 } }
+#         geometry Sphere { radius 100 }
+#       }
+    ]
+  }
 }
 
 Viewpoint  {
