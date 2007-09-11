@@ -1,0 +1,75 @@
+#VRML V2.0 utf8
+
+# simple proto with empty interface
+PROTO MySphere [] { Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry Sphere { radius 5.0 } }
+}
+
+# simple use of MySphere proto (radius 5)
+MySphere { }
+
+# this shouldn't be allowed
+# MySphere { whatever 1 }
+
+# simple proto with non-empty interface, but it's interface is not important
+# (field "whatever" is not referenced by any "IS" clause).
+# Also, overriding MySphere name.
+PROTO MySphere [
+  field SFFloat whatever 123.0
+  ] {
+  Shape {
+    appearance Appearance { material Material { diffuseColor 0 1 0 } }
+    geometry Sphere { radius 3.0 } }
+}
+
+Transform {
+  translation 10 0 0
+
+  # prototype of a node that cannot be root node (Material can only
+  # be within appearance.material).
+  # Also, prototype within other node (but still visible outside of
+  # this node).
+  PROTO RedMaterial [] { Material { diffuseColor 1 0 0 } }
+
+  children [
+    # normal sphere, radius 4, for comparison with prototyped
+    Shape {
+      appearance Appearance { material Material { diffuseColor 0 0 1 } }
+      geometry Sphere { radius 4.0 }
+    }
+
+    Transform {
+      translation 10 0 0
+      # use MySphere (radius 3, with whatever field) proto
+      children MySphere { whatever 456.0 }
+    }
+
+    Transform {
+      translation 20 0 0
+      # use RedMaterial proto (radius 2)
+      children Shape {
+        appearance DEF AWithMaterial Appearance { material RedMaterial { } }
+        geometry Sphere { radius 2.0 }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 40 0 0
+  children Shape {
+    # use appearance with RedMaterial expanded proto (radius 1)
+    appearance USE AWithMaterial
+    geometry Sphere { radius 1.0 }
+  }
+}
+
+Transform {
+  translation 50 0 0
+  # use RedMaterial proto for the 2nd time
+  children Shape {
+    appearance Appearance { material RedMaterial { } }
+    geometry Sphere { radius 0.5 }
+  }
+}
