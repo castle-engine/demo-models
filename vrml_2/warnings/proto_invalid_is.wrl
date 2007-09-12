@@ -1,0 +1,34 @@
+#VRML V2.0 utf8
+
+# Invalid: notExisting field in proto "IS"
+
+PROTO MyMaterial [] {
+  Material { diffuseColor IS notExisting }
+}
+
+Shape {
+  appearance Appearance { material MyMaterial { } }
+  geometry Sphere { radius 5.0 }
+}
+
+# ----------------------------------------------------------------------------
+
+# Invalid: incompatible types of field in proto "IS" (SFFloat, while
+# diffuseColor is SFColor)
+
+PROTO MyMaterial2 [
+  field SFFloat floatField 123.0
+] {
+  Material { diffuseColor IS floatField }
+}
+
+Shape {
+  appearance Appearance { material MyMaterial2 { } }
+  geometry Sphere { radius 5.0 }
+}
+
+# ----------------------------------------------------------------------------
+
+# Valid (just to see that we get here)
+
+Shape { geometry Sphere { } }
