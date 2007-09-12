@@ -9,9 +9,6 @@ PROTO MySphere [] { Shape {
 # simple use of MySphere proto (radius 5)
 MySphere { }
 
-# this shouldn't be allowed
-# MySphere { whatever 1 }
-
 # simple proto with non-empty interface, but it's interface is not important
 # (field "whatever" is not referenced by any "IS" clause).
 # Also, overriding MySphere name.
