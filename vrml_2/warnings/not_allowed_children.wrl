@@ -1,0 +1,28 @@
+#VRML V2.0 utf8
+
+# Invalid (Material cannot be in root level)
+# TODO: view3dscene ignores this silently for now
+DEF InvalidRootMaterial Material { }
+
+Transform {
+  children [
+    # Invalid (Material cannot be in Transform.children)
+    DEF InvalidMaterialInTransform Material { }
+
+    # Invalid (Material cannot be in appearance)
+    Shape { appearance DEF InvalidMaterialInAppearance Material { } }
+  ]
+}
+
+PROTO MaterialSphere [
+  field SFNode material NULL
+] {
+  Shape {
+    geometry Sphere { }
+    appearance Appearance { material IS material }
+  }
+}
+
+# Invalid: you put Box node where Material node is expected
+# TODO: view3dscene ignores this silently for now
+MaterialSphere { material Box { } }

@@ -1,0 +1,69 @@
+#VRML V2.0 utf8
+
+PROTO MaterialSphere [
+  field SFNode material NULL
+] {
+  Shape {
+    geometry Sphere { }
+    appearance Appearance { material IS material }
+  }
+}
+
+# yellow sphere
+Transform {
+  translation 5 0 0
+  children MaterialSphere { material Material { diffuseColor 1 1 0 } }
+}
+
+# default (unlit) sphere
+Transform {
+  translation 10 0 0
+  children MaterialSphere { }
+}
+
+PROTO MaterialSphereDefaultRed [
+  field SFNode material Material { diffuseColor 1 0 0 }
+] {
+  Shape {
+    geometry Sphere { }
+    appearance Appearance { material IS material }
+  }
+}
+
+# yellow sphere
+Transform {
+  translation 15 0 0
+  children MaterialSphereDefaultRed {
+    material DEF YellowMat Material { diffuseColor 1 1 0 } }
+}
+
+# this is interesting: red lit sphere, since prototype specifies default
+# material
+Transform {
+  translation 20 0 0
+  children MaterialSphereDefaultRed { }
+}
+
+# Another interesting prototype: default is to have yellow sphere.
+# Default prototype field value has USE clause inside.
+PROTO MaterialSphereDefaultYellow [
+  field SFNode app Appearance { material USE YellowMat }
+] {
+  Shape {
+    geometry Sphere { }
+    appearance IS app
+  }
+}
+
+# blue sphere
+Transform {
+  translation 25 0 0
+  children MaterialSphereDefaultYellow {
+    app Appearance { material Material { diffuseColor 0 0 1 } } }
+}
+
+# yellow lit sphere, since prototype specifies default appearance
+Transform {
+  translation 30 0 0
+  children MaterialSphereDefaultYellow { }
+}
