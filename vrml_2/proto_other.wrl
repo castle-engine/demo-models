@@ -1,0 +1,32 @@
+#VRML V2.0 utf8
+
+DEF MySphere Shape { geometry Sphere { }
+  appearance Appearance { material Material { diffuseColor 0 0 1 } } }
+
+USE MySphere
+
+PROTO SomeSpheres [
+] {
+  Group {
+    children [
+      DEF MySphere Shape { geometry Sphere { }
+        appearance Appearance { material Material { diffuseColor 1 1 0 } } }
+      Transform {
+        translation 5 0 0
+        children USE MySphere
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 5 0 0
+  children SomeSpheres { }
+}
+
+# This should be blue, not yellow, because PROTO SomeSpheres has separate
+# DEF / USE namespace, so yellow MySphere there doesn't affect outside.
+Transform {
+  translation 15 0 0
+  children USE MySphere
+}
