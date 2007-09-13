@@ -1,0 +1,139 @@
+#VRML V2.0 utf8
+
+# ----------------------------------------------------------------------------
+# Nested prototype test
+
+PROTO Table [
+  field SFColor color    1 1 0
+  field SFColor legColor 0 0 1
+] {
+  PROTO Leg [
+    field SFColor color 1 1 0
+  ] {
+    Transform {
+      scale 0.1 1 0.1
+      children Shape {
+        geometry Box { }
+        appearance Appearance { material Material { diffuseColor IS color } }
+      }
+    }
+  }
+
+  Group {
+    children [
+      # It would be more efficient to instantiate four legs using DEF / USE
+      # mechanism, but we deliberately use proto to test nested prototypes.
+      Transform {
+        translation +1 0 -1
+        children Leg { color IS legColor }
+      }
+      Transform {
+        translation +1 0 +1
+        children Leg { color IS legColor }
+      }
+      Transform {
+        translation -1 0 -1
+        children Leg { color IS legColor }
+      }
+      Transform {
+        translation -1 0 +1
+        children Leg { color IS legColor }
+      }
+      Transform {
+        translation 0 1 0
+        scale 1 0.1 1
+        children Shape {
+          geometry Box { }
+          appearance Appearance { material Material { diffuseColor IS color } }
+        }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 0 0
+  children Table { }
+}
+
+Transform {
+  translation 5 0 0
+  children Table { color 1 0 0 }
+}
+
+Transform {
+  translation 10 0 0
+  children Table { color 1 0 0 legColor 1 1 1 }
+}
+
+# ----------------------------------------------------------------------------
+# Outside prototype may also be used inside, so this row is equivalent to
+# previous one.
+
+PROTO Leg2 [
+  field SFColor color 1 1 0
+] {
+  Transform {
+    scale 0.1 1 0.1
+    children Shape {
+      geometry Box { }
+      appearance Appearance { material Material { diffuseColor IS color } }
+    }
+  }
+}
+
+PROTO Table2 [
+  field SFColor color    1 1 0
+  field SFColor legColor 0 0 1
+] {
+  Group {
+    children [
+      # It would be more efficient to instantiate four legs using DEF / USE
+      # mechanism, but we deliberately use proto to test nested prototypes.
+      Transform {
+        translation +1 0 -1
+        children Leg2 { color IS legColor }
+      }
+      Transform {
+        translation +1 0 +1
+        children Leg2 { color IS legColor }
+      }
+      Transform {
+        translation -1 0 -1
+        children Leg2 { color IS legColor }
+      }
+      Transform {
+        translation -1 0 +1
+        children Leg2 { color IS legColor }
+      }
+      Transform {
+        translation 0 1 0
+        scale 1 0.1 1
+        children Shape {
+          geometry Box { }
+          appearance Appearance { material Material { diffuseColor IS color } }
+        }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 0 -5
+  children [
+    Transform {
+      translation 0 0 0
+      children Table2 { }
+    }
+
+    Transform {
+      translation 5 0 0
+      children Table2 { color 1 0 0 }
+    }
+
+    Transform {
+      translation 10 0 0
+      children Table2 { color 1 0 0 legColor 1 1 1 }
+    }
+  ]
+}
