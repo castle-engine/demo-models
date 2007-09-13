@@ -17,6 +17,15 @@ PROTO SomeSpheres [
       }
     ]
   }
+
+  # Some bonus useless nodes, just to test that reading and duplicating
+  # non-first prototype nodes also works
+  Shape { geometry Box { }
+    appearance Appearance { material Material { diffuseColor 1 1 0 } } }
+
+  USE MySphere
+
+  Material { }
 }
 
 Transform {

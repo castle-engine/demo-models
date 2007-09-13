@@ -28,6 +28,12 @@ Shape {
 }
 
 # ----------------------------------------------------------------------------
+# other proto invalid test: proto without any fields
+
+PROTO Empty [] { }
+Empty { }
+
+# ----------------------------------------------------------------------------
 
 # Valid (just to see that we get here)
 
