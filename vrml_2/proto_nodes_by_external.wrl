@@ -1,0 +1,63 @@
+#VRML V2.0 utf8
+
+# Test of EXTERNPROTO handling.
+# This is very similar to proto_nodes.wrl test (and in fact should
+# produce exactly the same rendering result), but all it's prototypes
+# are defined as external and reference proto_nodes.wrl.
+#
+# Prototype type names deliberately changed to have _Imported suffix,
+# to test that EXTERNPROTO determines available name (not actual proto
+# name in the external file).
+
+EXTERNPROTO MaterialSphere_Imported [
+  field SFNode material
+] [ "proto_nodes.wrl" ]
+
+# yellow sphere
+Transform {
+  translation 5 0 0
+  children MaterialSphere_Imported { material Material { diffuseColor 1 1 0 } }
+}
+
+# default (unlit) sphere
+Transform {
+  translation 10 0 0
+  children MaterialSphere_Imported { }
+}
+
+EXTERNPROTO MaterialSphereDefaultRed_Imported [
+  field SFNode material
+] [ "proto_nodes.wrl#MaterialSphereDefaultRed" ]
+
+# yellow sphere
+Transform {
+  translation 15 0 0
+  children MaterialSphereDefaultRed_Imported {
+    material DEF YellowMat Material { diffuseColor 1 1 0 } }
+}
+
+# this is interesting: red lit sphere, since prototype specifies default
+# material
+Transform {
+  translation 20 0 0
+  children MaterialSphereDefaultRed_Imported { }
+}
+
+# Another interesting prototype: default is to have yellow sphere.
+# Default prototype field value has USE clause inside.
+EXTERNPROTO MaterialSphereDefaultYellow_Imported [
+  field SFNode app
+] [ "proto_nodes.wrl#MaterialSphereDefaultYellow" ]
+
+# blue sphere
+Transform {
+  translation 25 0 0
+  children MaterialSphereDefaultYellow_Imported {
+    app Appearance { material Material { diffuseColor 0 0 1 } } }
+}
+
+# yellow lit sphere, since prototype specifies default appearance
+Transform {
+  translation 30 0 0
+  children MaterialSphereDefaultYellow_Imported { }
+}
