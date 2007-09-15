@@ -15,6 +15,12 @@
 #KambiTriangulation { quadricSlices -3 }
 #KambiTriangulation { quadricSlices 1 }
 
+EXTERNPROTO KambiTriangulation [
+  exposedField SFLong    quadricSlices
+  exposedField SFLong    quadricStacks
+  exposedField SFLong    rectDivisions
+] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+
 DEF Row Group {
   children [
     Shape {

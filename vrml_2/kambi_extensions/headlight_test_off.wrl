@@ -1,5 +1,15 @@
 #VRML V2.0 utf8
 
+EXTERNPROTO KambiHeadLight [
+  exposedField SFFloat     ambientIntensity
+  exposedField SFVec3f     attenuation
+  exposedField SFColor     color
+  exposedField SFFloat     intensity
+  exposedField SFBool      spot
+  exposedField SFFloat     spotDropOffRate
+  exposedField SFFloat     spotCutOffAngle
+] [ "urn:vrmlengine.sourceforge.net:node:KambiHeadLight" ]
+
 NavigationInfo {
   headlight FALSE
 }

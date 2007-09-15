@@ -1,5 +1,11 @@
 #VRML V2.0 utf8
 
+EXTERNPROTO KambiTriangulation [
+  exposedField SFLong    quadricSlices
+  exposedField SFLong    quadricStacks
+  exposedField SFLong    rectDivisions
+] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+
 # triangulate more, to properly see spot lights on this
 KambiTriangulation { rectDivisions 50 }
 
