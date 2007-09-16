@@ -1,0 +1,92 @@
+#VRML V2.0 utf8
+
+# default, whole white color
+Transform {
+  translation -3 1.5 0
+  children Shape {
+    geometry IndexedLineSet {
+      coord DEF C Coordinate { point [
+        0   0   0, 1   1   0, 2   0   0, 1   -1   0,
+        0.1 0   0, 1.1 1   0, 2.1 0   0, 1.1 -1   0 ] }
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+    }
+  }
+}
+
+# take from material.emissiveColor
+Transform {
+  translation -3 -1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry IndexedLineSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+    }
+  }
+}
+
+# in this case coordIndex will be used to choose color, separate for each vertex.
+# left: shades of red. right: shades of blue.
+Transform {
+  translation 0 +1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry IndexedLineSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      color Color { color [
+        1 0 0, 0.75 0 0, 0.5 0 0, 0.25 0 0,
+        0 0 1, 0 0 0.75, 0 0 0.5, 0 0 0.25 ] }
+    }
+  }
+}
+
+# in this case colors with be sequentially applied to polylines.
+# left: red. right: blue.
+Transform {
+  translation 0 -1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry IndexedLineSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      colorPerVertex FALSE
+      color Color { color [
+        1 0 0,
+        0 0 1 ] }
+    }
+  }
+}
+
+# colors are per vertex and colorIndex specifies which colors should be used.
+# yellow -> white -> red -> green -> blue colors will be used
+# (yes, discontinuity at leftmost point). For both polylines.
+Transform {
+  translation +3 +1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry IndexedLineSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      color Color { color [
+        1 1 0, 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
+      colorIndex [ 0 1 2 3 4 -1 0 1 2 3 4 ]
+    }
+  }
+}
+
+# colors are per polyline and colorIndex specifies which colors should be used.
+# left shape: white, right: yellow.
+Transform {
+  translation +3 -1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry IndexedLineSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      colorPerVertex FALSE
+      color Color { color [ 1 1 0, 1 1 1 ] }
+      colorIndex [ 1, 0 ]
+    }
+  }
+}
