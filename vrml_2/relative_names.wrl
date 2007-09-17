@@ -1,0 +1,8 @@
+#VRML V2.0 utf8
+
+# This VRML file shows that you can use relative filenames
+# specifying inline or texture files. Each relative filename
+# is resolved with respect to the directory where the current
+# VRML file is.
+
+Inline { url "subdir1/relative_inline2.wrl" }

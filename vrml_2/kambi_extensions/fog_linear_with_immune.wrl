@@ -20,13 +20,7 @@ Fog {
   visibilityRange 160
 }
 
-# separate FALSE is used below to allow lights from castle_with_lights.wrl
-# to shine on test cube (with fogImmune) below.
-# TODO: this is VRML 1.0 construct, should be in VRML 2.0
-WWWInline {
-  separate FALSE
-  name "../castle_with_lights.wrl"
-}
+Inline { url "../castle_with_lights.wrl" }
 
 Transform {
   translation -10 -10 10
