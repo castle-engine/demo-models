@@ -1,0 +1,184 @@
+#VRML V2.0 utf8
+
+# Test handling of color, colorPerVertex, colorIndex fields of
+# IndexedFaceSet.
+
+# default, unlit white color
+Transform {
+  translation -3 1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord DEF C Coordinate { point [
+        0 0 0, 1 0 0, 1 1 0, 0 1 0,
+        0 2 0, 1 2 0 ] }
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+    }
+  }
+}
+
+# unlit, color per vertex, coordIndex indexes colors.
+# You should see that colors when two faces edges meet match
+# (there's no way to make it unmatch with colorPerVertex and without colorIndex,
+# that is "the same vertex index impliles the same color")
+Transform {
+  translation 0 1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+
+      color Color { color [
+        1 0 0, 0 1 0, 0 0 1, 1 1 0,
+        0 1 1, 1 1 1 ] }
+    }
+  }
+}
+
+# unlit, color per face, chosen sequentially from colors.
+Transform {
+  translation 0 -1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+
+      colorPerVertex FALSE
+      color Color { color [ 1 1 0, 1 1 1 ] }
+    }
+  }
+}
+
+# unlit, color per vertex, colorIndex indexes colors.
+# I deliberately made one color on the edge unmatch.
+Transform {
+  translation 3 1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+
+      color Color { color [
+        1 0 0, 0 1 0, 0 0 1, 1 1 0,
+        0 1 1, 1 1 1 ] } ,,,,,, # comma is whitespace in VRML 2.0
+      colorIndex [ 0,,,,,,,,,,,,, 1 2 0 -1 2 3 4 5 ],,,,,,,,,,,
+    }
+  }
+}
+
+# unlit, color per face, colorIndex chooses colors.
+# Colors should look reverted than on the similar demo on the left.
+Transform {
+  translation 3 -1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+
+      colorPerVertex FALSE
+      color Color { color [ 1 1 0, 1 1 1 ] }
+      colorIndex [ 1 0 ]
+    }
+  }
+}
+
+
+# ----------------------------------------------------------------------------
+# Now repeat everything, but make it lit
+
+Transform {
+  translation 0 0 10
+  children [
+    # default, unlit white color
+    Transform {
+      translation -3 1.5 0
+      children Shape {
+        appearance DEF App Appearance { material Material { } }
+        geometry IndexedFaceSet {
+          coord DEF C Coordinate { point [
+            0 0 0, 1 0 0, 1 1 0, 0 1 0,
+            0 2 0, 1 2 0 ] }
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+        }
+      }
+    }
+
+    # unlit, color per vertex, coordIndex indexes colors.
+    # You should see that colors when two faces edges meet match
+    # (there's no way to make it unmatch with colorPerVertex and without colorIndex,
+    # that is "the same vertex index impliles the same color")
+    Transform {
+      translation 0 1.5 0
+      children Shape {
+        appearance USE App
+        geometry IndexedFaceSet {
+          coord USE C
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+
+          color Color { color [
+            1 0 0, 0 1 0, 0 0 1, 1 1 0,
+            0 1 1, 1 1 1 ] }
+        }
+      }
+    }
+
+    # unlit, color per face, chosen sequentially from colors.
+    Transform {
+      translation 0 -1.5 0
+      children Shape {
+        appearance USE App
+        geometry IndexedFaceSet {
+          coord USE C
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+
+          colorPerVertex FALSE
+          color Color { color [ 1 1 0, 1 1 1 ] }
+        }
+      }
+    }
+
+    # unlit, color per vertex, colorIndex indexes colors.
+    # I deliberately made one color on the edge unmatch.
+    Transform {
+      translation 3 1.5 0
+      children Shape {
+        appearance USE App
+        geometry IndexedFaceSet {
+          coord USE C
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+
+          color Color { color [
+            1 0 0, 0 1 0, 0 0 1, 1 1 0,
+            0 1 1, 1 1 1 ] } ,,,,,, # comma is whitespace in VRML 2.0
+          colorIndex [ 0,,,,,,,,,,,,, 1 2 0 -1 2 3 4 5 ],,,,,,,,,,,
+        }
+      }
+    }
+
+    # unlit, color per face, colorIndex chooses colors.
+    # Colors should look reverted than on the similar demo on the left.
+    Transform {
+      translation 3 -1.5 0
+      children Shape {
+        appearance USE App
+        geometry IndexedFaceSet {
+          coord USE C
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+
+          colorPerVertex FALSE
+          color Color { color [ 1 1 0, 1 1 1 ] }
+          colorIndex [ 1 0 ]
+        }
+      }
+    }
+  ]
+}
