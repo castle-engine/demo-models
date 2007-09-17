@@ -23,22 +23,6 @@ Fog {
 
 Inline { url "../../castle_with_lights.wrl" }
 
-# TODO: light from inlined VRML should light also this box below,
-# in VRML 2.0. In VRML 1.0 we used "separate" extension for WWWInline.
-# For now, we just copy here nodes from castle_with_lights.wrl.
-
-PointLight {
-  ambientIntensity 1
-  location -0.48424467735151117 2.030553575594324 5.9872039198498008
-  color 1 0.5 0.5
-}
-
-PointLight {
-  ambientIntensity 1
-  location -11.109210014343262 -36.451499938964844 88.175689697265625
-  color 0.8 0.8 0.8
-}
-
 Transform {
   translation -10 -10 10
   children Shape {

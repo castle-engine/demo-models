@@ -13,5 +13,4 @@ PointLight {
   color 0.8 0.8 0.8
 }
 
-# TODO: VRMl 1.0 version is included for now
-Inline { url "../vrml_1/castle.wrl" }
+Inline { url "castle.wrl" }

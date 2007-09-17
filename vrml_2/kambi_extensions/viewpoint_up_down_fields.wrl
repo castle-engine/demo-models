@@ -9,8 +9,7 @@ Group{
       gravityUp 0 0 1
     }
 
-    # TODO: this leads to VRML 1.0 file for now
-    Inline { url "../../vrml_1/castle_with_lights.wrl" }
+    Inline { url "../castle_with_lights.wrl" }
   ]
 }
 

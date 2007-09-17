@@ -114,7 +114,6 @@ More text... More text... More text... More text... More text... More text...
       description "viewpoint up = +Z but gravity = +Y"
     }
 
-    # TODO: VRMl 1.0 version is included for now
-    Inline { url "../../vrml_1/castle_with_lights.wrl" }
+    Inline { url "../castle_with_lights.wrl" }
   ]
 }
