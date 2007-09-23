@@ -1,0 +1,29 @@
+#VRML V1.0 ascii
+
+# This tests VRML 1.0 "isA" and "fields" features for describing
+# non-standard nodes. Using snippets from VRML 1.0 specification.
+# Result should be *red* cube.
+#
+# Note that authors own VRML viewer, view3dscene, doesn't handle isA
+# for now, so ExtendedMaterial is simply ignored and the cube has
+# default material.
+
+Group {
+  # This should be interpreted like a standard Material node
+  # with red diffuse color.
+  ExtendedMaterial {
+    fields [ MFString isA, MFFloat indexOfRefraction,
+             MFColor diffuseColor, MFFloat transparency ]
+    isA [ "Material" ]
+
+    indexOfRefraction .34
+    diffuseColor 1 0 0
+  }
+
+  # Specifying isA and fields for standard nodes is allowed.
+  Cube {
+    fields [ SFFloat width, SFFloat height, SFFloat depth ]
+    # isA [ "Cube" ]
+    width 10 height 4 depth 3
+  }
+}
