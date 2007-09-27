@@ -2,5 +2,6 @@
 
 NavigationInfo {
   type ["ANY", "EXAMINE"]
+  speed 35
 }
 Inline { url "../castle_with_lights_and_camera.wrl" }

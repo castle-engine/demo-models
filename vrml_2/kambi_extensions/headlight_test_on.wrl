@@ -11,6 +11,7 @@ EXTERNPROTO KambiHeadLight [
 ] [ "urn:vrmlengine.sourceforge.net:node:KambiHeadLight" ]
 
 NavigationInfo {
+  speed 5
 }
 
 Switch {

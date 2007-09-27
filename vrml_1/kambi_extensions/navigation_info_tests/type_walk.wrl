@@ -1,9 +1,10 @@
 #VRML V1.0 ascii
 
 Group{
-  NavigationInfo { 
+  NavigationInfo {
     type ["ANY", "WALK"]
     avatarSize [ 1.75, 3.5, 3.5 ]
+    speed 35
   }
   WWWInline { name "../../castle_with_lights_and_camera.wrl" }
 }

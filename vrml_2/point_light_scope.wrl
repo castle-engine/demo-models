@@ -9,6 +9,7 @@
 NavigationInfo {
 	headlight FALSE
 	type ["EXAMINE", "ANY"]
+        speed 10
 }
 
 # Looks best on dark but not totally black color, too see other cubes
