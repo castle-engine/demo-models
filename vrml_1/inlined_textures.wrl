@@ -49,6 +49,12 @@ Group {
       0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF # bottom row : red white white blue
       0 0x00FF0000 0x00FF0000 0 # middle row : black green green black
       0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF # top row : yellow something something something
+
+      # Again the same nonexisting filename.
+      # Inlined texture should be used instead, and textre cache mechanism
+      # should not share this with previous texture, even though filename
+      # is the same.
+      filename "not_existing_texture_filename"
     }
     Cube {}
   }
