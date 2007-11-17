@@ -1,6 +1,15 @@
 #VRML V2.0 utf8
 
-# Kambi text test - FontStyle and Text nodes test & demo
+# Text3D demo
+
+EXTERNPROTO Text3D [
+  exposedField MFString string
+  exposedField SFNode fontStyle
+  exposedField MFFloat length
+  exposedField SFFloat maxExtent
+  exposedField SFFloat depth
+  exposedField SFBool solid
+] [ "urn:vrmlengine.sourceforge.net:node:Text3D" ]
 
 Transform {
   rotation 1 0 0 -1
@@ -10,10 +19,10 @@ Transform {
       children Shape {
         appearance
           DEF RedApp Appearance { material Material { diffuseColor 1 0 0 } }
-        geometry Text {
+        geometry Text3D {
           string "this is sans-serif"
           fontStyle FontStyle { size 10 family "SANS" }
-          kambiDepth 200
+          depth 200
         }
       }
     }
@@ -22,10 +31,10 @@ Transform {
       translation 0 -20 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is sans-serif italic"
           fontStyle FontStyle { size 10 family "SANS" style "ITALIC" }
-          kambiDepth 180
+          depth 180
         }
       }
     }
@@ -34,10 +43,10 @@ Transform {
       translation 0 -30 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is sans-serif bold"
           fontStyle FontStyle { size 10 family "SANS" style "BOLD" }
-          kambiDepth 160
+          depth 160
         }
       }
     }
@@ -46,10 +55,10 @@ Transform {
       translation 0 -40 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is sans-serif italic+bold"
           fontStyle FontStyle { size 10 family "SANS" style "BOLDITALIC" }
-          kambiDepth 100
+          depth 100
         }
       }
     }
@@ -58,10 +67,10 @@ Transform {
       translation 0 -50 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is SERIF"
           fontStyle FontStyle { size 10 family "SERIF" }
-          kambiDepth 80
+          depth 80
         }
       }
     }
@@ -70,10 +79,10 @@ Transform {
       translation 0 -60 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is SERIF italic"
           fontStyle FontStyle { size 10 family "SERIF" style "ITALIC" }
-          kambiDepth 60
+          depth 60
         }
       }
     }
@@ -82,10 +91,10 @@ Transform {
       translation 0 -70 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is SERIF bold"
           fontStyle FontStyle { size 10 family "SERIF" style "BOLD" }
-          kambiDepth 40
+          depth 40
         }
       }
     }
@@ -94,10 +103,10 @@ Transform {
       translation 0 -80 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is SERIF italic+bold"
           fontStyle FontStyle { size 10 family "SERIF" style "BOLDITALIC" }
-          kambiDepth 30
+          depth 30
         }
       }
     }
@@ -106,10 +115,10 @@ Transform {
       translation 0 -90 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is TYPEWRITER"
           fontStyle FontStyle { size 10 family "TYPEWRITER" }
-          kambiDepth 20
+          depth 20
         }
       }
     }
@@ -118,10 +127,10 @@ Transform {
       translation 0 -100 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is TYPEWRITER italic"
           fontStyle FontStyle { size 10 family "TYPEWRITER" style "ITALIC" }
-          kambiDepth 15
+          depth 15
         }
       }
     }
@@ -130,10 +139,10 @@ Transform {
       translation 0 -110 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is TYPEWRITER bold"
           fontStyle FontStyle { size 10 family "TYPEWRITER" style "BOLD" }
-          kambiDepth 10
+          depth 10
         }
       }
     }
@@ -142,10 +151,10 @@ Transform {
       translation 0 -120 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is TYPEWRITER italic+bold"
           fontStyle FontStyle { size 10 family "TYPEWRITER" style "BOLDITALIC" }
-          kambiDepth 5
+          depth 5
         }
       }
     }
@@ -154,10 +163,10 @@ Transform {
       translation 0 -130 0
       children Shape {
         appearance USE RedApp
-        geometry Text {
+        geometry Text3D {
           string "this is two times smaller than above"
           fontStyle DEF FS5 FontStyle { size 5 family "TYPEWRITER" style "BOLDITALIC" }
-          kambiDepth 5
+          depth 5
         }
       }
     }
@@ -167,10 +176,10 @@ Transform {
       children Shape {
         appearance
           DEF GreenApp Appearance { material Material { diffuseColor 0 1 0 } }
-        geometry Text {
+        geometry Text3D {
           string [ "and here we have", "a few lines", "all in one Text node"]
           fontStyle USE FS5
-          kambiDepth 5
+          depth 5
         }
       }
     }
@@ -180,7 +189,7 @@ Transform {
       children Shape {
         appearance
           DEF GreenApp Appearance { material Material { diffuseColor 0 1 0 } }
-        geometry Text {
+        geometry Text3D {
           string [ "and a few more lines", "but now", "with different spacing"]
           fontStyle FontStyle {
             size 5 family "TYPEWRITER" style "BOLDITALIC" spacing 0.5 }
@@ -192,32 +201,37 @@ Transform {
       translation 0 -180 0
       children Shape {
         appearance Appearance { material Material { diffuseColor 1 1 1 } }
-        geometry Text {
+        geometry Text3D {
           string [ "And here we have",
                    "a few lines",
                    "using MIDDLE justification.",
                    "This text is white and uses FontStyle",
-                   "such that it's normal serif font, 10 units tall." ]
+                   "such that it's normal serif font, 10 units tall.",
+                   "depth is 0 and not solid, so visible from both sides"
+                    ]
           fontStyle FontStyle {
             size 10
             justify "MIDDLE"
           }
+          depth 0 # depth 0, and not solid, so visible from both sides
+          solid FALSE
         }
-      }
+     }
     }
 
     Transform {
       translation 0 -235 0
       children Shape {
         appearance Appearance { material Material { diffuseColor 1 1 1 } }
-        geometry Text {
-          string [ "And a few more lines",
-                   "with some unimportant text",
-                   "using END justification." ]
+        geometry Text3D {
+          string [ "END justification.",
+                   "depth is 0 but still solid",
+                   "so it's visible only from the front" ]
           fontStyle FontStyle {
             size 10
             justify "END"
           }
+          depth 0 # depth 0, but still solid
         }
       }
     }

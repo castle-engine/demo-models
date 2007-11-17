@@ -8,7 +8,7 @@
 # Next three rows = some parameters set to very high values,
 # next three rows = some parameters set to very low values.
 #
-# Bets viewed in 'wireframe' mode.
+# Best viewed in 'wireframe' mode.
 
 # Additional test: does view3dscene can handle wrong values ?
 #KambiTriangulation { rectDivisions -299 }
