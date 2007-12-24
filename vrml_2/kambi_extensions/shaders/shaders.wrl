@@ -217,7 +217,7 @@ Transform {
 }
 
 # ----------------------------------------------------------------------------
-# row 5
+# row 5 - deliberately broken shader
 
 Transform {
   translation 0 12 0
@@ -241,6 +241,14 @@ Transform {
             language "GLSL"
             parts [
               ShaderPart { type "VERTEX" url "glsl_deliberately_incorrect.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
+            ]
+          }
+
+          ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "VERTEX" url "glsl_not_existing.vs" }
               ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
             ]
           }
@@ -275,3 +283,5 @@ Transform {
     }
   ]
 }
+
+# TODO: only vs or only fs test.
