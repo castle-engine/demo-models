@@ -60,8 +60,8 @@ Transform {
           DEF CompShader2 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
               ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
+              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
             ]
           }
         ]
@@ -208,74 +208,6 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader4
-            material Material { }
-          }
-          geometry Cylinder { }
-        }
-    }
-  ]
-}
-
-# ----------------------------------------------------------------------------
-# row 5 - deliberately broken shader
-
-Transform {
-  translation 0 12 0
-  children [
-
-    Shape {
-      appearance DEF App5_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
-        shaders [
-          # I don't handle HLSL (and Kambi engine never will, I'm not going
-          # to port to M$ Direct X API). This is just to test that
-          # such ProgramShader is correctly parsed and ignored.
-          ProgramShader {
-            language "HLSL"
-            programs [
-              ShaderProgram { type "VERTEX" }
-              ShaderProgram { type "FRAGMENT" }
-            ] }
-          # Actual test of OpenGL shader.
-          DEF CompShader5 ComposedShader {
-            language "GLSL"
-            parts [
-              ShaderPart { type "VERTEX" url "glsl_deliberately_incorrect.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-            ]
-          }
-
-          ComposedShader {
-            language "GLSL"
-            parts [
-              ShaderPart { type "VERTEX" url "glsl_not_existing.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-            ]
-          }
-        ]
-        material Material { }
-      }
-      geometry Sphere { }
-    }
-
-    Transform {
-      translation 3 0 0
-      children
-        Shape {
-          appearance USE App5_WithTexture
-          geometry Box { }
-        }
-    }
-
-    Transform {
-      translation 6 0 0
-      children
-        Shape {
-          appearance DEF App5_NoTexture Appearance {
-            # Just like AppShaderTestWithTexture, but a little simplified.
-            # CompShaderTest is reused, so it should be reused (even though
-            # Appearance node is different).
-            shaders USE CompShader5
             material Material { }
           }
           geometry Cylinder { }

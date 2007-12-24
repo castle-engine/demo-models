@@ -1,0 +1,134 @@
+#VRML V2.0 utf8
+
+Transform {
+  translation 0 0 0
+  children [
+
+    Shape {
+      appearance DEF App1_WithTexture Appearance {
+        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        shaders [
+          # I don't handle HLSL (and Kambi engine never will, I'm not going
+          # to port to M$ Direct X API). This is just to test that
+          # such ProgramShader is correctly parsed and ignored.
+          ProgramShader {
+            language "HLSL"
+            programs [
+              ShaderProgram { type "VERTEX" }
+              ShaderProgram { type "FRAGMENT" }
+            ] }
+
+          # Shader with deliberately incorrect source code.
+          ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "VERTEX" url "glsl_deliberately_incorrect.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
+            ]
+          }
+
+          # Not existing source file for shader.
+          ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "VERTEX" url "glsl_not_existing.vs" }
+            ]
+          }
+
+          # No shaders specified.
+          ComposedShader {
+            language "GLSL"
+            parts [ ]
+          }
+
+          # Incorrect type (SOMETHING-STRANGE), but after all this is
+          # a GLSL program that may be used.
+          DEF CompShader1 ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "SOMETHING-STRANGE" url "glsl_not_existing.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl_negative.fs" }
+            ]
+          }
+        ]
+        material Material { }
+      }
+      geometry Sphere { }
+    }
+
+    Transform {
+      translation 3 0 0
+      children
+        Shape {
+          appearance USE App1_WithTexture
+          geometry Box { }
+        }
+    }
+
+    Transform {
+      translation 6 0 0
+      children
+        Shape {
+          appearance DEF App1_NoTexture Appearance {
+            # Just like AppShaderTestWithTexture, but a little simplified.
+            # CompShaderTest is reused, so it should be reused (even though
+            # Appearance node is different).
+            shaders USE CompShader1
+            material Material { }
+          }
+          geometry Cylinder { }
+        }
+    }
+  ]
+}
+
+Transform {
+  translation 0 3 0
+  children [
+
+    Shape {
+      appearance DEF App2_WithTexture Appearance {
+        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        shaders [
+          # Vertex and fragment programs specified multiple times.
+          DEF CompShader2 ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
+              ShaderPart { type "FRAGMENT" url "glsl_simple_2.fs" }
+              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl_simple_3.fs" }
+              ShaderPart { type "VERTEX" url "glsl_simple_2.vs" }
+            ]
+          }
+        ]
+        material Material { }
+      }
+      geometry Sphere { }
+    }
+
+    Transform {
+      translation 3 0 0
+      children
+        Shape {
+          appearance USE App2_WithTexture
+          geometry Box { }
+        }
+    }
+
+    Transform {
+      translation 6 0 0
+      children
+        Shape {
+          appearance DEF App2_NoTexture Appearance {
+            # Just like AppShaderTestWithTexture, but a little simplified.
+            # CompShaderTest is reused, so it should be reused (even though
+            # Appearance node is different).
+            shaders USE CompShader2
+            material Material { }
+          }
+          geometry Cylinder { }
+        }
+    }
+  ]
+}
