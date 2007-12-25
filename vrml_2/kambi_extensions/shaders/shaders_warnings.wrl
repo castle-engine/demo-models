@@ -95,10 +95,10 @@ Transform {
             language "GLSL"
             parts [
               ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple_2.fs" }
+              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
               ShaderPart { type "VERTEX" url "glsl_simple.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple_3.fs" }
-              ShaderPart { type "VERTEX" url "glsl_simple_2.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
+              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
             ]
           }
         ]

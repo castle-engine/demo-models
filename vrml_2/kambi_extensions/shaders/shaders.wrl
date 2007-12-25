@@ -37,7 +37,7 @@ Group {
 }
 
 # ----------------------------------------------------------------------------
-# row 2
+# row 2 - simple shader
 
 Transform {
   translation 0 3 0
@@ -97,7 +97,7 @@ Transform {
 }
 
 # ----------------------------------------------------------------------------
-# row 3
+# row 3 - phong shader
 
 Transform {
   translation 0 6 0
@@ -107,16 +107,6 @@ Transform {
       appearance DEF App3_WithTexture Appearance {
         texture ImageTexture  { url "../../../textures/brick031.jpg" }
         shaders [
-          # I don't handle HLSL (and Kambi engine never will, I'm not going
-          # to port to M$ Direct X API). This is just to test that
-          # such ProgramShader is correctly parsed and ignored.
-          ProgramShader {
-            language "HLSL"
-            programs [
-              ShaderProgram { type "VERTEX" }
-              ShaderProgram { type "FRAGMENT" }
-            ] }
-          # Actual test of OpenGL shader.
           DEF CompShader3 ComposedShader {
             language "GLSL"
             parts [
@@ -157,7 +147,7 @@ Transform {
 }
 
 # ----------------------------------------------------------------------------
-# row 4
+# row 4 - toon shader
 
 Transform {
   translation 0 9 0
@@ -167,16 +157,6 @@ Transform {
       appearance DEF App4_WithTexture Appearance {
         texture ImageTexture  { url "../../../textures/brick031.jpg" }
         shaders [
-          # I don't handle HLSL (and Kambi engine never will, I'm not going
-          # to port to M$ Direct X API). This is just to test that
-          # such ProgramShader is correctly parsed and ignored.
-          ProgramShader {
-            language "HLSL"
-            programs [
-              ShaderProgram { type "VERTEX" }
-              ShaderProgram { type "FRAGMENT" }
-            ] }
-          # Actual test of OpenGL shader.
           DEF CompShader4 ComposedShader {
             language "GLSL"
             parts [
@@ -216,4 +196,153 @@ Transform {
   ]
 }
 
-# TODO: only vs or only fs test.
+# ----------------------------------------------------------------------------
+# row 5 - only fragment shader (negative)
+
+Transform {
+  translation 0 12 0
+  children [
+
+    Shape {
+      appearance DEF App5_WithTexture Appearance {
+        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        shaders [
+          DEF CompShader5 ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "FRAGMENT" url "glsl_negative.fs" }
+            ]
+          }
+        ]
+        material Material { }
+      }
+      geometry Sphere { }
+    }
+
+    Transform {
+      translation 3 0 0
+      children
+        Shape {
+          appearance USE App5_WithTexture
+          geometry Box { }
+        }
+    }
+
+    Transform {
+      translation 6 0 0
+      children
+        Shape {
+          appearance DEF App5_NoTexture Appearance {
+            # Just like AppShaderTestWithTexture, but a little simplified.
+            # CompShaderTest is reused, so it should be reused (even though
+            # Appearance node is different).
+            shaders USE CompShader5
+            material Material { }
+          }
+          geometry Cylinder { }
+        }
+    }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# row 6 - only vertex shader (some deform)
+
+Transform {
+  translation 0 15 0
+  children [
+
+    Shape {
+      appearance DEF App6_WithTexture Appearance {
+        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        shaders [
+          DEF CompShader6 ComposedShader {
+            language "GLSL"
+            parts [
+              ShaderPart { type "VERTEX" url "glsl_some_deform.vs" }
+            ]
+          }
+        ]
+        material Material { }
+      }
+      geometry Sphere { }
+    }
+
+    Transform {
+      translation 3 0 0
+      children
+        Shape {
+          appearance USE App6_WithTexture
+          geometry Box { }
+        }
+    }
+
+    Transform {
+      translation 6 0 0
+      children
+        Shape {
+          appearance DEF App6_NoTexture Appearance {
+            # Just like AppShaderTestWithTexture, but a little simplified.
+            # CompShaderTest is reused, so it should be reused (even though
+            # Appearance node is different).
+            shaders USE CompShader6
+            material Material { }
+          }
+          geometry Cylinder { }
+        }
+    }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# row 7 - toon shader, with fragment part split into 2 shader files
+
+Transform {
+  translation 0 18 0
+  children [
+
+    Shape {
+      appearance DEF App7_WithTexture Appearance {
+        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        shaders [
+          DEF CompShader7 ComposedShader {
+            language "GLSL"
+            parts [
+              # This is a valid GLSL program, two fragment shaders but only
+              # one of them has main() function.
+              ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_helper.fs" }
+              ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_main.fs" }
+              ShaderPart { type "VERTEX" url "glsl_toon_shading.vs" }
+            ]
+          }
+        ]
+        material Material { }
+      }
+      geometry Sphere { }
+    }
+
+    Transform {
+      translation 3 0 0
+      children
+        Shape {
+          appearance USE App7_WithTexture
+          geometry Box { }
+        }
+    }
+
+    Transform {
+      translation 6 0 0
+      children
+        Shape {
+          appearance DEF App7_NoTexture Appearance {
+            # Just like AppShaderTestWithTexture, but a little simplified.
+            # CompShaderTest is reused, so it should be reused (even though
+            # Appearance node is different).
+            shaders USE CompShader7
+            material Material { }
+          }
+          geometry Cylinder { }
+        }
+    }
+  ]
+}
