@@ -1,10 +1,10 @@
-/* TODO: why does this messes up depth buffer ? */
-
 void main(void)
 {
-  gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-  gl_Position[0] += gl_Vertex[1];
-  gl_Position[2] += gl_Vertex[1];
+  /* some pretty dumb deformation of vertex positions */
+  vec4 v = gl_Vertex;
+  v[0] += v[1];
+  v[2] += v[1];
+  gl_Position = gl_ModelViewProjectionMatrix * v;
 
   gl_FrontColor = gl_Color;
 
