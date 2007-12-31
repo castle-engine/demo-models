@@ -13,12 +13,16 @@ void main()
 {
   float intensity;
   vec4 colour;
+
   // Normalize the normal, again
   vec3 n = normalize(normal);
+
   // Normalize light direction and convert to a vec3
   vec3 lDir = normalize(vec3(gl_LightSource[0].position));
+
   // Compute light intensity using dot product
   intensity = dot(lDir,n);
+
   // Decide which shade to used based on intensity
   if (intensity > 0.95)
      colour = vec4(1, 1, 0, 1);
@@ -28,6 +32,7 @@ void main()
      colour = vec4(0.5, 0.5, 0, 1);
   else
      colour = vec4(0.25, 0.25, 0, 1);
+
   // Finally, set destination colour
   gl_FragColor = colour;
 }
