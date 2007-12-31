@@ -1,9 +1,14 @@
 /* This is much like, glsl_toon_shading.fs, but it's splitted
    into two files, just to test GLSL functions and the fact that
    you can attach more than 1 fragment shader and that VRML engine
-   allows this. */
+   allows this.
+
+   Also, you can freely use either color_from_intensity_alt or
+   color_from_intensity. color_from_intensity_alt looks worse, but avoids
+   "if" and so works even on fglrx. */
 
 vec4 color_from_intensity(float intensity);
+vec4 color_from_intensity_alt(float intensity);
 
 varying vec3 normal;
 void main()
