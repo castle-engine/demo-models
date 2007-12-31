@@ -1,5 +1,7 @@
 #VRML V2.0 utf8
 
+# PointLight { location 0 0 0 }
+
 # ----------------------------------------------------------------------------
 # row 1 - no shader
 
@@ -9,7 +11,7 @@ Group {
     Shape {
       appearance DEF App1_WithTexture Appearance {
         texture ImageTexture  { url "../../../textures/brick031.jpg" }
-        material Material { }
+        material DEF Mat Material { specularColor 1 1 1 }
       }
       geometry Sphere { }
     }
@@ -28,7 +30,7 @@ Group {
       children
         Shape {
           appearance DEF App1_NoTexture Appearance {
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
@@ -65,7 +67,7 @@ Transform {
             ]
           }
         ]
-        material Material { }
+        material USE Mat
       }
       geometry Sphere { }
     }
@@ -88,7 +90,7 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader2
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
@@ -115,7 +117,7 @@ Transform {
             ]
           }
         ]
-        material Material { }
+        material USE Mat
       }
       geometry Sphere { }
     }
@@ -138,7 +140,7 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader3
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
@@ -165,7 +167,7 @@ Transform {
             ]
           }
         ]
-        material Material { }
+        material USE Mat
       }
       geometry Sphere { }
     }
@@ -188,7 +190,7 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader4
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
@@ -214,7 +216,7 @@ Transform {
             ]
           }
         ]
-        material Material { }
+        material USE Mat
       }
       geometry Sphere { }
     }
@@ -237,7 +239,7 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader5
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
@@ -263,7 +265,7 @@ Transform {
             ]
           }
         ]
-        material Material { }
+        material USE Mat
       }
       geometry Sphere { }
     }
@@ -286,7 +288,7 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader6
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
@@ -316,7 +318,7 @@ Transform {
             ]
           }
         ]
-        material Material { }
+        material USE Mat
       }
       geometry Sphere { }
     }
@@ -339,7 +341,7 @@ Transform {
             # CompShaderTest is reused, so it should be reused (even though
             # Appearance node is different).
             shaders USE CompShader7
-            material Material { }
+            material USE Mat
           }
           geometry Cylinder { }
         }
