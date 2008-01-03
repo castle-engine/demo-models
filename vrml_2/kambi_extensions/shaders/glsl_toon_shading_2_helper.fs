@@ -26,6 +26,6 @@ vec4 color_from_intensity(float intensity)
    and manages to avoid any "if" call. */
 vec4 color_from_intensity_alt(float intensity)
 {
-  intensity = ceil(intensity * 4) / 4;
+  intensity = ceil(intensity * 4.0) / 4.0;
   return vec4(intensity, intensity, 0.0, 1.0);
 }
