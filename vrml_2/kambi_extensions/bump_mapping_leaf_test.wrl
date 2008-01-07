@@ -1,0 +1,114 @@
+#VRML V2.0 utf8
+
+PROTO Row [
+  field SFNode appearance NULL
+] {
+  Group {
+    children [
+      Shape {
+        appearance IS appearance
+        geometry Cone { }
+      }
+
+      Transform {
+        translation 3 0 0
+        children Shape {
+          appearance IS appearance
+          geometry Box { }
+        }
+      }
+
+      Transform {
+        translation 6 0 0
+        children Shape {
+          appearance IS appearance
+          geometry Sphere { }
+        }
+      }
+
+      Transform {
+        translation 9 0 0
+        children Shape {
+          appearance IS appearance
+          geometry IndexedFaceSet {
+            solid FALSE
+            coord Coordinate { point [-1 -1 0, 1 -1 0, 1 1 0, -1 1 0] }
+            texCoord TextureCoordinate { point [0 0, 1 0, 1 1, 0 1] }
+            coordIndex [0, 1, 2, 3]
+          }
+        }
+      }
+    ]
+  }
+}
+
+# No texture
+Row { appearance Appearance { material Material { } } }
+
+# Texture
+Transform {
+  translation 0 4 0
+  children Row {
+    appearance Appearance {
+      texture DEF MyTex ImageTexture {
+        url "../../textures/leaf.png"
+      }
+      material Material { }
+    }
+  }
+}
+
+# Texture and normalmap
+Transform {
+  translation 0 8 0
+  children Row {
+    appearance KambiAppearance {
+      # Don't do "USE MyTex" --- workarounds Kambi VRML engine bug,
+      # for now texture and normalMap are associated such that you cannot
+      # use the same texture and add normalMap, without affecting previous
+      # texture usage.
+      texture DEF MyTex ImageTexture {
+        url "../../textures/leaf.png"
+      }
+      normalMap DEF MyNormalTex ImageTexture {
+        url "../../textures/leaf_normal_map.png"
+      }
+      material Material { }
+    }
+  }
+}
+
+# Texture with transformation and normalmap
+Transform {
+  translation 0 12 0
+  children Row {
+    appearance KambiAppearance {
+      texture USE MyTex
+      normalMap USE MyNormalTex
+      textureTransform TextureTransform { scale 2 2 }
+      material Material { }
+    }
+  }
+}
+
+# Texture and normalmap, with partially transparent material
+Transform {
+  translation 0 16 0
+  children [
+    Row {
+      appearance KambiAppearance {
+        texture USE MyTex
+        normalMap USE MyNormalTex
+        material Material { transparency 0.5 }
+      }
+    }
+    DEF BackWall Shape {
+      appearance Appearance { material Material { } }
+      geometry IndexedFaceSet {
+        solid FALSE
+        coord Coordinate { point [-1 -1 -2, 10 -1 -2, 10 1 -2, -1 1 -2] }
+        coordIndex [0, 1, 2, 3]
+      }
+    }
+  ]
+}
