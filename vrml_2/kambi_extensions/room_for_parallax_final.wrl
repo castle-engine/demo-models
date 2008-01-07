@@ -1,0 +1,24 @@
+#VRML V2.0 utf8
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.003164367750287 0.0193588975816965 -0.0039012592751532
+# up 0.031467031687498 0.1925081759691238 0.9807907342910766
+# gravityUp 0 0 1
+Transform {
+  translation 0.0937104523181915 -2.8960518836975098 1.3793692588806152
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.7700700163841247 -0.6348869204521179 -0.0625092908740043 0.2543817460536956
+  }
+}
+
+NavigationInfo {
+	headlight TRUE
+	visibilityLimit 0.0
+	type ["WALK", "ANY"]
+	avatarSize [0.1, 1, 0.1]
+        speed 3
+}
+
+Inline { url "room_for_parallax.wrl" }
