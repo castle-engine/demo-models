@@ -758,6 +758,7 @@ DEF OB_Cube Transform {
                                                 heightMap ImageTexture {
 							url "../../textures/bumps.png"
 						}
+                                                heightMapScale 0.05
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
