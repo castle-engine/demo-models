@@ -17,8 +17,6 @@ vec4 color_from_intensity_original(float intensity)
    constant vector values also work only as 0 / 1.
    Effectively, seems that float constants are rounded up to integer
    values.... Weird.
-   Seems that on Mesa, the same problem is present... possibly this
-   is some shortcoming of older GLSL versions ?
 
    On the same graphic card on Mac OS X work fine... so it seems a problem
    in OpenGL implementation in fglrx.
