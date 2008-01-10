@@ -2469,7 +2469,7 @@ DEF OB_Cube Transform {
                                                 heightMap ImageTexture {
 							url "../../textures/brick_1_height_map.png"
 						}
-                                                heightMapScale 0.05
+                                                heightMapScale 0.02
 
 					}
 					geometry IndexedFaceSet {
