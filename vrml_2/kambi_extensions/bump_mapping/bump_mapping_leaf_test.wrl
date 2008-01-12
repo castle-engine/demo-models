@@ -51,7 +51,7 @@ Transform {
   children Row {
     appearance Appearance {
       texture DEF MyTex ImageTexture {
-        url "../../textures/leaf.png"
+        url "../../../textures/leaf.png"
       }
       material Material { }
     }
@@ -68,10 +68,10 @@ Transform {
       # use the same texture and add normalMap, without affecting previous
       # texture usage.
       texture DEF MyTex ImageTexture {
-        url "../../textures/leaf.png"
+        url "../../../textures/leaf.png"
       }
       normalMap DEF MyNormalTex ImageTexture {
-        url "../../textures/leaf_normal_map.png"
+        url "../../../textures/leaf_normal_map.png"
       }
       material Material { }
     }

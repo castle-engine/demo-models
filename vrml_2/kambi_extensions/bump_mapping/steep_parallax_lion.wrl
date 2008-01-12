@@ -18,13 +18,13 @@ DEF OB_Cube Transform {
 							transparency 0.0
 						}
 						texture DEF brick_1_png ImageTexture {
-							url "../../textures/lion.png"
+							url "../../../textures/lion.png"
 						}
                                                 normalMap ImageTexture {
-							url "../../textures/lion_normal_map.png"
+							url "../../../textures/lion_normal_map.png"
 						}
                                                 heightMap ImageTexture {
-							url "../../textures/lion_height_map.png"
+							url "../../../textures/lion_height_map.png"
 						}
                                                 heightMapScale 0.02
 
