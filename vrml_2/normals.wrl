@@ -49,3 +49,21 @@ Transform {
     }
   }
 }
+
+# use normalIndex (last vertex will have wrong normal)
+# The face is specified in different order, and it has CCW = false.
+# Should look just like example above.
+Transform {
+  translation 20 -20 0
+  children Shape {
+    appearance USE App
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [0, 3, 2, 1]
+      # normal 1 is intentionally wrong.
+      normal DEF NWrong Normal { vector [0 0 1, 1 0 0, 0 0 1, 0 0 1] }
+      normalIndex [0, 1, 0, 0]
+      ccw FALSE
+    }
+  }
+}
