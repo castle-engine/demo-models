@@ -8,6 +8,20 @@
 # Kambi:
 # - moved lights to the beginning
 # - everything marked as non-solid
+# - added viewpoint with correct gravity
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.019315306097269 0.003111538011581 0.00415178341791
+# up -0.20023587346077 0.061707735061646 -0.977802455425262
+# gravityUp 0 0 -1
+Transform {
+  translation 2.730999946594238 -0.899999976158142 -3.486999988555908
+  rotation -1 0 0 1.570796370506287
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.074035711586475 0.990479648113251 0.116056025028229 1.743000030517578
+  }
+}
 
 NavigationInfo {
 	headlight FALSE
