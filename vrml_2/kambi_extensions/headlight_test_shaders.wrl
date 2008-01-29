@@ -1,0 +1,53 @@
+#VRML V2.0 utf8
+
+NavigationInfo {
+  speed 5
+  headlight TRUE
+}
+
+# Turn on normal directional headlight, we need this to have the scene basically
+# lighted (otherwise it's pure black everywhere, and fragment shader has
+# no color to multiply). Moreover, turn the color full white.
+# Shader will scale it down around headlight (alternative, when color is dim,
+# and shader scales it up, works badly, since we lose precision --- shader
+# gets dark colors with low precision).
+KambiHeadLight {
+  ambientIntensity 0.2
+  color 0.8 0.8 0.8
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0339639410376548 -4.3711381181310571E-009 -0.0940555557608604
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 3.8608174324035645 -3.559999942779541 4.747499942779541
+  orientation -1.286994404381403E-007 1.0000003576278687 0 0.3465334475040435
+}
+
+EXTERNPROTO KambiTriangulation [
+  exposedField SFLong    quadricSlices
+  exposedField SFLong    quadricStacks
+  exposedField SFLong    rectDivisions
+] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+
+# triangulate more, to properly see spot lights on this
+KambiTriangulation { rectDivisions 50 }
+
+Shape {
+  appearance Appearance { material Material {
+    diffuseColor 1 1 1 ambientIntensity 1 }
+    shaders ComposedShader {
+      language "GLSL"
+      parts [
+        ShaderPart { type "FRAGMENT" url "glsl_headlight.fs" }
+      ]
+    }
+  }
+  geometry Box { size 10 10 10 }
+}
+
+Transform {
+  translation 0 -5 0
+  children Inline { url "headlight_teapot.wrl" }
+}
