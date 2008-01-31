@@ -35,7 +35,9 @@
               <color>1.0 1.0 1.0 1.0</color>
             </transparent>
             <transparency>
-              <float>1.0</float>
+              <!-- Fixed by Michalis Kambi to be 0.0 (was 1.0) to actually
+                   see anything -->
+              <float>0.0</float>
             </transparency>
           </phong>
         </technique>
