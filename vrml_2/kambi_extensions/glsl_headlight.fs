@@ -57,7 +57,7 @@ void main()
       (headlight_outer_radius - headlight_inner_radius));
 
     /* Much more smooth drop-off, sinusoidal */
-    distance = sin((3.14 / 2) * distance);
+    distance = sin((3.14 / 2.0) * distance);
 
     gl_FragColor /= mix(max_light_dim, 1.0, distance);
   }
