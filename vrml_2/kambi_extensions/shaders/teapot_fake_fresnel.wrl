@@ -48,21 +48,18 @@ DEF OB_Teapot Transform {
 							specularColor 0.4012008 0.4012008 0.4012008
 							emissiveColor  0.0 0.0 0.0
 							shininess 0.0976563
-							transparency 0.0
+                                                        # Kambi: anything non-zero to cause using blending
+							transparency 0.5
 						}
 
                                                 # Kambi+ added this by hand to activate shader
                                                 shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_brick.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_brick.fs" }
+                                                    ShaderPart { type "VERTEX" url "glsl_fake_fresnel.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl_fake_fresnel.fs" }
                                                   ]
-                                                  exposedField SFVec3f LightPosition 2 2 2
-                                                  exposedField SFVec3f BrickColor 0.5 0.5 1
-                                                  exposedField SFVec3f MortarColor 0.2 0.2 0.2
-                                                  exposedField SFVec2f BrickSize 0.03 0.03
-                                                  exposedField SFVec2f BrickPct 0.9 0.9
+                                                  exposedField SFVec3f baseColor  0.6 0.6 0.6
                                                 }
 					}
 					geometry IndexedFaceSet {
