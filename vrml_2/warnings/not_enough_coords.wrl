@@ -1,0 +1,99 @@
+#VRML V2.0 utf8
+
+# TODO: this is wrong VRML file, and that's why it causes view3dscene
+# to crash.
+#
+# view3dscene: WARNING: Wrong vertex index in indexed node (not enouch points in Coordinate node defined: index is 23, we have only 1 vertices)
+# view3dscene: Exception EAccessViolation (at address 0x08074EC6) :
+# Access violation
+# An unhandled exception occurred at $08074EC6 :
+# EAccessViolation : Access violation
+# ...
+#
+# Previously "Wrong vertex index in indexed node" was an error,
+# so such VRML files were simply rejected. After chaging this to
+# VRMLNonFatalError, we should also secure other places to produce
+# nice VRMLNonFatalError.
+
+DEF UpperColumn Transform {
+	children Shape {
+		appearance Appearance {
+			material DEF MA_Material_001 Material {
+				ambientIntensity 0.1669999957084655
+				diffuseColor 0.5500000119209289 1 0
+				shininess 0.0979999974370002
+				specularColor 0.4009999930858612 0.4009999930858612 0.4009999930858612
+			}
+
+		}
+
+		geometry DEF ME_Circle IndexedFaceSet {
+			coord DEF coord_UpperColumn Coordinate {
+				point 1.4142129421234131 1.4142129421234131 6.8000001907348633
+			}
+
+			coordIndex 0
+			creaseAngle 0.5239999890327453
+		}
+
+	}
+
+	translation 0 0 6.8000001907348633
+}
+DEF Circle_001 Transform {
+	children Shape {
+		appearance Appearance {
+			material USE MA_Material_001
+
+		}
+
+		geometry IndexedFaceSet {
+			coord DEF coord_Circle_001 Coordinate {
+				point 0.9545940160751342 0.9545950293540954 1
+			}
+
+			coordIndex 23
+			creaseAngle 0.5239999890327453
+		}
+
+	}
+
+	translation 0 0 1
+}
+DEF Circle Transform {
+	children Shape {
+		appearance Appearance {
+			material USE MA_Material_001
+
+		}
+
+		geometry USE ME_Circle
+
+	}
+
+}
+DEF PantsBoots Transform {
+	children Shape {
+		appearance Appearance {
+			material DEF MA_MatBoots Material {
+				ambientIntensity 0.1669999957084655
+				diffuseColor 0.1879999935626983 0.1729999929666519 0.1289999932050705
+				shininess 0.0979999974370002
+				specularColor 0.4009999930858612 0.4009999930858612 0.4009999930858612
+			}
+
+		}
+
+		geometry IndexedFaceSet {
+			coord DEF coord_PantsBoots Coordinate {
+				point -0.4286380112171173 1.1570819616317749 11.002379417419434
+			}
+
+			coordIndex 0
+			creaseAngle 0.5239999890327453
+		}
+
+	}
+
+	translation 0 1.190000057220459 10.925999641418457
+}
