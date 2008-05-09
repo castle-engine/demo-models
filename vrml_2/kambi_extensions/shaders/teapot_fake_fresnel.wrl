@@ -41,7 +41,7 @@ DEF OB_Teapot Transform {
 		DEF ME_Mesh Group {
 			children [
 				Shape {
-					appearance Appearance {
+					appearance KambiAppearance {
 						material DEF MA_Material_001 Material {
 							diffuseColor 0.8 0.8 0.8
 							ambientIntensity 0.1666667
@@ -60,6 +60,11 @@ DEF OB_Teapot Transform {
                                                     ShaderPart { type "FRAGMENT" url "glsl_fake_fresnel.fs" }
                                                   ]
                                                   exposedField SFVec3f baseColor  0.6 0.6 0.6
+                                                }
+                                                
+                                                # Kambi+ to correctly display blending
+                                                blendMode BlendMode {
+                                                  destFactor "one"
                                                 }
 					}
 					geometry IndexedFaceSet {

@@ -1,75 +1,38 @@
 #VRML V2.0 utf8
 
-# This file was authored with Blender (http://www.blender.org/)
-# Blender version 245
-# Blender file teapot.blend
-# Exported using VRML97 exporter v1.55-kambi4
-
-
-NavigationInfo {
-	headlight FALSE
-	visibilityLimit 0.0
-	type ["EXAMINE", "ANY"]
-	avatarSize [0.25, 1.75, 0.75]
-}
-
+# background just copied from ../background_texture1.wrl, to show
+# that teapots are transparent.
 Background {
-	groundColor 0.0565629 0.2208154 0.4
-	skyColor 0.0565629 0.2208154 0.4
+  backUrl "../../skies/sky_red_back.bmp"
+  bottomUrl "../../skies/sky_red_bottom.png"
+  frontUrl "../../skies/sky_red_front.jpg"
+  leftUrl "../../skies/sky_red_left.ppm"
+  rightUrl "../../skies/sky_red_right.rgbe"
+  topUrl "../../skies/sky_red_top.png"
 }
 
-DEF OB_Lamp Transform {
-	translation 4.076245 1.005454 5.903862
-	rotation 0.205942 0.331517 0.920698 1.926274
-	scale 1.000000 1.000000 1.000000
-	children [
-		DEF Lamp PointLight {
-			ambientIntensity 0.0
-			color 1.0 1.0 1.0
-			intensity 0.5714286
-			location 0.0 0.0 0.0
-			radius 29.9999828339
-		}
 
-	]
-}
-DEF OB_Teapot Transform {
-	translation 0.227377 1.389848 0.426910
-	rotation 1.000000 0.000000 0.000000 0.000000
-	scale 18.289703 18.289703 18.289705
+
+DEF TeapotRow Group {
+  children [
+
+DEF Teapot1 Transform {
+    scale 10 10 10
 	children [
 		DEF ME_Mesh Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
+					appearance Appearance {
 						material DEF MA_Material_001 Material {
-							diffuseColor 0.8 0.8 0.8
+							diffuseColor 0.8 0.8 1
 							ambientIntensity 0.1666667
 							specularColor 0.4012008 0.4012008 0.4012008
 							emissiveColor  0.0 0.0 0.0
 							shininess 0.0976563
-                                                        # Kambi: anything non-zero to cause using blending
-							transparency 0.5
+							transparency 0.8
 						}
-
-                                                # Kambi+ added this by hand to activate shader
-                                                shaders ComposedShader {
-                                                  language "GLSL"
-                                                  parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_time_nodes.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_time_nodes.fs" }
-                                                  ]
-                                                  exposedField SFFloat alpha1 0.1
-                                                  exposedField SFFloat alpha2 1.0
-                                                  exposedField SFFloat kambi_time 0
-                                                }
-                                                
-                                                # Kambi+ to correctly display blending
-                                                blendMode BlendMode {
-                                                  destFactor "one"
-                                                }
 					}
-					geometry IndexedFaceSet {
+					geometry DEF Teapot_IFS IndexedFaceSet {
 						solid FALSE
 						creaseAngle 4.000000
 						coord DEF coord_Mesh Coordinate {
@@ -3195,3 +3158,106 @@ DEF OB_Teapot Transform {
 	]
 }
 
+
+Transform {
+  translation 3 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        destFactor "one"
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 6 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_color"
+        destFactor "one_minus_src_alpha"
+        color 1 0 0
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 9 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_color"
+        destFactor "one"
+        color 1 0 0
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 12 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_alpha"
+        destFactor "one_minus_src_alpha"
+        colorTransparency 0.9
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 15 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_alpha"
+        destFactor "one"
+        colorTransparency 0.9
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+
+] }
+
+# Now show the same against light background
+
+Transform {
+  translation 0 3 0
+  children [
+
+    Transform {
+      translation 7.5 0 -3
+      children Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0.8 0.8 0.8
+          }
+        }
+        geometry Box { size 22 3 0.1 }
+      }
+    }
+
+    USE TeapotRow
+  ]
+}

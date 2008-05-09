@@ -13,12 +13,18 @@ PointLight { location -1.2589397430 0.8505120595 1.0379848321 }
 # to use largre --detail-quadric-* values to get nice sphere renderings
 # with rayhunter)
 Shape {
-  appearance Appearance { material DEF MatGlass Material {
+  appearance KambiAppearance { material DEF MatGlass Material {
           diffuseColor 0.300722 0.658765 1.000000
           specularColor 0.488773 0.488724 0.488724
           shininess 0.500000
           transparency 0.575540
-  } }
+  } 
+
+  # to correctly display blending
+  blendMode BlendMode {
+    destFactor "one"
+  }  
+  }
   geometry Sphere { radius 0.562 }
 }
 
