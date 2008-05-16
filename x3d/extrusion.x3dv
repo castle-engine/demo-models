@@ -1,0 +1,13 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Written by hand by Kambi, some test of Extrusion.
+
+Shape {
+  geometry Extrusion {
+    crossSection [ 0 1 1 1 1 0 0 0 ]
+    solid FALSE
+    spine [ -1 0 0 +1 0 0 ]
+  }
+  appearance Appearance { material Material { } }
+}
