@@ -1,13 +1,142 @@
 #X3D V3.0 utf8
-PROFILE Interchange
+PROFILE Immersive
 
 # Written by hand by Kambi, some test of Extrusion.
 
-Shape {
-  geometry Extrusion {
-    crossSection [ 0 1 1 1 1 0 0 0 ]
-    solid FALSE
-    spine [ -1 0 0 +1 0 0 ]
+PROTO MyTitle [ inputOutput MFString string "" ] {
+  Transform {
+    translation 0 1.5 0
+    children Shape {
+      geometry Text {
+	string IS string
+	fontStyle FontStyle { size 0.2 }
+      }
+      appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    }
   }
-  appearance Appearance { material Material { } }
+}
+
+Transform {
+  children [
+    Shape {
+      geometry Extrusion {
+	solid FALSE
+	crossSection [1 1 1 -1 -1 -1 -1 1]
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance DEF A Appearance { material Material { } }
+    }
+    MyTitle { string "both sides visible" }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# This is basically like spec says:
+# "For instance, a circular crossSection with counter-clockwise
+# ordering and the default spine form a cylinder.
+# With solid TRUE and ccw TRUE, the cylinder is visible from the outside."
+
+Transform {
+  translation 3 0 0
+  children [
+    Shape {
+      geometry Extrusion {
+        crossSection [1 1 1 -1 -1 -1 -1 1]
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance USE A
+    }
+    MyTitle { string "outside visible" }
+  ]
+}
+
+# Like the spec says:
+# "Changing ccw to FALSE makes it visible from the inside."
+
+Transform {
+  translation 6 0 0
+  children [
+    Shape {
+      geometry Extrusion {
+        crossSection [1 1 1 -1 -1 -1 -1 1]
+        ccw FALSE
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance USE A
+    }
+    MyTitle { string "inside visible" }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Above two examples with spine reverted, going down.
+# This doesn't swap orientation of the faces -- it's equivalent
+# to rotating the extrusion along X axis. So the culling is the same,
+# scale allows you to see reverted effect.
+
+Transform {
+  translation 9 0 0
+  children [
+    Shape {
+      geometry DEF E_SpineRevert_Ccw Extrusion {
+        crossSection [1 1 1 -1 -1 -1 -1 1]
+    	spine [0 1 0 0 0 0]
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance DEF A2 Appearance { material Material { diffuseColor 1 1 0 } }
+    }
+    MyTitle { string "outside visible" }
+  ]
+}
+
+Transform {
+  translation 12 0 0
+  children [
+    Shape {
+      geometry DEF E_SpineRevert_Cw Extrusion {
+        crossSection [1 1 1 -1 -1 -1 -1 1]
+        ccw FALSE
+    	spine [0 1 0 0 0 0]
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance USE A2
+    }
+    MyTitle { string "inside visible" }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Two examples with crooSection order reverted, so ccw and cw meaning swaps,
+# so different faces are culled.
+
+Transform {
+  translation 15 0 0
+  children [
+    Shape {
+      geometry Extrusion {
+        crossSection [-1 1 -1 -1 1 -1 1 1]
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance DEF A3 Appearance { material Material { diffuseColor 1 0 0 } }
+    }
+    MyTitle { string "inside visible" }
+  ]
+}
+
+# Like the spec says:
+# "Changing ccw to FALSE makes it visible from the inside."
+
+Transform {
+  translation 18 0 0
+  children [
+    Shape {
+      geometry Extrusion {
+        crossSection [-1 1 -1 -1 1 -1 1 1]
+        ccw FALSE
+    	scale [ 1 1 1.1 1.1 ]
+      }
+      appearance USE A3
+    }
+    MyTitle { string "outside visible" }
+  ]
 }
