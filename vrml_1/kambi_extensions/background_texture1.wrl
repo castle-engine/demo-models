@@ -1,28 +1,28 @@
 #VRML V1.0 ascii
 
-# Podstawowy test node'a Background. Wszystkie sciany sa texturowane
-# texturami bez kanalu alpha, a wiec najprostszy przypadek.
-# Zwroc uwage ze Rotation {...} powoduje ze niebo ma gore w kierunku
-# (0,0,1), czyli tam gdzie jest gora w modelu caste.wrl
-# (domyslnie niebo ma gore w (0,1,0)).
+# Basic test of Background node. All faces haves textures without any
+# alpha channel. The Transform with rotation causes the up axis of the sky
+# be in +Z direction (default VRML sky has up in +Y axis), this
+# matches the orientation of included castle_with_lights_and_camera.wrl.
 
 Group{
   Separator {
     Rotation { rotation 1 0 0 1.57 }
     Background {
+
       # We use various file formats for sky (bmp, png, jpgm, ppm
       # and even rgbe) to test whether all is handled ok.
       # Note: using RGBE format for storing simple textures is usually
       # nonsense, it's here only to test view3dscene.
 
-      # note : "not_existing_texture" can't be loaded so
-      # "../../skies/sky_red_back.bmp" is use instead
+      # Test: "not_existing_texture" can't be loaded so
+      # "../skies/sky_red_back.bmp" should be used instead.
       backUrl [ "not_existing_texture", "../../skies/sky_red_back.bmp" ]
 
-      # note : "../../skies/sky_red_bottom.png" CAN be loaded so
-      # "../../textures/renifery.jpg" is not used (it is not even loaded)
-
+      # Test : "../skies/sky_red_bottom.png" CAN be loaded so
+      # "../textures/renifery.jpg" should not used (it should not even be loaded).
       bottomUrl [ "../../skies/sky_red_bottom.png", "../../../textures/renifery.jpg" ]
+
       frontUrl "../../skies/sky_red_front.jpg"
       leftUrl "../../skies/sky_red_left.ppm"
       rightUrl "../../skies/sky_red_right.rgbe"
