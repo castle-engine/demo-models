@@ -1,4 +1,6 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
 
 Transform {
   translation 0 0 0
@@ -6,7 +8,7 @@ Transform {
 
     Shape {
       appearance DEF App1_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           # I don't handle HLSL (and Kambi engine never will, I'm not going
           # to port to M$ Direct X API). This is just to test that
@@ -88,7 +90,7 @@ Transform {
 
     Shape {
       appearance DEF App2_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           # Vertex and fragment programs specified multiple times.
           DEF CompShader2 ComposedShader {

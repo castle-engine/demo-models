@@ -1,4 +1,6 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
 
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
@@ -41,30 +43,28 @@ DEF OB_Teapot Transform {
 		DEF ME_Mesh Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
+					appearance Appearance {
 						material DEF MA_Material_001 Material {
 							diffuseColor 0.8 0.8 0.8
 							ambientIntensity 0.1666667
 							specularColor 0.4012008 0.4012008 0.4012008
 							emissiveColor  0.0 0.0 0.0
 							shininess 0.0976563
-                                                        # Kambi: anything non-zero to cause using blending
-							transparency 0.5
+							transparency 0.0
 						}
 
                                                 # Kambi+ added this by hand to activate shader
                                                 shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_fake_fresnel.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_fake_fresnel.fs" }
+                                                    ShaderPart { type "VERTEX" url "glsl_brick.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl_brick.fs" }
                                                   ]
-                                                  exposedField SFVec3f baseColor  0.6 0.6 0.6
-                                                }
-                                                
-                                                # Kambi+ to correctly display blending
-                                                blendMode BlendMode {
-                                                  destFactor "one"
+                                                  inputOutput SFVec3f LightPosition 2 2 2
+                                                  inputOutput SFVec3f BrickColor 0.5 0.5 1
+                                                  inputOutput SFVec3f MortarColor 0.2 0.2 0.2
+                                                  inputOutput SFVec2f BrickSize 0.03 0.03
+                                                  inputOutput SFVec2f BrickPct 0.9 0.9
                                                 }
 					}
 					geometry IndexedFaceSet {

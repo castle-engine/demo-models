@@ -1,4 +1,6 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
 
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
@@ -55,15 +57,12 @@ DEF OB_Teapot Transform {
                                                 shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_brick.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_brick.fs" }
+                                                    ShaderPart { type "VERTEX" url "glsl_toon_shading.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_main.fs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_helper.fs" }
                                                   ]
-                                                  exposedField SFVec3f LightPosition 2 2 2
-                                                  exposedField SFVec3f BrickColor 0.5 0.5 1
-                                                  exposedField SFVec3f MortarColor 0.2 0.2 0.2
-                                                  exposedField SFVec2f BrickSize 0.03 0.03
-                                                  exposedField SFVec2f BrickPct 0.9 0.9
                                                 }
+
 					}
 					geometry IndexedFaceSet {
 						solid FALSE

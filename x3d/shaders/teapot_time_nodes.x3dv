@@ -1,4 +1,6 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
 
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
@@ -59,9 +61,9 @@ DEF OB_Teapot Transform {
                                                     ShaderPart { type "VERTEX" url "glsl_time_nodes.vs" }
                                                     ShaderPart { type "FRAGMENT" url "glsl_time_nodes.fs" }
                                                   ]
-                                                  exposedField SFFloat alpha1 0.1
-                                                  exposedField SFFloat alpha2 1.0
-                                                  exposedField SFFloat kambi_time 0
+                                                  inputOutput SFFloat alpha1 0.1
+                                                  inputOutput SFFloat alpha2 1.0
+                                                  inputOutput SFFloat kambi_time 0
                                                 }
                                                 
                                                 # Kambi+ to correctly display blending

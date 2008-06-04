@@ -1,4 +1,6 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
 
 # PointLight { location 0 0 0 }
 
@@ -10,7 +12,7 @@ Group {
 
     Shape {
       appearance DEF App1_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         material DEF Mat Material { specularColor 1 1 1 }
       }
       geometry Sphere { }
@@ -47,7 +49,7 @@ Transform {
 
     Shape {
       appearance DEF App2_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           # I don't handle HLSL (and Kambi engine never will, I'm not going
           # to port to M$ Direct X API). This is just to test that
@@ -107,7 +109,7 @@ Transform {
 
     Shape {
       appearance DEF App3_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           DEF CompShader3 ComposedShader {
             language "GLSL"
@@ -157,7 +159,7 @@ Transform {
 
     Shape {
       appearance DEF App4_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           DEF CompShader4 ComposedShader {
             language "GLSL"
@@ -207,7 +209,7 @@ Transform {
 
     Shape {
       appearance DEF App5_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           DEF CompShader5 ComposedShader {
             language "GLSL"
@@ -256,7 +258,7 @@ Transform {
 
     Shape {
       appearance DEF App6_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           DEF CompShader6 ComposedShader {
             language "GLSL"
@@ -305,7 +307,7 @@ Transform {
 
     Shape {
       appearance DEF App7_WithTexture Appearance {
-        texture ImageTexture  { url "../../../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           DEF CompShader7 ComposedShader {
             language "GLSL"
