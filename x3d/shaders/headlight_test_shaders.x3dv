@@ -51,5 +51,5 @@ Shape {
 
 Transform {
   translation 0 -5 0
-  children Inline { url "headlight_teapot.wrl" }
+  children Inline { url "headlight_teapot.x3dv" }
 }
