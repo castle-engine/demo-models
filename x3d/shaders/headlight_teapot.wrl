@@ -1,4 +1,6 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
 
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
