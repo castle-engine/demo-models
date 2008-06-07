@@ -1,0 +1,31 @@
+#X3D V3.0 utf8
+
+PROFILE Interchange
+
+# Simple test of OrthoViewpoint node and StaticGroup.
+# I also add here WorldInfo with a title --- it should be used
+# by VRML browsers.
+
+StaticGroup {
+  children [
+    # Camera settings "encoded" in the VRML declaration below :
+    # direction 0 0.700684607028961 0.000241928064497
+    # up 0 -0.000345317530446 0.999999940395355
+    # gravityUp 0 0 1
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children OrthoViewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 4.37113882867379E-008 0 -0.99999994039535522 1.5707963705062866
+        description "testing ortho view"
+      }
+    }
+
+    WorldInfo {
+      title "The Castle model"
+    }
+
+    Inline { url "../vrml_2/castle_with_lights.wrl" }
+  ]
+}
