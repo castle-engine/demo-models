@@ -63,7 +63,7 @@ DEF OB_Teapot Transform {
                                                   ]
                                                   inputOutput SFFloat alpha1 0.1
                                                   inputOutput SFFloat alpha2 1.0
-                                                  inputOutput SFFloat kambi_time 0
+                                                  inputOutput SFTime kambi_time 0
                                                 }
                                                 
                                                 # Kambi+ to correctly display blending
