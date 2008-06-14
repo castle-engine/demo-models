@@ -1,0 +1,17 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+Viewpoint {
+  position 0 0 3.010034322738647
+  orientation 0 0 1 0
+}
+
+Shape {
+  appearance Appearance {
+    material Material {
+      diffuseColor 0.2 0.2 1
+#      transparency 0.1
+    }
+  }
+  geometry Sphere { }
+}

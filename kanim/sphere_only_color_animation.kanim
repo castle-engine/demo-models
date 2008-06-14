@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<animation backwards="true" loop="true">
+  <frame file_name="sphere_only_color_animation_1.x3dv" time="0" />
+  <frame file_name="sphere_only_color_animation_2.x3dv" time="1" />
+</animation>
