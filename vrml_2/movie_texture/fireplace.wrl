@@ -37,8 +37,15 @@ DEF OB_Plane_001 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-						texture DEF _0001_png ImageTexture {
-							url "//flame/seamless/0001.png"
+						texture DEF _0001_png MovieTexture {
+                                                
+                                                # Place here
+						#	url "flame/seamless/%4d.png"
+                                                # for best quality video version from a sequence of PNG images.
+                                                # But this will be handled only by Kambi VRML game engine,
+                                                # [http://vrmlengine.sourceforge.net/].
+                                                
+                                                    url "flame/flame_seamless_compressed.avi"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -88,7 +95,7 @@ DEF OB_Wood1 Transform {
 							transparency 0.0
 						}
 						texture DEF tree_texture_jpg ImageTexture {
-							url "//../../textures/tree_texture.jpg"
+							url "../../textures/tree_texture.jpg"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -868,7 +875,7 @@ DEF OB_Cube_002 Transform {
 							transparency 0.0
 						}
 						texture DEF _17_gris_vert_kambi_ma ImageTexture {
-							url "//../../textures/17_gris_vert_kambi_made_red.png"
+							url "../../textures/17_gris_vert_kambi_made_red.png"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -1259,7 +1266,7 @@ DEF OB_Cube_001 Transform {
 							transparency 0.0
 						}
 						texture DEF _016marbre_jpg ImageTexture {
-							url "//../../textures/016marbre.jpg"
+							url "../../textures/016marbre.jpg"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -3439,7 +3446,7 @@ DEF OB_Komin Transform {
 							transparency 0.0
 						}
 						texture DEF _17_gris_vert_jpg ImageTexture {
-							url "//../../textures/17_gris_vert.jpg"
+							url "../../textures/17_gris_vert.jpg"
 						}
 					}
 					geometry IndexedFaceSet {
