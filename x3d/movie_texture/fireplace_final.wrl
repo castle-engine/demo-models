@@ -1,0 +1,12 @@
+#VRML V2.0 utf8
+
+Transform {
+  translation 1.8697406053543091 -5.1885199546813965 1.7851980924606323
+  rotation 0.9838921427726745 -0 0.02193951793015 1.3924406766891479
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0.1193789690732955 0.9925728440284729 -0.0234034173190593 0.3898884057998657
+  }
+}
+
+Inline { url "fireplace.wrl" }
