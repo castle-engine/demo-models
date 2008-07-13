@@ -37,16 +37,17 @@ DEF OB_Plane_001 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-						texture DEF _0001_png MovieTexture {
-                                                
-                                                # Place here
-						#	url "flame/seamless/%4d.png"
-                                                # for best quality video version from a sequence of PNG images.
-                                                # But this will be handled only by Kambi VRML game engine,
-                                                # [http://vrmlengine.sourceforge.net/].
-                                                
-                                                    url "flame/flame_seamless_compressed.avi"
-						}
+  texture DEF _0001_png MovieTexture {
+  
+    # PNG version gives best quality video, loaded from a sequence of PNG images.
+    # It also has alpha channel (which is kinda essential in this case.)
+    # But this will be handled only by Kambi VRML game engine,
+    # [http://vrmlengine.sourceforge.net/].
+    #
+    # For general compatibility, there's an AVI version.
+    
+    url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+  }
 					}
 					geometry IndexedFaceSet {
 						solid TRUE
