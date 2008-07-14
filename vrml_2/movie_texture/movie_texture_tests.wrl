@@ -91,9 +91,14 @@ Transform {
     appearance Appearance {
       texture MovieTexture {
         url "test_video.avi"
-        # should pause for 14 seconds, then play to the end
+        # should pause after 1 second
         pauseTime 1.0
-        resumeTime 15.0
+        # There's no way to test resumeTime without events/routes implemented,
+        # since pauseTime works only when it's > resumeTime and resumeTime
+        # works only when paused and resumeTime > pauseTime... So some
+        # event that changes resumeTime / pauseTime is needed to actually
+        # see resumeTime at work.
+        #resumeTime 15.0
       }
     }
   }
@@ -106,10 +111,15 @@ Transform {
     appearance Appearance {
       texture MovieTexture {
         url "test_video.avi"
-        # should pause after 2.5 loops for 5 seconds, then play further
+        # should pause after 2.5 loops
         pauseTime 10.0
-        resumeTime 15.0
         loop TRUE
+        # There's no way to test resumeTime without events/routes implemented,
+        # since pauseTime works only when it's > resumeTime and resumeTime
+        # works only when paused and resumeTime > pauseTime... So some
+        # event that changes resumeTime / pauseTime is needed to actually
+        # see resumeTime at work.
+        #resumeTime 15.0
       }
     }
   }
