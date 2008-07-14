@@ -1,12 +1,57 @@
 #VRML V2.0 utf8
 
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0009106684592552 0.0196978375315666 -0.0033415029756724
+# up -0.0077159265056252 0.1668968200683593 0.9859441518783569
+# gravityUp 0 0 1
 Transform {
-  translation 1.8697406053543091 -5.1885199546813965 1.7851980924606323
-  rotation 0.9838921427726745 -0 0.02193951793015 1.3924406766891479
+  translation 0.202063575387001 -4.0804843902587891 1.647791862487793
+  rotation 1 0 0 1.5707963705062866
   children Viewpoint {
     position 0 0 0 # camera position is expressed by translation
-    orientation 0.1193789690732955 0.9925728440284729 -0.0234034173190593 0.3898884057998657
+    orientation -0.9640550017356872 0.2647521793842315 0.0222938489168882 0.1740900725126266
   }
 }
 
-Inline { url "fireplace.wrl" }
+DirectionalLight {
+  direction 0 1 0
+  intensity 0.5
+}
+
+KambiInline {
+  url "fireplace.wrl"
+  replaceNames [
+    "_0003_png"
+    "_0002_png"
+    "_0001_png" ]
+  replaceNodes [
+    MovieTexture {
+
+      # PNG version gives best quality video, loaded from a sequence of PNG images.
+      # It also has alpha channel (which is kinda essential in this case.)
+      # But this will be handled only by Kambi VRML game engine,
+      # [http://vrmlengine.sourceforge.net/].
+      #
+      # For general compatibility, there's an AVI version.
+
+      url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+      loop TRUE
+    }
+
+    MovieTexture {
+      url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+      loop TRUE
+      startTime -0.5
+      stopTime -0.5
+      speed 1.5
+    }
+
+    MovieTexture {
+      url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+      loop TRUE
+      startTime -1.0
+      stopTime -1.0
+      speed 1.2
+    }
+  ]
+}

@@ -20,12 +20,12 @@ Background {
 	skyAngle [ 1.57 ]
 }
 
-DEF OB_Plane_001 Transform {
-	translation -0.090657 -0.086322 0.219949
+DEF OB_Plane_003 Transform {
+	translation 0.135295 -0.431634 0.314401
 	rotation 0.954202 0.211541 0.211541 1.617660
-	scale 1.000000 1.000000 1.000000
+	scale 0.820030 0.820030 0.820030
 	children [
-		DEF ME_Plane_001 Group {
+		DEF ME_Plane_004 Group {
 			children [
 				Shape {
 					appearance Appearance {
@@ -37,28 +37,105 @@ DEF OB_Plane_001 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-  texture DEF _0001_png MovieTexture {
-  
-    # PNG version gives best quality video, loaded from a sequence of PNG images.
-    # It also has alpha channel (which is kinda essential in this case.)
-    # But this will be handled only by Kambi VRML game engine,
-    # [http://vrmlengine.sourceforge.net/].
-    #
-    # For general compatibility, there's an AVI version.
-    
-    url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
-    loop TRUE
-  }
+						texture DEF _0003_png ImageTexture {
+							url "flame/seamless/0003.png"
+						}
+					}
+					geometry IndexedFaceSet {
+						solid TRUE
+						creaseAngle 0.000000
+						coord DEF coord_Plane_004 Coordinate {
+							point [
+0.557309627533 1.41462278366 7.65641559042e-08
+ 0.557309627533 -0.476573288441 -2.71928435325e-08
+ -0.58280146122 -0.476573139429 -3.06966079222e-08
+ -0.582801222801 1.41462302208 7.30604057253e-08
+ 							]
+						}
+						
+						coordIndex [
+0 3 2 1 -1, 
+						]
+						texCoord TextureCoordinate {
+							point [
+1.0 0.9999999, 1e-07 1.0, 0.0 1e-07, 0.9999999 0.0, 
+							]
+						}
+						texCoordIndex [
+0 1 2 3 -1
+						]
+					}
+				}
+			]
+		}
+	]
+}
+DEF OB_Plane_002 Transform {
+	translation -0.217082 -0.566128 0.314401
+	rotation 0.992432 -0.086827 -0.086827 1.578393
+	scale 0.820030 0.820030 0.820030
+	children [
+		DEF ME_Plane_002 Group {
+			children [
+				Shape {
+					appearance Appearance {
+						material USE MA_Material_004
+						texture DEF _0002_png ImageTexture {
+							url "flame/seamless/0002.png"
+						}
+					}
+					geometry IndexedFaceSet {
+						solid TRUE
+						creaseAngle 0.000000
+						coord DEF coord_Plane_002 Coordinate {
+							point [
+0.557309627533 1.41462278366 7.65641559042e-08
+ 0.557309627533 -0.476573288441 -2.71928435325e-08
+ -0.58280146122 -0.476573139429 -3.06966079222e-08
+ -0.582801222801 1.41462302208 7.30604057253e-08
+ 							]
+						}
+						
+						coordIndex [
+0 3 2 1 -1, 
+						]
+						texCoord TextureCoordinate {
+							point [
+1.0 0.9999999, 1e-07 1.0, 0.0 1e-07, 0.9999999 0.0, 
+							]
+						}
+						texCoordIndex [
+0 1 2 3 -1
+						]
+					}
+				}
+			]
+		}
+	]
+}
+DEF OB_Plane_001 Transform {
+	translation -0.099500 -0.077479 0.299535
+	rotation 0.954202 0.211541 0.211541 1.617660
+	scale 1.000000 1.000000 1.000000
+	children [
+		DEF ME_Plane_001 Group {
+			children [
+				Shape {
+					appearance Appearance {
+						material USE MA_Material_004
+						texture DEF _0001_png ImageTexture {
+							url "flame/seamless/0001.png"
+						}
 					}
 					geometry IndexedFaceSet {
 						solid TRUE
 						creaseAngle 0.000000
 						coord DEF coord_Plane_001 Coordinate {
 							point [
-0.387254118919 0.850452780724 4.41173000354e-08
- 0.387254118919 -0.476573258638 -2.86875359023e-08
- -0.412745952606 -0.476573139429 -2.86875287969e-08
- -0.412745773792 0.850453019142 4.41173142463e-08
+0.557309627533 1.41462278366 7.65641559042e-08
+ 0.557309627533 -0.476573288441 -2.71928435325e-08
+ -0.58280146122 -0.476573139429 -3.06966079222e-08
+ -0.582801222801 1.41462302208 7.30604057253e-08
  							]
 						}
 						
