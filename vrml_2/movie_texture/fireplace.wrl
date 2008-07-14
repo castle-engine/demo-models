@@ -114,9 +114,9 @@ DEF OB_Plane_002 Transform {
 	]
 }
 DEF OB_Plane_001 Transform {
-	translation -0.099500 -0.077479 0.299535
+	translation -0.098417 -0.071788 0.319270
 	rotation 0.954202 0.211541 0.211541 1.617660
-	scale 1.000000 1.000000 1.000000
+	scale 1.400000 1.400000 1.400000
 	children [
 		DEF ME_Plane_001 Group {
 			children [
