@@ -124,3 +124,118 @@ Transform {
     }
   }
 }
+
+# ----------------------------------------------------------------------------
+# 3,4,5 columns, with speed tests.
+# 3rd column has positive speed tests,
+# 4th has negative tests,
+# 5th has speed = 0 test.
+
+Transform {
+  translation 8 1 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # plays 4 times slower
+        speed 0.25
+      }
+    }
+  }
+}
+
+Transform {
+  translation 12 1 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # plays 4 times slower
+        speed -0.25
+      }
+    }
+  }
+}
+
+Transform {
+  translation 8 4 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should loop forever, playing 2 times faster
+        loop TRUE
+        speed 2
+      }
+    }
+  }
+}
+
+Transform {
+  translation 12 4 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should loop forever, playing 2 times faster
+        loop TRUE
+        speed -2
+      }
+    }
+  }
+}
+
+Transform {
+  translation 8 7 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should play between 5 - 15 time, playing 1.5 times faster
+        loop TRUE
+        speed 1.5
+        startTime 5
+        stopTime 15
+      }
+    }
+  }
+}
+
+Transform {
+  translation 12 7 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should play between 5 - 15 time, playing 1.5 times faster
+        loop TRUE
+        speed -1.5
+        startTime 5
+        stopTime 15
+      }
+    }
+  }
+}
+
+Transform {
+  translation 15 2 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should not play at all...
+        loop TRUE
+        speed 0
+        startTime 5
+        stopTime 15
+      }
+    }
+  }
+}
