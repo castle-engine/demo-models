@@ -1,0 +1,116 @@
+#VRML V2.0 utf8
+
+Transform {
+  translation 0 0 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture { url "test_video.avi" }
+    }
+  }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should loop forever
+        loop TRUE
+      }
+    }
+  }
+}
+
+Transform {
+  translation 0 3 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should stop in the middle
+        stopTime 1.0
+      }
+    }
+  }
+}
+
+Transform {
+  translation 3 3 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should go to the end like normal (stopTime = 10 is more than
+        # video duration (4 secs))
+        stopTime 10.0
+      }
+    }
+  }
+}
+
+Transform {
+  translation 0 6 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should start with delay, play 2 secs and end
+        startTime 5.0
+        stopTime 7.0
+        loop TRUE
+      }
+    }
+  }
+}
+
+Transform {
+  translation 3 6 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should loop around 2.5 times then stop
+        stopTime 10.0
+        loop TRUE
+      }
+    }
+  }
+}
+
+Transform {
+  translation 0 9 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should pause for 14 seconds, then play to the end
+        pauseTime 1.0
+        resumeTime 15.0
+      }
+    }
+  }
+}
+
+Transform {
+  translation 3 9 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      texture MovieTexture {
+        url "test_video.avi"
+        # should pause after 2.5 loops for 5 seconds, then play further
+        pauseTime 10.0
+        resumeTime 15.0
+        loop TRUE
+      }
+    }
+  }
+}
