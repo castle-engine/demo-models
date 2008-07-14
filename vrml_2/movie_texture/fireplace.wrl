@@ -21,9 +21,9 @@ Background {
 }
 
 DEF OB_Plane_003 Transform {
-	translation 0.135295 -0.431634 0.314401
+	translation 0.221224 -0.554618 0.375056
 	rotation 0.954202 0.211541 0.211541 1.617660
-	scale 0.820030 0.820030 0.820030
+	scale 1.116715 1.116715 1.116715
 	children [
 		DEF ME_Plane_004 Group {
 			children [
@@ -71,9 +71,9 @@ DEF OB_Plane_003 Transform {
 	]
 }
 DEF OB_Plane_002 Transform {
-	translation -0.217082 -0.566128 0.314401
-	rotation 0.992432 -0.086827 -0.086827 1.578393
-	scale 0.820030 0.820030 0.820030
+	translation -0.258643 -0.737772 0.375056
+	rotation 0.992433 -0.086827 -0.086827 1.578393
+	scale 1.116716 1.116715 1.116716
 	children [
 		DEF ME_Plane_002 Group {
 			children [
@@ -114,9 +114,9 @@ DEF OB_Plane_002 Transform {
 	]
 }
 DEF OB_Plane_001 Transform {
-	translation -0.098417 -0.071788 0.319270
+	translation -0.097044 -0.064580 0.381687
 	rotation 0.954202 0.211541 0.211541 1.617660
-	scale 1.400000 1.400000 1.400000
+	scale 1.906517 1.906517 1.906517
 	children [
 		DEF ME_Plane_001 Group {
 			children [
@@ -157,9 +157,9 @@ DEF OB_Plane_001 Transform {
 	]
 }
 DEF OB_Wood1 Transform {
-	translation 0.029016 -0.488735 0.082872
+	translation 0.076493 -0.632378 0.205702
 	rotation 0.542688 0.839510 -0.026692 2.299936
-	scale 1.173231 1.173231 1.173231
+	scale 1.597703 1.597703 1.597703
 	children [
 		DEF ME_MOD_Wood1 Group {
 			children [
@@ -410,9 +410,9 @@ DEF OB_Wood1 Transform {
 	]
 }
 DEF OB_Wood2 Transform {
-	translation -0.048702 -0.285683 -0.011079
+	translation -0.029343 -0.355862 0.077759
 	rotation 0.705758 0.455385 -0.542707 3.018258
-	scale 1.173231 1.173231 1.173231
+	scale 1.597703 1.597703 1.597703
 	children [
 		DEF ME_MOD_Wood2 Group {
 			children [
@@ -654,9 +654,9 @@ DEF OB_Wood2 Transform {
 	]
 }
 DEF OB_Wood3 Transform {
-	translation -0.080386 -0.129559 -0.191467
+	translation -0.072490 -0.143254 -0.167894
 	rotation 0.000000 1.000000 -0.000000 1.570796
-	scale 1.173231 1.173231 1.173231
+	scale 1.597703 1.597703 1.597703
 	children [
 		DEF ME_MOD_Wood3 Group {
 			children [
