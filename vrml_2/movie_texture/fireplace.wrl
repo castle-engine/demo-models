@@ -47,6 +47,7 @@ DEF OB_Plane_001 Transform {
     # For general compatibility, there's an AVI version.
     
     url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+    loop TRUE
   }
 					}
 					geometry IndexedFaceSet {
