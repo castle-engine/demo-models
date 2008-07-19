@@ -1,0 +1,309 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Test for [Indexed][Triangle/Quad][Fan/Strip]Set (8 nodes total)
+# conformance.
+
+# 1nd column: basic tests ----------------------------------------------------
+
+Transform {
+  translation 0 0 0
+  children Shape {
+    appearance DEF Col1App Appearance { material Material { } }
+    geometry IndexedTriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      index [ 0 1 2, 3 4 5 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 5 0
+  children Shape {
+    appearance USE Col1App
+    geometry TriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+    }
+  }
+}
+
+Transform {
+  translation 0 10 0
+  children Shape {
+    appearance USE Col1App
+    geometry IndexedTriangleFanSet {
+      coord DEF FanSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 15 0
+  children Shape {
+    appearance USE Col1App
+    geometry TriangleFanSet {
+      coord USE FanSetCoord
+      fanCount [ 4 4 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 20 0
+  children Shape {
+    appearance USE Col1App
+    geometry IndexedTriangleStripSet {
+      coord DEF StripSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 25 0
+  children Shape {
+    appearance USE Col1App
+    geometry TriangleStripSet {
+      coord USE StripSetCoord
+      stripCount [ 4 4 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 30 0
+  children Shape {
+    appearance USE Col1App
+    geometry IndexedQuadSet {
+      coord DEF quadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      index [ 0 1 2 3, 4 5 6 7 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 35 0
+  children Shape {
+    appearance USE Col1App
+    geometry QuadSet {
+      coord USE QuadSetCoord
+    }
+  }
+}
+
+# 2nd column: solid tests ----------------------------------------------------
+
+Transform {
+  translation 5 0 0
+  children Shape {
+    appearance DEF Col2App Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry IndexedTriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      index [ 0 1 2, 3 4 5 ]
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 5 0
+  children Shape {
+    appearance USE Col2App
+    geometry TriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 10 0
+  children Shape {
+    appearance USE Col2App
+    geometry IndexedTriangleFanSet {
+      coord DEF FanSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 15 0
+  children Shape {
+    appearance USE Col2App
+    geometry TriangleFanSet {
+      coord USE FanSetCoord
+      fanCount [ 4 4 ]
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 20 0
+  children Shape {
+    appearance USE Col2App
+    geometry IndexedTriangleStripSet {
+      coord DEF StripSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 25 0
+  children Shape {
+    appearance USE Col2App
+    geometry TriangleStripSet {
+      coord USE StripSetCoord
+      stripCount [ 4 4 ]
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 30 0
+  children Shape {
+    appearance USE Col2App
+    geometry IndexedQuadSet {
+      coord DEF quadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      index [ 0 1 2 3, 4 5 6 7 ]
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 5 35 0
+  children Shape {
+    appearance USE Col2App
+    geometry QuadSet {
+      coord USE QuadSetCoord
+      solid FALSE
+    }
+  }
+}
+
+# 3rd column: ccw tests ----------------------------------------------------
+
+Transform {
+  translation 10 0 0
+  children Shape {
+    appearance DEF Col3App Appearance { material Material { diffuseColor 0.5 0.5 1 } }
+    geometry IndexedTriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      index [ 0 1 2, 3 4 5 ]
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 5 0
+  children Shape {
+    appearance USE Col3App
+    geometry TriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 10 0
+  children Shape {
+    appearance USE Col3App
+    geometry IndexedTriangleFanSet {
+      coord DEF FanSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 15 0
+  children Shape {
+    appearance USE Col3App
+    geometry TriangleFanSet {
+      coord USE FanSetCoord
+      fanCount [ 4 4 ]
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 20 0
+  children Shape {
+    appearance USE Col3App
+    geometry IndexedTriangleStripSet {
+      coord DEF StripSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 25 0
+  children Shape {
+    appearance USE Col3App
+    geometry TriangleStripSet {
+      coord USE StripSetCoord
+      stripCount [ 4 4 ]
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 30 0
+  children Shape {
+    appearance USE Col3App
+    geometry IndexedQuadSet {
+      coord DEF quadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      index [ 0 1 2 3, 4 5 6 7 ]
+      ccw FALSE
+    }
+  }
+}
+
+Transform {
+  translation 10 35 0
+  children Shape {
+    appearance USE Col3App
+    geometry QuadSet {
+      coord USE QuadSetCoord
+      ccw FALSE
+    }
+  }
+}
