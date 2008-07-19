@@ -13,5 +13,6 @@ Shape {
   appearance Appearance { material Material {
     diffuseColor 1 1 1 ambientIntensity 1 }
   }
-  geometry Box { size 10 10 10 }
+  # In fact, something like "solid TRUE outside FALSE" would be even better.
+  geometry Box { size 10 10 10 solid FALSE }
 }
