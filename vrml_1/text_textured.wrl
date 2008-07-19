@@ -12,12 +12,12 @@ Group{
 
   # Below is an additional VRMLLexer test, string not enclosed in
   # double quotes.
-  # ../textures/renifery.jpg instead of "../textures/renifery.jpg"
+  # ../textures/test_texture.png instead of "../textures/test_texture.png"
   # It's rather stupid "feature" of VRML 1.0,
   # but, well, I must support such things because Blender generates
   # files with such Texture2.filename fields (i.e. not enclosed in 
   # double quotes).
 
-  Texture2 { filename ../textures/renifery.jpg }
+  Texture2 { filename ../textures/test_texture.png }
   AsciiText { string ["and a few more", "lines", "of textured text"] }
 }

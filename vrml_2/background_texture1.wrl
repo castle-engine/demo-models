@@ -21,8 +21,8 @@ Group {
         backUrl [ "not_existing_texture", "../skies/sky_red_back.bmp" ]
 
         # Test : "../skies/sky_red_bottom.png" CAN be loaded so
-        # "../textures/renifery.jpg" should not used (it should not even be loaded).
-        bottomUrl [ "../skies/sky_red_bottom.png", "../textures/renifery.jpg" ]
+        # "../textures/test_texture.png" should not used (it should not even be loaded).
+        bottomUrl [ "../skies/sky_red_bottom.png", "../textures/test_texture.png" ]
 
         frontUrl "../skies/sky_red_front.jpg"
         leftUrl "../skies/sky_red_left.ppm"

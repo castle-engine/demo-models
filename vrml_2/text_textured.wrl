@@ -22,7 +22,7 @@ Group {
         children Shape {
           appearance Appearance {
             material Material { }
-            texture ImageTexture { url "../textures/renifery.jpg" }
+            texture ImageTexture { url "../textures/test_texture.png" }
           }
           geometry Text {
             fontStyle USE FS

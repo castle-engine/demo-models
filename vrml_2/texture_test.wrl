@@ -8,8 +8,8 @@ Group {
     Shape {
       appearance DEF A Appearance {
         material Material { }
-        texture DEF ReniferyTex ImageTexture {
-          url "../textures/renifery.jpg"
+        texture DEF TestTex ImageTexture {
+          url "../textures/test_texture.png"
         }
       }
       geometry Cone { }
@@ -35,7 +35,7 @@ Group {
                 Shape {
                   appearance DEF B Appearance {
                     material Material { diffuseColor 1 0 0 }
-                    texture USE ReniferyTex
+                    texture USE TestTex
                     textureTransform TextureTransform { scale 2 2 }
                   }
                   geometry Box { }
@@ -45,7 +45,7 @@ Group {
                   children Shape {
                     appearance DEF B Appearance {
                       material Material { diffuseColor 0 1 0 }
-                      texture USE ReniferyTex
+                      texture USE TestTex
                     }
                     geometry IndexedFaceSet {
                       solid FALSE

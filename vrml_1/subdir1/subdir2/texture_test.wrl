@@ -6,7 +6,7 @@
 Group{
   Separator {
     Texture2 {
-      filename "../../../textures/renifery.jpg"
+      filename "../../../textures/test_texture.png"
     }
     Cone {}
     Translation { translation 2 0 0 }

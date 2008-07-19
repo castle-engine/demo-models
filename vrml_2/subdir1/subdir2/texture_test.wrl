@@ -6,7 +6,7 @@
 Shape {
   appearance DEF TexApp Appearance {
     material Material { }
-    texture DEF TexRenifery ImageTexture { url "../../../textures/renifery.jpg" }
+    texture DEF TexTest ImageTexture { url "../../../textures/test_texture.png" }
   }
   geometry Cone { }
 }
@@ -33,7 +33,7 @@ Transform {
     appearance Appearance {
       material Material { diffuseColor 1 0 0 }
       textureTransform TextureTransform { scale 2 2 }
-      texture USE TexRenifery
+      texture USE TexTest
     }
     geometry Box { }
   }
@@ -44,7 +44,7 @@ Transform {
   children Shape {
     appearance Appearance {
       material Material { diffuseColor 0 1 0 }
-      texture USE TexRenifery
+      texture USE TexTest
     }
     geometry IndexedFaceSet {
       coord Coordinate { point [0 0 0, 2 0 0, 3 2 0, 2 4 0, 0 4 0] }
