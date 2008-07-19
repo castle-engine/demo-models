@@ -21,7 +21,7 @@ Group {
         texture ImageTexture  { url "../textures/crown.gif" repeatT FALSE }
         material Material { }
       }
-      geometry Cylinder { top FALSE bottom FALSE }
+      geometry Cylinder { top FALSE bottom FALSE solid FALSE }
     }
 
     Transform {

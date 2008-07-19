@@ -73,7 +73,7 @@ Group {
         USE RenderBefore
         Shape {
           appearance Appearance { material Material { diffuseColor 1 0 0 } }
-          geometry DEF cone1 Cone { side FALSE }
+          geometry DEF cone1 Cone { side FALSE solid FALSE }
         }
       ]
     }
@@ -95,7 +95,7 @@ Group {
         USE RenderBefore
         Shape {
           appearance Appearance { material Material { diffuseColor 1 0 0 } }
-          geometry Cylinder { side FALSE }
+          geometry Cylinder { side FALSE solid FALSE }
         }
       ]
     }

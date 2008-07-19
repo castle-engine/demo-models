@@ -26,7 +26,7 @@ Group {
         texture ImageTexture  { url "../textures/crown.png" repeatT FALSE }
         material Material { }
       }
-      geometry Cylinder { top FALSE bottom FALSE }
+      geometry Cylinder { top FALSE bottom FALSE solid FALSE }
     }
 
     Transform {
