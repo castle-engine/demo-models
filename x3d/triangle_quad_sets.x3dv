@@ -307,3 +307,126 @@ Transform {
     }
   }
 }
+
+# 4th column: ccw tests ----------------------------------------------------
+
+Transform {
+  translation 15 0 0
+  children Shape {
+    appearance DEF Col4App Appearance {
+      texture ImageTexture { url "../textures/test_texture.png" }
+      # textureTransform TextureTransform { scale 10 10 }
+      material Material { } }
+    geometry IndexedTriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      index [ 0 1 2, 3 4 5 ]
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1,
+                                           0 0, 1 0, 1 1 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 5 0
+  children Shape {
+    appearance USE Col4App
+    geometry TriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1,
+                                           0 0, 1 0, 1 1 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 10 0
+  children Shape {
+    appearance USE Col4App
+    geometry IndexedTriangleFanSet {
+      coord DEF FanSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0.5 1.5,
+                                           0 0, 1 0, 1 1, 0.5 1.5 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 15 0
+  children Shape {
+    appearance USE Col4App
+    geometry TriangleFanSet {
+      coord USE FanSetCoord
+      fanCount [ 4 4 ]
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0.5 1.5,
+                                           0 0, 1 0, 1 1, 0.5 1.5 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 20 0
+  children Shape {
+    appearance USE Col4App
+    geometry IndexedTriangleStripSet {
+      coord DEF StripSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 1.5 0.5,
+                                           0 0, 1 0, 1 1, 1.5 0.5 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 25 0
+  children Shape {
+    appearance USE Col4App
+    geometry TriangleStripSet {
+      coord USE StripSetCoord
+      stripCount [ 4 4 ]
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 1.5 0.5,
+                                           0 0, 1 0, 1 1, 1.5 0.5 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 30 0
+  children Shape {
+    appearance USE Col4App
+    geometry IndexedQuadSet {
+      coord DEF quadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      index [ 0 1 2 3, 4 5 6 7 ]
+      texCoord DEF quadSetTexCoord
+        TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1,
+                                    0 0, 1 0, 1 1, 0 1 ] }
+      solid FALSE
+    }
+  }
+}
+
+Transform {
+  translation 15 35 0
+  children Shape {
+    appearance USE Col4App
+    geometry QuadSet {
+      coord USE quadSetCoord
+      texCoord USE quadSetTexCoord
+      solid FALSE
+    }
+  }
+}
