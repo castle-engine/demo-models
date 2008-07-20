@@ -1,19 +1,8 @@
 #VRML V2.0 utf8
 
-# TODO: this is wrong VRML file, and that's why it causes view3dscene
-# to crash.
-#
-# view3dscene: WARNING: Wrong vertex index in indexed node (not enouch points in Coordinate node defined: index is 23, we have only 1 vertices)
-# view3dscene: Exception EAccessViolation (at address 0x08074EC6) :
-# Access violation
-# An unhandled exception occurred at $08074EC6 :
-# EAccessViolation : Access violation
-# ...
-#
-# Previously "Wrong vertex index in indexed node" was an error,
-# so such VRML files were simply rejected. After chaging this to
-# VRMLNonFatalError, we should also secure other places to produce
-# nice VRMLNonFatalError.
+# This is wrong VRML file. It's undefined what will happen when VRML
+# browser will read this. (But a good one should produce sensible
+# warning or at least sensible error for this.)
 
 DEF UpperColumn Transform {
 	children Shape {
