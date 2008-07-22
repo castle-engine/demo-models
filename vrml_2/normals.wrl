@@ -21,7 +21,7 @@ Transform {
   }
 }
 
-# use normalIndex (last vertex will have wrong normal)
+# use normalIndex (last (top-left) vertex will have wrong normal)
 Transform {
   translation 20 0 0
   children Shape {
@@ -37,7 +37,7 @@ Transform {
 }
 
 # use normals indexed by coordIndex.
-# vertex 10 0 0 (nr 1) will have wrong normal.
+# vertex 10 0 0 (nr 1, bottom-right) will have wrong normal.
 Transform {
   translation 40 0 0
   children Shape {
@@ -50,7 +50,9 @@ Transform {
   }
 }
 
-# use normalIndex (last vertex will have wrong normal)
+# Test ccw with specified normals:
+#
+# Use normalIndex (last (top-left) vertex will have wrong normal).
 # The face is specified in different order, and it has CCW = false.
 # Should look just like example above.
 Transform {

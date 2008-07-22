@@ -14,53 +14,54 @@ Group{
   #  NormalBinding { value DEFAULT }
 
       # generate normals automatically
-    IndexedFaceSet { 
+    IndexedFaceSet {
       coordIndex [0, 1, 2, 3]
     }
     Translation { translation 20 0 0 }
-      # use generated normals (ostatni vertex bedzie mial zly normal)
-    IndexedFaceSet { 
+      # use generated normals (ostatni (left-top in default view)
+      # vertex bedzie mial zly normal)
+    IndexedFaceSet {
       coordIndex [0, 1, 2, 3]
       normalIndex [0, 0, 0, 1]
     }
-  
+
     Translation { translation 20 0 0 }
     NormalBinding { value PER_VERTEX }
-      # use generated normals - each vertex has its normal, that is
-      # coord index gives index to Normal.vector (instead of normalIndex) 
-      # vertex 10 0 0 (nr 1 czyli drugi) bedzie mial zly normal)
-    IndexedFaceSet { 
+      # use specified normals - each vertex has its normal, that is
+      # coord index gives index to Normal.vector (instead of normalIndex)
+      # vertex 10 0 0 (nr 1 czyli drugi, bottom-right) bedzie mial zly normal)
+    IndexedFaceSet {
       coordIndex [0, 1, 2, 3]
     }
   }
-  
+
   Translation { translation 0 -20 0 }
   Separator {
     # teraz zrob to samo ale dla Line. Mozna zauwazyc ze pierwsze
-    # indexed line set bedzie teraz nieoswietlone (co jest zgodne ze 
+    # indexed line set bedzie teraz nieoswietlone (co jest zgodne ze
     # specyfikacja VRMLa).
 
-    IndexedLineSet { 
+    IndexedLineSet {
       coordIndex [0, 1, 2, 3, 0]
     }
     Translation { translation 20 0 0 }
-    IndexedLineSet { 
+    IndexedLineSet {
       coordIndex [0, 1, 2, 3, 0]
       normalIndex [0, 0, 0, 1, 0]
     }
-  
+
     Translation { translation 20 0 0 }
     NormalBinding { value PER_VERTEX }
-    IndexedLineSet { 
+    IndexedLineSet {
       coordIndex [0, 1, 2, 3, 0]
     }
   }
-   
+
   # test na OVERALL binding. Normal ponizej jest odrobinke zly, powinien
   # wyjsc taki ciemniejszym kolorem prostokat.
 
   Translation { translation 0 -20 0 }
   Normal { vector 0 0.6 0.3 }
   NormalBinding { value OVERALL }
-  IndexedFaceSet { coordIndex [0, 1, 2, 3] }  
+  IndexedFaceSet { coordIndex [0, 1, 2, 3] }
 }
