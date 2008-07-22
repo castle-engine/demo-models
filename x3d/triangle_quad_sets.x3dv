@@ -308,7 +308,7 @@ Transform {
   }
 }
 
-# 4th column: ccw tests ----------------------------------------------------
+# 4th column: texture tests ----------------------------------------------------
 
 Transform {
   translation 15 0 0
@@ -427,6 +427,122 @@ Transform {
       coord USE quadSetCoord
       texCoord USE quadSetTexCoord
       solid FALSE
+    }
+  }
+}
+
+# 5th column: normals tests ----------------------------------------------------
+
+# two normals are broken on purpose
+Transform {
+  translation 20 0 0
+  children Shape {
+    appearance DEF Col5App Appearance { material Material { diffuseColor 0 1 1 } }
+    geometry IndexedTriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      index [ 0 1 2, 3 4 5 ]
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 1 0 0, ] }
+    }
+  }
+}
+
+Transform {
+  translation 20 5 0
+  children Shape {
+    appearance USE Col5App
+    geometry TriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 1 0 0, ] }
+    }
+  }
+}
+
+Transform {
+  translation 20 10 0
+  children Shape {
+    appearance USE Col5App
+    geometry IndexedTriangleFanSet {
+      coord DEF FanSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+
+    }
+  }
+}
+
+Transform {
+  translation 20 15 0
+  children Shape {
+    appearance USE Col5App
+    geometry TriangleFanSet {
+      coord USE FanSetCoord
+      fanCount [ 4 4 ]
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+
+    }
+  }
+}
+
+Transform {
+  translation 20 20 0
+  children Shape {
+    appearance USE Col5App
+    geometry IndexedTriangleStripSet {
+      coord DEF StripSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+    }
+  }
+}
+
+Transform {
+  translation 20 25 0
+  children Shape {
+    appearance USE Col5App
+    geometry TriangleStripSet {
+      coord USE StripSetCoord
+      stripCount [ 4 4 ]
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+
+    }
+  }
+}
+
+Transform {
+  translation 20 30 0
+  children Shape {
+    appearance USE Col5App
+    geometry IndexedQuadSet {
+      coord DEF quadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      index [ 0 1 2 3, 4 5 6 7 ]
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+    }
+  }
+}
+
+Transform {
+  translation 20 35 0
+  children Shape {
+    appearance USE Col5App
+    geometry QuadSet {
+      coord USE QuadSetCoord
+      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
     }
   }
 }
