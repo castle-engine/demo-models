@@ -1,0 +1,65 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Tests of LineSet X3D node. For IndexedLineSet tests, see analogous
+# ../vrml_2/indexed_line_set.wrl file. Result of this test should
+# look exactly like a subset of ../vrml_2/indexed_line_set.wrl
+# (only a subset, since per-polyline colors are not possible with
+# non-indexed LineSet)
+
+# default, whole white color
+Transform {
+  translation -3 1.5 0
+  children Shape {
+    geometry LineSet {
+      coord DEF C Coordinate { point [
+        0   0   0, 1   1   0, 2   0   0, 1   -1   0, 0   0   0,
+        0.1 0   0, 1.1 1   0, 2.1 0   0, 1.1 -1   0, 0.1 0   0, ] }
+      vertexCount [ 5 5 ]
+    }
+  }
+}
+
+# take from material.emissiveColor
+Transform {
+  translation -3 -1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry LineSet {
+      coord USE C
+      vertexCount [ 5 5 ]
+    }
+  }
+}
+
+# separate color for each vertex.
+# left: shades of red. right: shades of blue.
+Transform {
+  translation 0 +1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry LineSet {
+      coord USE C
+      vertexCount [ 5 5 ]
+      color Color { color [
+        1 0 0, 0.75 0 0, 0.5 0 0, 0.25 0 0, 1 0 0,
+        0 0 1, 0 0 0.75, 0 0 0.5, 0 0 0.25, 0 0 1, ] }
+    }
+  }
+}
+
+# yellow -> white -> red -> green -> blue colors will be used
+# (yes, discontinuity at leftmost point). For both polylines.
+Transform {
+  translation +3 +1.5 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 0 0 } }
+    geometry LineSet {
+      coord USE C
+      vertexCount [ 5 5 ]
+      color Color { color [
+        1 1 0, 1 1 1, 1 0 0, 0 1 0, 0 0 1,
+        1 1 0, 1 1 1, 1 0 0, 0 1 0, 0 0 1, ] }
+    }
+  }
+}
