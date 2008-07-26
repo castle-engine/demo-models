@@ -8,11 +8,11 @@ Group {
         whichChoice 8
         choice [
           Background {
-            # powinno wygladac to tak:
-            # pomiedzy katem 0 - 0.8 kolor interpolowany red - yellow
-            #                0.8 - 2 yellow - green
-            #                2 - 2.5 green - blue
-            #                2.5 - Pi constant blue
+            # This should look like:
+            # Between angle  0 - 0.8 color smooth from red to yellow
+            #                0.8 - 2 color smooth from yellow to green
+            #                2 - 2.5 color smooth from green to blue
+            #                2.5 - Pi constant blue color
             skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
             skyAngle [        0.8,   2,     2.5   ]
           }
@@ -36,15 +36,14 @@ Group {
           Background {
             skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
             skyAngle [        0.8,   2,     2.5   ]
-            # to nic nie zmienia - gdy nie ma groundAngle,
-            # groundColor jest bez znaczenia
+            # This groundColor should be ignored, since there's no groundAngle
             groundColor [ 1 0 0 ]
           }
           Background {
-            # powinno wygladac to tak:
-            #  0 - 0.8 kolor interpolowany red - yellow
-            #  0.8 - 2 yellow - green
-            #  2 - 2.14 green - green/blue
+            # This should look like:
+            #  0 - 0.8 color smooth from red to yellow
+            #  0.8 - 2 color smooth from yellow to green
+            #  2 - 2.14 color smooth from green to green/blue
             #  2.14 - Pi dark navy green - dark green (this is ground)
             skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
             skyAngle [        0.8,   2,     2.5   ]
