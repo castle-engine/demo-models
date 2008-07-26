@@ -4,11 +4,6 @@
 # some pixels of this texture are fully opaque and some are
 # fully transparent. (I created crown.png with GIMP,
 # http://www.gimp.org)
-#
-# My program view3dscene does not display properly partial transparency
-# with textures (with pixels like "30% opaque 70% transparent") YET.
-# (Partial transparency with materials is implemented, see e.g.
-# house_behind_the_glass_final.wrl)
 
 Group {
   children [
@@ -26,7 +21,7 @@ Group {
         texture ImageTexture  { url "../textures/crown.png" repeatT FALSE }
         material Material { }
       }
-      geometry Cylinder { top FALSE bottom FALSE solid FALSE }
+      geometry Cylinder { top FALSE bottom FALSE }
     }
 
     Transform {

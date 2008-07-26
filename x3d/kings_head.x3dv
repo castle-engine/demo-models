@@ -1,9 +1,10 @@
-#VRML V2.0 utf8
+#X3D V3.0 utf8
+PROFILE Interchange
 
-# This is copied from kings_head.wrl, but uses GIF version of
-# the texture.
-# Will work with my view3dscene only if ImageMagick's `convert'
-# is available on $PATH.
+# crown.png texture is a demo of texture with simple transparency :
+# some pixels of this texture are fully opaque and some are
+# fully transparent. (I created crown.png with GIMP,
+# http://www.gimp.org)
 
 Group {
   children [
@@ -18,10 +19,10 @@ Group {
 
     Shape {
       appearance Appearance {
-        texture ImageTexture  { url "../textures/crown.gif" repeatT FALSE }
+        texture ImageTexture  { url "../textures/crown.png" repeatT FALSE }
         material Material { }
       }
-      geometry Cylinder { top FALSE bottom FALSE }
+      geometry Cylinder { top FALSE bottom FALSE solid FALSE }
     }
 
     Transform {
