@@ -1,7 +1,9 @@
-#VRML V2.0 utf8
+#X3D V3.0 utf8
+PROFILE Interchange
 
 # Kambi test of some shape nodes :
-# Cone, Cylinder, PointSet and IndexedLineSet nodes
+# Cone, Cylinder, PointSet and IndexedLineSet nodes.
+# With X3D features: "solid" field for quadrics.
 
 Group {
   children [
@@ -73,7 +75,7 @@ Group {
         USE RenderBefore
         Shape {
           appearance Appearance { material Material { diffuseColor 1 0 0 } }
-          geometry DEF cone1 Cone { side FALSE }
+          geometry DEF cone1 Cone { side FALSE solid FALSE }
         }
       ]
     }
@@ -95,7 +97,7 @@ Group {
         USE RenderBefore
         Shape {
           appearance Appearance { material Material { diffuseColor 1 0 0 } }
-          geometry Cylinder { side FALSE }
+          geometry Cylinder { side FALSE solid FALSE }
         }
       ]
     }
