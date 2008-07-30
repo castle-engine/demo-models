@@ -1,0 +1,13 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance {
+    material Material {
+      diffuseColor 0.8 0.8 0.8
+      ambientIntensity 0.1666667
+      specularColor 0.4012008 0.4012008 0.4012008
+    }
+  }
+  geometry Teapot { solid FALSE }
+}
