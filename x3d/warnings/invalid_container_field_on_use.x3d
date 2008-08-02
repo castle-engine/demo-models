@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+
+<!--
+  Just a testcase of nasty bug corrected one day in Kambi VRML game engine.
+  Note that the 1st Coordinate node dictates wrong containerField,
+  bug since top-level doesn't use containerField,
+  it's reported only on 2nd Coordinate insertion.
+  2nd Coordinate insertion fails, since there's no such containerField.
+
+  So this *should* fail, but with proper and clear warning.
+-->
+
+<X3D profile='Immersive' version='3.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene>
+      <Coordinate DEF='SKINCOORD' containerField='skinCoord' />
+      <Group>
+            <Coordinate USE='SKINCOORD'/>
+      </Group>
+  </Scene>
+</X3D>
