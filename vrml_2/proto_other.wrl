@@ -39,3 +39,11 @@ Transform {
   translation 15 0 0
   children USE MySphere
 }
+
+PROTO ProtoEventsIsTest [
+  eventIn SFVec3f exampleEventIn
+] {
+  Group {
+    bboxCenter IS exampleEventIn
+  }
+}

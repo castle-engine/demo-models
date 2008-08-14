@@ -1,0 +1,88 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# See tricky_def_use.x3dv for comments about what this file tests.
+# This is more advanced test, since this does everything within a node
+# (not within root level of VRML file).
+
+# We need any node with multiple MFNode / SFNode fields for the next test,
+# to plug our ROUTE and PROTO between two fields within the same node.
+# Collision is an example of such node.
+
+Collision {
+  children [
+    Transform {
+      translation 0 2 0
+      children [
+        DEF XXXTouch TouchSensor { }
+        Shape { geometry Text { string "yellow" } }
+      ]
+    }
+
+    DEF XXX Shape {
+      geometry Sphere { }
+      appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    }
+  ]
+
+  ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+
+  PROTO YellowSphereByDefault [
+    inputOutput MFNode node USE XXX
+  ] {
+    Group { children IS node }
+  }
+
+  proxy Transform {
+    translation 4 0 0
+    children [
+
+      Transform {
+	translation 0 2 0
+	children [
+	  DEF XXXTouch TouchSensor { }
+	  Shape { geometry Text { string "blue" } }
+	]
+      }
+
+      DEF XXX Shape {
+	geometry Sphere { }
+	appearance Appearance { material Material { diffuseColor 0 0 1 } }
+      }
+    ]
+  }
+
+  ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+
+  PROTO BlueSphereByDefault [
+    inputOutput MFNode node USE XXX
+  ] {
+    Group { children IS node }
+  }
+}
+
+Transform {
+  translation 8 0 0
+  children [
+
+    Transform {
+      translation 0 2 0
+      children Shape { geometry Text { string "yellow" } }
+    }
+
+    YellowSphereByDefault { }
+  ]
+}
+
+Transform {
+  translation 12 0 0
+  children [
+
+    Transform {
+      translation 0 2 0
+      children Shape { geometry Text { string "blue" } }
+    }
+
+    BlueSphereByDefault { }
+  ]
+}
