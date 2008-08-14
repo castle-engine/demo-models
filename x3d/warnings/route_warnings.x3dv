@@ -1,0 +1,21 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+DEF XXXTouch TouchSensor { }
+DEF XXXTransl Transform { }
+DEF XXX Shape { geometry Sphere { } }
+
+# invalid node
+ROUTE InvalidNodeName.hitPoint_changed TO XXXTransl.translation
+
+# invalid field
+ROUTE XXXTouch.InvalidField TO XXXTransl.translation
+
+# dest field is not exposed
+ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+
+# dest field has different type
+ROUTE XXXTouch.hitPoint_changed TO XXXTransl.scaleOrientation
+
+# This is Ok.
+ROUTE XXXTouch.hitPoint_changed TO XXXTransl.translation
