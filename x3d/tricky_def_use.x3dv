@@ -24,21 +24,26 @@ PROFILE Interchange
 # ----------------------------------------------------------------------------
 # Define yellow sphere under XXX name
 
-Transform {
-  translation 0 2 0
+DEF XXXTransform Transform {
   children [
-    DEF XXXTouch TouchSensor { }
-    Shape { geometry Text { string "yellow" } }
+
+    Transform {
+      translation 0 2 0
+      children [
+        DEF XXXTouch TouchSensor { }
+        Shape { geometry Text { string "yellow" } }
+      ]
+    }
+
+    DEF XXX Shape {
+      geometry Sphere { }
+      appearance Appearance { material DEF XXXMat Material { diffuseColor 1 1 0 } }
+    }
   ]
 }
 
-DEF XXX Shape {
-  geometry Sphere { }
-  appearance Appearance { material Material { diffuseColor 1 1 0 } }
-}
-
 # This isn't really any sensible ROUTE, it's just to test keeping proper binding.
-ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+ROUTE XXXTouch.hitPoint_changed TO XXXTransform.translation
 
 # ----------------------------------------------------------------------------
 # Use yellow sphere from XXX name
@@ -53,7 +58,7 @@ PROTO YellowSphereByDefault [
 # Define blue sphere under the same XXX name
 # (should override previous name)
 
-Transform {
+DEF XXXTransform Transform {
   translation 4 0 0
   children [
 
@@ -73,7 +78,7 @@ Transform {
 }
 
 # This isn't really any sensible ROUTE, it's just to test keeping proper binding.
-ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+ROUTE XXXTouch.hitPoint_changed TO XXXTransform.translation
 
 # ----------------------------------------------------------------------------
 # Use blue sphere from XXX name

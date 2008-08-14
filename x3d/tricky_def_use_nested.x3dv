@@ -10,22 +10,24 @@ PROFILE Interchange
 # Collision is an example of such node.
 
 Collision {
-  children [
-    Transform {
-      translation 0 2 0
-      children [
-        DEF XXXTouch TouchSensor { }
-        Shape { geometry Text { string "yellow" } }
-      ]
-    }
+  children DEF XXXTransform Transform {
+    children [
+      Transform {
+        translation 0 2 0
+        children [
+          DEF XXXTouch TouchSensor { }
+          Shape { geometry Text { string "yellow" } }
+        ]
+      }
 
-    DEF XXX Shape {
-      geometry Sphere { }
-      appearance Appearance { material Material { diffuseColor 1 1 0 } }
-    }
-  ]
+      DEF XXX Shape {
+        geometry Sphere { }
+        appearance Appearance { material Material { diffuseColor 1 1 0 } }
+      }
+    ]
+  }
 
-  ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+  ROUTE XXXTouch.hitPoint_changed TO XXXTransform.translation
 
   PROTO YellowSphereByDefault [
     inputOutput MFNode node USE XXX
@@ -33,7 +35,7 @@ Collision {
     Group { children IS node }
   }
 
-  proxy Transform {
+  proxy DEF XXXTransform Transform {
     translation 4 0 0
     children [
 
@@ -52,7 +54,7 @@ Collision {
     ]
   }
 
-  ROUTE XXXTouch.hitPoint_changed TO XXX.bboxCenter
+  ROUTE XXXTouch.hitPoint_changed TO XXXTransform.translation
 
   PROTO BlueSphereByDefault [
     inputOutput MFNode node USE XXX
