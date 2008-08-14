@@ -1,0 +1,38 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo of using BooleanFilter and IntegerTrigger to set Switch.whichChild
+
+DEF K KeySensor { }
+
+DEF L Logger {
+  level 2
+}
+
+DEF BFilter BooleanFilter { }
+
+ROUTE K.controlKey TO BFilter.set_boolean
+
+DEF IGenerate0 IntegerTrigger { integerKey 0 }
+DEF IGenerate1 IntegerTrigger { integerKey 1 }
+
+ROUTE BFilter.inputFalse TO IGenerate0.set_boolean
+ROUTE BFilter.inputTrue  TO IGenerate1.set_boolean
+
+DEF SText Switch {
+  whichChoice 0
+  children [
+    Shape {
+      appearance Appearance { material Material { } }
+      geometry Text { string "control not pressed" }
+    }
+
+    Shape {
+      appearance Appearance { material Material { } }
+      geometry Text { string "control pressed" }
+    }
+  ]
+}
+
+ROUTE IGenerate0.triggerValue TO SText.whichChoice
+ROUTE IGenerate1.triggerValue TO SText.whichChoice

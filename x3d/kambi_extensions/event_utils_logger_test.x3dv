@@ -1,0 +1,13 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+DEF K KeySensor { }
+
+DEF L Logger {
+  level 2
+}
+
+DEF BToggle BooleanToggle { }
+
+ROUTE K.controlKey TO BToggle.set_boolean
+ROUTE BToggle.toggle TO L.write
