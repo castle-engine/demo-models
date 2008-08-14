@@ -1,0 +1,31 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance { material Material { } }
+  geometry Text { string [
+    "All KeySensor events occuring"
+    "when Shift key is pressed"
+    "will be logged"
+    "(see stdout)"
+  ] }
+}
+
+DEF K KeySensor { }
+
+DEF L Logger {
+  enabled FALSE # initial value
+  # logFile "/tmp/a.txt"
+  level 2
+}
+
+ROUTE K.shiftKey TO L.enabled
+
+ROUTE K.actionKeyPress TO L.write
+ROUTE K.actionKeyRelease TO L.write
+ROUTE K.altKey TO L.write
+ROUTE K.controlKey TO L.write
+ROUTE K.shiftKey TO L.write
+ROUTE K.isActive TO L.write
+ROUTE K.keyPress TO L.write
+ROUTE K.keyRelease TO L.write
