@@ -16,7 +16,7 @@ DEF K KeySensor { }
 DEF L Logger {
   enabled FALSE # initial value
   # logFile "/tmp/a.txt"
-  level 2
+  level 3
 }
 
 ROUTE K.shiftKey TO L.enabled
