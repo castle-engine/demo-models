@@ -1,0 +1,44 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Loops between ROUTEs.
+# TODO: this causes hangs in Kambi VRML engine. Detecting/avoiding
+# events loops is simply not implemented yet, and will cause
+# infinite calls to TVRMLEvent.Send.
+
+# Trivial Box shape, to test transforms work when loops are commented out.
+
+PROTO SimpleBox [] {
+  Shape {
+    appearance Appearance { material Material { } }
+    geometry Box { }
+  }
+}
+
+# Simple loop on single field
+
+DEF T1 Transform { children SimpleBox { } }
+ROUTE T1.translation_changed TO T1.set_translation
+
+# More complex loop in a single node
+
+DEF T2 Transform { }
+ROUTE T2.scale_changed TO T2.set_translation
+ROUTE T2.translation_changed TO T2.set_scale
+
+# More complex loop
+
+DEF T3 Transform { }
+DEF T4 Transform { }
+ROUTE T3.translation_changed TO T4.set_translation
+ROUTE T4.translation_changed TO T3.set_translation
+
+# Start loop, by running them by TimeSensor + interpolator
+DEF TS TimeSensor { loop TRUE }
+DEF PI PositionInterpolator { key [ 0 1 ] keyValue [ 0 0 0 1 1 1 ] }
+ROUTE TS.fraction_changed TO PI.set_fraction
+
+# Any of the 3 routes below starts some routes loop.
+ROUTE PI.value_changed TO T1.translation
+ROUTE PI.value_changed TO T2.translation
+ROUTE PI.value_changed TO T3.translation
