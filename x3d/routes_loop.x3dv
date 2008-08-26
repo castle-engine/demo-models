@@ -1,10 +1,9 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# Loops between ROUTEs.
-# TODO: this causes hangs in Kambi VRML engine. Detecting/avoiding
-# events loops is simply not implemented yet, and will cause
-# infinite calls to TVRMLEvent.Send.
+# Loops between ROUTEs. These should not harm VRML browser,
+# specifications define how loops should be avoided ("only one event
+# per ROUTE per timestamp").
 
 # Trivial Box shape, to test transforms work when loops are commented out.
 
