@@ -65,7 +65,7 @@ DEF OB_Teapot Transform {
                                                   inputOutput SFFloat alpha2 1.0
                                                   inputOnly SFTime time
                                                 }
-                                                
+
                                                 # Kambi+ to correctly display blending
                                                 blendMode BlendMode {
                                                   destFactor "one"
@@ -3198,10 +3198,5 @@ DEF OB_Teapot Transform {
 }
 
 # Kambi+, to route TimeSensor to shader
-DEF KamTime TimeSensor { 
-  loop TRUE
-  # TODO: we could eliminate this by routing KamTime.time, instead of
-  # elapsedTime, but this is not impl yet
-  cycleInterval 999999999999999999
-}
-ROUTE KamTime.elapsedTime TO KamShader.time
+DEF KamTime TimeSensor { loop TRUE }
+ROUTE KamTime.time TO KamShader.time
