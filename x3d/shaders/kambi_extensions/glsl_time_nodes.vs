@@ -1,4 +1,4 @@
-uniform float kambi_time;
+uniform float time;
 
 varying float height;
 varying vec3 color;
@@ -27,7 +27,7 @@ void main(void)
 
   /* This is the real job of vertex shader: to pass "height"
      for fragment shader. */
-  height = (gl_Vertex.y  + kambi_time / 20.0) * 30.0;
+  height = (gl_Vertex.y  + time / 20.0) * 30.0;
 
   gl_Position = ftransform();
 }

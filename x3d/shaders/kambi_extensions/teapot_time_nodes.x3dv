@@ -55,7 +55,7 @@ DEF OB_Teapot Transform {
 						}
 
                                                 # Kambi+ added this by hand to activate shader
-                                                shaders ComposedShader {
+                                                shaders DEF KamShader ComposedShader {
                                                   language "GLSL"
                                                   parts [
                                                     ShaderPart { type "VERTEX" url "glsl_time_nodes.vs" }
@@ -63,7 +63,7 @@ DEF OB_Teapot Transform {
                                                   ]
                                                   inputOutput SFFloat alpha1 0.1
                                                   inputOutput SFFloat alpha2 1.0
-                                                  inputOutput SFTime kambi_time 0
+                                                  inputOnly SFTime time
                                                 }
                                                 
                                                 # Kambi+ to correctly display blending
@@ -3197,3 +3197,11 @@ DEF OB_Teapot Transform {
 	]
 }
 
+# Kambi+, to route TimeSensor to shader
+DEF KamTime TimeSensor { 
+  loop TRUE
+  # TODO: we could eliminate this by routing KamTime.time, instead of
+  # elapsedTime, but this is not impl yet
+  cycleInterval 999999999999999999
+}
+ROUTE KamTime.elapsedTime TO KamShader.time
