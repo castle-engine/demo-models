@@ -1,0 +1,57 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Test Rectangle2D, and by the way output events "origin" and "textBounds"
+# of Text node.
+
+Transform {
+  translation 0 -6 0
+  children [
+    Shape {
+      appearance Appearance { material Material { diffuseColor 0 1 0 } }
+      geometry DEF T1 Text {
+        string "this is serif"
+        fontStyle FontStyle { size 10 family "SERIF" justify "MIDDLE" }
+      }
+    }
+    Transform { translation 0 0 -1
+      children Shape {
+        appearance Appearance { material Material { } }
+        geometry DEF R1 Rectangle2D { }
+      }
+    }
+  ]
+  # In standard X3D, Rectangle2D.size is not exposed
+  # (you can trivially modify Kambi VRML engine to make it exposed for this test)
+  # ROUTE T1.textBounds TO R1.size
+}
+
+Transform {
+  translation 0 +6 0
+  children [
+    Shape {
+      appearance Appearance { material Material { diffuseColor 0 0 1 } }
+      geometry DEF T2 Text {
+        string "this is sans-serif bold italic"
+        fontStyle FontStyle { size 10 family "SANS" style "BOLDITALIC" justify "MIDDLE" }
+      }
+    }
+    Transform { translation 0 0 -1
+      children Shape {
+        appearance Appearance { material Material { } }
+        geometry DEF R2 Rectangle2D { }
+      }
+    }
+  ]
+  # In standard X3D, Rectangle2D.size is not exposed
+  # (you can trivially modify Kambi VRML engine to make it exposed for this test)
+  # ROUTE T2.textBounds TO R2.size
+}
+
+DEF L Logger { level 3 }
+ROUTE T1.origin TO L.write
+ROUTE T1.textBounds TO L.write
+ROUTE T1.lineBounds TO L.write
+ROUTE T2.origin TO L.write
+ROUTE T2.textBounds TO L.write
+ROUTE T2.lineBounds TO L.write
