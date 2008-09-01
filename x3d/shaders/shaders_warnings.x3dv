@@ -13,7 +13,7 @@ Transform {
           # I don't handle HLSL (and Kambi engine never will, I'm not going
           # to port to M$ Direct X API). This is just to test that
           # such ProgramShader is correctly parsed and ignored.
-          ProgramShader {
+          DEF TestHLSL ProgramShader {
             language "HLSL"
             programs [
               ShaderProgram { type "VERTEX" }
@@ -21,7 +21,7 @@ Transform {
             ] }
 
           # Shader with deliberately incorrect source code.
-          ComposedShader {
+          DEF TestGLSLIncorrect ComposedShader {
             language "GLSL"
             parts [
               ShaderPart { type "VERTEX" url "glsl_deliberately_incorrect.vs" }
@@ -30,7 +30,7 @@ Transform {
           }
 
           # Not existing source file for shader.
-          ComposedShader {
+          DEF TestGLSLNotExisting ComposedShader {
             language "GLSL"
             parts [
               ShaderPart { type "VERTEX" url "glsl_not_existing.vs" }
@@ -38,7 +38,7 @@ Transform {
           }
 
           # No shaders specified.
-          ComposedShader {
+          DEF TestGLSLNoParts ComposedShader {
             language "GLSL"
             parts [ ]
           }
@@ -134,3 +134,27 @@ Transform {
     }
   ]
 }
+
+# Test isSelected, isValid of X3DShaderNode. You can uncomment these
+# and check with Kambi VRML game engine, other VRML browsers may
+# not know non-standard Logger node.
+
+# DEF L Logger { level 3 }
+
+# ROUTE TestHLSL.isSelected TO L.write
+# ROUTE TestHLSL.isValid TO L.write
+
+# ROUTE TestGLSLIncorrect.isSelected TO L.write
+# ROUTE TestGLSLIncorrect.isValid TO L.write
+
+# ROUTE TestGLSLNotExisting.isSelected TO L.write
+# ROUTE TestGLSLNotExisting.isValid TO L.write
+
+# ROUTE TestGLSLNoParts.isSelected TO L.write
+# ROUTE TestGLSLNoParts.isValid TO L.write
+
+# ROUTE CompShader1.isSelected TO L.write
+# ROUTE CompShader1.isValid TO L.write
+
+# ROUTE CompShader2.isSelected TO L.write
+# ROUTE CompShader2.isValid TO L.write
