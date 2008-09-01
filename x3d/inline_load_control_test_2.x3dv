@@ -1,0 +1,18 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Transform {
+  translation 2 -2 0
+  children Shape {
+    appearance DEF A Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Text { string "now press Shift to unload the inlined file" }
+  }
+}
+
+Transform {
+  translation 0 -2 0
+  children Shape {
+    appearance USE A
+    geometry Cone { }
+  }
+}

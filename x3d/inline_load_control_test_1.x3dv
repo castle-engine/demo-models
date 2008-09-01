@@ -1,0 +1,25 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# This is to test Inline.load features for X3D.
+
+Shape {
+  geometry Text { string "press Control to load the inlined file" }
+}
+
+DEF I Inline { load FALSE url "inline_load_control_test_2.x3dv" }
+
+# On control key down, set I.load = true
+
+DEF KS KeySensor { }
+DEF BFCtrl BooleanFilter { }
+ROUTE KS.controlKey TO BFCtrl.set_boolean
+ROUTE BFCtrl.inputTrue TO I.load
+
+# On shift key down, set I.load = false
+
+DEF BFShift1 BooleanFilter { }
+DEF BFShift2 BooleanFilter { }
+ROUTE KS.shiftKey TO BFShift1.set_boolean
+ROUTE BFShift1.inputNegate TO BFShift2.set_boolean
+ROUTE BFShift2.inputFalse TO I.load
