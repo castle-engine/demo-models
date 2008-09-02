@@ -1,0 +1,71 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# This is to test Background.set_bind features for X3D.
+
+Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry Text { string "press Control to bind the 1st background" }
+}
+
+Transform {
+  translation 0 -2 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 1 } }
+    geometry Text { string "press Alt to unbind the 1nd background" }
+  }
+}
+
+Transform {
+  translation 0 -4 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 0 0 1 } }
+    geometry Text { string "press Shift to bind the 2nd background" }
+  }
+}
+
+DEF Background1 Background {
+  # add some textures
+  skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0, ]
+  skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9, ]
+  groundColor [ 0 0.5 0, 0 0.25 0.25 ]
+  groundAngle [          1 ]
+  rightUrl "../skies/sky_lake_left.jpg"
+  frontUrl "../skies/sky_lake_back.jpg"
+}
+
+Transform {
+  rotation 1 0 0 1.57
+  children DEF Background2 Background {
+    backUrl "../skies/sky_red_back.bmp"
+    bottomUrl "../skies/sky_red_bottom.png"
+    frontUrl "../skies/sky_red_front.jpg"
+    leftUrl "../skies/sky_red_left.ppm"
+    rightUrl "../skies/sky_red_right.rgbe"
+    topUrl "../skies/sky_red_top.png"
+  }
+}
+
+DEF KS KeySensor { }
+
+# On control key down, set Background1.set_bind = true
+DEF BFCtrl BooleanFilter { }
+ROUTE KS.controlKey TO BFCtrl.set_boolean
+ROUTE BFCtrl.inputTrue TO Background1.set_bind
+
+# On alt key down, set Background1.set_bind = false
+DEF BFAlt1 BooleanFilter { }
+DEF BFAlt2 BooleanFilter { }
+ROUTE KS.altKey TO BFAlt1.set_boolean
+ROUTE BFAlt1.inputNegate TO BFAlt2.set_boolean
+ROUTE BFAlt2.inputFalse TO Background1.set_bind
+
+# On shift key down, set Background2.set_bind = true
+DEF BFShift BooleanFilter { }
+ROUTE KS.shiftKey TO BFShift.set_boolean
+ROUTE BFShift.inputTrue TO Background2.set_bind
+
+# Test isBound output by Logger
+# DEF L Logger { level 3 }
+# ROUTE Background1.isBound TO L.write
+# ROUTE Background2.isBound TO L.write
