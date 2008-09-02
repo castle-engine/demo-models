@@ -1,0 +1,83 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# This is to test Fog.set_bind features for X3D.
+
+# ----------------------------------------------------------------------------
+# set some scene first, to not be boring
+
+NavigationInfo {
+  type "WALK"
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.018567405641079 0.399568855762482 -0.000000638432709
+# up 3.27224097418366E-006 1.40198903864075E-006 1
+# gravityUp 0 0 1
+Transform {
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+  children [
+    Viewpoint {
+      position 0 0 0 # camera position is expressed by translation
+      orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+    }
+
+    Transform {
+      translation -5 0 -15
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text { string [
+          "- Press Control to bind the 1st fog"
+          "- Press Alt to unbind the 1nd fog"
+          "- Press Shift to bind the 2nd fog"
+          ]
+        }
+      }
+    }
+  ]
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+# ----------------------------------------------------------------------------
+
+DEF Fog1 Fog {
+  color 0 0.5 0
+  visibilityRange 160
+  fogType "EXPONENTIAL"
+}
+
+Transform {
+  rotation 1 0 0 1.57
+  children DEF Fog2 Fog {
+    color 0.6 0.6 0.6
+    visibilityRange 80
+  }
+}
+
+DEF KS KeySensor { }
+
+# On control key down, set Fog1.set_bind = true
+DEF BFCtrl BooleanFilter { }
+ROUTE KS.controlKey TO BFCtrl.set_boolean
+ROUTE BFCtrl.inputTrue TO Fog1.set_bind
+
+# On alt key down, set Fog1.set_bind = false
+DEF BFAlt1 BooleanFilter { }
+DEF BFAlt2 BooleanFilter { }
+ROUTE KS.altKey TO BFAlt1.set_boolean
+ROUTE BFAlt1.inputNegate TO BFAlt2.set_boolean
+ROUTE BFAlt2.inputFalse TO Fog1.set_bind
+
+# On shift key down, set Fog2.set_bind = true
+DEF BFShift BooleanFilter { }
+ROUTE KS.shiftKey TO BFShift.set_boolean
+ROUTE BFShift.inputTrue TO Fog2.set_bind
+
+# Test isBound output by Logger
+# DEF L Logger { level 3 }
+# ROUTE Fog1.isBound TO L.write
+# ROUTE Fog2.isBound TO L.write
