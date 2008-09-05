@@ -100,7 +100,7 @@ Transform {
 Transform {
   translation 0 -8 0
   children Anchor {
-    url [ "#NotExisting" "#SideView" ]
+    url [ "non_existing.wrl" "#NotExisting" "#SideView" ]
     children [
       Shape {
         appearance DEF App1 Appearance { material Material { diffuseColor 0.5 0.5 1 } }
