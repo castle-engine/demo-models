@@ -148,3 +148,19 @@ Transform {
   }
 }
 
+Transform {
+  translation 0 -14 0
+  children Anchor {
+    url "../collada/humanoid-collada140.dae"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text { string "      Click me for a Collada 3D model" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
