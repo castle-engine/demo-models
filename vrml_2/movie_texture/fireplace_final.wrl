@@ -18,11 +18,26 @@ DirectionalLight {
   intensity 0.5
 }
 
-NavigationInfo {
+EXTERNPROTO KambiNavigationInfo [
+  eventIn      SFBool   set_bind
+  exposedField MFFloat  avatarSize
+  exposedField SFBool   headlight
+  exposedField SFFloat  speed
+  exposedField MFString type
+  exposedField SFFloat  visibilityLimit
+  eventOut     SFBool   isBound
+  field        SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
 	headlight FALSE
 	type ["FLY", "ANY"]
-} 
- 
+        timeOriginAtLoad TRUE
+}
+
 Background {
 	groundColor [ 0.0255309 0.0996698 0.1805486, 	0.0627654 0.0998349 0.1402743 ]
 	groundAngle [ 1.57 ]

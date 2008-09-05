@@ -1,5 +1,25 @@
 #VRML V2.0 utf8
 
+EXTERNPROTO KambiNavigationInfo [
+  eventIn      SFBool   set_bind
+  exposedField MFFloat  avatarSize
+  exposedField SFBool   headlight
+  exposedField SFFloat  speed
+  exposedField MFString type
+  exposedField SFFloat  visibilityLimit
+  eventOut     SFBool   isBound
+  field        SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+  headlight TRUE
+  type ["EXAMINE", "ANY"]
+  timeOriginAtLoad TRUE
+}
+
 Transform {
   translation 0 0 0
   children Shape {
