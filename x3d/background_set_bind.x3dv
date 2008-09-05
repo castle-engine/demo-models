@@ -12,7 +12,7 @@ Transform {
   translation 0 -2 0
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 1 } }
-    geometry Text { string "press Alt to unbind the 1nd background" }
+    geometry Text { string "press Alt to unbind the 1st background" }
   }
 }
 

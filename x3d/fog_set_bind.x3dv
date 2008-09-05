@@ -31,7 +31,7 @@ Transform {
         appearance Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string [
           "- Press Control to bind the 1st fog"
-          "- Press Alt to unbind the 1nd fog"
+          "- Press Alt to unbind the 1st fog"
           "- Press Shift to bind the 2nd fog"
           ]
         }
