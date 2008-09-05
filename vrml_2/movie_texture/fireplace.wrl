@@ -5,21 +5,6 @@
 # Blender file fireplace.blend
 # Exported using VRML97 exporter v1.55-kambi4
 
-
-NavigationInfo {
-	headlight FALSE
-	visibilityLimit 100.0
-	type ["EXAMINE", "ANY"]
-	avatarSize [0.25, 1.75, 0.75]
-} 
- 
-Background {
-	groundColor [ 0.0255309 0.0996698 0.1805486, 	0.0627654 0.0998349 0.1402743 ]
-	groundAngle [ 1.57 ]
-	skyColor [ 0.1 0.1 0.1, 	0.0627654 0.0998349 0.1402743 ]
-	skyAngle [ 1.57 ]
-}
-
 DEF OB_Plane_003 Transform {
 	translation 0.221224 -0.554618 0.375056
 	rotation 0.954202 0.211541 0.211541 1.617660

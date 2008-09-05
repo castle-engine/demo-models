@@ -3,7 +3,7 @@
 # Basic test of Background node. All faces haves textures without any
 # alpha channel. The Transform with rotation causes the up axis of the sky
 # be in +Z direction (default VRML sky has up in +Y axis), this
-# matches the orientation of included castle_with_lights_and_camera.wrl.
+# matches the orientation of included castle_with_lights.wrl.
 
 Group{
   Separator {
@@ -29,6 +29,21 @@ Group{
       topUrl "../../skies/sky_red_top.png"
     }
   }
+  
+  # Camera settings "encoded" in the VRML declaration below :
+  # direction 0 0.700684607028961 0.000241928064497
+  # up 0 -0.000345317530446 0.999999940395355
+  # gravityUp 0 0 1
+  Separator {
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+    }
+    PerspectiveCamera {
+      position 0 0 0 # camera position is expressed by translation
+      orientation 0 0 1 0
+    }
+  }
 
-  WWWInline { name "../castle_with_lights_and_camera.wrl" }
+  WWWInline { name "../castle_with_lights.wrl" }
 }

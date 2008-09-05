@@ -18,6 +18,18 @@ DirectionalLight {
   intensity 0.5
 }
 
+NavigationInfo {
+	headlight FALSE
+	type ["FLY", "ANY"]
+} 
+ 
+Background {
+	groundColor [ 0.0255309 0.0996698 0.1805486, 	0.0627654 0.0998349 0.1402743 ]
+	groundAngle [ 1.57 ]
+	skyColor [ 0.1 0.1 0.1, 	0.0627654 0.0998349 0.1402743 ]
+	skyAngle [ 1.57 ]
+}
+
 KambiInline {
   url "fireplace.wrl"
   replaceNames [

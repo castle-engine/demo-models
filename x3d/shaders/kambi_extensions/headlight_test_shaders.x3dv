@@ -27,6 +27,11 @@ Viewpoint {
   orientation -1.286994404381403E-007 1.0000003576278687 0 0.3465334475040435
 }
 
+Background {
+	groundColor 0.0565629 0.2208154 0.4
+	skyColor 0.0565629 0.2208154 0.4
+}
+
 EXTERNPROTO KambiTriangulation [
   inputOutput SFLong    quadricSlices
   inputOutput SFLong    quadricStacks
@@ -46,7 +51,7 @@ Shape {
       ]
     }
   }
-  geometry Box { size 10 10 10 }
+  geometry Box { size 10 10 10 solid FALSE }
 }
 
 Transform {

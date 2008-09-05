@@ -6,12 +6,12 @@
 # Exported using VRML97 exporter v1.55 (2006/01/17)
 
 
-NavigationInfo {
-	headlight TRUE
-	visibilityLimit 0.0
-	type ["EXAMINE", "ANY"]
-	avatarSize [0.25, 1.75, 0.75]
-} 
+# NavigationInfo {
+# 	headlight TRUE
+# 	visibilityLimit 0.0
+# 	type ["EXAMINE", "ANY"]
+# 	avatarSize [0.25, 1.75, 0.75]
+# } 
  
 DEF OB_Ground_001 Transform {
 	translation -8.145966 -5.198034 6.508626

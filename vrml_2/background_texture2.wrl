@@ -13,8 +13,21 @@ Group {
         topUrl "../skies/sky_lake_top.jpg"
       }
     }
+    
+    # Camera settings "encoded" in the VRML declaration below :
+    # direction 0 0.700684607028961 0.000241928064497
+    # up 0 -0.000345317530446 0.999999940395355
+    # gravityUp 0 0 1
+    Transform {
+      translation 0.004618315026164 -94.837326049804687 6.33106803894043
+      rotation 1 0 0 1.570796370506287
+      children Viewpoint {
+        position 0 0 0 # camera position is expressed by translation
+        orientation 0 0 1 0
+      }
+    }
 
-    Inline { url "castle_with_lights_and_camera.wrl" }
+    Inline { url "castle_with_lights.wrl" }
 
     # Making screenshot for freshmeat (must be 800x600) :
     # - use sky_lake_2_xxx.png above, to have higher-quality skies
