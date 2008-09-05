@@ -1,0 +1,150 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Anchor node tests
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0009542720508761 5.3072477612658986E-007 -0.0199772231280803
+# up 0.0003412316145841 0.9999999403953552 0.0000429102037742
+# gravityUp 0 1 0
+DEF FrontView Viewpoint {
+  description "Default Front View"
+  position 7.1882648468017578 -5.6412186622619629 23.323617935180664
+  orientation 0.0008015022613108 -0.9998616576194763 -0.0102263912558555 0.0477379597723484
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0187639687210321 4.114511682473676E-007 -0.0069222417660057
+# up 0.0001444578228984 0.9999952316284179 -0.0003320136165712
+# gravityUp 0 1 0
+DEF SideView Viewpoint {
+  description "Side View"
+  position 18.889060974121094 -1.6184728145599365 4.1580300331115723
+  orientation -0.0001506769476691 1 -0.0002477127709426 1.217374324798584
+}
+
+NavigationInfo {
+  headlight TRUE
+  type ["FLY", "ANY"]
+  speed 10
+}
+
+Anchor {
+  url "touch_sensor_tests.x3dv"
+  children [
+    Shape {
+      appearance DEF App1 Appearance { material Material { diffuseColor 1 0 0 } }
+      geometry Text { string "      Click me for TouchSensor test" }
+    }
+    Shape {
+      appearance USE App1
+      geometry Sphere { }
+    }
+  ]
+}
+
+Transform {
+  translation 0 -2 0
+  children Anchor {
+    url "key_sensor.x3dv"
+    description "Description for Anchor leading to KeySensor"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 0 1 0 } }
+        geometry Text { string "      Click me for KeySensor test" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -4 0
+  children Anchor {
+    url "castle_static_group_ortho_view.x3dv#SomeNonOrthoViewpoint"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 0 0 1 } }
+        geometry Text { string [ "      Click me for castle_static_group_ortho_view.x3dv,"
+                                 "      but with non-default camera" ] }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -6 0
+  children Anchor {
+    url "castle_static_group_ortho_view.x3dv#NotExisting"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 0 0 } }
+        geometry Text { string [ "      Click me for castle_static_group_ortho_view.x3dv, "
+                                 "      but with non-existing camera (should load default)" ] }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -8 0
+  children Anchor {
+    url [ "#NotExisting" "#SideView" ]
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 0.5 0.5 1 } }
+        geometry Text { string "      Click me for warning + side view of the same file" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -10 0
+  children Anchor {
+    url "anchor_test.x3dv#FrontView"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 0.5 0 } }
+        geometry Text { string "      Click me for front view of the same file, with reload" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -12 0
+  children Anchor {
+    url "#NotExisting"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 1 } }
+        geometry Text { string "      Click me for nothing (invalid viewpoint in self)" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+

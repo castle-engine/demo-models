@@ -29,3 +29,7 @@ StaticGroup {
     Inline { url "../vrml_2/castle_with_lights.wrl" }
   ]
 }
+
+DEF SomeNonOrthoViewpoint Viewpoint {
+  description "non-ortho named viewpoint, actually for anchor_test.x3dv"
+}

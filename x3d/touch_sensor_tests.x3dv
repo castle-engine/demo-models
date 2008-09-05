@@ -1,0 +1,202 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Basic tests of TouchSensor
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -2.4334789217569956E-018 0 -0.0459111109375953
+# up 7.5759828443823069E-023 1 4.3711388286737929E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 6.0976967811584473 -8.4533958435058594 26.899232864379883
+  orientation 0 0 1 0
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0090676350519061 -0.1966556161642074 0.0352972187101841
+# up 0.244646742939949 0.1822096705436706 0.952318787574768
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.4795918464660644 10.81984806060791 0.6583905816078186
+  orientation -0.0805612504482269 -0.7663355469703674 -0.6373692750930786 2.948472261428833
+  description "viewpoint to see both TouchSensors overlapping"
+}
+
+NavigationInfo {
+  headlight FALSE
+  type ["FLY", "ANY"]
+  speed 10
+}
+
+# ----------------------------------------------------------------------------
+# Test 1
+
+Group {
+  children [
+    DirectionalLight { }
+    Shape {
+      appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+      geometry Text { string [
+        "      Mouse over me and click/drag on me"
+        "      to turn on/off the light" ]
+      }
+    }
+    Shape {
+      appearance USE App1
+      geometry Sphere { }
+    }
+    DEF TouchTracker1 Transform {
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 1 } }
+        geometry Sphere { radius 0.1 }
+      }
+    }
+    DEF Touch1 TouchSensor { description "First testing toucher" }
+  ]
+}
+
+Transform {
+  translation 0 -2 0
+  children [
+    DEF LightOver1 DirectionalLight { on FALSE }
+    Shape {
+      appearance USE App1
+      geometry Text { string [ "Mouse over touch sensor" ] }
+    }
+  ]
+}
+
+Transform {
+  translation 0 -4 0
+  children [
+    DEF LightActive1 DirectionalLight { on FALSE }
+    Shape {
+      appearance USE App1
+      geometry Text { string [ "Active touch sensor" ] }
+    }
+  ]
+}
+
+Transform {
+  translation 0 -6 0
+
+  children [
+    DEF Timer1 TimeSensor {
+      startTime -1
+      stopTime -1
+      loop FALSE
+      cycleInterval 0.5
+    }
+
+    DEF Interp1 ColorInterpolator {
+      key      [ 0      0.5     1     ]
+      keyValue [ 1 1 0  0 0 0   1 1 0 ]
+    }
+
+    DEF MySphere1 Transform {
+      children Shape {
+        # Since it's not lighted, just make it visible by emissiveColor
+        appearance Appearance { material DEF SphereMat1 Material { emissiveColor 1 1 0 } }
+        geometry Sphere { }
+      }
+    }
+  ]
+}
+
+ROUTE Timer1.fraction_changed TO Interp1.set_fraction
+ROUTE Interp1.value_changed TO SphereMat1.set_emissiveColor
+
+ROUTE Touch1.isOver TO LightOver1.on
+ROUTE Touch1.isActive TO LightActive1.on
+ROUTE Touch1.touchTime TO Timer1.set_startTime
+#ROUTE Touch1.hitPoint_changed TO TouchTracker1.translation
+
+# ----------------------------------------------------------------------------
+# Test 2 - just a copy of Test 1, set beside
+
+Transform {
+  translation 0 -10 0
+
+  children [
+
+    Group {
+      children [
+        DirectionalLight { }
+        Shape {
+          appearance DEF App2 Appearance { material Material { diffuseColor 0 0 1 } }
+          geometry Text { string [
+            "      Mouse over me and click/drag on me"
+            "      to turn on/off the light" ]
+          }
+        }
+        Shape {
+          appearance USE App2
+          geometry Sphere { radius 2 }
+        }
+        DEF TouchTracker2 Transform {
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 1 1 0 } }
+            geometry Sphere { radius 0.1 }
+          }
+        }
+        DEF Touch2 TouchSensor { description "Second testing toucher" }
+      ]
+    }
+
+    Transform {
+      translation 0 -2 0
+      children [
+        DEF LightOver2 DirectionalLight { on FALSE }
+        Shape {
+          appearance USE App2
+          geometry Text { string [ "Mouse over touch sensor" ] }
+        }
+      ]
+    }
+
+    Transform {
+      translation 0 -4 0
+      children [
+        DEF LightActive2 DirectionalLight { on FALSE }
+        Shape {
+          appearance USE App2
+          geometry Text { string [ "Active touch sensor" ] }
+        }
+      ]
+    }
+
+    Transform {
+      translation 0 -6 0
+
+      children [
+        DEF Timer2 TimeSensor {
+          startTime -1
+          stopTime -1
+          loop FALSE
+          cycleInterval 0.5
+        }
+
+        DEF Interp2 ColorInterpolator {
+          key      [ 0      0.5     1     ]
+          keyValue [ 0 0 1  0 0 0   0 0 1 ]
+        }
+
+        DEF MySphere2 Transform {
+          children Shape {
+            # Since it's not lighted, just make it visible by emissiveColor
+            appearance Appearance { material DEF SphereMat2 Material { emissiveColor 0 0 1 } }
+            geometry Sphere { }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+ROUTE Timer2.fraction_changed TO Interp2.set_fraction
+ROUTE Interp2.value_changed TO SphereMat2.set_emissiveColor
+
+ROUTE Touch2.isOver TO LightOver2.on
+ROUTE Touch2.isActive TO LightActive2.on
+ROUTE Touch2.touchTime TO Timer2.set_startTime
+#ROUTE Touch2.hitPoint_changed TO TouchTracker2.translation
