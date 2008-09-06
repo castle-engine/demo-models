@@ -2,6 +2,25 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFFloat  speed
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFBool   isBound
+  initializeOnly  SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+	headlight TRUE
+	type ["EXAMINE", "ANY"]
+        timeOriginAtLoad TRUE
+}
+
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
 # Blender file teapot.blend
