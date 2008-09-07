@@ -1,0 +1,170 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Demo of ProximitySensor used to open/close doors automatically.
+
+Transform {
+  translation 5.9366340637207031 6.2475004196166992 1.5750000476837158
+  rotation 1 0 -0 1.5707963705062866
+  children [
+    Viewpoint {
+      position 0 0 0 # camera position is expressed by translation
+      orientation -1.0220850299447193E-006 0.9999999403953552 0 3.0978422164916992
+    }
+
+    Transform {
+      translation 0.4 0.3 1
+      rotation -1.0220850299447193E-006 0.9999999403953552 0 3.0978422164916992
+      scale 0.06 0.06 0.06
+      children Collision {
+        enabled FALSE
+        children Shape {
+          appearance Appearance { material Material { diffuseColor 0.5 0.5 0.5 } }
+          geometry Text { string [
+            "Simple ProximitySensor demo."
+            "Pressing Ctrl toggles displaying"
+            "of the yellow (non-collidable) boxes"
+            "that visualize ProximitySensors."
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
+
+NavigationInfo {
+  headlight TRUE
+  type ["WALK", "ANY"]
+  avatarSize [0.25, 1.75, 0.75]
+  speed 10
+}
+
+Inline { url "deranged_house.wrl" }
+
+PROTO Door [ ] {
+  Group {
+    children [
+      DEF TimerOpen TimeSensor { }
+      DEF OrientOpen OrientationInterpolator {
+        key [ 0 1 ]
+        keyValue [ 0 0 1 0, 0 0 1 1.57 ]
+      }
+
+      DEF TimerClose TimeSensor { }
+      DEF OrientClose OrientationInterpolator {
+        key [ 0 1 ]
+        keyValue [ 0 0 1 1.57, 0 0 1 0 ]
+      }
+
+      DEF DoorTransform Transform {
+        center 0 -1 0
+        children Inline { url "deranged_house_door.wrl" }
+      }
+
+      Transform {
+        translation -1 0 1.3
+        children [
+          DEF ProxSens ProximitySensor {
+            center 0 0 0
+            size 5 2 2.5
+          }
+          DEF ProxSensVisualize Switch {
+            whichChoice -1
+            children Collision {
+              enabled FALSE
+              children Shape {
+                appearance Appearance { material Material {
+                  transparency 0.5
+                  diffuseColor 2 2 0
+                } }
+                geometry Box { size 5 2 2.5 } # same size of ProxSens
+              }
+            }
+          }
+        ]
+      }
+
+      DEF K KeySensor { }
+      DEF BToggle BooleanToggle { }
+      DEF BFilter BooleanFilter { }
+      DEF IGenerateM1 IntegerTrigger { integerKey -1 }
+      DEF IGenerate0 IntegerTrigger { integerKey 0 }
+    ]
+
+    # When ProxSens.enterTime, start animation opening door.
+
+    ROUTE ProxSens.enterTime TO TimerOpen.set_startTime
+    ROUTE TimerOpen.fraction_changed TO OrientOpen.set_fraction
+    ROUTE OrientOpen.value_changed TO DoorTransform.rotation
+
+    # When ProxSens.exitTime, start animation opening door.
+
+    ROUTE ProxSens.exitTime TO TimerClose.set_startTime
+    ROUTE TimerClose.fraction_changed TO OrientClose.set_fraction
+    ROUTE OrientClose.value_changed TO DoorTransform.rotation
+
+    # How does KeySensor handling below work?
+    # Each controlKey press changes BToggle.toggle value (controlKey releases
+    # are ignored).
+    # - When BToggle.toggle is true, BFilter.inputTrue is
+    #   generated, and this generates IGenerate0.triggerValue,
+    #   which sets ProxSensVisualize.whichChoice to 0.
+    # - When BToggle.toggle is false, BFilter.inputFalse is
+    #   generated, and this generates IGenerateM1.triggerValue,
+    #   which sets ProxSensVisualize.whichChoice to -1.
+
+    ROUTE K.controlKey TO BToggle.set_boolean
+    ROUTE BToggle.toggle TO BFilter.set_boolean
+    ROUTE BFilter.inputFalse TO IGenerateM1.set_boolean
+    ROUTE BFilter.inputTrue  TO IGenerate0.set_boolean
+    ROUTE IGenerateM1.triggerValue TO ProxSensVisualize.whichChoice
+    ROUTE IGenerate0.triggerValue TO ProxSensVisualize.whichChoice
+  }
+}
+
+Transform {
+  translation 3.1 4 0
+  children Door { }
+}
+
+Transform {
+  translation 3.1 -4 0
+  children Door { }
+}
+
+Transform {
+  translation -11.8 -4 0
+  children Door { }
+}
+
+Transform {
+  translation 5.1 -8 0
+  rotation 0 0 1 1.5707963268 # Pi/2 = 90 degrees
+  children Door { }
+}
+
+Transform {
+  translation 9.1 -8 0
+  rotation 0 0 1 1.5707963268 # Pi/2 = 90 degrees
+  children Door { }
+}
+
+Transform {
+  translation 11.3 -6.2 0
+  rotation 0 0 1 3.1415926536 # Pi
+  children Door { }
+}
+
+Transform {
+  translation 10.55 -3.1 0
+  rotation 0 0 1 3.1415926536 # Pi
+  children Door { }
+}
+
+DirectionalLight {
+  intensity 0
+  # just a hack to add pure ambient light in the scene
+  # (using global light ambient would be better for OpenGL, but not standard VRML...)
+  ambientIntensity 1
+}

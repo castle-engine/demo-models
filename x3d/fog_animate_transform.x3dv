@@ -1,0 +1,67 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# This is to test Fog.set_bind features for X3D.
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+DEF FogTransform Transform {
+  children DEF Fog Fog {
+    color 0.2 0.4 0.5
+    visibilityRange 100
+    fogType "LINEAR"
+  }
+}
+
+Group {
+  children [
+    Transform {
+      translation -12.041908264160156 -61.640647888183594 2
+      rotation 1 0 0 1.570796370506287
+      children [
+        Viewpoint {
+          position 0 0 0 # camera position is expressed by translation
+          orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+        }
+
+        Transform {
+          translation -5 0 -15
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 1 1 0 } }
+            geometry Text { string [
+    	      "Click this to animate fog visibilityRange"
+    	       "(by transforming, that is scaling, it)" ] }
+          }
+        }
+      ]
+    }
+    DEF TouchStartAnim TouchSensor { }
+  ]
+}
+
+DEF Timer TimeSensor { cycleInterval 5 }
+
+DEF Interp PositionInterpolator {
+  key [ 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 ]
+  keyValue [ 1 1 1,
+             2 2 2,
+	     0.5 0.5 0.5,
+	     2 2 2,
+	     2 2 2,
+	     0.5 0.5 0.5,
+	     2 2 2,
+	     2 2 2,
+	     0.5 0.5 0.5,
+	     2 2 2,
+	     1 1 1, ]
+}
+
+ROUTE TouchStartAnim.touchTime TO Timer.set_startTime
+ROUTE Timer.fraction_changed TO Interp.set_fraction
+ROUTE Interp.value_changed TO FogTransform.scale
