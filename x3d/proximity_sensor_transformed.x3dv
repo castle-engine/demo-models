@@ -1,0 +1,95 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# One ProximitySensor, instanced two times, and moving by transformations.
+# When ProximitySensor becomes in contact with non-moving viewer, also
+# appropriate events must be generated --- this tests this.
+# Also position_changed (visualized in 3rd box) reflects your position
+# in the current ProximitySensor.
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0182686317712068 0 0.0529363304376602
+# up 1.4259776470737506E-008 0.9999999403953552 -4.1320017629686845E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 10.344264984130859 -1.86340844265942E-006 -20.486852645874023
+  orientation 0.0000289506460831 1 -0.0001726334885461 2.8092844486236572
+}
+
+NavigationInfo {
+  headlight TRUE
+  type ["FLY", "ANY"]
+  avatarSize [0.25, 1.75, 0.75]
+  speed 10
+}
+
+DEF ProxSensTransform Transform {
+  scale 5 5 5
+  children [
+    DEF ProxSens ProximitySensor { size 1 1 1 }
+    Collision {
+      enabled FALSE
+      children Shape {
+        appearance Appearance { material Material {
+          transparency 0.5
+          diffuseColor 2 2 0
+        } }
+        geometry Box { size 1 1 1 solid FALSE }
+      }
+    }
+  ]
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+
+DEF Interp PositionInterpolator {
+  key      [ 0      0.25       0.5        0.75     1     ]
+  keyValue [ 0 0 0  10 0 0     10 10 0    0 10 0   0 0 0 ]
+}
+
+ROUTE Timer.fraction_changed TO Interp.set_fraction
+ROUTE Interp.value_changed TO ProxSensTransform.translation
+
+DEF AnotherProxSensTransform Transform {
+  translation 10 0 0
+  children [
+    USE ProxSens
+    Collision {
+      enabled FALSE
+      children Shape {
+        appearance Appearance { material Material {
+          transparency 0.5
+          diffuseColor 2 2 0
+        } }
+        geometry Box { size 1 1 1 solid FALSE }
+      }
+    }
+  ]
+}
+
+DEF BigBoxToVisualizePosition Transform {
+  translation 0 0 15
+  scale 5 5 5
+  children [
+    DEF SmallBoxToVisualizePosition Transform {
+      children Shape {
+        appearance Appearance { material Material {
+          diffuseColor 1 1 0
+        } }
+        geometry Sphere { radius 0.1 }
+      }
+    }
+
+    Shape {
+      appearance Appearance { material Material {
+	transparency 0.1
+	diffuseColor 0.2 0.2 0.9
+      } }
+      geometry Box { size 1 1 1 solid FALSE }
+    }
+  ]
+}
+
+ROUTE ProxSens.position_changed TO SmallBoxToVisualizePosition.translation
+#DEF L Logger { level 3 }
+#ROUTE ProxSens.position_changed TO L.write
