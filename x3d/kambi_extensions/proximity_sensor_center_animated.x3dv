@@ -1,0 +1,82 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# position_changed (visualized in 3rd box) reflects your position
+# in the current ProximitySensor.
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0075572188943624 1.3101623608235968E-007 0.1998573392629623
+# up -6.1215524738145177E-007 0.9999997615814209 -6.7614365661938791E-007
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.5881115198135376 1.3130674362182617 0.8290525674819946
+  orientation -0.0001552925823489 -0.9999999403953552 3.4841873457480688E-006 3.1037981510162354
+}
+
+NavigationInfo {
+  headlight TRUE
+  type ["FLY", "ANY"]
+  avatarSize [0.25, 1.75, 0.75]
+  speed 10
+}
+
+DEF ProxSens ProximitySensor { size 1 1 1 }
+
+DEF ProxSensTransform Transform {
+  scale 1 1 1
+  children [
+    Collision {
+      enabled FALSE
+      children Shape {
+        appearance KambiAppearance {
+          material Material {
+            transparency 0.5
+            diffuseColor 2 2 0
+          }
+          blendMode BlendMode { destFactor "one" }
+        }
+        geometry Box { size 1 1 1 solid FALSE }
+      }
+    }
+  ]
+}
+
+DEF TimerSize TimeSensor { loop TRUE cycleInterval 5.0 }
+DEF InterpSize PositionInterpolator {
+  key      [ 0       0.5      1     ]
+  keyValue [ 1 1 1   10 1 1   1 1 1 ]
+}
+
+ROUTE TimerSize.fraction_changed TO InterpSize.set_fraction
+ROUTE InterpSize.value_changed TO ProxSens.center
+ROUTE InterpSize.value_changed TO ProxSensTransform.translation
+
+DEF BigBoxToVisualizePosition Transform {
+  translation 0 0 15
+  scale 5 5 5
+  children [
+    DEF SmallBoxToVisualizePosition Transform {
+      children Shape {
+        appearance Appearance { material Material {
+          diffuseColor 1 1 0
+        } }
+        geometry Sphere { radius 0.1 }
+      }
+    }
+
+    Shape {
+      appearance KambiAppearance {
+        material Material {
+          transparency 0.1
+          diffuseColor 0.2 0.2 0.9
+        }
+	blendMode BlendMode { destFactor "one" }
+      }
+      geometry Box { size 1 1 1 solid FALSE }
+    }
+  ]
+}
+
+ROUTE ProxSens.position_changed TO SmallBoxToVisualizePosition.translation
+DEF L Logger { level 3 }
+ROUTE ProxSens.position_changed TO L.write
