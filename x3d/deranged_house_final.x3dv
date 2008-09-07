@@ -98,7 +98,10 @@ PROTO Door [ ] {
     ROUTE TimerOpen.fraction_changed TO OrientOpen.set_fraction
     ROUTE OrientOpen.value_changed TO DoorTransform.rotation
 
-    # When ProxSens.exitTime, start animation opening door.
+    # When ProxSens.exitTime, start animation closing door.
+    # TODO: this is bad, as it closes the door from the beginning
+    # of closing animation. We should close since the current state.
+    # How to do such thing with events, without scripting?
 
     ROUTE ProxSens.exitTime TO TimerClose.set_startTime
     ROUTE TimerClose.fraction_changed TO OrientClose.set_fraction
