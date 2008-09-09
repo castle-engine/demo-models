@@ -1,0 +1,83 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Basic test of passing events through "IS" to/from a prototype.
+
+# Proto with exposedField referencing by IS another exposedField
+PROTO LightToggle [
+  inputOutput SFBool light_on FALSE
+] {
+  Group {
+    children [
+      Shape {
+        appearance Appearance { material Material { } }
+        geometry Sphere { }
+      }
+
+      DirectionalLight {
+        direction 0 0 -1
+        on IS light_on
+      }
+    ]
+  }
+}
+
+# Pass false/true to bool -> get 0/1 on int
+PROTO ConvertBoolToInt [
+  inputOnly SFBool bool
+  outputOnly SFInt32 int
+] {
+  DEF BFilter BooleanFilter { set_boolean IS bool }
+  DEF IGenerate0 IntegerTrigger { integerKey 0 triggerValue IS int }
+  DEF IGenerate1 IntegerTrigger { integerKey 1 triggerValue IS int }
+
+  ROUTE BFilter.inputFalse TO IGenerate0.set_boolean
+  ROUTE BFilter.inputTrue  TO IGenerate1.set_boolean
+}
+
+# ---- Test routing to input event of an exposed field
+
+DEF LT LightToggle { light_on FALSE }
+
+DEF K KeySensor { }
+
+ROUTE K.controlKey TO LT.light_on
+# This should also work:
+#ROUTE K.controlKey TO LT.set_light_on
+
+# ---- Test routing from output event of an exposed field
+
+Transform {
+  translation 0 -2 0
+  children [
+    DirectionalLight {
+      direction 0 0 -1
+      on TRUE
+    }
+
+    DEF LightOnVisualize Switch {
+      whichChoice 0
+      children [
+        Shape {
+          appearance DEF ATextLighOn Appearance { material Material { } }
+          geometry Text { string [
+            "Hold Control key for the light."
+            "Light is currently: OFF" ] }
+        }
+        Shape {
+          appearance DEF ATextLighOn Appearance { material Material { } }
+          geometry Text { string [
+            "Hold Control key for the light."
+            "Light is currently: ON" ] }
+        }
+      ]
+    }
+  ]
+}
+
+DEF BToInt ConvertBoolToInt { }
+
+#ROUTE LT.light_on TO BToInt.bool
+# This should also work:
+ROUTE LT.light_on_changed TO BToInt.bool
+ROUTE BToInt.int TO LightOnVisualize.whichChoice
