@@ -12,13 +12,21 @@ PROTO MaterialSphere [
 # yellow sphere
 Transform {
   translation 5 0 0
-  children MaterialSphere { material Material { diffuseColor 1 1 0 } }
+  children [
+    Transform { translation 0 2 0
+      children Shape { geometry Text { string "yellow" } } }
+    MaterialSphere { material Material { diffuseColor 1 1 0 } }
+  ]
 }
 
 # default (unlit) sphere
 Transform {
   translation 10 0 0
-  children MaterialSphere { }
+  children [
+    Transform { translation 0 2 0
+      children Shape { geometry Text { string "unlit white" } } }
+    MaterialSphere { }
+  ]
 }
 
 PROTO MaterialSphereDefaultRed [
@@ -33,15 +41,23 @@ PROTO MaterialSphereDefaultRed [
 # yellow sphere
 Transform {
   translation 15 0 0
-  children MaterialSphereDefaultRed {
-    material DEF YellowMat Material { diffuseColor 1 1 0 } }
+  children [
+    Transform { translation 0 2 0
+      children Shape { geometry Text { string "yellow" } } }
+    MaterialSphereDefaultRed {
+      material DEF YellowMat Material { diffuseColor 1 1 0 } }
+  ]
 }
 
 # this is interesting: red lit sphere, since prototype specifies default
 # material
 Transform {
   translation 20 0 0
-  children MaterialSphereDefaultRed { }
+  children [
+    Transform { translation 0 2 0
+      children Shape { geometry Text { string "red" } } }
+    MaterialSphereDefaultRed { }
+  ]
 }
 
 # Another interesting prototype: default is to have yellow sphere.
@@ -58,12 +74,20 @@ PROTO MaterialSphereDefaultYellow [
 # blue sphere
 Transform {
   translation 25 0 0
-  children MaterialSphereDefaultYellow {
-    app Appearance { material Material { diffuseColor 0 0 1 } } }
+  children [
+    Transform { translation 0 2 0
+      children Shape { geometry Text { string "blue" } } }
+    MaterialSphereDefaultYellow {
+      app Appearance { material Material { diffuseColor 0 0 1 } } }
+  ]
 }
 
 # yellow lit sphere, since prototype specifies default appearance
 Transform {
   translation 30 0 0
-  children MaterialSphereDefaultYellow { }
+  children [
+    Transform { translation 0 2 0
+      children Shape { geometry Text { string "yellow" } } }
+    MaterialSphereDefaultYellow { }
+  ]
 }
