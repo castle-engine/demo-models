@@ -3,8 +3,9 @@ PROFILE Interactive
 
 # Basic test of passing events through "IS" to/from a prototype.
 
-# This works like LightToggle in proto_events_test.x3dv,
-# but it has exposedField referencing by IS another 3 more basic types.
+# This works like LightToggle in proto_events_test_2.x3dv,
+# but it has exposedField referencing by IS another 3 more basic types,
+# by 3 times "on IS ...".
 
 PROTO LightToggle [
   inputOnly SFBool light_on_setter
@@ -21,8 +22,8 @@ PROTO LightToggle [
       DirectionalLight {
         direction 0 0 -1
         on IS light_on_initial_value
-        set_on IS light_on_setter
-        on_changed IS light_on_getter
+        on IS light_on_setter
+        on IS light_on_getter
       }
     ]
   }
