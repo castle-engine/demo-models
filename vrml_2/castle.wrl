@@ -19,7 +19,7 @@ DEF OB_Ground_001 Transform {
 	scale 1.000000 1.000000 1.000000
 	children [
 		Collision {
-			collide FALSE
+			
 			children [
 			DEF ME_MeshGround_002 Group {
 				children [
@@ -73,7 +73,7 @@ rotation 1.000000 0.000000 0.000000 0.000000
 scale 1.071823 1.071823 1.071823
 children [
 	Collision {
-		collide FALSE
+		
 		children [
 		DEF ME_Circle_001 Group {
 			children [
@@ -453,7 +453,7 @@ rotation 0.000000 -0.000000 -1.000000 1.678315
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-	collide FALSE
+	
 	children [
 	DEF ME_MeshWieza Group {
 		children [
@@ -653,7 +653,7 @@ rotation 0.000000 -0.000000 -1.000000 0.466104
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 USE ME_MeshWieza
 ]
@@ -666,7 +666,7 @@ rotation 0.000000 0.000000 1.000000 0.820433
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 USE ME_MeshWieza
 ]
@@ -679,7 +679,7 @@ rotation 0.000000 0.000000 1.000000 2.129431
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 USE ME_MeshWieza
 ]
@@ -692,7 +692,7 @@ rotation 0.000000 -0.000000 -1.000000 2.967060
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 USE ME_MeshWieza
 ]
@@ -705,7 +705,7 @@ rotation 1.000000 0.000000 0.000000 0.000000
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_Circle Group {
 children [
@@ -1754,7 +1754,7 @@ rotation 0.000000 -0.000000 -1.000000 2.967060
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_MeshFosa Group {
 children [
@@ -1870,7 +1870,7 @@ rotation 0.000000 -0.000000 -1.000000 2.967060
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_MeshGroundInside Group {
 children [
@@ -1924,7 +1924,7 @@ rotation 0.000000 -0.000000 -1.000000 2.967060
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_MeshGround Group {
 children [
@@ -2049,7 +2049,7 @@ rotation 1.000000 0.000000 0.000000 0.000000
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_MeshMostek Group {
 children [
@@ -2115,7 +2115,7 @@ rotation 0.000000 -0.000000 -1.000000 2.967060
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_MeshMurekWejscie Group {
 children [
@@ -2384,7 +2384,7 @@ rotation 0.000000 -0.000000 -1.000000 2.967060
 scale 1.000000 1.000000 1.000000
 children [
 Collision {
-collide FALSE
+
 children [
 DEF ME_MeshMurek Group {
 children [
