@@ -1,0 +1,82 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+Background { skyColor 0.2 0.2 0.2 }
+Fog {
+  color 0.2 0.2 0.2
+  visibilityRange 80
+  fogType "EXPONENTIAL"
+}
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+}
+
+Transform {
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+  children [
+    Viewpoint {
+      position 0 0 0 # camera position is expressed by translation
+      orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+    }
+  ]
+}
+
+DEF PlayerSurrounding Transform {
+  # initial translation just like around Viewpoint
+  translation -12.041908264160156 -61.640647888183594 2
+
+  PROTO ThingRotatingAroundPlayer [
+    inputOutput SFRotation orbitOrientation 0 1 0 0
+    inputOutput SFTime cycleInterval 1.0
+  ] {
+    Transform {
+      rotation IS orbitOrientation
+      children DEF Rotating Transform {
+        rotation 0 0 1 0
+
+        children Transform {
+          translation 5 0 0
+          children Shape {
+            appearance Appearance { material Material {
+     	      diffuseColor 0.1 01. 0.1
+     	      transparency 0.5
+     	    } }
+            geometry Sphere { radius 0.3 }
+          }
+        }
+      }
+    }
+
+    DEF Orient OrientationInterpolator {
+      key [ 0 1 ]
+      keyValue [ 0 0 1 0, 0 0 1 6.2831853072 ] # 2*Pi
+    }
+
+    DEF Timer TimeSensor { loop TRUE cycleInterval IS cycleInterval }
+
+    ROUTE Timer.fraction_changed TO Orient.set_fraction
+    ROUTE Orient.value_changed TO Rotating.set_rotation
+  }
+
+  children [
+    ThingRotatingAroundPlayer { orbitOrientation 0 1 0 0.6 cycleInterval 5 }
+    ThingRotatingAroundPlayer { orbitOrientation 0.51 1 0 2.4 cycleInterval 4 }
+    ThingRotatingAroundPlayer { orbitOrientation 1 0.6 0 4.5 cycleInterval 6 }
+    ThingRotatingAroundPlayer { orbitOrientation 1 1 0 6.7 cycleInterval 7 }
+    ThingRotatingAroundPlayer { orbitOrientation 1 0.9 0 10.99 cycleInterval 3 }
+    ThingRotatingAroundPlayer { orbitOrientation 0.3 1 0 66.6 cycleInterval 4 }
+    ThingRotatingAroundPlayer { orbitOrientation 0.9 0.4 0 3.1 cycleInterval 5 }
+    ThingRotatingAroundPlayer { orbitOrientation 1 1 0 0.33 cycleInterval 6 }
+    ThingRotatingAroundPlayer { orbitOrientation 0.2 0.6 0 1.11 cycleInterval 5 }
+  ]
+}
+
+DEF MyProx ProximitySensor { size 10000000 10000000 10000000 }
+
+ROUTE MyProx.position_changed TO PlayerSurrounding.set_translation
+
+Inline { url "fog_animate_transform.x3dv" }
