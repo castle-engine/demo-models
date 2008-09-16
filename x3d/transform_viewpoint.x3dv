@@ -1,0 +1,85 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+DEF VpTransform Transform {
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+  children DEF Vp Viewpoint {
+    position 0 0 0
+    orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Test 1: animate viewpoint by it's transfom
+
+Transform {
+  # same transform as initial viewpoint, to make the text visible
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+
+  children [
+    Transform {
+      translation -5 0 -15
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text { string [
+          "Click me to animate viewpoint by it's transform" ] }
+      }
+    }
+    DEF Touch_TransformAnim TouchSensor { }
+  ]
+}
+
+DEF Timer_TransformAnim TimeSensor { cycleInterval 3 }
+
+DEF Interp_TransformAnim PositionInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ -12.041908264160156 -61.640647888183594 2,
+             -12.041908264160156 -71.640647888183594 2,
+             -12.041908264160156 -61.640647888183594 2, ]
+}
+
+ROUTE Touch_TransformAnim.touchTime TO Timer_TransformAnim.set_startTime
+ROUTE Timer_TransformAnim.fraction_changed TO Interp_TransformAnim.set_fraction
+ROUTE Interp_TransformAnim.value_changed TO VpTransform.set_translation
+
+# ----------------------------------------------------------------------------
+# Test 2: animate viewpoint by it's position
+
+Transform {
+  # same transform as initial viewpoint, to make the text visible
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+
+  children [
+    Transform {
+      translation -5 -1 -15
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 0 0 1 } }
+        geometry Text { string [
+          "Click me to animate viewpoint by it's position" ] }
+      }
+    }
+    DEF Touch_PositionAnim TouchSensor { }
+  ]
+}
+
+DEF Timer_PositionAnim TimeSensor { cycleInterval 3 }
+
+DEF Interp_PositionAnim PositionInterpolator {
+  key [ 0 0.25 0.5 0.75 1 ]
+  keyValue [ 0 0 0, 0 1 1, 0 0 2, 0 -1 1, 0 0 0 ]
+}
+
+ROUTE Touch_PositionAnim.touchTime TO Timer_PositionAnim.set_startTime
+ROUTE Timer_PositionAnim.fraction_changed TO Interp_PositionAnim.set_fraction
+ROUTE Interp_PositionAnim.value_changed TO Vp.position
