@@ -1,0 +1,46 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+Group {
+  children [
+    Transform {
+      translation -12.041908264160156 -61.640647888183594 2
+      rotation 1 0 0 1.570796370506287
+      children [
+        Viewpoint {
+          position 0 0 0 # camera position is expressed by translation
+          orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+        }
+
+        Transform {
+          translation -5 0 -15
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 1 1 0 } }
+            geometry Text { string [
+    	      "Click this to send \"touch\" to Script" ] }
+          }
+        }
+      ]
+    }
+    DEF TouchStartAnim TouchSensor { }
+  ]
+}
+
+DEF Scr Script {
+  inputOnly SFTime touch
+  url [ "ecmascript: blah blah", "some_script.js",
+  "compiled:
+initialize=touch_initialize
+touch
+" ]
+}
+
+ROUTE TouchStartAnim.touchTime TO Scr.touch
