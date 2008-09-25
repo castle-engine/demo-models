@@ -1,0 +1,49 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+
+Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry Text { string [
+    "Click this to send \"touch\" to Script" ] }
+}
+
+DEF TouchStartAnim TouchSensor { }
+
+DEF Scr Script {
+  inputOnly SFTime touch
+  url [ "ecmascript: blah blah", "some_script.js",
+
+# Various invalid scripts, should be reported with nice error messages
+# and no memory leaks, and browser will go to the next script.
+"kambiscript: function ()",
+
+"kambiscript: function (asd)",
+
+"kambiscript: ff (asd)",
+
+"kambiscript:
+function foo(value, timestamp)
+value + 1;
+blahblahblah
+",
+
+"kambiscript: function touch(value, timestamp)
+function foo(value, timestamp)",
+
+"kambiscript: function foo(asd,)",
+
+"kambiscript: function foo(asd,",
+
+# This is valid script
+"kambiscript:
+function foo(value, timestamp)
+value + 1
+"
+
+# Also valid (but will not be used)
+"kambiscript: ",
+ ]
+}
+
+ROUTE TouchStartAnim.touchTime TO Scr.touch
