@@ -54,12 +54,7 @@ value + 1;
 ",
 
 # This is valid script
-"kambiscript:
-function foo(value, timestamp)
-value + 1;
-value := value + 1;
-value := timestamp := value + 1
-"
+"1.kscript",
 
 # Also valid (but will not be used)
 "kambiscript: ",
