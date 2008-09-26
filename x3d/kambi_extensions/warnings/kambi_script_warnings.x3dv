@@ -35,14 +35,40 @@ function foo(value, timestamp)",
 
 "kambiscript: function foo(asd,",
 
+"kambiscript:
+function foo(value, timestamp)
+value + 1;
+blahblahblah := 2
+",
+
+"kambiscript:
+function foo(value, timestamp)
+value + 1;
+2 := 3
+",
+
+"kambiscript:
+function foo(value, timestamp)
+value + 1;
+2 := value
+",
+
 # This is valid script
 "kambiscript:
 function foo(value, timestamp)
-value + 1
+value + 1;
+value := value + 1;
+value := timestamp := value + 1
 "
 
 # Also valid (but will not be used)
 "kambiscript: ",
+
+# Also valid (but will not be used)
+"kambiscript:
+function foo(value, timestamp)
+value
+",
  ]
 }
 
