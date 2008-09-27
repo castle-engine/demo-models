@@ -1,0 +1,35 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Transform {
+  translation 0 0 -2
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 0 1 0 } }
+    geometry Box { }
+  }
+}
+
+Group {
+  children [
+    Shape {
+      appearance Appearance { material DEF ConeMat Material { diffuseColor 1 1 0 } }
+      geometry Cone { }
+    }
+
+    DEF Touch TouchSensor { }
+  ]
+}
+
+DEF Scr Script {
+  inputOnly SFBool over
+  outputOnly SFFloat transp
+  url [
+"kambiscript:
+function over(value, timestamp)
+  transp := 0.5 - (1-value)/2
+"
+  ]
+}
+
+ROUTE Touch.isOver TO Scr.over
+ROUTE Scr.transp TO ConeMat.transparency
