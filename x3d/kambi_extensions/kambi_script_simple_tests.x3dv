@@ -26,7 +26,7 @@ DEF Scr Script {
   url [
 "kambiscript:
 function over(value, timestamp)
-  transp := 0.5 - (1-value)/2
+  transp := 0.5 - (1 - float(value)) / 2
 "
   ]
 }
