@@ -35,7 +35,10 @@ Transform {
 
 NavigationInfo {
   headlight TRUE
-  type ["WALK", "ANY"]
+  type ["FLY", "ANY"]
+  # "WALK" would be better, but for Kambi VRML game engine you may be forced
+  # to temporarily turn collision detection off, which means that you
+  # fall on the ground with gravity=on...
   avatarSize [0.25, 1.75, 0.75]
   speed 10
 }
@@ -90,20 +93,71 @@ PROTO Door [ ] {
       DEF BFilter BooleanFilter { }
       DEF IGenerateM1 IntegerTrigger { integerKey -1 }
       DEF IGenerate0 IntegerTrigger { integerKey 0 }
+
+      # Script in KambiScript to open/close doors.
+      #
+      # While it's possible to express in simple VRML routes
+      # to open/close doors automatically,
+      # this causes bad artifact when doors is in the middle of opening/closing,
+      # and yet it's again caused to close/open. Then naive mechanism
+      # done without scripting with produce ugly jump to the beginning
+      # of open/close animation. With script, I can check and eventually
+      # adjust startTime to start close/open exactly when the door currently is.
+      DEF Scr Script {
+        inputOutput SFBool open_plays FALSE
+        inputOutput SFBool close_plays FALSE
+        inputOutput SFTime open_elapsedTime 0
+        inputOutput SFTime close_elapsedTime 0
+
+        inputOnly SFTime start_open
+        inputOnly SFTime start_close
+
+        outputOnly SFTime open_start_time
+        outputOnly SFTime close_start_time
+
+        url "kambiscript:
+          function start_open(value, timestamp)
+            if(open_plays, 1 { do nothing },
+              if(close_plays,
+                close_start_time := -1000;
+                open_start_time := timestamp - (1-close_elapsedTime),
+                open_start_time := timestamp))
+
+          function start_close(value, timestamp)
+            if(close_plays, 1 { do nothing },
+              if(open_plays,
+                { The crucial point: you want to start closing
+                  ih the middle of opening.
+
+                  The door is already partially opened, by open_elapsedTime,
+                  so cycleInterval-open_elapsedTime time already passed
+                  from closing. cycleInterval = always 1 in this case.
+
+                  Also, you want to actually stop opening, this can be done
+                  by just setting open_start_time to some negative value. }
+                open_start_time := -1000;
+                close_start_time := timestamp - (1-open_elapsedTime),
+                close_start_time := timestamp))
+        "
+      }
     ]
 
-    # When ProxSens.enterTime, start animation opening door.
+    # Routes for opening/closing animation with script
 
-    ROUTE ProxSens.enterTime TO TimerOpen.set_startTime
+    # pass TimerOpen/Close properties to script
+    ROUTE TimerOpen.isActive TO Scr.open_plays
+    ROUTE TimerOpen.elapsedTime TO Scr.open_elapsedTime
+    ROUTE TimerClose.isActive TO Scr.close_plays
+    ROUTE TimerClose.elapsedTime TO Scr.close_elapsedTime
+
+    # link ProxSens -> script -> Timer -> interpolator -> DoorTransform.rotation
+    ROUTE ProxSens.enterTime TO Scr.start_open
+    ROUTE Scr.open_start_time TO TimerOpen.set_startTime
     ROUTE TimerOpen.fraction_changed TO OrientOpen.set_fraction
     ROUTE OrientOpen.value_changed TO DoorTransform.rotation
 
-    # When ProxSens.exitTime, start animation closing door.
-    # TODO: this is bad, as it closes the door from the beginning
-    # of closing animation. We should close since the current state.
-    # How to do such thing with events, without scripting?
-
-    ROUTE ProxSens.exitTime TO TimerClose.set_startTime
+    ROUTE ProxSens.exitTime TO Scr.start_close
+    ROUTE Scr.close_start_time TO TimerClose.set_startTime
     ROUTE TimerClose.fraction_changed TO OrientClose.set_fraction
     ROUTE OrientClose.value_changed TO DoorTransform.rotation
 
