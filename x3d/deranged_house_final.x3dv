@@ -117,14 +117,14 @@ PROTO Door [ ] {
 
         url "kambiscript:
           function start_open(value, timestamp)
-            if(open_plays, 1 { do nothing },
+            if(open_plays, 1 { do nothing, return anything },
               if(close_plays,
                 close_start_time := -1000;
                 open_start_time := timestamp - (1-close_elapsedTime),
                 open_start_time := timestamp))
 
           function start_close(value, timestamp)
-            if(close_plays, 1 { do nothing },
+            if(close_plays, 1 { do nothing, return anything },
               if(open_plays,
                 { The crucial point: you want to start closing
                   ih the middle of opening.
