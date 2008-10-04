@@ -2,6 +2,11 @@
 
 # Test of Viewpoint nodes handling.
 
+NavigationInfo {
+  type "FLY"
+  speed 10
+}
+
 # Camera settings "encoded" in all VRML declaration below :
 # direction 0 0.700684607028961 0.000241928064497
 # up 0 -0.000345317530446 0.999999940395355
