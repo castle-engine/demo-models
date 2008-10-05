@@ -5,6 +5,7 @@ COMPONENT Shaders:1
 NavigationInfo {
   speed 5
   headlight TRUE
+  type "WALK"
 }
 
 # Turn on normal directional headlight, we need this to have the scene basically

@@ -13,6 +13,7 @@ EXTERNPROTO KambiHeadLight [
 NavigationInfo {
   headlight FALSE
   speed 5
+  type "WALK"
 }
 
 KambiHeadLight {

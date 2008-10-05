@@ -12,6 +12,7 @@ EXTERNPROTO KambiHeadLight [
 
 NavigationInfo {
   speed 5
+  type "WALK"
 }
 
 Switch {
