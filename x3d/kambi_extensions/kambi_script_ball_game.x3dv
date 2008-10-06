@@ -1,0 +1,332 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+DEF Scr Script {
+  inputOutput SFVec3f player_1_pos 9.5 0 0
+  initializeOnly SFVec3f player_1_speed 0 0 0
+
+  inputOutput SFVec3f player_2_pos -9.5 0 0
+  initializeOnly SFVec3f player_2_speed 0 0 0
+
+  inputOutput SFVec3f ball_pos 0 0 0
+  initializeOnly SFVec3f ball_speed 0 0 0
+
+  initializeOnly SFTime previousTime -1
+  initializeOnly SFTime timeDiff 0
+  inputOnly SFTime time
+
+  initializeOnly SFBool pressed_down  FALSE
+  initializeOnly SFBool pressed_up    FALSE
+  initializeOnly SFBool pressed_left  FALSE
+  initializeOnly SFBool pressed_right FALSE
+
+  initializeOnly SFBool pressed_a FALSE
+  initializeOnly SFBool pressed_w FALSE
+  initializeOnly SFBool pressed_s FALSE
+  initializeOnly SFBool pressed_d FALSE
+
+  inputOnly SFInt32 action_key_press
+  inputOnly SFInt32 action_key_release
+
+  inputOnly SFString key_press
+  inputOnly SFString key_release
+
+  initializeOnly SFFloat x_size 12
+  initializeOnly SFFloat y_size 8
+  initializeOnly SFFloat player_radius 2
+  initializeOnly SFFloat ball_radius 1
+
+  inputOutput SFInt32 player_1_score 0
+  inputOutput SFInt32 player_2_score 0
+
+  outputOnly MFString player_1_score_text
+  outputOnly MFString player_2_score_text
+
+  inputOutput SFBool new_game FALSE # value of this doesn't actually matter
+
+  url "kambiscript:
+
+function initialize(timestamp)
+  new_game := TRUE
+
+function new_game(value, timestamp)
+  player_1_pos := vector( 9.5, 0, 0);
+  player_2_pos := vector(-9.5, 0, 0);
+  ball_pos := vector(0, 0, 0);
+
+  player_1_speed := vector(0, 0, 0);
+  player_2_speed := vector(0, 0, 0);
+  ball_speed     := vector(0, 0, 0);
+
+  player_1_score := 0;
+  player_2_score := 0
+
+function action_key_press(value, timestamp)
+  if (value = ACTION_KEY_DOWN,
+    pressed_down := true,
+    if (value = ACTION_KEY_UP,
+      pressed_up := true,
+      if (value = ACTION_KEY_LEFT,
+        pressed_left := true,
+        if (value = ACTION_KEY_RIGHT,
+          pressed_right := true,
+          0))))
+
+function action_key_release(value, timestamp)
+  if (value = ACTION_KEY_DOWN,
+    pressed_down := false,
+    if (value = ACTION_KEY_UP,
+      pressed_up := false,
+      if (value = ACTION_KEY_LEFT,
+        pressed_left := false,
+        if (value = ACTION_KEY_RIGHT,
+          pressed_right := false,
+          0))))
+
+function key_press(value, timestamp)
+  if (value = ' ',
+    new_game := TRUE,
+    if (value = 's',
+      pressed_s := true,
+      if (value = 'w',
+        pressed_w := true,
+        if (value = 'a',
+          pressed_a := true,
+          if (value = 'd',
+            pressed_d := true,
+            0)))))
+
+function key_release(value, timestamp)
+  if (value = 's',
+    pressed_s := false,
+    if (value = 'w',
+      pressed_w := false,
+      if (value = 'a',
+        pressed_a := false,
+        if (value = 'd',
+          pressed_d := false,
+          0))))
+
+function player_1_score(value, timestamp)
+  player_1_score_text := 'Player 1: ' + string(value)
+
+function player_2_score(value, timestamp)
+  player_2_score_text := 'Player 2: ' + string(value)
+
+function time(value, timestamp)
+  { calculate timeDiff, to scale animations
+    (so that it runs with the same speed on every system) }
+  if (previousTime >= 0,
+    timeDiff := value - previousTime,
+    timeDiff := 0);
+
+  { update previousTime }
+  previousTime := value;
+
+  { Update player_1_speed, based on pressed_.
+    Using min/max below makes the \"break\" keys work much faster, which means
+    that balls feel more responsive to the player. }
+  if (pressed_left , vector_set(player_1_speed, 0, min(0, vector_get(player_1_speed, 0)) - timeDiff * 4), 0);
+  if (pressed_right, vector_set(player_1_speed, 0, max(0, vector_get(player_1_speed, 0)) + timeDiff * 4), 0);
+  if (pressed_down , vector_set(player_1_speed, 1, min(0, vector_get(player_1_speed, 1)) - timeDiff * 4), 0);
+  if (pressed_up   , vector_set(player_1_speed, 1, max(0, vector_get(player_1_speed, 1)) + timeDiff * 4), 0);
+
+  { Update player_2_speed, based on pressed_ }
+  if (pressed_a, vector_set(player_2_speed, 0, min(0, vector_get(player_2_speed, 0)) - timeDiff * 4), 0);
+  if (pressed_d, vector_set(player_2_speed, 0, max(0, vector_get(player_2_speed, 0)) + timeDiff * 4), 0);
+  if (pressed_s, vector_set(player_2_speed, 1, min(0, vector_get(player_2_speed, 1)) - timeDiff * 4), 0);
+  if (pressed_w, vector_set(player_2_speed, 1, max(0, vector_get(player_2_speed, 1)) + timeDiff * 4), 0);
+
+  { Update _pos vectors based on _speed }
+  timeDiff := timeDiff * 10;
+  player_1_pos := player_1_pos + player_1_speed * timeDiff;
+  player_2_pos := player_2_pos + player_2_speed * timeDiff;
+  ball_pos := ball_pos + ball_speed * timeDiff;
+
+  { Check collisions between players with field borders (x_size, y_size).
+    If collision, then change speed (to make sure you get out from the border).
+    Also, make sure the ball is at most at the border. }
+  if (vector_get(player_1_pos, 0) < -x_size + player_radius, vector_set(player_1_speed, 0,  abs(vector_get(player_1_speed, 0))), 44 { anything });
+  if (vector_get(player_1_pos, 0) >  x_size - player_radius, vector_set(player_1_speed, 0, -abs(vector_get(player_1_speed, 0))), 44 { anything });
+  vector_set(player_1_pos, 0, max(min(vector_get(player_1_pos, 0), x_size - player_radius), -x_size + player_radius));
+
+  if (vector_get(player_1_pos, 1) < -y_size + player_radius, vector_set(player_1_speed, 1,  abs(vector_get(player_1_speed, 1))), 44 { anything });
+  if (vector_get(player_1_pos, 1) >  y_size - player_radius, vector_set(player_1_speed, 1, -abs(vector_get(player_1_speed, 1))), 44 { anything });
+  vector_set(player_1_pos, 1, max(min(vector_get(player_1_pos, 1), y_size - player_radius), -y_size + player_radius));
+
+  if (vector_get(player_2_pos, 0) < -x_size + player_radius, vector_set(player_2_speed, 0,  abs(vector_get(player_2_speed, 0))), 44 { anything });
+  if (vector_get(player_2_pos, 0) >  x_size - player_radius, vector_set(player_2_speed, 0, -abs(vector_get(player_2_speed, 0))), 44 { anything });
+  vector_set(player_2_pos, 0, max(min(vector_get(player_2_pos, 0), x_size - player_radius), -x_size + player_radius));
+
+  if (vector_get(player_2_pos, 1) < -y_size + player_radius, vector_set(player_2_speed, 1,  abs(vector_get(player_2_speed, 1))), 44 { anything });
+  if (vector_get(player_2_pos, 1) >  y_size - player_radius, vector_set(player_2_speed, 1, -abs(vector_get(player_2_speed, 1))), 44 { anything });
+  vector_set(player_2_pos, 1, max(min(vector_get(player_2_pos, 1), y_size - player_radius), -y_size + player_radius));
+
+  { Check collisions between main ball with field borders (x_size, y_size).
+    If collision, then change speed.
+    Also, increase player score if crossed vertical border.
+    Also, make sure the ball is at most at the border --- this is even more
+    important here, to avoid increasing the score more than once. }
+  if (vector_get(ball_pos, 0) - ball_radius < -x_size,
+    vector_set(ball_speed, 0,  abs(vector_get(ball_speed, 0)));
+    player_1_score := player_1_score + 1,
+    44 { anything });
+  if (vector_get(ball_pos, 0) + ball_radius >  x_size,
+    vector_set(ball_speed, 0, -abs(vector_get(ball_speed, 0)));
+    player_2_score := player_2_score + 1,
+    44 { anything });
+  vector_set(ball_pos, 0, max(min(vector_get(ball_pos, 0), x_size - ball_radius), -x_size + ball_radius));
+
+  if (vector_get(ball_pos, 1) - ball_radius < -y_size, vector_set(ball_speed, 1,  abs(vector_get(ball_speed, 1))), 44 { anything });
+  if (vector_get(ball_pos, 1) + ball_radius >  y_size, vector_set(ball_speed, 1, -abs(vector_get(ball_speed, 1))), 44 { anything });
+  vector_set(ball_pos, 1, max(min(vector_get(ball_pos, 1), y_size - ball_radius), -y_size + ball_radius));
+
+  { Check collisions between balls }
+  if (vector_sqr_length(player_1_pos - player_2_pos) < sqr(player_radius + player_radius),
+    player_1_speed := player_1_pos - player_2_pos;
+    player_1_speed :=  player_1_speed * (0.5 / vector_length(player_1_speed));
+    player_2_speed := -player_1_speed,
+    44 { anything });
+
+  if (vector_sqr_length(ball_pos - player_1_pos) < sqr(player_radius + ball_radius),
+    ball_speed := ball_pos - player_1_pos, 0);
+
+  if (vector_sqr_length(ball_pos - player_2_pos) < sqr(player_radius + ball_radius),
+    ball_speed := ball_pos - player_2_pos, 0)
+"
+}
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+ROUTE Time.elapsedTime TO Scr.time
+
+DEF Key KeySensor { }
+ROUTE Key.actionKeyPress TO Scr.action_key_press
+ROUTE Key.actionKeyRelease TO Scr.action_key_release
+ROUTE Key.keyPress TO Scr.key_press
+ROUTE Key.keyRelease TO Scr.key_release
+
+NavigationInfo {
+  type "NONE"
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 0 -0.007999999448657
+# up 0 1 4.3711391839451608E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 0 7.2142381668527378E-007 26.504278182983398
+  orientation 0 0 1 0
+}
+
+PointLight { }
+
+Transform {
+  translation 0 -2 -1
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 0.2 0.2 0.2 } }
+    geometry Text { string [
+      "\"Ride of the Ancient Balls\""
+      "Trivial game/toy, done in pure X3D (KeySensor and KambiScript)."
+      "Controls: arrows (player 1), awsd (player 2), space (restart)."
+      "To score, push the white ball into your opponents border."
+      "All balls collide, with each other and all borders."
+      ]
+      fontStyle FontStyle {  justify "MIDDLE" }
+    }
+  }
+}
+
+# Player 1 stuff -------------------------------------------------------------
+
+DEF Player1 Transform {
+  children Shape {
+    appearance DEF Player1App Appearance { material Material {
+      diffuseColor 0.3 0.3 1.0
+    } }
+    geometry Sphere { radius 2 }
+  }
+}
+ROUTE Scr.player_1_pos TO Player1.translation
+
+Transform {
+  translation 13 # x_size + size[0]/2
+    0 0
+  children Shape {
+    appearance USE Player1App
+    geometry Box { size 2 16 # 2 * y_size
+      2 }
+  }
+}
+
+Transform {
+  translation 1 6 2
+  children Shape {
+    appearance USE Player1App
+    geometry DEF Player1ScoreText Text { string "blah"
+      fontStyle FontStyle { size 2 }
+    }
+  }
+}
+ROUTE Scr.player_1_score_text TO Player1ScoreText.string
+
+# Player 2 stuff -------------------------------------------------------------
+
+DEF Player2 Transform {
+  children Shape {
+    appearance DEF Player2App Appearance { material Material {
+      diffuseColor 1 1 0.5
+    } }
+    geometry Sphere { radius 2 }
+  }
+}
+ROUTE Scr.player_2_pos TO Player2.translation
+
+Transform {
+  translation -13 # - x_size - size[0]/2
+    0 0
+  children Shape {
+    appearance USE Player2App
+    geometry Box { size 2 16 # 2 * y_size
+      2 }
+  }
+}
+
+Transform {
+  translation -1 6 2
+  children Shape {
+    appearance USE Player2App
+    geometry DEF Player2ScoreText Text { string "blah"
+      fontStyle FontStyle { size 2 justify "END" }
+    }
+  }
+}
+ROUTE Scr.player_2_score_text TO Player2ScoreText.string
+
+# Main ball ------------------------------------------------------------------
+
+DEF Ball Transform {
+  children Shape {
+    appearance Appearance { material Material {
+      diffuseColor 0.8 0.8 0.8
+    } }
+    geometry Sphere { }
+  }
+}
+ROUTE Scr.ball_pos TO Ball.translation
+
+Transform {
+  translation 0 -9 # - y_size - size[1]/2
+    0
+  children DEF NeutralBorder Shape {
+    appearance DEF NeutralBorderApp Appearance {
+      material Material { diffuseColor 0.5 0.5 0.5 } }
+    geometry Box { size 26 2 2 }
+  }
+}
+
+Transform {
+  translation 0 +9 # + y_size + size[1]/2
+    0
+  children USE NeutralBorder
+}
