@@ -1,0 +1,58 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance {
+    texture ImageTexture { url "../../textures/test_texture.png" }
+    textureTransform DEF TexTransf TextureTransformMatrix3D {
+      matrix
+        3 0 0 0
+        0 3 0 0
+        0 0 3 0
+        0 0 0 1
+    }
+  }
+  geometry Box { }
+}
+
+DEF Scr Script {
+  outputOnly SFMatrix4f tex_matrix
+  inputOutput SFFloat scaling 3
+  inputOnly SFString key_press
+  url "kambiscript:
+
+function initialize(timestamp)
+  { Dummy assignment, to initialize and send tex_matrix }
+  scaling := scaling
+
+function key_press(value, timestamp)
+  if (value = 'w',
+    scaling := scaling * 1.2,
+    if (value = 's',
+      scaling := scaling / 1.2,
+      44 { anything }))
+
+function scaling(value, timestamp)
+  tex_matrix := matrix(vector(scaling, 0, 0, 0),
+                       vector(0, scaling, 0, 0),
+                       vector(0, 0, scaling, 0),
+                       vector(0, 0, 0, 1) )
+"
+}
+ROUTE Scr.tex_matrix TO TexTransf.matrix
+
+DEF Key KeySensor { }
+ROUTE Key.keyPress TO Scr.key_press
+
+Transform {
+  translation 0 1.2 2
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Text { string [
+      "Simple demo of KambiScript using matrix type."
+      "Press 'w' to scale texture coords up, 's' to scale down."
+      ]
+      fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+    }
+  }
+}
