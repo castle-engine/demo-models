@@ -2,10 +2,10 @@
 PROFILE Interchange
 
 DEF Scr Script {
-  inputOutput SFVec3f player_1_pos 9.5 0 0
+  inputOutput SFVec3f player_1_pos 8.5 0 0
   initializeOnly SFVec3f player_1_speed 0 0 0
 
-  inputOutput SFVec3f player_2_pos -9.5 0 0
+  inputOutput SFVec3f player_2_pos -8.5 0 0
   initializeOnly SFVec3f player_2_speed 0 0 0
 
   inputOutput SFVec3f ball_pos 0 0 0
@@ -33,7 +33,7 @@ DEF Scr Script {
 
   initializeOnly SFFloat x_size 12
   initializeOnly SFFloat y_size 8
-  initializeOnly SFFloat player_radius 2
+  initializeOnly SFFloat player_radius 3
   initializeOnly SFFloat ball_radius 1
 
   inputOutput SFInt32 player_1_score 0
@@ -50,8 +50,8 @@ function initialize(timestamp)
   new_game := TRUE
 
 function new_game(value, timestamp)
-  player_1_pos := vector( 9.5, 0, 0);
-  player_2_pos := vector(-9.5, 0, 0);
+  player_1_pos := vector( 8.5, 0, 0);
+  player_2_pos := vector(-8.5, 0, 0);
   ball_pos := vector(0, 0, 0);
 
   player_1_speed := vector(0, 0, 0);
@@ -235,7 +235,7 @@ DEF Player1 Transform {
     appearance DEF Player1App Appearance { material Material {
       diffuseColor 0.3 0.3 1.0
     } }
-    geometry Sphere { radius 2 }
+    geometry Sphere { radius 3 }
   }
 }
 ROUTE Scr.player_1_pos TO Player1.translation
@@ -268,7 +268,7 @@ DEF Player2 Transform {
     appearance DEF Player2App Appearance { material Material {
       diffuseColor 1 1 0.5
     } }
-    geometry Sphere { radius 2 }
+    geometry Sphere { radius 3 }
   }
 }
 ROUTE Scr.player_2_pos TO Player2.translation
