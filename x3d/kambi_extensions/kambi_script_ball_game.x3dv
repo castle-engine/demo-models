@@ -68,9 +68,8 @@ function action_key_press(value, timestamp)
       pressed_up := true,
       if (value = ACTION_KEY_LEFT,
         pressed_left := true,
-        if (value = ACTION_KEY_RIGHT,
-          pressed_right := true,
-          0))))
+        when (value = ACTION_KEY_RIGHT,
+          pressed_right := true))))
 
 function action_key_release(value, timestamp)
   if (value = ACTION_KEY_DOWN,
@@ -79,9 +78,8 @@ function action_key_release(value, timestamp)
       pressed_up := false,
       if (value = ACTION_KEY_LEFT,
         pressed_left := false,
-        if (value = ACTION_KEY_RIGHT,
-          pressed_right := false,
-          0))))
+        when (value = ACTION_KEY_RIGHT,
+          pressed_right := false))))
 
 function key_press(value, timestamp)
   if (value = ' ',
@@ -92,9 +90,8 @@ function key_press(value, timestamp)
         pressed_w := true,
         if (value = 'a',
           pressed_a := true,
-          if (value = 'd',
-            pressed_d := true,
-            0)))))
+          when (value = 'd',
+            pressed_d := true)))))
 
 function key_release(value, timestamp)
   if (value = 's',
@@ -103,9 +100,8 @@ function key_release(value, timestamp)
       pressed_w := false,
       if (value = 'a',
         pressed_a := false,
-        if (value = 'd',
-          pressed_d := false,
-          0))))
+        when (value = 'd',
+          pressed_d := false))))
 
 function player_1_score(value, timestamp)
   player_1_score_text := 'Player 1: ' + string(value)
@@ -116,9 +112,7 @@ function player_2_score(value, timestamp)
 function time(value, timestamp)
   { calculate timeDiff, to scale animations
     (so that it runs with the same speed on every system) }
-  if (previousTime >= 0,
-    timeDiff := value - previousTime,
-    timeDiff := 0);
+  timeDiff := if (previousTime >= 0, value - previousTime, 0);
 
   { update previousTime }
   previousTime := value;
@@ -126,16 +120,16 @@ function time(value, timestamp)
   { Update player_1_speed, based on pressed_.
     Using min/max below makes the \"break\" keys work much faster, which means
     that balls feel more responsive to the player. }
-  if (pressed_left , vector_set(player_1_speed, 0, min(0, vector_get(player_1_speed, 0)) - timeDiff * 4), 0);
-  if (pressed_right, vector_set(player_1_speed, 0, max(0, vector_get(player_1_speed, 0)) + timeDiff * 4), 0);
-  if (pressed_down , vector_set(player_1_speed, 1, min(0, vector_get(player_1_speed, 1)) - timeDiff * 4), 0);
-  if (pressed_up   , vector_set(player_1_speed, 1, max(0, vector_get(player_1_speed, 1)) + timeDiff * 4), 0);
+  when (pressed_left , vector_set(player_1_speed, 0, min(0, vector_get(player_1_speed, 0)) - timeDiff * 4));
+  when (pressed_right, vector_set(player_1_speed, 0, max(0, vector_get(player_1_speed, 0)) + timeDiff * 4));
+  when (pressed_down , vector_set(player_1_speed, 1, min(0, vector_get(player_1_speed, 1)) - timeDiff * 4));
+  when (pressed_up   , vector_set(player_1_speed, 1, max(0, vector_get(player_1_speed, 1)) + timeDiff * 4));
 
   { Update player_2_speed, based on pressed_ }
-  if (pressed_a, vector_set(player_2_speed, 0, min(0, vector_get(player_2_speed, 0)) - timeDiff * 4), 0);
-  if (pressed_d, vector_set(player_2_speed, 0, max(0, vector_get(player_2_speed, 0)) + timeDiff * 4), 0);
-  if (pressed_s, vector_set(player_2_speed, 1, min(0, vector_get(player_2_speed, 1)) - timeDiff * 4), 0);
-  if (pressed_w, vector_set(player_2_speed, 1, max(0, vector_get(player_2_speed, 1)) + timeDiff * 4), 0);
+  when (pressed_a, vector_set(player_2_speed, 0, min(0, vector_get(player_2_speed, 0)) - timeDiff * 4));
+  when (pressed_d, vector_set(player_2_speed, 0, max(0, vector_get(player_2_speed, 0)) + timeDiff * 4));
+  when (pressed_s, vector_set(player_2_speed, 1, min(0, vector_get(player_2_speed, 1)) - timeDiff * 4));
+  when (pressed_w, vector_set(player_2_speed, 1, max(0, vector_get(player_2_speed, 1)) + timeDiff * 4));
 
   { Update _pos vectors based on _speed }
   timeDiff := timeDiff * 10;
@@ -146,20 +140,20 @@ function time(value, timestamp)
   { Check collisions between players with field borders (x_size, y_size).
     If collision, then change speed (to make sure you get out from the border).
     Also, make sure the ball is at most at the border. }
-  if (vector_get(player_1_pos, 0) < -x_size + player_radius, vector_set(player_1_speed, 0,  abs(vector_get(player_1_speed, 0))), 44 { anything });
-  if (vector_get(player_1_pos, 0) >  x_size - player_radius, vector_set(player_1_speed, 0, -abs(vector_get(player_1_speed, 0))), 44 { anything });
+  when (vector_get(player_1_pos, 0) < -x_size + player_radius, vector_set(player_1_speed, 0,  abs(vector_get(player_1_speed, 0))));
+  when (vector_get(player_1_pos, 0) >  x_size - player_radius, vector_set(player_1_speed, 0, -abs(vector_get(player_1_speed, 0))));
   vector_set(player_1_pos, 0, max(min(vector_get(player_1_pos, 0), x_size - player_radius), -x_size + player_radius));
 
-  if (vector_get(player_1_pos, 1) < -y_size + player_radius, vector_set(player_1_speed, 1,  abs(vector_get(player_1_speed, 1))), 44 { anything });
-  if (vector_get(player_1_pos, 1) >  y_size - player_radius, vector_set(player_1_speed, 1, -abs(vector_get(player_1_speed, 1))), 44 { anything });
+  when (vector_get(player_1_pos, 1) < -y_size + player_radius, vector_set(player_1_speed, 1,  abs(vector_get(player_1_speed, 1))));
+  when (vector_get(player_1_pos, 1) >  y_size - player_radius, vector_set(player_1_speed, 1, -abs(vector_get(player_1_speed, 1))));
   vector_set(player_1_pos, 1, max(min(vector_get(player_1_pos, 1), y_size - player_radius), -y_size + player_radius));
 
-  if (vector_get(player_2_pos, 0) < -x_size + player_radius, vector_set(player_2_speed, 0,  abs(vector_get(player_2_speed, 0))), 44 { anything });
-  if (vector_get(player_2_pos, 0) >  x_size - player_radius, vector_set(player_2_speed, 0, -abs(vector_get(player_2_speed, 0))), 44 { anything });
+  when (vector_get(player_2_pos, 0) < -x_size + player_radius, vector_set(player_2_speed, 0,  abs(vector_get(player_2_speed, 0))));
+  when (vector_get(player_2_pos, 0) >  x_size - player_radius, vector_set(player_2_speed, 0, -abs(vector_get(player_2_speed, 0))));
   vector_set(player_2_pos, 0, max(min(vector_get(player_2_pos, 0), x_size - player_radius), -x_size + player_radius));
 
-  if (vector_get(player_2_pos, 1) < -y_size + player_radius, vector_set(player_2_speed, 1,  abs(vector_get(player_2_speed, 1))), 44 { anything });
-  if (vector_get(player_2_pos, 1) >  y_size - player_radius, vector_set(player_2_speed, 1, -abs(vector_get(player_2_speed, 1))), 44 { anything });
+  when (vector_get(player_2_pos, 1) < -y_size + player_radius, vector_set(player_2_speed, 1,  abs(vector_get(player_2_speed, 1))));
+  when (vector_get(player_2_pos, 1) >  y_size - player_radius, vector_set(player_2_speed, 1, -abs(vector_get(player_2_speed, 1))));
   vector_set(player_2_pos, 1, max(min(vector_get(player_2_pos, 1), y_size - player_radius), -y_size + player_radius));
 
   { Check collisions between main ball with field borders (x_size, y_size).
@@ -167,32 +161,29 @@ function time(value, timestamp)
     Also, increase player score if crossed vertical border.
     Also, make sure the ball is at most at the border --- this is even more
     important here, to avoid increasing the score more than once. }
-  if (vector_get(ball_pos, 0) - ball_radius < -x_size,
+  when (vector_get(ball_pos, 0) - ball_radius < -x_size,
     vector_set(ball_speed, 0,  abs(vector_get(ball_speed, 0)));
-    player_1_score := player_1_score + 1,
-    44 { anything });
-  if (vector_get(ball_pos, 0) + ball_radius >  x_size,
+    player_1_score := player_1_score + 1);
+  when (vector_get(ball_pos, 0) + ball_radius >  x_size,
     vector_set(ball_speed, 0, -abs(vector_get(ball_speed, 0)));
-    player_2_score := player_2_score + 1,
-    44 { anything });
+    player_2_score := player_2_score + 1);
   vector_set(ball_pos, 0, max(min(vector_get(ball_pos, 0), x_size - ball_radius), -x_size + ball_radius));
 
-  if (vector_get(ball_pos, 1) - ball_radius < -y_size, vector_set(ball_speed, 1,  abs(vector_get(ball_speed, 1))), 44 { anything });
-  if (vector_get(ball_pos, 1) + ball_radius >  y_size, vector_set(ball_speed, 1, -abs(vector_get(ball_speed, 1))), 44 { anything });
+  when (vector_get(ball_pos, 1) - ball_radius < -y_size, vector_set(ball_speed, 1,  abs(vector_get(ball_speed, 1))));
+  when (vector_get(ball_pos, 1) + ball_radius >  y_size, vector_set(ball_speed, 1, -abs(vector_get(ball_speed, 1))));
   vector_set(ball_pos, 1, max(min(vector_get(ball_pos, 1), y_size - ball_radius), -y_size + ball_radius));
 
   { Check collisions between balls }
-  if (vector_sqr_length(player_1_pos - player_2_pos) < sqr(player_radius + player_radius),
+  when (vector_sqr_length(player_1_pos - player_2_pos) < sqr(player_radius + player_radius),
     player_1_speed := player_1_pos - player_2_pos;
     player_1_speed :=  player_1_speed * (0.5 / vector_length(player_1_speed));
-    player_2_speed := -player_1_speed,
-    44 { anything });
+    player_2_speed := -player_1_speed);
 
-  if (vector_sqr_length(ball_pos - player_1_pos) < sqr(player_radius + ball_radius),
-    ball_speed := ball_pos - player_1_pos, 0);
+  when (vector_sqr_length(ball_pos - player_1_pos) < sqr(player_radius + ball_radius),
+    ball_speed := ball_pos - player_1_pos);
 
-  if (vector_sqr_length(ball_pos - player_2_pos) < sqr(player_radius + ball_radius),
-    ball_speed := ball_pos - player_2_pos, 0)
+  when (vector_sqr_length(ball_pos - player_2_pos) < sqr(player_radius + ball_radius),
+    ball_speed := ball_pos - player_2_pos)
 "
 }
 

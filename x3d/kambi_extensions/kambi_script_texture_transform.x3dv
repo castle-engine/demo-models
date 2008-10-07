@@ -28,9 +28,8 @@ function initialize(timestamp)
 function key_press(value, timestamp)
   if (value = 'w',
     scaling := scaling * 1.2,
-    if (value = 's',
-      scaling := scaling / 1.2,
-      44 { anything }))
+    when (value = 's',
+      scaling := scaling / 1.2))
 
 function scaling(value, timestamp)
   tex_matrix := matrix(vector(scaling, 0, 0, 0),

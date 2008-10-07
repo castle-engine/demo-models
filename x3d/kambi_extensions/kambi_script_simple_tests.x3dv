@@ -33,3 +33,7 @@ function over(value, timestamp)
 
 ROUTE Touch.isOver TO Scr.over
 ROUTE Scr.transp TO ConeMat.transparency
+
+NavigationInfo {
+  type "FLY"
+}
