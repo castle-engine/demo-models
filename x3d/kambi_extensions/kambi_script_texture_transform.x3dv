@@ -1,0 +1,16 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance {
+    texture ImageTexture { url "../../textures/test_texture.png" }
+    textureTransform TextureTransformMatrix3D {
+      matrix
+        3 0 0 0
+        0 3 0 0
+        0 0 3 0
+        0 0 0 1
+    }
+  }
+  geometry Box { }
+}
