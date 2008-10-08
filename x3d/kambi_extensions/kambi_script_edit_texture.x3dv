@@ -41,12 +41,19 @@ DEF Scr Script {
   inputOnly SFInt32 action_key_press
   inputOnly SFString key_press
 
-  # helper vars for key_press
+  # consts for key_press
   initializeOnly SFInt32 radius 20
+  initializeOnly SFInt32 smooth_size 3
+
+  # helper vars for key_press
   initializeOnly SFInt32 crosshair_x 0
   initializeOnly SFInt32 crosshair_y 0
   initializeOnly SFInt32 i 0
   initializeOnly SFInt32 j 0
+  initializeOnly SFInt32 k 0
+  initializeOnly SFInt32 l 0
+  initializeOnly SFColor col 0 0 0
+  initializeOnly SFImage new_image 0 0 1
 
   url [
 "kambiscript:
@@ -113,8 +120,28 @@ function key_press(value, timestamp)
         when( sqr(crosshair_x - i) +
               sqr(crosshair_y - j) < sqr(radius),
           image_set_alpha(tex, i, j,
-            image_get_alpha(tex, i, j) + 0.2 )))))
+            image_get_alpha(tex, i, j) + 0.2 )))));
 
+  when (value = 's',
+    { Smoothing changes new_image, taking pixels from original tex,
+      this way we don't take partially smoothed colors into account when
+      calculating new smoothed colors. }
+    new_image := tex;
+    for (i, max(crosshair_x - radius, 0),
+            min(crosshair_x + radius, image_width(tex) - 1),
+      for (j, max(crosshair_y - radius, 0),
+              min(crosshair_y + radius, image_height(tex) - 1),
+        when( sqr(crosshair_x - i) +
+              sqr(crosshair_y - j) < sqr(radius),
+          { smooth pixel (i, j) }
+          col := vector(0, 0, 0);
+          for (k, max(i - smooth_size , 0),
+                  min(i + smooth_size, image_width(tex) - 1),
+            for (l, max(j - smooth_size, 0),
+                    min(j + smooth_size, image_height(tex) - 1),
+              col := col + image_get_color(tex, k, l) / sqr(2*smooth_size+1)));
+          image_set_color(new_image, i, j, col))));
+    tex := new_image)
 "
   ]
 }
