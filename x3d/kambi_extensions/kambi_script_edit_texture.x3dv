@@ -1,0 +1,120 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Fun with texture editing from KambiScript.
+# Done as a demo of KambiScript capabilities to get/set image contents.
+#
+# Original texture image must have size 256x256 and must have 4 components
+# for this demo to work nicely.
+# Reasons:
+# - Size 256x256 must be corresponding to IndexedFaceSet size,
+#   to have 3D cursor moving in 3D space synchronized with texture pixel
+#   coordinates (since we use cursor 3D position to take texture coordinates
+#   to edit)
+# - Components must be 4 because our simple script in KambiScript
+#   assumes this (it's possible to write more universal program in
+#   KambiScript, as you can query image_components(), but I was too lazy
+#   to use this.)
+
+Shape {
+  appearance Appearance { texture DEF Tex PixelTexture { } }
+  geometry IndexedFaceSet {
+    solid FALSE
+    coord Coordinate { point [ 0 0 0, 256 0 0, 256 256 0, 0 256 0 ] }
+    coordIndex [ 0 1 2 3 ]
+    texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
+  }
+}
+
+DEF CrossHair Transform {
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Circle2D {
+      radius 10
+    }
+  }
+}
+
+DEF Scr Script {
+  inputOutput SFVec3f crosshair_pos 128 128 2
+  outputOnly SFImage tex
+  inputOnly SFInt32 action_key_press
+  inputOnly SFString key_press
+
+  # helper vars for key_press
+  initializeOnly SFInt32 crosshair_x 0
+  initializeOnly SFInt32 crosshair_y 0
+  initializeOnly SFInt32 i 0
+  initializeOnly SFInt32 j 0
+
+  url [
+"kambiscript:
+
+function initialize(timestamp)
+  { Dummy assignment to set initial CrossHair.translation }
+  crosshair_pos := crosshair_pos;
+  { Load initial texture. We had to use PixelTexture for this
+    (ImageTexture doesn't give us SFImage field to work with),
+    so loading it must be done from script. }
+  { TODO: this should be relative URL }
+  tex := image_load('/home/michalis/sources/vrmlengine/trunk/kambi_vrml_test_suite/textures/test_texture.png')
+
+function action_key_press(value, timestamp)
+  if (value = ACTION_KEY_UP,
+    vector_set(crosshair_pos, 1, vector_get(crosshair_pos, 1) + 3),
+  if (value = ACTION_KEY_DOWN,
+    vector_set(crosshair_pos, 1, vector_get(crosshair_pos, 1) - 3),
+  if (value = ACTION_KEY_RIGHT,
+    vector_set(crosshair_pos, 0, vector_get(crosshair_pos, 0) + 3),
+  when (value = ACTION_KEY_LEFT,
+    vector_set(crosshair_pos, 0, vector_get(crosshair_pos, 0) - 3)
+  ))))
+
+function key_press(value, timestamp)
+  crosshair_x := floor(vector_get(crosshair_pos, 0));
+  crosshair_y := floor(vector_get(crosshair_pos, 1));
+  when (value = 'w',
+    for (i, max(crosshair_x - 10, 0),
+            min(crosshair_x + 10, image_width(tex) - 1),
+      for (j, max(crosshair_y - 10, 0),
+              min(crosshair_y + 10, image_height(tex) - 1),
+        when( sqr(crosshair_x - i) +
+              sqr(crosshair_y - j) < sqr(10),
+          image_set_color(tex, i, j, vector(1, 1, 1))))))
+"
+  ]
+}
+
+ROUTE Scr.crosshair_pos TO CrossHair.translation
+ROUTE Scr.tex TO Tex.image
+
+DEF K KeySensor { }
+ROUTE K.actionKeyPress TO Scr.action_key_press
+ROUTE K.keyPress TO Scr.key_press
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 0 -0.0199999995529651
+# up 0 1 4.3711388286737929E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 131.54255676269531 90.592330932617188 474.99456787109375
+  orientation 0 0 1 0
+}
+
+NavigationInfo {
+  type "NONE"
+}
+
+Transform {
+  translation 128 -15 2
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Text { string [
+      "A toy in pure X3D using Script (in KambiScript language)"
+      "to edit the texture (X3D SFImage field)."
+      "Arrows move the cursor, 'w' draws white dot."
+      ]
+      fontStyle FontStyle { size 20 justify "MIDDLE" }
+    }
+  }
+}
