@@ -75,14 +75,25 @@ function key_press(value, timestamp)
   crosshair_x := round(vector_get(crosshair_pos, 0));
   crosshair_y := round(vector_get(crosshair_pos, 1));
 
-  when (value = 'w',
+  when (value = 'c',
     for (i, max(crosshair_x - radius, 0),
             min(crosshair_x + radius, image_width(tex) - 1),
       for (j, max(crosshair_y - radius, 0),
               min(crosshair_y + radius, image_height(tex) - 1),
         when( sqr(crosshair_x - i) +
               sqr(crosshair_y - j) < sqr(radius),
-          image_set_color(tex, i, j, vector(1, 1, 1))))));
+          image_set_color(tex, i, j,
+            image_get_color(tex, i, j) - vector(0.2, 0.2, 0.2))))));
+
+  when (value = 'C',
+    for (i, max(crosshair_x - radius, 0),
+            min(crosshair_x + radius, image_width(tex) - 1),
+      for (j, max(crosshair_y - radius, 0),
+              min(crosshair_y + radius, image_height(tex) - 1),
+        when( sqr(crosshair_x - i) +
+              sqr(crosshair_y - j) < sqr(radius),
+          image_set_color(tex, i, j,
+            image_get_color(tex, i, j) + vector(0.2, 0.2, 0.2))))));
 
   when (value = 'a',
     for (i, max(crosshair_x - radius, 0),
@@ -135,7 +146,8 @@ Transform {
     geometry Text { string [
       "A toy in pure X3D using Script (in KambiScript language)"
       "to edit the texture (X3D SFImage field)."
-      "Arrows move the cursor, 'w' draws white dot,"
+      "Arrows move the cursor."
+      "'c' / 'C' darken / lighten color."
       "'a' / 'A' decrease / increase alpha (opacity)."
       ]
       fontStyle FontStyle { size 20 justify "MIDDLE" }
