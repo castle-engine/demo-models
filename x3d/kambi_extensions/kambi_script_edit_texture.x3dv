@@ -30,7 +30,7 @@ DEF CrossHair Transform {
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
     geometry Circle2D {
-      radius 10
+      radius 20
     }
   }
 }
@@ -42,6 +42,7 @@ DEF Scr Script {
   inputOnly SFString key_press
 
   # helper vars for key_press
+  initializeOnly SFInt32 radius 20
   initializeOnly SFInt32 crosshair_x 0
   initializeOnly SFInt32 crosshair_y 0
   initializeOnly SFInt32 i 0
@@ -73,14 +74,36 @@ function action_key_press(value, timestamp)
 function key_press(value, timestamp)
   crosshair_x := round(vector_get(crosshair_pos, 0));
   crosshair_y := round(vector_get(crosshair_pos, 1));
+
   when (value = 'w',
-    for (i, max(crosshair_x - 10, 0),
-            min(crosshair_x + 10, image_width(tex) - 1),
-      for (j, max(crosshair_y - 10, 0),
-              min(crosshair_y + 10, image_height(tex) - 1),
+    for (i, max(crosshair_x - radius, 0),
+            min(crosshair_x + radius, image_width(tex) - 1),
+      for (j, max(crosshair_y - radius, 0),
+              min(crosshair_y + radius, image_height(tex) - 1),
         when( sqr(crosshair_x - i) +
-              sqr(crosshair_y - j) < sqr(10),
-          image_set_color(tex, i, j, vector(1, 1, 1))))))
+              sqr(crosshair_y - j) < sqr(radius),
+          image_set_color(tex, i, j, vector(1, 1, 1))))));
+
+  when (value = 'a',
+    for (i, max(crosshair_x - radius, 0),
+            min(crosshair_x + radius, image_width(tex) - 1),
+      for (j, max(crosshair_y - radius, 0),
+              min(crosshair_y + radius, image_height(tex) - 1),
+        when( sqr(crosshair_x - i) +
+              sqr(crosshair_y - j) < sqr(radius),
+          image_set_alpha(tex, i, j,
+            image_get_alpha(tex, i, j) - 0.2 )))));
+
+  when (value = 'A',
+    for (i, max(crosshair_x - radius, 0),
+            min(crosshair_x + radius, image_width(tex) - 1),
+      for (j, max(crosshair_y - radius, 0),
+              min(crosshair_y + radius, image_height(tex) - 1),
+        when( sqr(crosshair_x - i) +
+              sqr(crosshair_y - j) < sqr(radius),
+          image_set_alpha(tex, i, j,
+            image_get_alpha(tex, i, j) + 0.2 )))))
+
 "
   ]
 }
@@ -108,13 +131,34 @@ NavigationInfo {
 Transform {
   translation 128 -15 2
   children Shape {
-    appearance Appearance { material Material { } }
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
     geometry Text { string [
       "A toy in pure X3D using Script (in KambiScript language)"
       "to edit the texture (X3D SFImage field)."
-      "Arrows move the cursor, 'w' draws white dot."
+      "Arrows move the cursor, 'w' draws white dot,"
+      "'a' / 'A' decrease / increase alpha (opacity)."
       ]
       fontStyle FontStyle { size 20 justify "MIDDLE" }
     }
+  }
+}
+
+Shape {
+  appearance Appearance {
+    texture PixelTexture { image 2 2 1 0 0xFF 0xFF 0
+      textureProperties TextureProperties {
+        magnificationFilter "NEAREST_PIXEL"
+        minificationFilter "NEAREST_PIXEL"
+      }
+    }
+    textureTransform TextureTransform {
+      scale 20 20
+    }
+  }
+  geometry IndexedFaceSet {
+    solid FALSE
+    coord Coordinate { point [ -128 0 -2, 384 0 -2, 384 384 -2, -128 384 -2 ] }
+    coordIndex [ 0 1 2 3 ]
+    texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
   }
 }
