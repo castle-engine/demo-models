@@ -174,10 +174,23 @@ function time(value, timestamp)
   vector_set(ball_pos, 1, max(min(vector_get(ball_pos, 1), y_size - ball_radius), -y_size + ball_radius));
 
   { Check collisions between balls }
-  when (vector_sqr_length(player_1_pos - player_2_pos) < sqr(player_radius + player_radius),
+  when (vector_sqr_length(player_1_pos - player_2_pos) < sqr(2 * player_radius),
     player_1_speed := player_1_pos - player_2_pos;
     player_1_speed :=  player_1_speed * (0.5 / vector_length(player_1_speed));
-    player_2_speed := -player_1_speed);
+    player_2_speed := -player_1_speed;
+
+    { Move the players now to not collide. Otherwise players can make
+      balls collide more and more by holding keys pressed to push into
+      each other, and when player_1_pos = player_2_pos terrible things
+      happen since player_1_speed gets 0.
+
+      We want to make players distance 2 * player_radius.
+      So we want to move by vector player_1_speed adjusted to this length.
+      We know length of player_1_speed: 0.5 (set 2 lines above).
+      So we want to scale it by 2 * player_radius / 0.5 = 4 * player_radius. }
+    player_1_pos := player_2_pos + (4 * player_radius) * player_1_speed;
+    player_2_pos := player_1_pos + (4 * player_radius) * player_2_speed
+    );
 
   when (vector_sqr_length(ball_pos - player_1_pos) < sqr(player_radius + ball_radius),
     ball_speed := ball_pos - player_1_pos);
