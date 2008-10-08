@@ -64,8 +64,7 @@ function initialize(timestamp)
   { Load initial texture. We had to use PixelTexture for this
     (ImageTexture doesn't give us SFImage field to work with),
     so loading it must be done from script. }
-  { TODO: this should be relative URL }
-  tex := image_load('/home/michalis/sources/vrmlengine/trunk/kambi_vrml_test_suite/textures/test_texture.png')
+  tex := image_load('../../textures/test_texture.png')
 
 function action_key_press(value, timestamp)
   if (value = ACTION_KEY_UP,
