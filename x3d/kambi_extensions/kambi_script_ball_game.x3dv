@@ -225,7 +225,7 @@ Viewpoint {
 PointLight { }
 
 Transform {
-  translation 0 -2 -1
+  translation 0 -3 -1
   children Shape {
     appearance Appearance {
       material Material { diffuseColor 0.2 0.2 0.2 } }
