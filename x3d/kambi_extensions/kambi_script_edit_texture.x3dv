@@ -71,8 +71,8 @@ function action_key_press(value, timestamp)
   ))))
 
 function key_press(value, timestamp)
-  crosshair_x := floor(vector_get(crosshair_pos, 0));
-  crosshair_y := floor(vector_get(crosshair_pos, 1));
+  crosshair_x := round(vector_get(crosshair_pos, 0));
+  crosshair_y := round(vector_get(crosshair_pos, 1));
   when (value = 'w',
     for (i, max(crosshair_x - 10, 0),
             min(crosshair_x + 10, image_width(tex) - 1),
