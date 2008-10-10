@@ -205,6 +205,7 @@ Viewpoint {
 
 NavigationInfo {
   type "NONE"
+  avatarSize [ 10 ]
 }
 
 Transform {

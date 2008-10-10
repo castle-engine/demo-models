@@ -211,6 +211,7 @@ ROUTE Key.keyRelease TO Scr.key_release
 
 NavigationInfo {
   type "NONE"
+  avatarSize 1
 }
 
 # Camera settings "encoded" in the VRML declaration below :
