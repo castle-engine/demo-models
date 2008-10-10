@@ -36,7 +36,7 @@ DEF CrossHair Transform {
 }
 
 DEF Scr Script {
-  inputOutput SFVec3f crosshair_pos 128 128 2
+  inputOutput SFVec3f crosshair_pos 128 128 10
   outputOnly SFImage tex
   inputOnly SFInt32 action_key_press
   inputOnly SFString key_press
@@ -195,7 +195,7 @@ Shape {
   }
   geometry IndexedFaceSet {
     solid FALSE
-    coord Coordinate { point [ -128 0 -2, 384 0 -2, 384 384 -2, -128 384 -2 ] }
+    coord Coordinate { point [ -128 0 -10, 384 0 -10, 384 384 -10, -128 384 -10 ] }
     coordIndex [ 0 1 2 3 ]
     texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
   }
