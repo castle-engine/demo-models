@@ -54,6 +54,9 @@ DEF Scr Script {
   initializeOnly SFInt32 l 0
   initializeOnly SFColor col 0 0 0
   initializeOnly SFImage new_image 0 0 1
+  initializeOnly SFFloat gradient_x 0
+  initializeOnly SFFloat gradient_y 0
+  initializeOnly SFFloat gradient_len 0
 
   url [
 "kambiscript:
@@ -140,6 +143,45 @@ function key_press(value, timestamp)
                     min(j + smooth_size, image_height(tex) - 1),
               col := col + image_get_color(tex, k, l) / sqr(2*smooth_size+1)));
           image_set_color(new_image, i, j, col))));
+    tex := new_image);
+
+  when (value = 'e',
+    { A simple edge-detection by calculating gradient (actually,
+      the length of the gradient vector) with Sobel operator, in KambiScript.
+      See [http://en.wikipedia.org/wiki/Sobel_operator].
+      See also another KambiScript implementation in
+      kambi_vrml_game_engine/kambiscript/examples/mkimage_sobel_edge.kscript }
+
+    { copy tex, to copy it's size and alpha channel }
+    new_image := tex;
+
+    for (i, 0, image_width(new_image) - 1,
+      for (j, 0, image_height(new_image) - 1,
+        gradient_x :=
+          if(i > 0,
+            if (j > 0, grayscale(image_get_color(tex, i-1, j-1)), 0) +
+            2 * grayscale(image_get_color(tex, i-1, j)) +
+            if (j < image_height(new_image) - 1, grayscale(image_get_color(tex, i-1, j+1)), 0),
+            0) -
+          if(i < image_width(new_image) - 1,
+            if (j > 0, grayscale(image_get_color(tex, i+1, j-1)), 0) +
+            2 * grayscale(image_get_color(tex, i+1, j)) +
+            if (j < image_height(new_image) - 1, grayscale(image_get_color(tex, i+1, j+1)), 0),
+            0);
+        gradient_y :=
+          if(j > 0,
+            if (i > 0, grayscale(image_get_color(tex, i-1, j-1)), 0) +
+            2 * grayscale(image_get_color(tex, i, j-1)) +
+            if (i < image_width(new_image) - 1, grayscale(image_get_color(tex, i+1, j-1)), 0),
+            0) -
+          if(j < image_height(new_image) - 1,
+            if (i > 0, grayscale(image_get_color(tex, i-1, j+1)), 0) +
+            2 * grayscale(image_get_color(tex, i, j+1)) +
+            if (i < image_width(new_image) - 1, grayscale(image_get_color(tex, i+1, j+1)), 0),
+            0);
+        gradient_len := sqrt(sqr(gradient_x) + sqr(gradient_y));
+        image_set_color(new_image, i, j, vector(gradient_len, gradient_len, gradient_len))));
+
     tex := new_image)
 "
   ]
@@ -172,9 +214,9 @@ Transform {
     geometry Text { string [
       "A toy in pure X3D using Script (in KambiScript language)"
       "to edit the texture (X3D SFImage field)."
-      "Arrows move the cursor."
-      "'c' / 'C' darken / lighten color."
+      "Arrows move the cursor. 'c' / 'C' darken / lighten color."
       "'a' / 'A' decrease / increase alpha (opacity)."
+      "'s' smooths the image. 'e' makes edge detection."
       ]
       fontStyle FontStyle { size 20 justify "MIDDLE" }
     }
