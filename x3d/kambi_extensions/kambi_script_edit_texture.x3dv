@@ -17,7 +17,12 @@ PROFILE Interchange
 #   to use this.)
 
 Shape {
-  appearance Appearance { texture DEF Tex PixelTexture { } }
+  appearance KambiAppearance {
+    texture DEF Tex PixelTexture { }
+    # Force blending mode according to default BlendMode values,
+    # in particular destFactor "one_minus_src_alpha".
+    blendMode BlendMode { }
+  }
   geometry IndexedFaceSet {
     solid FALSE
     coord Coordinate { point [ 0 0 0, 256 0 0, 256 256 0, 0 256 0 ] }
