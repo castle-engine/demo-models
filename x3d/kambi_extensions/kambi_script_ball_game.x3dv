@@ -104,10 +104,10 @@ function key_release(value, timestamp)
           pressed_d := false))))
 
 function player_1_score(value, timestamp)
-  player_1_score_text := 'Player 1: ' + string(value)
+  player_1_score_text := array('Player 1: ' + string(value))
 
 function player_2_score(value, timestamp)
-  player_2_score_text := 'Player 2: ' + string(value)
+  player_2_score_text := array('Player 2: ' + string(value))
 
 function time(value, timestamp)
   { calculate timeDiff, to scale animations
