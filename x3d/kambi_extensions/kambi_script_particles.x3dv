@@ -25,7 +25,9 @@ function initialize(timestamp)
    { Make as many colors as coords. }
    array_set_count(colors, array_get_count(coords));
    for (i, 0, array_get_count(colors) - 1,
-    array_set(colors, i, vector(0, 0, 1)))
+    array_set(colors, i,
+      { random blueish color }
+      vector(random() * 0.2, random() * 0.2, 1 - random() * 0.2)))
 
 function time(value, timestamp)
   { calculate timeDiff, to scale animations
@@ -55,7 +57,7 @@ DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
 ROUTE Time.elapsedTime TO Scr.time
 
 Shape {
-  appearance Appearance { }
+  appearance Appearance { material Material { } }
   geometry Box { }
 }
 
