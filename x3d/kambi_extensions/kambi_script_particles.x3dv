@@ -1,0 +1,77 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+DEF Scr Script {
+  inputOutput MFVec3f coords []
+  inputOutput MFColor colors []
+
+  initializeOnly SFTime previousTime -1
+  initializeOnly SFTime timeDiff 0
+  inputOnly SFTime time
+
+  # helper vars
+  initializeOnly SFInt32 i 0
+  initializeOnly SFVec3f v 0 0 0
+
+  url "kambiscript:
+
+function initialize(timestamp)
+  array_set_count(coords, 1000);
+  for (i, 0, array_get_count(coords) - 1,
+    array_set(coords, i, vector(
+      sin(i * 2 * Pi / array_get_count(coords)) * 10.0,
+      cos(i * 2 * Pi / array_get_count(coords)) * 10.0,
+      0)));
+   { Make as many colors as coords. }
+   array_set_count(colors, array_get_count(coords));
+   for (i, 0, array_get_count(colors) - 1,
+    array_set(colors, i, vector(0, 0, 1)))
+
+function time(value, timestamp)
+  { calculate timeDiff, to scale animations
+    (so that it runs with the same speed on every system) }
+  timeDiff := if (previousTime >= 0, value - previousTime, 0);
+
+  { update previousTime }
+  previousTime := value;
+
+  for (i, 0, array_get_count(coords) - 1,
+    v := array_get(coords, i);
+    vector_set(v, 2, vector_get(v, 2) + 0.1 * timeDiff);
+    array_set(coords, i, v))
+"
+}
+
+Shape {
+  geometry PointSet {
+    color DEF PtColor Color { }
+    coord DEF PtCoord Coordinate { }
+  }
+}
+ROUTE Scr.colors TO PtColor.color
+ROUTE Scr.coords TO PtCoord.point
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+ROUTE Time.elapsedTime TO Scr.time
+
+Shape {
+  appearance Appearance { }
+  geometry Box { }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0077309217303991 0 -0.0020573860965669
+# up -0.2571732699871063 0 0.9663652777671814
+# gravityUp 0 0 1
+Transform {
+  translation 21.340932846069336 0 4.7044863700866699
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.1286046504974365 0.9833216667175293 0.1286049783229827 1.5876145362854004
+  }
+}
+
+NavigationInfo {
+  type "WALK"
+}
