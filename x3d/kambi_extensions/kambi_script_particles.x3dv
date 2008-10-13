@@ -5,6 +5,12 @@ DEF Scr Script {
   inputOutput MFVec3f coords []
   inputOutput MFColor colors []
   initializeOnly MFVec3f speeds []
+  initializeOnly MFVec3f last_coord_change []
+
+  inputOutput MFInt32 line_coordIndex []
+  inputOutput MFInt32 line_colorIndex []
+  inputOutput MFVec3f line_coords []
+  inputOutput MFColor line_colors []
 
   initializeOnly SFTime previousTime -1
   initializeOnly SFTime timeDiff 0
@@ -22,6 +28,10 @@ DEF Scr Script {
   # helper vars
   initializeOnly SFInt32 i 0
   initializeOnly SFVec3f v 0 0 0
+
+  # This is only used internally to call update_lines function.
+  # Value passed here doesn't matter.
+  inputOutput SFBool update_lines FALSE
 
   url "kambiscript:
 
@@ -50,7 +60,14 @@ function initialize(timestamp)
   for (i, 0, count - 1,
     array_set(colors, i,
       { random blueish color }
-      vector(random() * 0.2, random() * 0.2, 1 - random() * 0.2)))
+      vector(random() * 0.2, random() * 0.2, 1 - random() * 0.2)));
+
+  { Initialize last_coord_change. }
+  array_set_count(last_coord_change, count);
+  for (i, 0, count - 1,
+    array_set(last_coord_change, i, vector(0, 0, 0)));
+
+  update_lines := TRUE
 
 function time(value, timestamp)
   { calculate timeDiff, to scale animations
@@ -67,6 +84,8 @@ function time(value, timestamp)
     v := v + array_get(speeds, i) * timeDiff;
     { fall down by gravity }
     vector_set(v, 2, vector_get(v, 2) - timeDiff * 5);
+    array_set(last_coord_change, i,
+      array_get(speeds, i) + vector(0, 0, -5));
     { when particle falls down on the ground --- initialize new }
     when (vector_get(v, 2) < 0,
       v := vector(
@@ -77,7 +96,8 @@ function time(value, timestamp)
         vector(
           vector_get(v, 0) * (speed_horiz_const + speed_horiz_rand * random()),
           vector_get(v, 1) * (speed_horiz_const + speed_horiz_rand * random()),
-          speed_vert_const + random() * speed_vert_rand))
+          speed_vert_const + random() * speed_vert_rand));
+      array_set(last_coord_change, i, vector(0, 0, 0))
     );
     array_set(coords, i, v));
 
@@ -85,9 +105,41 @@ function time(value, timestamp)
   for (i, 0, count - 1,
     v := array_get(speeds, i);
     v := v * power(0.5, timeDiff);
-    array_set(speeds, i, v))
+    array_set(speeds, i, v));
+
+  update_lines := TRUE
+
+{ initialize LineSet properties, based on coords, speeds, colors }
+function update_lines(value, timestamp)
+  array_set_count(line_coords, count * 2);
+  array_set_count(line_colors, count * 2);
+  array_set_count(line_coordIndex, count * 3);
+  array_set_count(line_colorIndex, count * 3);
+  for (i, 0, count - 1,
+    v := array_get(coords, i);
+    array_set(line_coords, 2 * i    , v - array_get(last_coord_change, i) / 10);
+    array_set(line_coords, 2 * i + 1, v + array_get(last_coord_change, i) / 10);
+    array_set(line_colors, 2 * i    , array_get(colors, i));
+    array_set(line_colors, 2 * i + 1, array_get(colors, i));
+    array_set(line_colorIndex, 3 * i    , 2 * i);
+    array_set(line_colorIndex, 3 * i + 1, 2 * i + 1);
+    array_set(line_colorIndex, 3 * i + 2, -1);
+    array_set(line_coordIndex, 3 * i    , 2 * i);
+    array_set(line_coordIndex, 3 * i + 1, 2 * i + 1);
+    array_set(line_coordIndex, 3 * i + 2, -1))
 "
 }
+
+Shape {
+  geometry DEF LnSet IndexedLineSet {
+    color DEF LnColor Color { }
+    coord DEF LnCoord Coordinate { }
+  }
+}
+ROUTE Scr.line_colors TO LnColor.color
+ROUTE Scr.line_coords TO LnCoord.point
+ROUTE Scr.line_colorIndex TO LnSet.set_colorIndex
+ROUTE Scr.line_coordIndex TO LnSet.set_coordIndex
 
 Shape {
   geometry PointSet {
@@ -97,6 +149,7 @@ Shape {
 }
 ROUTE Scr.colors TO PtColor.color
 ROUTE Scr.coords TO PtCoord.point
+
 
 DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
 ROUTE Time.elapsedTime TO Scr.time
