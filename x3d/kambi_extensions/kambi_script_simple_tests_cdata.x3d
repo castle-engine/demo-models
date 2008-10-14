@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile='Immersive' version='3.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene>
+    <Transform
+      translation="0 0 -2">
+      <Shape>
+        <Appearance><Material diffuseColor="0 1 0"/></Appearance>
+        <Box/>
+      </Shape>
+    </Transform>
+
+    <Group>
+      <Shape>
+        <Appearance><Material DEF="ConeMat" diffuseColor="1 1 0"/></Appearance>
+        <Cone/>
+      </Shape>
+
+      <TouchSensor DEF="Touch"/>
+    </Group>
+
+    <Script DEF="Scr">
+      <field accessType="inputOnly" type="SFBool" name="over" />
+      <field accessType="outputOnly"  type="SFFloat" name="transp" />
+      <![CDATA[kambiscript:
+function over(value, timestamp)
+  transp := 0.5 - (1 - float(value)) / 2
+]]>
+    </Script>
+
+    <ROUTE fromNode="Touch" fromField="isOver"
+           toNode="Scr" toField="over" />
+    <ROUTE fromNode="Scr" fromField="transp"
+           toNode="ConeMat" toField="transparency"/>
+
+    <NavigationInfo type='"FLY"'/>
+  </Scene>
+</X3D>
