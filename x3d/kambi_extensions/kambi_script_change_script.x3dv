@@ -1,0 +1,77 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo of changing Script.url field by another Script.
+# This way one script does initialize/shutdown of other scripts.
+
+Shape {
+  appearance Appearance { material DEF Mat Material { } }
+  geometry Box { }
+}
+
+DEF Timer TimeSensor { loop TRUE }
+
+DEF Scr Script {
+  inputOnly SFTime time
+  initializeOnly SFTime previousTime 0
+  inputOutput SFColor col 0.5 0.5 0.5
+  url "kambiscript:
+
+function initialize(timestamp)
+  previousTime := timestamp
+
+function time(value, timestamp)
+  col := min( col + vector(1, 1, 1) * (timestamp - previousTime), vector(1, 1, 1));
+  previousTime := timestamp
+"
+}
+
+ROUTE Timer.time TO Scr.time
+ROUTE Scr.col TO Mat.diffuseColor
+
+DEF ScrManager Script {
+  inputOnly SFString key_press
+  outputOnly MFString script_url
+  url "kambiscript:
+
+function key_press(value, timestamp)
+  if (value = 'a',
+    script_url := array('kambiscript:
+
+      function initialize(timestamp)
+        previousTime := timestamp
+
+      function time(value, timestamp)
+        col := min( col + vector(1, 1, 1) * (timestamp - previousTime), vector(1, 1, 1));
+        previousTime := timestamp
+      '),
+  when (value = 'z',
+    script_url := array('kambiscript:
+
+      function initialize(timestamp)
+        previousTime := timestamp
+
+      function time(value, timestamp)
+        col := max( col - vector(1, 1, 1) * (timestamp - previousTime), vector(0, 0, 0));
+        previousTime := timestamp
+      ')))
+"
+}
+
+DEF Key KeySensor { }
+ROUTE Key.keyPress TO ScrManager.key_press
+ROUTE ScrManager.script_url TO Scr.url
+
+Transform {
+  translation 0 1.5 2
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Text { string [
+      "Simple demo of changing Script URL from another Script."
+      "Press 'a' to use a script that increases color."
+      "Press 'z' to use a script that decreases color."
+      ]
+      fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+    }
+  }
+}
