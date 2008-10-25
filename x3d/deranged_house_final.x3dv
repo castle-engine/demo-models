@@ -22,7 +22,7 @@ Transform {
           appearance Appearance { material Material { diffuseColor 0.5 0.5 0.5 } }
           geometry Text { string [
             "Simple ProximitySensor demo."
-            "Pressing Ctrl toggles displaying"
+            "Pressing 'b' toggles displaying"
             "of the yellow (non-collidable) boxes"
             "that visualize ProximitySensors."
             ]
@@ -89,10 +89,6 @@ PROTO Door [ ] {
       }
 
       DEF K KeySensor { }
-      DEF BToggle BooleanToggle { }
-      DEF BFilter BooleanFilter { }
-      DEF IGenerateM1 IntegerTrigger { integerKey -1 }
-      DEF IGenerate0 IntegerTrigger { integerKey 0 }
 
       # Script in KambiScript to open/close doors.
       #
@@ -114,6 +110,9 @@ PROTO Door [ ] {
 
         outputOnly SFTime open_start_time
         outputOnly SFTime close_start_time
+
+        inputOnly SFString key_press
+        inputOutput SFInt32 prox_sensor_visualize -1
 
         url "kambiscript:
           function start_open(value, timestamp)
@@ -138,6 +137,11 @@ PROTO Door [ ] {
                 open_start_time := -1000;
                 close_start_time := timestamp - (1-open_elapsedTime),
                 close_start_time := timestamp))
+
+          function key_press(value, timestamp)
+            when (value = 'b',
+              { On each 'b' press, toggle prox_sensor_visualize between -1 and 0 }
+              prox_sensor_visualize := - prox_sensor_visualize - 1)
         "
       }
     ]
@@ -161,22 +165,9 @@ PROTO Door [ ] {
     ROUTE TimerClose.fraction_changed TO OrientClose.set_fraction
     ROUTE OrientClose.value_changed TO DoorTransform.rotation
 
-    # How does KeySensor handling below work?
-    # Each controlKey press changes BToggle.toggle value (controlKey releases
-    # are ignored).
-    # - When BToggle.toggle is true, BFilter.inputTrue is
-    #   generated, and this generates IGenerate0.triggerValue,
-    #   which sets ProxSensVisualize.whichChoice to 0.
-    # - When BToggle.toggle is false, BFilter.inputFalse is
-    #   generated, and this generates IGenerateM1.triggerValue,
-    #   which sets ProxSensVisualize.whichChoice to -1.
-
-    ROUTE K.controlKey TO BToggle.set_boolean
-    ROUTE BToggle.toggle TO BFilter.set_boolean
-    ROUTE BFilter.inputFalse TO IGenerateM1.set_boolean
-    ROUTE BFilter.inputTrue  TO IGenerate0.set_boolean
-    ROUTE IGenerateM1.triggerValue TO ProxSensVisualize.whichChoice
-    ROUTE IGenerate0.triggerValue TO ProxSensVisualize.whichChoice
+    # Routes to control visualization by 'b' key
+    ROUTE K.keyPress TO Scr.key_press
+    ROUTE Scr.prox_sensor_visualize TO ProxSensVisualize.whichChoice
   }
 }
 
