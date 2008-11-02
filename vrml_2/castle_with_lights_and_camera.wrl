@@ -22,7 +22,7 @@ Group{
     NavigationInfo {
       type "WALK"
       speed 20
-      avatarSize [ 2 4 ]
+      avatarSize [ 0.5 4 ]
     }
 
     WorldInfo {
