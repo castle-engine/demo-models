@@ -1,0 +1,45 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Only lighting location is animated.
+#
+# view3dscene scene test: animation should play in all optimizations
+# (in particular test in "scene as a whole", where the disp list
+# must be rebuild), also when doing --debug-log-vrml-changes
+# no ChangedAll should occur.
+
+Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry Sphere { }
+}
+
+Transform {
+  translation -2 0 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 1 } }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 2 0 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    geometry Sphere { }
+  }
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 10 }
+DEF PosInterp PositionInterpolator {
+  key      [ 0          0.25      0.5     0.75      1.0     ]
+  keyValue [ 5 5 3,   5 -5 3,   -5 -5 3,  -5 5 3,   5 5 3 ]
+}
+
+DEF LPos PointLight { }
+DEF LPosIndicator Transform {
+  children Shape { geometry Sphere { radius 0.1 } }
+}
+
+ROUTE Timer.fraction_changed TO PosInterp.set_fraction
+ROUTE PosInterp.value_changed TO LPos.location
+#ROUTE PosInterp.value_changed TO LPosIndicator.translation
