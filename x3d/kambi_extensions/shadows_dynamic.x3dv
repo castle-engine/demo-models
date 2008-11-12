@@ -1,0 +1,33 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0039148419164121 -0.0134819848462939 -0.01424465700984
+# up -0.1786381602287292 0.7386409640312194 -0.6499983668327331
+# gravityUp 0 1 0
+Viewpoint {
+  position -0.5356798768043518 0.699147880077362 0.5529592037200927
+  orientation -0.9368800520896911 0.3260054588317871 0.1263976395130157 0.784756064414978
+}
+
+NavigationInfo {
+  type [ "FLY" "ANY" ]
+}
+
+Shape{
+  geometry Box { solid FALSE size 2.4 2.4 2.4 }
+  appearance Appearance { material Material { } }
+}
+
+Transform {
+  scale 0.1 0.1 0.1
+  translation -0.5 0 -0.5
+  rotation 0 0 1 1.57
+  children Inline { url "../worm_crawl.x3dv" }
+}
+
+DEF L PointLight {
+  location 0 1 0
+  kambiShadows TRUE
+  kambiShadowsMain TRUE
+}
