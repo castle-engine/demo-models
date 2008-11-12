@@ -1,0 +1,53 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Only transform with light is animated.
+#
+# view3dscene scene test: animation should play in all optimizations
+# (in particular test in "scene as a whole", where the disp list
+# must be rebuild), also when doing --debug-log-vrml-changes
+# no ChangedAll should occur.
+#
+# TODO: this works, but slow, with Kambi VRML game engine now,
+# as we do ChangedAll each time. When light
+# transform changes, we can't quickly update, because then we would have
+# to know which *instance* of light node affects given TActiveLight.
+# To be solved later.
+
+Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry Sphere { }
+}
+
+Transform {
+  translation -2 0 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 1 } }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 2 0 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    geometry Sphere { }
+  }
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 10 }
+DEF OrientInterp OrientationInterpolator {
+  key      [ 0 1 ]
+  keyValue [ 0 0 1 0, 0 0 1 6.2831853072 ] # to 2*pi
+}
+
+DEF LTransform Transform {
+  children Transform {
+    translation 5 0 0
+    children [
+      PointLight { }
+      Shape { geometry Sphere { radius 0.1 } }
+    ] } }
+
+ROUTE Timer.fraction_changed TO OrientInterp.set_fraction
+ROUTE OrientInterp.value_changed TO LTransform.rotation
