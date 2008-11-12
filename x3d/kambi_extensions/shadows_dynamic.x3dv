@@ -1,6 +1,12 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
+# Demo of dynamic shadows by Kambi VRML game engine:
+# - Light source moves.
+# - Worm has animated coordinates.
+# - Spheres/boxes have animated transformation.
+# And shadows work, everything is both shadow caster and receiver.
+
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.0039148419164121 -0.0134819848462939 -0.01424465700984
 # up -0.1786381602287292 0.7386409640312194 -0.6499983668327331
@@ -25,6 +31,8 @@ Transform {
   rotation 0 0 1 1.57
   children Inline { url "../worm_crawl.x3dv" }
 }
+
+# light source ---------------------------------------------------------------
 
 DEF Light PointLight {
   location 0 1 0
@@ -65,3 +73,65 @@ function elapsedTime(value, timestamp)
 ROUTE Timer.elapsedTime TO Scr.elapsedTime
 ROUTE Scr.mainLightLoc TO Light.location
 #ROUTE Scr.mainLightLoc TO LightIndicator.translation
+
+# yellow sphere under worm ----------------------------------------------
+
+DEF TimerYellow TimeSensor { loop TRUE cycleInterval 5 }
+DEF InterpYellow OrientationInterpolator {
+  key      [ 0 1 ]
+  keyValue [ 0 1 0 0, 0 1 0 6.2831853072 ] # to 2*pi
+}
+
+DEF SpYellow Transform {
+  translation -0.5 -0.5 -0.5
+  children Transform {
+    translation 0.3 0 0
+    children [
+      Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Sphere { radius 0.1 } }
+    ] } }
+
+ROUTE TimerYellow.fraction_changed TO InterpYellow.set_fraction
+ROUTE InterpYellow.value_changed TO SpYellow.rotation
+
+# blue sphere under worm ----------------------------------------------
+
+DEF TimerBlue TimeSensor { loop TRUE cycleInterval 3 }
+DEF InterpBlue OrientationInterpolator {
+  key      [ 0 1 ]
+  keyValue [ 0 1 0 0, 0 1 0 6.2831853072 ] # to 2*pi
+}
+
+DEF SpBlue Transform {
+  translation -0.5 -0.7 -0.5
+  children Transform {
+    translation 0.4 0 0
+    children [
+      Shape {
+        appearance Appearance { material Material { diffuseColor 0.1 0.1 1 } }
+        geometry Sphere { radius 0.15 } }
+    ] } }
+
+ROUTE TimerBlue.fraction_changed TO InterpBlue.set_fraction
+ROUTE InterpBlue.value_changed TO SpBlue.rotation
+
+# red box under worm ----------------------------------------------
+
+DEF TimerRed TimeSensor { loop TRUE cycleInterval 3 }
+DEF InterpRed OrientationInterpolator {
+  key      [ 0 1 ]
+  keyValue [ 1 1 1 0, 1 1 1 6.2831853072 ] # to 2*pi
+}
+
+DEF BoxRed Transform {
+  translation -0.5 0.3 -0.7
+  children Transform {
+    children [
+      Shape {
+        appearance Appearance { material Material { diffuseColor 1 0.1 0.1 } }
+        geometry Box { size 0.2 0.2 0.2 } }
+    ] } }
+
+ROUTE TimerRed.fraction_changed TO InterpRed.set_fraction
+ROUTE InterpRed.value_changed TO BoxRed.rotation
