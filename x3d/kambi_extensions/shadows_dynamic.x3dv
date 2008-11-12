@@ -6,6 +6,7 @@ PROFILE Interchange
 # - Worm has animated coordinates.
 # - Spheres/boxes have animated transformation.
 # And shadows work, everything is both shadow caster and receiver.
+# Press 's' (handled by KeySensor) to turn shadows on/off.
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.0039148419164121 -0.0134819848462939 -0.01424465700984
@@ -53,9 +54,15 @@ DEF LightIndicator Transform {
 }
 DEF Timer TimeSensor { loop TRUE cycleInterval 10000000 }
 
+DEF KeySens KeySensor { }
+
 DEF Scr Script {
   inputOnly SFTime elapsedTime
   outputOnly SFVec3f mainLightLoc
+
+  inputOnly SFString keyPress
+  inputOutput SFBool shadows TRUE
+
   url "kambiscript:
 
 { We animate light location by script, as opposed to placing light within
@@ -68,11 +75,17 @@ function elapsedTime(value, timestamp)
     sin(value) * 0.3,
     1,
     cos(value) * 0.3)
+
+function keyPress(value, timestamp)
+  when (value = 's', shadows := not(shadows))
 "
 }
 ROUTE Timer.elapsedTime TO Scr.elapsedTime
 ROUTE Scr.mainLightLoc TO Light.location
 #ROUTE Scr.mainLightLoc TO LightIndicator.translation
+
+ROUTE KeySens.keyPress TO Scr.keyPress
+ROUTE Scr.shadows TO Light.kambiShadows
 
 # yellow sphere under worm ----------------------------------------------
 
