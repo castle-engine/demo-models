@@ -1,0 +1,64 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT EventUtilities:1
+
+# BooleanSequencer test ------------------------------------------------------
+
+DEF S Switch {
+  children [
+    Shape { geometry Text { string "0" } }
+    Shape { geometry Text { string "1" } }
+    Shape { geometry Text { string "2" } }
+    Shape { geometry Text { string "3" } }
+    Shape { geometry Text { string "4" } }
+    Shape { geometry Text { string "5" } }
+    Shape { geometry Text { string "6" } }
+    Shape { geometry Text { string "7" } }
+    Shape { geometry Text { string "8" } }
+    Shape { geometry Text { string "9" } }
+    Shape { geometry Text { string "10" } }
+  ]
+}
+DEF BS IntegerSequencer {
+  key [
+    # first five change quicker
+    0 0.05 0.1 0.15 0.2
+    0.3 0.4 0.5 0.6 0.7 0.8 ]
+
+  keyValue [ 10 9 8 7 6 5 4 3 2 1 0 ]
+}
+DEF Timer TimeSensor { cycleInterval 4 loop TRUE }
+
+ROUTE Timer.fraction_changed TO BS.set_fraction
+ROUTE BS.value_changed TO S.whichChoice
+
+# Others ---------------------------------------------------------------------
+
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly      SFBool   set_bind
+  inputOutput    MFFloat  avatarSize
+  inputOutput    SFBool   headlight
+  inputOutput    SFFloat  speed
+  inputOutput    MFString type
+  inputOutput    SFFloat  visibilityLimit
+  outputOnly     SFBool   isBound
+  initializeOnly SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3d#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+	headlight TRUE
+	type ["FLY", "ANY"]
+        timeOriginAtLoad TRUE
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -3.4676709951784628E-018 -2.4746536069133334E-016 -0.0199999995529651
+# up -4.6786855870139567E-015 1 4.3711377628596892E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.3050610125064849 0.1994810104370117 1.836988091468811
+  orientation 0 0 1 0
+}

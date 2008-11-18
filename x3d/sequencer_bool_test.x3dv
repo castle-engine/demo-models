@@ -1,0 +1,50 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT EventUtilities:1
+
+# BooleanSequencer test ------------------------------------------------------
+
+DEF L PointLight { location 0 0 10 }
+Shape { geometry Box { } appearance Appearance { material Material { } } }
+DEF BS BooleanSequencer {
+  # Three short (0.1) blinks, then three longer blinks (2.(3))
+  key [ 0   0.05
+        0.1 0.15
+        0.2 0.25
+        0.3 0.43333333333333
+        0.53333333333333 0.66666666666666
+        0.76666666666666 0.9 ]
+
+  keyValue [ FALSE TRUE
+             FALSE TRUE
+             FALSE TRUE
+             FALSE TRUE
+             FALSE TRUE
+             FALSE TRUE ]
+}
+DEF Timer TimeSensor { cycleInterval 4 loop TRUE }
+
+ROUTE Timer.fraction_changed TO BS.set_fraction
+ROUTE BS.value_changed TO L.on
+
+# Others ---------------------------------------------------------------------
+
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly      SFBool   set_bind
+  inputOutput    MFFloat  avatarSize
+  inputOutput    SFBool   headlight
+  inputOutput    SFFloat  speed
+  inputOutput    MFString type
+  inputOutput    SFFloat  visibilityLimit
+  outputOnly     SFBool   isBound
+  initializeOnly SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3d#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+	headlight FALSE
+	type ["EXAMINE", "ANY"]
+        timeOriginAtLoad TRUE
+}
