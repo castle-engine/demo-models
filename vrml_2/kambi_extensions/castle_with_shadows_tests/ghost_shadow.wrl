@@ -1,0 +1,23 @@
+#VRML V1.0 ascii
+
+# This is actually VRML 1.0... I'm too lazy to move it to vrml_1 subdirectory,
+# with castle_with_shadows_tests dir having only a single file.
+
+PointLight {
+  location 2 0 4
+  kambiShadows TRUE
+  kambiShadowsMain TRUE
+}
+
+Group {
+  WWWInline { name "../../../../castle/data/creatures/ghost/ghost_header.wrl" separate FALSE }
+  WWWInline { name "../../../../castle/data/creatures/ghost/ghost_stand_1.wrl" }
+}
+
+Translation {
+  translation 0 0 -1
+}
+
+Cube {
+  #width 1 height 1 depth 1
+}
