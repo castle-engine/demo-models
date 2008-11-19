@@ -1,0 +1,57 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Based on follow_camera_by_proximity_sensor.x3dv,
+# simple test of ProximitySensor.orientation_changed.
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+}
+
+Transform {
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+  children [
+    Viewpoint {
+      position 0 0 0 # camera position is expressed by translation
+      orientation -0.000035324712371 -0.999984502792358 -0 0.046436563134193
+    }
+  ]
+}
+
+DEF PlayerSurrounding Transform {
+  children Transform {
+    translation 0 0 -15
+    children [
+      Transform {
+        translation 0 2 0
+        children Shape {
+          appearance Appearance { material Material { diffuseColor 1 1 0 } }
+          geometry Text { string [
+            "Whatever you do, this text and sphere will"
+            "always be in the middle of the screen"
+            "(although they are 3D,"
+            "and may be hidden by other 3D objects)" ]
+            fontStyle FontStyle { justify "MIDDLE" }
+          }
+        }
+      }
+      Shape {
+        appearance Appearance { material Material {
+          diffuseColor 1 0 0
+          transparency 0.5
+        } }
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+DEF MyProx ProximitySensor { size 10000000 10000000 10000000 }
+
+ROUTE MyProx.orientation_changed TO PlayerSurrounding.set_rotation
+ROUTE MyProx.position_changed TO PlayerSurrounding.set_translation
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
