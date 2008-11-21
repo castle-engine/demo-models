@@ -124,7 +124,8 @@ DEF SpBlue Transform {
     translation 0.4 0 0
     children [
       Shape {
-        appearance Appearance { material Material { diffuseColor 0.1 0.1 1 } }
+        appearance Appearance { material Material { diffuseColor 0.1 0.1 1 
+          transparency 0.5 } }
         geometry Sphere { radius 0.15 } }
     ] } }
 
@@ -144,7 +145,8 @@ DEF BoxRed Transform {
   children Transform {
     children [
       Shape {
-        appearance Appearance { material Material { diffuseColor 1 0.1 0.1 } }
+        appearance Appearance { material Material { diffuseColor 1 0.1 0.1 
+          transparency 0.5 } }
         geometry Box { size 0.2 0.2 0.2 } }
     ] } }
 
