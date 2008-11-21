@@ -43,13 +43,15 @@ DEF Light PointLight {
 DEF LightIndicator Transform {
   translation 0 1 0
   children Shape {
-
-# For displaying shadows, this sphere must be hidden, otherwise it casts
-# shadows and then whole scene is in shadow... TODO: a field to mark
-# particular shapes as not shadow casters would be useful here.
-
-#    geometry Sphere { radius 0.1 }
-    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Sphere { radius 0.1 }
+    # This sphere must not be a shadow caster,
+    # otherwise the whole scene could be in shadow
+    # (actually, it will not necessarily happen due to silhouette optimizations,
+    # but still...).
+    appearance KambiAppearance {
+      material Material { diffuseColor 1 1 0 }
+      shadowCaster FALSE
+    }
   }
 }
 DEF Timer TimeSensor { loop TRUE cycleInterval 10000000 }
@@ -82,7 +84,7 @@ function keyPress(value, timestamp)
 }
 ROUTE Timer.elapsedTime TO Scr.elapsedTime
 ROUTE Scr.mainLightLoc TO Light.location
-#ROUTE Scr.mainLightLoc TO LightIndicator.translation
+ROUTE Scr.mainLightLoc TO LightIndicator.translation
 
 ROUTE KeySens.keyPress TO Scr.keyPress
 ROUTE Scr.shadows TO Light.kambiShadows
