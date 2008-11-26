@@ -124,8 +124,10 @@ DEF SpBlue Transform {
     translation 0.4 0 0
     children [
       Shape {
-        appearance Appearance { material Material { diffuseColor 0.1 0.1 1 
-          transparency 0.5 } }
+        appearance KambiAppearance { material Material { diffuseColor 0.1 0.1 1
+          transparency 0.5 }
+          blendMode BlendMode { srcFactor "src_alpha" }
+        }
         geometry Sphere { radius 0.15 } }
     ] } }
 
@@ -145,8 +147,11 @@ DEF BoxRed Transform {
   children Transform {
     children [
       Shape {
-        appearance Appearance { material Material { diffuseColor 1 0.1 0.1 
-          transparency 0.5 } }
+        appearance KambiAppearance {
+          material Material { diffuseColor 1 0.1 0.1
+            transparency 0.5 }
+          blendMode BlendMode { srcFactor "src_alpha" }
+        }
         geometry Box { size 0.2 0.2 0.2 } }
     ] } }
 
