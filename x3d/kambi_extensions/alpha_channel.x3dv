@@ -1,0 +1,31 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+Background {
+  skyColor [ 1 1 0, 1 1 0, 1 1 1, ]
+  skyAngle [        1.5    , 2, ]
+}
+
+Shape {
+  appearance Appearance {
+    texture ImageTexture { url "../../textures/texture_alpha.png" }
+    material Material { }
+  }
+  geometry DEF QS QuadSet {
+    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+    texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
+    solid FALSE
+  }
+}
+
+Transform {
+  translation 2 0 0
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture { url "../../textures/texture_alpha_copy.png"
+        alphaChannel "SIMPLE_YES_NO" }
+      material Material { }
+    }
+    geometry USE QS
+  }
+}
