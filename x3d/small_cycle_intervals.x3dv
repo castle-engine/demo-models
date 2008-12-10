@@ -1,0 +1,108 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Test that things work Ok even with very small cycleIntervals for
+# time-dependent nodes.
+#
+# This is not obvious, as the implementation (in Kambi VRML game engine,
+# before version 1.6)
+# was catching the fact that node should be (de)activated only at
+# time ticks (that is, TVRMLScene.IncreaseWorldTime). This didn't work
+# when the cycleInterval was very small, and/or when the game was running
+# slow (for whetever reason, like some other time-consuming animation
+# was running). This is fixed in 1.6, and this file tests this fix...
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0021517218556255 -1.4376472456945066E-008 -0.1999884247779846
+# up -2.7866352780847592E-008 1 -2.8472424418168885E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 3.8871588706970215 -1.8432999849319458 21.642396926879883
+  orientation 0.0269699487835168 -0.9994889497756958 0.0173515267670154 0.0107643725350499
+}
+
+NavigationInfo {
+  type ["FLY", "ANY"]
+  speed 10
+}
+
+DEF MovingSphere Transform {
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Sphere { radius 3 }
+  }
+}
+
+# moving up ------------------------------------------------------------------
+
+Transform {
+  translation 0 -6 0
+  children [
+    Shape {
+      appearance Appearance { material Material {
+        emissiveColor 1 1 0
+        diffuseColor 0 0 0 } }
+      geometry Text { string "move up" solid FALSE }
+    }
+    DEF TouchUp TouchSensor { }
+    DEF TimerUp TimeSensor { cycleInterval 0.0001 }
+    DEF InterpUp  PositionInterpolator {
+      key [ 0 1 ]
+      keyValue [ 0 0 0, 0 5 0 ]
+    }
+  ]
+}
+ROUTE TouchUp.touchTime TO TimerUp.startTime
+ROUTE TimerUp.fraction_changed TO InterpUp.set_fraction
+ROUTE InterpUp.value_changed TO MovingSphere.translation
+
+# moving down ----------------------------------------------------------------
+
+Transform {
+  translation 0 -7 0
+  children [
+    Shape {
+      appearance Appearance { material Material {
+        emissiveColor 0 1 0
+        diffuseColor 0 0 0 } }
+      geometry Text { string "move down" solid FALSE }
+    }
+    DEF TouchDown TouchSensor { }
+    DEF TimerDown TimeSensor { cycleInterval 0.0001 }
+    DEF InterpDown  PositionInterpolator {
+      key [ 0 1 ]
+      keyValue [ 0 5 0, 0 0 0 ]
+    }
+  ]
+}
+ROUTE TouchDown.touchTime TO TimerDown.startTime
+ROUTE TimerDown.fraction_changed TO InterpDown.set_fraction
+ROUTE InterpDown.value_changed TO MovingSphere.translation
+
+# movie texture --------------------------------------------------------------
+
+Transform {
+  translation 9 0 0
+  children Shape {
+    appearance Appearance {
+      texture DEF MovieTex MovieTexture {
+        url "../vrml_2/movie_texture/test_video.avi"
+        speed 10000
+      } }
+    geometry Box { size 3 3 3 }
+  }
+}
+
+Transform {
+  translation 9 -6 0
+  children [
+    Shape {
+      appearance Appearance { material Material {
+        emissiveColor 0 0 1
+        diffuseColor 0 0 0 } }
+      geometry Text { string "play" solid FALSE }
+    }
+    DEF TouchPlay TouchSensor { }
+  ]
+}
+ROUTE TouchPlay.touchTime TO MovieTex.startTime
