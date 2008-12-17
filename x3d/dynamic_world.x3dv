@@ -55,8 +55,8 @@ DEF SwitchInfoText Switch {
               "- Click on any editable shape"
               "- While holding the mouse down (while TouchSensor is active)"
               "  you can edit the transform with keys:"
-              "- Keys awsd qQ - change translation"
-              "- Keys ijkl uU - change scale"
+              "- Keys esdf wr - change translation"
+              "- Keys ijkl uo - change scale"
               ""
               "Note that the collisions between avatar and objects,"
               "checked when the avatar moves (but not when objects move)"
@@ -98,17 +98,125 @@ PROTO EditableTransform [
   inputOutput SFVec3f scale 1 1 1
 ] {
   Transform {
-    translation IS translation
-    scale IS scale
-    children IS children
+    children [
+      DEF Trans Transform {
+        translation IS translation
+        scale IS scale
+        children IS children
+      }
+      DEF Touch TouchSensor { }
+      DEF Key KeySensor { }
+      DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+      DEF Scr Script {
+        # Input to script from touch and key sensors.
+        # isActive is inputOutput, as it's value must be saved (for use
+        # in time function).
+        inputOutput SFBool isActive FALSE
+        inputOnly SFString keyPress
+        inputOnly SFString keyRelease
+
+        # Output from script to translation.
+        # Initialized to the same values as Trans, so they match at the start.
+        inputOutput SFVec3f translation IS translation
+        inputOutput SFVec3f scale IS scale
+
+        # Variables storing keys state, needed by time,
+        # modified by keyPress/Release.
+        initializeOnly SFBool f_pressed FALSE
+        initializeOnly SFBool s_pressed FALSE
+        initializeOnly SFBool e_pressed FALSE
+        initializeOnly SFBool d_pressed FALSE
+        initializeOnly SFBool w_pressed FALSE
+        initializeOnly SFBool r_pressed FALSE
+
+        initializeOnly SFBool i_pressed FALSE
+        initializeOnly SFBool j_pressed FALSE
+        initializeOnly SFBool k_pressed FALSE
+        initializeOnly SFBool l_pressed FALSE
+        initializeOnly SFBool u_pressed FALSE
+        initializeOnly SFBool o_pressed FALSE
+
+        # Variables storing time difference, for time-based animation.
+        initializeOnly SFTime previousTime -1
+        initializeOnly SFTime timeDiff 0
+        inputOnly SFTime time
+
+        # This is a constant, feel free to change to suit your taste.
+        initializeOnly SFTime editSpeed 2
+
+        url "kambiscript:
+
+function keyPress(value, time)
+  when (isActive,
+      if (value = 'f', f_pressed := true,
+      if (value = 's', s_pressed := true,
+      if (value = 'e', e_pressed := true,
+      if (value = 'd', d_pressed := true,
+      if (value = 'w', w_pressed := true,
+      if (value = 'r', r_pressed := true,
+
+      if (value = 'i', i_pressed := true,
+      if (value = 'j', j_pressed := true,
+      if (value = 'k', k_pressed := true,
+      if (value = 'l', l_pressed := true,
+      if (value = 'u', u_pressed := true,
+    when (value = 'o', o_pressed := true)))))))))))))
+
+function keyRelease(value, time)
+  when (isActive,
+      if (value = 'f', f_pressed := false,
+      if (value = 's', s_pressed := false,
+      if (value = 'e', e_pressed := false,
+      if (value = 'd', d_pressed := false,
+      if (value = 'w', w_pressed := false,
+      if (value = 'r', r_pressed := false,
+
+      if (value = 'i', i_pressed := false,
+      if (value = 'j', j_pressed := false,
+      if (value = 'k', k_pressed := false,
+      if (value = 'l', l_pressed := false,
+      if (value = 'u', u_pressed := false,
+    when (value = 'o', o_pressed := false)))))))))))))
+
+function time(value, timestamp)
+  { calculate timeDiff, to scale animations
+    (so that it runs with the same speed on every system) }
+  timeDiff := if (previousTime >= 0, value - previousTime, 0);
+
+  { update previousTime }
+  previousTime := value;
+
+  when (f_pressed, vector_set(translation, 0, vector_get(translation, 0) - editSpeed * timeDiff));
+  when (s_pressed, vector_set(translation, 0, vector_get(translation, 0) + editSpeed * timeDiff));
+  when (e_pressed, vector_set(translation, 2, vector_get(translation, 2) + editSpeed * timeDiff));
+  when (d_pressed, vector_set(translation, 2, vector_get(translation, 2) - editSpeed * timeDiff));
+  when (w_pressed, vector_set(translation, 1, vector_get(translation, 1) - editSpeed * timeDiff));
+  when (r_pressed, vector_set(translation, 1, vector_get(translation, 1) + editSpeed * timeDiff));
+
+  when (l_pressed, vector_set(scale, 0, vector_get(scale, 0) - editSpeed * timeDiff));
+  when (j_pressed, vector_set(scale, 0, vector_get(scale, 0) + editSpeed * timeDiff));
+  when (i_pressed, vector_set(scale, 2, vector_get(scale, 2) + editSpeed * timeDiff));
+  when (k_pressed, vector_set(scale, 2, vector_get(scale, 2) - editSpeed * timeDiff));
+  when (u_pressed, vector_set(scale, 1, vector_get(scale, 1) - editSpeed * timeDiff));
+  when (o_pressed, vector_set(scale, 1, vector_get(scale, 1) + editSpeed * timeDiff))
+"
+      }
+    ]
   }
+  ROUTE Touch.isActive TO Scr.isActive
+  ROUTE Key.keyPress TO Scr.keyPress
+  ROUTE Key.keyRelease TO Scr.keyRelease
+  ROUTE Time.elapsedTime TO Scr.time
+
+  ROUTE Scr.translation TO Trans.translation
+  ROUTE Scr.scale TO Trans.scale
 }
 
 EditableTransform {
-  translation -1 0.5 0
+  translation 0 0.5 0
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
-    geometry DEF B Box { size 0.5 0.5 0.5 }
+    geometry DEF B Box { size 1 1.5 1 }
   }
 }
 
@@ -121,7 +229,7 @@ EditableTransform {
 }
 
 EditableTransform {
-  translation -3 0.5 0
+  translation -4 0.5 0
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 1 } }
     geometry USE B
