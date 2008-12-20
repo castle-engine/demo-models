@@ -193,11 +193,11 @@ function time(value, timestamp)
   when (w_pressed, vector_set(translation, 1, vector_get(translation, 1) - editSpeed * timeDiff));
   when (r_pressed, vector_set(translation, 1, vector_get(translation, 1) + editSpeed * timeDiff));
 
-  when (l_pressed, vector_set(scale, 0, vector_get(scale, 0) - editSpeed * timeDiff));
+  when (l_pressed, vector_set(scale, 0, max(vector_get(scale, 0) - editSpeed * timeDiff, 0.01)));
   when (j_pressed, vector_set(scale, 0, vector_get(scale, 0) + editSpeed * timeDiff));
   when (i_pressed, vector_set(scale, 2, vector_get(scale, 2) + editSpeed * timeDiff));
-  when (k_pressed, vector_set(scale, 2, vector_get(scale, 2) - editSpeed * timeDiff));
-  when (u_pressed, vector_set(scale, 1, vector_get(scale, 1) - editSpeed * timeDiff));
+  when (k_pressed, vector_set(scale, 2, max(vector_get(scale, 2) - editSpeed * timeDiff, 0.01)));
+  when (u_pressed, vector_set(scale, 1, max(vector_get(scale, 1) - editSpeed * timeDiff, 0.01)));
   when (o_pressed, vector_set(scale, 1, vector_get(scale, 1) + editSpeed * timeDiff))
 "
       }
