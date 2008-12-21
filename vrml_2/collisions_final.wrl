@@ -1,0 +1,37 @@
+#VRML V2.0 utf8
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.7172551155090332 0.6931452751159668 0.0713911950588226
+# up -0.0513366609811782 -0.0496109165251255 0.9974480867385864
+# gravityUp 0 0 1
+Transform {
+  translation -5.5230998992919922 -10.134379386901855 1.5574625730514526
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0.0838931798934936 -0.9958391189575195 0.035591147840023 0.8054933547973632
+  }
+}
+
+NavigationInfo {
+  headlight TRUE
+  type ["WALK", "ANY"]
+  avatarSize [0.25, 1.75, 0.75]
+  speed 10
+}
+
+EXTERNPROTO KambiHeadLight [
+  exposedField SFFloat     ambientIntensity
+  exposedField SFVec3f     attenuation
+  exposedField SFColor     color
+  exposedField SFFloat     intensity
+  exposedField SFBool      spot
+  exposedField SFFloat     spotDropOffRate
+  exposedField SFFloat     spotCutOffAngle
+] [ "urn:vrmlengine.sourceforge.net:node:KambiHeadLight" ]
+
+KambiHeadLight {
+  ambientIntensity 1
+}
+
+Inline { url "collisions.wrl" }
