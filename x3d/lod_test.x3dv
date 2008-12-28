@@ -1,0 +1,28 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+DEF MyLOD LOD {
+  children [
+    Shape { geometry Text { string "Near" } }
+    Shape { geometry Text { string "Medium" } }
+    Shape { geometry Text { string "Far" } }
+  ]
+  range [ 5 10 ]
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0007514782482758 -2.5545274340288415E-008 -0.0035661272704601
+# up -7.8178854892030358E-006 0.9999993443489074 -5.4711981647415087E-006
+# gravityUp 0 1 0
+Viewpoint {
+  position 1.6680698394775391 -0.0000460560986539 3.8859057426452637
+  orientation -0.000033993350371 0.9999995827674865 0 0.2076880782842636
+}
+
+NavigationInfo {
+  type [ "FLY" "EXAMINE" ]
+  speed 4
+}
+
+DEF Log Logger { level 4 }
+ROUTE MyLOD.level_changed TO Log.write
