@@ -1,13 +1,15 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-DEF MyLOD LOD {
-  children [
-    Shape { geometry Text { string "Near" } }
-    Shape { geometry Text { string "Medium" } }
-    Shape { geometry Text { string "Far" } }
-  ]
-  range [ 5 10 ]
+DEF LODTransform Transform {
+  children DEF MyLOD LOD {
+    children [
+      Shape { geometry Text { string "Near" } }
+      Shape { geometry Text { string "Medium" } }
+      Shape { geometry Text { string "Far" } }
+    ]
+    range [ 5 10 ]
+  }
 }
 
 # Camera settings "encoded" in the VRML declaration below :
@@ -26,3 +28,27 @@ NavigationInfo {
 
 DEF Log Logger { level 4 }
 ROUTE MyLOD.level_changed TO Log.write
+
+Transform {
+  scale 0.2 0.2 0.2
+  translation 0 1.3 0
+  children [
+    Shape {
+      appearance Appearance { material Material { diffuseColor 1 1 0 } }
+      geometry Text {
+        string [
+          "click me to animate LOD"
+          "(levels should change then too)"
+      ] } }
+    DEF LODAnimTouch TouchSensor { }
+    DEF LODAnimTimer TimeSensor { cycleInterval 2 }
+    DEF LODAnimInterp PositionInterpolator {
+      key [ 0 0.5 1 ]
+      keyValue [ 0 0 0, 0 0 -15, 0 0 0 ]
+    }
+  ]
+}
+
+ROUTE LODAnimTouch.touchTime TO LODAnimTimer.startTime
+ROUTE LODAnimTimer.fraction_changed TO LODAnimInterp.set_fraction
+ROUTE LODAnimInterp.value_changed TO LODTransform.translation
