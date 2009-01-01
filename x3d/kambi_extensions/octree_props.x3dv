@@ -4,6 +4,38 @@ PROFILE Interchange
 # Test of KambiOctreeProperties node.
 # See [http://vrmlengine.sourceforge.net/kambi_vrml_extensions.php#section_ext_octree_properties].
 
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFNode   metadata
+  inputOutput SFFloat  speed
+  inputOutput SFTime   transitionTime
+  inputOutput MFString transitionType
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFTime   bindTime
+  outputOnly  SFBool   isBound
+  outputOnly  SFBool   transitionComplete
+  initializeOnly SFBool  timeOriginAtLoad
+  initializeOnly SFNode  octreeRendering
+  initializeOnly SFNode  octreeDynamicCollisions
+  initializeOnly SFNode  octreeVisibleTriangles
+  initializeOnly SFNode  octreeCollidableTriangles
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "../../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
+EXTERNPROTO KambiOctreeProperties [
+  inputOutput SFNode metadata
+  initializeOnly  SFInt32  maxDepth
+  initializeOnly  SFInt32  leafCapacity
+] [ "urn:vrmlengine.sourceforge.net:node:KambiOctreeProperties",
+    "../../../www/htdocs/fallback_prototypes.x3dv#KambiOctreeProperties"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiOctreeProperties"
+]
+
 KambiNavigationInfo {
   octreeRendering KambiOctreeProperties {
     # This changes octree query into linear search,
@@ -52,8 +84,6 @@ KambiNavigationInfo {
     maxDepth 3
     leafCapacity 4
   }
-
-
 }
 
 DEF Col Group { children [
@@ -71,7 +101,6 @@ DEF Col Group { children [
   Transform { translation 0 7 0 children USE S }
   Transform { translation 0 8 0 children USE S }
   Transform { translation 0 9 0 children USE S }
-  Transform { translation 0 10 0 children USE S }
 ] }
 
 Transform { translation 1 0 0 children USE Col }
@@ -83,4 +112,3 @@ Transform { translation 6 0 0 children USE Col }
 Transform { translation 7 0 0 children USE Col }
 Transform { translation 8 0 0 children USE Col }
 Transform { translation 9 0 0 children USE Col }
-Transform { translation 10 0 0 children USE Col }
