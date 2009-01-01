@@ -1,0 +1,86 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test of KambiOctreeProperties node.
+# See [http://vrmlengine.sourceforge.net/kambi_vrml_extensions.php#section_ext_octree_properties].
+
+KambiNavigationInfo {
+  octreeRendering KambiOctreeProperties {
+    # This changes octree query into linear search,
+    # since octree = just one leaf.
+    #
+    # Bad idea, shown here only for educational purposes.
+    # Although may be acceptable if octree doesn't have many items
+    # --- in this case, this is a shape octree, and we have ~ 100 shapes here,
+    # so this somewhat works.
+
+    maxDepth 0
+  }
+
+  octreeDynamicCollisions KambiOctreeProperties {
+    # With leafCapacity = 1, the octree will probably get filled fully
+    # up to some level (as small leafCapacity means that we will want to
+    # create deeper octree). Be very very careful with increasing
+    # maxDepth in this case: large maxDepth will cause an enormous memory
+    # consumption. Besides, even a small maxDepth will cause a great
+    # duplication of items in the octree (as octree nodes will subdivide
+    # until each octree node contains only one item, or maxDepth is reached).
+    #
+    # Another bad idea, shown here only for educational purposes.
+
+    maxDepth 3
+    leafCapacity 1
+  }
+
+  octreeVisibleTriangles KambiOctreeProperties {
+    # Again, change octree into linear search.
+    # This time, this is a triangle octree, so we'll have really a lot
+    # of items.
+    #
+    # *Ray-tracer will be very very slow on this model because of this*.
+    # Try to comment this out to see the speed of default values.
+    #
+    # Again, values below are a bad idea,
+    # shown here only for educational purposes.
+
+    maxDepth 0
+  }
+
+  octreeCollidableTriangles KambiOctreeProperties {
+    # This octree is not be used by anything currently.
+    # Just testing some dummy values.
+    maxDepth 3
+    leafCapacity 4
+  }
+
+
+}
+
+DEF Col Group { children [
+  Transform { translation 0 0 0 children DEF S
+    Shape {
+      geometry Sphere { radius 0.5 }
+      appearance Appearance { material Material { } }
+    } }
+  Transform { translation 0 1 0 children USE S }
+  Transform { translation 0 2 0 children USE S }
+  Transform { translation 0 3 0 children USE S }
+  Transform { translation 0 4 0 children USE S }
+  Transform { translation 0 5 0 children USE S }
+  Transform { translation 0 6 0 children USE S }
+  Transform { translation 0 7 0 children USE S }
+  Transform { translation 0 8 0 children USE S }
+  Transform { translation 0 9 0 children USE S }
+  Transform { translation 0 10 0 children USE S }
+] }
+
+Transform { translation 1 0 0 children USE Col }
+Transform { translation 2 0 0 children USE Col }
+Transform { translation 3 0 0 children USE Col }
+Transform { translation 4 0 0 children USE Col }
+Transform { translation 5 0 0 children USE Col }
+Transform { translation 6 0 0 children USE Col }
+Transform { translation 7 0 0 children USE Col }
+Transform { translation 8 0 0 children USE Col }
+Transform { translation 9 0 0 children USE Col }
+Transform { translation 10 0 0 children USE Col }
