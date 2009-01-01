@@ -84,6 +84,16 @@ KambiNavigationInfo {
     maxDepth 3
     leafCapacity 4
   }
+  type [ "FLY" "ANY" ]
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -3.4676709951784628E-018 -2.4746536069133334E-016 -0.0199999995529651
+# up -4.6786855870139567E-015 1 4.3711377628596892E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 5.9283714294433594 8.154393196105957 30.448638916015625
+  orientation 0 0 1 0
 }
 
 DEF Col Group { children [
@@ -112,3 +122,18 @@ Transform { translation 6 0 0 children USE Col }
 Transform { translation 7 0 0 children USE Col }
 Transform { translation 8 0 0 children USE Col }
 Transform { translation 9 0 0 children USE Col }
+
+Transform { translation 2 15 0 children
+  Shape {
+    geometry Sphere { radius 3 }
+    appearance Appearance { material Material { diffuseColor 0 0 1 } }
+  } }
+
+Transform { translation 8 15 0 children
+  Shape {
+    octreeTriangles KambiOctreeProperties {
+      maxDepth 1
+    }
+    geometry Sphere { radius 3 }
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  } }
