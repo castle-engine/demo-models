@@ -39,8 +39,9 @@ DEF LColor PointLight { location 0 3 0 }
 Transform {
   translation 0 3 0
   children Shape {
-    appearance Appearance {
+    appearance KambiAppearance {
       material DEF LColorIndicator Material { diffuseColor 0 0 0 }
+      shadowCaster FALSE
     }
     geometry Sphere { radius 0.1 }
   }
