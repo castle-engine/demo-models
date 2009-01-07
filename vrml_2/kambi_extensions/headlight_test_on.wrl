@@ -33,6 +33,15 @@ Switch {
       spot TRUE
       spotDropOffRate 0.1
     }
+    KambiHeadLight {
+      # No dropOff. This is a sharp spot, spot circle should look
+      # tha same with OpenGL rendering and ray-tracer.
+      color 1 1 1
+      ambientIntensity 1
+      spot TRUE
+      spotCutOffAngle 0.4
+    }
+
   ]
 }
 
