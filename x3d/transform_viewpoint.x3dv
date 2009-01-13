@@ -19,7 +19,7 @@ DEF VpTransform Transform {
 }
 
 # ----------------------------------------------------------------------------
-# Test 1: animate viewpoint by it's transfom
+# Test 1: move viewpoint by it's transfom
 
 Transform {
   # same transform as initial viewpoint, to make the text visible
@@ -32,28 +32,28 @@ Transform {
       children Shape {
         appearance Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string [
-          "Click me to animate viewpoint by it's transform" ] }
+          "Click me to move viewpoint by it's transform" ] }
       }
     }
-    DEF Touch_TransformAnim TouchSensor { }
+    DEF Touch_TransformMove TouchSensor { }
   ]
 }
 
-DEF Timer_TransformAnim TimeSensor { cycleInterval 3 }
+DEF Timer_TransformMove TimeSensor { cycleInterval 3 }
 
-DEF Interp_TransformAnim PositionInterpolator {
+DEF Interp_TransformMove PositionInterpolator {
   key [ 0 0.5 1 ]
   keyValue [ -12.041908264160156 -61.640647888183594 2,
              -12.041908264160156 -71.640647888183594 2,
              -12.041908264160156 -61.640647888183594 2, ]
 }
 
-ROUTE Touch_TransformAnim.touchTime TO Timer_TransformAnim.set_startTime
-ROUTE Timer_TransformAnim.fraction_changed TO Interp_TransformAnim.set_fraction
-ROUTE Interp_TransformAnim.value_changed TO VpTransform.set_translation
+ROUTE Touch_TransformMove.touchTime TO Timer_TransformMove.set_startTime
+ROUTE Timer_TransformMove.fraction_changed TO Interp_TransformMove.set_fraction
+ROUTE Interp_TransformMove.value_changed TO VpTransform.set_translation
 
 # ----------------------------------------------------------------------------
-# Test 2: animate viewpoint by it's position
+# Test 2: move viewpoint by it's position
 
 Transform {
   # same transform as initial viewpoint, to make the text visible
@@ -66,20 +66,142 @@ Transform {
       children Shape {
         appearance Appearance { material Material { diffuseColor 0 0 1 } }
         geometry Text { string [
-          "Click me to animate viewpoint by it's position" ] }
+          "Click me to move viewpoint by it's position" ] }
       }
     }
-    DEF Touch_PositionAnim TouchSensor { }
+    DEF Touch_PositionMove TouchSensor { }
   ]
 }
 
-DEF Timer_PositionAnim TimeSensor { cycleInterval 3 }
+DEF Timer_PositionMove TimeSensor { cycleInterval 3 }
 
-DEF Interp_PositionAnim PositionInterpolator {
+DEF Interp_PositionMove PositionInterpolator {
   key [ 0 0.25 0.5 0.75 1 ]
   keyValue [ 0 0 0, 0 1 1, 0 0 2, 0 -1 1, 0 0 0 ]
 }
 
-ROUTE Touch_PositionAnim.touchTime TO Timer_PositionAnim.set_startTime
-ROUTE Timer_PositionAnim.fraction_changed TO Interp_PositionAnim.set_fraction
-ROUTE Interp_PositionAnim.value_changed TO Vp.position
+ROUTE Touch_PositionMove.touchTime TO Timer_PositionMove.set_startTime
+ROUTE Timer_PositionMove.fraction_changed TO Interp_PositionMove.set_fraction
+ROUTE Interp_PositionMove.value_changed TO Vp.position
+
+# ----------------------------------------------------------------------------
+# Test 3: rotate viewpoint by it's transfom
+
+Transform {
+  # same transform as initial viewpoint, to make the text visible
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+
+  children [
+    Transform {
+      translation -5 3 -15
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 0.5 } }
+        geometry Text { string [
+          "Click me to rotate viewpoint by it's transform" ] }
+      }
+    }
+    DEF Touch_TransformRotate TouchSensor { }
+  ]
+}
+
+DEF Timer_TransformRotate TimeSensor { cycleInterval 3 }
+
+DEF Interp_TransformRotate OrientationInterpolator {
+  key [ 0 1 ]
+  keyValue [ 1 0 0 1.570796370506287,
+             1 0 0 7.8539816777 ]
+}
+
+ROUTE Touch_TransformRotate.touchTime TO Timer_TransformRotate.set_startTime
+ROUTE Timer_TransformRotate.fraction_changed TO Interp_TransformRotate.set_fraction
+ROUTE Interp_TransformRotate.value_changed TO VpTransform.set_rotation
+
+# ----------------------------------------------------------------------------
+# Test 4: rotate viewpoint by it's position
+
+Transform {
+  # same transform as initial viewpoint, to make the text visible
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+
+  children [
+    Transform {
+      translation -5 2 -15
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 0.5 1 1 } }
+        geometry Text { string [
+          "Click me to rotate viewpoint by it's orientation" ] }
+      }
+    }
+    DEF Touch_OrientationRotate TouchSensor { }
+  ]
+}
+
+DEF Timer_OrientationRotate TimeSensor { cycleInterval 3 }
+
+DEF Interp_OrientationRotate OrientationInterpolator {
+  key [ 0 1 ]
+  keyValue [ -0.000035324712371 -0.999984502792358 -0 0.046436563134193,
+             -0.000035324712371 -0.999984502792358 -0 6.3296218703 ]
+}
+
+ROUTE Touch_OrientationRotate.touchTime TO Timer_OrientationRotate.set_startTime
+ROUTE Timer_OrientationRotate.fraction_changed TO Interp_OrientationRotate.set_fraction
+ROUTE Interp_OrientationRotate.value_changed TO Vp.orientation
+
+# ----------------------------------------------------------------------------
+# Test 5: walk (move and rotate viewpoint through some points)
+
+Transform {
+  # same transform as initial viewpoint, to make the text visible
+  translation -12.041908264160156 -61.640647888183594 2
+  rotation 1 0 0 1.570796370506287
+
+  children [
+    Transform {
+      translation -5 5 -15
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 0.5 1 } }
+        geometry Text { string [
+          "Click me for a walk tour (rotate + move viewpoint through some locations)" ] }
+      }
+    }
+    DEF Touch_WalkTour TouchSensor { }
+  ]
+}
+
+DEF Timer_WalkTour TimeSensor { cycleInterval 10 }
+
+DEF Interp_WalkTourOrient OrientationInterpolator {
+  key [ 0 0.2 0.4 0.6 0.8 1 ]
+  keyValue [
+    0.0074005359783768 -0.9999844431877136 -0.0000262576086242 0.0464365631341934
+    -4.5541173676610924E-006 1.0000002384185791 0 0.2597847878932952
+    -0.0000132612794914 1.0000144243240356 0 0.0883280634880065
+    0.00029221130535 0.9999998807907104 0.0013254274381324 0.2548868358135223
+    -0.0000237293297686 0.9999999403953552 0 3.0922737121582031
+    -0.0000237293297686 0.9999999403953552 0 3.0922737121582031
+  ]
+}
+
+DEF Interp_WalkTourPosition PositionInterpolator {
+  key [ 0 0.2 0.4 0.6 0.8 1 ]
+  keyValue [
+    -12.041908264160156 -61.640647888183594 2
+    7.878206729888916 -58.482547760009766 2
+    1.202965259552002 -22.116237640380859 2.4792554378509521
+    0.0421070829033851 -9.0081348419189453 1.8220727443695068
+    0.0421070829033851 -9.0081348419189453 1.8220727443695068
+    -1.141226053237915 -32.982173919677734 1.8313554525375366
+  ]
+}
+
+
+ROUTE Touch_WalkTour.touchTime TO Timer_WalkTour.set_startTime
+
+ROUTE Timer_WalkTour.fraction_changed TO Interp_WalkTourPosition.set_fraction
+ROUTE Interp_WalkTourPosition.value_changed TO VpTransform.translation
+
+ROUTE Timer_WalkTour.fraction_changed TO Interp_WalkTourOrient.set_fraction
+ROUTE Interp_WalkTourOrient.value_changed TO Vp.orientation
