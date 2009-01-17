@@ -161,13 +161,7 @@ Transform {
   children Shape {
     appearance Appearance {
       texture MultiTexture {
-        # TODO: what the hell this means according to spec?
-        # mode field is per-texture, or twice per-texture (color/alpha)?
-        # generally, description of MultiTexture suggests it's per-texture,
-        # but there's a comment that "alpha channel mode may be specified..."...
-        # Check with xj3d implementation?
         mode [ "MODULATE", "ADD" ]
-
         texture [
           ImageTexture {
             url "../textures/test_texture.png"
