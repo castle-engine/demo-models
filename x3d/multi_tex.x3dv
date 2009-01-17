@@ -1,6 +1,6 @@
 #X3D V3.0 utf8
 PROFILE Interchange
-COMPONENT Texturing:2
+COMPONENT Texturing:3
 
 # ----------------------------------------------------------------------------
 # Use MultiTexture with 1 texture, normal TextureTransform and TextureCoordinate.
