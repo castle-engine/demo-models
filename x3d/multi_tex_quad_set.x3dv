@@ -70,6 +70,10 @@ Transform {
           ImageTexture { url "../textures/brick031.jpg" }
         ]
       }
+      # This TextureTransform *should* be ignored (that is, both
+      # texture units should have idenity transform) following X3D spec:
+      # "If using a MultiTexture node with a geometry node without
+      # a MultiTextureTransform node, identity matrices are assumed for all channels."
       textureTransform TextureTransform { scale 2 2 }
       material Material { }
     }
