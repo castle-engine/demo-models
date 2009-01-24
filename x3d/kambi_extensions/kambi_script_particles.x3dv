@@ -130,10 +130,13 @@ function update_lines(value, timestamp)
 "
 }
 
-Shape {
-  geometry DEF LnSet IndexedLineSet {
-    color DEF LnColor Color { }
-    coord DEF LnCoord Coordinate { }
+Collision {
+  enabled FALSE
+  children Shape {
+    geometry DEF LnSet IndexedLineSet {
+      color DEF LnColor Color { }
+      coord DEF LnCoord Coordinate { }
+    }
   }
 }
 ROUTE Scr.line_colors TO LnColor.color
@@ -141,15 +144,17 @@ ROUTE Scr.line_coords TO LnCoord.point
 ROUTE Scr.line_colorIndex TO LnSet.set_colorIndex
 ROUTE Scr.line_coordIndex TO LnSet.set_coordIndex
 
-Shape {
-  geometry PointSet {
-    color DEF PtColor Color { }
-    coord DEF PtCoord Coordinate { }
+Collision {
+  enabled FALSE
+  children Shape {
+    geometry PointSet {
+      color DEF PtColor Color { }
+      coord DEF PtCoord Coordinate { }
+    }
   }
 }
 ROUTE Scr.colors TO PtColor.color
 ROUTE Scr.coords TO PtCoord.point
-
 
 DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
 ROUTE Time.elapsedTime TO Scr.time
