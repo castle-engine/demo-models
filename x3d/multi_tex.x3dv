@@ -5,12 +5,22 @@ COMPONENT Texturing:3
 # ----------------------------------------------------------------------------
 # Use MultiTexture with 1 texture, normal TextureTransform and TextureCoordinate.
 # Should look just normal, like without multitexturing.
+# Texture transform will be ignored.
 
 Shape {
   appearance Appearance {
     texture MultiTexture {
       texture ImageTexture { url "../textures/test_texture.png" }
     }
+
+    # This texture transform will be ignored: X3D spec says that
+    #
+    # "If using a MultiTexture node with a geometry node without
+    # a MultiTextureTransform node, identity matrices are assumed
+    # for all channels."
+    #
+    # IOW, direct TextureTransform is ignored when using MultiTexture.
+    # Only MultiTextureTransform is taken into account.
     textureTransform TextureTransform { scale 2 2 }
     material Material { }
   }
@@ -113,6 +123,7 @@ Transform {
 
 # ----------------------------------------------------------------------------
 # Simple 2 textures with different coords test.
+# Brick texture will be unnaturally stretched vertically.
 
 Transform {
   translation 8 0 0
@@ -137,7 +148,7 @@ Transform {
       texCoord MultiTextureCoordinate {
         texCoord [
           USE StdTexCoord
-          TextureCoordinate { point [ 0 0.5, 1 0.5, 1 1, 0 1, 0 0.5, 1 0.5, 1 1, 0 1, ] }
+          TextureCoordinate { point [ 0 0.8, 1 0.8, 1 1, 0 1, 0 0.8, 1 0.8, 1 1, 0 1, ] }
         ]
       }
       solid FALSE
