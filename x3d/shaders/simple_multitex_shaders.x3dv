@@ -2,6 +2,21 @@
 PROFILE Interchange
 COMPONENT Texturing:3
 
+# TODO: this uses multitexturing + GLSL shaders by a hack
+# (not the "sanctioned" way by X3D specification).
+# The correct way would be:
+#
+# Appearance {
+#   shaders ComposedShader {
+#     language "GLSL"
+#     parts [
+#       ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
+#     ]
+#     initializeOnly SFNode texture_squirrel ImageTexture { url "../../textures/test_texture.png" }
+#     initializeOnly SFNode texture_brick ImageTexture { url "../../textures/brick031.jpg" }
+#   }
+# }
+
 Shape {
   appearance Appearance {
     texture MultiTexture {
