@@ -1,6 +1,11 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
+# Test passing various VRML types to various GLSL types.
+# If all is white, then the test succeded.
+# If you see any other colors (typically, red vertical stripes),
+# then some uniform is not correctly set.
+
 Shape {
   appearance Appearance {
     shaders ComposedShader {
@@ -40,6 +45,37 @@ Shape {
         1 1 1 1
         1 1 1 1
         1 1 1 1
+
+      # Now the same for array types.
+
+      initializeOnly MFBool a_bool [FALSE TRUE]
+      initializeOnly MFLong a_long [0 666]
+      initializeOnly MFInt32 a_int32 [0 1234]
+      initializeOnly MFColor a_color [0 0 0, 1 1 1]
+      initializeOnly MFRotation a_rotation [1 0 0 0, 1 1 1 1]
+
+      initializeOnly MFFloat a_float [0 1]
+      initializeOnly MFVec2f a_vec2 [0 0, 1 1]
+      initializeOnly MFVec3f a_vec3 [0 0 0, 1 1 1]
+      initializeOnly MFVec4f a_vec4 [0 0 0 0, 1 1 1 1]
+      initializeOnly MFMatrix3f a_mat3
+      [ 0 0 0   0 0 0   0 0 0,
+        1 1 1   1 1 1   1 1 1 ]
+      initializeOnly MFMatrix4f a_mat4
+      [ 0 0 0 0   0 0 0 0   0 0 0 0   0 0 0 0,
+        1 1 1 1   1 1 1 1   1 1 1 1   1 1 1 1 ]
+
+      initializeOnly MFDouble a_double [0 1]
+      initializeOnly MFTime a_time [0 1]
+      initializeOnly MFVec2d a_dvec2 [0 0, 1 1]
+      initializeOnly MFVec3d a_dvec3 [0 0 0, 1 1 1]
+      initializeOnly MFVec4d a_dvec4 [0 0 0 0, 1 1 1 1]
+      initializeOnly MFMatrix3d a_dmat3
+      [ 0 0 0   0 0 0   0 0 0,
+        1 1 1   1 1 1   1 1 1 ]
+      initializeOnly MFMatrix4d a_dmat4
+      [ 0 0 0 0   0 0 0 0   0 0 0 0   0 0 0 0,
+        1 1 1 1   1 1 1 1   1 1 1 1   1 1 1 1 ]
     }
   }
   geometry Box { solid FALSE }
