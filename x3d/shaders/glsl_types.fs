@@ -53,87 +53,98 @@ uniform mat4 a_dmat4[2];
 
 void main(void)
 {
-  if (int(gl_FragCoord.x) % 36 == 0)
+  /* Reason for the first "int(gl_FragCoord.x) % 36 < 18":
+     FUCK FGLRX (ATI (Radeon) under Linux).
+     1001th Fglrx bug: "if-else" clauses with more than 33
+     parts produces very weird results, some random parts of pixels
+     get black then (not only columns, black diagonal stripes pass through
+     whole screen where shaders run).
+  */
+
+  if (int(gl_FragCoord.x) % 36 < 18)
   {
-    /* my_bool should be true, so color should be white. */
-    gl_FragColor = vec4(
-      1.0,
-      (my_bool ? 1.0 : 0.0),
-      (my_bool ? 1.0 : 0.0), 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 1)
-  {
-    gl_FragColor = vec4(
-      1.0,
-      (my_long == 666 ? 1.0 : 0.0),
-      (my_long == 666 ? 1.0 : 0.0), 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 2)
-  {
-    gl_FragColor = vec4(
-      1.0,
-      (my_int32 == 1234 ? 1.0 : 0.0),
-      (my_int32 == 1234 ? 1.0 : 0.0), 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 3)
-  {
-    gl_FragColor = my_color;
-  } else
-  if (int(gl_FragCoord.x) % 36 == 4)
-  {
-    gl_FragColor = my_rotation;
-  } else
-  if (int(gl_FragCoord.x) % 36 == 5)
-  {
-    gl_FragColor = vec4(1.0, my_float, my_float, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 6)
-  {
-    gl_FragColor = vec4(1.0, my_vec2.x, my_vec2.y, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 7)
-  {
-    gl_FragColor = vec4(my_vec3, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 8)
-  {
-    gl_FragColor = my_vec4;
-  } else
-  if (int(gl_FragCoord.x) % 36 == 9)
-  {
-    gl_FragColor = vec4(my_mat3[0], 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 10)
-  {
-    gl_FragColor = my_mat4[0];
-  } else
-  if (int(gl_FragCoord.x) % 36 == 11)
-  {
-    gl_FragColor = vec4(1.0, my_double, my_double, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 12)
-  {
-    gl_FragColor = vec4(1.0, my_time, my_time, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 13)
-  {
-    gl_FragColor = vec4(1.0, my_dvec2.x, my_dvec2.y, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 14)
-  {
-    gl_FragColor = vec4(my_dvec3, 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 15)
-  {
-    gl_FragColor = my_dvec4;
-  } else
-  if (int(gl_FragCoord.x) % 36 == 16)
-  {
-    gl_FragColor = vec4(my_dmat3[0], 1.0);
-  } else
-  if (int(gl_FragCoord.x) % 36 == 17)
-  {
-    gl_FragColor = my_dmat4[0];
+    if (int(gl_FragCoord.x) % 36 == 0)
+    {
+      /* my_bool should be true, so color should be white. */
+      gl_FragColor = vec4(
+        1.0,
+        (my_bool ? 1.0 : 0.0),
+        (my_bool ? 1.0 : 0.0), 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 1)
+    {
+      gl_FragColor = vec4(
+        1.0,
+        (my_long == 666 ? 1.0 : 0.0),
+        (my_long == 666 ? 1.0 : 0.0), 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 2)
+    {
+      gl_FragColor = vec4(
+        1.0,
+        (my_int32 == 1234 ? 1.0 : 0.0),
+        (my_int32 == 1234 ? 1.0 : 0.0), 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 3)
+    {
+      gl_FragColor = my_color;
+    } else
+    if (int(gl_FragCoord.x) % 36 == 4)
+    {
+      gl_FragColor = my_rotation;
+    } else
+    if (int(gl_FragCoord.x) % 36 == 5)
+    {
+      gl_FragColor = vec4(1.0, my_float, my_float, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 6)
+    {
+      gl_FragColor = vec4(1.0, my_vec2.x, my_vec2.y, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 7)
+    {
+      gl_FragColor = vec4(my_vec3, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 8)
+    {
+      gl_FragColor = my_vec4;
+    } else
+    if (int(gl_FragCoord.x) % 36 == 9)
+    {
+      gl_FragColor = vec4(my_mat3[0], 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 10)
+    {
+      gl_FragColor = my_mat4[0];
+    } else
+    if (int(gl_FragCoord.x) % 36 == 11)
+    {
+      gl_FragColor = vec4(1.0, my_double, my_double, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 12)
+    {
+      gl_FragColor = vec4(1.0, my_time, my_time, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 13)
+    {
+      gl_FragColor = vec4(1.0, my_dvec2.x, my_dvec2.y, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 14)
+    {
+      gl_FragColor = vec4(my_dvec3, 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 15)
+    {
+      gl_FragColor = my_dvec4;
+    } else
+    if (int(gl_FragCoord.x) % 36 == 16)
+    {
+      gl_FragColor = vec4(my_dmat3[0], 1.0);
+    } else
+    if (int(gl_FragCoord.x) % 36 == 17)
+    {
+      gl_FragColor = my_dmat4[0];
+    }
   } else
 
   /* Double-precision types */
