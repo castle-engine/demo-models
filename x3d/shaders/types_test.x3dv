@@ -1,0 +1,53 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance {
+    shaders ComposedShader {
+      language "GLSL"
+      parts ShaderPart { type "FRAGMENT" url "glsl_types.fs" }
+      initializeOnly SFBool my_bool TRUE
+      initializeOnly SFLong my_long 666
+      initializeOnly SFInt32 my_int32 1234
+      initializeOnly SFColor my_color 1 1 1
+      initializeOnly SFRotation my_rotation 1 1 1 1
+
+      initializeOnly SFFloat my_float 1.0
+      initializeOnly SFVec2f my_vec2 1 1
+      initializeOnly SFVec3f my_vec3 1 1 1
+      initializeOnly SFVec4f my_vec4 1 1 1 1
+      initializeOnly SFMatrix3f my_mat3
+        1 1 1
+        1 1 1
+        1 1 1
+      initializeOnly SFMatrix4f my_mat4
+        1 1 1 1
+        1 1 1 1
+        1 1 1 1
+        1 1 1 1
+
+      initializeOnly SFDouble my_double 1.0
+      initializeOnly SFTime my_time 1.0
+      initializeOnly SFVec2d my_dvec2 1 1
+      initializeOnly SFVec3d my_dvec3 1 1 1
+      initializeOnly SFVec4d my_dvec4 1 1 1 1
+      initializeOnly SFMatrix3d my_dmat3
+        1 1 1
+        1 1 1
+        1 1 1
+      initializeOnly SFMatrix4d my_dmat4
+        1 1 1 1
+        1 1 1 1
+        1 1 1 1
+        1 1 1 1
+    }
+  }
+  geometry Box { solid FALSE }
+}
+
+# camera is inside the non-solid box, just to fill whole
+# screen with glsl_types.fs shader.
+Viewpoint { position 0 0 0 }
+NavigationInfo {
+  type "FLY"
+}
