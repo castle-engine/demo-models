@@ -1,0 +1,946 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+
+PROTO MyText [ initializeOnly MFString string "" ] {
+  Transform {
+    translation 0 1.5 0
+    children Shape {
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+      geometry Text { string IS string
+        fontStyle FontStyle { size 0.2 } }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Row 1 - with previous
+
+Transform {
+  translation 0 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate" }
+  ]
+}
+
+Transform {
+  translation 1.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADD" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 3 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "REPLACE" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "replace 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 4.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "subtract (2nd - 1st)" }
+  ]
+}
+
+Transform {
+  translation 6 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "MODULATE2X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate 2x" }
+  ]
+}
+
+Transform {
+  translation 7.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "MODULATE4X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate 4x" }
+  ]
+}
+
+Transform {
+  translation 9 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADDSIGNED" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add signed" }
+  ]
+}
+
+Transform {
+  translation 10.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADDSIGNED2X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add signed 2x" }
+  ]
+}
+
+Transform {
+  translation 12 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SELECTARG1" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "select arg1" }
+  ]
+}
+
+Transform {
+  translation 13.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SELECTARG2" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "select arg2" }
+  ]
+}
+
+Transform {
+  translation 15 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "OFF" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "off 2nd tex" }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Row 2 - with primary color
+
+Transform {
+  translation 0 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate" }
+  ]
+}
+
+Transform {
+  translation 1.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADD" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 3 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "REPLACE" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "replace 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 4.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "subtract (2nd - 1st)" }
+  ]
+}
+
+Transform {
+  translation 6 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "MODULATE2X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate 2x" }
+  ]
+}
+
+Transform {
+  translation 7.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "MODULATE4X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate 4x" }
+  ]
+}
+
+Transform {
+  translation 9 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADDSIGNED" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add signed" }
+  ]
+}
+
+Transform {
+  translation 10.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADDSIGNED2X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add signed 2x" }
+  ]
+}
+
+Transform {
+  translation 12 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SELECTARG1" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "select arg1" }
+  ]
+}
+
+Transform {
+  translation 13.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SELECTARG2" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "select arg2" }
+  ]
+}
+
+Transform {
+  translation 15 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "OFF" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "DIFFUSE" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "off 2nd tex" }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Row 3 - with constant color
+
+Transform {
+  translation 0 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate" }
+  ]
+}
+
+Transform {
+  translation 1.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADD" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 3 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "REPLACE" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "replace 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 4.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "subtract (2nd - 1st)" }
+  ]
+}
+
+Transform {
+  translation 6 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "MODULATE2X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate 2x" }
+  ]
+}
+
+Transform {
+  translation 7.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "MODULATE4X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "modulate 4x" }
+  ]
+}
+
+Transform {
+  translation 9 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADDSIGNED" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add signed" }
+  ]
+}
+
+Transform {
+  translation 10.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "ADDSIGNED2X" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "add signed 2x" }
+  ]
+}
+
+Transform {
+  translation 12 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SELECTARG1" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "select arg1" }
+  ]
+}
+
+Transform {
+  translation 13.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SELECTARG2" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "select arg2" }
+  ]
+}
+
+Transform {
+  translation 15 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "OFF" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "off 2nd tex" }
+  ]
+}
