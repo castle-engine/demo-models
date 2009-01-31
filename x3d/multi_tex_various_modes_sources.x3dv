@@ -1,6 +1,7 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 COMPONENT Texturing:2
+COMPONENT Text:1
 
 PROTO MyText [ initializeOnly MFString string "" ] {
   Transform {
