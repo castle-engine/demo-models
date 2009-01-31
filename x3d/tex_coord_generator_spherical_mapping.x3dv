@@ -1,5 +1,6 @@
 #X3D V3.2 utf8
 PROFILE Interchange
+COMPONENT Lighting:2
 
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
