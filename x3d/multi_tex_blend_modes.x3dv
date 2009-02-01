@@ -1,0 +1,126 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+COMPONENT Text:1
+
+PROTO MyText [ initializeOnly MFString string "" ] {
+  Transform {
+    translation 0 1.5 0
+    children Shape {
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+      geometry Text { string IS string
+        fontStyle FontStyle { size 0.2 } }
+    }
+  }
+}
+
+Transform {
+  translation 0 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          mode [ "REPLACE" "BLENDDIFFUSEALPHA" ]
+        }
+        material Material { transparency 0.5 }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "BLENDDIFFUSEALPHA (using mat alpha)" }
+  ]
+}
+
+Transform {
+  translation 0 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          mode [ "REPLACE" "BLENDTEXTUREALPHA" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "BLENDTEXTUREALPHA (using cur tex alpha)" }
+  ]
+}
+
+Transform {
+  translation 0 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          mode [ "REPLACE" "BLENDFACTORALPHA" ]
+          alpha 0.2
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "BLENDFACTORALPHA (using const alpha)" }
+  ]
+}
+
+Transform {
+  translation 0 -6 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+          mode [ "REPLACE" "BLENDCURRENTALPHA" ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "BLENDCURRENTALPHA (using prev tex alpha)" }
+  ]
+}
