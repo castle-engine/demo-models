@@ -75,6 +75,7 @@ texture ComposedCubeMapTexture {
 						creaseAngle 4.000000
                                                 texCoord
 TextureCoordinateGenerator {
+#  mode "CAMERASPACEREFLECTIONVECTOR"
   mode "WORLDSPACEREFLECTIONVECTOR"
 }
 						coord DEF coord_Mesh Coordinate {
