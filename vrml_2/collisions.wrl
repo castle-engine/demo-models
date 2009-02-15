@@ -6,6 +6,21 @@
 # Exported using VRML97 exporter v1.55-kambi4
 
 
+EXTERNPROTO KambiAppearance [
+  exposedField SFNode material
+  exposedField SFNode texture 
+  exposedField SFNode textureTransform
+  exposedField SFNode fillProperties  
+  exposedField SFNode lineProperties  
+  exposedField SFNode metadata        
+  exposedField MFNode shaders         
+  exposedField SFNode normalMap       
+  exposedField SFNode heightMap       
+  exposedField SFFloat heightMapScale 
+  exposedField SFNode blendMode       
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
+
 NavigationInfo {
 	headlight TRUE
 	visibilityLimit 0.0
