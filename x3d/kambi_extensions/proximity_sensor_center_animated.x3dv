@@ -4,6 +4,23 @@ PROFILE Interactive
 # position_changed (visualized in 3rd box) reflects your position
 # in the current ProximitySensor.
 
+EXTERNPROTO KambiAppearance [
+  inputOutput SFNode material
+  inputOutput SFNode texture
+  inputOutput SFNode textureTransform
+  inputOutput SFNode fillProperties
+  inputOutput SFNode lineProperties
+  inputOutput SFNode metadata
+  inputOutput MFNode shaders
+  inputOutput SFNode normalMap
+  inputOutput SFNode heightMap
+  inputOutput SFFloat heightMapScale
+  inputOutput SFNode blendMode
+  inputOutput SFBool shadowCaster
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+]
+
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.0075572188943624 1.3101623608235968E-007 0.1998573392629623
 # up -6.1215524738145177E-007 0.9999997615814209 -6.7614365661938791E-007

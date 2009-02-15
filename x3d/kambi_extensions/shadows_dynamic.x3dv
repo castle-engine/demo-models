@@ -8,6 +8,23 @@ PROFILE Interchange
 # And shadows work, everything is both shadow caster and receiver.
 # Press 's' (handled by KeySensor) to turn shadows on/off.
 
+EXTERNPROTO KambiAppearance [
+  inputOutput SFNode material
+  inputOutput SFNode texture
+  inputOutput SFNode textureTransform
+  inputOutput SFNode fillProperties
+  inputOutput SFNode lineProperties
+  inputOutput SFNode metadata
+  inputOutput MFNode shaders
+  inputOutput SFNode normalMap
+  inputOutput SFNode heightMap
+  inputOutput SFFloat heightMapScale
+  inputOutput SFNode blendMode
+  inputOutput SFBool shadowCaster
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+]
+
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.0039148419164121 -0.0134819848462939 -0.01424465700984
 # up -0.1786381602287292 0.7386409640312194 -0.6499983668327331

@@ -2,16 +2,17 @@
 
 EXTERNPROTO KambiAppearance [
   exposedField SFNode material
-  exposedField SFNode texture 
+  exposedField SFNode texture
   exposedField SFNode textureTransform
-  exposedField SFNode fillProperties  
-  exposedField SFNode lineProperties  
-  exposedField SFNode metadata        
-  exposedField MFNode shaders         
-  exposedField SFNode normalMap       
-  exposedField SFNode heightMap       
-  exposedField SFFloat heightMapScale 
-  exposedField SFNode blendMode       
+  exposedField SFNode fillProperties
+  exposedField SFNode lineProperties
+  exposedField SFNode metadata
+  exposedField MFNode shaders
+  exposedField SFNode normalMap
+  exposedField SFNode heightMap
+  exposedField SFFloat heightMapScale
+  exposedField SFNode blendMode
+  exposedField SFBool shadowCaster
 ] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
     "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
 
@@ -33,12 +34,12 @@ Shape {
           specularColor 0.488773 0.488724 0.488724
           shininess 0.500000
           transparency 0.575540
-  } 
+  }
 
   # to correctly display blending
   blendMode BlendMode {
     destFactor "one"
-  }  
+  }
   }
   geometry Sphere { radius 0.562 }
 }

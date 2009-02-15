@@ -7,6 +7,22 @@ COMPONENT Shaders:1
 # Blender file teapot.blend
 # Exported using VRML97 exporter v1.55-kambi4
 
+EXTERNPROTO KambiAppearance [
+  inputOutput SFNode material
+  inputOutput SFNode texture
+  inputOutput SFNode textureTransform
+  inputOutput SFNode fillProperties
+  inputOutput SFNode lineProperties
+  inputOutput SFNode metadata
+  inputOutput MFNode shaders
+  inputOutput SFNode normalMap
+  inputOutput SFNode heightMap
+  inputOutput SFFloat heightMapScale
+  inputOutput SFNode blendMode
+  inputOutput SFBool shadowCaster
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+]
 
 NavigationInfo {
 	headlight FALSE
@@ -63,7 +79,7 @@ DEF OB_Teapot Transform {
                                                   ]
                                                   inputOutput SFVec3f baseColor  0.6 0.6 0.6
                                                 }
-                                                
+
                                                 # Kambi+ to correctly display blending
                                                 blendMode BlendMode {
                                                   destFactor "one"
