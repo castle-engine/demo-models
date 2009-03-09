@@ -1,0 +1,72 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Lighting:2
+COMPONENT CubeMapTexturing:2
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    texture DEF CubeMap ImageCubeMapTexture {
+      url "../textures/caste_end_sequence.dds"
+      #url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/BlueSky512_from_gimp.dds"
+      #url "/home/michalis/images/dds_tests/from_awakening_textures/normalizedCube256.dds"
+#      url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Animus128.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/AnimusSharp128.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/BlueSky512.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Chrome128.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Dome128.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/RubyTestCube.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Showroom256.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/ShowroomAlt256.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Sky128.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/SkyBeamHDR512.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/SpaceSky512.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Water256.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Wierd256.dds"
+#       url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/WindowReflect256.dds"
+
+    }
+  }
+  geometry Teapot {
+    solid FALSE
+    texCoord TextureCoordinateGenerator {
+      mode "WORLDSPACENORMAL"
+    }
+  }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture USE CubeMap
+    }
+    geometry Teapot {
+      solid FALSE
+      texCoord TextureCoordinateGenerator {
+        mode "CAMERASPACENORMAL" } } } }
+
+Transform {
+  translation 0 3 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture USE CubeMap
+    }
+    geometry Teapot {
+      solid FALSE
+      texCoord TextureCoordinateGenerator {
+        mode "CAMERASPACEREFLECTIONVECTOR" } } } }
+
+Transform {
+  translation 3 3 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture USE CubeMap
+    }
+    geometry Teapot {
+      solid FALSE
+      texCoord TextureCoordinateGenerator {
+        mode "WORLDSPACEREFLECTIONVECTOR" } } } }
