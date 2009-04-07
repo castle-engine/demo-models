@@ -1,0 +1,15 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+PROTO SimpleBox [] {
+  Shape {
+    appearance Appearance { material Material { } }
+    geometry Box { }
+  }
+}
+
+DEF T1 Transform { children SimpleBox { } }
+
+# Invalid statement below
+# (when parsed by kambi vrmlengine, SimpleBox should still be visible)
+DEF SomeName Shape {
