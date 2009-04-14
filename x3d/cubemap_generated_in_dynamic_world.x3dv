@@ -27,7 +27,14 @@ EXTERNPROTO Teapot [
     "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
 ]
 
-Transform {
+# Use the handy "EditableTransform" prototype from dynamic_world.x3dv
+EXTERNPROTO EditableTransform [
+  inputOutput MFNode children
+  inputOutput SFVec3f translation
+  inputOutput SFVec3f scale
+] [ "dynamic_world.x3dv#EditableTransform" ]
+
+EditableTransform {
   translation -1.5 1 2.5
   children Shape {
     appearance KambiAppearance {
