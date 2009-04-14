@@ -58,7 +58,9 @@ EditableTransform {
 }
 
 # ----------------------------------------------------------------------------
-# Box
+# Box.
+# This tests mirror on more flat surface.
+# Also, it's used to test GeneratedCubeMapTexture inside MultiTexture.
 
 # Similar to normal Box, but you can specify as texCoord
 # some TextureCoordinateGenerator node.
@@ -99,16 +101,25 @@ EditableTransform {
   children Shape {
     appearance KambiAppearance {
       material Material { }
-      texture GeneratedCubeMapTexture {
-        update "ALWAYS"
-        #size 512
+      texture MultiTexture {
+        texture [
+          GeneratedCubeMapTexture {
+            update "ALWAYS"
+            #size 512
+          }
+          ImageTexture { url "../textures/17_gris_vert.jpg" }
+        ]
+        mode [ "MODULATE" "ADD" ]
       }
       shadowCaster FALSE
     }
     geometry MyBox {
       solid FALSE
-      texCoord TextureCoordinateGenerator {
-        mode "WORLDSPACEREFLECTIONVECTOR"
+      texCoord MultiTextureCoordinate {
+        texCoord [
+          TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
+          TextureCoordinateGenerator { mode "COORD" }
+        ]
       }
     }
   }
