@@ -61,12 +61,12 @@ DEF OB_Teapot Transform {
 						}
 
 texture ComposedCubeMapTexture {
-  back   ImageTexture { url "../skies/sky_lake_back.jpg"
-#     textureProperties TextureProperties {
-#       minificationFilter "NICEST"
-#       magnificationFilter "NICEST"
-#     }
-  }
+#   textureProperties TextureProperties {
+#     minificationFilter "FASTEST"
+#     magnificationFilter "FASTEST"
+#   }
+
+  back   ImageTexture { url "../skies/sky_lake_back.jpg" }
   bottom ImageTexture { url "../skies/sky_lake_bottom.jpg" }
   front  ImageTexture { url "../skies/sky_lake_front.jpg" }
   left   ImageTexture { url "../skies/sky_lake_left.jpg" }
