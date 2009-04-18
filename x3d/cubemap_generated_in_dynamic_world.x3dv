@@ -18,12 +18,16 @@ EXTERNPROTO KambiAppearance [
     "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
 ]
 
-# Use the handy "EditableTransform" prototype from dynamic_world.x3dv
 EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "dynamic_world.x3dv#EditableTransform" ]
+] [ "useful_prototypes.x3dv#EditableTransform" ]
+
+EXTERNPROTO BoxWithTexCoord [
+  initializeOnly SFBool solid
+  initializeOnly SFNode texCoord
+] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
 
 # ----------------------------------------------------------------------------
 # Teapot
@@ -62,39 +66,6 @@ EditableTransform {
 # This tests mirror on more flat surface.
 # Also, it's used to test GeneratedCubeMapTexture inside MultiTexture.
 
-# Similar to normal Box, but you can specify as texCoord
-# some TextureCoordinateGenerator node.
-PROTO MyBox [
-  initializeOnly SFBool solid TRUE
-  initializeOnly SFNode texCoord NULL
-] {
-  IndexedFaceSet {
-    solid IS solid
-    texCoord IS texCoord
-    creaseAngle 0.000000
-    coord Coordinate {
-      point [
-         1 1 -1
-        1 -1 -1
-        -1 -1 -1
-        -1 1 -1
-        1 1 1
-        1 -1 1
-        -1 -1 1
-        -1 1 1
-      ] }
-    coordIndex [
-      0 1 2 3 -1,
-      4 7 6 5 -1,
-      0 4 5 1 -1,
-      1 5 6 2 -1,
-      2 6 7 3 -1,
-      4 0 3 7 -1,
-    ]
-  }
-}
-
-
 EditableTransform {
   translation -2 2 -2.5
   scale 1 1 1
@@ -113,7 +84,7 @@ EditableTransform {
       }
       shadowCaster FALSE
     }
-    geometry MyBox {
+    geometry BoxWithTexCoord {
       solid FALSE
       texCoord MultiTextureCoordinate {
         texCoord [
