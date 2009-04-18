@@ -42,7 +42,7 @@ EditableTransform {
   children Shape {
     appearance KambiAppearance {
       material Material { }
-      texture GeneratedCubeMapTexture {
+      texture DEF GenTex1 GeneratedCubeMapTexture {
         update "ALWAYS"
         #size 256
       }
@@ -103,7 +103,7 @@ EditableTransform {
       material Material { }
       texture MultiTexture {
         texture [
-          GeneratedCubeMapTexture {
+          DEF GenTex2 GeneratedCubeMapTexture {
             update "ALWAYS"
             #size 512
           }
@@ -145,5 +145,31 @@ Viewpoint {
   orientation -0.0273569524288177 0.9963133931159973 0.0813096836209297 2.4947032928466797
 }
 
-
 Inline { url "dynamic_world.x3dv" }
+
+# ----------------------------------------------------------------------------
+# Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.
+# NEXT_FRAME_ONLY will automatically change to NONE after next frame,
+# so after this, you will need to keep pressing space again to force update
+# of the cubemap texture.
+
+DEF KeyS KeySensor { }
+
+DEF Scr Script {
+  inputOnly SFString key_press
+  outputOnly SFString tex1_update
+  outputOnly SFString tex2_update
+
+  url "kambiscript:
+
+function key_press(value, timestamp)
+  when (value = ' ',
+    tex1_update := 'NEXT_FRAME_ONLY';
+    tex2_update := 'NEXT_FRAME_ONLY'
+  )
+"
+}
+
+ROUTE KeyS.keyPress TO Scr.key_press
+ROUTE Scr.tex1_update TO GenTex1.update
+ROUTE Scr.tex2_update TO GenTex2.update
