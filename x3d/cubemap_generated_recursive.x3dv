@@ -1,0 +1,228 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+EXTERNPROTO KambiAppearance [
+  inputOutput SFNode material
+  inputOutput SFNode texture
+  inputOutput SFNode textureTransform
+  inputOutput SFNode fillProperties
+  inputOutput SFNode lineProperties
+  inputOutput SFNode metadata
+  inputOutput MFNode shaders
+  inputOutput SFNode normalMap
+  inputOutput SFNode heightMap
+  inputOutput SFFloat heightMapScale
+  inputOutput SFNode blendMode
+  inputOutput SFBool shadowCaster
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+]
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0481109097599983 -0.0110378451645374 -0.0869686901569366
+# up 0.0534305498003959 0.9938884377479553 -0.0965841114521026
+# gravityUp 0 1 0
+Viewpoint {
+  position -2.7368254661560059 2.310147762298584 3.4805655479431152
+  orientation -0.2093590050935745 -0.9763445258140564 -0.0540447756648063 0.5170055031776428
+}
+
+# DEF Light PointLight {
+#   location 0 4 0
+#   kambiShadows TRUE
+#   kambiShadowsMain TRUE
+#   on FALSE # fake light, only to determine shadows position
+# }
+
+DirectionalLight {
+  direction 1 1 1
+  kambiShadows TRUE
+}
+
+DirectionalLight {
+  direction -1 -1 -1
+  kambiShadows TRUE
+}
+
+DirectionalLight {
+  direction -1 -1 1
+}
+
+DirectionalLight {
+  direction 1 1 -1
+}
+
+Transform {
+  translation 0 2.5 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 0.5 0.5 1 } }
+    geometry Box { size 10 5 10 solid FALSE }
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0335798673331737 -0.0068404539488256 0.0052325055003166
+# up 0.194967895746231 0.9803389310836792 0.0303804762661457
+# gravityUp 0 1 0
+Viewpoint {
+  position -4.1193828582763672 2.1242685317993164 -2.6973416805267334
+  orientation -0.0845913738012313 -0.9915058612823486 -0.0987935662269592 1.7337989807128906
+}
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  headlight TRUE
+  avatarSize [ 0.1 2 ]
+  speed 5
+}
+
+EXTERNPROTO ViewportInfo [
+  inputOutput MFString info
+] [ "useful_prototypes.x3dv#ViewportInfo" ]
+
+ViewportInfo {
+  info [
+    "Demo of recursive mirror reflections by GeneratedCubeMapTexture."
+    ""
+    "Textures are *not* automatically generated, instead each"
+    "press of [space] key will trigger one generation pass."
+    "By pressing [space] repeatedly you should see how recursive"
+    "mirror reflections are propagated through the textures."
+    ""
+    "You can edit the world like in dynamic_world.x3dv,"
+    "so you can move/scale/rotate everything by grabbing it"
+    "and using the keys swdefr, jukilo, nm."
+    ""
+    "Press key h (help) to hide/show this help text at any time."
+    ""
+    "Note that recursive reflections between two boxes have"
+    "some \"blind spot\", because opposite boxes faces are"
+    "positioned exactly analogously to each other. Rotate"
+    "one of the boxes, even very slightly, to make this \"blind spot\""
+    "disappear."
+    # TODO: why does this happen exactly?
+    # Happens with both fglrx and Mesa3d, so it's not GPU bug.
+    # There's probably a reason why does this happen when cubes
+    # are perfectly opposite each other (even a slight change, rotation
+    # helps).
+  ]
+}
+
+# Boxes and teapots ----------------------------------------------------------
+
+EXTERNPROTO BoxWithTexCoord [
+  initializeOnly SFBool solid
+  initializeOnly SFNode texCoord
+] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
+
+# EXTERNPROTO BoxWithTexCoord [
+#   initializeOnly SFBool solid
+#   initializeOnly SFNode texCoord
+# ] [ "proto_tesselated_box.x3dv#TesselatedBox" ]
+
+EXTERNPROTO EditableTransform [
+  inputOutput MFNode children
+  inputOutput SFVec3f translation
+  inputOutput SFVec3f scale
+] [ "useful_prototypes.x3dv#EditableTransform" ]
+
+EditableTransform {
+  translation 2 2 0
+  children Shape {
+    appearance KambiAppearance {
+      material Material { diffuseColor 1 1 1 }
+      texture DEF GenTex1 GeneratedCubeMapTexture {
+        update "NONE"
+        size 512
+      }
+    }
+    geometry BoxWithTexCoord {
+      texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
+    }
+  }
+}
+
+EditableTransform {
+  translation -5 2 0
+  children Shape {
+    appearance KambiAppearance {
+      material Material { diffuseColor 1 1 1 }
+      texture DEF GenTex2 GeneratedCubeMapTexture {
+        update "NONE"
+        size 512
+      }
+    }
+    geometry BoxWithTexCoord {
+      texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
+    }
+  }
+}
+
+EditableTransform {
+  translation -1.5 2 -2.5
+  children Shape {
+    appearance KambiAppearance {
+      material Material { diffuseColor 1 1 1 }
+      texture DEF GenTex3 GeneratedCubeMapTexture {
+        update "NONE"
+        size 512
+      }
+      shadowCaster FALSE # Teapot is not 2-manifold
+    }
+    geometry Teapot {
+      solid FALSE
+      texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
+    }
+  }
+}
+
+EditableTransform {
+  translation 1.5 2 -2.5
+  children Shape {
+    appearance KambiAppearance {
+      material Material { diffuseColor 1 1 1 }
+      texture DEF GenTex4 GeneratedCubeMapTexture {
+        update "NONE"
+        size 512
+      }
+      shadowCaster FALSE # Teapot is not 2-manifold
+    }
+    geometry Teapot {
+      solid FALSE
+      texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.
+# NEXT_FRAME_ONLY will automatically change to NONE after next frame,
+# so after this, you will need to keep pressing space again to force update
+# of the cubemap texture.
+
+DEF KeyS KeySensor { }
+
+DEF Scr Script {
+  inputOnly SFString key_press
+  outputOnly SFString tex1_update
+  outputOnly SFString tex2_update
+  outputOnly SFString tex3_update
+  outputOnly SFString tex4_update
+
+  url "kambiscript:
+
+function key_press(value, timestamp)
+  when (value = ' ',
+    tex1_update := 'NEXT_FRAME_ONLY';
+    tex2_update := 'NEXT_FRAME_ONLY';
+    tex3_update := 'NEXT_FRAME_ONLY';
+    tex4_update := 'NEXT_FRAME_ONLY'
+  )
+"
+}
+
+ROUTE KeyS.keyPress TO Scr.key_press
+ROUTE Scr.tex1_update TO GenTex1.update
+ROUTE Scr.tex2_update TO GenTex2.update
+ROUTE Scr.tex3_update TO GenTex3.update
+ROUTE Scr.tex4_update TO GenTex4.update
