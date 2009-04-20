@@ -1,0 +1,41 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing3D:2
+
+EXTERNPROTO BoxWithTexCoord [
+  initializeOnly SFBool solid
+  initializeOnly SFNode texCoord
+] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    texture ImageTexture3D {
+      url "../textures/random3d.dds"
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+      textureProperties TextureProperties {
+        minificationFilter "NICEST"
+        magnificationFilter "NICEST"
+      }
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 1 1 4
+      translation 0 0 0
+    }
+  }
+  geometry BoxWithTexCoord {
+    texCoord TextureCoordinateGenerator { mode "COORD" }
+  }
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+
+DEF Interp PositionInterpolator {
+  key      [ 0      1     ]
+  keyValue [ 0 0 0  0 0 1 ]
+}
+
+ROUTE Timer.fraction_changed TO Interp.set_fraction
+ROUTE Interp.value_changed TO TexTrans.set_translation
