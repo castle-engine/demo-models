@@ -1,0 +1,96 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing3D:2
+
+EXTERNPROTO BoxWithTexCoord [
+  initializeOnly SFBool solid
+  initializeOnly SFNode texCoord
+] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
+
+PROTO TestTex3DRepeats [
+  inputOutput SFVec3f translation 0 0 0
+  inputOutput SFBool repeatS FALSE
+  inputOutput SFBool repeatT FALSE
+  inputOutput SFBool repeatR FALSE
+] {
+  Transform {
+    translation IS translation
+    children Shape {
+    appearance Appearance {
+        material Material { }
+        texture ImageTexture3D {
+          url "../textures/trivial_3d_tex.dds"
+          repeatS IS repeatS
+          repeatT IS repeatT
+          repeatR IS repeatR
+          textureProperties TextureProperties {
+            minificationFilter "NEAREST_PIXEL"
+            magnificationFilter "NEAREST_PIXEL"
+          }
+        }
+        textureTransform TextureTransform3D {
+          scale 4 4 4
+        }
+      }
+      geometry BoxWithTexCoord {
+        texCoord TextureCoordinateGenerator { mode "COORD" }
+      }
+    }
+  }
+}
+
+TestTex3DRepeats {
+  translation 0 0 0
+  repeatS FALSE
+  repeatT FALSE
+  repeatR FALSE
+}
+
+TestTex3DRepeats {
+  translation 3 0 0
+  repeatS TRUE
+  repeatT FALSE
+  repeatR FALSE
+}
+
+TestTex3DRepeats {
+  translation 0 3 0
+  repeatS FALSE
+  repeatT TRUE
+  repeatR FALSE
+}
+
+TestTex3DRepeats {
+  translation 3 3 0
+  repeatS TRUE
+  repeatT TRUE
+  repeatR FALSE
+}
+
+TestTex3DRepeats {
+  translation 0 0 3
+  repeatS FALSE
+  repeatT FALSE
+  repeatR TRUE
+}
+
+TestTex3DRepeats {
+  translation 3 0 3
+  repeatS TRUE
+  repeatT FALSE
+  repeatR TRUE
+}
+
+TestTex3DRepeats {
+  translation 0 3 3
+  repeatS FALSE
+  repeatT TRUE
+  repeatR TRUE
+}
+
+TestTex3DRepeats {
+  translation 3 3 3
+  repeatS TRUE
+  repeatT TRUE
+  repeatR TRUE
+}
