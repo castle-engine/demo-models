@@ -1,0 +1,24 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing3D:2
+
+EXTERNPROTO BoxWithTexCoord [
+  initializeOnly SFBool solid
+  initializeOnly SFNode texCoord
+] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    texture ImageTexture3D {
+      url "../textures/trivial_3d_tex.dds"
+      textureProperties TextureProperties {
+        minificationFilter "NEAREST_PIXEL"
+        magnificationFilter "NEAREST_PIXEL"
+      }
+    }
+  }
+  geometry BoxWithTexCoord {
+    texCoord TextureCoordinateGenerator { mode "COORD" }
+  }
+}
