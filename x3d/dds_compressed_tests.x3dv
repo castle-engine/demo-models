@@ -1,0 +1,39 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+PROTO Test [
+  inputOutput MFString url []
+  inputOutput SFVec3f translation 0 0 0
+] {
+  Transform {
+    translation IS translation
+    children Shape {
+      appearance Appearance {
+        texture ImageTexture { url IS url }
+        textureTransform TextureTransform { scale 2 2 }
+        material Material { }
+      }
+      geometry QuadSet {
+        coord Coordinate { point [ 0 0 0, 2 0 0, 2 2 0, 0 2 0 ] }
+        texCoord DEF TexCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+  }
+}
+
+Test { translation 0 0 0 url "../textures/sky_red_back_dds_tests/32bits_abgr8.dds" }
+Test { translation 3 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc1_dxt1.dds" }
+Test { translation 6 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc2_dxt3.dds" }
+Test { translation 9 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc3_dxt5.dds" }
+
+# Test { translation 0 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman2.dds" }
+# Test { translation 3 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman.tga.dds" }
+
+# Test { translation  0 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc3n_dxt5n.dds" }
+# Test { translation  3 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc4_ati1.dds" }
+# Test { translation  6 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc5_ati2.dds" }
+# Test { translation  9 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_ycocg_dxt5.dds" }
+# Test { translation 12 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_ycocgscaled_dxt5.dds" }
