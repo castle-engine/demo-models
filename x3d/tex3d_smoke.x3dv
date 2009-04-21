@@ -7,35 +7,140 @@ EXTERNPROTO BoxWithTexCoord [
   initializeOnly SFNode texCoord
 ] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
 
-Shape {
-  appearance Appearance {
-    material Material { }
-    texture ImageTexture3D {
-      url "../textures/random3d.dds"
-      repeatS TRUE
-      repeatT TRUE
-      repeatR TRUE
-      textureProperties TextureProperties {
-        minificationFilter "NICEST"
-        magnificationFilter "NICEST"
+Collision {
+  enabled FALSE
+  children Transform {
+    translation 0 0 -0.5
+    scale 500 500 2
+    children [
+
+      Shape {
+        appearance Appearance {
+          material Material {
+            transparency 0.5
+            ambientIntensity 1
+          }
+          texture DEF Tex3D ImageTexture3D {
+            url "../textures/random3d.dds"
+            repeatS TRUE
+            repeatT TRUE
+            repeatR TRUE
+            textureProperties TextureProperties {
+              minificationFilter "NICEST"
+              magnificationFilter "NICEST"
+            }
+          }
+          textureTransform DEF TexTrans TextureTransform3D {
+            scale 20 20 20
+            translation 0 0 0
+          }
+        }
+        geometry IndexedFaceSet {
+          texCoord TextureCoordinateGenerator { mode "COORD" }
+          solid FALSE
+          coord Coordinate {
+            point [
+      1.0 0.999999940395 0.0
+       1.0 -1.0 0.0
+       -1.00000011921 -0.999999821186 0.0
+       -0.999999642372 1.00000035763 0.0
+       -0.999999642372 1.00000035763 0.20000000298
+       -1.00000011921 -0.999999821186 0.20000000298
+       1.0 -1.0 0.20000000298
+       1.0 0.999999940395 0.20000000298
+       1.0 0.999999940395 0.40000000596
+       1.0 -1.0 0.40000000596
+       -1.00000011921 -0.999999821186 0.40000000596
+       -0.999999642372 1.00000035763 0.40000000596
+       -0.999999642372 1.00000035763 0.600000023842
+       -1.00000011921 -0.999999821186 0.600000023842
+       1.0 -1.0 0.600000023842
+       1.0 0.999999940395 0.600000023842
+       1.0 0.999999940395 0.800000011921
+       1.0 -1.0 0.800000011921
+       -1.00000011921 -0.999999821186 0.800000011921
+       -0.999999642372 1.00000035763 0.800000011921
+       -0.999999642372 1.00000035763 1.0
+       -1.00000011921 -0.999999821186 1.0
+       1.0 -1.0 1.0
+       1.0 0.999999940395 1.0
+            ]
+          }
+          coordIndex [
+      0 3 2 1 -1,
+      5 6 7 4 -1,
+      10 9 8 11 -1,
+      13 14 15 12 -1,
+      18 17 16 19 -1,
+      21 22 23 20 -1,
+          ]
+        }
       }
-    }
-    textureTransform DEF TexTrans TextureTransform3D {
-      scale 1 1 4
-      translation 0 0 0
-    }
-  }
-  geometry BoxWithTexCoord {
-    texCoord TextureCoordinateGenerator { mode "COORD" }
+
+      Transform {
+        translation 0 3 0
+        children Shape {
+          appearance Appearance {
+            material Material {
+              transparency 0
+              ambientIntensity 1
+            }
+            texture USE Tex3D
+            textureTransform USE TexTrans
+          }
+          geometry BoxWithTexCoord {
+            texCoord TextureCoordinateGenerator { mode "COORD" }
+          }
+        }
+      }
+    ]
   }
 }
-
-DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+DEF Timer TimeSensor { loop TRUE cycleInterval 10.0 }
 
 DEF Interp PositionInterpolator {
   key      [ 0      1     ]
-  keyValue [ 0 0 0  0 0 1 ]
+  keyValue [ 0 0 0  1 1 0  ]
 }
 
 ROUTE Timer.fraction_changed TO Interp.set_fraction
 ROUTE Interp.value_changed TO TexTrans.set_translation
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.4647503793239593 1.5775790214538574 -0.4828848540782928
+# up 0.0796121060848236 0.2702409029006958 0.9594956040382385
+# gravityUp 0 0 1
+Transform {
+  translation -31.734153747558594 -278.51263427734375 15.623250007629395
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.7023437023162841 -0.7045930027961731 -0.1012981832027435 0.4038321375846862
+  }
+}
+
+NavigationInfo {
+  type "WALK"
+  headlight TRUE
+  avatarSize [ 0.5, 2 ]
+  speed 20
+}
+
+PointLight {
+        color 0.899999976158142 0.899999976158142 1
+        location 10 10 100
+        kambiShadows TRUE
+        radius 1000000
+}
+PointLight {
+        intensity 0.300000011920929
+        color 1 0 0
+        ambientIntensity 0.020000416785479
+        location -215.25466918945312 -28.800104141235352 -29.862327575683594
+        radius 1000000
+}
+
+Inline { url "../../castle/data/levels/gate/gate_final.wrl"
+#   replaceNames "LevelBox"
+#   replaceNodes Group { }
+}
