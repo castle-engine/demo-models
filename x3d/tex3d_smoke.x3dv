@@ -96,11 +96,18 @@ Collision {
     ]
   }
 }
-DEF Timer TimeSensor { loop TRUE cycleInterval 10.0 }
+DEF Timer TimeSensor { loop TRUE cycleInterval 50.0 }
 
 DEF Interp PositionInterpolator {
-  key      [ 0      1     ]
-  keyValue [ 0 0 0  1 1 0  ]
+  key      [ 0 0.2 0.4 0.6 0.8  1 ]
+  keyValue [
+    0 0 0
+    0.2 0.2 2
+    0.4 0.4 4
+    0.6 0.6 6
+    0.8 0.8 8
+    1   1   10
+  ]
 }
 
 ROUTE Timer.fraction_changed TO Interp.set_fraction
