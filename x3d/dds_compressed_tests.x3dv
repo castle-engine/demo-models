@@ -4,36 +4,101 @@ PROFILE Interchange
 PROTO Test [
   inputOutput MFString url []
   inputOutput SFVec3f translation 0 0 0
+  inputOutput SFVec2f textureScale 1 1
+  inputOutput SFVec2f textureTranslation 0 0
+  inputOutput MFString name "Uncompressed"
 ] {
   Transform {
     translation IS translation
-    children Shape {
-      appearance Appearance {
-        texture ImageTexture { url IS url }
-        textureTransform TextureTransform { scale 2 2 }
-        material Material { }
-      }
-      geometry QuadSet {
-        coord Coordinate { point [ 0 0 0, 2 0 0, 2 2 0, 0 2 0 ] }
-        texCoord DEF TexCoord TextureCoordinate {
-          point [ 0 0, 1 0, 1 1, 0 1, ]
+    children [
+      Shape {
+        appearance Appearance {
+          texture ImageTexture { url IS url repeatS FALSE repeatT FALSE }
+          material Material { }
+          textureTransform TextureTransform {
+            scale IS textureScale
+            translation IS textureTranslation
+          }
         }
-        solid FALSE
+        geometry QuadSet {
+          coord Coordinate { point [ 0 0 0, 2 0 0, 2 2 0, 0 2 0 ] }
+          texCoord DEF TexCoord TextureCoordinate {
+            point [ 0 0, 1 0, 1 1, 0 1, ]
+          }
+          solid FALSE
+        }
       }
-    }
+      Transform {
+        translation 0 2 0
+        children Shape {
+          appearance Appearance { material Material { diffuseColor 1 1 0 } }
+          geometry Text { string IS name
+            fontStyle FontStyle { size 0.5 }
+          }
+        }
+      }
+    ]
   }
 }
 
-Test { translation 0 0 0 url "../textures/sky_red_back_dds_tests/32bits_abgr8.dds" }
-Test { translation 3 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc1_dxt1.dds" }
-Test { translation 6 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc2_dxt3.dds" }
-Test { translation 9 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc3_dxt5.dds" }
+PROTO TestCompressed [
+  inputOutput MFString url []
+  inputOutput SFVec3f translation 0 0 0
+  inputOutput MFString name "Uncompressed"
+] {
+  Test {
+    url IS url
+    translation IS translation
+    name IS name
+    textureScale 1 -1
+    textureTranslation 0 1
+  }
+}
 
-# Test { translation 0 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman2.dds" }
-# Test { translation 3 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman.tga.dds" }
 
-# Test { translation  0 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc3n_dxt5n.dds" }
-# Test { translation  3 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc4_ati1.dds" }
-# Test { translation  6 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc5_ati2.dds" }
-# Test { translation  9 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_ycocg_dxt5.dds" }
-# Test { translation 12 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_ycocgscaled_dxt5.dds" }
+# Background color, to see alpha actually working
+Background { skyColor 0.5 0.5 1 }
+
+DEF TranAll Transform {
+  children [
+    Test { translation 0 0 0 url "../textures/sky_red_back_dds_tests/32bits_abgr8.dds" }
+    TestCompressed { translation 3 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc3_dxt5.dds" name "DXT5" }
+    TestCompressed { translation 6 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc2_dxt3.dds" name "DXT3" }
+    TestCompressed { translation 9 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc1_dxt1.dds" name "DXT1" }
+
+    Test { translation 0 3 0 url "../textures/metal_decal.dds" }
+    TestCompressed { translation 3 3 0 url "../textures/metal_decal_dxt5.dds" name "DXT5" }
+    TestCompressed { translation 6 3 0 url "../textures/metal_decal_dxt3.dds" name "DXT3" }
+    TestCompressed { translation 9 3 0 url "../textures/metal_decal_dxt1.dds" name "DXT1" }
+
+    # Test { translation 0 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman2.dds" }
+    # Test { translation 3 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman.tga.dds" }
+
+    # Test { translation  0 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc3n_dxt5n.dds" }
+    # Test { translation  3 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc4_ati1.dds" }
+    # Test { translation  6 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_bc5_ati2.dds" }
+    # Test { translation  9 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_ycocg_dxt5.dds" }
+    # Test { translation 12 6 0 url "/home/michalis/images/dds_tests/sky_red_back/compressed_ycocgscaled_dxt5.dds" }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Script to shift all, to easily compare visually compressed and uncompressed
+# versions
+
+DEF KeyS KeySensor { }
+
+DEF Scr Script {
+  inputOnly SFString key_press
+  inputOutput SFVec3f shift 0 0 0
+
+  url "kambiscript:
+
+function key_press(value, timestamp)
+  when (value = 'a', vector_set(shift, 0, vector_get(shift, 0) - 3));
+  when (value = 'd', vector_set(shift, 0, vector_get(shift, 0) + 3))
+"
+}
+
+ROUTE KeyS.keyPress TO Scr.key_press
+ROUTE Scr.shift TO TranAll.translation
