@@ -4,8 +4,6 @@ PROFILE Interchange
 PROTO Test [
   inputOutput MFString url []
   inputOutput SFVec3f translation 0 0 0
-  inputOutput SFVec2f textureScale 1 1
-  inputOutput SFVec2f textureTranslation 0 0
   inputOutput MFString name "Uncompressed"
 ] {
   Transform {
@@ -15,10 +13,6 @@ PROTO Test [
         appearance Appearance {
           texture ImageTexture { url IS url repeatS FALSE repeatT FALSE }
           material Material { }
-          textureTransform TextureTransform {
-            scale IS textureScale
-            translation IS textureTranslation
-          }
         }
         geometry QuadSet {
           coord Coordinate { point [ 0 0 0, 2 0 0, 2 2 0, 0 2 0 ] }
@@ -41,35 +35,20 @@ PROTO Test [
   }
 }
 
-PROTO TestCompressed [
-  inputOutput MFString url []
-  inputOutput SFVec3f translation 0 0 0
-  inputOutput MFString name "Uncompressed"
-] {
-  Test {
-    url IS url
-    translation IS translation
-    name IS name
-    textureScale 1 -1
-    textureTranslation 0 1
-  }
-}
-
-
 # Background color, to see alpha actually working
 Background { skyColor 0.5 0.5 1 }
 
 DEF TranAll Transform {
   children [
     Test { translation 0 0 0 url "../textures/sky_red_back_dds_tests/32bits_abgr8.dds" }
-    TestCompressed { translation 3 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc3_dxt5.dds" name "DXT5" }
-    TestCompressed { translation 6 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc2_dxt3.dds" name "DXT3" }
-    TestCompressed { translation 9 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc1_dxt1.dds" name "DXT1" }
+    Test { translation 3 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc3_dxt5.dds" name "DXT5" }
+    Test { translation 6 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc2_dxt3.dds" name "DXT3" }
+    Test { translation 9 0 0 url "../textures/sky_red_back_dds_tests/compressed_bc1_dxt1.dds" name "DXT1" }
 
     Test { translation 0 3 0 url "../textures/metal_decal.dds" }
-    TestCompressed { translation 3 3 0 url "../textures/metal_decal_dxt5.dds" name "DXT5" }
-    TestCompressed { translation 6 3 0 url "../textures/metal_decal_dxt3.dds" name "DXT3" }
-    TestCompressed { translation 9 3 0 url "../textures/metal_decal_dxt1.dds" name "DXT1" }
+    Test { translation 3 3 0 url "../textures/metal_decal_dxt5.dds" name "DXT5" }
+    Test { translation 6 3 0 url "../textures/metal_decal_dxt3.dds" name "DXT3" }
+    Test { translation 9 3 0 url "../textures/metal_decal_dxt1.dds" name "DXT1" }
 
     # Test { translation 0 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman2.dds" }
     # Test { translation 3 3 0 url "/home/michalis/images/dds_tests/greek_imperial_swordsman.tga.dds" }
