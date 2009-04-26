@@ -1,0 +1,30 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Labirynth that shows how "occlusion query" can be beneficial.
+#
+# Each block has bump map with normals and height, so you can activate
+# steep parallax mapping by GLSL to make rendering each block somewhat
+# expensive (more than it's bounding box rendered for occl query).
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0562033988535404 -0.0569315180182457 -2.5840685147215936E-009
+# up 3.1234645092581559E-008 -1.4800964898142865E-008 1
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation 91.500503540039063 91.688674926757813 0.899999976158142
+  rotation 1 0 -0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -1.6994120555224868E-009 1 0 2.3626301288604736
+  }
+}
+
+NavigationInfo {
+  type [ "WALK" "ANY" ]
+  headlight TRUE
+  avatarSize [ 0.1 1 ]
+  speed 4
+}
+
+Inline { url "regular_labirynth.wrl" }
