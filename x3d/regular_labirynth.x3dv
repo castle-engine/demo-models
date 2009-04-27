@@ -6,6 +6,10 @@ PROFILE Interchange
 # Each block has bump map with normals and height, so you can activate
 # steep parallax mapping by GLSL to make rendering each block somewhat
 # expensive (more than it's bounding box rendered for occl query).
+#
+# Moreover, many blocks have "chinchilla" model, to have shapes with
+# a lot of complexity and small size (ideal to be optimized by
+# occlusion culling).
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.0562033988535404 -0.0569315180182457 -2.5840685147215936E-009
@@ -21,10 +25,59 @@ Transform {
 }
 
 NavigationInfo {
-  type [ "WALK" "ANY" ]
+  type [ "FLY" "ANY" ]
   headlight TRUE
   avatarSize [ 0.1 1 ]
   speed 4
 }
 
 Inline { url "regular_labirynth.wrl" }
+
+DEF Chin Transform {
+  scale 2 2 2
+  children Collision {
+    enabled FALSE
+    children Inline {
+      url "../../kambi_vrml_game_engine/3dmodels.gl/examples/radiance_transfer/models/chinchilla.wrl.gz" }
+  }
+}
+Transform { translation  8 0 0 children USE Chin }
+Transform { translation 16 0 0 children USE Chin }
+Transform { translation 24 0 0 children USE Chin }
+Transform { translation 32 0 0 children USE Chin }
+Transform { translation 40 0 0 children USE Chin }
+
+Transform { translation  0 8 0 children USE Chin }
+Transform { translation  8 8 0 children USE Chin }
+Transform { translation 16 8 0 children USE Chin }
+Transform { translation 24 8 0 children USE Chin }
+Transform { translation 32 8 0 children USE Chin }
+Transform { translation 40 8 0 children USE Chin }
+
+Transform { translation  0 16 0 children USE Chin }
+Transform { translation  8 16 0 children USE Chin }
+Transform { translation 16 16 0 children USE Chin }
+Transform { translation 24 16 0 children USE Chin }
+Transform { translation 32 16 0 children USE Chin }
+Transform { translation 40 16 0 children USE Chin }
+
+Transform { translation  0 24 0 children USE Chin }
+Transform { translation  8 24 0 children USE Chin }
+Transform { translation 16 24 0 children USE Chin }
+Transform { translation 24 24 0 children USE Chin }
+Transform { translation 32 24 0 children USE Chin }
+Transform { translation 40 24 0 children USE Chin }
+
+Transform { translation  0 32 0 children USE Chin }
+Transform { translation  8 32 0 children USE Chin }
+Transform { translation 16 32 0 children USE Chin }
+Transform { translation 24 32 0 children USE Chin }
+Transform { translation 32 32 0 children USE Chin }
+Transform { translation 40 32 0 children USE Chin }
+
+Transform { translation  0 40 0 children USE Chin }
+Transform { translation  8 40 0 children USE Chin }
+Transform { translation 16 40 0 children USE Chin }
+Transform { translation 24 40 0 children USE Chin }
+Transform { translation 32 40 0 children USE Chin }
+Transform { translation 40 40 0 children USE Chin }
