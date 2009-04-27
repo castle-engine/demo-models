@@ -4,42 +4,47 @@
 
 # 'Switch' is used as a hack, to ensure it is not part of the drawing
 
+ShapeHints {
+  shapeType SOLID
+  vertexOrdering COUNTERCLOCKWISE
+}
+
 Separator {
 Switch {
 	DEF MatBlue09
 	Material {
 		diffuseColor 0.000000 0.313881 0.999433
 		specularColor 1.000000 1.000000 1.000000
-		shininess 0.500000 
-		transparency 0.100000 
+		shininess 0.500000
+		transparency 0.100000
 	}
 	DEF MatGreen07
 	Material {
 		diffuseColor 0.000000 0.962040 0.438527
 		specularColor 1.000000 1.000000 1.000000
-		shininess 0.500000 
-		transparency 0.300000 
+		shininess 0.500000
+		transparency 0.300000
 	}
 	DEF MatGround
 	Material {
 		diffuseColor 0.800000 0.800000 0.800000
 		specularColor 0.000100 0.000100 0.000100
-		shininess 0.500000 
-		transparency 0.000000 
+		shininess 0.500000
+		transparency 0.000000
 	}
 	DEF MatRed03
 	Material {
 		diffuseColor 1.000000 0.351275 0.326346
 		specularColor 1.000000 1.000000 1.000000
-		shininess 0.500000 
-		transparency 0.700000 
+		shininess 0.500000
+		transparency 0.700000
 	}
 	DEF MatYellow01
 	Material {
 		diffuseColor 0.899717 0.937110 0.000000
 		specularColor 1.000000 1.000000 1.000000
-		shininess 0.500000 
-		transparency 0.900000 
+		shininess 0.500000
+		transparency 0.900000
 	}
 	DEF Cube_001
 	Separator {
@@ -8301,7 +8306,7 @@ Switch {
 Separator {
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8311,7 +8316,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8321,7 +8326,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8331,7 +8336,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8341,7 +8346,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8351,7 +8356,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8361,7 +8366,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8371,7 +8376,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
@@ -8381,7 +8386,7 @@ Separator {
 	}
 	Separator {
 		MatrixTransform {
-		matrix 
+		matrix
 			1.000000 0.000000 0.000000 0.000000
 			0.000000 1.000000 0.000000 0.000000
 			0.000000 0.000000 1.000000 0.000000
