@@ -1,6 +1,29 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFNode   metadata
+  inputOutput SFFloat  speed
+  inputOutput SFTime   transitionTime
+  inputOutput MFString transitionType
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFTime   bindTime
+  outputOnly  SFBool   isBound
+  outputOnly  SFBool   transitionComplete
+  initializeOnly SFBool  timeOriginAtLoad
+  initializeOnly SFNode  octreeRendering
+  initializeOnly SFNode  octreeDynamicCollisions
+  initializeOnly SFNode  octreeVisibleTriangles
+  initializeOnly SFNode  octreeCollidableTriangles
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "../../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
 # Labirynth that shows how "occlusion query" can be beneficial.
 #
 # Each block has bump map with normals and height, so you can activate
@@ -24,14 +47,27 @@ Transform {
   }
 }
 
-NavigationInfo {
+KambiNavigationInfo {
   type [ "FLY" "ANY" ]
   headlight TRUE
   avatarSize [ 0.1 1 ]
   speed 4
+  octreeRendering KambiOctreeProperties {
+#    leafCapacity 20
+  }
 }
 
 Inline { url "regular_labirynth.wrl" }
+
+# Dummy box, just to make bounding box of the scene larger,
+# just to make octree nicer (otherwise we have a lot of duplication
+# inside the octree, since we get very flat octree boxes)
+DEF BoundingBox Transform {
+  translation 42 42 0
+  children Shape {
+    geometry Box {
+      size 1 1 104
+    } } }
 
 DEF Chin Transform {
   scale 2 2 2
