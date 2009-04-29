@@ -99,6 +99,8 @@ EditableTransform {
       direction 0 0 -1
       projectionLocation 0 0 10
       projectionRectangle -4 4 -4 4
+      projectionNear 1
+      projectionFar 20      
     }
 
     Shape {
