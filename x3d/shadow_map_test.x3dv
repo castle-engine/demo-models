@@ -128,3 +128,23 @@ EditableTransform {
     }
   }
 }
+
+EditableTransform {
+  translation -20 0 2
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Teapot {
+      size 4 4 4
+    }
+  }
+}
+
+EditableTransform {
+  translation 20 0 2
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Teapot {
+      size 4 4 4
+    }
+  }
+}
