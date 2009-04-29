@@ -1,6 +1,9 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
+# Projective texturing.
+# Test both with and without GLSL versions.
+
 NavigationInfo {
   type [ "EXAMINE", "ANY" ]
   headlight TRUE
@@ -14,17 +17,16 @@ EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
 ] [ "tesselated_plane.wrl#TesselatedPlane" ]
 
-# spot test ------------------------------------------------------------------
+# spot test ------------------------------------------------------------------
 
 DEF MySpot SpotLight {
   location -0 0 3 direction 0.5 0.5 -1
 }
 
-
 Shape {
   appearance Appearance {
     material Material { }
-    texture ImageTexture {
+    texture DEF Tex ImageTexture {
       url "../textures/test_texture.png"
       repeatS FALSE
       repeatT FALSE
@@ -52,11 +54,7 @@ Transform {
     Shape {
       appearance Appearance {
         material Material { }
-        texture ImageTexture {
-          url "../textures/test_texture.png"
-          repeatS FALSE
-          repeatT FALSE
-        }
+        texture USE Tex
       }
       geometry TesselatedPlane {
         texCoord TextureCoordinateGenerator {
@@ -65,5 +63,68 @@ Transform {
         }
       }
     }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Just for test, now do exactly the same thing but using GLSL shader
+# to access projection texture.
+
+Transform {
+  translation 0 20 0
+
+  children [
+
+    # spot test ------------------------------------------------------------------
+
+    DEF MySpot SpotLight {
+      location -0 0 3 direction 0.5 0.5 -1
+    }
+
+    Shape {
+      appearance Appearance {
+        material Material { }
+        texture USE Tex
+        shaders DEF ProjShader ComposedShader {
+          language "GLSL"
+          initializeOnly SFInt32 tex 0
+          parts ShaderPart { type "FRAGMENT" url "tex_projected.fs" }
+        }
+      }
+      geometry TesselatedPlane {
+        texCoord TextureCoordinateGenerator {
+          mode "PROJECTION"
+          projectedLight USE MySpot
+        }
+      }
+    }
+
+    # directional test -----------------------------------------------------------
+
+    Transform {
+      translation 20 0 0
+      children [
+        DEF MyDir DirectionalLight {
+          direction -1 0 0
+          projectionLocation 0 0 1
+          projectionRectangle -2 2 -2 2
+        }
+
+        Shape {
+          appearance Appearance {
+            material Material { }
+            texture USE Tex
+            shaders USE ProjShader
+          }
+          geometry TesselatedPlane {
+            texCoord TextureCoordinateGenerator {
+              mode "PROJECTION"
+              projectedLight USE MyDir
+            }
+          }
+        }
+      ]
+    }
+
   ]
 }

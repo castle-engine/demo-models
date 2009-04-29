@@ -48,6 +48,11 @@ EditableTransform {
       appearance Appearance {
         material Material { }
         texture GeneratedShadowMap { light USE MySpot update "ALWAYS" size 512 }
+        shaders DEF ShadowMapShader ComposedShader {
+          language "GLSL"
+          initializeOnly SFInt32 shadowMap 0
+          parts ShaderPart { type "FRAGMENT" url "shadow_map.fs" }
+        }
       }
       geometry TesselatedPlane {
         texCoord TextureCoordinateGenerator {
@@ -73,6 +78,7 @@ EditableTransform {
       appearance Appearance {
         material Material { }
         texture GeneratedShadowMap { light USE MySpot2 update "ALWAYS" size 512 }
+        shaders USE ShadowMapShader
       }
       geometry ShadowMapReceiver {
         texCoord TextureCoordinateGenerator {
@@ -99,6 +105,7 @@ EditableTransform {
       appearance Appearance {
         material Material { }
         texture GeneratedShadowMap { light USE MyDir update "ALWAYS" size 512 }
+        shaders USE ShadowMapShader
       }
       geometry TesselatedPlane {
         texCoord TextureCoordinateGenerator {
