@@ -39,12 +39,15 @@ EXTERNPROTO EditableTransform [
 EditableTransform {
   children [
     DEF MySpot SpotLight {
-      location 0 0 5 direction 0 0 -1
+      location 0 0 10
+      direction 0 0 -1
+      projectionNear 1
+      projectionFar 20
     }
     Shape {
       appearance Appearance {
         material Material { }
-        texture GeneratedShadowMap { light USE MySpot update "ALWAYS" }
+        texture GeneratedShadowMap { light USE MySpot update "ALWAYS" size 512 }
       }
       geometry TesselatedPlane {
         texCoord TextureCoordinateGenerator {
@@ -60,13 +63,16 @@ EditableTransform {
   translation -20 0 0
   children [
     DEF MySpot2 SpotLight {
-      location 0 0 5 direction 0 0  -1
+      location 0 0 10
+      direction 0 0  -1
+      projectionNear 1
+      projectionFar 20
     }
 
     Shape {
       appearance Appearance {
         material Material { }
-        texture GeneratedShadowMap { light USE MySpot2 update "ALWAYS" }
+        texture GeneratedShadowMap { light USE MySpot2 update "ALWAYS" size 512 }
       }
       geometry ShadowMapReceiver {
         texCoord TextureCoordinateGenerator {
@@ -92,7 +98,7 @@ EditableTransform {
     Shape {
       appearance Appearance {
         material Material { }
-        texture GeneratedShadowMap { light USE MyDir update "ALWAYS" }
+        texture GeneratedShadowMap { light USE MyDir update "ALWAYS" size 512 }
       }
       geometry TesselatedPlane {
         texCoord TextureCoordinateGenerator {
