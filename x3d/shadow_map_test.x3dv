@@ -47,7 +47,7 @@ EditableTransform {
     Shape {
       appearance Appearance {
         material Material { }
-        texture GeneratedShadowMap { light USE MySpot update "ALWAYS" size 512 }
+        texture DEF MySpotShadow GeneratedShadowMap { light USE MySpot update "ALWAYS" size 512 }
         shaders DEF ShadowMapShader ComposedShader {
           language "GLSL"
           initializeOnly SFInt32 shadowMap 0
@@ -100,7 +100,7 @@ EditableTransform {
       projectionLocation 0 0 10
       projectionRectangle -4 4 -4 4
       projectionNear 1
-      projectionFar 20      
+      projectionFar 20
     }
 
     Shape {
@@ -117,6 +117,21 @@ EditableTransform {
       }
     }
   ]
+}
+
+# Cube to visualize shadow map -----------------------------------------------
+
+Transform {
+  translation 0 8 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture GeneratedShadowMap {
+        light USE MySpot update "ALWAYS" size 512 compareMode "NONE"
+      }
+    }
+    geometry Box { size 6 6 6 }
+  }
 }
 
 # some shadow casters (not receivers) -----------------------------------------
