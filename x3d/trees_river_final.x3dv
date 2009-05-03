@@ -1,0 +1,68 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0892176404595375 -0.1712929457426071 -0.051951203495264
+# up -0.1200019270181655 -0.230375051498413 0.965674340724945
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation 6.6069297790527344 24.177928924560547 9.3365392684936523
+  rotation 1 0 -0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.0320611074566841 0.9908719658851623 0.1309384852647781 2.6656231880187988
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0608834400773048 0.0927566140890121 -0.1664013713598251
+# up 0.4565567374229431 0.6955510973930358 0.5547653436660766
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation -13.457657814025879 -15.670677185058594 25.693292617797852
+  rotation 1 0 -0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.84477299451828 -0.4718136489391326 -0.252488762140274 1.1293237209320068
+    description "SpotLight viewpoint"
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.1090991869568824 0.0820993483066558 -0.1461405754089355
+# up -0.583849012851715 0.4393709003925323 0.6826956272125244
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation 21.015087127685547 -19.955547332763672 41.178668975830078
+  rotation 1 0 -0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.6238561868667602 0.7168689370155334 0.3112911283969879 1.216166615486145
+    description "DirectionalLight viewpoint"
+  }
+}
+
+NavigationInfo {
+	headlight TRUE
+	visibilityLimit 0.0
+	type ["FLY", "ANY"]
+	#avatarSize [0.25, 1.75, 0.75]
+        speed 10
+}
+
+Transform {
+  rotation 1 0 0 1.57
+  children
+
+  Background {
+     backUrl "../../castle/data/skies/foggy_sky_back.png"
+     bottomUrl "../../castle/data/skies/foggy_sky_bottom.png"
+     frontUrl "../../castle/data/skies/foggy_sky_front.png"
+     leftUrl "../../castle/data/skies/foggy_sky_left.png"
+     rightUrl "../../castle/data/skies/foggy_sky_right.png"
+     topUrl "../../castle/data/skies/foggy_sky_top.png"
+  }
+}
+
+
+Inline { url "trees_river.wrl" }
