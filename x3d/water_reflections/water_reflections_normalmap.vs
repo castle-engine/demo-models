@@ -1,8 +1,7 @@
-varying float diffuse;
-
 /* Varying vectors below are given in in eye-space.
    Always normalized, to make "fair" interpolation. */
 varying vec3 vertex_to_camera;
+varying vec3 vertex_to_light;
 varying vec3 normal;
 
 void main(void)
@@ -14,8 +13,7 @@ void main(void)
   normal = normalize(gl_NormalMatrix * gl_Normal);
   vec3 light_position = vec3(0.0, 0.0, 0.0);
   vec3 vertex = vec3(gl_ModelViewMatrix * gl_Vertex);
-  vec3 vertex_to_light = normalize(light_position - vertex);
+  vertex_to_light = normalize(light_position - vertex);
   /* That's easy, since in eye space camera position is always (0, 0, 0). */
   vertex_to_camera = normalize(- vertex);
-  diffuse = max(dot(vertex_to_light, normal), 0.0);
 }

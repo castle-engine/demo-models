@@ -3,10 +3,13 @@ uniform sampler2D normalMap;
 uniform mat4 cameraInverseMatrix;
 varying float diffuse;
 varying vec3 vertex_to_camera;
+varying vec3 vertex_to_light;
 varying vec3 normal;
 
 void main(void)
 {
+  float diffuse = max(dot(normalize(vertex_to_light), normalize(normal)), 0.0);
+
   vec3 reflected = reflect(vertex_to_camera, normal);
 
   /* We have to multiply by cameraInverseMatrix, to get "reflected" from
