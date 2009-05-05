@@ -1,0 +1,58 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing3D:2
+
+# Two tests actually:
+# - if you compile textureimages.pas with DEBUG_CACHE, you should see that
+#   random3d.dds is loaded only once (even though it's used by two different
+#   ImageTexture3D nodes, even with different repeatS/T/R)
+# - warnings about wrong files for first ImageTexture3D should be nice,
+#   and eventually result in loading random3d.dds, and no memory leaks should be.
+
+Shape {
+  appearance Appearance {
+    texture DEF Tex3D ImageTexture3D {
+      url [
+        "../../textures/not_existing.dds"
+        "../../textures/test_texture.png"
+        "../../textures/caste_end_sequence.dds"
+        "../../textures/random3d.dds"
+      ]
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+      textureProperties TextureProperties {
+        minificationFilter "NICEST"
+        magnificationFilter "NICEST"
+      }
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 20 20 20
+      translation 0 0 0
+    }
+  }
+  geometry Box { }
+}
+
+Transform {
+  translation 0 3 0
+  children Shape {
+    appearance Appearance {
+      texture DEF Tex3D ImageTexture3D {
+        url "../../textures/random3d.dds"
+        repeatS FALSE
+        repeatT FALSE
+        repeatR FALSE
+        textureProperties TextureProperties {
+          minificationFilter "NICEST"
+          magnificationFilter "NICEST"
+        }
+      }
+      textureTransform DEF TexTrans TextureTransform3D {
+        scale 20 20 20
+        translation 0 0 0
+      }
+    }
+    geometry Box { }
+  }
+}
