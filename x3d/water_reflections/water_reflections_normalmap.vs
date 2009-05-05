@@ -2,7 +2,8 @@
    Always normalized, to make "fair" interpolation. */
 varying vec3 vertex_to_camera;
 varying vec3 vertex_to_light;
-varying vec3 normal;
+
+varying mat3 normal_matrix;
 
 void main(void)
 {
@@ -10,10 +11,11 @@ void main(void)
 
   gl_Position = ftransform();
 
-  normal = normalize(gl_NormalMatrix * gl_Normal);
   vec3 light_position = vec3(0.0, 0.0, 0.0);
   vec3 vertex = vec3(gl_ModelViewMatrix * gl_Vertex);
   vertex_to_light = normalize(light_position - vertex);
   /* That's easy, since in eye space camera position is always (0, 0, 0). */
   vertex_to_camera = normalize(- vertex);
+
+  normal_matrix = gl_NormalMatrix;
 }

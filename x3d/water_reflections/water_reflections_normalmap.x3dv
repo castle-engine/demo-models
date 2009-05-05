@@ -95,7 +95,7 @@ Collision {
             #update "ALWAYS"
             update "NEXT_FRAME_ONLY"
           }
-          MovieTexture { url "baked_normals_0001.tga" loop TRUE }
+          MovieTexture { url "baked_normals_%4d.tga" loop TRUE }
         ]
       }
       shaders DEF Shader ComposedShader {

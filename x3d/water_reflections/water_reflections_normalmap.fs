@@ -1,14 +1,20 @@
 uniform samplerCube envMap;
 uniform sampler2D normalMap;
 uniform mat4 cameraInverseMatrix;
-varying float diffuse;
+
 varying vec3 vertex_to_camera;
 varying vec3 vertex_to_light;
-varying vec3 normal;
+varying mat3 normal_matrix;
 
 void main(void)
 {
-  float diffuse = max(dot(normalize(vertex_to_light), normalize(normal)), 0.0);
+  vec3 normal = texture2D(normalMap, gl_TexCoord[0].st).xyz;
+  /* Unpack normal.xy. Blender generates normal maps with Z always > 0,
+     so do not unpack Z. TODO: does it actually make any visible difference? */
+  normal.xy = normal.xy * 2.0 - vec2(1.0, 1.0);
+  normal = normal_matrix * normal;
+
+  float diffuse = max(dot(normalize(vertex_to_light), normal), 0.0);
 
   vec3 reflected = reflect(vertex_to_camera, normal);
 
@@ -23,8 +29,12 @@ void main(void)
      but as far as I think this shouldn't be needed. */
   vec3 reflectedColor = textureCube(envMap, -reflected).rgb;
 
-  gl_FragColor.rgb = reflectedColor *
-    vec3(texture2D(normalMap, gl_TexCoord[0].st)) * diffuse;
+  vec3 refracted = refract(vertex_to_camera, normal, 1.1);
+  refracted = (cameraInverseMatrix * vec4(refracted, 0.0)).xyz;
+  vec3 refractedColor = textureCube(envMap, refracted).rgb;
+
+  gl_FragColor.rgb = (reflectedColor * 0.5 + 
+    refractedColor * 0.5 * vec3(gl_FrontMaterial.diffuse)) * diffuse;
 
   /* alpha is simply constant, not scaled by lighting */
   gl_FragColor.a = 1.0;
