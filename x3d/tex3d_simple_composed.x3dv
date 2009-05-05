@@ -1,0 +1,67 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing3D:2
+
+EXTERNPROTO BoxWithTexCoord [
+  initializeOnly SFBool solid
+  initializeOnly SFNode texCoord
+] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    texture ComposedTexture3D {
+      texture [
+        ImageTexture { url "../textures/brick_1.png" }
+        ImageTexture { url "../textures/016marbre.jpg" }
+      ]
+      textureProperties TextureProperties {
+        minificationFilter "AVG_PIXEL"
+        #minificationFilter "NICEST"
+        magnificationFilter "AVG_PIXEL"
+      }
+    }
+    textureTransform TextureTransform3D {
+      scale 0.5 0.5 0.5
+      translation 0.5 0.5 0.5
+    }
+  }
+  geometry IndexedFaceSet {
+    solid FALSE
+    texCoord TextureCoordinateGenerator { mode "COORD" }
+    coord Coordinate {
+      point [
+         1  1 -1
+         1 -1 -1
+        -1 -1 -1
+        -1  1 -1
+
+         1  1 -0.5
+         1 -1 -0.5
+        -1 -1 -0.5
+        -1  1 -0.5
+
+         1  1  0
+         1 -1  0
+        -1 -1  0
+        -1  1  0
+
+         1  1  0.5
+         1 -1  0.5
+        -1 -1  0.5
+        -1  1  0.5
+
+         1  1  1
+         1 -1  1
+        -1 -1  1
+        -1  1  1
+      ] }
+    coordIndex [
+      0 1 2 3 -1,
+      4 5 6 7 -1,
+      8 9 10 11 -1,
+      12 13 14 15 -1,
+      16 17 18 19 -1,
+    ]
+  }
+}

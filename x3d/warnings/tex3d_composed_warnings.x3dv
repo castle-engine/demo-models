@@ -1,0 +1,96 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing3D:2
+
+Shape {
+  appearance Appearance {
+    texture DEF Tex3D ComposedTexture3D {
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 20 20 20
+      translation 0 0 0
+    }
+  }
+  geometry Box { }
+}
+
+
+Shape {
+  appearance Appearance {
+    texture DEF Tex3D ComposedTexture3D {
+      texture [
+        ImageTexture { url [
+          "../../textures/not_existing.dds"
+          "../../textures/test_texture.png" ]
+        }
+        ImageTexture { url "../../textures/test_texture.png" }
+      ]
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 20 20 20
+      translation 0 0 0
+    }
+  }
+  geometry Box { }
+}
+
+Shape {
+  appearance Appearance {
+    texture DEF Tex3D ComposedTexture3D {
+      texture [
+        ComposedTexture3D { }
+      ]
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 20 20 20
+      translation 0 0 0
+    }
+  }
+  geometry Box { }
+}
+
+Shape {
+  appearance Appearance {
+    texture DEF Tex3D ComposedTexture3D {
+      texture [
+        ImageTexture { url "../../textures/metal_decal_dxt5.dds" }
+      ]
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 20 20 20
+      translation 0 0 0
+    }
+  }
+  geometry Box { }
+}
+
+Shape {
+  appearance Appearance {
+    texture DEF Tex3D ComposedTexture3D {
+      texture [
+        ImageTexture { url "../../textures/brick_1.png" }
+        ImageTexture { url "../../textures/test_texture.png" }
+      ]
+      repeatS TRUE
+      repeatT TRUE
+      repeatR TRUE
+    }
+    textureTransform DEF TexTrans TextureTransform3D {
+      scale 20 20 20
+      translation 0 0 0
+    }
+  }
+  geometry Box { }
+}
