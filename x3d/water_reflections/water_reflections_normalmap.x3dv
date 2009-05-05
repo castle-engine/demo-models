@@ -94,8 +94,9 @@ Collision {
           DEF GenTex1 GeneratedCubeMapTexture {
             #update "ALWAYS"
             update "NEXT_FRAME_ONLY"
+            size 512
           }
-          MovieTexture { url "baked_normals_%4d.tga" loop TRUE }
+          MovieTexture { url "baked_normals_low_res/baked_normals_%4d.tga" loop TRUE }
         ]
       }
       shaders DEF Shader ComposedShader {
