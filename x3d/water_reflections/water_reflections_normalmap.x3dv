@@ -1,0 +1,161 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT CubeMapTexturing:3
+
+# ----------------------------------------------------------------------------
+# Inline castle_hall level,
+# with some parts that would obstruct nice reflections removed,
+# with better sky (and not so black, so it's visible in reflections),
+# with different camera.
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0097326347604394 -0.0124771371483802 -0.0122313322499394
+# up 0.3761610388755798 -0.4821816682815551 0.7911880612373352
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation -0.7321556210517883 0.7535160779953002 1.0205278396606445
+  rotation 1 0 -0 1.5707963705062866
+  children DEF View Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.1104519069194793 -0.940571904182434 -0.3211302757263183 2.5159108638763428
+  }
+}
+
+NavigationInfo {
+  avatarSize [ 0.05, 0.10 ]
+#  speed 20
+  headlight TRUE
+  type "FLY"
+}
+
+KambiHeadLight {
+  ambientIntensity 0.5
+  intensity 0.5
+  color 1 1 1
+}
+
+Transform {
+  rotation 1 0 0 1.57
+  children
+
+  Background {
+     backUrl "../../../castle/data/skies/foggy_sky_back.png"
+     bottomUrl "../../../castle/data/skies/foggy_sky_bottom.png"
+     frontUrl "../../../castle/data/skies/foggy_sky_front.png"
+     leftUrl "../../../castle/data/skies/foggy_sky_left.png"
+     rightUrl "../../../castle/data/skies/foggy_sky_right.png"
+     topUrl "../../../castle/data/skies/foggy_sky_top.png"
+  }
+}
+
+Transform {
+  children Transform {
+    scale 0.05 0.05 0.05
+    translation 0 0 -0.1
+    children [
+      PointLight {
+        location  10  10 10
+        color 0.3 0.3 0.3
+      }
+      PointLight {
+        location -10 -10 10
+        color 0.3 0.3 0.3
+      }
+      Inline { url "castle_hall_for_water_demo.wrl" }
+    ]
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Waves geometry.
+# This time, geometry is trivial, just a flat plane, we only animate
+# normal map.
+
+Collision {
+  enabled FALSE
+  children Shape {
+    appearance Appearance {
+      material DEF MA_Material Material {
+        diffuseColor 0.5 0.5 1
+        specularColor 1 1 1
+        shininess 0.0976563021540641
+        transparency 0.2
+      }
+      texture MultiTexture {
+        texture [
+          DEF GenTex1 GeneratedCubeMapTexture {
+            #update "ALWAYS"
+            update "NEXT_FRAME_ONLY"
+          }
+          MovieTexture { url "baked_normals_0001.tga" loop TRUE }
+        ]
+      }
+      shaders DEF Shader ComposedShader {
+        language "GLSL"
+        initializeOnly SFInt32 envMap 0
+        initializeOnly SFInt32 normalMap 1
+        inputOutput SFMatrix4f cameraInverseMatrix
+          1 0 0 0
+          0 1 0 0
+          0 0 1 0
+          0 0 1 1
+        parts [
+          ShaderPart { type "FRAGMENT" url "water_reflections_normalmap.fs" }
+          ShaderPart { type "VERTEX" url "water_reflections_normalmap.vs" }
+        ]
+      }
+    }
+
+    geometry IndexedFaceSet {
+      solid FALSE
+      creaseAngle 0
+      texCoord MultiTextureCoordinate {
+        texCoord [
+          TextureCoordinateGenerator {
+            # doesn't really matter, we'll have to calculate reflection
+            # vector in shader.
+            mode "CAMERASPACEREFLECTIONVECTOR"
+          }
+          TextureCoordinate { point [
+            0 0,
+            0 1,
+            1 1,
+            1 0 ] }
+        ]
+      }
+      coord Coordinate { point [
+        -1 -1 0,
+        -1  1 0,
+         1  1 0,
+         1 -1 0 ] }
+      coordIndex [ 3 2 1 0 ]
+    }
+  }
+}
+
+#ROUTE View.position TO Shader.cameraPosition
+ROUTE View.cameraInverseMatrix TO Shader.cameraInverseMatrix
+
+# ----------------------------------------------------------------------------
+# Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.
+# NEXT_FRAME_ONLY will automatically change to NONE after next frame,
+# so after this, you will need to keep pressing space again to force update
+# of the cubemap texture.
+
+DEF KeyS KeySensor { }
+
+DEF Scr Script {
+  inputOnly SFString key_press
+  outputOnly SFString tex_update
+
+  url "kambiscript:
+
+function key_press(value, timestamp)
+  when (value = ' ',
+    tex_update := 'NEXT_FRAME_ONLY'
+  )
+"
+}
+
+ROUTE KeyS.keyPress TO Scr.key_press
+ROUTE Scr.tex_update TO GenTex1.update
