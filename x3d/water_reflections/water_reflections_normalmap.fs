@@ -21,7 +21,7 @@ void main(void)
   vec3 reflectedColor = textureCube(envMap, -reflected).rgb;
 
   gl_FragColor.rgb = reflectedColor *
-    vec3(texture2D(normalMap, gl_TexCoord[1].st)) * diffuse;
+    vec3(texture2D(normalMap, gl_TexCoord[0].st)) * diffuse;
 
   /* alpha is simply constant, not scaled by lighting */
   gl_FragColor.a = 1.0;

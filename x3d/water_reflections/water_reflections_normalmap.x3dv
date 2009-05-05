@@ -2,6 +2,14 @@
 PROFILE Interchange
 COMPONENT CubeMapTexturing:3
 
+EXTERNPROTO PlaneNotTesselated [
+  inputOutput SFBool solid
+] [ "../useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+
+EXTERNPROTO PlaneTesselated [
+  inputOutput SFBool solid
+] [ "../useful_proto_plane_tess.x3dv#PlaneTesselated" ]
+
 # ----------------------------------------------------------------------------
 # Inline castle_hall level,
 # with some parts that would obstruct nice reflections removed,
@@ -106,34 +114,17 @@ Collision {
       }
     }
 
-    geometry IndexedFaceSet {
+    geometry PlaneTesselated {
       solid FALSE
-      creaseAngle 0
-      texCoord MultiTextureCoordinate {
-        texCoord [
-          TextureCoordinateGenerator {
-            # doesn't really matter, we'll have to calculate reflection
-            # vector in shader.
-            mode "CAMERASPACEREFLECTIONVECTOR"
-          }
-          TextureCoordinate { point [
-            0 0,
-            0 1,
-            1 1,
-            1 0 ] }
-        ]
-      }
-      coord Coordinate { point [
-        -1 -1 0,
-        -1  1 0,
-         1  1 0,
-         1 -1 0 ] }
-      coordIndex [ 3 2 1 0 ]
+
+      # Don't pass texCoord, let default tex coords be used.
+      # It doesn't matter that we have multitexturing and for X3D
+      # explicit coords will be linked with cube map... Shader will
+      # handle it Ok.
     }
   }
 }
 
-#ROUTE View.position TO Shader.cameraPosition
 ROUTE View.cameraInverseMatrix TO Shader.cameraInverseMatrix
 
 # ----------------------------------------------------------------------------
