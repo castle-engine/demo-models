@@ -96,7 +96,7 @@ Collision {
             update "NEXT_FRAME_ONLY"
             size 512
           }
-          MovieTexture { url "baked_normals_low_res/baked_normals_%4d.tga" loop TRUE }
+          MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
         ]
       }
       shaders DEF Shader ComposedShader {
