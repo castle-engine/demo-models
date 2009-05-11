@@ -103,11 +103,10 @@ Collision {
         language "GLSL"
         initializeOnly SFInt32 envMap 0
         initializeOnly SFInt32 normalMap 1
-        inputOutput SFMatrix4f cameraInverseMatrix
-          1 0 0 0
-          0 1 0 0
-          0 0 1 0
-          0 0 1 1
+        inputOutput SFMatrix3f cameraRotationInverseMatrix
+          1 0 0
+          0 1 0
+          0 0 1
         parts [
           ShaderPart { type "FRAGMENT" url "water_reflections_normalmap.fs" }
           ShaderPart { type "VERTEX" url "water_reflections_normalmap.vs" }
@@ -126,7 +125,7 @@ Collision {
   }
 }
 
-ROUTE View.cameraInverseMatrix TO Shader.cameraInverseMatrix
+ROUTE View.cameraRotationInverseMatrix TO Shader.cameraRotationInverseMatrix
 
 # ----------------------------------------------------------------------------
 # Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.

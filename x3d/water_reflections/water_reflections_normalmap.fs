@@ -1,6 +1,6 @@
 uniform samplerCube envMap;
 uniform sampler2D normalMap;
-uniform mat4 cameraInverseMatrix;
+uniform mat3 cameraRotationInverseMatrix;
 
 varying vec3 vertex_to_camera;
 varying vec3 vertex_to_light;
@@ -32,17 +32,16 @@ void main(void)
 
   vec3 reflected = reflect(to_camera, normal);
 
-  /* We have to multiply by cameraInverseMatrix, to get "reflected" from
-     eye-space to world-space. Our cube map is generated in world space.
-     "reflected" is direction, so 4th component should be 0 in homog coords. */
-  reflected = (cameraInverseMatrix * vec4(reflected, 0.0)).xyz;
+  /* We have to multiply by cameraRotationInverseMatrix, to get "reflected" from
+     eye-space to world-space. Our cube map is generated in world space. */
+  reflected = cameraRotationInverseMatrix * reflected;
 
   /* TODO: why doesn the reflected need to be negated? Yeah, it works,
      but as far as I think this shouldn't be needed. */
   vec3 reflectedColor = textureCube(envMap, -reflected).rgb;
 
   vec3 refracted = refract(to_camera, normal, 1.1);
-  refracted = (cameraInverseMatrix * vec4(refracted, 0.0)).xyz;
+  refracted = cameraRotationInverseMatrix * refracted;
   vec3 refractedColor = textureCube(envMap, refracted).rgb;
 
   /* How much refraction / reflection do I see?
@@ -56,7 +55,7 @@ void main(void)
   /* fake reflectedColor to be lighter. This just Looks Better. */
   reflectedColor *= 1.5;
 
-  gl_FragColor.rgb = 
+  gl_FragColor.rgb =
     mix(reflectedColor, refractedColor, refraction_amount) *
     vec3(gl_FrontMaterial.diffuse) * diffuse;
 
