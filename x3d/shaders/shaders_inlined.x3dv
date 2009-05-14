@@ -1,0 +1,45 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Test of inlining shader source code inside the file,
+# like on http://www.instantreality.org/tutorial/shader-programs/
+
+Shape {
+  appearance DEF App Appearance {
+    texture ImageTexture  { url "../../textures/brick031.jpg" }
+    shaders [
+      ComposedShader {
+        language "GLSL"
+        parts [
+          ShaderPart { type "VERTEX"
+            url "
+            void main(void)
+            {
+              gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+              gl_Position = ftransform();
+            }" }
+
+          ShaderPart { type "FRAGMENT"
+            url "
+            uniform sampler2D tex;
+            void main(void)
+            {
+              gl_FragColor = texture2D(tex, gl_TexCoord[0].st);
+              gl_FragColor.gb = vec2(0.0, 0.0);
+            }" }
+        ]
+      }
+    ]
+  }
+  geometry Sphere { }
+}
+
+Transform {
+  translation 3 0 0
+  children
+    Shape {
+      appearance USE App
+      geometry Box { }
+    }
+}
