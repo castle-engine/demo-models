@@ -3,8 +3,9 @@ PROFILE Interchange
 
 EXTERNPROTO Teapot [
   inputOutput SFNode  metadata
-  inputOutput SFVec3f size
-  inputOutput SFBool  solid
+  initializeOnly SFVec3f size
+  initializeOnly SFBool solid
+  initializeOnly SFBool manifold
   inputOutput SFNode  texCoord
 ] [ "urn:vrmlengine.sourceforge.net:node:Teapot",
     "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
@@ -18,5 +19,7 @@ Shape {
       specularColor 0.4012008 0.4012008 0.4012008
     }
   }
-  geometry Teapot { solid FALSE }
+  geometry Teapot { solid FALSE
+    #manifold TRUE
+  }
 }

@@ -34,9 +34,10 @@ EXTERNPROTO BoxWithTexCoord [
 
 EXTERNPROTO Teapot [
   inputOutput SFNode  metadata
-  inputOutput SFVec3f size
-  inputOutput SFBool  solid
-  inputOutput SFNode  texCoord
+  initializeOnly SFVec3f size
+  initializeOnly SFBool solid
+  initializeOnly SFBool manifold
+  inputOutput SFNode texCoord
 ] [ "urn:vrmlengine.sourceforge.net:node:Teapot",
     "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
 ]
