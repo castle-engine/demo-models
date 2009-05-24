@@ -315,6 +315,33 @@ Transform {
   ]
 }
 
+Transform {
+  translation 16.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT / REPLACE" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "subtract (2nd - 1st) on RGB only" }
+  ]
+}
+
 # ----------------------------------------------------------------------------
 # Row 2 - with primary color
 
@@ -622,6 +649,34 @@ Transform {
       }
     }
     MyText { string "off 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 16.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT / REPLACE" ]
+          source [ "" "DIFFUSE" ]
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "subtract (2nd - 1st) on RGB only" }
   ]
 }
 
@@ -943,5 +998,34 @@ Transform {
       }
     }
     MyText { string "off 2nd tex" }
+  ]
+}
+
+Transform {
+  translation 16.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT / REPLACE" ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+          texture [
+            ImageTexture { url "../textures/test_texture.png" }
+            ImageTexture { url "../textures/pattern_tex.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string "subtract (2nd - 1st) on RGB only" }
   ]
 }
