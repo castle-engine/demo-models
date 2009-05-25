@@ -1,0 +1,31 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+COMPONENT Text:1
+
+Background { skyColor 1 1 0 }
+
+Shape {
+  appearance Appearance {
+    texture MultiTexture {
+      mode [ "REPLACE" "SUBTRACT / SELECTARG2" ]
+      source [ "" " / FACTOR" ]
+      alpha 0.6
+      color 1 0 0
+
+      texture [
+        ImageTexture { url "../../textures/pattern_tex.png" }
+        ImageTexture { url "../../textures/test_texture.png" }
+      ]
+    }
+    material Material { transparency 0.5 }
+  }
+  geometry IndexedFaceSet {
+    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+    coordIndex [ 0 1 2 3 ]
+    texCoord TextureCoordinate {
+      point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+    }
+    solid FALSE
+  }
+}
