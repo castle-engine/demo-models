@@ -11,15 +11,40 @@ EXTERNPROTO Teapot [
     "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
 ]
 
-Shape {
-  appearance Appearance {
-    material Material {
-      diffuseColor 0.8 0.8 0.8
-      ambientIntensity 0.1666667
-      specularColor 0.4012008 0.4012008 0.4012008
+Transform {
+  translation 0 0 0
+  children Shape {
+    appearance DEF App Appearance {
+      material Material {
+        diffuseColor 0.8 0.8 0.8
+        ambientIntensity 0.1666667
+        specularColor 0.4012008 0.4012008 0.4012008
+      }
     }
+    geometry Teapot { solid FALSE manifold FALSE }
   }
-  geometry Teapot { solid FALSE
-    #manifold TRUE
+}
+
+Transform {
+  translation 0 4 0
+  children Shape {
+    appearance USE App
+    geometry Teapot { solid FALSE manifold TRUE }
+  }
+}
+
+Transform {
+  translation 4 0 0
+  children Shape {
+    appearance USE App
+    geometry Teapot { solid TRUE manifold FALSE }
+  }
+}
+
+Transform {
+  translation 4 4 0
+  children Shape {
+    appearance USE App
+    geometry Teapot { solid TRUE manifold TRUE }
   }
 }
