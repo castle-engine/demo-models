@@ -1,22 +1,89 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-Transform {
-  translation 0 0 -2
-  children Shape {
-    appearance Appearance {
-      material Material { diffuseColor 1 1 0 }
+# Simple RenderedTexture test.
+#
+# Teapot is inside EditableTransform, so you can interactively
+# move it/rotate etc., see ../dynamic_world.x3dv.
+
+# testing teapot -------------------------------------------------------------
+
+EXTERNPROTO EditableTransform [
+  inputOutput MFNode children
+  inputOutput SFVec3f translation
+  inputOutput SFVec3f scale
+] [ "../useful_prototypes.x3dv#EditableTransform" ]
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0063601597212255 -0.0037539245095104 -0.0042828414589166
+# up 0.3647128939628601 0.8981161713600158 -0.2455910444259643
+# gravityUp 0 1 0
+Viewpoint {
+  position -7.5478754043579102 3.6707220077514648 2.8329453468322754
+  orientation -0.3903893530368804 -0.8968992233276367 -0.2077686041593551 1.0710798501968384
+}
+
+NavigationInfo { type "FLY" }
+
+DEF DynamicTrans Transform {
+  children EditableTransform {
+    translation 0 0 -3
+    children Shape {
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+      geometry Teapot { }
     }
-    geometry Teapot { }
   }
 }
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10 }
+DEF Orient OrientationInterpolator {
+  key [ 0 1 ]
+  keyValue [ 0 0 1 0,
+             0 0 1 6.2831853072 # 2*pi
+           ]
+}
+
+ROUTE Time.fraction_changed TO Orient.set_fraction
+ROUTE Orient.value_changed TO DynamicTrans.rotation
+
+# box with RenderedTexture ---------------------------------------------------
 
 Shape {
   appearance Appearance {
     material Material { }
     texture RenderedTexture {
       update "ALWAYS"
+      dimensions [ 512 512 ]
+
+
+      # Test this will cause appropriate warning and size will change to 32 x 32
+#      dimensions [ 32 32 ]
+
+      # Test this will cause texture to look with blocky pixels
+#      dimensions [ 32 32 ]
+#       textureProperties TextureProperties {
+#         minificationFilter "NEAREST_PIXEL"
+#         magnificationFilter "NEAREST_PIXEL"
+#       }
     }
+    shaders ComposedShader {
+      language "GLSL"
+      parts [
+        ShaderPart { type "FRAGMENT" url
+
+"uniform sampler2D tex;
+void main(void)
+{
+  gl_FragColor = texture2D(tex, gl_TexCoord[0].st) * gl_Color;
+  // add some ambient
+  gl_FragColor.rgb += vec3(0.1, 0.1, 0.1);
+}
+"       }
+      ]
+    }
+
   }
   geometry Box { }
 }
