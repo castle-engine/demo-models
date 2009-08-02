@@ -1,6 +1,16 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
+Transform {
+  translation 0 0 -2
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+    }
+    geometry Teapot { }
+  }
+}
+
 Shape {
   appearance Appearance {
     material Material { }
