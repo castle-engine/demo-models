@@ -2,6 +2,8 @@
 
 # Test of Viewpoint nodes handling.
 
+NavigationInfo { type "FLY" }
+
 Group{
   children [
     # Camera settings "encoded" in the VRML declaration below :
