@@ -83,6 +83,8 @@ TestingBox {
     texture RenderedTexture {
       update "ALWAYS"
       dimensions [ 512 512 ]
+      repeatS FALSE
+      repeatT FALSE
       viewpoint
       # Camera settings "encoded" in the VRML declaration below :
       # direction 0.0179050657898187 -0.008794137276709 -0.0014395721955224
@@ -147,6 +149,8 @@ Transform {
       texture RenderedTexture {
         update "ALWAYS"
         dimensions [ 512 512 ]
+        repeatS FALSE
+        repeatT FALSE
 
         # Test depthMap
         depthMap TRUE
@@ -176,6 +180,8 @@ Transform {
       material Material { }
       texture RenderedTexture {
         update "ALWAYS"
+        repeatS FALSE
+        repeatT FALSE
 
         # Test this will cause texture to look with blocky pixels
         dimensions [ 32 32 ]
