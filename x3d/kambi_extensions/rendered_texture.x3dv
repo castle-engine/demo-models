@@ -58,6 +58,7 @@ Shape {
       dimensions [ 512 512 ]
       repeatS TRUE
       repeatT TRUE
+      #depthMap TRUE
 
       # Test this will cause appropriate warning and size will change to 32 x 32
 #      dimensions [ 32 32 ]
