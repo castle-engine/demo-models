@@ -66,6 +66,7 @@ PROTO EditableTransform [
   inputOutput MFNode children []
   inputOutput SFVec3f translation 0 0 0
   inputOutput SFVec3f scale 1 1 1
+  inputOutput SFString description ""
 ] {
   Transform {
     children [
@@ -74,7 +75,7 @@ PROTO EditableTransform [
         scale IS scale
         children IS children
       }
-      DEF Touch TouchSensor { }
+      DEF Touch TouchSensor { description IS description }
       DEF Key KeySensor { }
       DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
       DEF Scr Script {

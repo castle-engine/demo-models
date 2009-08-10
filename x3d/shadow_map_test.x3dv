@@ -32,11 +32,13 @@ EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
+  inputOutput SFString description
 ] [ "useful_prototypes.x3dv#EditableTransform" ]
 
 # spot test ------------------------------------------------------------------
 
 EditableTransform {
+  description "spot shadow receiver"
   children [
     DEF MySpot SpotLight {
       location 0 0 10
@@ -65,6 +67,7 @@ EditableTransform {
 }
 
 EditableTransform {
+  description "spot shadow complicated receiver"
   translation -20 0 0
   children [
     DEF MySpot2 SpotLight {
@@ -94,6 +97,7 @@ EditableTransform {
 
 EditableTransform {
   translation 20 0 0
+  description "directional shadow receiver"
   children [
     DEF MyDir DirectionalLight {
       direction 0 0 -1
@@ -137,6 +141,7 @@ Transform {
 # some shadow casters (not receivers) -----------------------------------------
 
 EditableTransform {
+  description "shadow caster middle"
   translation 0 0 2
   children Shape {
     appearance Appearance { material Material { } }
@@ -147,6 +152,7 @@ EditableTransform {
 }
 
 EditableTransform {
+  description "shadow caster left"
   translation -20 0 2
   children Shape {
     appearance Appearance { material Material { } }
@@ -157,6 +163,7 @@ EditableTransform {
 }
 
 EditableTransform {
+  description "shadow caster right"
   translation 20 0 2
   children Shape {
     appearance Appearance { material Material { } }
