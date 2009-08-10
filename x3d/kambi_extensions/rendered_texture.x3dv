@@ -15,15 +15,15 @@ EXTERNPROTO EditableTransform [
 ] [ "../useful_prototypes.x3dv#EditableTransform" ]
 
 # Camera settings "encoded" in the VRML declaration below :
-# direction 0.0063601597212255 -0.0037539245095104 -0.0042828414589166
-# up 0.3647128939628601 0.8981161713600158 -0.2455910444259643
+# direction 0.0162931103259325 -0.0087941382080316 0.0075629726052284
+# up 0.398832231760025 0.8981400728225708 0.1851321160793304
 # gravityUp 0 1 0
 Viewpoint {
-  position -7.5478754043579102 3.6707220077514648 2.8329453468322754
-  orientation -0.3903893530368804 -0.8968992233276367 -0.2077686041593551 1.0710798501968384
+  position -10.518335342407227 6.0124320983886719 -2.6900680065155029
+  orientation -0.1425759643316268 -0.9642499685287475 -0.223369762301445 2.0381448268890381
 }
 
-NavigationInfo { type "FLY" }
+NavigationInfo { type "FLY"  speed 10 }
 
 EditableTransform {
   children DEF DynamicTrans Transform {
@@ -48,30 +48,55 @@ DEF Orient OrientationInterpolator {
 ROUTE Time.fraction_changed TO Orient.set_fraction
 ROUTE Orient.value_changed TO DynamicTrans.rotation
 
+# Testing box prototype ------------------------------------------------------
+
+PROTO TestingBox [
+  inputOutput SFNode appearance NULL
+  inputOutput MFString string ""
+] {
+  Group {
+    children [
+      Shape {
+        appearance IS appearance
+        geometry Box { }
+      }
+      Transform {
+        translation 0 2 0
+        rotation 0 1 0 -1.7
+        children Shape {
+          geometry Text {
+            string IS string
+            fontStyle FontStyle { size 0.3 justify "MIDDLE" }
+          }
+        }
+      }
+    ]
+  }
+}
+
 # box with RenderedTexture ---------------------------------------------------
 
-Shape {
+TestingBox {
+  string "Explicit viewpoint"
   appearance Appearance {
     material Material { }
     texture RenderedTexture {
       update "ALWAYS"
       dimensions [ 512 512 ]
-      repeatS TRUE
-      repeatT TRUE
-      #depthMap TRUE
+      viewpoint
+      # Camera settings "encoded" in the VRML declaration below :
+      # direction 0.0179050657898187 -0.008794137276709 -0.0014395721955224
+      # up 0.4382922053337097 0.898141324520111 -0.0352372489869594
+      # gravityUp 0 1 0
+      Viewpoint {
+        position -4.4447846412658691 2.2520251274108887 -1.0610120296478271
+        orientation -0.2375470995903015 -0.9463170766830444 -0.2192159593105316 1.5456631183624268
+      }
 
       # Test this will cause appropriate warning and size will change to 32 x 32
 #      dimensions [ 32 32 ]
-
-      # Test this will cause texture to look with blocky pixels
-#      dimensions [ 32 32 ]
-#       textureProperties TextureProperties {
-#         minificationFilter "NEAREST_PIXEL"
-#         magnificationFilter "NEAREST_PIXEL"
-#       }
     }
-    textureTransform TextureTransform { scale 2 2 }
-    shaders ComposedShader {
+    shaders DEF MyShader ComposedShader {
       language "GLSL"
       parts [
         ShaderPart { type "FRAGMENT" url
@@ -88,5 +113,78 @@ void main(void)
     }
 
   }
-  geometry Box { }
+}
+
+# box with RenderedTexture ---------------------------------------------------
+
+Transform {
+  translation 0 0 3
+  children TestingBox {
+    string "Repeat 2x"
+    appearance Appearance {
+      material Material { }
+      texture RenderedTexture {
+        update "ALWAYS"
+        dimensions [ 512 512 ]
+        repeatS TRUE
+        repeatT TRUE
+      }
+      # Test TextureTransform (and repeatS/T) work Ok
+      textureTransform TextureTransform { scale 2 2 }
+      shaders USE MyShader
+    }
+  }
+}
+
+# box with RenderedTexture ---------------------------------------------------
+
+Transform {
+  translation 0 0 6
+  children TestingBox {
+    string [ "depthMap" "(and explicit viewpoint)" ]
+    appearance Appearance {
+      material Material { }
+      texture RenderedTexture {
+        update "ALWAYS"
+        dimensions [ 512 512 ]
+
+        # Test depthMap
+        depthMap TRUE
+
+        viewpoint
+        # Camera settings "encoded" in the VRML declaration below :
+        # direction 0.0199739690870046 -0.0006295652128756 0.0008271657861769
+        # up 0.0314487889409065 0.9994763731956481 0.001302644261159
+        # gravityUp 0 1 0
+        Viewpoint {
+          position -2.3980166912078857 -0.4101448059082031 -3.1834867000579834
+          orientation -0.0151009261608123 -0.9997622370719909 -0.0157377813011407 1.6124224662780762
+        }
+      }
+      shaders USE MyShader
+    }
+  }
+}
+
+# box with RenderedTexture ---------------------------------------------------
+
+Transform {
+  translation 0 0 9
+  children TestingBox {
+    string "Pixelated"
+    appearance Appearance {
+      material Material { }
+      texture RenderedTexture {
+        update "ALWAYS"
+
+        # Test this will cause texture to look with blocky pixels
+        dimensions [ 32 32 ]
+        textureProperties TextureProperties {
+          minificationFilter "NEAREST_PIXEL"
+          magnificationFilter "NEAREST_PIXEL"
+        }
+      }
+      shaders USE MyShader
+    }
+  }
 }
