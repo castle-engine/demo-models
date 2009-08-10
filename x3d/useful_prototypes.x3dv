@@ -142,7 +142,10 @@ function keyPress(value, time)
     when (value = 'n', n_pressed := true )))))))))))))))
 
 function keyRelease(value, time)
-  when (isActive,
+  { respect key releases even when not isActive, otherwise
+    (if isActive would get false before user released the key)
+    we would keep *_pressed = true in infinity. }
+
       if (value = 'f', f_pressed := false,
       if (value = 's', s_pressed := false,
       if (value = 'e', e_pressed := false,
@@ -158,7 +161,7 @@ function keyRelease(value, time)
       if (value = 'o', o_pressed := false,
 
       if (value = 'm', m_pressed := false,
-    when (value = 'n', n_pressed := false )))))))))))))))
+    when (value = 'n', n_pressed := false ))))))))))))))
 
 function time(value, timestamp)
   { calculate timeDiff, to scale animations
