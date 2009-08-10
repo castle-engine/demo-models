@@ -56,7 +56,8 @@ Shape {
     texture RenderedTexture {
       update "ALWAYS"
       dimensions [ 512 512 ]
-
+      repeatS TRUE
+      repeatT TRUE
 
       # Test this will cause appropriate warning and size will change to 32 x 32
 #      dimensions [ 32 32 ]
@@ -68,6 +69,7 @@ Shape {
 #         magnificationFilter "NEAREST_PIXEL"
 #       }
     }
+    textureTransform TextureTransform { scale 2 2 }
     shaders ComposedShader {
       language "GLSL"
       parts [
