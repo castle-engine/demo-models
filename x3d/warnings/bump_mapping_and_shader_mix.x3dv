@@ -1,0 +1,25 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance KambiAppearance {
+    texture ImageTexture {
+      url "../../textures/leaf.png"
+    }
+    normalMap ImageTexture {
+      url "../../textures/leaf_normal_map.png"
+    }
+    material Material { }
+    textureTransform TextureTransform { scale 10 10 }
+    shaders ComposedShader {
+      language "GLSL"
+      parts [
+        ShaderPart { type "VERTEX" url "../shaders/glsl_toon_shading.vs" }
+        ShaderPart { type "FRAGMENT" url "../shaders/glsl_toon_shading_2_main.fs" }
+        ShaderPart { type "FRAGMENT" url "../shaders/glsl_toon_shading_2_helper.fs" }
+      ]
+    }
+
+  }
+  geometry Teapot { }
+}
