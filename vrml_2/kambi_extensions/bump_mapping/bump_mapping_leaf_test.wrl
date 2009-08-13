@@ -81,13 +81,7 @@ Transform {
   translation 0 8 0
   children Row {
     appearance KambiAppearance {
-      # Don't do "USE MyTex" --- workarounds Kambi VRML engine bug,
-      # for now texture and normalMap are associated such that you cannot
-      # use the same texture and add normalMap, without affecting previous
-      # texture usage.
-      texture DEF MyTex ImageTexture {
-        url "../../../textures/leaf.png"
-      }
+      texture USE MyTex
       normalMap DEF MyNormalTex ImageTexture {
         url "../../../textures/leaf_normal_map.png"
       }

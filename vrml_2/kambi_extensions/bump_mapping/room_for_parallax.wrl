@@ -721,10 +721,10 @@ DEF OB_TableTop_002 Transform {
 						texture DEF bois5_jpg ImageTexture {
 							url "../../../textures/bois5.png"
 						}
-                                                normalMap ImageTexture {
+                                                normalMap DEF bois5_normalMap ImageTexture {
 							url "../../../textures/bois5_normal_map.png"
 						}
-                                                heightMap ImageTexture {
+                                                heightMap DEF bois5_heightMap ImageTexture {
 							url "../../../textures/bois5_height_map.png"
 						}
                                                 heightMapScale 0.05
@@ -795,12 +795,8 @@ DEF OB_Cube_002 Transform {
 							transparency 0.0
 						}
 						texture USE bois5_jpg
-                                                normalMap ImageTexture {
-							url "../../../textures/bois5_normal_map.png"
-						}
-                                                heightMap ImageTexture {
-							url "../../../textures/bois5_height_map.png"
-						}
+                                                normalMap USE bois5_normalMap
+                                                heightMap USE bois5_heightMap
                                                 heightMapScale 0.05
 
 					}
@@ -1053,12 +1049,8 @@ DEF OB_TableTop_001 Transform {
 					appearance KambiAppearance {
 						material USE MA_MatWhiteUnderTexture
 						texture USE bois5_jpg
-                                                normalMap ImageTexture {
-							url "../../../textures/bois5_normal_map.png"
-						}
-                                                heightMap ImageTexture {
-							url "../../../textures/bois5_height_map.png"
-						}
+                                                normalMap USE bois5_normalMap
+                                                heightMap USE bois5_heightMap
                                                 heightMapScale 0.05
 
 					}
