@@ -57,8 +57,9 @@ DEF OB_Teapot Transform {
                                                 # so that it takes (-1, -1) - (1, 1) rectangle,
                                                 # so that middle of texture corresponds to normal.xy = (0, 0)
                                                 textureTransform TextureTransform {
+                                                  center 0.5 0.5
                                                   scale 0.5 0.5
-                                                  translation 0.5 0.5
+                                                  translation -0.5 -0.5
                                                 }
 
 					}
