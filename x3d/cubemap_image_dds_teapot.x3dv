@@ -70,3 +70,19 @@ Transform {
       solid FALSE
       texCoord TextureCoordinateGenerator {
         mode "WORLDSPACEREFLECTIONVECTOR" } } } }
+
+# One more test: S3TC cube map in DDS file
+
+Transform {
+  translation 0 0 -3
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture ImageCubeMapTexture {
+        url "../textures/caste_end_sequence_s3tc.dds"
+      }
+    }
+    geometry Teapot {
+      solid FALSE
+      texCoord TextureCoordinateGenerator {
+        mode "WORLDSPACENORMAL" } } } }
