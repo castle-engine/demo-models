@@ -10,7 +10,7 @@ Transform {
       appearance Appearance {
         material Material { }
         texture ImageCubeMapTexture {
-          url "../textures/caste_end_sequence.dds"
+          url "../textures/castle_end_sequence.dds"
         }
       }
       geometry IndexedFaceSet {

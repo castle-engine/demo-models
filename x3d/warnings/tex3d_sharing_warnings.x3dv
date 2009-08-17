@@ -15,7 +15,7 @@ Shape {
       url [
         "../../textures/not_existing.dds"
         "../../textures/test_texture.png"
-        "../../textures/caste_end_sequence.dds"
+        "../../textures/castle_end_sequence.dds"
         "../../textures/random3d.dds"
       ]
       repeatS TRUE

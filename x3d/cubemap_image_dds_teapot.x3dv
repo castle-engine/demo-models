@@ -7,7 +7,7 @@ Shape {
   appearance Appearance {
     material Material { }
     texture DEF CubeMap ImageCubeMapTexture {
-      url "../textures/caste_end_sequence.dds"
+      url "../textures/castle_end_sequence.dds"
       #url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/BlueSky512_from_gimp.dds"
       #url "/home/michalis/images/dds_tests/from_awakening_textures/normalizedCube256.dds"
 #      url "/home/michalis/images/dds_tests/from_cubemapgen/Textures/CubeMaps/Animus128.dds"
@@ -79,7 +79,7 @@ Transform {
     appearance Appearance {
       material Material { }
       texture ImageCubeMapTexture {
-        url "../textures/caste_end_sequence_s3tc.dds"
+        url "../textures/castle_end_sequence_s3tc.dds"
       }
     }
     geometry Teapot {
