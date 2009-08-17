@@ -594,18 +594,20 @@ PROTO Test [
   }
 }
 
+# mipmaps generated (for comparison) -----------------------------------------
+
 Test {
-  viewpointName "No anisotropy, no S3TC"
+  viewpointName "Mipmaps generated"
   texture ImageTexture {
-    url "../textures/marble_with_mipmaps.dds"
+    url "../textures/016marbre.jpg"
   }
 }
 
 Test {
   translation 100 0 0
-  viewpointName "Anisotropy"
+  viewpointName "Mipmaps generated, anisotropy"
   texture ImageTexture {
-    url "../textures/marble_with_mipmaps.dds"
+    url "../textures/016marbre.jpg"
     textureProperties TextureProperties {
       anisotropicDegree 32
       minificationFilter "NICEST"
@@ -616,15 +618,59 @@ Test {
 
 Test {
   translation 200 0 0
-  viewpointName "S3TC"
+  viewpointName "Mipmaps generated, S3TC"
+  texture ImageTexture {
+    url "../textures/marble_s3tc.dds"
+  }
+}
+
+Test {
+  translation 300 0 0
+  viewpointName "Mipmaps generated, anisotropy, S3TC"
+  texture ImageTexture {
+    url "../textures/marble_s3tc.dds"
+    textureProperties TextureProperties {
+      anisotropicDegree 32
+      minificationFilter "NICEST"
+      magnificationFilter "NICEST"
+    }
+  }
+}
+
+# mipmaps from DDS -----------------------------------------------------------
+
+Test {
+  translation 0 100 0
+  viewpointName "Mipmaps from DDS"
+  texture ImageTexture {
+    url "../textures/marble_with_mipmaps.dds"
+  }
+}
+
+Test {
+  translation 100 100 0
+  viewpointName "Mipmaps from DDS, anisotropy"
+  texture ImageTexture {
+    url "../textures/marble_with_mipmaps.dds"
+    textureProperties TextureProperties {
+      anisotropicDegree 32
+      minificationFilter "NICEST"
+      magnificationFilter "NICEST"
+    }
+  }
+}
+
+Test {
+  translation 200 100 0
+  viewpointName "Mipmaps from DDS, S3TC"
   texture ImageTexture {
     url "../textures/marble_with_mipmaps_s3tc.dds"
   }
 }
 
 Test {
-  translation 300 0 0
-  viewpointName "Anisotropy and S3TC"
+  translation 300 100 0
+  viewpointName "Mipmaps from DDS, anisotropy, S3TC"
   texture ImageTexture {
     url "../textures/marble_with_mipmaps_s3tc.dds"
     textureProperties TextureProperties {
@@ -634,3 +680,30 @@ Test {
     }
   }
 }
+
+# colored mipmaps from DDS -----------------------------------------------------------
+
+Test {
+  translation 0 200 0
+  viewpointName "Colored mipmaps from DDS"
+  texture ImageTexture {
+    url "../textures/marble_with_colored_mipmaps.dds"
+  }
+}
+
+Test {
+  translation 100 200 0
+  viewpointName "Colored mipmaps from DDS, anisotropy"
+  texture ImageTexture {
+    url "../textures/marble_with_colored_mipmaps.dds"
+    textureProperties TextureProperties {
+      anisotropicDegree 32
+      minificationFilter "NICEST"
+      magnificationFilter "NICEST"
+    }
+  }
+}
+
+# No S3TC version with colored mipmaps (as gimp-dds doesn't allow me
+# to edit mipmaps at all, and my glViewImage doesn't allow me to
+# edit mipmaps in S3TC compressed DDS).
