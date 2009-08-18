@@ -2,20 +2,41 @@
 PROFILE Interchange
 COMPONENT Texturing:3
 
-# TODO: this uses multitexturing + GLSL shaders by a hack
-# (not the "sanctioned" way by X3D specification).
-# The correct way would be:
-#
-# Appearance {
-#   shaders ComposedShader {
-#     language "GLSL"
-#     parts [
-#       ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
-#     ]
-#     initializeOnly SFNode texture_squirrel ImageTexture { url "../../textures/test_texture.png" }
-#     initializeOnly SFNode texture_brick ImageTexture { url "../../textures/brick031.jpg" }
-#   }
-# }
+# ----------------------------------------------------------------------------
+# Use two textures with GLSL shader.
+
+Transform {
+  translation 0 2 0
+  children Shape {
+    appearance Appearance {
+      shaders ComposedShader {
+        language "GLSL"
+        parts [
+          ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
+        ]
+        initializeOnly SFNode texture_squirrel
+          ImageTexture { url "../../textures/test_texture.png" }
+        initializeOnly SFNode texture_brick
+          ImageTexture { url "../../textures/brick031.jpg" }
+      }
+    }
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      coordIndex [ 0 1 2 3 ]
+      texCoord MultiTextureCoordinate {
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1 ]
+        }
+      }
+      solid FALSE
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# The first way uses multitexturing + GLSL shaders by a hack: knowing how
+# multitextures are applied, we can just pass integer to uniform variable.
+# (This is not the "sanctioned" way by X3D specification).
 
 Shape {
   appearance Appearance {
@@ -36,12 +57,11 @@ Shape {
     }
   }
   geometry IndexedFaceSet {
-    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                               0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
-    coordIndex [ 0 1 2 3, -1, 4 5 6 7 ]
+    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+    coordIndex [ 0 1 2 3 ]
     texCoord MultiTextureCoordinate {
       texCoord TextureCoordinate {
-        point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        point [ 0 0, 1 0, 1 1, 0 1 ]
       }
     }
     solid FALSE
