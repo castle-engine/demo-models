@@ -6,7 +6,7 @@ COMPONENT Texturing:3
 # Use two textures with GLSL shader.
 
 Transform {
-  translation 0 2 0
+  translation 0 0 0
   children Shape {
     appearance Appearance {
       shaders ComposedShader {
@@ -34,36 +34,83 @@ Transform {
 }
 
 # ----------------------------------------------------------------------------
+# Use two textures with GLSL shader, this time passed as MFNode (samplers
+# array for shader).
+
+Transform {
+  translation 1.5 0 0
+  children Shape {
+    appearance Appearance {
+      shaders ComposedShader {
+        language "GLSL"
+        parts [
+          ShaderPart { type "FRAGMENT" url
+          "
+            uniform sampler2D textures[2];
+
+            void main()
+            {
+              gl_FragColor = gl_Color *
+                max(
+                  texture2D(textures[0], gl_TexCoord[0].st),
+                  texture2D(textures[1], gl_TexCoord[1].st));
+            }
+
+          " }
+        ]
+        initializeOnly MFNode textures [
+          ImageTexture { url "../../textures/test_texture.png" }
+          ImageTexture { url "../../textures/brick031.jpg" }
+        ]
+      }
+    }
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      coordIndex [ 0 1 2 3 ]
+      texCoord MultiTextureCoordinate {
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1 ]
+        }
+      }
+      solid FALSE
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
 # The first way uses multitexturing + GLSL shaders by a hack: knowing how
 # multitextures are applied, we can just pass integer to uniform variable.
 # (This is not the "sanctioned" way by X3D specification).
 
-Shape {
-  appearance Appearance {
-    texture MultiTexture {
-      texture [
-        ImageTexture { url "../../textures/test_texture.png" }
-        ImageTexture { url "../../textures/brick031.jpg" }
-      ]
-    }
+Transform {
+  translation 3 0 0
+  children Shape {
+    appearance Appearance {
+      texture MultiTexture {
+        texture [
+          ImageTexture { url "../../textures/test_texture.png" }
+          ImageTexture { url "../../textures/brick031.jpg" }
+        ]
+      }
 
-    shaders ComposedShader {
-      language "GLSL"
-      parts [
-        ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
-      ]
-      initializeOnly SFInt32 texture_squirrel 0
-      initializeOnly SFInt32 texture_brick 1
-    }
-  }
-  geometry IndexedFaceSet {
-    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-    coordIndex [ 0 1 2 3 ]
-    texCoord MultiTextureCoordinate {
-      texCoord TextureCoordinate {
-        point [ 0 0, 1 0, 1 1, 0 1 ]
+      shaders ComposedShader {
+        language "GLSL"
+        parts [
+          ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
+        ]
+        initializeOnly SFInt32 texture_squirrel 0
+        initializeOnly SFInt32 texture_brick 1
       }
     }
-    solid FALSE
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      coordIndex [ 0 1 2 3 ]
+      texCoord MultiTextureCoordinate {
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1 ]
+        }
+      }
+      solid FALSE
+    }
   }
 }
