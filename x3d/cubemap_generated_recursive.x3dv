@@ -101,7 +101,7 @@ ViewportInfo {
     "one of the boxes, even very slightly, to make this \"blind spot\""
     "disappear."
     # TODO: why does this happen exactly?
-    # Happens with both fglrx and Mesa3d, so it's not GPU bug.
+    # Happens with all nvidia, fglrx and Mesa3d, so it's not GPU bug.
     # There's probably a reason why does this happen when cubes
     # are perfectly opposite each other (even a slight change, rotation
     # helps).
