@@ -1,0 +1,49 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0000159934934345 8.794257155386731E-006 -0.0013332084054127
+# up -0.0000395623283111 0.9999782443046569 0.0065957363694906
+# gravityUp 0 1 0
+Viewpoint {
+  position 25.275161743164063 -6.7094578742980957 40.905670166015625
+  orientation 0.4818305075168609 -0.8762710690498352 0 0.0136893289163708
+}
+
+NavigationInfo { type [ "FLY", "ANY" ] }
+
+Shape { geometry DEF MyText Text {
+  string ""
+  fontStyle FontStyle { family "TYPEWRITER" }
+} }
+
+DEF MyProx ProximitySensor { size 10000000 10000000 10000000 }
+
+DEF MyScript Script {
+  inputOnly SFTime generate_now
+  outputOnly MFString generated
+
+  # internal variables for the script
+  initializeOnly SFInt32 i 0
+  initializeOnly SFInt32 j 0
+  initializeOnly SFString line ""
+  initializeOnly SFString char ""
+
+  url "kambiscript:
+function generate_now(value, timestamp)
+  array_set_count(generated, 16);
+
+  for(i, 0, 15,
+    line := '';
+    for(j, 0, 15,
+      char := string(i * 16 + j);
+      { pad number to 3 dcharacters }
+      while (array_get_count(char) < 4, char := ' ' + char);
+      line := line + char + ': ' + character_from_code(i * 16 + j)  + ' ');
+    array_set(generated, i, line)
+  )
+"
+}
+
+ROUTE MyProx.enterTime TO MyScript.generate_now
+ROUTE MyScript.generated TO MyText.string
