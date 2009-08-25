@@ -23,7 +23,7 @@ Viewpoint {
   orientation -0.1425759643316268 -0.9642499685287475 -0.223369762301445 2.0381448268890381
 }
 
-NavigationInfo { type "FLY"  speed 10 }
+KambiNavigationInfo { type "FLY"  speed 10 timeOriginAtLoad TRUE }
 
 EditableTransform {
   children DEF DynamicTrans Transform {
