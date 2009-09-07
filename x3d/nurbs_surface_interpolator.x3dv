@@ -88,9 +88,16 @@ Transform {
     }
 
     DEF Trans Transform {
-      children Shape {
-        appearance Appearance { material Material { diffuseColor 1 1 0 } }
-        geometry Sphere { radius 0.2 } } }
+      children [
+        Shape {
+          appearance Appearance { material Material { diffuseColor 1 1 0 } }
+          geometry Sphere { radius 0.2 } }
+        DEF TransNormal Transform {
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 0 0 1 } }
+            geometry Sphere { radius 0.2 } } }
+      ]
+    }
   ]
 }
 
@@ -126,6 +133,9 @@ DEF Scr Script {
   initializeOnly SFTime previousTime -1
   initializeOnly SFTime timeDiff 0
   inputOnly SFTime time
+
+  inputOnly SFVec3f revert_normal
+  outputOnly SFVec3f reverted_normal
 
   url "kambiscript:
 
@@ -164,11 +174,16 @@ function time(value, timestamp)
   when (or(left_pressed, right_pressed, up_pressed, down_pressed),
     position := min(position, max_position);
     position := max(position, min_position))
+
+function revert_normal(value, timestamp)
+  reverted_normal := -value
 "
 }
 
 ROUTE Scr.position TO Interp.set_fraction
 ROUTE Interp.position_changed TO Trans.translation
+ROUTE Interp.normal_changed TO Scr.revert_normal
+ROUTE Scr.reverted_normal TO TransNormal.translation
 
 ROUTE KeySens.keyPress TO Scr.keyPress
 ROUTE KeySens.keyRelease TO Scr.keyRelease
