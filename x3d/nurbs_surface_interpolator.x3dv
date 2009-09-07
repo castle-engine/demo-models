@@ -3,7 +3,7 @@ PROFILE Immersive
 COMPONENT NURBS:1
 
 Transform {
-  rotation 1 0 0 1.7
+  rotation 1 0 0 1.5707963268
   children [
     Shape {
       appearance Appearance {  material Material { } }
