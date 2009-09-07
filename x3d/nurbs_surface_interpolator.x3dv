@@ -1,0 +1,201 @@
+#X3D V3.0 utf8
+PROFILE Immersive
+COMPONENT NURBS:1
+
+Transform {
+  rotation 1 0 0 1.7
+  children [
+    Shape {
+      appearance Appearance {  material Material { } }
+      geometry NurbsPatchSurface {
+        uDimension 8
+        vDimension 8
+        uOrder 4
+        vOrder 4
+        controlPoint DEF Coord Coordinate {
+          point
+            [
+            -3.500000 0 -3.500000
+            -2.500000 0 -3.500000
+            -1.500000 0 -3.500000
+            -0.500000 0 -3.500000
+            0.500000 0 -3.500000
+            1.290466 1.240563 -4.096785
+            1.879569 1.929874 -4.459244
+            2.987109 2.680929 -5.083985
+            -3.500000 0 -2.500000
+            -2.500000 0 -2.500000
+            -1.500000 0 -2.500000
+            -0.500000 0 -2.500000
+            0.500000 0 -2.500000
+            1.482221 0.884200 -2.932595
+            2.332081 1.314465 -3.155402
+            3.161473 1.570384 -3.453897
+            -3.500000 0 -1.500000
+            -2.500000 0 -1.500000
+            -1.500000 0 -1.500000
+            -0.500000 0 -1.500000
+            0.500000 0 -1.500000
+            1.500000 0 -1.500000
+            2.500000 0 -1.500000
+            3.500000 0 -1.500000
+            -3.500000 0 -0.500000
+            -2.500000 0 -0.500000
+            -1.500000 0 -0.500000
+            -1.007258 2.285442 -1.864698
+            0.500000 0 -0.500000
+            1.617411 -0.951524 0.233153
+            2.500000 0 -0.500000
+            3.500000 0 -0.500000
+            -3.500000 0 0.500000
+            -2.500000 0 0.500000
+            -1.500000 0 0.500000
+            -0.500000 0 0.500000
+            0.500000 0 0.500000
+            1.800015 -2.115854 1.607666
+            2.500000 0 0.500000
+            3.500000 0 0.500000
+            -3.500000 0 1.500000
+            -2.500000 0 1.500000
+            -1.500000 0 1.500000
+            -1.161361 2.837375 -0.184846
+            0.500000 0 1.500000
+            1.457466 -0.760719 2.208360
+            2.500000 0 1.500000
+            3.500000 0 1.500000
+            -3.500000 0 2.500000
+            -2.500000 0 2.500000
+            -1.500000 0 2.500000
+            -0.500000 0 2.500000
+            0.500000 0 2.500000
+            1.500000 0 2.500000
+            2.500000 0 2.500000
+            3.500000 0 2.500000
+            -3.500000 0 3.500000
+            -2.500000 0 3.500000
+            -1.500000 0 3.500000
+            -0.500000 0 3.500000
+            0.500000 0 3.500000
+            1.500000 0 3.500000
+            2.500000 0 3.500000
+            3.500000 0 3.500000
+            ]
+        }
+        uTessellation 50
+        vTessellation 50
+        solid FALSE
+      }
+    }
+
+    DEF Trans Transform {
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Sphere { radius 0.2 } } }
+  ]
+}
+
+DEF Interp NurbsSurfaceInterpolator {
+  uDimension 8
+  vDimension 8
+  uOrder 4
+  vOrder 4
+  controlPoint USE Coord
+}
+
+DEF KeySens KeySensor { }
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+
+DEF Scr Script {
+  inputOutput SFVec2f position 0 0
+
+  # Constants. Adjust initial values for the min/max knots of our curve.
+  # (Note that the knot vector is automatically calculated for 0..1 range
+  # if not specified.)
+  initializeOnly SFVec2f min_position 0 0
+  initializeOnly SFVec2f max_position 1 1
+
+  initializeOnly SFBool left_pressed  FALSE
+  initializeOnly SFBool right_pressed FALSE
+  initializeOnly SFBool up_pressed    FALSE
+  initializeOnly SFBool down_pressed  FALSE
+
+  inputOnly SFString keyPress
+  inputOnly SFString keyRelease
+
+  initializeOnly SFTime previousTime -1
+  initializeOnly SFTime timeDiff 0
+  inputOnly SFTime time
+
+  url "kambiscript:
+
+function initialize(time)
+  { send initial output position event, to set initial sphere position. }
+  position := (min_position + max_position) / 2
+
+function keyPress(value, time)
+  when (value = 'a', left_pressed  := true);
+  when (value = 'd', right_pressed := true);
+  when (value = 'w', up_pressed    := true);
+  when (value = 's', down_pressed  := true)
+
+function keyRelease(value, time)
+  when (value = 'a', left_pressed  := false);
+  when (value = 'd', right_pressed := false);
+  when (value = 'w', up_pressed    := false);
+  when (value = 's', down_pressed  := false)
+
+function time(value, timestamp)
+  { calculate timeDiff, to scale animations
+    (so that it runs with the same speed on every system) }
+  timeDiff := if (previousTime >= 0, value - previousTime, 0);
+
+  { update previousTime }
+  previousTime := value;
+
+  { this is the key point of the script: move position,
+    if left/right/up/down is pressed. Move length is scaled by timeDiff,
+    so it works the same on all computers. }
+  when (left_pressed , vector_set(position, 0, vector_get(position, 0) - 0.2 * timeDiff));
+  when (right_pressed, vector_set(position, 0, vector_get(position, 0) + 0.2 * timeDiff));
+  when (up_pressed   , vector_set(position, 1, vector_get(position, 1) - 0.2 * timeDiff));
+  when (down_pressed , vector_set(position, 1, vector_get(position, 1) + 0.2 * timeDiff));
+
+  when (or(left_pressed, right_pressed, up_pressed, down_pressed),
+    position := min(position, max_position);
+    position := max(position, min_position))
+"
+}
+
+ROUTE Scr.position TO Interp.set_fraction
+ROUTE Interp.position_changed TO Trans.translation
+
+ROUTE KeySens.keyPress TO Scr.keyPress
+ROUTE KeySens.keyRelease TO Scr.keyRelease
+
+ROUTE Time.elapsedTime TO Scr.time
+
+# ----------------------------------------------------------------------------
+# text, viewpoint, navigation - things not related to the test,
+# just making it more comfortable
+
+Transform {
+  translation 0 -4 1
+  children Shape {
+    geometry Text {
+      string "Press A/W/S/D keys to move left/up/down/right along the surface"
+      fontStyle FontStyle { justify "MIDDLE" size 0.6 }
+    }
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0004871684650424 -1.3024643976677908E-006 -0.0306217316538095
+# up 0.0000946925356402 1 -0.0000439967552665
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.7350756525993347 -0.7437645196914672 17.486944198608398
+  orientation -0.0028367645572871 0.9995328187942504 -0.0216976981610059 0.0159123186022043
+}
+
+#NavigationInfo { type [ "NONE", "ANY" ] }
