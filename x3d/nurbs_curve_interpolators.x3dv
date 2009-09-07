@@ -1,0 +1,115 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+COMPONENT NURBS:1
+
+Shape {
+  geometry NurbsCurve {
+    controlPoint DEF Coord Coordinate
+    {
+      point
+       [
+       -2.285389 1.235778 1.636090
+       -1 0 0
+       1.141864 1.003204 -1.775073
+       1 0 0
+       3.120634 1.865495 2.322197
+       ]
+    }
+    tessellation 100
+  }
+}
+
+DEF Trans Transform {
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Sphere { radius 0.2 } } }
+
+DEF Interp NurbsPositionInterpolator {
+  controlPoint USE Coord
+}
+
+DEF KeySens KeySensor { }
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+
+DEF Scr Script {
+  inputOutput SFFloat position 0
+
+  # Constants. Adjust initial values for the min/max knots of our curve.
+  # (Note that the knot vector is automatically calculated for 0..1 range
+  # if not specified.)
+  initializeOnly SFFloat min_position 0
+  initializeOnly SFFloat max_position 1
+
+  initializeOnly SFBool left_pressed  FALSE
+  initializeOnly SFBool right_pressed FALSE
+
+  inputOnly SFString keyPress
+  inputOnly SFString keyRelease
+
+  initializeOnly SFTime previousTime -1
+  initializeOnly SFTime timeDiff 0
+  inputOnly SFTime time
+
+  url "kambiscript:
+
+function initialize(time)
+  { send initial output position event, to set initial sphere position. }
+  position := min_position
+
+function keyPress(value, time)
+  when (value = 'l', left_pressed  := true);
+  when (value = 'r', right_pressed := true)
+
+function keyRelease(value, time)
+  when (value = 'l', left_pressed  := false);
+  when (value = 'r', right_pressed := false)
+
+function time(value, timestamp)
+  { calculate timeDiff, to scale animations
+    (so that it runs with the same speed on every system) }
+  timeDiff := if (previousTime >= 0, value - previousTime, 0);
+
+  { update previousTime }
+  previousTime := value;
+
+  { this is the key point of the script: move position,
+    if left/right is pressed. Move length is scaled by timeDiff,
+    so it works the same on all computers. }
+  when (left_pressed , position := max(position - 0.2 * timeDiff, min_position));
+  when (right_pressed, position := min(position + 0.2 * timeDiff, max_position))
+"
+}
+
+ROUTE Scr.position TO Interp.set_fraction
+ROUTE Interp.value_changed TO Trans.translation
+
+ROUTE KeySens.keyPress TO Scr.keyPress
+ROUTE KeySens.keyRelease TO Scr.keyRelease
+
+ROUTE Time.elapsedTime TO Scr.time
+
+# ----------------------------------------------------------------------------
+# text, viewpoint, navigation - things not related to the test,
+# just making it more comfortable
+
+Transform {
+  translation 0.4 -1 0
+  children Shape {
+    geometry Text {
+      string "Press L / R keys to move left / right along the curve"
+      fontStyle FontStyle { justify "MIDDLE" size 0.4 }
+    }
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -4.732965337628364E-018 -3.0521436344011638E-014 -0.0193281304091215
+# up -1.9936477599000191E-013 1 4.3709810881864541E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.5693148970603942 -3.5212718074717486E-008 7.1049470901489258
+  orientation 0 0 1 0
+}
+
+#NavigationInfo { type [ "NONE", "ANY" ] }
