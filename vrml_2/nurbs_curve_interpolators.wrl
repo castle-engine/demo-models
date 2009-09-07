@@ -31,7 +31,7 @@ DEF Interp NurbsPositionInterpolator {
        1 0 0
        3.120634 1.865495 2.322197
        ]
-
+  order 3
 }
 
 DEF KeySens KeySensor { }
