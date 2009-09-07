@@ -20,11 +20,22 @@ Shape {
 }
 
 DEF Trans Transform {
-  children Shape {
-    appearance Appearance { material Material { diffuseColor 1 1 0 } }
-    geometry Sphere { radius 0.2 } } }
+  children [
+    Shape {
+      appearance Appearance { material Material { diffuseColor 1 1 0 } }
+      geometry Sphere { radius 0.2 } }
+    DEF TransOrient Transform {
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 0 0 1 } }
+        geometry Sphere { radius 0.2 } } }
+  ]
+}
 
 DEF Interp NurbsPositionInterpolator {
+  controlPoint USE Coord
+}
+
+DEF OrientInterp NurbsOrientationInterpolator {
   controlPoint USE Coord
 }
 
@@ -83,6 +94,9 @@ function time(value, timestamp)
 
 ROUTE Scr.position TO Interp.set_fraction
 ROUTE Interp.value_changed TO Trans.translation
+
+ROUTE Scr.position TO OrientInterp.set_fraction
+ROUTE OrientInterp.value_changed TO TransOrient.translation
 
 ROUTE KeySens.keyPress TO Scr.keyPress
 ROUTE KeySens.keyRelease TO Scr.keyRelease
