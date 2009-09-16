@@ -59,7 +59,7 @@ DEF OB_Teapot Transform {
 							transparency 0.0
 						}
                                                 texture ImageTexture {
-                                                  url "../textures/spheremap-fsh.jpg"
+                                                  url "../textures/spheremap-sph.jpg"
                                                 }
 					}
 					geometry IndexedFaceSet {
