@@ -22,7 +22,7 @@ KambiHeadLight {
 
 EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
-] [ "tesselated_plane.wrl#TesselatedPlane" ]
+] [ "../tesselated_plane.wrl#TesselatedPlane" ]
 
 EXTERNPROTO ShadowMapReceiver [
   inputOutput SFNode texCoord
@@ -33,7 +33,7 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
   inputOutput SFString description
-] [ "useful_prototypes.x3dv#EditableTransform" ]
+] [ "../useful_prototypes.x3dv#EditableTransform" ]
 
 # spot test ------------------------------------------------------------------
 

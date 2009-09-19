@@ -60,7 +60,7 @@ DEF OB_kolumna_016 Transform {
 						}
 						texture MultiTexture {
                                                   texture [
-                                                    DEF egyptstreetfull_jpg ImageTexture { url "../../castle/data/textures/egyptstreetfull.jpg"	}
+                                                    DEF egyptstreetfull_jpg ImageTexture { url "../../../castle/data/textures/egyptstreetfull.jpg"	}
                                                     DEF ShadowMap GeneratedShadowMap { update "ALWAYS" light USE MyLight size 1024 }
                                                   ]
                                                 }
@@ -1179,7 +1179,7 @@ DEF OB_Water Transform {
 						}
                                                 texture MultiTexture {
                                                   texture [
-                                                    DEF water2_jpg_001 ImageTexture { url "../../castle/data/textures/water2.jpg" }
+                                                    DEF water2_jpg_001 ImageTexture { url "../../../castle/data/textures/water2.jpg" }
                                                     USE ShadowMap
                                                   ]
                                                 }
@@ -1236,7 +1236,7 @@ DEF OB_Tree_211 Transform {
 						}
                                                 texture MultiTexture {
                                                   texture [
-                                                    DEF tree_texture_jpg_001 ImageTexture { url "../../castle/data/textures/tree_texture.jpg" }
+                                                    DEF tree_texture_jpg_001 ImageTexture { url "../../../castle/data/textures/tree_texture.jpg" }
                                                     USE ShadowMap
                                                   ]
                                                 }
@@ -1830,7 +1830,7 @@ DEF OB_Ground Transform {
 						}
                                                 texture MultiTexture {
                                                   texture [
-                                                    DEF dirtfrancecornerg ImageTexture { url "../../castle/data/textures/dirtfrancecornergrass.jpg" }
+                                                    DEF dirtfrancecornerg ImageTexture { url "../../../castle/data/textures/dirtfrancecornergrass.jpg" }
                                                     USE ShadowMap
                                                   ]
                                                 }
