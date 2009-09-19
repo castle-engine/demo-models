@@ -1,0 +1,55 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+DEF Axes Group {
+    children [
+        DEF X_axis Transform {
+            translation 0.5 0 0
+            rotation 0 0 1 -1.570795
+            children [
+                Shape {
+                    geometry Cylinder { height 1 radius .0025}
+                    appearance Appearance {
+                        material Material {
+                            emissiveColor 1 0 0
+                            diffuseColor 0 0 0
+                            ambientIntensity 0.0
+                        }
+                    }
+                }
+            ]
+        }
+        DEF Y_axis Transform {
+            translation 0 0.5 0
+            children [
+                Shape {
+                    geometry Cylinder { height 1 radius .0025}
+                    appearance Appearance {
+                        material Material {
+                            emissiveColor 0 1 0
+                            diffuseColor 0 0 0
+                            ambientIntensity 0.0
+                        }
+                    }
+                }
+            ]
+        }
+        DEF Z_axis Transform {
+            translation 0 0 0.5
+            rotation 1 0 0 1.570795
+            children [
+                Shape {
+                    geometry Cylinder { height 1 radius .0025}
+                    appearance Appearance {
+                        material Material {
+                            emissiveColor 0 0 1
+                            diffuseColor 0 0 0
+                            ambientIntensity 0.0
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+# End of file.
