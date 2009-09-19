@@ -26,7 +26,7 @@ EXTERNPROTO TesselatedPlane [
 
 EXTERNPROTO ShadowMapReceiver [
   inputOutput SFNode texCoord
-] [ "shadow_map_receiver.wrl#ShadowMapReceiver" ]
+] [ "simple_shadow_map_receiver.wrl#ShadowMapReceiver" ]
 
 EXTERNPROTO EditableTransform [
   inputOutput MFNode children
