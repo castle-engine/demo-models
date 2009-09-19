@@ -134,10 +134,9 @@ DEF Obj_001 Transform {
         parts ShaderPart { type "FRAGMENT" url "
           uniform sampler2DShadow shadowMap;
           void main (void) {
-            gl_FragColor = max (
-              shadow2DProj (shadowMap, gl_TexCoord[0]).r * gl_Color,
-              gl_FrontLightModelProduct.sceneColor + gl_FrontLightProduct[1].ambient
-            );
+            gl_FragColor = 
+              shadow2DProj (shadowMap, gl_TexCoord[0]).r * gl_Color +
+              gl_FrontLightModelProduct.sceneColor + gl_FrontLightProduct[1].ambient;
           }
         " }
       }
@@ -329,28 +328,35 @@ DEF myScript Script {
   outputOnly SFFloat bias
   outputOnly SFFloat scale
   outputOnly MFString displayText
+
+  initializeOnly MFString constantDisplayText [
+    "Keys:"
+    " b / B: dec/inc bias"
+    " s / S: dec/inc scale" ]
+
   url "kambiscript:
     function Initialize(t)
       bias := 100;
-      scale := 6.0
+      scale := 6.0;
+      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) ) + constantDisplayText
     function keyPress (value, t)
       if ( value = 'b', bias := bias - 100, false );
       if ( value = 'B', bias := bias + 100, false);
       if ( value = 's', scale := scale - 0.25, false);
       if ( value = 'S', scale := scale + 0.25, false);
-      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) )
+      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) ) + constantDisplayText
     function biasInc (value, t)
       bias := bias + 100;
-      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) )
+      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) ) + constantDisplayText
     function biasDec (value, t)
       bias := bias - 100;
-      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) )
+      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) ) + constantDisplayText
     function scaleInc (value, t)
       scale := scale + 0.25;
-      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) )
+      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) ) + constantDisplayText
     function scaleDec (value, t)
       scale := scale - 0.25;
-      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) )
+      displayText := array ('bias: ' + string(bias), 'scale: ' + string(scale) ) + constantDisplayText
   "
 }
 
@@ -368,5 +374,33 @@ DEF myProx ProximitySensor { size 10000000 10000000 10000000 }
 
 ROUTE myProx.position_changed TO controlPanel.set_translation
 ROUTE myProx.orientation_changed TO controlPanel.set_rotation
+
+# Plane to visualize shadow map ----------------------------------------------
+
+Transform {
+  translation -10 5 -5
+  children Shape {
+    appearance KambiAppearance {
+      shadowCaster FALSE
+      texture DEF visualizeShadowMap GeneratedShadowMap {
+        # everything like mySpotShadow,
+        # except compareMode = "NONE" to display as normal grayscale texture.
+        light USE spot
+        update "ALWAYS"
+        size 1024
+        bias 100
+        scale 6.0
+        compareMode "NONE"
+      }
+    }
+    geometry QuadSet { 
+      coord Coordinate { point [ 0 0 0, 0 10 0, 20 10 0, 20 0 0 ] } 
+      texCoord TextureCoordinate { point [ 0 0.25, 0 0.75, 1 0.75, 1 0.25 ] } 
+      solid FALSE }
+  }
+}
+
+ROUTE myScript.bias TO visualizeShadowMap.bias
+ROUTE myScript.scale TO visualizeShadowMap.scale
 
 # End of File.
