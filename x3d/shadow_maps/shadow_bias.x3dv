@@ -16,7 +16,7 @@ DEF controlPanel Transform {
     children  [
       Shape {
         appearance Appearance { material Material {
-          emissiveColor 1 1 1
+          emissiveColor 0.5 0.5 1
           diffuseColor 0 0 0
           transparency 0.001
         } }
@@ -24,6 +24,7 @@ DEF controlPanel Transform {
           fontStyle FontStyle {
             justify "BEGIN"
             size 0.1
+            style "BOLD"
           }
         }
       }
@@ -134,7 +135,7 @@ DEF Obj_001 Transform {
         parts ShaderPart { type "FRAGMENT" url "
           uniform sampler2DShadow shadowMap;
           void main (void) {
-            gl_FragColor = 
+            gl_FragColor =
               shadow2DProj (shadowMap, gl_TexCoord[0]).r * gl_Color +
               gl_FrontLightModelProduct.sceneColor + gl_FrontLightProduct[1].ambient;
           }
@@ -393,9 +394,9 @@ Transform {
         compareMode "NONE"
       }
     }
-    geometry QuadSet { 
-      coord Coordinate { point [ 0 0 0, 0 10 0, 20 10 0, 20 0 0 ] } 
-      texCoord TextureCoordinate { point [ 0 0.25, 0 0.75, 1 0.75, 1 0.25 ] } 
+    geometry QuadSet {
+      coord Coordinate { point [ 0 0 0, 0 10 0, 20 10 0, 20 0 0 ] }
+      texCoord TextureCoordinate { point [ 0 0.25, 0 0.75, 1 0.75, 1 0.25 ] }
       solid FALSE }
   }
 }
