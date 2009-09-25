@@ -1,0 +1,63 @@
+#VRML V2.0 utf8
+
+Viewpoint {
+    position	0 0 .5
+    orientation	0 0 1 0
+    fieldOfView	0.785398 }
+
+WorldInfo { info "Converted by wcvt2pov v2.6c" }
+
+NavigationInfo {
+    avatarSize [ 0.24, 1.6, 0.75 ]
+    headlight FALSE }
+
+Background { skyColor .5 .5 .5 }
+
+Collision {
+    collide FALSE
+    children [
+	  DEF light_1 DirectionalLight {
+		color .713 .933 .961
+		direction 0 -1 0 }
+	  DEF light_2 DirectionalLight {
+		color .870 .718 .545
+		direction -1 3 -1 }
+	  DEF light_3 DirectionalLight {
+		color .5 .5 .5
+		direction -3 -1 -0 }
+	  DEF light_4 DirectionalLight {
+		color .604 .812 .761
+		direction 4 -1 1 }
+	  DEF light_5 DirectionalLight {
+	  	color .839 .651 .572
+		direction -1 0 -4 }
+	  DEF light_6 DirectionalLight {
+		color .557 .784 .851
+		direction 1 1 3 }
+	  DEF TTR Transform { children [
+		Transform {
+		    rotation 0 0 1 0.5
+		    children [ DEF torus Shape {
+			  appearance Appearance { material Material {
+				ambientIntensity	0
+				diffuseColor	0 0 0
+				shininess .15
+				specularColor 1 1 1
+				emissiveColor .25 .25 .25 } }
+			  geometry Box { size .1 .1 .1 }
+		    } ]
+		}
+	  ] }
+    ]
+}
+DEF TS TimeSensor {
+    cycleInterval 4
+    loop TRUE }
+
+DEF OI OrientationInterpolator {
+    key [ 0 .33 .66 1 ]
+    keyValue [ 0 1 0 0, 0 1 0 2.094, 0 1 0 4.189, 0 1 0 0 ] }
+
+ROUTE  TS.fraction_changed TO OI.set_fraction
+ROUTE  OI.value_changed TO TTR.set_rotation
+# end of file.
