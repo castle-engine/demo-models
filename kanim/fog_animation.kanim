@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <animation backwards="true" loop="true"
-  optimization="separate-shape-states">
+  optimization="separate-shapes">
   <frame file_name="fog_animation_1.wrl" time="0" />
   <frame file_name="fog_animation_2.wrl" time="2" />
 </animation>
