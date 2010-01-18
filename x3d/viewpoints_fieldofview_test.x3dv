@@ -1,4 +1,5 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
 
 # Test of Viewpoint nodes handling.
 
@@ -125,7 +126,7 @@ Group{
       }
     }
 
-    Inline { url "castle_with_lights.wrl" }
+    Inline { url "../vrml_2/castle_with_lights.wrl" }
   ]
 }
 
@@ -135,17 +136,17 @@ Group{
 
 DEF MyKeySensor KeySensor { }
 DEF MyScript Script {
-  eventIn SFString keyPress
-  eventOut SFBool set_bind_v1
-  eventOut SFBool set_bind_v2
-  eventOut SFBool set_bind_v3
-  eventOut SFBool set_bind_v4
-  eventOut SFBool set_bind_v5
-  eventOut SFBool set_bind_v6
-  eventOut SFBool set_bind_v7
-  eventOut SFBool set_bind_v8
-  eventOut SFBool set_bind_v9
-  eventOut SFBool set_bind_v10
+  inputOnly SFString keyPress
+  outputOnly SFBool set_bind_v1
+  outputOnly SFBool set_bind_v2
+  outputOnly SFBool set_bind_v3
+  outputOnly SFBool set_bind_v4
+  outputOnly SFBool set_bind_v5
+  outputOnly SFBool set_bind_v6
+  outputOnly SFBool set_bind_v7
+  outputOnly SFBool set_bind_v8
+  outputOnly SFBool set_bind_v9
+  outputOnly SFBool set_bind_v10
   url "kambiscript:
 
 function keyPress(value, timestamp)
