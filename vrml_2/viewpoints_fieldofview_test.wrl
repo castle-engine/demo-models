@@ -17,7 +17,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V1 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         description "45 degrees (default) field of view"
@@ -27,7 +27,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V2 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         # dummy value, should be clamped to min value by VRML browser
@@ -39,7 +39,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V3 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 0.0872664626
@@ -50,7 +50,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V4 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 0.3490658504
@@ -61,7 +61,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V5 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 1.04
@@ -72,7 +72,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V6 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 1.57
@@ -83,7 +83,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V7 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 2.0943951024
@@ -94,7 +94,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V8 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 2.6179938780
@@ -105,7 +105,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V9 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         fieldOfView 3.1415926536
@@ -116,7 +116,7 @@ Group{
     Transform {
       translation 0.004618315026164 -94.837326049804687 6.33106803894043
       rotation 1 0 0 1.570796370506287
-      children Viewpoint {
+      children DEF V10 Viewpoint {
         position 0 0 0 # camera position is expressed by translation
         orientation 0 0 1 0
         # dummy value, should be clamped to max value by VRML browser
@@ -128,3 +128,48 @@ Group{
     Inline { url "castle_with_lights.wrl" }
   ]
 }
+
+# ----------------------------------------------------------------------------
+# Trivial Script + KeySensor, to send set_bind = TRUE to viewpoints
+# by pressing keys.
+
+DEF MyKeySensor KeySensor { }
+DEF MyScript Script {
+  eventIn SFString keyPress
+  eventOut SFBool set_bind_v1
+  eventOut SFBool set_bind_v2
+  eventOut SFBool set_bind_v3
+  eventOut SFBool set_bind_v4
+  eventOut SFBool set_bind_v5
+  eventOut SFBool set_bind_v6
+  eventOut SFBool set_bind_v7
+  eventOut SFBool set_bind_v8
+  eventOut SFBool set_bind_v9
+  eventOut SFBool set_bind_v10
+  url "kambiscript:
+
+function keyPress(value, timestamp)
+  when (value = '1', set_bind_v1 := true);
+  when (value = '2', set_bind_v2 := true);
+  when (value = '3', set_bind_v3 := true);
+  when (value = '4', set_bind_v4 := true);
+  when (value = '5', set_bind_v5 := true);
+  when (value = '6', set_bind_v6 := true);
+  when (value = '7', set_bind_v7 := true);
+  when (value = '8', set_bind_v8 := true);
+  when (value = '9', set_bind_v9 := true);
+  when (value = '0', set_bind_v10 := true)
+"
+}
+
+ROUTE MyKeySensor.keyPress TO MyScript.keyPress
+ROUTE MyScript.set_bind_v1 TO V1.set_bind
+ROUTE MyScript.set_bind_v2 TO V2.set_bind
+ROUTE MyScript.set_bind_v3 TO V3.set_bind
+ROUTE MyScript.set_bind_v4 TO V4.set_bind
+ROUTE MyScript.set_bind_v5 TO V5.set_bind
+ROUTE MyScript.set_bind_v6 TO V6.set_bind
+ROUTE MyScript.set_bind_v7 TO V7.set_bind
+ROUTE MyScript.set_bind_v8 TO V8.set_bind
+ROUTE MyScript.set_bind_v9 TO V9.set_bind
+ROUTE MyScript.set_bind_v10 TO V10.set_bind
