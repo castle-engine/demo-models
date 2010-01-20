@@ -1,0 +1,37 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+DEF MyInline Inline { }
+
+Transform {
+  translation 0 1.5 2
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Text { string [
+      "Simple demo of changing Inline.url from a KambiScript."
+      "Press '1' to load IkeaTable.x3dv."
+      "Press '2' to load worm_crawl.x3dv."
+      "Press '0' to unload a scene."
+      ]
+      fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+    }
+  }
+}
+
+DEF MyScript Script {
+  inputOnly SFString key_press
+  outputOnly MFString inline_url
+  outputOnly SFBool inline_load
+  url "kambiscript:
+
+function key_press(value, timestamp)
+  when (value = '1', inline_load := TRUE ; inline_url := array('IkeaTable.x3dv'));
+  when (value = '2', inline_load := TRUE ; inline_url := array('worm_crawl.x3dv'));
+  when (value = '0', inline_load := FALSE)
+"
+}
+
+DEF MyKeySensor KeySensor { }
+ROUTE MyKeySensor.keyPress TO MyScript.key_press
+ROUTE MyScript.inline_url TO MyInline.url
+ROUTE MyScript.inline_load TO MyInline.load
