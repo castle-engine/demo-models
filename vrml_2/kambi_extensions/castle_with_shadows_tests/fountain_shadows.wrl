@@ -66,4 +66,4 @@ Transform {
 #   }
 }
 
-Inline { url "../../../../castle/data/levels/fountain/fountain_processed.wrl" }
+Inline { url "../../../../castle/data/levels/fountain/fountain.wrl" }
