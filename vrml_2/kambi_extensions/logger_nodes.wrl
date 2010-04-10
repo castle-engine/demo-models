@@ -12,7 +12,11 @@ Shape {
   geometry Text { string "press Control to load the inlined file" }
 }
 
-DEF I InlineLoadControl { load FALSE url "text_depth.wrl" }
+Transform {
+  scale 0.01 0.01 0.01
+  translation 5 0 0
+  children DEF I InlineLoadControl { load FALSE url "text_depth.wrl" }
+}
 
 DEF L Logger {
   enabled TRUE
