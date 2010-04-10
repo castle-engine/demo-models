@@ -1,0 +1,20 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Simple test of IMPORT (related EXPORT clauses are inside kings_head.x3dv)
+
+DEF I Inline { url "kings_head.x3dv" }
+
+IMPORT I.Nose AS TheNose
+IMPORT I.KingsEye
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+
+DEF Interp PositionInterpolator {
+  key      [ 0      0.25       0.5        0.75     1     ]
+  keyValue [ 0 0 0  10 0 0     10 10 0    0 10 0   0 0 0 ]
+}
+
+ROUTE Timer.fraction_changed TO Interp.set_fraction
+ROUTE Interp.value_changed TO TheNose.set_translation
+ROUTE Interp.value_changed TO KingsEye.set_translation

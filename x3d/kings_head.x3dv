@@ -60,3 +60,6 @@ Group {
     }
   ]
 }
+
+EXPORT KingsNose AS Nose
+EXPORT KingsEye
