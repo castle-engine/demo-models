@@ -1,0 +1,38 @@
+#VRML V2.0 utf8
+
+# Similar to ../../x3d/inline_load_control_test_1.x3dv.
+#
+# This tests VRML 97 InlineLoadControl, testing changing Inline.load
+# by a KeySensor, testing also reporting loaded nodes to Inline.children,
+# and testing Logger reporting node fields.
+
+# This is to test Inline.load features for X3D.
+
+Shape {
+  geometry Text { string "press Control to load the inlined file" }
+}
+
+DEF I InlineLoadControl { load FALSE url "text_depth.wrl" }
+
+DEF L Logger {
+  enabled TRUE
+  # logFile "log.txt"
+  level 3
+}
+
+ROUTE I.children TO L.write
+
+# On control key down, set I.load = true
+
+DEF KS KeySensor { }
+DEF BFCtrl BooleanFilter { }
+ROUTE KS.controlKey TO BFCtrl.set_boolean
+ROUTE BFCtrl.inputTrue TO I.load
+
+# On shift key down, set I.load = false
+
+DEF BFShift1 BooleanFilter { }
+DEF BFShift2 BooleanFilter { }
+ROUTE KS.shiftKey TO BFShift1.set_boolean
+ROUTE BFShift1.inputNegate TO BFShift2.set_boolean
+ROUTE BFShift2.inputFalse TO I.load
