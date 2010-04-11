@@ -1,6 +1,6 @@
 #VRML V2.0 utf8
 
-# Fails with warnings
+# Before 2010-04-12 (view3dscene 3.5.1), this failed with warnings
 #
 # view3dscene: VRML Warning: Within prototype "MatLib", exposed field
 # "diffuseColor" references (by "IS" clause) non-existing field/event name
@@ -13,19 +13,19 @@
 # http://tatraportal.com/drracer/t813.wrl,
 # inlined by http://tatraportal.com/drracer/scene85.wrl,
 # also the same bug is with http://tatraportal.com/drracer/t603coupe.wrl
+#
+# Correct result: no warnings, yellow sphere.
 
 PROTO MatLib [
- field MFNode matrose [
- ]] {
- Group{
-  children  IS matrose
- }
+  field SFNode matrose NULL
+] {
+  Shape { appearance Appearance { material IS matrose } geometry Sphere { } }
 }
 
 PROTO T813blatnikZ [
- exposedField SFColor barva .3216 .3059 .2157
- exposedField SFColor specular .302 .5412 .5412 ]
-{
+  exposedField SFColor barva 1 1 0
+  exposedField SFColor specular 1 0 0
+] {
   MatLib {
     matrose Material {
       diffuseColor  IS barva
@@ -33,3 +33,5 @@ PROTO T813blatnikZ [
     }
   }
 }
+
+T813blatnikZ { }
