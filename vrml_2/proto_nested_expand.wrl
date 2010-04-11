@@ -35,3 +35,6 @@ PROTO T813blatnikZ [
 }
 
 T813blatnikZ { }
+
+Transform { translation 0 2 0
+  children Shape { geometry Text { string "sphere should be yellow" } } }
