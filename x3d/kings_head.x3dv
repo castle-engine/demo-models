@@ -38,10 +38,11 @@ Group {
 
         Transform {
           translation 0.8 0.4 0.8
-          children DEF KingsEye Shape {
+          # one more Transform along the way, for import_export.x3dv demo
+          children DEF KingsEye Transform { children Shape {
             appearance Appearance { material Material { diffuseColor 1 0 0 } }
             geometry Sphere { radius 0.2 }
-          }
+          } }
         }
 
         Transform {
