@@ -1,0 +1,39 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# ----------------------------------------------------------------------------
+# import warnings test
+
+IMPORT I.Foo
+IMPORT I2.Foo
+
+DEF I Inline { url "../kings_head.x3dv"
+#  load FALSE
+}
+
+IMPORT I.Foo
+
+# ----------------------------------------------------------------------------
+# show valid imports
+
+IMPORT I.KingsEye
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+
+DEF PosInterp PositionInterpolator {
+  key      [ 0               0.25              0.5             0.75            1              ]
+  keyValue [ -0.2 -0.2 +0.3  0.2 -0.2 +0.3     0.2 0.2 +0.3    -0.2 0.2 +0.3   -0.2 -0.2 +0.3 ]
+}
+
+ROUTE Timer.fraction_changed TO PosInterp.set_fraction
+ROUTE PosInterp.value_changed TO KingsEye.set_translation
+
+# export warnings test -------------------------------------------------------
+
+EXPORT KingsEye
+EXPORT PosInterpBlah AS PosInterp
+
+# ----------------------------------------------------------------------------
+# show valid export
+
+EXPORT PosInterp
