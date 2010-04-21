@@ -10,6 +10,21 @@ Viewpoint {
   orientation -0.0852522701025009 0.9960952401161193 0.0229517575353384 0.5282965898513793
 }
 
+# Viewpoint for screenshot in vrml_engine_doc/shadow_maps_x3d/ paper.
+#
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0521402396261692 -0.0006783274002373 -0.1930830180644989
+# up 0.9653152823448181 -0.0125603070482611 0.2607184052467346
+# gravityUp 0 0 1
+Transform {
+  translation -4.2293548583984375 3.6427509784698486 15.129522323608398
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.514571189880371 -0.6807730197906494 -0.5213103890419006 1.9582581520080566
+  }
+}
+
 NavigationInfo {
   type [ "FLY" "EXAMINE", "ANY" ]
   headlight TRUE
