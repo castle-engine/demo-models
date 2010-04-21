@@ -21,6 +21,7 @@ EXTERNPROTO TesselatedPlane [
 
 DEF MySpot SpotLight {
   location -0 0 3 direction 0.5 0.5 -1
+  # for shadow_maps_x3d paper I used here cutOffAngle 0.4
 }
 
 Shape {
