@@ -13,15 +13,31 @@ KambiHeadLight {
   intensity 0.2
 }
 
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0108359577134251 0.0022854073904454 -0.0166541039943695
+# up 0.8147801160812377 0.1718448996543884 0.5537169575691223
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation -7.5603804588317871 19.054849624633789 12.296069145202637
+  rotation 1 0 -0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.5032691359519958 -0.7616404294967651 -0.4081964194774627 1.6336590051651001
+    description "view at the Spot projection, for shadow_maps_x3d paper"
+  }
+}
+
 EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
 ] [ "tesselated_plane.wrl#TesselatedPlane" ]
+
+Collision { enabled FALSE # don't waste time on collisions with this scene
+  children [
 
 # spot test ------------------------------------------------------------------
 
 DEF MySpot SpotLight {
   location -0 0 3 direction 0.5 0.5 -1
-  # for shadow_maps_x3d paper I used here cutOffAngle 0.4
 }
 
 Shape {
@@ -80,6 +96,8 @@ Transform {
 
     DEF MySpot SpotLight {
       location -0 0 3 direction 0.5 0.5 -1
+      # for shadow_maps_x3d paper I used here
+      # cutOffAngle 0.4
     }
 
     Shape {
@@ -129,3 +147,5 @@ Transform {
 
   ]
 }
+
+] } # Collision.children
