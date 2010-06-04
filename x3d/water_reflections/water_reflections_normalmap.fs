@@ -48,8 +48,11 @@ void main(void)
      to_camera is direction from current position to camera.
      Note that we know I look *into* the water, so we can assume
      angle between to_camera and normal is <= 90 degrees.
-     When it's 0 -> I look straight into the water, so pick refraction.
-     When it's 90 deg -> I look along the water surface, so pick reflection. */
+
+     When it's 0 (so refraction_amount = cos 0.0 = 1.0)
+       -> I look straight into the water, so pick refraction.
+     When it's 90 deg (so refraction_amount = cos 90 deg = 0.0)
+       -> I look along the water surface, so pick reflection. */
   float refraction_amount = dot(to_camera, normal);
 
   /* fake reflectedColor to be lighter. This just Looks Better. */
