@@ -24,6 +24,11 @@ DEF MyLight SpotLight {
   projectionNear 5
   projectionFar 50
   cutOffAngle 1.2
+
+  defaultShadowMap GeneratedShadowMap {
+    update "ALWAYS"
+    size 1024
+  }
 }
 
 
@@ -58,18 +63,8 @@ DEF OB_kolumna_016 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-						texture MultiTexture {
-                                                  texture [
-                                                    DEF egyptstreetfull_jpg ImageTexture { url "../../../castle/data/textures/egyptstreetfull.jpg"	}
-                                                    DEF ShadowMap GeneratedShadowMap { update "ALWAYS" light USE MyLight size 1024 }
-                                                  ]
-                                                }
-                                                shaders DEF ShadowMapShader ComposedShader {
-                                                  language "GLSL"
-                                                  initializeOnly SFInt32 texture 0
-                                                  initializeOnly SFInt32 shadowMap 1
-                                                  parts ShaderPart { type "FRAGMENT" url "trees_river_shadow_map.fs" }
-                                                }
+						texture DEF egyptstreetfull_jpg ImageTexture { url "../../../castle/data/textures/egyptstreetfull.jpg" }
+                                                receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -246,8 +241,7 @@ DEF OB_kolumna_016 Transform {
 73 72 85 84 -1,
 72 71 86 85 -1,
 						]
-						texCoord MultiTextureCoordinate {
-                                                  texCoord [ TextureCoordinate {
+						texCoord TextureCoordinate {
 							point [
 0.5000001 0.5, 0.180835 0.1172214, 0.0 0.3806514,
 0.5000001 0.5, 0.4835805 0.0, 0.180835 0.1172214,
@@ -328,10 +322,6 @@ DEF OB_kolumna_016 Transform {
 0.6244593 1.2677741, 0.7492291 1.2677742, 0.7492288 25.8393555, 0.6244593 25.8393555,
 0.7492291 1.2677742, 0.8744505 1.2677743, 0.87445 25.8393555, 0.7492288 25.8393555,
 							] }
-                                                        DEF ShadowTexCoordGen
-                                                          TextureCoordinateGenerator { mode "PROJECTION" projectedLight USE MyLight }
-                                                        ]
-						}
 						texCoordIndex [
 0 1 2 -1
 3 4 5 -1
@@ -435,13 +425,8 @@ DEF OB_kolumna_015 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-						texture MultiTexture {
-                                                  texture [
-                                                    USE egyptstreetfull_jpg
-                                                    USE ShadowMap
-                                                  ]
-                                                }
-                                                shaders USE ShadowMapShader
+						texture USE egyptstreetfull_jpg
+                                                receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -618,8 +603,7 @@ DEF OB_kolumna_015 Transform {
 73 72 85 84 -1,
 72 71 86 85 -1,
 						]
-						texCoord MultiTextureCoordinate {
-                                                  texCoord [ TextureCoordinate {
+						texCoord TextureCoordinate {
 							point [
 0.5000001 0.5, 0.180835 0.1172214, 0.0 0.3806514,
 0.5000001 0.5, 0.4835805 0.0, 0.180835 0.1172214,
@@ -700,9 +684,6 @@ DEF OB_kolumna_015 Transform {
 0.6244593 1.2677741, 0.7492291 1.2677742, 0.7492288 25.8393555, 0.6244593 25.8393555,
 0.7492291 1.2677742, 0.8744505 1.2677743, 0.87445 25.8393555, 0.7492288 25.8393555,
 							] }
-                                                        USE ShadowTexCoordGen
-                                                      ]
-						}
 						texCoordIndex [
 0 1 2 -1
 3 4 5 -1
@@ -806,13 +787,8 @@ DEF OB_kolumna_010 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-						texture MultiTexture {
-                                                  texture [
-                                                    USE egyptstreetfull_jpg
-                                                    USE ShadowMap
-                                                  ]
-                                                }
-                                                shaders USE ShadowMapShader
+						texture USE egyptstreetfull_jpg
+                                                receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -989,8 +965,7 @@ DEF OB_kolumna_010 Transform {
 73 72 85 84 -1,
 72 71 86 85 -1,
 						]
-						texCoord MultiTextureCoordinate {
-                                                  texCoord [ TextureCoordinate {
+						texCoord TextureCoordinate {
 							point [
 0.5000001 0.5, 0.180835 0.1172214, 0.0 0.3806514,
 0.5000001 0.5, 0.4835805 0.0, 0.180835 0.1172214,
@@ -1071,9 +1046,6 @@ DEF OB_kolumna_010 Transform {
 0.6244593 1.2677741, 0.7492291 1.2677742, 0.7492288 25.8393555, 0.6244593 25.8393555,
 0.7492291 1.2677742, 0.8744505 1.2677743, 0.87445 25.8393555, 0.7492288 25.8393555,
 							] }
-                                                        USE ShadowTexCoordGen
-                                                      ]
-						}
 						texCoordIndex [
 0 1 2 -1
 3 4 5 -1
@@ -1177,13 +1149,8 @@ DEF OB_Water Transform {
 							shininess 0.0976563
 							transparency 0.4
 						}
-                                                texture MultiTexture {
-                                                  texture [
-                                                    DEF water2_jpg_001 ImageTexture { url "../../../castle/data/textures/water2.jpg" }
-                                                    USE ShadowMap
-                                                  ]
-                                                }
-                                                shaders USE ShadowMapShader
+                                                texture DEF water2_jpg_001 ImageTexture { url "../../../castle/data/textures/water2.jpg" }
+                                                receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -1200,14 +1167,10 @@ DEF OB_Water Transform {
 						coordIndex [
 0 1 2 3 -1,
 						]
-						texCoord MultiTextureCoordinate {
-                                                  texCoord [ TextureCoordinate {
+						texCoord TextureCoordinate {
 							point [
 -4.5112 5.5112, 5.5112 5.5112, 5.5112 -4.5112, -4.5112 -4.5112,
 							] }
-                                                        USE ShadowTexCoordGen
-                                                      ]
-						}
 						texCoordIndex [
 0 1 2 3 -1
 						]
@@ -1234,13 +1197,8 @@ DEF OB_Tree_211 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-                                                texture MultiTexture {
-                                                  texture [
-                                                    DEF tree_texture_jpg_001 ImageTexture { url "../../../castle/data/textures/tree_texture.jpg" }
-                                                    USE ShadowMap
-                                                  ]
-                                                }
-                                                shaders USE ShadowMapShader
+                                                texture DEF tree_texture_jpg_001 ImageTexture { url "../../../castle/data/textures/tree_texture.jpg" }
+                                                receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -1488,8 +1446,7 @@ DEF OB_Tree_211 Transform {
 110 111 64 -1,
 112 113 64 -1,
 						]
-						texCoord MultiTextureCoordinate {
-                                                  texCoord [ TextureCoordinate {
+						texCoord TextureCoordinate {
 							point [
 3.6633132 -11.2853928, 2.9360273 -4.4289708, 1.4820782 -4.3593187,
 1.4820782 -4.3593187, 2.9076641 -11.4112263, 3.6633132 -11.2853928,
@@ -1614,9 +1571,6 @@ DEF OB_Tree_211 Transform {
 0.2887934 11.5222912, 0.4501021 11.6327953, 1.6804833 12.9201441,
 0.4501021 11.6327953, 0.5731761 11.1620235, 1.6804833 12.9201441,
 							] }
-                                                        USE ShadowTexCoordGen
-                                                      ]
-						}
 						texCoordIndex [
 0 1 2 -1
 3 4 5 -1
@@ -1828,13 +1782,8 @@ DEF OB_Ground Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-                                                texture MultiTexture {
-                                                  texture [
-                                                    DEF dirtfrancecornerg ImageTexture { url "../../../castle/data/textures/dirtfrancecornergrass.jpg" }
-                                                    USE ShadowMap
-                                                  ]
-                                                }
-                                                shaders USE ShadowMapShader
+                                                texture DEF dirtfrancecornerg ImageTexture { url "../../../castle/data/textures/dirtfrancecornergrass.jpg" }
+                                                receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -2932,8 +2881,7 @@ DEF OB_Ground Transform {
 11 336 540 -1,
 540 335 10 -1,
 						]
-						texCoord MultiTextureCoordinate {
-                                                  texCoord [ TextureCoordinate {
+						texCoord TextureCoordinate {
 							point [
 -1.6539289 1.2007651, -1.6539289 1.0227498, -1.3570002 1.0227498, -1.3570002 1.2007651,
 -1.3570002 1.2007651, -1.3570002 1.0227498, -1.0600717 1.0227498, -1.0600717 1.2007651,
@@ -3469,9 +3417,6 @@ DEF OB_Ground Transform {
 -0.7631437 -1.7930351, -0.7631437 -1.73396, -0.9141356 -1.786311,
 -0.9141356 -1.786311, -1.0600719 -1.7338145, -1.0600722 -1.7925842,
 							] }
-                                                        USE ShadowTexCoordGen
-                                                      ]
-						}
 						texCoordIndex [
 0 1 2 3 -1
 4 5 6 7 -1
