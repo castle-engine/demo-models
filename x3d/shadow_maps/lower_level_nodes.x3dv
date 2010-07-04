@@ -1,0 +1,54 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# extern protos --------------------------------------------------------------
+
+EXTERNPROTO TesselatedPlane [
+  inputOutput SFNode texCoord
+] [ "../tesselated_plane.wrl#TesselatedPlane" ]
+
+EXTERNPROTO EditableTransform [
+  inputOutput MFNode children
+  inputOutput SFVec3f translation
+  inputOutput SFVec3f scale
+  inputOutput SFString description
+] [ "../useful_prototypes.x3dv#EditableTransform" ]
+
+# ----------------------------------------------------------------------------
+
+DEF MySpot SpotLight {
+  location 0 0 10
+  direction 0 0 -1
+  projectionNear 1
+  projectionFar 20
+}
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    shaders ComposedShader {
+      language "GLSL"
+      initializeOnly SFNode shadowMap DEF MySpotShadow GeneratedShadowMap {
+        light USE MySpot update "ALWAYS" size 512
+      }
+      parts DEF ShadowMapShader ShaderPart { type "FRAGMENT" url "shadow_map.fs" }
+    }
+  }
+  geometry TesselatedPlane {
+    texCoord TextureCoordinateGenerator {
+      mode "PROJECTION"
+      projectedLight USE MySpot
+    }
+  }
+}
+
+EditableTransform {
+  description "shadow caster middle"
+  translation 0 0 2
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Teapot {
+      size 4 4 4
+    }
+  }
+}

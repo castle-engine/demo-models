@@ -62,22 +62,8 @@ EditableTransform {
       projectionFar 20
     }
     Shape {
-      appearance Appearance {
-        material Material { }
-        shaders ComposedShader {
-          language "GLSL"
-          initializeOnly SFNode shadowMap DEF MySpotShadow GeneratedShadowMap {
-            light USE MySpot update "ALWAYS" size 512
-          }
-          parts DEF ShadowMapShader ShaderPart { type "FRAGMENT" url "shadow_map.fs" }
-        }
-      }
-      geometry TesselatedPlane {
-        texCoord TextureCoordinateGenerator {
-          mode "PROJECTION"
-          projectedLight USE MySpot
-        }
-      }
+      appearance Appearance { material Material { } receiveShadows USE MySpot }
+      geometry TesselatedPlane { }
     }
   ]
 }
@@ -94,22 +80,8 @@ EditableTransform {
     }
 
     Shape {
-      appearance Appearance {
-        material Material { }
-        shaders ComposedShader {
-          language "GLSL"
-          initializeOnly SFNode shadowMap GeneratedShadowMap {
-            light USE MySpot2 update "ALWAYS" size 512
-          }
-          parts USE ShadowMapShader
-        }
-      }
-      geometry ShadowMapReceiver {
-        texCoord TextureCoordinateGenerator {
-          mode "PROJECTION"
-          projectedLight USE MySpot2
-        }
-      }
+      appearance Appearance { material Material { } receiveShadows USE MySpot2 }
+      geometry ShadowMapReceiver { }
     }
   ]
 }
@@ -129,22 +101,8 @@ EditableTransform {
     }
 
     Shape {
-      appearance Appearance {
-        material Material { }
-        shaders ComposedShader {
-          language "GLSL"
-          initializeOnly SFNode shadowMap GeneratedShadowMap {
-            light USE MyDir update "ALWAYS" size 512
-          }
-          parts USE ShadowMapShader
-        }
-      }
-      geometry TesselatedPlane {
-        texCoord TextureCoordinateGenerator {
-          mode "PROJECTION"
-          projectedLight USE MyDir
-        }
-      }
+      appearance Appearance { material Material { } receiveShadows USE MyDir }
+      geometry TesselatedPlane { }
     }
   ]
 }
