@@ -35,9 +35,8 @@ Shape {
     }
   }
   geometry TesselatedPlane {
-    texCoord TextureCoordinateGenerator {
-      mode "PROJECTION"
-      projectedLight USE MySpot
+    texCoord ProjectedTextureCoordinate {
+      projector USE MySpot
     }
   }
 }

@@ -151,9 +151,8 @@ DEF Obj_001 Transform {
 				32 33 28 27 -1
 				33 34 29 28 -1
 			]
-			texCoord TextureCoordinateGenerator {
-				mode "PROJECTION"
-			  projectedLight USE spot
+			texCoord ProjectedTextureCoordinate {
+			  projector USE spot
 			}
     }
   }
@@ -199,9 +198,8 @@ DEF Obj_002 Transform {
 				1 0 4 5 -1
 				0 3 7 4 -1
 			]
-			texCoord TextureCoordinateGenerator {
-				mode "PROJECTION"
-			  projectedLight USE spot
+			texCoord ProjectedTextureCoordinate {
+			  projector USE spot
 			}
     }
   }

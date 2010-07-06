@@ -175,9 +175,8 @@ DEF stairs Shape {
     ]
     texCoord MultiTextureCoordinate {
       texCoord  [
-        TextureCoordinateGenerator {
-          mode "PROJECTION"
-          projectedLight USE viewSpot
+        ProjectedTextureCoordinate {
+          projector USE viewSpot
         }
         TextureCoordinateGenerator {
           mode "CAMERASPACENORMAL"
