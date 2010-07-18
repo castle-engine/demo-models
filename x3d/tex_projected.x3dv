@@ -65,7 +65,7 @@ Transform {
     DEF MyDir DirectionalLight {
       direction -1 0 0
       projectionLocation 0 0 1
-      projectionRectangle -2 2 -2 2
+      projectionRectangle -2 -2 2 2
     }
 
     Shape {
@@ -126,7 +126,7 @@ Transform {
         DEF MyDir DirectionalLight {
           direction -1 0 0
           projectionLocation 0 0 1
-          projectionRectangle -2 2 -2 2
+          projectionRectangle -2 -2 2 2
         }
 
         Shape {
