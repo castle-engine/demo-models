@@ -58,6 +58,8 @@ EditableTransform {
     DEF MySpot SpotLight {
       location 0 0 10
       direction 0 0 -1
+      # TODO: switch to automatic projectionXxx calculation,
+      # once it will be recalculated for dynamic scenes Ok.
       projectionNear 1
       projectionFar 20
     }
@@ -75,6 +77,8 @@ EditableTransform {
     DEF MySpot2 SpotLight {
       location 0 0 10
       direction 0 0  -1
+      # TODO: switch to automatic projectionXxx calculation,
+      # once it will be recalculated for dynamic scenes Ok.
       projectionNear 1
       projectionFar 20
     }
@@ -96,6 +100,8 @@ EditableTransform {
       direction 0 0 -1
       projectionLocation 0 0 10
       projectionRectangle -4 -4 4 4
+      # TODO: switch to automatic projectionXxx calculation,
+      # once it will be recalculated for dynamic scenes Ok.
       projectionNear 1
       projectionFar 20
     }
