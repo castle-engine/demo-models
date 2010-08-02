@@ -1,0 +1,138 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Simple Coverflow-like animation,
+# see http://www.youtube.com/watch?v=afy5BEdRz8A
+
+NavigationInfo { type "FLY" }
+
+Viewpoint {
+  position 0 0.5 7
+  direction 0 0 -1
+  up 0 1 0
+}
+
+# ----------------------------------------------------------------------------
+# Define a prototype (~like an advanced "macro") for an album (rectangle)
+# with an interaction (TouchSensor, Script) and animation (TimeSensor,
+# PositionInterpolator, OrientationInterpolator).
+
+PROTO Album [
+  inputOutput SFBool openByDefault FALSE
+] {
+
+  # Static album -------------------------------------------------------------
+
+  DEF AlbumRectangle Transform {
+    center 0 0.5 0.5
+    children [
+      DEF MyShape Shape {
+        appearance DEF App Appearance {
+          texture ImageTexture { url "../textures/test_texture.png" }
+      #    material Material { }
+        }
+        geometry IndexedFaceSet {
+          solid FALSE
+          coord Coordinate { point [ 0 0 0, 0 0 1, 0 1 1, 0 1 0 ] }
+          coordIndex [ 0 1 2 3 ]
+        }
+      }
+      DEF Touch TouchSensor { }
+    ]
+  }
+
+  # ----------------------------------------------------------------------------
+  # Animation: Rotating/moving album to the open position
+
+  DEF RotateOpen OrientationInterpolator {
+    key [ 0 1 ]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.5707963268 # pi/2
+             ]
+  }
+  DEF TranslateOpen PositionInterpolator {
+    key [ 0 1 ]
+    keyValue [ 0 0 0, 0 0 1 ]
+  }
+  DEF TimeOpen TimeSensor { }
+
+  ROUTE TimeOpen.fraction_changed TO RotateOpen.set_fraction
+  ROUTE RotateOpen.value_changed TO AlbumRectangle.rotation
+
+  ROUTE TimeOpen.fraction_changed TO TranslateOpen.set_fraction
+  ROUTE TranslateOpen.value_changed TO AlbumRectangle.translation
+
+  # ----------------------------------------------------------------------------
+  # Animation: Rotating/moving album to the closed position
+
+  DEF RotateClose OrientationInterpolator {
+    key [ 0 1 ]
+    keyValue [ 0 1 0 1.5707963268 # pi/2
+               0 1 0 0,
+             ]
+  }
+  DEF TranslateClose PositionInterpolator {
+    key [ 0 1 ]
+    keyValue [ 0 0 1, 0 0 0 ]
+  }
+  DEF TimeClose TimeSensor { }
+
+  ROUTE TimeClose.fraction_changed TO RotateClose.set_fraction
+  ROUTE RotateClose.value_changed TO AlbumRectangle.rotation
+
+  ROUTE TimeClose.fraction_changed TO TranslateClose.set_fraction
+  ROUTE TranslateClose.value_changed TO AlbumRectangle.translation
+
+  # --------------------------------------------------------------------------
+  # Interaction: detect clicks and start/stop appropriate animation
+
+  DEF Scr Script {
+    # This way TouchSensor informs the script that we're clicked.
+    inputOutput SFTime touchTime 0
+
+    outputOnly SFTime startOpen
+    outputOnly SFTime startClose
+    outputOnly SFBool enableOpen
+    outputOnly SFBool enableClose
+
+    # Keep here information whether the album is open or closed.
+    inputOutput SFBool open FALSE
+
+    inputOutput SFBool openByDefault IS openByDefault
+
+    url "kambiscript:
+
+function touchTime(value, timestamp)
+  if (open,
+    { Make sure we not only start new animations, but also we stop
+      previous animatin --- just in case user opens an album that is already
+      during animation. }
+    enableOpen  := false; enableClose := true ; startClose := value; open := false,
+    enableOpen  := true ; enableClose := false; startOpen  := value; open := true
+  )
+
+function initialize(timestamp)
+  { Simulate clicking on an album *now*, if album should be open by default. }
+  when (openByDefault, touchTime := timestamp)
+"
+  }
+
+  ROUTE Touch.touchTime TO Scr.touchTime
+  ROUTE Scr.startOpen TO TimeOpen.startTime
+  ROUTE Scr.enableOpen TO TimeOpen.enabled
+  ROUTE Scr.startClose TO TimeClose.startTime
+  ROUTE Scr.enableClose TO TimeClose.enabled
+}
+
+# ----------------------------------------------------------------------------
+# Use the prototype 7 times, to have 7 album rectangles.
+
+DEF Album0 Album { openByDefault TRUE }
+
+Transform { translation -1 0 0 children DEF AlbumM1 Album {} }
+Transform { translation -2 0 0 children DEF AlbumM2 Album {} }
+Transform { translation -3 0 0 children DEF AlbumM3 Album {} }
+
+Transform { translation  1 0 0 children DEF AlbumP1 Album {} }
+Transform { translation  2 0 0 children DEF AlbumP2 Album {} }
+Transform { translation  3 0 0 children DEF AlbumP3 Album {} }
