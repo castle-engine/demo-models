@@ -1,0 +1,310 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+EXTERNPROTO EXT_Pawn [] "pawn.x3dv"
+
+NavigationInfo {
+  headlight FALSE
+  visibilityLimit 200.0
+}
+
+Background {
+  groundColor [
+    0.4 0.5 0.3,
+    0.5 0.6 0.3
+  ]
+  skyColor 0.5 0.55 0.6
+  groundAngle 1.5708
+}
+
+DEF _mirror Script {
+  # A Point on the mirror and a (unit length) Vector perpendicular to it:
+  initializeOnly SFVec3f Po 0 0 0
+  initializeOnly SFVec3f Vo 0 1 0
+  inputOnly SFMatrix4f cameraInverseMatrix
+  inputOnly SFMatrix3f cameraRotationInverseMatrix
+  inputOnly SFVec3f mir_translation
+  inputOnly SFRotation mir_rotation
+  outputOnly SFVec3f eye_location
+  outputOnly SFVec3f eye_direction
+  outputOnly SFVec3f eye_up
+  outputOnly SFVec3f eyeM_position
+  outputOnly MFVec3f eyeM_direction
+  outputOnly MFVec3f eyeM_up
+  initializeOnly SFVec3f P 0 0 0
+  initializeOnly SFVec3f V 0 0 1
+  initializeOnly SFVec4f locationH 0 0 0 1
+  # The 3x3 matrix representation of a rotation (x y z a)
+  initializeOnly SFMatrix3f Rot 1 0 0 0 1 0 0 0 1
+  # A translation
+  initializeOnly SFVec3f Tra 0 0 0
+  # Eye-to-mirror distance:
+  initializeOnly SFFloat var1 1
+  initializeOnly SFFloat var2 1
+  initializeOnly SFFloat var3 1
+  initializeOnly SFFloat x 0
+  initializeOnly SFFloat y 0
+  initializeOnly SFFloat z 0
+  initializeOnly SFFloat a 0
+  initializeOnly SFFloat c 0
+  initializeOnly SFFloat s 0
+  initializeOnly SFFloat t 0
+  url "kambiscript:
+    {This function is called every time the viewpoint changes its location}
+    function cameraInverseMatrix (value, t)
+      locationH := value * vector (0,0,0,1);
+      eye_location := vector (vector_get (locationH,0), vector_get(locationH,1), vector_get (locationH,2));
+      var1 := vector_dot (eye_location-P,V);
+      eyeM_position := eye_location - 2*var1*V
+    {This function is called every time the viewpoint changes its orientation}
+    function cameraRotationInverseMatrix (value, t)
+      eye_direction := value * vector (0,0,-1);
+      eye_up := value * vector (0,1,0);
+      when (var1 > 0.00001,
+        var2 := vector_dot (eye_direction,V);
+        eyeM_direction := if ( var2 = 0, array (eye_direction),
+          array (Sgn(var2)*(eyeM_position + eye_direction*var1/var2 - eye_location))
+        );
+        var3 := vector_dot (eye_up,V);
+        eyeM_up := if ( var3 = 0, array (eye_up),
+          array (Sgn(var3)*(eyeM_position + eye_up*var1/var3 - eye_location))
+        )
+      )
+    {This function is called every time the mirror plane changes its location}
+    function mir_translation (value, t)
+      Tra := value + Po;
+      P := Tra + Rot * Po
+    {This function is called every time the mirror plane changes its orientation}
+    function mir_rotation (value, t)
+      x := vector_get (value,0);
+      y := vector_get (value,1);
+      z := vector_get (value,2);
+      a := vector_get (value,3);
+      c := Cos(a);
+      s := Sin(a);
+      t := 1 - c;
+      matrix_set (Rot, 0, vector (t*Power(x,2)+c, t*x*y+s*z, t*x*z-s*y));
+      matrix_set (Rot, 1, vector (t*x*y-s*z, t*Power(y,2)+c, t*y*z+s*x));
+      matrix_set (Rot, 2, vector (t*x*z+s*y, t*y*z-s*x, t*Power(z,2)+c));
+      P := Tra + Rot * Po;
+      V := Rot * Vo
+  "
+}
+
+DEF Board_T Transform {
+  rotation 0 0 1 -1.5708
+  children [
+  DEF Board Shape {
+    appearance DEF chequered Appearance {
+      material Material {
+        ambientIntensity 0.25
+        diffuseColor 1.0 1.0 1.0
+      }
+      texture MultiTexture {
+        alpha 0.5
+        mode [ "MODULATE", "BLENDFACTORALPHA" ]
+        texture [
+          ImageTexture {
+            url "chequered.png"
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties TextureProperties {
+              magnificationFilter "NICEST"
+              minificationFilter "NICEST"
+              anisotropicDegree 8
+              generateMipMaps TRUE
+            }
+          }
+          RenderedTexture {
+            update "ALWAYS"
+            dimensions [ 2048 2048 ]
+            viewpoint DEF EyeM Viewpoint {
+              fieldOfView 1.75
+              description "mirrored-eye"
+            }
+            textureProperties TextureProperties {
+              magnificationFilter "NICEST"
+              minificationFilter "NICEST"
+              anisotropicDegree 8
+              generateMipMaps TRUE
+            }
+          }
+        ]
+      }
+      textureTransform MultiTextureTransform {
+        textureTransform [
+          TextureTransform { }
+          TextureTransform { scale -1 1 }
+        ]
+      }
+    }
+    geometry IndexedFaceSet {
+      solid TRUE
+      normalPerVertex FALSE
+      coord Coordinate {
+        point [
+          13.5 0.0 -13.5
+          -13.5 0.0 -13.5
+          13.5 0.0 13.5
+          -13.5 0.0 13.5
+        ]
+      }
+      coordIndex [
+        0 1 3 2 -1,
+      ]
+      texCoord MultiTextureCoordinate {
+        texCoord [
+          TextureCoordinate { point [ 0 0, 1 0, 0 1, 1 1 ] }
+          TextureCoordinateGenerator {
+            mode "PROJECTION"
+            projectedLight DEF EyeSpot SpotLight {
+              on FALSE
+              projectionAngle 1.75
+            }
+          }
+        ]
+      }
+    }
+  }
+  DEF Frame Shape {
+    appearance DEF Wood Appearance {
+      material Material {
+        diffuseColor 0.4 0.2 0.1
+        specularColor 0.2 0.2 0.2
+      }
+    }
+    geometry IndexedFaceSet {
+      solid TRUE
+      coord Coordinate {
+        point [
+          -13.5 0.0 13.5
+          -20.25 0.0 20.25
+          20.25 0.0 20.25
+          13.5 0.0 13.5
+          -20.25 0.0 -20.25
+          -13.5 0.0 -13.5
+          20.25 0.0 -20.25
+          13.5 0.0 -13.5
+        ]
+      }
+      coordIndex [
+        3 0 1 2 -1, 
+        3 2 6 7 -1, 
+        4 5 7 6 -1, 
+        1 0 5 4 -1, 
+      ]
+    }
+  }
+  ]
+}
+
+DEF Lamp_T Transform {
+  translation -10.0 20 8.0
+  children [
+    DEF Lamp PointLight {
+      color 1.0 1.0 1.0
+      intensity 0.9
+      ambientIntensity 0.75
+      on TRUE
+    }
+  ]
+}
+
+DEF Lamp2_T Transform {
+  translation -10.0 -20.0 8.0
+  children DEF Lamp2 PointLight {
+    color 0.5 0.6 0.3
+    intensity 0.25
+    ambientIntensity 0.25
+    on TRUE
+  }
+}
+
+DEF Camera_T Transform {
+  rotation 0 1 0 0.5
+  children DEF Camera Viewpoint {
+    description "Camera"
+    position 0 2.5 13
+  }
+}
+
+DEF Pawn_T Transform {
+  translation 0 0 0
+  children Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 0.9 0.85 0.7
+        specularColor 1.0 1.0 1.0
+        shininess 5.0
+      }
+    }
+    geometry EXT_Pawn {}
+  }
+}
+
+#DEF Pawn_T Transform {
+#  translation 0 0.2 3
+#  children Shape {
+#    appearance Appearance {
+#      material Material {}
+#    }
+#    geometry EXT_Pawn {}
+#  }
+#}
+
+ROUTE Camera.cameraInverseMatrix TO _mirror.cameraInverseMatrix
+ROUTE Camera.cameraRotationInverseMatrix TO _mirror.cameraRotationInverseMatrix
+
+ROUTE Board_T.translation TO _mirror.mir_translation
+ROUTE Board_T.rotation TO _mirror.mir_rotation
+
+ROUTE _mirror.eye_location TO EyeSpot.location
+ROUTE _mirror.eye_direction TO EyeSpot.direction
+ROUTE _mirror.eye_up TO EyeSpot.up
+ROUTE _mirror.eyeM_position TO EyeM.position
+ROUTE _mirror.eyeM_direction TO EyeM.direction
+ROUTE _mirror.eyeM_up TO EyeM.up
+
+# add some movement:
+DEF TimeS TimeSensor {
+  cycleInterval 15
+  loop TRUE
+}
+
+DEF O_Interp OrientationInterpolator {
+  key [ 0 .25 .5 .75 1 ]
+  keyValue [
+    1 0 0 0,
+    1 0 0 1.57,
+    1 0 0 0,
+    1 0 0 1.57,
+    1 0 0 0
+  ]
+}
+
+DEF P_Interp PositionInterpolator {
+  key [ 0 .25 .5 .75 1 ]
+  keyValue [
+    0 0 0,
+    0 -2 -1
+    0 -10 -1,
+    0 -2 -1
+    0 0 0
+  ]
+}
+
+ROUTE  TimeS.fraction_changed TO O_Interp.set_fraction
+ROUTE  O_Interp.value_changed TO Board_T.set_rotation
+ROUTE  O_Interp.value_changed TO _mirror.mir_rotation
+
+ROUTE  TimeS.fraction_changed TO P_Interp.set_fraction
+ROUTE  P_Interp.value_changed TO Board_T.set_translation
+ROUTE  P_Interp.value_changed TO _mirror.mir_translation
+
+# debug:
+#DEF Log Logger { level 2 }
+
+#ROUTE _mirror.eye_up TO Log.write
+#ROUTE _mirror.eyeM_up TO Log.write
+
+# End of file.
