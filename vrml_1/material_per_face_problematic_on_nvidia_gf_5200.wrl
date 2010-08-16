@@ -16,9 +16,10 @@
 # very specific about faces in this example (connected to the fact
 # that first face of 1st shape is somewhat special).
 #
-# This is workarounded in Kambi VRML Game engine by using
+# This *was* workarounded in Kambi VRML Game engine by using
 # TryRenderingFaceAsFan for VRML 1.0 with many materials.
-# If you turn off TryRenderingFaceAsFan, you will see this error
+# But it's not any more --- the TryRenderingFaceAsFan is really complicating
+# stuff, and it's only for the unoptimal VRML 1.0 + many materials case...
 # (and yes, it seems NVidia error, as TryRenderingFaceAsFan = false *should*
 # work Ok in this case, if OpenGL is correctly implemented.)
 #
@@ -34,6 +35,8 @@ PerspectiveCamera {
 }
 
 NavigationInfo { type "FLY" headlight TRUE }
+
+#ShapeHints { faceType UNKNOWN_FACE_TYPE }
 
 Separator {
         MaterialBinding {
