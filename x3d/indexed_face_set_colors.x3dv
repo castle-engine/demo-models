@@ -1,4 +1,5 @@
-#VRML V2.0 utf8
+#X3D V3.0 utf8
+PROFILE Interchange
 
 # Test handling of color, colorPerVertex, colorIndex fields of
 # IndexedFaceSet.
@@ -86,6 +87,38 @@ Transform {
   }
 }
 
+# unlit, color per vertex, colorIndex indexes colors, ColorRGBA test.
+# Colors just like the ones on the left, but with alpha.
+Transform {
+  translation 6 1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+
+      color ColorRGBA { color [ 1 0 0 0.2, 0 1 0 0.4, 0 0 1 0.6, 1 1 0 0.8, 0 1 1 0.9, 1 1 1 1 ] }
+      colorIndex [ 0 1 2 0 -1 2 3 4 5 ]
+    }
+  }
+}
+
+# unlit, color per face, colorIndex chooses colors, ColorRGBA test.
+# Colors just like the ones on the left, but with alpha.
+Transform {
+  translation 6 -1.5 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord USE C
+      coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+      solid FALSE
+
+      colorPerVertex FALSE
+      color ColorRGBA { color [ 1 1 0 0.5, 1 1 1 0.75 ] }
+      colorIndex [ 1 0 ]
+    }
+  }
+}
 
 # ----------------------------------------------------------------------------
 # Now repeat everything, but make it lit
@@ -176,6 +209,41 @@ Transform {
 
           colorPerVertex FALSE
           color Color { color [ 1 1 0, 1 1 1 ] }
+          colorIndex [ 1 0 ]
+        }
+      }
+    }
+
+    # unlit, color per vertex, colorIndex indexes colors, ColorRGBA test.
+    # Colors just like the ones on the left, but with alpha.
+    Transform {
+      translation 6 1.5 0
+      children Shape {
+        appearance USE App
+        geometry IndexedFaceSet {
+          coord USE C
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+
+          color ColorRGBA { color [ 1 0 0 0.2, 0 1 0 0.4, 0 0 1 0.6, 1 1 0 0.8, 0 1 1 0.9, 1 1 1 1 ] }
+          colorIndex [ 0 1 2 0 -1 2 3 4 5 ]
+        }
+      }
+    }
+
+    # unlit, color per face, colorIndex chooses colors, ColorRGBA test.
+    # Colors just like the ones on the left, but with alpha.
+    Transform {
+      translation 6 -1.5 0
+      children Shape {
+        appearance USE App
+        geometry IndexedFaceSet {
+          coord USE C
+          coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
+          solid FALSE
+
+          colorPerVertex FALSE
+          color ColorRGBA { color [ 1 1 0 0.5, 1 1 1 0.75 ] }
           colorIndex [ 1 0 ]
         }
       }
