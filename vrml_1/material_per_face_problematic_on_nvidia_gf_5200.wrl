@@ -1,6 +1,7 @@
 #VRML V1.0 ascii
 
-# This shows somewhat weird bug observed on NVidia GeForce FX 5200
+# Before using GL_COLOR_MATERIAL for VRML 1.0 per-face/vertex materials,
+# this was showing bugs on NVidia GeForce FX 5200
 # (Linux drivers, 2.1.2 NVIDIA 173.14.09).
 #
 # Calling glMaterial between glBegin..glEnd is normally allowed,
@@ -16,12 +17,10 @@
 # very specific about faces in this example (connected to the fact
 # that first face of 1st shape is somewhat special).
 #
-# This *was* workarounded in Kambi VRML Game engine by using
-# TryRenderingFaceAsFan for VRML 1.0 with many materials.
-# But it's not any more --- the TryRenderingFaceAsFan is really complicating
-# stuff, and it's only for the unoptimal VRML 1.0 + many materials case...
-# (and yes, it seems NVidia error, as TryRenderingFaceAsFan = false *should*
-# work Ok in this case, if OpenGL is correctly implemented.)
+# The problem was once workarounded by using TryRenderingFaceAsFan,
+# but this was ugly, unoptimal and causing other problems.
+# Not the trouble disappeared after switching to GL_COLOR_MATERIAL
+# for VRML 1.0 per-face/vertex materials.
 #
 # Orginally based on study.wrz from http://www.murdermystery.com/vrml/
 
