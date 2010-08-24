@@ -1,0 +1,117 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Tests of the Toggler node (implemented for compat with Avalon,
+# http://doc.instantreality.org/documentation/nodetype/Toggler/).
+
+DEF MyToggler Toggler {
+  #enabled FALSE
+}
+
+# Text with material color controlled by three parameters:
+# color * colorIntensity * int(on)
+PROTO TextLight [
+  inputOutput SFBool on FALSE
+  inputOutput SFFloat colorIntensity 1
+  inputOutput SFColor color 0 0 0
+  inputOutput MFString string ""
+] {
+  Shape { appearance Appearance { material DEF MyMaterial Material {
+      diffuseColor 0 0 0
+      specularColor 0 0 0
+      ambientIntensity 0.5
+    } }
+    geometry Text { string IS string }
+  }
+  DEF MyScript Script {
+    inputOutput SFBool on IS on
+    inputOutput SFColor color IS color
+    inputOutput SFFloat colorIntensity IS colorIntensity
+    outputOnly SFColor materialColor
+
+    url "kambiscript:
+    function initialize(timestamp)
+      materialColor := color * colorIntensity * int(on)
+
+    function on(value, timestamp)
+      materialColor := color * colorIntensity * int(on)
+
+    function colorIntensity(value, timestamp)
+      materialColor := color * colorIntensity * int(on)
+
+    function color(value, timestamp)
+      materialColor := color * colorIntensity * int(on)
+    " }
+  ROUTE MyScript.materialColor TO MyMaterial.diffuseColor
+}
+
+Shape {
+  geometry Text { string [
+    "Press / release Alt to change status",
+    "Press / release Ctrl to change notStatus",
+    "Press T to toggle (negate)",
+    "Press S to set (to TRUE)",
+    "Press R to reset (to FALSE)",
+    ] } }
+
+
+Transform { translation 0 7 0 children DEF VisualizeStatus    TextLight { color 0 1 0 string "status"   on FALSE } }
+Transform { translation 0 8 0 children DEF VisualizeNotStatus TextLight { color 1 0 0 string "notStatus" on TRUE } }
+
+ROUTE MyToggler.status TO VisualizeStatus.on
+ROUTE MyToggler.notStatus TO VisualizeNotStatus.on
+
+DEF K KeySensor { }
+
+ROUTE K.altKey TO MyToggler.status
+ROUTE K.controlKey TO MyToggler.notStatus
+
+# DEF L Logger { level 3 enabled TRUE }
+# ROUTE K.controlKey TO L.write
+
+DEF KeyScript Script {
+  inputOnly SFString keyPress
+  outputOnly SFString toggle
+  outputOnly SFString set
+  outputOnly SFString reset
+  url "kambiscript:
+  function keyPress(value, timestamp)
+    if  (value = 't', toggle := 'value of this event is ignored',
+    if  (value = 's', set    := 'value of this event is ignored',
+    when(value = 'r', reset  := 'value of this event is ignored')))
+  "
+}
+ROUTE K.keyPress TO KeyScript.keyPress
+ROUTE KeyScript.toggle TO MyToggler.toggle
+ROUTE KeyScript.set TO MyToggler.set
+ROUTE KeyScript.reset TO MyToggler.reset
+
+# ----------------------------------------------------------------------------
+# visualize Toggler.on, off, changed events
+
+PROTO TextAnimation [
+  inputOnly SFBool start
+  inputOutput MFString string ""
+] {
+  DEF Visualize TextLight {
+    color 1 1 0
+    string IS string
+    on TRUE
+    colorIntensity 0
+  }
+  DEF Timer TimeSensor { }
+  DEF Interpolator ScalarInterpolator { key [ 0 0.5 1 ] keyValue [ 0 1 0 ] }
+  DEF Trigger TimeTrigger { set_boolean IS start }
+
+  ROUTE Trigger.triggerTime TO Timer.startTime
+  ROUTE Timer.fraction_changed TO Interpolator.set_fraction
+  ROUTE Interpolator.value_changed TO Visualize.colorIntensity
+}
+
+Transform { translation 0 3 0 children DEF VisualizeOn      TextAnimation { string "\"on\" event occured"      } }
+Transform { translation 0 4 0 children DEF VisualizeOff     TextAnimation { string "\"off\" event occured"     } }
+Transform { translation 0 5 0 children DEF VisualizeChanged TextAnimation { string "\"changed\" event occured" } }
+
+ROUTE MyToggler.on      TO VisualizeOn.start
+ROUTE MyToggler.off     TO VisualizeOff.start
+ROUTE MyToggler.changed TO VisualizeChanged.start
