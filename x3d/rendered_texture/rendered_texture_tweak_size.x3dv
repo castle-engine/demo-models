@@ -1,0 +1,119 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# RenderedTexture: test changing dimensions and depthMap at runtime.
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.1570638865232467 -0.0877480208873748 0.087366759777069
+# up 0.3834061622619628 0.8986185789108276 0.2132701277732849
+# gravityUp 0 1 0
+Viewpoint {
+  position -5.1760492324829102 2.4259655475616455 -3.7128329277038574
+  orientation -0.1312505155801773 -0.9658962488174438 -0.2231983393430709 2.1084897518157959
+}
+
+KambiNavigationInfo { type "FLY"  speed 10 timeOriginAtLoad TRUE }
+
+# Teapot ---------------------------------------------------------------------
+
+Transform {
+  children DEF DynamicTrans Transform {
+    translation 0 0 -3
+    children Shape {
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+      geometry Teapot { }
+    }
+  }
+}
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10 }
+DEF Orient OrientationInterpolator {
+  key [ 0 1 ]
+  keyValue [ 0 0 1 0,
+             0 0 1 6.2831853072 # 2*pi
+           ]
+}
+
+ROUTE Time.fraction_changed TO Orient.set_fraction
+ROUTE Orient.value_changed TO DynamicTrans.rotation
+
+# Box ------------------------------------------------------------------------
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    texture DEF MyRenderedTexture RenderedTexture {
+      update "ALWAYS"
+      dimensions [ 512 512 ]
+      repeatS FALSE
+      repeatT FALSE
+      viewpoint
+      # Camera settings "encoded" in the VRML declaration below :
+      # direction 0.0179050657898187 -0.008794137276709 -0.0014395721955224
+      # up 0.4382922053337097 0.898141324520111 -0.0352372489869594
+      # gravityUp 0 1 0
+      Viewpoint {
+        position -4.4447846412658691 2.2520251274108887 -1.0610120296478271
+        orientation -0.2375470995903015 -0.9463170766830444 -0.2192159593105316 1.5456631183624268
+      }
+      # min/mag filter nearest, to visualize the dimensions changes better
+      textureProperties TextureProperties {
+        minificationFilter "NEAREST_PIXEL"
+        magnificationFilter "NEAREST_PIXEL"
+      }
+    }
+  }
+  geometry Box { }
+}
+
+# Usage instructions --------------------------------------------------------
+
+Transform {
+  rotation 0 1 0 -1.57
+  translation 0 1.5 0
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Text {
+      fontStyle FontStyle { size 0.3 justify "MIDDLE" }
+      string [
+      "Press s / S to increase / decrease RenderedTexture size x2",
+      "Press d to toggle whether RenderedTexture does depthMap",
+    ] }
+  }
+}
+
+# Script and keysensor to actually tweak -------------------------------------
+
+DEF MyScript Script {
+  inputOnly SFString keyPress
+  # Same def values as MyRenderedTexture
+  inputOutput MFInt32 dimensions [ 512 512 ]
+  inputOutput MFBool depthMap [ FALSE ]
+
+  url "kambiscript:
+
+function keyPress(value, timestamp)
+  when (value = 's',
+    array_set(dimensions, 0, array_get(dimensions, 0) * 2);
+    array_set(dimensions, 1, array_get(dimensions, 1) * 2)
+  );
+  when (value = 'S',
+    array_set(dimensions, 0, array_get(dimensions, 0) / 2);
+    array_set(dimensions, 1, array_get(dimensions, 1) / 2)
+  );
+  when (value = 'd',
+    array_set(depthMap, 0, not(array_get(depthMap, 0)))
+  )"
+}
+
+DEF MyKeySensor KeySensor { }
+
+ROUTE MyKeySensor.keyPress TO MyScript.keyPress
+ROUTE MyScript.dimensions TO MyRenderedTexture.dimensions
+ROUTE MyScript.depthMap TO MyRenderedTexture.depthMap
+
+DEF L Logger { enabled TRUE level 3 }
+ROUTE MyScript.dimensions TO L.write
+ROUTE MyScript.depthMap TO L.write
