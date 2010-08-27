@@ -1,17 +1,17 @@
 #VRML V2.0 utf8
 
 # This demonstrates volumetric fog, showing also example
-# where separate-shape-states-no-transform optimization
+# where separate-shapes-no-transform optimization
 # fails (volumetric fog is rendered bad --- it should be rendered
 # differently on each tree, but it's the same).
 #
 # Try these 2 commands:
 #
 #   view3dscene break_no_transform_final.wrl \
-#     --renderer-optimization separate-shape-states-no-transform
+#     --renderer-optimization separate-shapes-no-transform
 #
 #   view3dscene break_no_transform_final.wrl \
-#     --renderer-optimization separate-shape-states
+#     --renderer-optimization separate-shapes
 #
 # and compare results, you'll see what I mean.
 
