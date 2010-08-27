@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Testcase from "[Vrmlengine-main] Crash: Invalid argument" on 2010-08-27 -->
+
+<X3D profile='Immersive' version='3.2'>
+<Scene>
+<TimeSensor DEF='TIME' cycleInterval='3' loop='true'/>
+<OrientationInterpolator DEF='ORIENTATION' key  = ' 0.0 1.0' keyValue = ' -1.42800 0.00000 -0.08672 2.34200 -1.42800 0.00000 -0.08700 2.34200'/>
+<Transform DEF='ORIENT'>
+<Shape>
+<Box/>
+</Shape>
+</Transform>
+<ROUTE fromField='fraction_changed' fromNode='TIME' toField='set_fraction' toNode='ORIENTATION'/>
+<ROUTE fromField='value_changed' fromNode='ORIENTATION' toField='set_rotation' toNode='ORIENT'/>
+</Scene>
+</X3D>
