@@ -1,0 +1,59 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Simple test of animating KambiHeadlight properties.
+
+# TODO: this doesn't work with view3dscene now, since view3dscene
+# creates and manages it's own light. It works with the engine
+# in general (with TKamSceneManager), e.g. our simplest_vrml_browser
+# handles it Ok.
+
+EXTERNPROTO KambiTriangulation [
+  inputOutput SFLong    quadricSlices
+  inputOutput SFLong    quadricStacks
+  inputOutput SFLong    rectDivisions
+] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+
+# triangulate more, to properly see spot lights on this
+KambiTriangulation { rectDivisions 50 }
+
+Shape {
+  appearance Appearance { material Material {
+    diffuseColor 1 1 1 ambientIntensity 1 }
+  }
+  geometry Box { size 10 10 10 solid FALSE }
+}
+
+Transform {
+  translation 0 -5 0
+  children Inline { url "shaders/kambi_extensions/headlight_teapot.x3dv" }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0339639410376548 -4.3711381181310571E-009 -0.0940555557608604
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 3.8608174324035645 -3.559999942779541 4.747499942779541
+  orientation -1.286994404381403E-007 1.0000003576278687 0 0.3465334475040435
+}
+
+NavigationInfo {
+  speed 5
+  headlight TRUE
+  type "WALK"
+}
+
+DEF MyHeadLight KambiHeadLight { spot TRUE spotCutOffAngle 0.1 }
+
+DEF MyTimer TimeSensor { loop TRUE }
+DEF InterpolateCutOff ScalarInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ 0.1 1 0.1 ]
+}
+
+ROUTE MyTimer.fraction_changed TO InterpolateCutOff.set_fraction
+ROUTE InterpolateCutOff.value_changed TO MyHeadLight.spotCutOffAngle
+
+# DEF L Logger { enabled TRUE level 3 }
+# ROUTE InterpolateCutOff.value_changed TO L.write
