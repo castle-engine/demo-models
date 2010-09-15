@@ -1,0 +1,96 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# RenderedTexture: test "rendering" output event (and dumb test of
+# "viewing", "projection" in you uncomment Logger at the bottom).
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.1570638865232467 -0.0877480208873748 0.087366759777069
+# up 0.3834061622619628 0.8986185789108276 0.2132701277732849
+# gravityUp 0 1 0
+Viewpoint {
+  position -5.1760492324829102 2.4259655475616455 -3.7128329277038574
+  orientation -0.1312505155801773 -0.9658962488174438 -0.2231983393430709 2.1084897518157959
+}
+
+KambiNavigationInfo { type "FLY"  speed 10 timeOriginAtLoad TRUE }
+
+Background { skyColor 0.3 0.3 0.3 }
+
+# Teapot ---------------------------------------------------------------------
+
+Transform {
+  children DEF DynamicTrans Transform {
+    translation 0 0 -3
+    children Shape {
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+      geometry Teapot { solid FALSE }
+    }
+  }
+}
+
+DEF Time TimeSensor { loop TRUE cycleInterval 10 }
+DEF Orient OrientationInterpolator {
+  key [ 0 1 ]
+  keyValue [ 0 0 1 0,
+             0 0 1 6.2831853072 # 2*pi
+           ]
+}
+
+ROUTE Time.fraction_changed TO Orient.set_fraction
+ROUTE Orient.value_changed TO DynamicTrans.rotation
+
+# Box ------------------------------------------------------------------------
+
+DEF BoxSwitch Switch {
+  whichChoice 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture DEF MyRenderedTexture RenderedTexture {
+        update "ALWAYS"
+        dimensions [ 512 512 ]
+        repeatS FALSE
+        repeatT FALSE
+        viewpoint
+        # Camera settings "encoded" in the VRML declaration below :
+        # direction 0.1522388160228729 -0.087746150791645 0.0955197066068649
+        # up 0.3716347515583038 0.8986175656318664 0.2331769466400146
+        # gravityUp 0 1 0
+        Viewpoint {
+          position -2.6064271926879883 1.6286565065383911 -4.9294009208679199
+          orientation -0.1235744878649711 -0.9668570160865783 -0.2234203070402145 2.1594359874725342
+        }
+      }
+    }
+    geometry Box { }
+  }
+}
+
+# clip plane to test RenderedTexture.rendering -------------------------------
+
+DEF MyClip ClipPlane { plane 0 0 1 3 enabled FALSE }
+
+ROUTE MyRenderedTexture.rendering TO MyClip.enabled
+
+# Hide Box in RenderedTexture, as another test of RenderedTexture.rendering --
+
+DEF ScriptHiding Script {
+  inputOnly SFBool rendering
+  outputOnly SFInt32 whichChoice
+  url "kambiscript:
+
+    function rendering(value, timestamp)
+      if (value, whichChoice := -1, whichChoice := 0)"
+}
+
+ROUTE MyRenderedTexture.rendering TO ScriptHiding.rendering
+ROUTE ScriptHiding.whichChoice TO BoxSwitch.whichChoice
+
+# Logger to test RenderedTexture.viewing/projection --------------------------
+
+# DEF L Logger { enabled TRUE level 3 }
+# ROUTE MyRenderedTexture.viewing TO L.write
+# ROUTE MyRenderedTexture.projection TO L.write
