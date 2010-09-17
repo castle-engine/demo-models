@@ -47,7 +47,7 @@ PROTO TextLight [
 
 Shape {
   geometry Text { string [
-    "Press / release Alt to change status",
+    "Press / release Shift to change status",
     "Press / release Ctrl to change notStatus",
     "Press T to toggle (negate)",
     "Press S to set (to TRUE)",
@@ -63,7 +63,7 @@ ROUTE MyToggler.notStatus TO VisualizeNotStatus.on
 
 DEF K KeySensor { }
 
-ROUTE K.altKey TO MyToggler.status
+ROUTE K.shiftKey TO MyToggler.status
 ROUTE K.controlKey TO MyToggler.notStatus
 
 # DEF L Logger { level 3 enabled TRUE }
