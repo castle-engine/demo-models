@@ -3,24 +3,23 @@ PROFILE Interchange
 
 # This is to test Background.set_bind features for X3D.
 
-Shape {
-  appearance Appearance { material Material { diffuseColor 1 1 0 } }
-  geometry Text { string "press Control to bind the 1st background" }
-}
-
 Transform {
   translation 0 -2 0
   children Shape {
-    appearance Appearance { material Material { diffuseColor 1 1 1 } }
-    geometry Text { string "press Alt to unbind the 1st background" }
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Text { string [
+      "press '1' to   bind the 1st background",
+      "press '2' to unbind the 1st background" ] }
   }
 }
 
 Transform {
   translation 0 -4 0
   children Shape {
-    appearance Appearance { material Material { diffuseColor 0 0 1 } }
-    geometry Text { string "press Shift to bind the 2nd background" }
+    appearance Appearance { material Material { diffuseColor 0.2 0.2 0.2 } }
+    geometry Text { string [
+      "press '3' to   bind the 2nd background",
+      "press '4' to unbind the 2nd background" ] }
   }
 }
 
@@ -47,23 +46,21 @@ Transform {
 }
 
 DEF KS KeySensor { }
+DEF MyScript Script {
+  inputOnly SFString keyPress
+  outputOnly SFBool bind1
+  outputOnly SFBool bind2
+  url "kambiscript:
 
-# On control key down, set Background1.set_bind = true
-DEF BFCtrl BooleanFilter { }
-ROUTE KS.controlKey TO BFCtrl.set_boolean
-ROUTE BFCtrl.inputTrue TO Background1.set_bind
-
-# On alt key down, set Background1.set_bind = false
-DEF BFAlt1 BooleanFilter { }
-DEF BFAlt2 BooleanFilter { }
-ROUTE KS.altKey TO BFAlt1.set_boolean
-ROUTE BFAlt1.inputNegate TO BFAlt2.set_boolean
-ROUTE BFAlt2.inputFalse TO Background1.set_bind
-
-# On shift key down, set Background2.set_bind = true
-DEF BFShift BooleanFilter { }
-ROUTE KS.shiftKey TO BFShift.set_boolean
-ROUTE BFShift.inputTrue TO Background2.set_bind
+    function keyPress(value, timestamp)
+      when (value = '1', bind1 := true);
+      when (value = '2', bind1 := false);
+      when (value = '3', bind2 := true);
+      when (value = '4', bind2 := false)"
+}
+ROUTE KS.keyPress TO MyScript.keyPress
+ROUTE MyScript.bind1 TO Background1.set_bind
+ROUTE MyScript.bind2 TO Background2.set_bind
 
 # Test isBound output by Logger
 # DEF L Logger { level 3 }

@@ -26,13 +26,14 @@ Transform {
     }
 
     Transform {
-      translation -5 0 -15
+      translation -5 1 -15
       children Shape {
         appearance Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string [
-          "- Press Control to bind the 1st fog"
-          "- Press Alt to unbind the 1st fog"
-          "- Press Shift to bind the 2nd fog"
+          "- Press '1' to   bind the 1st fog"
+          "- Press '2' to unbind the 1st fog"
+          "- Press '3' to   bind the 2nd fog"
+          "- Press '4' to unbind the 2nd fog"
           ]
         }
       }
@@ -59,23 +60,21 @@ Transform {
 }
 
 DEF KS KeySensor { }
+DEF MyScript Script {
+  inputOnly SFString keyPress
+  outputOnly SFBool bind1
+  outputOnly SFBool bind2
+  url "kambiscript:
 
-# On control key down, set Fog1.set_bind = true
-DEF BFCtrl BooleanFilter { }
-ROUTE KS.controlKey TO BFCtrl.set_boolean
-ROUTE BFCtrl.inputTrue TO Fog1.set_bind
-
-# On alt key down, set Fog1.set_bind = false
-DEF BFAlt1 BooleanFilter { }
-DEF BFAlt2 BooleanFilter { }
-ROUTE KS.altKey TO BFAlt1.set_boolean
-ROUTE BFAlt1.inputNegate TO BFAlt2.set_boolean
-ROUTE BFAlt2.inputFalse TO Fog1.set_bind
-
-# On shift key down, set Fog2.set_bind = true
-DEF BFShift BooleanFilter { }
-ROUTE KS.shiftKey TO BFShift.set_boolean
-ROUTE BFShift.inputTrue TO Fog2.set_bind
+    function keyPress(value, timestamp)
+      when (value = '1', bind1 := true);
+      when (value = '2', bind1 := false);
+      when (value = '3', bind2 := true);
+      when (value = '4', bind2 := false)"
+}
+ROUTE KS.keyPress TO MyScript.keyPress
+ROUTE MyScript.bind1 TO Fog1.set_bind
+ROUTE MyScript.bind2 TO Fog2.set_bind
 
 # Test isBound output by Logger
 # DEF L Logger { level 3 }
