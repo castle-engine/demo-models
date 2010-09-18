@@ -1,0 +1,66 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:3
+
+# MultiTexture tests on primitives.
+
+Transform {
+  children Shape {
+    appearance DEF App Appearance {
+      texture MultiTexture {
+        mode [ "MODULATE", "ADD" ]
+        texture [
+          ImageTexture {
+            url "../textures/test_texture.png"
+          }
+          MovieTexture {
+            url [ "../vrml_2/movie_texture/flame/seamless/%4d.png"
+                  "../vrml_2/movie_texture/flame/flame_seamless_compressed.avi" ]
+            loop TRUE
+            alphaChannel "SIMPLE_YES_NO" # hack to prevent using blending
+          }
+        ]
+      }
+      textureTransform MultiTextureTransform {
+        textureTransform [
+          TextureTransform { scale 2 2 }
+          TextureTransform { scale 2 2 }
+        ]
+      }
+      material Material { }
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 2.5 0 0
+  children Shape {
+    appearance USE App
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 0 2.5 0
+  children Shape {
+    appearance USE App
+    geometry Cone { }
+  }
+}
+
+Transform {
+  translation 2.5 2.5 0
+  children Shape {
+    appearance USE App
+    geometry Cylinder { }
+  }
+}
+
+Transform {
+  translation 5 0 0
+  children Shape {
+    appearance USE App
+    geometry Teapot { }
+  }
+}
