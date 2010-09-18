@@ -1,0 +1,64 @@
+#VRML V2.0 utf8
+
+# Demo that bump mapping works on geometry handled by Proxy.
+
+EXTERNPROTO KambiAppearance [
+  exposedField SFNode material
+  exposedField SFNode texture
+  exposedField SFNode textureTransform
+  exposedField SFNode fillProperties
+  exposedField SFNode lineProperties
+  exposedField SFNode metadata
+  exposedField MFNode shaders
+  exposedField SFNode normalMap
+  exposedField SFNode heightMap
+  exposedField SFFloat heightMapScale
+  exposedField SFNode blendMode
+  exposedField SFBool shadowCaster
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
+
+Transform {
+  children Shape {
+    appearance DEF App KambiAppearance {
+      material Material { }
+      texture DEF rock_d01_png ImageTexture { url "cloth/rock_d01.png" }
+      normalMap ImageTexture { url "cloth/rock_d01_normalmap.png" }
+      heightMap ImageTexture { url "cloth/rock_d01_heightmap.png"}
+      heightMapScale 0.01
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 2.5 0 0
+  children Shape {
+    appearance USE App
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 0 2.5 0
+  children Shape {
+    appearance USE App
+    geometry Cone { }
+  }
+}
+
+Transform {
+  translation 2.5 2.5 0
+  children Shape {
+    appearance USE App
+    geometry Cylinder { }
+  }
+}
+
+Transform {
+  translation 5 0 0
+  children Shape {
+    appearance USE App
+    geometry Teapot { }
+  }
+}
