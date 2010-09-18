@@ -43,3 +43,22 @@ DEF Interp CoordinateInterpolator2D {
 
 ROUTE Timer.fraction_changed TO Interp.set_fraction
 ROUTE Interp.value_changed TO TexCoord.point
+
+# Test of Timer.enabled. Press Ctrl key to set TimeSensor.enabled to FALSE.
+
+DEF Key KeySensor { }
+DEF BF BooleanFilter { }
+ROUTE Key.controlKey TO BF.set_boolean
+ROUTE BF.inputNegate TO Timer.enabled
+
+# DEF L Logger { enabled TRUE level 3 }
+# ROUTE Timer.enabled TO L.write
+# ROUTE Timer.loop TO L.write
+# ROUTE Timer.startTime TO L.write
+# ROUTE Timer.stopTime TO L.write
+# ROUTE Timer.cycleTime TO L.write
+# ROUTE Timer.elapsedTime TO L.write
+# ROUTE Timer.fraction_changed TO L.write
+# ROUTE Timer.isActive TO L.write
+# ROUTE Timer.isPaused TO L.write
+# ROUTE Timer.time TO L.write
