@@ -2,11 +2,6 @@
 PROFILE Interchange
 COMPONENT Texturing3D:2
 
-EXTERNPROTO BoxWithTexCoord [
-  initializeOnly SFBool solid
-  initializeOnly SFNode texCoord
-] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
-
 Collision {
   enabled FALSE
   children Transform {
@@ -88,7 +83,7 @@ Collision {
             texture USE Tex3D
             textureTransform USE TexTrans
           }
-          geometry BoxWithTexCoord {
+          geometry Box {
             texCoord TextureCoordinateGenerator { mode "COORD" }
           }
         }

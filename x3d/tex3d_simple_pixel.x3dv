@@ -2,11 +2,6 @@
 PROFILE Interchange
 COMPONENT Texturing3D:2
 
-EXTERNPROTO BoxWithTexCoord [
-  initializeOnly SFBool solid
-  initializeOnly SFNode texCoord
-] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
-
 Shape {
   appearance Appearance {
     material Material { }
@@ -74,7 +69,7 @@ Transform {
       texture USE Tex3d
       textureTransform USE TexTrans
     }
-    geometry BoxWithTexCoord {
+    geometry Box {
       solid FALSE
       texCoord TextureCoordinateGenerator { mode "COORD" }
     }

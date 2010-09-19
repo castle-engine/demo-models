@@ -3,11 +3,6 @@ PROFILE Interchange
 
 NavigationInfo { type "WALK" speed 10 }
 
-EXTERNPROTO BoxWithTexCoord [
-  initializeOnly SFBool solid
-  initializeOnly SFNode texCoord
-] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
-
 PROTO Test [
   inputOutput SFVec3f translation 0 0 0
   inputOutput SFNode textureProperties NULL

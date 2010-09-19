@@ -110,16 +110,6 @@ ViewportInfo {
 
 # Boxes and teapots ----------------------------------------------------------
 
-EXTERNPROTO BoxWithTexCoord [
-  initializeOnly SFBool solid
-  initializeOnly SFNode texCoord
-] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
-
-# EXTERNPROTO BoxWithTexCoord [
-#   initializeOnly SFBool solid
-#   initializeOnly SFNode texCoord
-# ] [ "proto_tesselated_box.x3dv#TesselatedBox" ]
-
 EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
@@ -136,7 +126,7 @@ EditableTransform {
         size 512
       }
     }
-    geometry BoxWithTexCoord {
+    geometry Box {
       texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
     }
   }
@@ -152,7 +142,7 @@ EditableTransform {
         size 512
       }
     }
-    geometry BoxWithTexCoord {
+    geometry Box {
       texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
     }
   }

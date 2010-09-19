@@ -2,11 +2,6 @@
 PROFILE Interchange
 COMPONENT Texturing3D:2
 
-EXTERNPROTO BoxWithTexCoord [
-  initializeOnly SFBool solid
-  initializeOnly SFNode texCoord
-] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
-
 PROTO TestTex3DRepeats [
   inputOutput SFVec3f translation 0 0 0
   inputOutput SFBool repeatS FALSE
@@ -32,7 +27,7 @@ PROTO TestTex3DRepeats [
           scale 4 4 4
         }
       }
-      geometry BoxWithTexCoord {
+      geometry Box {
         texCoord TextureCoordinateGenerator { mode "COORD" }
       }
     }

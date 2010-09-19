@@ -203,8 +203,15 @@ function time(value, timestamp)
 }
 
 # ----------------------------------------------------------------------------
-# Similar to normal Box, but you can specify as texCoord
-# some TextureCoordinateGenerator node.
+# PROTO extending the normal Box with texCoord field.
+# Note that this is usually not needed:
+# for Kambi engine (view3dscene), the standard Box already has texCoord
+# implemented, e.g. for TextureCoordinateGenerator node.
+#
+# However this can still be useful for compatibility with other browsers
+# (that don't have Box.texCoord) or to specify explicit tex coords
+# on box for some tests.
+
 PROTO BoxWithTexCoord [
   initializeOnly SFBool solid TRUE
   initializeOnly SFNode texCoord NULL
