@@ -24,11 +24,6 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec3f scale
 ] [ "useful_prototypes.x3dv#EditableTransform" ]
 
-EXTERNPROTO BoxWithTexCoord [
-  initializeOnly SFBool solid
-  initializeOnly SFNode texCoord
-] [ "useful_prototypes.x3dv#BoxWithTexCoord" ]
-
 # ----------------------------------------------------------------------------
 # Teapot
 
@@ -85,7 +80,7 @@ EditableTransform {
       }
       shadowCaster FALSE
     }
-    geometry BoxWithTexCoord {
+    geometry Box {
       solid FALSE
       texCoord MultiTextureCoordinate {
         texCoord [
