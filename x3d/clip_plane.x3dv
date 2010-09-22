@@ -22,13 +22,22 @@ Transform { translation -1.5 0 -1
     appearance Appearance { material Material { } }
     geometry Teapot { solid FALSE } } }
 Transform { translation  1.5 0 -1 children USE T }
-Transform { translation  1.5 0  1 children USE T }
-Transform { translation -1.5 0  1 children [
-    USE T
-    # notice that this plane is defined in local coords of this Transform,
-    # and it affects only the one teapot within this Transform
-    ClipPlane { plane 1 0 0 0 }
-  ]
+DEF Tea1Trnsf Transform {
+    translation  1.5 0 1
+    children [
+        USE T
+        # notice that this plane is defined in local coords of this Transform,
+        # and it affects only the one teapot within this Transform
+        ClipPlane { plane 1 0 0 0 }
+    ]
+}
+Transform {
+    translation -1.5 0 1
+    children [
+        ClipPlane { plane 1 0 0 0 }
+        # this teapot rotates, but the ClipPlane remains fixed
+        DEF Tea2Trnsf Transform { children USE T }
+    ]
 }
 
 DEF AnimatedPlane ClipPlane { plane 1 0 0 1 }
@@ -65,3 +74,23 @@ function set_fraction(value, timestamp)
 
 ROUTE Timer.fraction_changed TO Vec4Interpolator.set_fraction
 ROUTE Vec4Interpolator.value_changed TO AnimatedPlane.plane
+
+# 2nd Animation clock
+DEF Clock TimeSensor {
+    cycleInterval 20.0
+    loop TRUE
+}
+
+# Rotation path
+DEF rotPath OrientationInterpolator {
+    key [ 0.0 0.5 1.0 ]
+    keyValue [
+        0.0 1.0 0.0 -6.28,
+        0.0 1.0 0.0 -3.14,
+        0.0 1.0 0.0 0.0,
+    ]
+}
+
+ROUTE Clock.fraction_changed TO rotPath.set_fraction
+ROUTE rotPath.value_changed TO Tea1Trnsf.set_rotation
+ROUTE rotPath.value_changed TO Tea2Trnsf.set_rotation
