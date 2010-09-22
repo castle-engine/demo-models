@@ -32,7 +32,7 @@ DEF _mirror Script {
   outputOnly MFVec3f eyeM_direction
   outputOnly MFVec3f eyeM_up
   initializeOnly SFVec3f P 0 0 0
-  initializeOnly SFVec3f V 0 0 1
+  initializeOnly SFVec3f V 0 1 0
   initializeOnly SFVec4f locationH 0 0 0 1
   # The 3x3 matrix representation of a rotation (x y z a)
   initializeOnly SFMatrix3f Rot 1 0 0 0 1 0 0 0 1
@@ -92,122 +92,137 @@ DEF _mirror Script {
 }
 
 DEF Board_T Transform {
-  rotation 0 0 1 -1.5708
   children [
-  DEF Board Shape {
-    appearance DEF chequered Appearance {
-      material Material {
-        ambientIntensity 0.25
-        diffuseColor 1.0 1.0 1.0
+    DEF Board Shape {
+      appearance DEF chequered Appearance {
+        material Material {
+          ambientIntensity 0.25
+          diffuseColor 1.0 1.0 1.0
+        }
+        texture MultiTexture {
+          alpha 0.5
+          mode [ "MODULATE", "BLENDFACTORALPHA" ]
+          texture [
+            ImageTexture {
+              url "chequered.png"
+              repeatS TRUE
+              repeatT TRUE
+              textureProperties TextureProperties {
+                magnificationFilter "NICEST"
+                minificationFilter "NICEST"
+                anisotropicDegree 16
+              }
+            }
+            DEF RendTex RenderedTexture {
+              update "ALWAYS"
+              dimensions [ 2048 2048 ]
+              viewpoint DEF EyeM Viewpoint {
+                fieldOfView 1.75
+                description "mirrored-eye"
+              }
+              textureProperties TextureProperties {
+                magnificationFilter "NICEST"
+                minificationFilter "NICEST"
+              }
+            }
+          ]
+        }
+        textureTransform MultiTextureTransform {
+          textureTransform [
+            TextureTransform { }
+            TextureTransform { scale -1 1 }
+          ]
+        }
       }
-      texture MultiTexture {
-        alpha 0.5
-        mode [ "MODULATE", "BLENDFACTORALPHA" ]
-        texture [
-          ImageTexture {
-            url "chequered.png"
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties TextureProperties {
-              magnificationFilter "NICEST"
-              minificationFilter "NICEST"
-              anisotropicDegree 8
-              generateMipMaps TRUE
-            }
-          }
-          RenderedTexture {
-            update "ALWAYS"
-            dimensions [ 2048 2048 ]
-            viewpoint DEF EyeM Viewpoint {
-              fieldOfView 1.75
-              description "mirrored-eye"
-            }
-            textureProperties TextureProperties {
-              magnificationFilter "NICEST"
-              minificationFilter "NICEST"
-              anisotropicDegree 8
-              generateMipMaps TRUE
-            }
-          }
+      geometry IndexedFaceSet {
+        solid TRUE
+        normalPerVertex FALSE
+        coord Coordinate {
+          point [
+            13.5 0 -13.5
+            -13.5 0 -13.5
+            13.5 0 13.5
+            -13.5 0 13.5
+          ]
+        }
+        coordIndex [
+          0 1 3 2 -1,
         ]
+        texCoord MultiTextureCoordinate {
+          texCoord [
+            TextureCoordinate { point [ 0 0, 4 0, 0 4, 4 4 ] }
+            TextureCoordinateGenerator {
+              mode "PROJECTION"
+              projectedLight DEF EyeSpot SpotLight {
+                on FALSE
+                projectionAngle 1.75
+              }
+            }
+          ]
+        }
       }
-      textureTransform MultiTextureTransform {
-        textureTransform [
-          TextureTransform { }
-          TextureTransform { scale -1 1 }
+    }
+    DEF Frame Shape {
+      appearance DEF Wood Appearance {
+        material Material {
+          diffuseColor 0.4 0.2 0.1
+          specularColor 0.2 0.2 0.2
+        }
+      }
+      geometry IndexedFaceSet {
+        solid TRUE
+        coord Coordinate {
+          point [
+            -13.5 0.2 13.5
+            -20.25 0.2 20.25
+            20.25 0.2 20.25
+            13.5 0.2 13.5
+            -20.25 0.2 -20.25
+            -13.5 0.2 -13.5
+            20.25 0.2 -20.25
+            13.5 0.2 -13.5
+            -20.25 -0.6328 20.25
+            20.25 -0.6328 20.25
+            -20.25 -0.6328 -20.25
+            20.25 -0.6328 -20.25
+            -13.5 0 13.5
+            13.5 0 13.5
+            -13.5 0 -13.5
+            13.5 0 -13.5
+          ]
+        }
+        coordIndex [
+          3 0 1 2 -1,
+          3 2 6 7 -1,
+          4 5 7 6 -1,
+          1 0 5 4 -1,
+          1 8 9 2 -1,
+          2 9 11 6 -1,
+          4 6 11 10 -1,
+          1 4 10 8 -1,
+          8 10 11 9 -1,
+          0 3 13 12 -1,
+          3 7 15 13 -1,
+          7 5 14 15 -1,
+          5 0 12 14 -1,
         ]
       }
     }
-    geometry IndexedFaceSet {
-      solid TRUE
-      normalPerVertex FALSE
-      coord Coordinate {
-        point [
-          13.5 0.0 -13.5
-          -13.5 0.0 -13.5
-          13.5 0.0 13.5
-          -13.5 0.0 13.5
-        ]
-      }
-      coordIndex [
-        0 1 3 2 -1,
-      ]
-      texCoord MultiTextureCoordinate {
-        texCoord [
-          TextureCoordinate { point [ 0 0, 1 0, 0 1, 1 1 ] }
-          TextureCoordinateGenerator {
-            mode "PROJECTION"
-            projectedLight DEF EyeSpot SpotLight {
-              on FALSE
-              projectionAngle 1.75
-            }
-          }
-        ]
-      }
+    DEF ClP ClipPlane {
+      plane 0 1 0 0
+      enabled FALSE
     }
-  }
-  DEF Frame Shape {
-    appearance DEF Wood Appearance {
-      material Material {
-        diffuseColor 0.4 0.2 0.1
-        specularColor 0.2 0.2 0.2
-      }
-    }
-    geometry IndexedFaceSet {
-      solid TRUE
-      coord Coordinate {
-        point [
-          -13.5 0.0 13.5
-          -20.25 0.0 20.25
-          20.25 0.0 20.25
-          13.5 0.0 13.5
-          -20.25 0.0 -20.25
-          -13.5 0.0 -13.5
-          20.25 0.0 -20.25
-          13.5 0.0 -13.5
-        ]
-      }
-      coordIndex [
-        3 0 1 2 -1, 
-        3 2 6 7 -1, 
-        4 5 7 6 -1, 
-        1 0 5 4 -1, 
-      ]
-    }
-  }
   ]
 }
 
-DEF Lamp_T Transform {
+DEF Lamp1_T Transform {
   translation -10.0 20 8.0
-  children [
-    DEF Lamp PointLight {
-      color 1.0 1.0 1.0
-      intensity 0.9
-      ambientIntensity 0.75
-      on TRUE
-    }
-  ]
+  children DEF Lamp1 PointLight {
+    color 1.0 1.0 1.0
+    intensity 0.9
+    ambientIntensity 0.75
+    on TRUE
+  }
 }
 
 DEF Lamp2_T Transform {
@@ -228,8 +243,8 @@ DEF Camera_T Transform {
   }
 }
 
-DEF Pawn_T Transform {
-  translation 0 0 0
+DEF Pawn1_T Transform {
+  translation -1.6875 0 1.6875
   children Shape {
     appearance Appearance {
       material Material {
@@ -242,15 +257,21 @@ DEF Pawn_T Transform {
   }
 }
 
-#DEF Pawn_T Transform {
-#  translation 0 0.2 3
-#  children Shape {
-#    appearance Appearance {
-#      material Material {}
-#    }
-#    geometry EXT_Pawn {}
-#  }
-#}
+DEF Pawn2_T1 Transform {
+  children DEF Pawn2_T2 Transform {
+    translation 1.6875 0 -1.6875
+    children Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.1 0.07 0.1
+          specularColor 1.0 1.0 1.0
+          shininess 0.5
+        }
+      }
+      geometry EXT_Pawn {}
+    }
+  }
+}
 
 ROUTE Camera.cameraInverseMatrix TO _mirror.cameraInverseMatrix
 ROUTE Camera.cameraRotationInverseMatrix TO _mirror.cameraRotationInverseMatrix
@@ -265,13 +286,11 @@ ROUTE _mirror.eyeM_position TO EyeM.position
 ROUTE _mirror.eyeM_direction TO EyeM.direction
 ROUTE _mirror.eyeM_up TO EyeM.up
 
-# add some movement:
-DEF TimeS TimeSensor {
-  cycleInterval 15
-  loop TRUE
-}
+ROUTE REndTex.rendering TO ClP.enabled
 
-DEF O_Interp OrientationInterpolator {
+# Add some movement:
+# Board Orientation Interpolator
+DEF B_O_Interp OrientationInterpolator {
   key [ 0 .25 .5 .75 1 ]
   keyValue [
     1 0 0 0,
@@ -281,8 +300,11 @@ DEF O_Interp OrientationInterpolator {
     1 0 0 0
   ]
 }
+ROUTE  B_O_Interp.value_changed TO Board_T.set_rotation
+ROUTE  B_O_Interp.value_changed TO Pawn2_T1.set_rotation
 
-DEF P_Interp PositionInterpolator {
+# Board Position Interpolator
+DEF B_P_Interp PositionInterpolator {
   key [ 0 .25 .5 .75 1 ]
   keyValue [
     0 0 0,
@@ -292,14 +314,29 @@ DEF P_Interp PositionInterpolator {
     0 0 0
   ]
 }
+ROUTE  B_P_Interp.value_changed TO Board_T.set_translation
+ROUTE  B_P_Interp.value_changed TO Pawn2_T1.set_translation
 
-ROUTE  TimeS.fraction_changed TO O_Interp.set_fraction
-ROUTE  O_Interp.value_changed TO Board_T.set_rotation
-ROUTE  O_Interp.value_changed TO _mirror.mir_rotation
+# Pawn2 Position Interpolator
+DEF P2_P_Interp PositionInterpolator {
+  key [ 0 .25 .5 .75 1 ]
+  keyValue [
+    1.6875 0 -1.6875,
+    5.0625 1.5 -1.6875,
+    8.4375 0 -1.6875,
+    5.0625 1.5 -1.6875,
+    1.6875 0 -1.6875
+  ]
+}
+ROUTE P2_P_Interp.value_changed TO Pawn2_T2.set_translation
 
-ROUTE  TimeS.fraction_changed TO P_Interp.set_fraction
-ROUTE  P_Interp.value_changed TO Board_T.set_translation
-ROUTE  P_Interp.value_changed TO _mirror.mir_translation
+DEF TimeS TimeSensor {
+  cycleInterval 15
+  loop TRUE
+}
+ROUTE  TimeS.fraction_changed TO P2_P_Interp.set_fraction
+ROUTE  TimeS.fraction_changed TO B_O_Interp.set_fraction
+ROUTE  TimeS.fraction_changed TO B_P_Interp.set_fraction
 
 # debug:
 #DEF Log Logger { level 2 }
