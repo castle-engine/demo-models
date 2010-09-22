@@ -73,3 +73,8 @@ DEF L Logger { enabled TRUE
   level 4}#Logger
 #ROUTE TT1.triggerTime TO L.write
 ROUTE TimerBend.startTime TO L.write
+
+# Test stopTime by the way
+DEF TT2 TimeTrigger {}
+ROUTE KS.shiftKey TO TT2.set_boolean
+ROUTE TT2.triggerTime TO TimerBend.set_stopTime
