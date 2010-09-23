@@ -1,5 +1,7 @@
 #X3D V3.1 utf8
 PROFILE Interchange
+COMPONENT KeyDeviceSensor:1
+COMPONENT EventUtilities:1
 
 # Section 8.2.4.3 , paragraph 5
 # "Any set_startTime events to an active time-dependent node are ignored."
