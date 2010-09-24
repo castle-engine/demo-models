@@ -14,19 +14,44 @@ DEF MyScript Script {
   inputOutput SFString finalText ""
   inputOutput SFBool isActive FALSE
 
-  # value passed here doesn't matter, just use this to regenerate Text
-  inputOutput SFBool refresh TRUE
-
-  outputOnly MFString a_string
+  # We have multiple string* outputs, to have multiple ROUTEs to MyText.string.
+  # Otherwise event execution could eliminate some valid events,
+  # because StringSensor generates many events at some timestamps
+  # (e.g. isActive and enteredText on the 1st key press),
+  # and X3D spec says that within one timestamp, only one event goes through
+  # one route (see X3D 3.2 spec "4.4.8 Event model").
+  outputOnly MFString string1
+  outputOnly MFString string2
+  outputOnly MFString string3
+  outputOnly MFString string4
 
   url "kambiscript:
-    function initialize(timestamp) refresh := true
-    function enteredText(value, timestamp) refresh := true
-    function finalText(value, timestamp) refresh := true
-    function isActive(value, timestamp) refresh := true
+    function initialize(timestamp)
+      string1 := array(
+        'Active: ' + string(isActive),
+        'Entered text: \"' + enteredText + '\"',
+        'Final text: \"' + finalText + '\"',
+        'Press some keys. Enter acceps, backspace deletes.'
+        )
 
-    function refresh(value, timestamp)
-      a_string := array(
+    function enteredText(value, timestamp)
+      string2 := array(
+        'Active: ' + string(isActive),
+        'Entered text: \"' + enteredText + '\"',
+        'Final text: \"' + finalText + '\"',
+        'Press some keys. Enter acceps, backspace deletes.'
+        )
+
+    function finalText(value, timestamp)
+      string3 := array(
+        'Active: ' + string(isActive),
+        'Entered text: \"' + enteredText + '\"',
+        'Final text: \"' + finalText + '\"',
+        'Press some keys. Enter acceps, backspace deletes.'
+        )
+
+    function isActive(value, timestamp)
+      string4 := array(
         'Active: ' + string(isActive),
         'Entered text: \"' + enteredText + '\"',
         'Final text: \"' + finalText + '\"',
@@ -47,4 +72,7 @@ Shape { appearance Appearance { material Material { emissiveColor 1 1 0 } }
   geometry DEF MyText Text { string "TODO - without this dir is Nan" }
 }
 
-ROUTE MyScript.a_string TO MyText.string
+ROUTE MyScript.string1 TO MyText.string
+ROUTE MyScript.string2 TO MyText.string
+ROUTE MyScript.string3 TO MyText.string
+ROUTE MyScript.string4 TO MyText.string
