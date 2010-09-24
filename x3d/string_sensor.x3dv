@@ -1,0 +1,50 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT KeyDeviceSensor:2
+
+NavigationInfo { type "FLY" }
+
+Viewpoint {
+  position 9 -1 16
+  orientation 0 -1 0 0
+}
+
+DEF MyScript Script {
+  inputOutput SFString enteredText ""
+  inputOutput SFString finalText ""
+  inputOutput SFBool isActive FALSE
+
+  # value passed here doesn't matter, just use this to regenerate Text
+  inputOutput SFBool refresh TRUE
+
+  outputOnly MFString a_string
+
+  url "kambiscript:
+    function initialize(timestamp) refresh := true
+    function enteredText(value, timestamp) refresh := true
+    function finalText(value, timestamp) refresh := true
+    function isActive(value, timestamp) refresh := true
+
+    function refresh(value, timestamp)
+      a_string := array(
+        'Active: ' + string(isActive),
+        'Entered text: \"' + enteredText + '\"',
+        'Final text: \"' + finalText + '\"',
+        'Press some keys. Enter acceps, backspace deletes.'
+        )
+     "
+}
+
+DEF StrSensor StringSensor {
+  #deletionAllowed FALSE
+}
+
+ROUTE StrSensor.enteredText TO MyScript.enteredText
+ROUTE StrSensor.finalText TO MyScript.finalText
+ROUTE StrSensor.isActive TO MyScript.isActive
+
+Shape { appearance Appearance { material Material { emissiveColor 1 1 0 } }
+  geometry DEF MyText Text { string "TODO - without this dir is Nan" }
+}
+
+ROUTE MyScript.a_string TO MyText.string
