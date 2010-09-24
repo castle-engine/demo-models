@@ -69,7 +69,7 @@ ROUTE StrSensor.finalText TO MyScript.finalText
 ROUTE StrSensor.isActive TO MyScript.isActive
 
 Shape { appearance Appearance { material Material { emissiveColor 1 1 0 } }
-  geometry DEF MyText Text { string "TODO - without this dir is Nan" }
+  geometry DEF MyText Text { }
 }
 
 ROUTE MyScript.string1 TO MyText.string
