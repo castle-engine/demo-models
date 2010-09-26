@@ -66,4 +66,6 @@ ROUTE PS.isOver TO OverText.on
 ROUTE PS.trackPoint_changed TO TrackPointVisualize.translation
 ROUTE PS.translation_changed TO TranslationVisualize.translation
 
+Viewpoint { position 0 0 400 }
+
 NavigationInfo { type "EXAMINE" headlight TRUE }
