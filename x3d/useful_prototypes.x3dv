@@ -77,7 +77,7 @@ PROTO EditableTransform [
       }
       DEF Touch TouchSensor { description IS description }
       DEF Key KeySensor { }
-      DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+      DEF Time TimeSensor { loop TRUE }
       DEF Scr Script {
         # Input to script from touch and key sensors.
         # isActive is inputOutput, as it's value must be saved (for use
@@ -195,7 +195,7 @@ function time(value, timestamp)
   ROUTE Touch.isActive TO Scr.isActive
   ROUTE Key.keyPress TO Scr.keyPress
   ROUTE Key.keyRelease TO Scr.keyRelease
-  ROUTE Time.elapsedTime TO Scr.time
+  ROUTE Time.time TO Scr.time
 
   ROUTE Scr.translation TO Trans.translation
   ROUTE Scr.scale TO Trans.scale

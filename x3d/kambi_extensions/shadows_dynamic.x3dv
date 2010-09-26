@@ -71,12 +71,12 @@ DEF LightIndicator Transform {
     }
   }
 }
-DEF Timer TimeSensor { loop TRUE cycleInterval 10000000 }
+DEF Timer TimeSensor { loop TRUE }
 
 DEF KeySens KeySensor { }
 
 DEF Scr Script {
-  inputOnly SFTime elapsedTime
+  inputOnly SFTime time
   outputOnly SFVec3f mainLightLoc
 
   inputOnly SFString keyPress
@@ -89,7 +89,7 @@ DEF Scr Script {
   is not optimized now for animating light's transform (but it's optimized
   for animating light's location). }
 
-function elapsedTime(value, timestamp)
+function time(value, timestamp)
   mainLightLoc := vector(
     sin(value) * 0.3,
     1,
@@ -99,7 +99,7 @@ function keyPress(value, timestamp)
   when (value = 's', shadows := not(shadows))
 "
 }
-ROUTE Timer.elapsedTime TO Scr.elapsedTime
+ROUTE Timer.time TO Scr.time
 ROUTE Scr.mainLightLoc TO Light.location
 ROUTE Scr.mainLightLoc TO LightIndicator.translation
 

@@ -156,8 +156,8 @@ Collision {
 ROUTE Scr.colors TO PtColor.color
 ROUTE Scr.coords TO PtCoord.point
 
-DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
-ROUTE Time.elapsedTime TO Scr.time
+DEF Time TimeSensor { loop TRUE }
+ROUTE Time.time TO Scr.time
 
 Shape {
   appearance Appearance { material Material { } }
@@ -178,5 +178,5 @@ Transform {
 }
 
 NavigationInfo {
-  type "WALK"
+  type "FLY"
 }

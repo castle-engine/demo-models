@@ -188,7 +188,7 @@ ROUTE Scr.reverted_normal TO TransNormal.translation
 ROUTE KeySens.keyPress TO Scr.keyPress
 ROUTE KeySens.keyRelease TO Scr.keyRelease
 
-ROUTE Time.elapsedTime TO Scr.time
+ROUTE Time.time TO Scr.time
 
 # ----------------------------------------------------------------------------
 # text, viewpoint, navigation - things not related to the test,
