@@ -1,0 +1,67 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT KeyDeviceSensor:1
+COMPONENT EventUtilities:1
+
+# Test elapsedTime goes forward, from 0 at startTime to infinity,
+# and isn't reset to 0 at each cycle start.
+#
+# Correct effect:
+# - box moves up, then jumps back down, in 4 second cycle.
+# - sphere goes away into the infinity.
+
+DEF TS TimeSensor {
+  loop TRUE
+
+  cycleInterval 4
+
+  # Prevent the node from initially running. We want the node to actually
+  # start at loading time (we achieve this here by standard ProximitySensor
+  # trick, instead of our custom extension timeOriginAtLoad).
+  # Otherwise initial elapsedTime would be huge, preventing the moving sphere
+  # to be ever visible.
+  startTime -1 stopTime -0.5
+}
+
+DEF FractionVisualize Transform {
+  children Shape {
+      appearance Appearance { material Material { diffuseColor 1 1 0 } }
+      geometry Box { size 2 0.1 0.1 } } }
+
+Transform { translation 4 0 0
+  children DEF ElapsedTimeVisualize Transform {
+    children Shape {
+        appearance Appearance { material Material { diffuseColor 0.5 0.5 1 } }
+        geometry Sphere { } } } }
+
+DEF PS ProximitySensor { size 1000 1000 1000 }
+ROUTE PS.enterTime TO TS.startTime
+
+DEF Scr Script {
+  inputOnly SFFloat fraction
+  inputOnly SFTime elapsedTime
+  outputOnly SFVec3f FractionVisualize_position
+  outputOnly SFVec3f ElapsedTimeVisualize_position
+  url "kambiscript:
+
+    function fraction(value, timestamp)
+      FractionVisualize_position := vector(0, value, 0)
+
+    function elapsedTime(value, timestamp)
+      ElapsedTimeVisualize_position := vector(0, 0, -value)
+    "
+}
+
+ROUTE TS.fraction_changed TO Scr.fraction
+ROUTE TS.elapsedTime TO Scr.elapsedTime
+ROUTE Scr.FractionVisualize_position TO FractionVisualize.translation
+ROUTE Scr.ElapsedTimeVisualize_position TO ElapsedTimeVisualize.translation
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0 -0 -1
+# up 0 1 4.3711388286737929E-008
+# gravityUp 0 1 0
+Viewpoint {
+  position -0.0001793994015315 0.325967401266098 2.6323094367980957
+  orientation 0 0 1 0
+}
