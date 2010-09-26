@@ -1,0 +1,69 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Text with material color controlled by color * int(on)
+PROTO TextLight [
+  inputOutput SFBool on FALSE
+  inputOutput SFColor color 0 0 0
+  inputOutput MFString string ""
+] {
+  Shape { appearance Appearance { material DEF MyMaterial Material {
+      diffuseColor 0 0 0
+      specularColor 0 0 0
+      ambientIntensity 0.5
+    } }
+    geometry Text { string IS string
+      fontStyle FontStyle { size 10 }
+    }
+  }
+  DEF MyScript Script {
+    inputOutput SFBool on IS on
+    inputOutput SFColor color IS color
+    outputOnly SFColor materialColor
+
+    url "kambiscript:
+    function initialize(timestamp)
+      materialColor := color * int(on)
+
+    function on(value, timestamp)
+      materialColor := color * int(on)
+
+    function color(value, timestamp)
+      materialColor := color * int(on)
+    " }
+  ROUTE MyScript.materialColor TO MyMaterial.diffuseColor
+}
+
+Transform {
+  children [
+    Inline { url "../vrml_2/castle_with_lights.wrl" }
+    DEF PS PlaneSensor { maxPosition 100 100 }
+  ]
+}
+
+Transform { translation 10 100 40
+  children DEF ActiveText TextLight { string "PlaneSensor active" color 1 1 0 } }
+
+Transform { translation 10 120 40
+  children DEF OverText TextLight { string "PlaneSensor over" color 0.5 0.5 1 } }
+
+DEF TrackPointVisualize Transform {
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    geometry Sphere { radius 10 }
+  }
+}
+
+DEF TranslationVisualize Transform {
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 0 1 0 } }
+    geometry Sphere { radius 10 }
+  }
+}
+
+ROUTE PS.isActive TO ActiveText.on
+ROUTE PS.isOver TO OverText.on
+ROUTE PS.trackPoint_changed TO TrackPointVisualize.translation
+ROUTE PS.translation_changed TO TranslationVisualize.translation
+
+NavigationInfo { type "EXAMINE" headlight TRUE }
