@@ -36,7 +36,7 @@ DEF Interp NurbsPositionInterpolator {
 
 DEF KeySens KeySensor { }
 
-DEF Time TimeSensor { loop TRUE cycleInterval 10000000 }
+DEF Time TimeSensor { loop TRUE }
 
 DEF Scr Script {
   exposedField SFFloat position 0
@@ -93,7 +93,7 @@ ROUTE Interp.value_changed TO Trans.translation
 ROUTE KeySens.keyPress TO Scr.keyPress
 ROUTE KeySens.keyRelease TO Scr.keyRelease
 
-ROUTE Time.elapsedTime TO Scr.time
+ROUTE Time.time TO Scr.time
 
 # ----------------------------------------------------------------------------
 # text, viewpoint, navigation - things not related to the test,
