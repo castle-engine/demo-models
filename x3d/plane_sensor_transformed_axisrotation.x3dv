@@ -1,0 +1,51 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test of PlaneSensor under a Transform, and with axisRotation.
+
+Transform {
+  rotation 1 1 1 0.5
+  scale 0.5 0.5 0.5
+  translation 2 3 4
+  children [
+    Transform {
+      rotation 1 0 0 0.75 # same as axisRotation, to match
+      children [
+        Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+        DEF TrackPointVisualize Transform {
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 1 0 0 } }
+            geometry Sphere { radius 10 }
+          }
+        }
+
+        DEF TranslationVisualize Transform {
+          children Shape {
+            appearance Appearance { material Material { diffuseColor 0 1 0 } }
+            geometry Sphere { radius 10 }
+          }
+        }
+      ]
+    }
+
+    DEF PS PlaneSensor {
+      axisRotation 1 0 0 0.75
+      maxPosition 100 100
+    }
+  ]
+}
+
+ROUTE PS.trackPoint_changed TO TrackPointVisualize.translation
+ROUTE PS.translation_changed TO TranslationVisualize.translation
+
+NavigationInfo { type "FLY" headlight TRUE }
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.1641357690095901 0.5901039242744445 -0.7904747128486633
+# up 0.1199705451726913 0.8073303699493408 0.5777760744094848
+# gravityUp 0 1 0
+Viewpoint {
+  position 15.810683250427246 -106.92618560791016 140.87525939941406
+  orientation 0.949354350566864 0.2986885011196136 -0.0975234284996986 0.6624994874000549
+}
