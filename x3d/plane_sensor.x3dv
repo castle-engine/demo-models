@@ -41,6 +41,9 @@ Transform {
   ]
 }
 
+Transform { translation 10 140 40
+  children DEF ActiveText TextLight { string "Note: When Shift key is down, enabled is false" color 1 0 0 on TRUE } }
+
 Transform { translation 10 100 40
   children DEF ActiveText TextLight { string "PlaneSensor active" color 1 1 0 } }
 
@@ -69,3 +72,8 @@ ROUTE PS.translation_changed TO TranslationVisualize.translation
 Viewpoint { position 0 0 400 }
 
 NavigationInfo { type "EXAMINE" headlight TRUE }
+
+DEF KS KeySensor { }
+DEF BF BooleanFilter { }
+ROUTE KS.shiftKey TO BF.set_boolean
+ROUTE BF.inputNegate TO PS.enabled
