@@ -30,7 +30,7 @@ Transform {
 ROUTE PS.trackPoint_changed TO TrackPointVisualize.translation
 ROUTE PS.translation_changed TO TranslationVisualize.translation
 
-NavigationInfo { type "FLY" headlight TRUE }
+NavigationInfo { type "FLY" headlight TRUE speed 100 }
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.1641357690095901 0.5901039242744445 -0.7904747128486633

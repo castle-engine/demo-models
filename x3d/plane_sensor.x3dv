@@ -71,7 +71,7 @@ ROUTE PS.translation_changed TO TranslationVisualize.translation
 
 Viewpoint { position 0 0 400 }
 
-NavigationInfo { type "EXAMINE" headlight TRUE }
+NavigationInfo { type "EXAMINE" headlight TRUE speed 100 }
 
 DEF KS KeySensor { }
 DEF BF BooleanFilter { }
