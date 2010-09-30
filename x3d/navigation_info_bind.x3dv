@@ -1,0 +1,59 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Demo that binding various NavigationInfo works.
+# Press keys 1,2,3 to bind various NavigationInfo.
+# Also demo that animating speed works (for the 2nd NavigationInfo,
+# speed varies all the time, you should feel it when you try to move).
+
+DEF NI1 NavigationInfo {
+  type "FLY"
+  avatarSize [ 5 20 5 ]
+  speed 100
+  transitionType "LINEAR"
+  headlight TRUE
+}
+
+DEF NI2 NavigationInfo {
+  type "WALK"
+  avatarSize [ 0.1 0.2 0.1 ]
+  speed 1
+  headlight FALSE
+}
+
+DEF NI3 NavigationInfo {
+  type "EXAMINE"
+  avatarSize [ 0.1 0.2 0.1 ]
+  speed 8
+  transitionType "TELEPORT"
+  headlight TRUE
+}
+
+# Animate NI2.speed in a loop
+DEF InterpolateSpeed ScalarInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ 1 100 1 ] }
+DEF InterpolateSpeedTimer TimeSensor { cycleInterval 10 loop TRUE }
+ROUTE InterpolateSpeedTimer.fraction_changed TO InterpolateSpeed.set_fraction
+ROUTE InterpolateSpeed.value_changed TO NI2.speed
+
+DEF KS KeySensor { }
+
+DEF MyScript Script {
+  inputOnly SFString keyPress
+  outputOnly SFBool bind1
+  outputOnly SFBool bind2
+  outputOnly SFBool bind3
+  url "kambiscript:
+    function keyPress(value, timestamp)
+      when (value = '1', bind1 := TRUE);
+      when (value = '2', bind2 := TRUE);
+      when (value = '3', bind3 := TRUE)"
+}
+
+ROUTE MyScript.bind1 TO NI1.set_bind
+ROUTE MyScript.bind2 TO NI2.set_bind
+ROUTE MyScript.bind3 TO NI3.set_bind
+ROUTE KS.keyPress TO MyScript.keyPress
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
