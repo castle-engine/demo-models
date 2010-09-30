@@ -1,0 +1,72 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+NavigationInfo {
+  type [ "FLY", "ANY" ]
+  avatarSize [ 0.5 2 0.5 ]
+  speed 20
+#  transitionType "TELEPORT"
+#  transitionType [ "UNKNOWN", "ANIMATE" ]
+  transitionTime 3
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 1 0
+# up 0 -4.3711388286737929E-008 1
+# gravityUp 0 0 1
+Transform {
+  translation 0.2837448120117187 -361.20443725585938 31.009799957275391
+  rotation 1 0 0 1.5707963705062866
+  children DEF V1 Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 1 0
+# up 0 -4.3711388286737929E-008 1
+# gravityUp 0 0 1
+Transform {
+  translation 0.2837448120117187 -122.32557678222656 31.009799957275391
+  rotation 1 0 0 1.5707963705062866
+  children DEF V2 Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.464605838060379 0.7781803607940673 -0.4225834608078002
+# up 0.2166275233030319 0.3628350794315338 0.9063241481781005
+# gravityUp 0 0 1
+Transform {
+  translation -60.295135498046875 -113.72669219970703 81.008453369140625
+  rotation 1 0 0 1.5707963705062866
+  children DEF V3 Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.6173132061958313 -0.768072485923767 -0.1702619343996048 0.6895095705986022
+  }
+}
+
+DEF KS KeySensor { }
+
+DEF MyScript Script {
+  inputOnly SFString keyPress
+  outputOnly SFBool bind1
+  outputOnly SFBool bind2
+  outputOnly SFBool bind3
+  url "kambiscript:
+
+    function keyPress(value, timestamp)
+      when (value = '1', bind1 := TRUE);
+      when (value = '2', bind2 := TRUE);
+      when (value = '3', bind3 := TRUE)"
+}
+
+ROUTE MyScript.bind1 TO V1.set_bind
+ROUTE MyScript.bind2 TO V2.set_bind
+ROUTE MyScript.bind3 TO V3.set_bind
+ROUTE KS.keyPress TO MyScript.keyPress
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
