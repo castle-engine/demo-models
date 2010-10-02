@@ -1,0 +1,23 @@
+#VRML V2.0 utf8 CosmoWorlds V1.0
+Shape {
+appearance Appearance {
+}
+
+geometry IndexedFaceSet {
+coord Coordinate {
+point [ -60.6 68.7744 45.8789,
+-60.6 68.6612 45.3125,
+-60.5115 68.6328 45.3125,
+-60.3059 68.6328 45.8789,
+]
+}
+
+coordIndex [ 1, 0, 2, -1, 2, 0, 3, -1 ]
+
+normalIndex -1
+normal Normal { vector [0 0 0,0 0 0,]
+
+}
+}
+
+}
