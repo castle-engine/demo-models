@@ -1,0 +1,47 @@
+#X3D V3.1 utf8
+
+PROFILE Immersive
+#COMPONENT
+META "title" "*Squirrel house, sort of*"
+META "description" "*shows cross-section not limited to four sides*"
+META "creator" "*Stephen H. France*"
+META "created" "*October 1 , 2010*"
+META "image" "*test_texture.png*"
+
+# [Scene] ========== ========== ==========
+
+NavigationInfo { type [ "EXAMINE" "ANY" ] } ###  Default X3D NavigationInfo
+
+# DEF I1 Inline {
+#   url "../Axis.x3dv"
+# }#Inline 
+# IMPORT I1.Axis AS Axis 
+
+Transform {
+  translation 0 0 0
+  center 0 0 0
+  rotation 0 0 1 0
+  scaleOrientation 0 0 1 0
+  scale 1 1 1
+  children [
+    Shape {
+  geometry
+    Extrusion {
+      convex FALSE
+      spine       [0 0 0    , 0 0 -4   ,    4 0 -4] # excess entrys for
+      scale       [1.0 1.0  , 1.0 1.0  ,  1.0 1.0 ] # demo purposes
+      orientation [0 1 0 0  , 1 0 0 0  ,   1 0 0 0] # xzy radians
+      #crossSection [1 1, 1 -1, -1 -1,-1 1, 1 1] # ccw xz
+      crossSection [2 1, 2 -1, 0 -3, -2 -1, -2 1, 0 1, 2 1] # ccw xz
+      ccw FALSE
+    }#Extrusion
+  appearance Appearance {
+    texture ImageTexture {
+      url ["../textures/test_texture.png"]
+    }#texture
+  }#Appearance 
+}#Shape
+  ]#children
+}#Transform
+
+
