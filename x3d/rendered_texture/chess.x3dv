@@ -25,15 +25,17 @@ DEF _mirror Script {
   inputOnly SFMatrix3f cameraRotationInverseMatrix
   inputOnly SFVec3f mir_translation
   inputOnly SFRotation mir_rotation
-  outputOnly SFVec3f eye_location
-  outputOnly SFVec3f eye_direction
-  outputOnly SFVec3f eye_up
+  outputOnly SFVec3f eye_position
+  outputOnly MFVec3f eye_direction
+  outputOnly MFVec3f eye_up
   outputOnly SFVec3f eyeM_position
   outputOnly MFVec3f eyeM_direction
   outputOnly MFVec3f eyeM_up
   initializeOnly SFVec3f P 0 0 0
   initializeOnly SFVec3f V 0 1 0
   initializeOnly SFVec4f locationH 0 0 0 1
+  initializeOnly SFVec3f eye_d 0 0 0
+  initializeOnly SFVec3f eye_u 0 0 0
   # The 3x3 matrix representation of a rotation (x y z a)
   initializeOnly SFMatrix3f Rot 1 0 0 0 1 0 0 0 1
   # A translation
@@ -53,21 +55,23 @@ DEF _mirror Script {
     {This function is called every time the viewpoint changes its location}
     function cameraInverseMatrix (value, t)
       locationH := value * vector (0,0,0,1);
-      eye_location := vector (vector_get (locationH,0), vector_get(locationH,1), vector_get (locationH,2));
-      var1 := vector_dot (eye_location-P,V);
-      eyeM_position := eye_location - 2*var1*V
+      eye_position := vector (vector_get (locationH,0), vector_get(locationH,1), vector_get (locationH,2));
+      var1 := vector_dot (eye_position-P,V);
+      eyeM_position := eye_position - 2*var1*V
     {This function is called every time the viewpoint changes its orientation}
     function cameraRotationInverseMatrix (value, t)
-      eye_direction := value * vector (0,0,-1);
-      eye_up := value * vector (0,1,0);
+      eye_d := value * vector (0,0,-1);
+      eye_u := value * vector (0,1,0);
+      eye_direction := array (eye_d);
+      eye_up := array (eye_u);
       when (var1 > 0.00001,
-        var2 := vector_dot (eye_direction,V);
-        eyeM_direction := if ( var2 = 0, array (eye_direction),
-          array (Sgn(var2)*(eyeM_position + eye_direction*var1/var2 - eye_location))
+        var2 := vector_dot (eye_d, V);
+        eyeM_direction := if ( var2 = 0, eye_direction,
+          array (Sgn(var2)*(eyeM_position + eye_d*var1/var2 - eye_position))
         );
-        var3 := vector_dot (eye_up,V);
-        eyeM_up := if ( var3 = 0, array (eye_up),
-          array (Sgn(var3)*(eyeM_position + eye_up*var1/var3 - eye_location))
+        var3 := vector_dot (eye_u, V);
+        eyeM_up := if ( var3 = 0, eye_up,
+          array (Sgn(var3)*(eyeM_position + eye_u*var1/var3 - eye_position))
         )
       )
     {This function is called every time the mirror plane changes its location}
@@ -151,11 +155,9 @@ DEF Board_T Transform {
         texCoord MultiTextureCoordinate {
           texCoord [
             TextureCoordinate { point [ 0 0, 4 0, 0 4, 4 4 ] }
-            TextureCoordinateGenerator {
-              mode "PROJECTION"
-              projectedLight DEF EyeSpot SpotLight {
-                on FALSE
-                projectionAngle 1.75
+            ProjectedTextureCoordinate {
+              projector DEF EyePoint Viewpoint {
+                fieldOfView 1.75
               }
             }
           ]
@@ -279,9 +281,9 @@ ROUTE Camera.cameraRotationInverseMatrix TO _mirror.cameraRotationInverseMatrix
 ROUTE Board_T.translation TO _mirror.mir_translation
 ROUTE Board_T.rotation TO _mirror.mir_rotation
 
-ROUTE _mirror.eye_location TO EyeSpot.location
-ROUTE _mirror.eye_direction TO EyeSpot.direction
-ROUTE _mirror.eye_up TO EyeSpot.up
+ROUTE _mirror.eye_position TO EyePoint.position
+ROUTE _mirror.eye_direction TO EyePoint.direction
+ROUTE _mirror.eye_up TO EyePoint.up
 ROUTE _mirror.eyeM_position TO EyeM.position
 ROUTE _mirror.eyeM_direction TO EyeM.direction
 ROUTE _mirror.eyeM_up TO EyeM.up
