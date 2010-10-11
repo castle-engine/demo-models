@@ -18,24 +18,22 @@ Background {
 }
 
 DEF _mirror Script {
-  # A Point on the mirror and a (unit length) Vector perpendicular to it:
-  initializeOnly SFVec3f Po 0 0 0
-  initializeOnly SFVec3f Vo 0 1 0
   inputOnly SFMatrix4f cameraInverseMatrix
   inputOnly SFMatrix3f cameraRotationInverseMatrix
   inputOnly SFVec3f mir_translation
   inputOnly SFRotation mir_rotation
-  outputOnly SFVec3f eye_position
-  outputOnly MFVec3f eye_direction
-  outputOnly MFVec3f eye_up
   outputOnly SFVec3f eyeM_position
   outputOnly MFVec3f eyeM_direction
   outputOnly MFVec3f eyeM_up
+  # A Point on the mirror and a (unit length) Vector perpendicular to it:
+  initializeOnly SFVec3f Po 0 0 0
+  initializeOnly SFVec3f Vo 0 1 0
+  initializeOnly SFVec4f eye_positionH 0 0 0 1
+  initializeOnly SFVec3f eye_position 0 0 10
+  initializeOnly SFVec3f eye_direction 0 0 -1
+  initializeOnly SFVec3f eye_up 0 1 0
   initializeOnly SFVec3f P 0 0 0
   initializeOnly SFVec3f V 0 1 0
-  initializeOnly SFVec4f locationH 0 0 0 1
-  initializeOnly SFVec3f eye_d 0 0 0
-  initializeOnly SFVec3f eye_u 0 0 0
   # The 3x3 matrix representation of a rotation (x y z a)
   initializeOnly SFMatrix3f Rot 1 0 0 0 1 0 0 0 1
   # A translation
@@ -52,33 +50,31 @@ DEF _mirror Script {
   initializeOnly SFFloat s 0
   initializeOnly SFFloat t 0
   url "kambiscript:
-    {This function is called every time the viewpoint changes its location}
+    { This function is called every time the viewpoint changes its location }
     function cameraInverseMatrix (value, t)
-      locationH := value * vector (0,0,0,1);
-      eye_position := vector (vector_get (locationH,0), vector_get(locationH,1), vector_get (locationH,2));
+      eye_positionH := value * vector (0,0,0,1);
+      eye_position := vector (vector_get (eye_positionH,0), vector_get(eye_positionH,1), vector_get (eye_positionH,2));
       var1 := vector_dot (eye_position-P,V);
       eyeM_position := eye_position - 2*var1*V
-    {This function is called every time the viewpoint changes its orientation}
+    { This function is called every time the viewpoint changes its orientation }
     function cameraRotationInverseMatrix (value, t)
-      eye_d := value * vector (0,0,-1);
-      eye_u := value * vector (0,1,0);
-      eye_direction := array (eye_d);
-      eye_up := array (eye_u);
+      eye_direction := value * vector (0,0,-1);
+      eye_up := value * vector (0,1,0);
       when (var1 > 0.00001,
-        var2 := vector_dot (eye_d, V);
-        eyeM_direction := if ( var2 = 0, eye_direction,
-          array (Sgn(var2)*(eyeM_position + eye_d*var1/var2 - eye_position))
+        var2 := vector_dot (eye_direction, V);
+        eyeM_direction := if ( var2 = 0, array(eye_direction),
+          array (Sgn(var2)*(eyeM_position + eye_direction*var1/var2 - eye_position))
         );
-        var3 := vector_dot (eye_u, V);
-        eyeM_up := if ( var3 = 0, eye_up,
-          array (Sgn(var3)*(eyeM_position + eye_u*var1/var3 - eye_position))
+        var3 := vector_dot (eye_up, V);
+        eyeM_up := if ( var3 = 0, array(eye_up),
+          array (Sgn(var3)*(eyeM_position + eye_up*var1/var3 - eye_position))
         )
       )
-    {This function is called every time the mirror plane changes its location}
+    { This function is called every time the mirror plane changes its location }
     function mir_translation (value, t)
       Tra := value + Po;
       P := Tra + Rot * Po
-    {This function is called every time the mirror plane changes its orientation}
+    { This function is called every time the mirror plane changes its orientation }
     function mir_rotation (value, t)
       x := vector_get (value,0);
       y := vector_get (value,1);
@@ -131,12 +127,6 @@ DEF Board_T Transform {
             }
           ]
         }
-        textureTransform MultiTextureTransform {
-          textureTransform [
-            TextureTransform { }
-            TextureTransform { scale -1 1 }
-          ]
-        }
       }
       geometry IndexedFaceSet {
         solid TRUE
@@ -155,11 +145,7 @@ DEF Board_T Transform {
         texCoord MultiTextureCoordinate {
           texCoord [
             TextureCoordinate { point [ 0 0, 4 0, 0 4, 4 4 ] }
-            ProjectedTextureCoordinate {
-              projector DEF EyePoint Viewpoint {
-                fieldOfView 1.75
-              }
-            }
+            ProjectedTextureCoordinate { projector USE EyeM }
           ]
         }
       }
@@ -238,10 +224,10 @@ DEF Lamp2_T Transform {
 }
 
 DEF Camera_T Transform {
-  rotation 0 1 0 0.5
+  rotation 0 1 0 0.25
   children DEF Camera Viewpoint {
     description "Camera"
-    position 0 2.5 13
+    position 0 1.5 20
   }
 }
 
@@ -281,9 +267,6 @@ ROUTE Camera.cameraRotationInverseMatrix TO _mirror.cameraRotationInverseMatrix
 ROUTE Board_T.translation TO _mirror.mir_translation
 ROUTE Board_T.rotation TO _mirror.mir_rotation
 
-ROUTE _mirror.eye_position TO EyePoint.position
-ROUTE _mirror.eye_direction TO EyePoint.direction
-ROUTE _mirror.eye_up TO EyePoint.up
 ROUTE _mirror.eyeM_position TO EyeM.position
 ROUTE _mirror.eyeM_direction TO EyeM.direction
 ROUTE _mirror.eyeM_up TO EyeM.up
