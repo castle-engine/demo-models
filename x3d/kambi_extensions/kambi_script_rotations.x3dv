@@ -1,0 +1,129 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo of KambiScript rotation functions.
+# - When you jump to viewpoint "Same view as SpotLight", observe
+#   that texture and spot circle is nicely aligned with camera view.
+# - Click on the box to start an animation that test rotate() function.
+
+NavigationInfo {
+  type [ "EXAMINE", "ANY" ]
+  headlight FALSE
+}
+
+#Viewpoint { }
+
+# SpotLight that has direction and up vectors controlled by an orientation
+# field (like Viewpoint.orientation). Note that SpotLight.up is our
+# own extension, it matters only when you use this SpotLight as
+# a projector (for example for shadow maps).
+#
+# You can get sample orientation values e.g. by using view3dscene
+# "Console -> Print Current Camera Node". Values sensible for
+# Viewpoint.orientation are also suitable for this SpotLightWithOrientation.
+# (Yeah, this view3dscene command also gives you explicit direction, up
+# vectors that you could use directly, without any need for this
+# PROTO and script... But this is just for the sake of test.)
+#
+# Also, you can start animation (up around direction) by animationStartTime.
+# This is done by a script, not by OrientationInterpolator, to test rotate().
+PROTO SpotLightWithOrientation [
+  initializeOnly SFRotation orientation 0 1 0 0
+  inputOutput SFColor color 1 1 1
+  inputOutput SFVec3f location 0 0 0
+  inputOutput SFFloat cutOffAngle 0.7853981634
+  inputOnly SFTime animationStartTime
+] {
+  DEF MySpot SpotLight {
+    color IS color
+    location IS location
+    cutOffAngle IS cutOffAngle
+    # You can make here all other SpotLight fields "exposed" in the PROTO
+    # interface, except direction and up (which should be set by script below).
+  }
+  DEF MyScript Script {
+    initializeOnly SFRotation orientation IS orientation
+    inputOutput SFVec3f direction 0 0 -1
+    inputOutput SFVec3f up 0 1 0
+    inputOutput SFVec3f initialUp 0 1 0
+
+    inputOnly SFTime time
+    inputOutput SFTime animationStartTime IS animationStartTime
+
+    url "kambiscript:
+
+function initialize(timestamp)
+  { Test orientation_to_direction/up }
+  direction := orientation_to_direction(orientation);
+  initialUp := orientation_to_up(orientation);
+  up := initialUp;
+
+  { Now we're just screwing around, converting dir/up to orientation and back.
+    This code doesn't achieve anything, it just tests orientation functions. }
+  orientation := orientation_from_direction_up(direction, up);
+  direction := orientation_to_direction(orientation);
+  up := orientation_to_up(orientation)
+
+function time(value, timestamp)
+  { Debug: writeln('time is ' + string(value - animationStartTime)); }
+
+  { Simple version }
+  { up := rotate(vector(
+    vector_get(direction, 0),
+    vector_get(direction, 1),
+    vector_get(direction, 2),
+    value - animationStartTime), initialUp) }
+
+  { A dummy code for achieving something trivial by a complicated operation :)
+    Achieve the above rotate() by a slerp(), just to test slerp().
+    In more sane circumstances, slerp is useful only when rotation axis
+    is not (necessarily) constant...  }
+  up := rotate(slerp(value - animationStartTime,
+    vector(
+      vector_get(direction, 0),
+      vector_get(direction, 1),
+      vector_get(direction, 2), 0),
+    vector(
+      vector_get(direction, 0),
+      vector_get(direction, 1),
+      vector_get(direction, 2), 1)), initialUp)
+"
+  }
+  DEF MyTimer TimeSensor { startTime IS animationStartTime }
+  ROUTE MyScript.direction TO MySpot.direction
+  ROUTE MyScript.up TO MySpot.up
+  ROUTE MyTimer.time TO MyScript.time
+}
+
+DEF MySpot SpotLightWithOrientation {
+  location 3.6020383834838867 3.0563333034515381 2.1049184799194336
+  orientation -0.5579690337181091 0.8173387050628662 0.1436238288879394 1.1904476881027222
+  cutOffAngle 0.1
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.7085394859313964 -0.5919023752212524 -0.3842131793498992
+# up -0.4201030433177948 0.7912793755531311 -0.4442850053310394
+# gravityUp 0 1 0
+Viewpoint {
+  position 3.6020383834838867 3.0563333034515381 2.1049184799194336
+  orientation -0.5579690337181091 0.8173387050628662 0.1436238288879394 1.1904476881027222
+  description "Same view as SpotLight"
+}
+
+KambiTriangulation { rectDivisions 30 }
+
+Shape {
+  appearance Appearance {
+    material Material { ambientIntensity 1 }
+    texture ImageTexture { url "../../textures/test_texture.png" }
+  }
+  geometry Box {
+    texCoord ProjectedTextureCoordinate {
+      projector USE MySpot
+    }
+  }
+}
+
+DEF MyTouch TouchSensor { }
+ROUTE MyTouch.touchTime TO MySpot.animationStartTime
