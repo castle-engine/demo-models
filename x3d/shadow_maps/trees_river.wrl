@@ -24,6 +24,8 @@ DEF MyLight SpotLight {
   defaultShadowMap GeneratedShadowMap {
     update "ALWAYS"
     size 1024
+    scale 4
+    bias 10
   }
 }
 
