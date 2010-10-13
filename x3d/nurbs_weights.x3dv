@@ -1,0 +1,58 @@
+#X3D V3.0 utf8
+PROFILE Immersive
+COMPONENT NURBS:1
+
+Shape {
+  appearance
+      Appearance {
+        material
+           Material { emissiveColor 1 1 0 }
+      }
+  geometry
+      NurbsCurve {
+        tessellation         40
+        order 3
+        weight [ 1  0.25  1  1  1 ]
+        controlPoint  Coordinate {
+          point
+        [ -5    0   2  ,
+          -2.5  5   2  ,
+          0     0   2  ,
+          2.5  -5   2  ,
+          5     0   2  , ] }
+      }
+}
+
+Shape {
+  appearance
+      Appearance {
+        material
+           Material { emissiveColor 1 1 0 }
+      }
+  geometry
+      NurbsPatchSurface {
+        uTessellation         40
+        vTessellation         40
+        uDimension 5
+        vDimension 2
+        uOrder 3
+        vOrder 2
+        solid FALSE
+        weight [
+          1  0.25  1  1  1,
+          1  0.25  1  1  1,
+           ]
+        controlPoint  Coordinate {
+          point
+        [ -5    0   0  ,
+          -2.5  5   0  ,
+          0     0   0  ,
+          2.5  -5   0  ,
+          5     0   0  ,
+          -5    0   1  ,
+          -2.5  5   1  ,
+          0     0   1  ,
+          2.5  -5   1  ,
+          5     0   1  , ] }
+      }
+}
