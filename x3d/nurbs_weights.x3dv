@@ -2,6 +2,9 @@
 PROFILE Immersive
 COMPONENT NURBS:1
 
+# Demonstrate weights behavior in VRML/X3D NURBS,
+# see http://vrmlengine.sourceforge.net/vrml_implementation_nurbs.php#section_homogeneous_coordinates
+
 Shape {
   appearance
       Appearance {
@@ -17,6 +20,28 @@ Shape {
           point
         [ -5    0   2  ,
           -2.5  5   2  ,
+          0     0   2  ,
+          2.5  -5   2  ,
+          5     0   2  , ] }
+      }
+}
+
+Shape {
+  appearance
+      Appearance {
+        material
+           Material { emissiveColor 1 1 0 }
+      }
+  geometry
+      NurbsCurve {
+        tessellation         40
+        order 3
+        weight [ 1  0.25  1  1  1 ]
+        controlPoint  Coordinate {
+          point
+        [ -5    0   2  ,
+          # To make weight 1/4 behave intuitive, divide control point by 4.
+          -0.625  1.25   0.5  ,
           0     0   2  ,
           2.5  -5   2  ,
           5     0   2  , ] }
