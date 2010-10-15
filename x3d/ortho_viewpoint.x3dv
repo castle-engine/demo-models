@@ -1,12 +1,17 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 
-OrthoViewpoint { position 0 0 10
+OrthoViewpoint { position 0 0 10 description "default"
   # since Box centers are between (0, 0 - 3, 3), and Box sizes are (2, 2, 2),
   # so below field of view should force the browser to *exactly* align
   # window borders so they match Boxes borders (in the shorter axis,
   # usually vertical; in the other axis you will see slightly more)
   fieldOfView [ -1 -1 4 4 ]
+}
+
+OrthoViewpoint { position 0 0 10 description "taller"
+  # now you have to see a little more in vertical.
+  fieldOfView [ -1 -2 4 5 ]
 }
 
 DEF S Shape {
