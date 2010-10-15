@@ -21,7 +21,7 @@ Transform {
     DEF RotationVisualize Transform {
       children Shape {
         appearance Appearance { material Material { diffuseColor 0 1 0 } }
-        geometry Box { size 10 10 10 }
+        geometry Box { size 50 50 50 }
       }
     }
   ]
@@ -40,3 +40,6 @@ Viewpoint {
   position 15.810683250427246 -106.92618560791016 140.87525939941406
   orientation 0.949354350566864 0.2986885011196136 -0.0975234284996986 0.6624994874000549
 }
+
+# DEF L Logger { enabled TRUE level 4 }
+# ROUTE SS.rotation_changed TO L.write
