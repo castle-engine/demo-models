@@ -1,0 +1,45 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test of CylinderSensor under a Transform.
+
+Transform {
+  rotation 1 1 1 0.5
+  scale 0.5 0.5 0.5
+  translation 2 3 4
+  children [
+    Inline { url "../vrml_2/castle_with_lights.wrl" }
+    DEF CS CylinderSensor { diskAngle 4 } # always use cylinder caps
+
+    DEF TrackPointVisualize Transform {
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 1 0 0 } }
+        geometry Sphere { radius 10 }
+      }
+    }
+
+    DEF RotationVisualize Transform {
+      children Shape {
+        appearance Appearance { material Material { diffuseColor 0 1 0 } }
+        geometry Box { size 50 50 50 }
+      }
+    }
+  ]
+}
+
+ROUTE CS.trackPoint_changed TO TrackPointVisualize.translation
+ROUTE CS.rotation_changed TO RotationVisualize.rotation
+
+NavigationInfo { type "FLY" headlight TRUE speed 100 }
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.1641357690095901 0.5901039242744445 -0.7904747128486633
+# up 0.1199705451726913 0.8073303699493408 0.5777760744094848
+# gravityUp 0 1 0
+Viewpoint {
+  position 15.810683250427246 -106.92618560791016 140.87525939941406
+  orientation 0.949354350566864 0.2986885011196136 -0.0975234284996986 0.6624994874000549
+}
+
+# DEF L Logger { enabled TRUE level 4 }
+# ROUTE SS.rotation_changed TO L.write
