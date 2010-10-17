@@ -16,6 +16,8 @@
 # to render view of this model with shadows.
 
 Group{
+  NavigationInfo { headlight FALSE }
+
   # Camera settings "encoded" in the VRML declaration below :
   # direction -0.003885044017807 -0.000000000002812 -0.11726900190115
   # up 1.56576085430515E-009 1 4.36595186670274E-008

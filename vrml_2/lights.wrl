@@ -27,6 +27,8 @@
 #   is 0. So lights in VRML 2.0 by default are darker (and usually better-looking,
 #   actually) than VRML 1.0.
 
+NavigationInfo { headlight FALSE }
+
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.001740425010212 -0.029249431565404 -0.113615833222866
 # up -0.003818256547675 0.968430042266846 -0.249255642294884

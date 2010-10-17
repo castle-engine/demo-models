@@ -8,6 +8,8 @@ PROFILE Interactive
 # must be rebuild), also when doing --debug-log-vrml-changes
 # no ChangedAll should occur.
 
+NavigationInfo { headlight FALSE }
+
 EXTERNPROTO KambiAppearance [
   inputOutput SFNode material
   inputOutput SFNode texture
