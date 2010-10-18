@@ -57,12 +57,9 @@ EXTERNPROTO ViewportInfo [
 ViewportInfo {
   info [
     "Usage:"
-    "- Click on any editable shape"
-    "- While holding the mouse down (while TouchSensor is active)"
-    "  you can edit the transform with keys:"
-    "- Keys esdf wr - change translation"
-    "- Keys ijkl uo - change scale"
-    "- Keys nm - change rotation (always around Y axis)"
+    "- Click on any editable shape, and drag with mouse to move"
+    "- Hold down Shift when clicking (and dragging) to rotate"
+    "- Hold down Ctrl when clicking (and dragging) to scale"
     ""
     "Note that the collisions between avatar and objects,"
     "checked when the avatar moves (but not when objects move)"

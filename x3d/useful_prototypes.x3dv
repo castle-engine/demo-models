@@ -60,146 +60,78 @@ PROTO ViewportInfo [
 }
 
 # ----------------------------------------------------------------------------
-# Content of "children" can be moved/scaled/rotated by the user
-# by clicking (making TouchSensor active) and then holding various keys.
+# Content of "children" can be moved / scaled / rotated by the user
+# by clicking on an item and dragging:
+# - Click to move.
+# - Hold Shift when clicking to rotate.
+# - Hold Ctrl when clicking (and not shift) to scale.
+
 PROTO EditableTransform [
   inputOutput MFNode children []
   inputOutput SFVec3f translation 0 0 0
   inputOutput SFVec3f scale 1 1 1
+  inputOutput SFRotation rotation 0 1 0 0
   inputOutput SFString description ""
+  
+  # Set some meaningful min/maxPosition for move sensor, otherwise it's
+  # too easy to move away to some wildly distant position when viewing at
+  # some angles.
+  inputOutput SFVec2f minPosition -10 -10
+  inputOutput SFVec2f maxPosition  10  10
 ] {
   Transform {
     children [
       DEF Trans Transform {
         translation IS translation
         scale IS scale
+        rotation IS rotation
         children IS children
       }
-      DEF Touch TouchSensor { description IS description }
+
+      DEF MoveSensor PlaneSensor {
+        offset IS translation
+        minPosition IS minPosition
+        maxPosition IS maxPosition
+      }
+      DEF RotateSensor SphereSensor { enabled FALSE offset IS rotation }
+      DEF ScaleSensor PlaneSensor { enabled FALSE offset IS scale }
+
       DEF Key KeySensor { }
-      DEF Time TimeSensor { loop TRUE }
+
       DEF Scr Script {
-        # Input to script from touch and key sensors.
-        # isActive is inputOutput, as it's value must be saved (for use
-        # in time function).
-        inputOutput SFBool isActive FALSE
-        inputOnly SFString keyPress
-        inputOnly SFString keyRelease
+        inputOutput SFBool shiftKey FALSE
+        inputOutput SFBool controlKey FALSE
 
-        # Output from script to translation.
-        # Initialized to the same values as Trans, so they match at the start.
-        # (rotation is just initialized directly, it cannot be changed
-        # by PROTO caller, as we assume here that rotation dir = 0, 1, 0)
-        inputOutput SFVec3f translation IS translation
-        inputOutput SFVec3f scale IS scale
-        inputOutput SFRotation rotation 0 1 0 0
-
-        # Variables storing keys state, needed by time,
-        # modified by keyPress/Release.
-        initializeOnly SFBool f_pressed FALSE
-        initializeOnly SFBool s_pressed FALSE
-        initializeOnly SFBool e_pressed FALSE
-        initializeOnly SFBool d_pressed FALSE
-        initializeOnly SFBool w_pressed FALSE
-        initializeOnly SFBool r_pressed FALSE
-
-        initializeOnly SFBool i_pressed FALSE
-        initializeOnly SFBool j_pressed FALSE
-        initializeOnly SFBool k_pressed FALSE
-        initializeOnly SFBool l_pressed FALSE
-        initializeOnly SFBool u_pressed FALSE
-        initializeOnly SFBool o_pressed FALSE
-
-        initializeOnly SFBool m_pressed FALSE
-        initializeOnly SFBool n_pressed FALSE
-
-        # Variables storing time difference, for time-based animation.
-        initializeOnly SFTime previousTime -1
-        initializeOnly SFTime timeDiff 0
-        inputOnly SFTime time
-
-        # This is a constant, feel free to change to suit your taste.
-        initializeOnly SFTime editSpeed 2
+        outputOnly SFBool moveSensorEnabled
+        outputOnly SFBool rotateSensorEnabled
+        outputOnly SFBool scaleSensorEnabled
 
         url "kambiscript:
 
-function keyPress(value, time)
-  when (isActive,
-      if (value = 'f', f_pressed := true,
-      if (value = 's', s_pressed := true,
-      if (value = 'e', e_pressed := true,
-      if (value = 'd', d_pressed := true,
-      if (value = 'w', w_pressed := true,
-      if (value = 'r', r_pressed := true,
+function shiftKey(value, time)
+  moveSensorEnabled   := and(not(value), not(controlKey));
+  rotateSensorEnabled := and(value     , not(controlKey));
+  scaleSensorEnabled  := and(not(value), controlKey)
 
-      if (value = 'i', i_pressed := true,
-      if (value = 'j', j_pressed := true,
-      if (value = 'k', k_pressed := true,
-      if (value = 'l', l_pressed := true,
-      if (value = 'u', u_pressed := true,
-      if (value = 'o', o_pressed := true,
-
-      if (value = 'm', m_pressed := true,
-    when (value = 'n', n_pressed := true )))))))))))))))
-
-function keyRelease(value, time)
-  { respect key releases even when not isActive, otherwise
-    (if isActive would get false before user released the key)
-    we would keep *_pressed = true in infinity. }
-
-      if (value = 'f', f_pressed := false,
-      if (value = 's', s_pressed := false,
-      if (value = 'e', e_pressed := false,
-      if (value = 'd', d_pressed := false,
-      if (value = 'w', w_pressed := false,
-      if (value = 'r', r_pressed := false,
-
-      if (value = 'i', i_pressed := false,
-      if (value = 'j', j_pressed := false,
-      if (value = 'k', k_pressed := false,
-      if (value = 'l', l_pressed := false,
-      if (value = 'u', u_pressed := false,
-      if (value = 'o', o_pressed := false,
-
-      if (value = 'm', m_pressed := false,
-    when (value = 'n', n_pressed := false ))))))))))))))
-
-function time(value, timestamp)
-  { calculate timeDiff, to scale animations
-    (so that it runs with the same speed on every system) }
-  timeDiff := if (previousTime >= 0, value - previousTime, 0);
-
-  { update previousTime }
-  previousTime := value;
-
-  when (f_pressed, vector_set(translation, 0, vector_get(translation, 0) - editSpeed * timeDiff));
-  when (s_pressed, vector_set(translation, 0, vector_get(translation, 0) + editSpeed * timeDiff));
-  when (e_pressed, vector_set(translation, 2, vector_get(translation, 2) + editSpeed * timeDiff));
-  when (d_pressed, vector_set(translation, 2, vector_get(translation, 2) - editSpeed * timeDiff));
-  when (w_pressed, vector_set(translation, 1, vector_get(translation, 1) - editSpeed * timeDiff));
-  when (r_pressed, vector_set(translation, 1, vector_get(translation, 1) + editSpeed * timeDiff));
-
-  when (l_pressed, vector_set(scale, 0, max(vector_get(scale, 0) - editSpeed * timeDiff, 0.01)));
-  when (j_pressed, vector_set(scale, 0, vector_get(scale, 0) + editSpeed * timeDiff));
-  when (i_pressed, vector_set(scale, 2, vector_get(scale, 2) + editSpeed * timeDiff));
-  when (k_pressed, vector_set(scale, 2, max(vector_get(scale, 2) - editSpeed * timeDiff, 0.01)));
-  when (u_pressed, vector_set(scale, 1, max(vector_get(scale, 1) - editSpeed * timeDiff, 0.01)));
-  when (o_pressed, vector_set(scale, 1, vector_get(scale, 1) + editSpeed * timeDiff));
-
-  when (m_pressed, vector_set(rotation, 3, vector_get(rotation, 3) - editSpeed * timeDiff));
-  when (n_pressed, vector_set(rotation, 3, vector_get(rotation, 3) + editSpeed * timeDiff))
+function controlKey(value, time)
+  moveSensorEnabled   := and(not(shiftKey), not(value));
+  rotateSensorEnabled := and(shiftKey     , not(value));
+  scaleSensorEnabled  := and(not(shiftKey), value)
 "
       }
     ]
   }
-  ROUTE Touch.isActive TO Scr.isActive
-  ROUTE Key.keyPress TO Scr.keyPress
-  ROUTE Key.keyRelease TO Scr.keyRelease
-  ROUTE Time.time TO Scr.time
 
-  ROUTE Scr.translation TO Trans.translation
-  ROUTE Scr.scale TO Trans.scale
-  ROUTE Scr.rotation TO Trans.rotation
+  ROUTE Key.shiftKey TO Scr.shiftKey
+  ROUTE Key.controlKey TO Scr.controlKey
+
+  ROUTE Scr.moveSensorEnabled TO MoveSensor.enabled
+  ROUTE Scr.rotateSensorEnabled TO RotateSensor.enabled
+  ROUTE Scr.scaleSensorEnabled TO ScaleSensor.enabled
+
+  ROUTE MoveSensor.translation_changed TO Trans.translation
+  ROUTE ScaleSensor.translation_changed TO Trans.scale
+  ROUTE RotateSensor.rotation_changed TO Trans.rotation
 }
 
 # ----------------------------------------------------------------------------
