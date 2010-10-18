@@ -72,7 +72,7 @@ PROTO EditableTransform [
   inputOutput SFVec3f scale 1 1 1
   inputOutput SFRotation rotation 0 1 0 0
   inputOutput SFString description ""
-  
+
   # Set some meaningful min/maxPosition for move sensor, otherwise it's
   # too easy to move away to some wildly distant position when viewing at
   # some angles.
@@ -94,7 +94,10 @@ PROTO EditableTransform [
         maxPosition IS maxPosition
       }
       DEF RotateSensor SphereSensor { enabled FALSE offset IS rotation }
-      DEF ScaleSensor PlaneSensor { enabled FALSE offset IS scale }
+      DEF ScaleSensor PlaneSensor { enabled FALSE offset IS scale
+        minPosition 0.1 0.1 # don't scale <= 0
+        maxPosition 10 10
+      }
 
       DEF Key KeySensor { }
 
