@@ -271,7 +271,7 @@ ROUTE _mirror.eyeM_position TO EyeM.position
 ROUTE _mirror.eyeM_direction TO EyeM.direction
 ROUTE _mirror.eyeM_up TO EyeM.up
 
-ROUTE REndTex.rendering TO ClP.enabled
+ROUTE RendTex.rendering TO ClP.enabled
 
 # Add some movement:
 # Board Orientation Interpolator
