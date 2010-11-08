@@ -2,29 +2,32 @@
 PROFILE Interchange
 
 # Test of PlaneSensor under a Transform.
+# Even better, under an animated Transform (to test that it works too).
 
-Transform {
-  rotation 1 1 1 0.5
-  scale 0.5 0.5 0.5
-  translation 2 3 4
-  children [
-    Inline { url "../vrml_2/castle_with_lights.wrl" }
-    DEF PS PlaneSensor { maxPosition 100 100 }
+DEF AnimatedTransform Transform {
+  children Transform {
+    rotation 1 1 1 0.5
+    scale 0.5 0.5 0.5
+    translation 2 3 4
+    children [
+      Inline { url "../vrml_2/castle_with_lights.wrl" }
+      DEF PS PlaneSensor { maxPosition 100 100 }
 
-    DEF TrackPointVisualize Transform {
-      children Shape {
-        appearance Appearance { material Material { diffuseColor 1 0 0 } }
-        geometry Sphere { radius 10 }
+      DEF TrackPointVisualize Transform {
+        children Shape {
+          appearance Appearance { material Material { diffuseColor 1 0 0 } }
+          geometry Sphere { radius 10 }
+        }
       }
-    }
 
-    DEF TranslationVisualize Transform {
-      children Shape {
-        appearance Appearance { material Material { diffuseColor 0 1 0 } }
-        geometry Sphere { radius 10 }
+      DEF TranslationVisualize Transform {
+        children Shape {
+          appearance Appearance { material Material { diffuseColor 0 1 0 } }
+          geometry Sphere { radius 10 }
+        }
       }
-    }
-  ]
+    ]
+  }
 }
 
 ROUTE PS.trackPoint_changed TO TrackPointVisualize.translation
@@ -40,3 +43,12 @@ Viewpoint {
   position 15.810683250427246 -106.92618560791016 140.87525939941406
   orientation 0.949354350566864 0.2986885011196136 -0.0975234284996986 0.6624994874000549
 }
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+DEF Interp PositionInterpolator {
+  key      [ 0      0.25       0.5        0.75     1     ]
+  keyValue [ 0 0 0  10 0 0     10 10 0    0 10 0   0 0 0 ]
+}
+
+ROUTE Timer.fraction_changed TO Interp.set_fraction
+ROUTE Interp.value_changed TO AnimatedTransform.set_translation
