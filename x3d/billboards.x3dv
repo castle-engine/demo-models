@@ -18,6 +18,8 @@ NavigationInfo { type [ "FLY", "ANY" ] speed 5 }
 Shape {
   appearance Appearance {
     material Material { ambientIntensity 1 diffuseColor 0.5 1 0.5 }
+    texture ImageTexture { url "rendered_texture/chequered.png" }
+    textureTransform TextureTransform { scale 10 10 }
   }
   geometry IndexedFaceSet {
     solid FALSE
@@ -26,42 +28,68 @@ Shape {
   }
 }
 
-DEF Trees Group { children [
-  Transform { translation 1 0 1
-    # add some random scalings (around 1)
-    scale 0.8 1.1 0.7
-    children DEF Tree Shape {
-      appearance Appearance {
-        material Material { ambientIntensity 1 }
-        texture ImageTexture { url "../textures/tree_sprite.png" }
-      }
-      geometry IndexedFaceSet {
-        solid FALSE
-        coord Coordinate { point [ 0 0 0, 0 0 1, 0 1 1, 0 1 0 ] }
-        texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
-        coordIndex [ 0 1 2 3 ]
-      }
+# Trees without Billboard ----------------------------------------------------
+
+Transform { translation 1 0 1
+  # add some random scalings (around 1)
+  scale 0.8 1.1 0.7
+  children DEF Tree Shape {
+    appearance Appearance {
+      material Material { ambientIntensity 1 }
+      texture ImageTexture { url "../textures/tree_sprite.png" }
+    }
+    geometry IndexedFaceSet {
+      solid FALSE
+      coord Coordinate { point [ -0.5 0 0, 0.5 0 0, 0.5 1 0, -0.5 1 0 ] }
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
+      coordIndex [ 0 1 2 3 ]
     }
   }
-  Transform { translation 3.1 0 3    scale 1.2 0.8 0.9 children USE Tree }
-  Transform { translation 1.2 0 3.1  scale 1.0 0.9 1.0 children USE Tree }
-  Transform { translation 3.9 0 1    scale 0.8 1.1 1.2 children USE Tree }
-  Transform { translation 1.9 0 2.05 scale 1.2 0.8 0.9 children USE Tree }
-] }
+}
+Transform { translation 3.1 0 3    scale 1.2 0.8 0.9 children USE Tree }
+Transform { translation 1.2 0 3.1  scale 1.0 0.9 1.0 children USE Tree }
+Transform { translation 3.9 0 1    scale 0.8 1.1 1.2 children USE Tree }
+Transform { translation 1.9 0 2.05 scale 1.2 0.8 0.9 children USE Tree }
 
-Transform { translation -5 0 -5 children Billboard {
-    children USE Trees
-  }
+# Trees with Billboard -------------------------------------------------------
+
+Transform { translation -5 0 -5 children [
+    Transform { translation 1 0 1 scale 0.8 1.1 0.7
+      children DEF Billboard1Tree Billboard {
+        children USE Tree
+      }
+    }
+    Transform { translation 3.1 0 3    scale 1.2 0.8 0.9 children USE Billboard1Tree }
+    Transform { translation 1.2 0 3.1  scale 1.0 0.9 1.0 children USE Billboard1Tree }
+    Transform { translation 3.9 0 1    scale 0.8 1.1 1.2 children USE Billboard1Tree }
+    Transform { translation 1.9 0 2.05 scale 1.2 0.8 0.9 children USE Billboard1Tree }
+  ]
 }
 
-Transform { translation -5 0 -5 children Billboard {
-    children USE Trees
-    axisOfRotation 0 -1 0
-  }
+Transform { translation -5 0 0 children [
+    Transform { translation 1 0 1 scale 0.8 1.1 0.7
+      children DEF Billboard2Tree Billboard {
+        children USE Tree
+        axisOfRotation 0 0 0
+      }
+    }
+    Transform { translation 3.1 0 3    scale 1.2 0.8 0.9 children USE Billboard2Tree }
+    Transform { translation 1.2 0 3.1  scale 1.0 0.9 1.0 children USE Billboard2Tree }
+    Transform { translation 3.9 0 1    scale 0.8 1.1 1.2 children USE Billboard2Tree }
+    Transform { translation 1.9 0 2.05 scale 1.2 0.8 0.9 children USE Billboard2Tree }
+  ]
 }
 
-Transform { translation -5 0 0 children Billboard {
-    children USE Trees
-    axisOfRotation 0 0 0
-  }
+Transform { translation 0 0 -5 children [
+    Transform { translation 1 0 1 scale 0.8 1.1 0.7
+      children DEF Billboard3Tree Billboard {
+        children USE Tree
+        axisOfRotation 0 -1 0
+      }
+    }
+    Transform { translation 3.1 0 3    scale 1.2 0.8 0.9 children USE Billboard3Tree }
+    Transform { translation 1.2 0 3.1  scale 1.0 0.9 1.0 children USE Billboard3Tree }
+    Transform { translation 3.9 0 1    scale 0.8 1.1 1.2 children USE Billboard3Tree }
+    Transform { translation 1.9 0 2.05 scale 1.2 0.8 0.9 children USE Billboard3Tree }
+  ]
 }
