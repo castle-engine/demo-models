@@ -1,0 +1,67 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.9765737056732178 -0.1387168765068054 -0.1645045280456543
+# up 0.1367895305156708 0.9903321862220764 -0.0230428744107485
+# gravityUp 0 1 0
+Viewpoint {
+  position -3.2401723861694336 1.192233681678772 3.1480166912078857
+  orientation -0.0819418281316757 -0.9942253828048706 -0.0692924559116364 1.4096258878707886
+}
+
+NavigationInfo { type [ "FLY", "ANY" ] speed 5 }
+
+#SpotLight { location 0 10 0 direction 1 -1 1 shadows TRUE }
+
+# Ground plane
+Shape {
+  appearance Appearance {
+    material Material { ambientIntensity 1 diffuseColor 0.5 1 0.5 }
+  }
+  geometry IndexedFaceSet {
+    solid FALSE
+    coord Coordinate { point [ -5 0 -5, -5 0 +5, +5 0 +5, +5 0 -5 ] }
+    coordIndex [ 0 1 2 3 ]
+  }
+}
+
+DEF Trees Group { children [
+  Transform { translation 1 0 1
+    # add some random scalings (around 1)
+    scale 0.8 1.1 0.7
+    children DEF Tree Shape {
+      appearance Appearance {
+        material Material { ambientIntensity 1 }
+        texture ImageTexture { url "../textures/tree_sprite.png" }
+      }
+      geometry IndexedFaceSet {
+        solid FALSE
+        coord Coordinate { point [ 0 0 0, 0 0 1, 0 1 1, 0 1 0 ] }
+        texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
+        coordIndex [ 0 1 2 3 ]
+      }
+    }
+  }
+  Transform { translation 3.1 0 3    scale 1.2 0.8 0.9 children USE Tree }
+  Transform { translation 1.2 0 3.1  scale 1.0 0.9 1.0 children USE Tree }
+  Transform { translation 3.9 0 1    scale 0.8 1.1 1.2 children USE Tree }
+  Transform { translation 1.9 0 2.05 scale 1.2 0.8 0.9 children USE Tree }
+] }
+
+Transform { translation -5 0 -5 children Billboard {
+    children USE Trees
+  }
+}
+
+Transform { translation -5 0 -5 children Billboard {
+    children USE Trees
+    axisOfRotation 0 -1 0
+  }
+}
+
+Transform { translation -5 0 0 children Billboard {
+    children USE Trees
+    axisOfRotation 0 0 0
+  }
+}
