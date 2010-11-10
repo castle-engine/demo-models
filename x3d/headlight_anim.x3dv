@@ -3,11 +3,6 @@ PROFILE Interchange
 
 # Simple test of animating KambiHeadlight properties.
 
-# TODO: this doesn't work with view3dscene now, since view3dscene
-# creates and manages it's own light. It works with the engine
-# in general (with TKamSceneManager), e.g. our simplest_vrml_browser
-# handles it Ok.
-
 EXTERNPROTO KambiTriangulation [
   inputOutput SFLong    quadricSlices
   inputOutput SFLong    quadricStacks
