@@ -7,8 +7,6 @@
 	<meta name="translator" content="X3D exporter v1.55 (2006/01/17)" />
 </head>
 <Scene>
-<NavigationInfo headlight="FALSE" visibilityLimit="0.0" type='"EXAMINE","ANY"' avatarSize="0.25, 1.75, 0.75" />
-<Background groundColor="0.057 0.221 0.4" skyColor="0.057 0.221 0.4" />
 
 <Collision enabled="false">
 <Transform DEF="ObY" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 0.000000">
