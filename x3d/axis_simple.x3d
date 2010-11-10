@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<meta name="filename" content="axis.x3d" />
+	<meta name="generator" content="Blender 245" />
+	<meta name="translator" content="X3D exporter v1.55 (2006/01/17)" />
+</head>
+<Scene>
+<NavigationInfo headlight="FALSE" visibilityLimit="0.0" type='"EXAMINE","ANY"' avatarSize="0.25, 1.75, 0.75" />
+<Background groundColor="0.057 0.221 0.4" skyColor="0.057 0.221 0.4" />
+
+<Collision enabled="false">
+<Transform DEF="ObY" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 0.000000">
+<Shape>
+<Appearance>
+			<Material DEF="MA_MatY" diffuseColor="0.0 1.0 0.0" specularColor="0.401 0.401 0.401" emissiveColor="0.0 0.0 0.0"
+				ambientIntensity="0.167" shininess="0.098" transparency="0.0" />
+</Appearance>
+<IndexedFaceSet solid="true" coordIndex="0 1 2 3 -1, 2 5 4 3 -1, 7 0 3 4 -1, 0 7 6 1 -1, 1 6 5 2 -1, 5 6 7 4 -1, ">
+<Coordinate DEF="coord_ObY"
+				point="0.200000 0.200000 -2.000000, 0.200000 -0.200000 -2.000000, -0.200000 -0.200000 -2.000000, -0.200000 0.200000 -2.000000, -0.200000 0.200000 2.000000, -0.200000 -0.200000 2.000000, 0.200000 -0.200000 2.000000, 0.200000 0.200000 2.000000, " />
+</IndexedFaceSet>
+</Shape>
+</Transform>
+</Collision>
+
+<Collision enabled="false">
+<Transform DEF="ObX" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-0.577350 0.577350 -0.577350 2.094395">
+<Shape>
+<Appearance>
+		<Material DEF="MA_MatX" diffuseColor="1.0 0.0 0.0" specularColor="0.401 0.401 0.401" emissiveColor="0.0 0.0 0.0"
+			ambientIntensity="0.167" shininess="0.098" transparency="0.0" />
+</Appearance>
+<IndexedFaceSet solid="true" coordIndex="0 1 2 3 -1, 2 5 4 3 -1, 7 0 3 4 -1, 0 7 6 1 -1, 1 6 5 2 -1, 5 6 7 4 -1, ">
+<Coordinate DEF="coord_ObX"
+				point="0.200000 0.200000 -2.000000, 0.200000 -0.200000 -2.000000, -0.200000 -0.200000 -2.000000, -0.200000 0.200000 -2.000000, -0.200000 0.200000 2.000000, -0.200000 -0.200000 2.000000, 0.200000 -0.200000 2.000000, 0.200000 0.200000 2.000000, " />
+</IndexedFaceSet>
+</Shape>
+</Transform>
+</Collision>
+
+<Collision enabled="false">
+<Transform DEF="ObZ" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796">
+<Shape>
+<Appearance>
+	<Material DEF="MA_MatZ" diffuseColor="0.0 0.0 1.0" specularColor="0.401 0.401 0.401" emissiveColor="0.0 0.0 0.0"
+		ambientIntensity="0.167" shininess="0.098" transparency="0.0" />
+</Appearance>
+<IndexedFaceSet solid="true" coordIndex="0 1 2 3 -1, 2 5 4 3 -1, 7 0 3 4 -1, 0 7 6 1 -1, 1 6 5 2 -1, 5 6 7 4 -1, ">
+<Coordinate DEF="coord_ObZ"
+				point="0.200000 0.200000 -2.000000, 0.200000 -0.200000 -2.000000, -0.200000 -0.200000 -2.000000, -0.200000 0.200000 -2.000000, -0.200000 0.200000 2.000000, -0.200000 -0.200000 2.000000, 0.200000 -0.200000 2.000000, 0.200000 0.200000 2.000000, " />
+</IndexedFaceSet>
+</Shape>
+</Transform>
+</Collision>
+
+</Scene>
+</X3D>

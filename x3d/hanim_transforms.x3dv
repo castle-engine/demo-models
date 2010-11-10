@@ -1,0 +1,65 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test H-Anim nodes transformed.
+# Don't expect to see anything fancy here, we only render a cylinder and sphere
+# and pretend that this is our "humanoid". This is to test that internally
+# transformation of HAnim* nodes works.
+
+DEF AnimatedHumanoid HAnimHumanoid {
+  skeleton DEF AnimatedJoint HAnimJoint {
+    children [
+      DEF AnimatedSegment HAnimSegment { children
+        Shape { geometry Cylinder { } appearance Appearance { material Material { } }  }
+      }
+      DEF AnimatedSite HAnimSite { children
+        Shape { geometry Box { } appearance Appearance { material Material { } } }
+      }
+    ]
+  }
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+
+DEF Interp1 PositionInterpolator {
+  key      [ 0       0.5       1     ]
+  keyValue [ 0 0 0   10 0 0    0 0 0 ]
+}
+DEF Interp2 PositionInterpolator {
+  key      [ 0       0.5       1     ]
+  keyValue [ 0 0 0   0 10 0    0 0 0 ]
+}
+DEF Interp3 PositionInterpolator {
+  key      [ 0       0.5       1     ]
+  keyValue [ 0 0 0   0 0 10    0 0 0 ]
+}
+DEF Interp4 OrientationInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ 0.3 0.4 0.5 0.1,
+             0.5 0.4 0.3 1.5,
+             0.3 0.4 0.5 6.3831853072, # 2*pi+0.1
+           ]
+}
+
+ROUTE Timer.fraction_changed TO Interp1.set_fraction
+ROUTE Timer.fraction_changed TO Interp2.set_fraction
+ROUTE Timer.fraction_changed TO Interp3.set_fraction
+ROUTE Timer.fraction_changed TO Interp4.set_fraction
+
+ROUTE Interp1.value_changed TO AnimatedHumanoid.set_translation
+ROUTE Interp2.value_changed TO AnimatedJoint.set_translation
+ROUTE Interp3.value_changed TO AnimatedSegment.set_translation
+ROUTE Interp4.value_changed TO AnimatedSite.set_rotation
+
+# ----------------------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.1880536526441574 -0.7383646965026855 -0.6476414203643798
+# up -0.1079578399658203 0.6709508299827575 -0.7335918545722961
+# gravityUp 0 1 0
+Viewpoint {
+  position 6.1004781723022461 20.950695037841797 16.464620590209961
+  orientation -0.9656716585159301 0.2584426999092102 0.0261864904314279 0.8666226267814636
+}
+
+Inline { url "axis_simple.x3d" }
