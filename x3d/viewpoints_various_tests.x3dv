@@ -67,9 +67,46 @@ More text... More text... More text... More text... More text... More text...
       ]
     }
 
-    USE V1
-    USE V1
-    USE V1
+    # unnamed ViewpointGroup
+    ViewpointGroup {
+      children [
+        USE V1
+        USE V1
+        USE V1
+      ]
+    }
+
+    # named ViewpointGroup
+    DEF SampleViewpointGroup ViewpointGroup {
+      children [
+        Viewpoint { position 0 0 0  description "sample 0 0 0"  }
+        Viewpoint { position 1 1 1  description "sample 1 1 1"  }
+      ]
+    }
+
+    # named ViewpointGroup with description
+    DEF SampleViewpointGroup ViewpointGroup {
+      description "Viewpoint group submenu"
+      children [
+        Viewpoint { position 0 0 0  description "sample 0 0 0"  }
+        Viewpoint { position 1 1 1  description "sample 1 1 1"  }
+      ]
+    }
+
+    # named ViewpointGroup with description -- but not displayed
+    DEF SampleViewpointGroup ViewpointGroup {
+      description "Viewpoint group submenu"
+      displayed FALSE
+      children [
+        Viewpoint { position 2 2 2  description "sample 2 2 2"  }
+        Viewpoint { position 3 3 3  description "sample 3 3 3"  }
+      ]
+    }
+
+    # empty ViewpointGroup (in this case, it's name of description doesn't really matter)
+    DEF SampleViewpointGroup ViewpointGroup {
+      description "Viewpoint group submenu"
+    }
 
     Inline { url "../vrml_2/castle_with_lights.wrl" }
   ]
