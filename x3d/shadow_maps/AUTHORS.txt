@@ -1,4 +1,5 @@
 Many tests here by Victor Amat (thanks!) :
 - all Screen Space Ambient Occlusion Demos: ssao_*, twoboxes_ssao.x3dv, myssao.fs
 - shadow map tests: original shadow_bias.x3dv, twoboxes_shadowmap.x3dv, shadow_map_vamat.fs
-- helpers: axes.x3dv, test.jpg,
+- animated light source for shadow maps: projected_Spotlight.x3dv
+- helpers: axes.x3dv, test.jpg.
