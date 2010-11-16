@@ -75,3 +75,31 @@ ROUTE BFControl.inputNegate TO SE2.enabled
 DEF BFShift BooleanFilter { }
 ROUTE K.shiftKey TO BFShift.set_boolean
 ROUTE BFShift.inputNegate TO SE3.enabled
+
+# some disabled screen effect tests --------------------------------------------
+
+ScreenEffect { enabled FALSE shaders ComposedShader {
+  language "GLSL"
+  parts ShaderPart { type "FRAGMENT" url "
+#extension GL_ARB_texture_rectangle : enable
+uniform sampler2DRect screen;
+void main (void)
+{
+  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st) / 2.0;
+}
+" } } }
+
+ScreenEffect { enabled FALSE shaders ComposedShader {
+  language "GLSL"
+  parts ShaderPart { type "FRAGMENT" url "
+#extension GL_ARB_texture_rectangle : enable
+uniform sampler2DRect screen;
+uniform int screen_height;
+void main (void)
+{
+  gl_FragColor = texture2DRect(screen,
+    vec2(gl_TexCoord[0].s, float(screen_height) - gl_TexCoord[0].t));
+}
+" } } }
+
+ScreenEffect { } # just to test that it does nothing
