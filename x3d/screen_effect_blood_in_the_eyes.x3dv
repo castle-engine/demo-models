@@ -1,0 +1,67 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo that passing uniform variables (animated TimeSensor.elapsedTime,
+# texture node) to ScreenEffect shaders works.
+# See http://vrmlengine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
+# for ScreenEffect docs.
+
+Background {
+  skyColor 0.98 0.77 0.77
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 0.700684607028961 0.000241928064497
+# up 0 -0.000345317530446 0.999999940395355
+# gravityUp 0 0 1
+Transform {
+  translation 0.004618315026164 -94.837326049804687 6.33106803894043
+  rotation 1 0 0 1.570796370506287
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+KambiNavigationInfo {
+  type "WALK"
+  speed 20
+  avatarSize [ 0.5 4 ]
+  timeOriginAtLoad TRUE
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+ScreenEffect { shaders DEF Shader ComposedShader {
+  inputOutput SFNode bloodyTexture ImageTexture {
+    url "../textures/blood_in_the_eyes.png"
+    repeatS TRUE
+    repeatT TRUE
+  }
+  inputOnly SFTime time
+  language "GLSL"
+  parts ShaderPart { type "FRAGMENT" url "
+#extension GL_ARB_texture_rectangle : enable
+uniform sampler2DRect screen;
+uniform sampler2D bloodyTexture;
+uniform float time;
+
+const vec2 bloodyTextureSize = vec2(256.0, 256.0);
+
+void main (void)
+{
+  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
+  vec2 bloodCoord = gl_TexCoord[0].st / bloodyTextureSize;
+  /* different columns move down at slightly different speeds */
+  /* float timeScale = mix(0.8, 1.2, (sin(gl_TexCoord[0].s / 10.0) + 1.0) / 2.0); */
+  bloodCoord.t += time / 10.0;
+  gl_FragColor = mix(gl_FragColor,
+    gl_FragColor * texture2D(bloodyTexture, bloodCoord),
+    /* Beware of crappy Radeon fglrx treatment of float consts */
+    3.0 / 4.0);
+  gl_FragColor.r *= 2.0;
+}
+" } } }
+
+DEF Timer TimeSensor { loop TRUE }
+ROUTE Timer.elapsedTime TO Shader.time
