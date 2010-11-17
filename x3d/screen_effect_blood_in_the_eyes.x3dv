@@ -23,11 +23,10 @@ Transform {
   }
 }
 
-KambiNavigationInfo {
+NavigationInfo {
   type "WALK"
   speed 20
   avatarSize [ 0.5 4 ]
-  timeOriginAtLoad TRUE
 }
 
 Inline { url "../vrml_2/castle_with_lights.wrl" }
@@ -63,5 +62,12 @@ void main (void)
 }
 " } } }
 
-DEF Timer TimeSensor { loop TRUE }
+DEF Timer TimeSensor { stopTime 1 loop TRUE }
 ROUTE Timer.elapsedTime TO Shader.time
+
+# Start Timer when world is loaded (otherwise the elapsedTime
+# would be huge at the start, and this is bad --- calculation using it
+# are not precise).
+# (We could use KambiNavigationInfo.timeOriginAtStart instead.)
+DEF PS ProximitySensor { size 10000000 10000000 10000000 }
+ROUTE PS.enterTime TO Timer.startTime
