@@ -43,7 +43,6 @@ ScreenEffect { shaders DEF Shader ComposedShader {
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 uniform sampler2D grainTexture;
-uniform float time;
 
 const vec2 grainTextureSize = vec2(256.0, 256.0);
 
