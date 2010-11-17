@@ -45,7 +45,7 @@ uniform sampler2DRect screen;
 uniform sampler2D bloodyTexture;
 uniform float time;
 
-const vec2 bloodyTextureSize = vec2(256.0, 256.0);
+const vec2 bloodyTextureSize = vec2(512.0, 512.0);
 
 void main (void)
 {
