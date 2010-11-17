@@ -32,8 +32,8 @@ Inline { url "../vrml_2/castle_with_lights.wrl" }
 
 ScreenEffect { shaders DEF Shader ComposedShader {
   inputOutput SFNode grainTexture MovieTexture {
-    # TODO: for now we reuse flame movie
-    url "../vrml_2/movie_texture/flame/seamless/%4d.png"
+    url "../textures/noise%d.png"
+    speed 0.8
     loop TRUE
     repeatS TRUE
     repeatT TRUE
@@ -46,10 +46,22 @@ uniform sampler2D grainTexture;
 
 const vec2 grainTextureSize = vec2(256.0, 256.0);
 
+/* Adjust this as you like, larger values -> grain is less noticeable */
+const float strength = 25.0;
+
 void main (void)
 {
   gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
+
   vec2 grainCoord = gl_TexCoord[0].st / grainTextureSize;
-  gl_FragColor *= texture2D(grainTexture, grainCoord);
+
+  float grain = (
+    (texture2D(grainTexture, grainCoord).r +
+     texture2D(grainTexture, grainCoord / 2.0).r +
+     texture2D(grainTexture, grainCoord / 4.0).r)
+     - 3.0 / 2.0 /* -0.5 for each noise layer. Beware of float consts on crappy Radeon fglrx */
+    ) / strength;
+
+  gl_FragColor.rgb += vec3(grain, grain, grain);
 }
 " } } }
