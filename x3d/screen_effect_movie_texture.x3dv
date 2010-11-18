@@ -1,0 +1,62 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo that passing MovieTexture to ScreenEffect shaders works.
+# See http://vrmlengine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
+# for ScreenEffect docs.
+
+Background {
+  skyColor 0.98 0.77 0.77
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 0.700684607028961 0.000241928064497
+# up 0 -0.000345317530446 0.999999940395355
+# gravityUp 0 0 1
+Transform {
+  translation 0.004618315026164 -94.837326049804687 6.33106803894043
+  rotation 1 0 0 1.570796370506287
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+NavigationInfo {
+  type "WALK"
+  speed 20
+  avatarSize [ 0.5 4 ]
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+ScreenEffect { shaders DEF Shader ComposedShader {
+  inputOutput SFNode movieTexture MovieTexture {
+    url "../vrml_2/movie_texture/flame/seamless/%4d.png"
+    loop TRUE
+    repeatS FALSE
+    repeatT FALSE
+  }
+  language "GLSL"
+  parts ShaderPart { type "FRAGMENT" url "
+#extension GL_ARB_texture_rectangle : enable
+uniform sampler2DRect screen;
+uniform sampler2D movieTexture;
+uniform int screen_width;
+uniform int screen_height;
+
+const vec2 movieTextureSize = vec2(256.0, 256.0);
+const float movieTextureScale = 2.0;
+
+void main (void)
+{
+  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
+
+  vec2 screen_middle = vec2(float(screen_width), float(screen_height)) / 2.0;
+  vec2 movieCoord = (gl_TexCoord[0].st -
+    (screen_middle - movieTextureScale * movieTextureSize / 2.0)) /
+    (movieTextureScale * movieTextureSize);
+
+  gl_FragColor *= texture2D(movieTexture, movieCoord);
+}
+" } } }
