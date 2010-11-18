@@ -47,7 +47,7 @@ uniform float time;
 const vec2 grainTextureSize = vec2(256.0, 256.0);
 
 /* Adjust this as you like, larger values -> grain is less noticeable */
-const float strength = 15.0;
+const float strength = 25.0;
 
 void main (void)
 {
