@@ -1,12 +1,12 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# Demo that passing MovieTexture to ScreenEffect shaders works.
+# "Film grain" (slight noise over the image) effect.
 # See http://vrmlengine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
 # for ScreenEffect docs.
 
 Background {
-  skyColor 0.98 0.77 0.77
+#  skyColor 0.98 0.77 0.77
 }
 
 # Camera settings "encoded" in the VRML declaration below :
@@ -31,37 +31,75 @@ NavigationInfo {
 Inline { url "../vrml_2/castle_with_lights.wrl" }
 
 ScreenEffect { shaders DEF Shader ComposedShader {
-  inputOutput SFNode grainTexture MovieTexture {
-    url "../textures/noise%d.png"
-    speed 0.8
-    loop TRUE
+  inputOutput SFNode grainTexture ImageTexture {
+    url "../textures/noise1.png"
     repeatS TRUE
     repeatT TRUE
   }
+  inputOnly SFTime time
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 uniform sampler2D grainTexture;
+uniform float time;
 
 const vec2 grainTextureSize = vec2(256.0, 256.0);
 
 /* Adjust this as you like, larger values -> grain is less noticeable */
-const float strength = 25.0;
+const float strength = 15.0;
 
 void main (void)
 {
   gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
 
+  /* Use integer (in 256 range) grayscale weights, to avoid crappy fglrx bugs with float consts */
+/*  float intensity = (gl_FragColor.r * 54.0 + gl_FragColor.g * 183.0 + gl_FragColor.b * 19.0) / 256.0;
+  gl_FragColor.r = 4.0 * intensity / 5.0;
+  gl_FragColor.g = 4.0 * intensity / 5.0;
+  gl_FragColor.b = 7.0 * intensity / 5.0;
+*/
+
+  /* Unrelated effect, just for style: blueish */
+  gl_FragColor.r *= 3.0 / 4.0;
+  gl_FragColor.g *= 3.0 / 4.0;
+  gl_FragColor.b *= 6.0 / 4.0;
+
   vec2 grainCoord = gl_TexCoord[0].st / grainTextureSize;
 
+  /* Grain changes constanly, to make the noisy effect.
+     We could use a couple of textures (MovieTexture with noises),
+     but we can also instead add semi-random shift to grainCoord
+     to effectively get a different noise.
+
+     I experimented with changing noise smoothly,
+     e.g. in 0.25 of a second one noise changes into other.
+     But it looks bad. Simply using random independent noise slice
+     at each frame looks best.  */
+  grainCoord += vec2(time * 789.0, time * 456.0);
+
   float grain = (
-    (texture2D(grainTexture, grainCoord).r +
-     texture2D(grainTexture, grainCoord / 2.0).r +
-     texture2D(grainTexture, grainCoord / 4.0).r)
-     - 3.0 / 2.0 /* -0.5 for each noise layer. Beware of float consts on crappy Radeon fglrx */
+    /* Take a couple of noise layers.
+
+       It's best to use somewhat distorted weights (not just 2, 4...)
+       for nice irregular but smooth effect.
+       As usual: beware of using float consts on crappy Radeon fglrx,
+       that's why we write 22.0/10.0 instead of 2.2 etc. */
+    (texture2D(grainTexture, grainCoord / (11.0 / 10.0)).r +
+     texture2D(grainTexture, grainCoord / (33.0 / 10.0)).r)
+     - 2.0 / 2.0 /* -0.5 for each noise layer */
     ) / strength;
 
   gl_FragColor.rgb += vec3(grain, grain, grain);
 }
 " } } }
+
+DEF Timer TimeSensor { stopTime 1 loop TRUE }
+ROUTE Timer.elapsedTime TO Shader.time
+
+# Start Timer when world is loaded (otherwise the elapsedTime
+# would be huge at the start, and this is bad --- calculation using it
+# are not precise).
+# (We could use KambiNavigationInfo.timeOriginAtStart instead.)
+DEF PS ProximitySensor { size 10000000 10000000 10000000 }
+ROUTE PS.enterTime TO Timer.startTime
