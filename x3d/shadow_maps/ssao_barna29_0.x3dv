@@ -49,7 +49,7 @@ Shape {
 			diffuseColor 0.89 0.84 0.77
 			ambientIntensity 1.0
 		}
-		texture DEF mytex MultiTexture {
+		texture DEF myTex MultiTexture {
 			texture [
 				GeneratedShadowMap {
 					light USE viewSpot
