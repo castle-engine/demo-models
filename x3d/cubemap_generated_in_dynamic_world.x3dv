@@ -82,7 +82,7 @@ EditableTransform {
     }
     geometry Box {
       solid FALSE
-      texCoord MultiTextureCoordinate {
+      texCoord MultiGeneratedTextureCoordinate {
         texCoord [
           TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
           TextureCoordinateGenerator { mode "COORD" }
