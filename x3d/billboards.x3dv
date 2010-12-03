@@ -12,8 +12,6 @@ Viewpoint {
 
 NavigationInfo { type [ "FLY", "ANY" ] speed 5 }
 
-#SpotLight { location 0 10 0 direction 1 -1 1 shadows TRUE }
-
 # Ground plane
 Shape {
   appearance Appearance {
