@@ -2,7 +2,7 @@ diff --git a/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr b/kambi_vr
 index 1ca43fe..8b0d493 100644
 --- a/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr
 +++ b/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr
-@@ -478,7 +478,7 @@ procedure MenuCommand(Glwin: TGLWindow; Item: TMenuItem);
+@@ -478,7 +478,7 @@ procedure MenuCommand(Window: TGLWindow; Item: TMenuItem);
      TexRock: TNodeImageTexture;
      Part: TNodeShaderPart;
      Appearance: TNodeAppearance;
@@ -11,7 +11,7 @@ index 1ca43fe..8b0d493 100644
    begin
      CountSteps := 1 shl Subdivision + 1;
      Size := BaseSize * 2;
-@@ -504,7 +504,7 @@ procedure MenuCommand(Glwin: TGLWindow; Item: TMenuItem);
+@@ -504,7 +504,7 @@ procedure MenuCommand(Window: TGLWindow; Item: TMenuItem);
        Grid.FdZSpacing.Value := Size / (CountSteps - 1);
        Grid.FdHeight.Items.Count := CountSteps * CountSteps;
  
@@ -20,7 +20,7 @@ index 1ca43fe..8b0d493 100644
        Grid.FdColor.Value := Color;
        Color.FdColor.Items.Count := CountSteps * CountSteps;
  
-@@ -516,7 +516,12 @@ procedure MenuCommand(Glwin: TGLWindow; Item: TMenuItem);
+@@ -516,7 +516,12 @@ procedure MenuCommand(Window: TGLWindow; Item: TMenuItem);
              MapRange(Z, 0, CountSteps, MinZ, MaxZ));
  
            Color.FdColor.Items.Items[X + Z * CountSteps] :=
