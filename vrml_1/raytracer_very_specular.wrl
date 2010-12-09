@@ -1,0 +1,20 @@
+#VRML V1.0 ascii
+
+Group{
+  PointLight { location 3 0 0 }
+  
+  # mark light as point
+  Material { diffuseColor 1 0 0 }
+  Coordinate3 { point 3 0 0 } PointSet {}
+
+  # light sphere (only specular component really matters;
+  # ambient and diffuse are = zero and I gave a small emissiveColor (so the
+  # rest of the sphere is a bit visible)
+  Material {
+    ambientColor 0 0 0
+    diffuseColor 0 0 0
+    emissiveColor 0.1 0.1 0.1
+    specularColor 1 1 0
+  }
+  Sphere {}
+}

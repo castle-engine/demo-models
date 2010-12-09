@@ -1,0 +1,23 @@
+#VRML V1.0 ascii
+
+Group {
+  Rotation { rotation 1 0 0 1.4 }
+
+  SpotLight { 
+    location 0 0 0
+    direction 0 -1 0 
+    color 1 1 0
+#    cutOffAngle 0.7
+    dropOffRate 0.03
+  }
+  PointLight { color 0.3 0.3 0.3 }
+  
+  Separator {
+    Translation { translation 0 2 0 }
+#    Cone { parts SIDES }
+  }
+  
+  Translation { translation 0 -10 0 }
+  Scale { scaleFactor 5 5 5 }
+  Cube { }
+}

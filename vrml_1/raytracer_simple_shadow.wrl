@@ -1,0 +1,15 @@
+#VRML V1.0 ascii
+
+Group {
+  DEF ThisLight PointLight { location 0 0 0 }
+  
+  Coordinate3 { point [ 0 0 1, 0 1 1, 1 1 1 ] }
+  DEF ShadowingTri IndexedFaceSet { coordIndex [ 0, 1, 2 ] }
+  
+  #Coordinate3 { point [ -1 -1 2, -1 10 2, 10 10 2, 10 -1 2 ] }
+  #IndexedFaceSet { coordIndex [ 0, 1, 2, 3 ] }
+  
+  Translation { translation 0 0 3 }
+  Sphere {}
+  #Cube { width 1 height 1 depth 1 }
+}
