@@ -1,0 +1,92 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.9900790452957153 -0 -0.1405106931924819
+# up -0.1405106484889984 0 0.9900790452957153
+# gravityUp 0 0 1
+Transform {
+  translation 4.7585792541503906 4.76837158203125E-007 2.2056865692138672
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.0702559947967529 0.9950518012046814 0.0702563822269439 1.5757567882537842
+  }
+}
+
+Background {
+	groundColor 0.0565629 0.2208154 0.4
+	skyColor 0.0565629 0.2208154 0.4
+}
+
+NavigationInfo {
+  type "FLY"
+  speed 10
+  avatarSize [ 0.5 4 ]
+  headlight FALSE
+}
+
+DEF TheInline Inline { url "sound.wrl" }
+
+PROTO JukeboxScript [
+  inputOutput SFTime touchTime 0
+  inputOutput SFTime startTime 0
+  inputOutput SFTime stopTime 0
+  inputOutput SFBool isActive FALSE
+] {
+  Script {
+    inputOutput SFTime touchTime IS touchTime
+    inputOutput SFTime startTime IS startTime
+    inputOutput SFTime stopTime IS stopTime
+    inputOutput SFBool isActive IS isActive
+    url "kambiscript:
+
+function touchTime(value, timestamp)
+  if (isActive, stopTime := value, startTime := value)
+"
+} }
+
+DEF ScriptRightBottom JukeboxScript { }
+DEF ScriptRightTop JukeboxScript { }
+DEF ScriptLeftBottom JukeboxScript { }
+DEF ScriptLeftTop JukeboxScript { }
+
+IMPORT TheInline.TouchRightBottom
+IMPORT TheInline.TouchRightTop
+IMPORT TheInline.TouchLeftBottom
+IMPORT TheInline.TouchLeftTop
+
+IMPORT TheInline.AudioRightBottom
+IMPORT TheInline.AudioRightTop
+IMPORT TheInline.AudioLeftBottom
+IMPORT TheInline.AudioLeftTop
+
+ROUTE TouchRightBottom.touchTime TO ScriptRightBottom.touchTime
+ROUTE TouchRightTop.touchTime    TO ScriptRightTop.touchTime
+ROUTE TouchLeftBottom.touchTime  TO ScriptLeftBottom.touchTime
+ROUTE TouchLeftTop.touchTime     TO ScriptLeftTop.touchTime
+
+ROUTE ScriptRightBottom.startTime TO AudioRightBottom.startTime
+ROUTE ScriptRightTop.startTime	  TO AudioRightTop.startTime
+ROUTE ScriptLeftBottom.startTime  TO AudioLeftBottom.startTime
+ROUTE ScriptLeftTop.startTime	  TO AudioLeftTop.startTime
+
+ROUTE ScriptRightBottom.stopTime TO AudioRightBottom.stopTime
+ROUTE ScriptRightTop.stopTime	 TO AudioRightTop.stopTime
+ROUTE ScriptLeftBottom.stopTime  TO AudioLeftBottom.stopTime
+ROUTE ScriptLeftTop.stopTime	 TO AudioLeftTop.stopTime
+
+ROUTE AudioRightBottom.isActive TO ScriptRightBottom.isActive
+ROUTE AudioRightTop.isActive	TO ScriptRightTop.isActive
+ROUTE AudioLeftBottom.isActive	TO ScriptLeftBottom.isActive
+ROUTE AudioLeftTop.isActive	TO ScriptLeftTop.isActive
+
+IMPORT TheInline.LightRightBottom
+IMPORT TheInline.LightRightTop
+IMPORT TheInline.LightLeftBottom
+IMPORT TheInline.LightLeftTop
+
+ROUTE AudioRightBottom.isActive TO LightRightBottom.on
+ROUTE AudioRightTop.isActive	TO LightRightTop.on
+ROUTE AudioLeftBottom.isActive	TO LightLeftBottom.on
+ROUTE AudioLeftTop.isActive	TO LightLeftTop.on
