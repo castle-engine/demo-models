@@ -1,0 +1,32 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Test of animating Sound.location.
+#
+# Note: in this case it would be
+# simpler to just place TheSound under TheTransform, and then animating
+# TheTransform would take care of everything. But we specifically
+# want to test animation Sound.location here, and TheTransform is only
+# to visualize this location.
+
+Viewpoint { }
+
+DEF TheSound Sound {
+  source AudioClip { url "../sounds/intro_music_mono.ogg" loop TRUE }
+}
+
+DEF TheTransform Transform {
+  children Shape {
+    geometry Box { }
+    appearance Appearance { material Material { } }
+  }
+}
+
+DEF LocationTimer TimeSensor { cycleInterval 5 loop TRUE }
+DEF LocationInterp PositionInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ -5 0 0, 5 0 0, -5 0 0, ]
+}
+ROUTE LocationTimer.fraction_changed TO LocationInterp.set_fraction
+ROUTE LocationInterp.value_changed TO TheSound.location
+ROUTE LocationInterp.value_changed TO TheTransform.translation
