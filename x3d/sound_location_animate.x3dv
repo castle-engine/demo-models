@@ -12,7 +12,7 @@ PROFILE Interchange
 Viewpoint { }
 
 DEF TheSound Sound {
-  source AudioClip { url "../sounds/intro_music_mono.ogg" loop TRUE }
+  source AudioClip { url "../sounds/intro_music_mono.ogg" loop TRUE pitch 0.5 }
 }
 
 DEF TheTransform Transform {
