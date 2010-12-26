@@ -22,11 +22,14 @@ Background {
 NavigationInfo {
   type "FLY"
   speed 10
-  avatarSize [ 0.5 4 ]
+  avatarSize [ 0.1 4 ]
   headlight FALSE
 }
 
-DEF TheInline Inline { url "sound.wrl" }
+DEF TransformInline Transform {
+  center 5 0 0
+  children DEF TheInline Inline { url "sound.wrl" }
+}
 
 PROTO JukeboxScript [
   inputOutput SFTime touchTime 0
@@ -90,3 +93,29 @@ ROUTE AudioRightBottom.isActive TO LightRightBottom.on
 ROUTE AudioRightTop.isActive	TO LightRightTop.on
 ROUTE AudioLeftBottom.isActive	TO LightLeftBottom.on
 ROUTE AudioLeftTop.isActive	TO LightLeftTop.on
+
+Transform { translation -2 0 1.5
+  children Transform { rotation 1 0 0 1.57
+    children Transform { rotation 0 1 0 1.57
+      children [
+        DEF RotateTouch TouchSensor { }
+        Shape {
+          geometry Text {
+            string [ "Click jukeboxes to play."
+              "Click this text to rotate scene." ]
+            fontStyle FontStyle { size 0.3 justify "MIDDLE" }
+          }
+          appearance Appearance { material Material { diffuseColor 1 1 0 } }
+        }
+      ]
+    } } }
+DEF RotateTimer TimeSensor { cycleInterval 5 }
+DEF RotateOrient OrientationInterpolator {
+  key [ 0 1 ]
+  keyValue [ 0 0 1 0,
+             0 0 1 6.2831853072, # 2*pi+0.1
+           ]
+}
+ROUTE RotateTouch.touchTime TO RotateTimer.startTime
+ROUTE RotateTimer.fraction_changed TO RotateOrient.set_fraction
+ROUTE RotateOrient.value_changed TO TransformInline.rotation
