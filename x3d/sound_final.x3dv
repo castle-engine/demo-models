@@ -123,3 +123,10 @@ DEF RotateOrient OrientationInterpolator {
 ROUTE RotateTouch.touchTime TO RotateTimer.startTime
 ROUTE RotateTimer.fraction_changed TO RotateOrient.set_fraction
 ROUTE RotateOrient.value_changed TO TransformInline.rotation
+
+# Test duration_changed
+# DEF TheLogger Logger { enabled TRUE level 4 }
+# ROUTE AudioRightBottom.duration_changed TO TheLogger.write
+# ROUTE AudioRightTop.duration_changed	TO TheLogger.write
+# ROUTE AudioLeftBottom.duration_changed	TO TheLogger.write
+# ROUTE AudioLeftTop.duration_changed	TO TheLogger.write
