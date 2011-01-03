@@ -13,6 +13,7 @@ Viewpoint { }
 
 DEF TheSound Sound {
   source AudioClip { url "../sounds/intro_music_mono.ogg" loop TRUE pitch 0.5 }
+  maxFront 30 minFront 1
 }
 
 DEF TheTransform Transform {
