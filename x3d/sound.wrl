@@ -327,6 +327,7 @@ DEF OB_JukeboxLeftBottom Transform {
                 Sound {
                   source DEF AudioLeftBottom AudioClip {
                     url "../sounds/player_potion_drink.wav"
+                    # url "../sounds/werewolf_howling.wav" # to test buffers cache
                 } }
 		USE ME_Cube
 	]
