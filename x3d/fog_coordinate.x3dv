@@ -70,9 +70,21 @@ Transform {
   }
 }
 
-# And a normal version, without FogCoordinate, for comparison
+# Constant FogCoordinate (last depth is replicated)
 Transform {
   translation 6 0 0
+  children Shape {
+    geometry QuadSet {
+      coord USE C
+      fogCoord FogCoordinate { depth 0.5 }
+      solid FALSE
+    }
+  }
+}
+
+# And a normal version, without FogCoordinate, for comparison
+Transform {
+  translation 9 0 0
   children Shape {
     geometry QuadSet {
       coord USE C
