@@ -549,7 +549,9 @@ Transform {
     geometry QuadSet {
       coord USE QuadSetCoord
       normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
-                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+                               0 0 1, 0 0 1, 0 0 1, 1 0 0,
+                               # normal vectors for excessive coords
+                               0 1 0, 0 1 0 ] }
       solid FALSE
     }
   }
