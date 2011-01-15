@@ -24,7 +24,7 @@ Transform { translation 0 2 0
 
 Transform { translation 0 10 0
   children Shape {
-    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    appearance Appearance { material Material { emissiveColor 0.5 0.5 1 } }
     geometry Circle2D { radius 6.5 }
   }
 }
