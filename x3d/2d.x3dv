@@ -1,0 +1,28 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Trivial test of some Geometry2D nodes.
+
+Viewpoint {
+  position 0 8 30
+}
+
+Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry Rectangle2D { size 10 1 }
+}
+
+Transform { translation 0 2 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    # Plane is for InstantReality compat, solid = TRUE by default
+    geometry Plane { size 5 3 }
+  }
+}
+
+Transform { translation 0 10 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    geometry Circle2D { radius 6.5 }
+  }
+}
