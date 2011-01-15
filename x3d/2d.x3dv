@@ -14,7 +14,9 @@ Shape {
 
 Transform { translation 0 2 0
   children Shape {
-    appearance Appearance { material Material { diffuseColor 1 0 0 } }
+    appearance Appearance { material Material { diffuseColor 1 0 0 }
+      texture ImageTexture { url "../textures/test_texture.png" }
+    }
     # Plane is for InstantReality compat, solid = TRUE by default
     geometry Plane { size 5 3 }
   }
