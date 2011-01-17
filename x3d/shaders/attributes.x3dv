@@ -30,9 +30,7 @@ Shape {
     }
   }
   geometry ElevationGrid {
-    solid FALSE
     height [ 0 0 0 0 0 0 0 0 0 ]
-#    height [ 0.1 0.2 0.3 0.1 0.7 0.2 0.4 0.3 0.1 ]
     xDimension 3
     zDimension 3
     creaseAngle 4
@@ -42,4 +40,17 @@ Shape {
               0.1 0.7 0.2
               0.4 0.3 0.1 ] numComponents 1 }
   }
+}
+
+# Test that shader with attribute result above is the same
+Transform { translation 2 0 0
+children Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry ElevationGrid {
+    height [ 0.1 0.2 0.3 0.1 0.7 0.2 0.4 0.3 0.1 ]
+    xDimension 3
+    zDimension 3
+    creaseAngle 4
+  }
+}
 }
