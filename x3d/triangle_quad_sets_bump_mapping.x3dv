@@ -1,0 +1,124 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Test for [Indexed][Triangle/Quad][Fan/Strip]Set (8 nodes total)
+# bump mapping (Kambi VRML game engine extension).
+
+EXTERNPROTO KambiAppearance [
+  inputOutput SFNode material
+  inputOutput SFNode texture
+  inputOutput SFNode textureTransform
+  inputOutput SFNode fillProperties
+  inputOutput SFNode lineProperties
+  inputOutput SFNode metadata
+  inputOutput MFNode shaders
+  inputOutput SFNode normalMap
+  inputOutput SFNode heightMap
+  inputOutput SFFloat heightMapScale
+  inputOutput SFNode blendMode
+  inputOutput SFBool shadowCaster
+] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance" ]
+
+Transform {
+  translation 0 0 0
+  children Shape {
+    appearance DEF Col1App KambiAppearance { material Material { }
+      texture   ImageTexture { url "../textures/lion.png" }
+      normalMap ImageTexture { url "../textures/lion_normal_map.png" }
+      heightMap ImageTexture { url "../textures/lion_height_map.png" }
+      heightMapScale 0.02
+    }
+    geometry IndexedTriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+      index [ 0 1 2, 3 4 5 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 5 0
+  children Shape {
+    appearance USE Col1App
+    geometry TriangleSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
+                                 0 2 0, 1 2 0, 1 3 0 ] }
+    }
+  }
+}
+
+Transform {
+  translation 0 10 0
+  children Shape {
+    appearance USE Col1App
+    geometry IndexedTriangleFanSet {
+      coord DEF FanSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 15 0
+  children Shape {
+    appearance USE Col1App
+    geometry TriangleFanSet {
+      coord USE FanSetCoord
+      fanCount [ 4 4 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 20 0
+  children Shape {
+    appearance USE Col1App
+    geometry IndexedTriangleStripSet {
+      coord DEF StripSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 25 0
+  children Shape {
+    appearance USE Col1App
+    geometry TriangleStripSet {
+      coord USE StripSetCoord
+      stripCount [ 4 4 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 30 0
+  children Shape {
+    appearance USE Col1App
+    geometry IndexedQuadSet {
+      coord DEF QuadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0,
+                             # These two verts should be ignored by QuadSet
+                             # (spec says to ignore coords above 4-multiple)
+                                    2 0 1, 2 1 1 ] }
+      index [ 0 1 2 3, 4 5 6 7, 2 1 8 9 ]
+    }
+  }
+}
+
+Transform {
+  translation 0 35 0
+  children Shape {
+    appearance USE Col1App
+    geometry QuadSet {
+      coord USE QuadSetCoord
+    }
+  }
+}
+
