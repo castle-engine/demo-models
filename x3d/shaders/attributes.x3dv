@@ -32,9 +32,10 @@ Shape {
   geometry ElevationGrid {
     solid FALSE
     height [ 0 0 0 0 0 0 0 0 0 ]
+#    height [ 0.1 0.2 0.3 0.1 0.7 0.2 0.4 0.3 0.1 ]
     xDimension 3
     zDimension 3
-#    creaseAngle 4
+    creaseAngle 4
     # pass heights as GLSL attribute
     attrib FloatVertexAttribute { name "height"
       value [ 0.1 0.2 0.3
