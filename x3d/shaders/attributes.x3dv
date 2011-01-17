@@ -1,0 +1,44 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+Shape {
+  appearance Appearance {
+    material Material { diffuseColor 1 1 0 }
+    shaders ComposedShader {
+      language "GLSL"
+      parts [
+        ShaderPart { type "VERTEX" url "
+          attribute float height;
+          void main(void)
+          {
+            vec4 localv = gl_Vertex;
+            localv.y += height;
+            vec3 v = vec3(gl_ModelViewMatrix * localv);
+
+            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+
+            vec3 normal = normalize(gl_NormalMatrix * gl_Normal);
+            vec3 light = normalize(-v);
+            gl_FrontColor =
+              gl_FrontLightProduct[0].ambient +
+              gl_FrontLightProduct[0].diffuse * max(dot(normal, light), 0.0);
+
+            gl_Position = gl_ProjectionMatrix * vec4(v, 1.0);
+          }" }
+      ]
+    }
+  }
+  geometry ElevationGrid {
+    solid FALSE
+    height [ 0 0 0 0 0 0 0 0 0 ]
+    xDimension 3
+    zDimension 3
+#    creaseAngle 4
+    # pass heights as GLSL attribute
+    attrib FloatVertexAttribute { name "height"
+      value [ 0.1 0.2 0.3
+              0.1 0.7 0.2
+              0.4 0.3 0.1 ] numComponents 1 }
+  }
+}
