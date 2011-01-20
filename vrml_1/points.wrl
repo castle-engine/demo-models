@@ -1,0 +1,36 @@
+#VRML V1.0 ascii
+
+# Test of VRML 1.0 PointSet, with startIndex and numPoints
+
+Material { diffuseColor 0 0 1 }
+Coordinate3 { point [ 0 0 0, 1 0 0, 2 0 0, 3 0 0 ] }
+
+PointSet { }
+
+# change startIndex
+Separator {
+  Translation { translation 0 -1 0 }
+  PointSet { startIndex 1 }
+
+  Translation { translation 0 -1 0 }
+  PointSet { startIndex 2 }
+
+  Translation { translation 0 -1 0 }
+  PointSet { startIndex 3 }
+
+  Translation { translation 0 -1 0 }
+  PointSet { startIndex 4 }
+}
+
+# change numPoints
+Translation { translation 0 1 0 }
+PointSet { startIndex 0 numPoints 3 }
+
+Translation { translation 0 1 0 }
+PointSet { startIndex 0 numPoints 2 }
+
+Translation { translation 0 1 0 }
+PointSet { startIndex 0 numPoints 1 }
+
+Translation { translation 0 1 0 }
+PointSet { startIndex 0 numPoints 0 }
