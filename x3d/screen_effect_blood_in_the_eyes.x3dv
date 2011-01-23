@@ -39,7 +39,7 @@ ScreenEffect { shaders DEF Shader ComposedShader {
   }
   inputOnly SFTime time
   language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "
+  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 uniform sampler2D bloodyTexture;

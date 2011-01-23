@@ -8,7 +8,7 @@ Shape {
     shaders ComposedShader {
       language "GLSL"
       parts [
-        ShaderPart { type "VERTEX" url "
+        ShaderPart { type "VERTEX" url "data:text/plain,
           attribute float height;
           void main(void)
           {

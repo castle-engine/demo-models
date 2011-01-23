@@ -27,7 +27,7 @@ Inline { url "../vrml_2/castle_with_lights.wrl" }
 
 DEF SE1 ScreenEffect { shaders ComposedShader {
   language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "
+  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 void main (void)
@@ -39,7 +39,7 @@ void main (void)
 
 DEF SE2 ScreenEffect { shaders ComposedShader {
   language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "
+  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 void main (void)
@@ -52,7 +52,7 @@ void main (void)
 
 DEF SE3 ScreenEffect { shaders ComposedShader {
   language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "
+  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 void main (void)
@@ -80,7 +80,7 @@ ROUTE BFShift.inputNegate TO SE3.enabled
 
 ScreenEffect { enabled FALSE shaders ComposedShader {
   language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "
+  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 void main (void)
@@ -91,7 +91,7 @@ void main (void)
 
 ScreenEffect { enabled FALSE shaders ComposedShader {
   language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "
+  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
 #extension GL_ARB_texture_rectangle : enable
 uniform sampler2DRect screen;
 uniform int screen_height;
