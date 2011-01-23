@@ -12,7 +12,7 @@ Transform {
       shaders ComposedShader {
         language "GLSL"
         parts [
-          ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
+          ShaderPart { type "FRAGMENT" url "simple_multitex_shaders.fs" }
         ]
         initializeOnly SFNode texture_squirrel
           ImageTexture { url "../../textures/test_texture.png" }
@@ -45,17 +45,15 @@ Transform {
         language "GLSL"
         parts [
           ShaderPart { type "FRAGMENT" url
-          "
-            uniform sampler2D textures[2];
-
-            void main()
-            {
-              gl_FragColor = gl_Color *
-                max(
-                  texture2D(textures[0], gl_TexCoord[0].st),
-                  texture2D(textures[1], gl_TexCoord[1].st));
-            }
-
+          "data:text/plain,
+           uniform sampler2D textures[2];
+           void main()
+           {
+             gl_FragColor = gl_Color *
+               max(
+                 texture2D(textures[0], gl_TexCoord[0].st),
+                 texture2D(textures[1], gl_TexCoord[1].st));
+           }
           " }
         ]
         initializeOnly MFNode textures [
@@ -96,7 +94,7 @@ Transform {
       shaders ComposedShader {
         language "GLSL"
         parts [
-          ShaderPart { type "FRAGMENT" url "glsl_simple_multitex_shaders.fs" }
+          ShaderPart { type "FRAGMENT" url "simple_multitex_shaders.fs" }
         ]
         initializeOnly SFInt32 texture_squirrel 0
         initializeOnly SFInt32 texture_brick 1
