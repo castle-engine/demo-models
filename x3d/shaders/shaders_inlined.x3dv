@@ -13,7 +13,7 @@ Shape {
         language "GLSL"
         parts [
           ShaderPart { type "VERTEX"
-            url "
+            url "data:text/plain,
             void main(void)
             {
               gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
@@ -21,7 +21,7 @@ Shape {
             }" }
 
           ShaderPart { type "FRAGMENT"
-            url "
+            url "data:text/plain,
             uniform sampler2D tex;
             void main(void)
             {
