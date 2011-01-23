@@ -2,42 +2,6 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
-]
-
-EXTERNPROTO KambiNavigationInfo [
-  inputOnly   SFBool   set_bind
-  inputOutput MFFloat  avatarSize
-  inputOutput SFBool   headlight
-  inputOutput SFFloat  speed
-  inputOutput MFString type
-  inputOutput SFFloat  visibilityLimit
-  outputOnly  SFBool   isBound
-  initializeOnly  SFBool   timeOriginAtLoad
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
-]
-
-KambiNavigationInfo {
-	headlight TRUE
-	type ["EXAMINE", "ANY"]
-        timeOriginAtLoad TRUE
-}
-
 # This file was authored with Blender (http://www.blender.org/)
 # Blender version 245
 # Blender file teapot.blend
@@ -79,34 +43,24 @@ DEF OB_Teapot Transform {
 		DEF ME_Mesh Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
+					appearance Appearance {
 						material DEF MA_Material_001 Material {
 							diffuseColor 0.8 0.8 0.8
 							ambientIntensity 0.1666667
 							specularColor 0.4012008 0.4012008 0.4012008
 							emissiveColor  0.0 0.0 0.0
 							shininess 0.0976563
-                                                        # Kambi: anything non-zero to cause using blending
-							transparency 0.5
+							transparency 0.0
 						}
 
                                                 # Kambi+ added this by hand to activate shader
-                                                shaders DEF KamShader ComposedShader {
+                                                shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_time_nodes.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_time_nodes.fs" }
+                                                    ShaderPart { type "FRAGMENT" url "headlight_shaders.fs" }
                                                   ]
-                                                  inputOutput SFFloat alpha1 0.1
-                                                  inputOutput SFFloat alpha2 1.0
-                                                  #inputOutput SFTime time 0
-                                                  inputOnly SFTime time
                                                 }
 
-                                                # Kambi+ to correctly display blending
-                                                blendMode BlendMode {
-                                                  destFactor "one"
-                                                }
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -3234,6 +3188,3 @@ DEF OB_Teapot Transform {
 	]
 }
 
-# Kambi+, to route TimeSensor to shader
-DEF KamTime TimeSensor { loop TRUE }
-ROUTE KamTime.time TO KamShader.time

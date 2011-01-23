@@ -74,8 +74,8 @@ DEF OB_Teapot Transform {
                                                 shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_fake_fresnel.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_fake_fresnel.fs" }
+                                                    ShaderPart { type "VERTEX" url "fake_fresnel.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "fake_fresnel.fs" }
                                                   ]
                                                   inputOutput SFVec3f baseColor  0.6 0.6 0.6
                                                 }
