@@ -25,8 +25,11 @@ Inline { url "../../castle_with_lights.wrl" }
 
 Transform {
   translation -10 -10 10
-  children Shape {
-    appearance Appearance { material Material { fogImmune TRUE } }
-    geometry Box { }
-  }
+  children [
+    LocalFog { }
+    Shape {
+      appearance Appearance { material Material { } }
+      geometry Box { }
+    }
+  ]
 }

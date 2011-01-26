@@ -25,16 +25,15 @@ Group{
   }
 
   # separate FALSE is used below to allow lights from castle_with_lights.wrl
-  # to shine on test cube (with fogImmune) below.
+  # to shine on test cube (with LocalFog) below.
   WWWInline {
     separate FALSE
     name "../../castle_with_lights.wrl"
   }
 
   Separator {
-    Material {
-      fogImmune TRUE
-    }
+    LocalFog { }
+    Material { }
     Translation { translation -10 -10 10 }
     Cube { }
   }
