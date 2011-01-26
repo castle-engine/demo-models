@@ -1,19 +1,6 @@
 #VRML V2.0 utf8
 
-# This demonstrates volumetric fog, showing also example
-# where separate-shapes-no-transform optimization
-# fails (volumetric fog is rendered bad --- it should be rendered
-# differently on each tree, but it's the same).
-#
-# Try these 2 commands:
-#
-#   view3dscene break_no_transform_final.wrl \
-#     --renderer-optimization separate-shapes-no-transform
-#
-#   view3dscene break_no_transform_final.wrl \
-#     --renderer-optimization separate-shapes
-#
-# and compare results, you'll see what I mean.
+# Volumetric fog, with reUSEd geometry.
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.010892866179347 0.199703142046928 2.06223358389934E-008
@@ -46,5 +33,5 @@ Fog {
 
 Transform {
   rotation 1 0 0 1.57
-  children Inline { url "break_no_transform.wrl" }
+  children Inline { url "fog_volumetric_reused_geometry.wrl" }
 }

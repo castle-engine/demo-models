@@ -18,4 +18,4 @@ Transform {
   }
 }
 
-Inline { url "../vrml_2/kambi_extensions/fog_volumetric/break_no_transform.wrl" }
+Inline { url "../vrml_2/kambi_extensions/fog_volumetric/fog_volumetric_reused_geometry.wrl" }
