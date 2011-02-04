@@ -1,0 +1,20 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# An empty scene (no triangles defined, empty bounding box etc.).
+# It has a Background node.
+# It also sets an orthographic projection.
+# User should be able to navigate (rotate the view to rotate the Background).
+
+OrthoViewpoint { }
+
+Group {
+  children Background {
+    backUrl "../skies/sky_lake_back.jpg"
+    bottomUrl "../skies/sky_lake_bottom.jpg"
+    frontUrl "../skies/sky_lake_front.jpg"
+    leftUrl "../skies/sky_lake_left.jpg"
+    rightUrl "../skies/sky_lake_right.jpg"
+    topUrl "../skies/sky_lake_top.jpg"
+  }
+}
