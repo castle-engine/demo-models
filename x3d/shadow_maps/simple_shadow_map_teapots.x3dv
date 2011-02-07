@@ -48,6 +48,8 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
   inputOutput SFString description
+  inputOutput SFVec2f minPosition
+  inputOutput SFVec2f maxPosition
 ] [ "../useful_prototypes.x3dv#EditableTransform" ]
 
 # spot test ------------------------------------------------------------------
@@ -68,6 +70,8 @@ EditableTransform {
       geometry TesselatedPlane { }
     }
   ]
+  minPosition -30 -10
+  maxPosition  30  10
 }
 
 EditableTransform {
@@ -88,6 +92,8 @@ EditableTransform {
       geometry ShadowMapReceiver { }
     }
   ]
+  minPosition -30 -10
+  maxPosition  30  10
 }
 
 # directional test -----------------------------------------------------------
@@ -111,6 +117,8 @@ EditableTransform {
       geometry TesselatedPlane { }
     }
   ]
+  minPosition -30 -10
+  maxPosition  30  10
 }
 
 # Cube to visualize shadow map -----------------------------------------------
@@ -139,6 +147,8 @@ EditableTransform {
       size 4 4 4
     }
   }
+  minPosition -30 -10
+  maxPosition  30  10
 }
 
 EditableTransform {
@@ -150,6 +160,8 @@ EditableTransform {
       size 4 4 4
     }
   }
+  minPosition -30 -10
+  maxPosition  30  10
 }
 
 EditableTransform {
@@ -161,4 +173,6 @@ EditableTransform {
       size 4 4 4
     }
   }
+  minPosition -30 -10
+  maxPosition  30  10
 }
