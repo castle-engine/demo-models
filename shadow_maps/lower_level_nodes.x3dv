@@ -5,14 +5,14 @@ PROFILE Interchange
 
 EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
-] [ "../tesselated_plane.wrl#TesselatedPlane" ]
+] [ "../x3d/tesselated_plane.wrl#TesselatedPlane" ]
 
 EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
   inputOutput SFString description
-] [ "../useful_prototypes.x3dv#EditableTransform" ]
+] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
 
 # ----------------------------------------------------------------------------
 

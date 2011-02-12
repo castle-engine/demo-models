@@ -15,9 +15,9 @@ Transform {
           ShaderPart { type "FRAGMENT" url "simple_multitex_shaders.fs" }
         ]
         initializeOnly SFNode texture_squirrel
-          ImageTexture { url "../../textures/test_texture.png" }
+          ImageTexture { url "../textures/test_texture.png" }
         initializeOnly SFNode texture_brick
-          ImageTexture { url "../../textures/brick031.jpg" }
+          ImageTexture { url "../textures/brick031.jpg" }
       }
     }
     geometry IndexedFaceSet {
@@ -57,8 +57,8 @@ Transform {
           " }
         ]
         initializeOnly MFNode textures [
-          ImageTexture { url "../../textures/test_texture.png" }
-          ImageTexture { url "../../textures/brick031.jpg" }
+          ImageTexture { url "../textures/test_texture.png" }
+          ImageTexture { url "../textures/brick031.jpg" }
         ]
       }
     }
@@ -86,8 +86,8 @@ Transform {
     appearance Appearance {
       texture MultiTexture {
         texture [
-          ImageTexture { url "../../textures/test_texture.png" }
-          ImageTexture { url "../../textures/brick031.jpg" }
+          ImageTexture { url "../textures/test_texture.png" }
+          ImageTexture { url "../textures/brick031.jpg" }
         ]
       }
 

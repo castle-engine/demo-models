@@ -61,7 +61,7 @@ DEF OB_kolumna_016 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-						texture DEF egyptstreetfull_jpg ImageTexture { url "../../../castle/data/textures/egyptstreetfull.jpg" }
+						texture DEF egyptstreetfull_jpg ImageTexture { url "../../castle/data/textures/egyptstreetfull.jpg" }
                                                 receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
@@ -1147,7 +1147,7 @@ DEF OB_Water Transform {
 							shininess 0.0976563
 							transparency 0.4
 						}
-                                                texture DEF water2_jpg_001 ImageTexture { url "../../../castle/data/textures/water2.jpg" }
+                                                texture DEF water2_jpg_001 ImageTexture { url "../../castle/data/textures/water2.jpg" }
                                                 receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
@@ -1195,7 +1195,7 @@ DEF OB_Tree_211 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-                                                texture DEF tree_texture_jpg_001 ImageTexture { url "../../../castle/data/textures/tree_texture.jpg" }
+                                                texture DEF tree_texture_jpg_001 ImageTexture { url "../../castle/data/textures/tree_texture.jpg" }
                                                 receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {
@@ -1780,7 +1780,7 @@ DEF OB_Ground Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-                                                texture DEF dirtfrancecornerg ImageTexture { url "../../../castle/data/textures/dirtfrancecornergrass.jpg" }
+                                                texture DEF dirtfrancecornerg ImageTexture { url "../../castle/data/textures/dirtfrancecornergrass.jpg" }
                                                 receiveShadows USE MyLight
 					}
 					geometry IndexedFaceSet {

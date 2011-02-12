@@ -26,7 +26,7 @@ Transform { translation -1 -8 0
 Transform { translation 1 -8 0
   children Shape {
     appearance Appearance {
-      texture ImageTexture { url "../../textures/test_texture.png" }
+      texture ImageTexture { url "../textures/test_texture.png" }
       material Material { } }
     geometry Cylinder { }
   }

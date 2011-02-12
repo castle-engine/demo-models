@@ -7,7 +7,7 @@ COMPONENT Shaders:1
 
 Shape {
   appearance DEF App Appearance {
-    texture ImageTexture  { url "../../textures/brick031.jpg" }
+    texture ImageTexture  { url "../textures/brick031.jpg" }
     shaders [
       ComposedShader {
         language "GLSL"
