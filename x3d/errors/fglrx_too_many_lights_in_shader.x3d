@@ -12,7 +12,7 @@
   hangs for a couple of minutes before also spilling out
   "OpenGL error (1282): invalid operation".
 
-  This is fglrx bug --- I don't see any way to even workaround it.
+  This is fglrx bug, I don't see any way to even workaround it.
   Just avoid some shaders, or don't buy crap from ATI.
 -->
 
