@@ -2,9 +2,19 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
 
-<!-- Shader generated for this model causes
-     "OpenGL error (1282): invalid operation"
-     by fglrx on Radeon X1600. -->
+<!--
+  Shader generated for this model causes
+  "OpenGL error (1282): invalid operation"
+  by fglrx on Radeon X1600. This happens at glDrawArrays call usign this shader.
+
+  For even more fun, comment out leaf_normal_map.png,
+  and observe as the worst OpenGL implementation in the world (suck it, ATI)
+  hangs for a couple of minutes before also spilling out
+  "OpenGL error (1282): invalid operation".
+
+  This is fglrx bug --- I don't see any way to even workaround it.
+  Just avoid some shaders, or don't buy crap from ATI.
+-->
 
 <Scene>
 <NavigationInfo headlight="false" />
@@ -19,7 +29,7 @@
 <Transform>
 <Shape>
 	<KambiAppearance>
-                <ImageTexture url='"../../textures/leaf_normal_map.png"' containerField="normalMap" />
+        	<ImageTexture url='"../../textures/leaf_normal_map.png"' containerField="normalMap" />
 		<Material />
 		<ImageTexture url='"../../textures/leaf.png"' />
 	</KambiAppearance>
