@@ -69,7 +69,7 @@ Transform {
   children Row {
     appearance Appearance {
       texture DEF MyTex ImageTexture {
-        url "../../../textures/leaf.png"
+        url "../textures/leaf.png"
       }
       material Material { }
     }
@@ -83,7 +83,7 @@ Transform {
     appearance KambiAppearance {
       texture USE MyTex
       normalMap DEF MyNormalTex ImageTexture {
-        url "../../../textures/leaf_normal_map.png"
+        url "../textures/leaf_normal_map.png"
       }
       material Material { }
     }
