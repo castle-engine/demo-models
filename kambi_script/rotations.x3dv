@@ -116,7 +116,7 @@ KambiTriangulation { rectDivisions 30 }
 Shape {
   appearance Appearance {
     material Material { ambientIntensity 1 }
-    texture ImageTexture { url "../../textures/test_texture.png" }
+    texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Box {
     texCoord ProjectedTextureCoordinate {
