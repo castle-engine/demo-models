@@ -7,26 +7,21 @@
      by fglrx on Radeon X1600. -->
 
 <Scene>
-<NavigationInfo headlight="false" visibilityLimit="0.0" type='"EXAMINE","ANY"' avatarSize="0.25, 1.75, 0.75" />
-<Background groundColor="0.051 0.051 0.051" skyColor="0.051 0.051 0.051" />
+<NavigationInfo headlight="false" />
+<Background />
 
-<DirectionalLight DEF="Lamp_004" ambientIntensity="0.0" color="1.0 1.0 1.0" intensity="0.103" direction="0.2536 -0.7947 -0.5515"  />
+<DirectionalLight/>
+<DirectionalLight/>
+<SpotLight shadows="TRUE" />
+<PointLight />
+<SpotLight shadows="TRUE" />
 
-<DirectionalLight DEF="Lamp_another" ambientIntensity="0.0" color="1.0 1.0 1.0" intensity="0.103" direction="0.2536 -0.7947 -0.5515"  />
-
-<SpotLight DEF="Lamp_003" radius="26.55" ambientIntensity="0.0" intensity="1.0" color="1.0 1.0 1.0" beamWidth="0.484" cutOffAngle="0.63" direction="-0.228 -0.305 0.925" location="8.262 7.12 -17.092" shadows="TRUE" />
-
-<PointLight DEF="Lamp_002" ambientIntensity="0.0" color="1.0 0.744 0.719" intensity="0.549" radius="29.9999828339" location="0.114 2.472 0.056" />
-
-<SpotLight DEF="Lamp_001" radius="26.55" ambientIntensity="0.0" intensity="1.0" color="1.0 1.0 1.0" beamWidth="0.484" cutOffAngle="0.63" direction="-0.312 -0.378 -0.872" location="6.818 6.688 13.283" shadows="TRUE" />
-
-<Transform DEF="shrine" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796">
+<Transform>
 <Shape>
 	<KambiAppearance>
                 <ImageTexture url='"../../textures/leaf_normal_map.png"' containerField="normalMap" />
-		<Material DEF="MA_shrine" diffuseColor="0.2 0.2 0.2" specularColor="0.018 0.009 0.004" emissiveColor="0.0 0.0 0.0" 
-			ambientIntensity="0.333" shininess="0.025" transparency="0.0" />		
-		<ImageTexture url='"../../textures/leaf.png"' />		
+		<Material />
+		<ImageTexture url='"../../textures/leaf.png"' />
 	</KambiAppearance>
         <Sphere/>
 </Shape>
