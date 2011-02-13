@@ -1,0 +1,75 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+DirectionalLight { direction -1 -1 0 intensity 0.25 }
+
+Shape {
+  appearance Appearance {
+    material Material { diffuseColor 1 0 0
+      transparency 0.5 # anything <> 1 to force blending rendering
+    }
+    blendMode BlendMode { destFactor "one" } # otherwise blending causes artifacts
+    effects DEF Fresnel Effect {
+      language "GLSL"
+      parts EffectPart {
+        name "texture-apply"
+        url "data:text/plain,
+          fragment_color.a = 1.0 - pow(normal_eye.z, 2.0);"
+      }
+    }
+  }
+  geometry Teapot { }
+}
+
+Transform { translation 0 2 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0 }
+      effects DEF Toon Effect {
+        language "GLSL"
+        parts [
+          EffectPart { name "fragment-declare-procedures"
+            url "data:text/plain,
+              float intensity_toon(float intensity)
+              {
+                /* We compare in this strange way, to avoid fglrx bugs with float consts */
+                float result = 1.0;
+                if (intensity * 100.0 <= 95.0)
+                {
+                  result /= 4.0;
+                  if (intensity * 100.0 > 50.0)
+                    result *= 3.0; else
+                  if (intensity * 100.0 > 25.0)
+                    result *= 2.0;
+                  /* else stays as 0.25; */
+                }
+
+                return result;
+              }" }
+          EffectPart { name "texture-apply"
+            url "data:text/plain,
+              fragment_color.r *= intensity_toon(fragment_color.r);
+              fragment_color.g *= intensity_toon(fragment_color.g);
+              fragment_color.b *= intensity_toon(fragment_color.b);
+              fragment_color.a = intensity_toon(fragment_color.a);
+              " }
+        ]
+      }
+    }
+    geometry Teapot { }
+  }
+}
+
+Transform { translation 3 1 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0
+        transparency 0.5 # anything <> 1 to force blending rendering
+      }
+      blendMode BlendMode { destFactor "one" } # otherwise blending causes artifacts
+      effects [ USE Toon USE Fresnel ]
+    }
+    geometry Teapot { }
+  }
+}
