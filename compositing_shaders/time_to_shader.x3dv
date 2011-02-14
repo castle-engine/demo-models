@@ -1,0 +1,97 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Demonstrate passing uniform variable values to Effect:
+# we pass constant alpha values, and we pass time value from TimeSensor.
+#
+# This is similar to shaders/kambi_extensions/time_to_shader.x3dv demo,
+# except this is implemented using our Effect node (not ComposedShader).
+# So note that the shader code is much shorter --- it only contains
+# code actually dealing with calculating alpha value based on time.
+# And it automatically honours all the lights, materials around.
+
+DirectionalLight { direction -1 -1 0 intensity 1 }
+
+Shape {
+  appearance Appearance {
+    material Material { diffuseColor 1 0 0
+      specularColor 1 1 0
+      transparency 0.5 # anything <> 1 to force blending rendering
+    }
+    blendMode BlendMode { destFactor "one" } # otherwise blending causes artifacts
+    effects [
+      DEF BeamStacks Effect {
+        language "GLSL"
+        inputOutput SFFloat alpha1 0.1
+        inputOutput SFFloat alpha2 1.0
+        inputOnly SFTime time
+        parts [
+          EffectPart { name "vertex-declare-variables" url "data:text/plain,
+              uniform float time;
+              varying float height;"
+          }
+          EffectPart { name "vertex-process" url "data:text/plain,
+              height = (gl_Vertex.y  + time / 4.0) * 5.0;"
+          }
+          EffectPart { name "fragment-declare-variables" url "data:text/plain,
+              uniform float alpha1;
+              uniform float alpha2;
+              varying float height;"
+          }
+          EffectPart { name "texture-apply" url "data:text/plain,
+              float h = fract(height);
+
+              /* Originally this was:
+
+                   if (h > 0.5)
+                     h = 1.0 - (h - 0.5) * 2.0; else
+                     h *= 2.0;
+
+                 but, of course, fglrx sucks. */
+
+              if (h * 2.0 > 1.0)
+                h = 1.0 - (h * 2.0 - 1.0); else
+                h *= 2.0;
+
+              h = pow(h, 5.0);
+
+              fragment_color.a = mix(alpha1, alpha2, h);"
+          }
+        ]
+      }
+    ]
+  }
+  geometry Teapot { }
+}
+
+DEF Timer TimeSensor { loop TRUE }
+ROUTE Timer.time TO BeamStacks.time
+
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFFloat  speed
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFBool   isBound
+  initializeOnly  SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+  headlight TRUE
+  type ["EXAMINE", "ANY"]
+  timeOriginAtLoad TRUE
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0481987223029136 -0.6520963907241821 0.7566123008728027
+# up -0.5967658162117004 0.6262260675430297 0.5017117857933044
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.014983925037086 1.8180993795394897 -2.0830268859863281
+  orientation -0.2894686460494995 0.8999160528182983 0.3261268734931945 2.8788301944732666
+}
