@@ -13,9 +13,12 @@ Shape {
     effects DEF Fresnel Effect {
       language "GLSL"
       parts EffectPart {
-        name "texture-apply"
-        url "data:text/plain,
-          fragment_color.a = 1.0 - pow(normal_eye.z, 2.0);"
+        type "FRAGMENT" url "data:text/plain,
+
+          void PLUG_texture_apply(inout vec4 fragment_color)
+          {
+            fragment_color.a = 1.0 - pow(normal_eye.z, 2.0);
+          }"
       }
     }
   }
@@ -29,8 +32,8 @@ Transform { translation 0 2 0
       effects DEF Toon Effect {
         language "GLSL"
         parts [
-          EffectPart { name "fragment-declare-procedures"
-            url "data:text/plain,
+          EffectPart { type "FRAGMENT" url "data:text/plain,
+
               float intensity_toon(float intensity)
               {
                 /* We compare in this strange way, to avoid fglrx bugs with float consts */
@@ -46,13 +49,15 @@ Transform { translation 0 2 0
                 }
 
                 return result;
-              }" }
-          EffectPart { name "texture-apply"
-            url "data:text/plain,
-              fragment_color.r *= intensity_toon(fragment_color.r);
-              fragment_color.g *= intensity_toon(fragment_color.g);
-              fragment_color.b *= intensity_toon(fragment_color.b);
-              fragment_color.a = intensity_toon(fragment_color.a);
+              }
+
+              void PLUG_texture_apply(inout vec4 fragment_color)
+              {
+                fragment_color.r *= intensity_toon(fragment_color.r);
+                fragment_color.g *= intensity_toon(fragment_color.g);
+                fragment_color.b *= intensity_toon(fragment_color.b);
+                fragment_color.a = intensity_toon(fragment_color.a);
+              }
               " }
         ]
       }

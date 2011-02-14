@@ -4253,17 +4253,18 @@ appearance Appearance {
   effects Effect {
     parts [
       EffectPart {
-        name "vertex-declare-variables" url "data:text/plain,
+        type "VERTEX" url "data:text/plain,
           varying vec3 position;
-          varying vec4 color;"
+          varying vec4 color;
+
+          void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
+          {
+            position = vec3(gl_Vertex);
+            color = gl_Color;
+          }"
       }
       EffectPart {
-        name "vertex-process" url "data:text/plain,
-          position = vec3(gl_Vertex);
-          color = gl_Color;"
-      }
-      EffectPart {
-        name "fragment-declare-variables" url "data:text/plain,
+        type "FRAGMENT" url "data:text/plain,
           uniform sampler2D tex_sand;
           uniform sampler2D tex_bread;
           uniform sampler2D tex_rock;
@@ -4275,31 +4276,31 @@ appearance Appearance {
           uniform float z2; // below bread
           uniform float z3; // below bread + rock
           // above only rock
-          
+
           uniform float color_mix;
 
           varying vec3 position;
           varying vec4 color;
-          "
-      }
-      EffectPart {
-        name "texture-apply" url "data:text/plain,
-          vec4 tex;
-          if (position.y <= z0)
-            tex = texture2D(tex_sand, position.xz); else
-          if (position.y <= z1)
-            tex = mix( texture2D(tex_sand, position.xz),
-                       texture2D(tex_bread, position.xz),
-                       (position.y - z0) / (z1 - z0)); else
-          if (position.y <= z2)
-            tex = texture2D(tex_bread, position.xz); else
-          if (position.y <= z3)
-            tex = mix( texture2D(tex_bread, position.xz),
-                       texture2D(tex_rock, position.xz),
-                       (position.y - z2) / (z3 - z2)); else
-            tex = texture2D(tex_rock, position.xz);
 
-          fragment_color.rgb *= tex.rgb * mix(color.rgb, vec3(1.0), color_mix);
+          void PLUG_texture_apply(inout vec4 fragment_color)
+          {
+            vec4 tex;
+            if (position.y <= z0)
+              tex = texture2D(tex_sand, position.xz); else
+            if (position.y <= z1)
+              tex = mix( texture2D(tex_sand, position.xz),
+                         texture2D(tex_bread, position.xz),
+                         (position.y - z0) / (z1 - z0)); else
+            if (position.y <= z2)
+              tex = texture2D(tex_bread, position.xz); else
+            if (position.y <= z3)
+              tex = mix( texture2D(tex_bread, position.xz),
+                         texture2D(tex_rock, position.xz),
+                         (position.y - z2) / (z3 - z2)); else
+              tex = texture2D(tex_rock, position.xz);
+
+            fragment_color.rgb *= tex.rgb * mix(color.rgb, vec3(1.0), color_mix);
+          }
           "
       }
     ]
