@@ -15,9 +15,9 @@ Group {
       }
     }
 
-    Transform {
+    DEF MyBackgroundTransform Transform {
       rotation 1 0 0 1
-      children Background {
+      children DEF MyBackground Background {
         skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0, ]
         skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9, ]
         groundColor [ 0 0.5 0, 0 0.25 0.25 ]
@@ -25,6 +25,22 @@ Group {
       }
     }
 
-    Inline { url "boat.wrl" }
+    Inline { url "background_animate_colors_boat.wrl" }
   ]
 }
+
+DEF SkyColorInterpolator ColorSetInterpolator {
+  key [ 0.0, 1.0 ]
+  keyValue [ 1 0 0, 1 1 0, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0,
+             1 0 0, 0.5 1 0.5, 0 1 0, 0 0 1, 1 1 1, 0 0 0, 1 1 1, 0 0 0, ]
+}
+DEF SkyRotationInterpolator OrientationInterpolator {
+  key [ 0.0, 1.0 ]
+  keyValue [ 1 0 0 1, 1 0 0 2 ]
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 2 }
+ROUTE Timer.fraction_changed TO SkyColorInterpolator.set_fraction
+ROUTE SkyColorInterpolator.value_changed TO MyBackground.skyColor
+ROUTE Timer.fraction_changed TO SkyRotationInterpolator.set_fraction
+ROUTE SkyRotationInterpolator.value_changed TO MyBackgroundTransform.rotation
