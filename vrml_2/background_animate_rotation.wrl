@@ -2,7 +2,7 @@
 
 Group {
   children [
-    Transform {
+    DEF MyBackgroundTransform Transform {
       rotation 1 0 0 0
       children Background {
         backUrl "../skies/sky_lake_back.jpg"
@@ -13,7 +13,7 @@ Group {
         topUrl "../skies/sky_lake_top.jpg"
       }
     }
-    
+
     # Camera settings "encoded" in the VRML declaration below :
     # direction 0 0.700684607028961 0.000241928064497
     # up 0 -0.000345317530446 0.999999940395355
@@ -27,6 +27,18 @@ Group {
       }
     }
 
-    Inline { url "../vrml_2/castle_with_lights.wrl" }
+    Inline { url "castle_with_lights.wrl" }
   ]
 }
+
+DEF SkyRotationInterpolator OrientationInterpolator {
+  key [ 0.0, 1.0 ]
+  keyValue [
+    1 0 0 0,
+    1 0 0 6.2831853072 # Pi * 2
+  ]
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 2 }
+ROUTE Timer.fraction_changed TO SkyRotationInterpolator.set_fraction
+ROUTE SkyRotationInterpolator.value_changed TO MyBackgroundTransform.rotation
