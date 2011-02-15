@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
 <animation backwards="true" loop="true">
-  <frame file_name="background_colors_animation_1.wrl" time="0" />
-  <frame file_name="background_colors_animation_2.wrl" time="1" />
+  <frame file_name="background_colors_1.wrl" time="0" />
+  <frame file_name="background_colors_2.wrl" time="1" />
 </animation>
