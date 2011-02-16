@@ -43,7 +43,8 @@ DEF LightTransform Transform {
             vec3 up = cross(light_source.spotDirection, side);
             vec2 tex_coord = vec2(
               dot(side, -light_dir),
-              dot(up, -light_dir)) * 2.0;
+              dot(up, -light_dir)) * 18.0;
+            tex_coord /= 10.0; /* we use tricks to avoid fglrx const floats bugs */
             tex_coord += vec2(1.0) / 2.0;
 
             light_scale *= texture2D(spot_texture, tex_coord).r;
