@@ -1,0 +1,69 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+NavigationInfo { headlight FALSE }
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.4755602478981018 -0.6580226421356201 -0.5838135480880737
+# up -0.4139494895935058 0.7529923915863037 -0.5115097165107727
+# gravityUp 0 1 0
+DEF MyViewpoint Viewpoint {
+  position 6.6155757904052734 9.76568603515625 6.5432891845703125
+  orientation -0.7038241624832153 0.665618360042572 0.2481613159179687 0.9806224107742309
+}
+
+DEF LightTransform Transform {
+  rotation 0 1 0 0
+  children SpotLight { direction -1 -0.5 0 location 0 2.5 0
+    cutOffAngle 0.3
+    shadows TRUE
+    effects Effect {
+      language "GLSL"
+      # initializeOnly SFNode spot_texture ImageTexture {
+      #   url "textures/fancy_spot_mask.png"
+      # }
+      inputOnly SFMatrix3f cameraRotationInverseMatrix
+      parts EffectPart { type "FRAGMENT"
+        url "data:text/plain,
+/*          uniform sampler2D spot_texture; */
+/*          uniform mat3 cameraRotationInverseMatrix; */
+
+          void PLUG_light_scale(inout float light_scale,
+            const in vec3 normal_eye,
+            const in vec3 light_dir,
+            const in gl_LightSourceParameters light_source,
+            const in gl_LightProducts light_products,
+            const in gl_MaterialParameters material)
+          {
+            vec3 side = cross(light_source.spotDirection,
+              /* cameraRotationInverseMatrix * */ vec3(0, 1, 0));
+            vec3 up = cross(light_source.spotDirection, side);
+            vec2 tex_coord = vec2(
+              dot(side, -light_dir),
+              dot(up, -light_dir)) * 4.0;
+/*            light_scale *= texture2D(spot_texture, tex_coord).r; */
+            if (4.0 * tex_coord.s > 1.0 &&
+                4.0 * tex_coord.s < 3.0 &&
+                4.0 * tex_coord.t > 1.0 &&
+                4.0 * tex_coord.t < 3.0)
+              light_scale *= 0.0;
+          }"
+        }
+    }
+  }
+}
+
+DEF LightRotationInterpolator OrientationInterpolator {
+  key [ 0.0, 1.0 ]
+  keyValue [
+    0 1 0 0,
+    0 1 0 6.2831853072 # Pi * 2
+  ]
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 10 }
+ROUTE Timer.fraction_changed TO LightRotationInterpolator.set_fraction
+ROUTE LightRotationInterpolator.value_changed TO LightTransform.rotation
+
+Inline { url "fancy_light_spot_shape_geometry.x3d" }
