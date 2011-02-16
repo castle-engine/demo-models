@@ -22,6 +22,8 @@ DEF LightTransform Transform {
       language "GLSL"
       initializeOnly SFNode spot_texture ImageTexture {
         url "textures/fancy_spot_mask.png"
+        repeatS FALSE
+        repeatT FALSE
       }
       inputOnly SFMatrix3f cameraRotationMatrix
       parts EffectPart { type "FRAGMENT"
@@ -41,15 +43,10 @@ DEF LightTransform Transform {
             vec3 up = cross(light_source.spotDirection, side);
             vec2 tex_coord = vec2(
               dot(side, -light_dir),
-              dot(up, -light_dir)) * 4.0;
+              dot(up, -light_dir)) * 2.0;
+            tex_coord += vec2(1.0) / 2.0;
 
-            /* TODO: why spot_texture behaves like pure black?
-               Temporary, I keep checks for 1/4 and 3/4, to detect it works at all. */
-            if (4.0 * tex_coord.s > 1.0 &&
-                4.0 * tex_coord.s < 3.0 &&
-                4.0 * tex_coord.t > 1.0 &&
-                4.0 * tex_coord.t < 3.0)
-              light_scale *= texture2D(spot_texture, tex_coord).r;
+            light_scale *= texture2D(spot_texture, tex_coord).r;
           }"
         }
     }
