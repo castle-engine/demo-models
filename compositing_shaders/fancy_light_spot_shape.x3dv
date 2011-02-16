@@ -18,16 +18,16 @@ DEF LightTransform Transform {
   children SpotLight { direction -1 -0.5 0 location 0 2.5 0
     cutOffAngle 0.3
     shadows TRUE
-    effects Effect {
+    effects DEF SpotEffect Effect {
       language "GLSL"
-      # initializeOnly SFNode spot_texture ImageTexture {
-      #   url "textures/fancy_spot_mask.png"
-      # }
-      inputOnly SFMatrix3f cameraRotationInverseMatrix
+      initializeOnly SFNode spot_texture ImageTexture {
+        url "textures/fancy_spot_mask.png"
+      }
+      inputOnly SFMatrix3f cameraRotationMatrix
       parts EffectPart { type "FRAGMENT"
         url "data:text/plain,
-/*          uniform sampler2D spot_texture; */
-/*          uniform mat3 cameraRotationInverseMatrix; */
+          uniform sampler2D spot_texture;
+          uniform mat3 cameraRotationMatrix;
 
           void PLUG_light_scale(inout float light_scale,
             const in vec3 normal_eye,
@@ -37,22 +37,26 @@ DEF LightTransform Transform {
             const in gl_MaterialParameters material)
           {
             vec3 side = cross(light_source.spotDirection,
-              /* cameraRotationInverseMatrix * */ vec3(0, 1, 0));
+              cameraRotationMatrix * vec3(0, 1, 0));
             vec3 up = cross(light_source.spotDirection, side);
             vec2 tex_coord = vec2(
               dot(side, -light_dir),
               dot(up, -light_dir)) * 4.0;
-/*            light_scale *= texture2D(spot_texture, tex_coord).r; */
+
+            /* TODO: why spot_texture behaves like pure black?
+               Temporary, I keep checks for 1/4 and 3/4, to detect it works at all. */
             if (4.0 * tex_coord.s > 1.0 &&
                 4.0 * tex_coord.s < 3.0 &&
                 4.0 * tex_coord.t > 1.0 &&
                 4.0 * tex_coord.t < 3.0)
-              light_scale *= 0.0;
+              light_scale *= texture2D(spot_texture, tex_coord).r;
           }"
         }
     }
   }
 }
+
+ROUTE MyViewpoint.cameraRotationMatrix TO SpotEffect.cameraRotationMatrix
 
 DEF LightRotationInterpolator OrientationInterpolator {
   key [ 0.0, 1.0 ]
