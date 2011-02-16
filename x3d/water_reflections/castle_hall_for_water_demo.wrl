@@ -344,7 +344,7 @@ Switch {
 	DEF MeshButtonBase
 	Separator {
 		Texture2 {
-			filename ../../../castle/data/textures/wood_clear.jpg
+			filename ../../textures/castle/wood_clear.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -410,7 +410,7 @@ Switch {
 	DEF MeshDome
 	Separator { USE MatUnderTexture
 		Texture2 {
-			filename ../../../castle/data/textures/bricksmokesidebotwindo.jpg
+			filename ../../textures/castle/bricksmokesidebotwindo.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -2594,7 +2594,7 @@ Switch {
 	DEF MeshGround
 	Separator { USE MatGround
 		Texture2 {
-			filename ../../../castle/data/textures/buldrockroof.jpg
+			filename ../../textures/castle/buldrockroof.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -3189,7 +3189,7 @@ Switch {
 	DEF MeshGroundDown
 	Separator { USE MatGroundDown
 		Texture2 {
-			filename ../../../castle/data/textures/047roche.jpg
+			filename ../../textures/castle/047roche.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -8943,7 +8943,7 @@ Switch {
 	DEF MeshRoofLine
 	Separator {
 		Texture2 {
-			filename ../../../castle/data/textures/cabin_walls.jpg
+			filename ../../textures/castle/cabin_walls.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -9111,7 +9111,7 @@ Switch {
 	DEF MeshStairsExit
 	Separator {
 		Texture2 {
-			filename ../../../castle/data/textures/047pierres.jpg
+			filename ../../textures/castle/047pierres.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -10130,7 +10130,7 @@ Switch {
 	DEF MeshTunnel
 	Separator { USE MatUnderTexture
 		Texture2 {
-			filename ../../../castle/data/textures/bridgerock512side.jpg
+			filename ../../textures/castle/bridgerock512side.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -11587,7 +11587,7 @@ Switch {
 	DEF MeshTunnelAround
 	Separator { USE MatUnderTexture
 		Texture2 {
-			filename ../../../castle/data/textures/bricksmokeside.jpg
+			filename ../../textures/castle/bricksmokeside.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -16362,7 +16362,7 @@ Switch {
 	DEF MeshStairs
 	Separator {
 		Texture2 {
-			filename ../../../castle/data/textures/marble.jpg
+			filename ../../textures/castle/marble.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}

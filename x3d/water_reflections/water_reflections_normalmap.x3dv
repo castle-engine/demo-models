@@ -47,12 +47,12 @@ Transform {
   children
 
   Background {
-     backUrl "../../../castle/data/skies/foggy_sky_back.png"
-     bottomUrl "../../../castle/data/skies/foggy_sky_bottom.png"
-     frontUrl "../../../castle/data/skies/foggy_sky_front.png"
-     leftUrl "../../../castle/data/skies/foggy_sky_left.png"
-     rightUrl "../../../castle/data/skies/foggy_sky_right.png"
-     topUrl "../../../castle/data/skies/foggy_sky_top.png"
+     backUrl "../../skies/foggy_sky_back.png"
+     bottomUrl "../../skies/foggy_sky_bottom.png"
+     frontUrl "../../skies/foggy_sky_front.png"
+     leftUrl "../../skies/foggy_sky_left.png"
+     rightUrl "../../skies/foggy_sky_right.png"
+     topUrl "../../skies/foggy_sky_top.png"
   }
 }
 
