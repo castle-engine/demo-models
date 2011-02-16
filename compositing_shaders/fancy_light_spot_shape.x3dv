@@ -13,9 +13,20 @@ DEF MyViewpoint Viewpoint {
   orientation -0.7038241624832153 0.665618360042572 0.2481613159179687 0.9806224107742309
 }
 
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.5946885347366333 -0.4261655509471893 -0.6816722154617309
+# up 0.2493712753057479 0.9038915634155273 -0.3475319147109985
+# gravityUp 0 1 0
+Viewpoint {
+  description "for paper screenshot"
+  position 0.874779462814331 2.5122194290161133 1.4199626445770264
+  orientation -0.5242813229560852 -0.8392602801322937 -0.1441228240728378 0.8299125432968139
+}
+
 DEF LightTransform Transform {
   rotation 0 1 0 0
   children SpotLight { direction -1 -0.5 0 location 0 2.5 0
+    color 1 0.5 0.5
     cutOffAngle 0.3
     shadows TRUE
     effects DEF SpotEffect Effect {
