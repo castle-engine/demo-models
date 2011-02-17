@@ -9,7 +9,7 @@ Transform {
   children Shape {
     appearance DEF App Appearance {
       material Material { }
-      texture DEF rock_d01_png ImageTexture {
+      texture ImageTexture {
         url "../textures/test_texture.png"
         effects DEF TextureEffect Effect {
           language "GLSL"
