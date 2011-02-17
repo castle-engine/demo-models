@@ -91,4 +91,17 @@ KambiNavigationInfo {
   headlight TRUE
   type ["EXAMINE", "ANY"]
   timeOriginAtLoad TRUE
+  avatarSize [ 0.01 1 ]
+}
+
+Viewpoint { description "default" }
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -1.9555907580447141E-016 -1.6420282136357959E-015 -1
+# up 0 1 4.3711388286737929E-008
+# gravityUp 0 1 0
+Viewpoint {
+  description "for no filtering problems screenshot"
+  position 0.5138753056526184 0.8123548030853271 1.1011397838592529
+  orientation 0 0 1 0
 }
