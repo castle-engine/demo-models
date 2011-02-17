@@ -3,6 +3,15 @@ PROFILE Interchange
 
 # Basic ShaderTexture test.
 
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.4741238355636596 -0.64002126455307 -0.6046291589736938
+# up -0.3998342156410217 0.7683411240577697 -0.4997827410697937
+# gravityUp 0 1 0
+Viewpoint {
+  position 2.2485661506652832 2.5783138275146484 2.3974590301513672
+  orientation -0.6988053321838378 0.6709173917770385 0.2480737417936325 0.9536584019660949
+}
+
 Transform {
   children Shape {
     appearance DEF App Appearance {
@@ -37,7 +46,7 @@ Transform {
 }
 
 Transform {
-  translation 0 2.5 0
+  translation 0 3 0
   children Shape {
     appearance USE App
     geometry Cone { }
