@@ -1,0 +1,23 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.6752447485923767 -0.2072108834981918 -0.7078891396522522
+# up 0.1387359350919723 0.9782791137695312 -0.1540202647447586
+# gravityUp 0 1 0
+Viewpoint {
+  position -1.1592833995819092 0.4935553073883056 1.2270671129226685
+  orientation -0.2547791302204132 -0.962442398071289 -0.0937665849924087 0.787952184677124
+}
+
+Shape {
+  appearance Appearance { material Material {
+    diffuseColor 0.300722 0.658765 1.000000
+    specularColor 0.488773 0.488724 0.488724
+    shininess 0.500000
+    transparency 0.575540
+  } }
+  geometry Sphere { radius 0.562 }
+}
+
+Inline { url "house_behind_the_glass_base.x3d" }
