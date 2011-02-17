@@ -1,6 +1,8 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 
+PointLight { location -0.42 1.53 0.76 }
+
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.6752447485923767 -0.2072108834981918 -0.7078891396522522
 # up 0.1387359350919723 0.9782791137695312 -0.1540202647447586
