@@ -3,7 +3,8 @@
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
 
 <!--
-  Shader generated for this model causes
+  When you add too many light sources, this may cause
+  shaders generated for this model to fail on fglrx
   "OpenGL error (1282): invalid operation"
   by fglrx on Radeon X1600. This happens at glDrawArrays call usign this shader.
 
@@ -14,6 +15,10 @@
 
   This is fglrx bug, I don't see any way to even workaround it.
   Just avoid some shaders, or don't buy crap from ATI.
+
+  Later note: after many optimizations to our shaders, this doesn't cause
+  troubles on fglrx anymore. Still, probably with more lights and effects,
+  it will fail anyway.
 -->
 
 <Scene>
@@ -29,9 +34,9 @@
 <Transform>
 <Shape>
 	<KambiAppearance>
-        	<ImageTexture url='"../../textures/leaf_normal_map.png"' containerField="normalMap" />
+        	<ImageTexture url='"../textures/leaf_normal_map.png"' containerField="normalMap" />
 		<Material />
-		<ImageTexture url='"../../textures/leaf.png"' />
+		<ImageTexture url='"../textures/leaf.png"' />
 	</KambiAppearance>
         <Sphere/>
 </Shape>
