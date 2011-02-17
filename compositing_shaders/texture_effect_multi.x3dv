@@ -1,0 +1,45 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test some effects things:
+# - an EffectPart without any PLUG_ is ok, it can be used to define functions
+#   for other effect parts.
+# - overriding a plug that occurs many times (like PLUG_texture_color,
+#   from Appearance.effects point of view it occurs for every texture unit)
+#   works.
+
+Shape {
+  appearance DEF App Appearance {
+    material Material { }
+    texture MultiTexture {
+      texture [
+        ImageTexture { url "../textures/test_texture.png" }
+        ImageTexture { url "../textures/bois5.png" }
+      ] }
+    effects Effect {
+      language "GLSL"
+      parts [
+        EffectPart {
+          type "FRAGMENT"
+          url "data:text/plain,
+
+          vec3 negate_color(vec3 color)
+          {
+            return vec3(1.0) - color;
+          }"
+        }
+        EffectPart {
+          type "FRAGMENT"
+          url "data:text/plain,
+
+          void PLUG_texture_color(inout vec4 texture_color,
+            const in sampler2D texture, const in vec4 tex_coord)
+          {
+            texture_color.rgb = negate_color(texture_color.rgb);
+          }"
+        }
+      ]
+    }
+  }
+  geometry Box { }
+}
