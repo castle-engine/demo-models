@@ -4,11 +4,11 @@ COMPONENT CubeMapTexturing:3
 
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
-] [ "../useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+] [ "../x3d/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
 
 EXTERNPROTO PlaneTesselated [
   inputOutput SFBool solid
-] [ "../useful_proto_plane_tess.x3dv#PlaneTesselated" ]
+] [ "../x3d/useful_proto_plane_tess.x3dv#PlaneTesselated" ]
 
 # ----------------------------------------------------------------------------
 # Inline castle_hall level,
@@ -47,12 +47,12 @@ Transform {
   children
 
   Background {
-     backUrl "../../skies/foggy_sky_back.png"
-     bottomUrl "../../skies/foggy_sky_bottom.png"
-     frontUrl "../../skies/foggy_sky_front.png"
-     leftUrl "../../skies/foggy_sky_left.png"
-     rightUrl "../../skies/foggy_sky_right.png"
-     topUrl "../../skies/foggy_sky_top.png"
+     backUrl "../skies/foggy_sky_back.png"
+     bottomUrl "../skies/foggy_sky_bottom.png"
+     frontUrl "../skies/foggy_sky_front.png"
+     leftUrl "../skies/foggy_sky_left.png"
+     rightUrl "../skies/foggy_sky_right.png"
+     topUrl "../skies/foggy_sky_top.png"
   }
 }
 
