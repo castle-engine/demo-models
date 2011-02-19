@@ -11,7 +11,7 @@ PROFILE Interchange
 #
 # We also have a version using GLSL noise1() function,
 # but it's not available:
-# - Radeon X1600 (fglrx) writes "Fragment Shader not supported by HW"
+# - Radeon X1600 (fglrx) and Radeon HD 4330 (Windows) write "Fragment Shader not supported by HW"
 # - NVidia GeForce 450 always returns 0
 
 # Camera settings "encoded" in the VRML declaration below :
