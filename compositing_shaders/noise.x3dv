@@ -4,10 +4,13 @@ PROFILE Interchange
 # ShaderTexture defining a nice smooth 3D noise in GLSL.
 # The noise is infinite is all directions (so can be used e.g.
 # to take 2D slice for water surface, with 3rd component from time).
-# Uses white noise image texture underneath.
+# We use white noise image texture underneath.
 #
 # Shows also the 2D (optimized) version of noise,
 # and the (worse quality, but even faster) linear 2D noise.
+#
+# We also have a version using GLSL noise1() function,
+# but it's not available at least on Radeon X1600 (with fglrx).
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.3635934591293335 -0.4768730998039245 -0.800240933895111
@@ -50,7 +53,6 @@ Shape {
             url "data:text/plain,
 
 uniform sampler3D white_noise;
-uniform float time;
 
 const float white_noise_size = 8.0;
 
@@ -119,6 +121,7 @@ EffectPart {
   type "FRAGMENT"
   url "data:text/plain,
 
+uniform float time;
 void PLUG_texture_color(inout vec4 texture_color,
   in vec4 tex_coord)
 {
@@ -154,6 +157,7 @@ Shape {
             type "FRAGMENT"
             url "data:text/plain,
 
+uniform float time;
 void PLUG_texture_color(inout vec4 texture_color,
   in vec4 tex_coord)
 {
@@ -189,6 +193,7 @@ Shape {
             type "FRAGMENT"
             url "data:text/plain,
 
+uniform float time;
 void PLUG_texture_color(inout vec4 texture_color,
   in vec4 tex_coord)
 {
@@ -202,12 +207,41 @@ void PLUG_texture_color(inout vec4 texture_color,
   geometry Box { }
 } }
 
+# Transform { translation 12 0 0 children
+# Shape {
+#   appearance DEF App Appearance {
+#     material Material { }
+#     texture ShaderTexture {
+#       defaultTexCoord "BOUNDS3D"
+#       effects DEF NoiseEffect4 Effect {
+#         language "GLSL"
+#         inputOnly SFTime time
+#         parts [
+#           EffectPart {
+#             type "FRAGMENT"
+#             url "data:text/plain,
+
+# uniform float time;
+# void PLUG_texture_color(inout vec4 texture_color,
+#   in vec4 tex_coord)
+# {
+#   tex_coord.xyz += vec3(time / 2.0);
+#   texture_color.rgb = vec3(
+#     noise1(tex_coord.xyz * 4.0) +
+#     noise1(tex_coord.xyz * 8.0) / 2.0 +
+#     noise1(tex_coord.xyz * 16.0) / 4.0
+#     ) / 3.0;
+# }" } ] } } }
+#   geometry Box { }
+# } }
+
 # Time stuff -----------------------------------------------------------------
 
 DEF Timer TimeSensor { loop TRUE }
 ROUTE Timer.time TO NoiseEffect1.time
 ROUTE Timer.time TO NoiseEffect2.time
 ROUTE Timer.time TO NoiseEffect3.time
+#ROUTE Timer.time TO NoiseEffect4.time
 
 EXTERNPROTO KambiNavigationInfo [
   inputOnly   SFBool   set_bind
