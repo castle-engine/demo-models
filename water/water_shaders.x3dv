@@ -89,39 +89,40 @@ Collision {
         shininess 0.0976563021540641
         transparency 0.2
       }
-      shaders DEF Shader ComposedShader {
-        language "GLSL"
-        initializeOnly SFNode envMap
-          DEF GenTex1 GeneratedCubeMapTexture {
-            #update "ALWAYS"
-            update "NEXT_FRAME_ONLY"
-            size 512
-          }
-        initializeOnly SFNode normalMap
-          MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
-        inputOutput SFMatrix3f cameraRotationInverseMatrix
-          1 0 0
-          0 1 0
-          0 0 1
-        parts [
-          ShaderPart { type "FRAGMENT" url "water_reflections_normalmap.fs" }
-          ShaderPart { type "VERTEX" url "water_reflections_normalmap.vs" }
-        ]
-      }
+      effects [
+        Effect {
+          language "GLSL"
+          initializeOnly SFNode normalMap
+            MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
+          parts [
+            EffectPart { type "VERTEX" url "water_normalmap.vs" }
+            EffectPart { type "FRAGMENT" url "water_normalmap.fs" }
+          ]
+        }
+        DEF ReflectRefractEffect Effect {
+          language "GLSL"
+          initializeOnly SFNode envMap
+            DEF GenTex1 GeneratedCubeMapTexture {
+              #update "ALWAYS"
+              update "NEXT_FRAME_ONLY"
+              size 512
+            }
+          inputOutput SFMatrix3f cameraRotationInverseMatrix
+            1 0 0
+            0 1 0
+            0 0 1
+          parts [
+            EffectPart { type "VERTEX" url "water_reflect_refract.vs" }
+            EffectPart { type "FRAGMENT" url "water_reflect_refract.fs" }
+          ]
+        }
+      ]
     }
-
-    geometry PlaneTesselated {
-      solid FALSE
-
-      # Don't pass texCoord, let default tex coords be used.
-      # It doesn't matter that we have multitexturing and for X3D
-      # explicit coords will be linked with cube map... Shader will
-      # handle it Ok.
-    }
+    geometry PlaneTesselated { solid FALSE }
   }
 }
 
-ROUTE View.cameraRotationInverseMatrix TO Shader.cameraRotationInverseMatrix
+ROUTE View.cameraRotationInverseMatrix TO ReflectRefractEffect.cameraRotationInverseMatrix
 
 # ----------------------------------------------------------------------------
 # Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.
