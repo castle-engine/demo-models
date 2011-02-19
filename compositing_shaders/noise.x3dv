@@ -227,9 +227,10 @@ void PLUG_texture_color(inout vec4 texture_color,
 # {
 #   tex_coord.xyz += vec3(time / 2.0);
 #   texture_color.rgb = vec3(
-#     noise1(tex_coord.xyz * 4.0) +
-#     noise1(tex_coord.xyz * 8.0) / 2.0 +
-#     noise1(tex_coord.xyz * 16.0) / 4.0
+#     /* noise1 returns values in [-1,1]. For our test, we map it to [0,1] */
+#     (noise1(tex_coord.xyz * 4.0 ) + 1.0) / 2.0 +
+#     (noise1(tex_coord.xyz * 8.0 ) + 1.0) / 4.0 +
+#     (noise1(tex_coord.xyz * 16.0) + 1.0) / 8.0
 #     ) / 3.0;
 # }" } ] } } }
 #   geometry Box { }
