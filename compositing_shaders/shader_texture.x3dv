@@ -17,7 +17,7 @@ Transform {
     appearance DEF App Appearance {
       material Material { }
       texture ShaderTexture {
-        effects Effect {
+        effects DEF EdgeDetectEffect Effect {
           language "GLSL"
           initializeOnly SFNode base_texture ImageTexture { url "../textures/test_texture.png" }
           parts EffectPart {
@@ -49,6 +49,27 @@ Transform {
   translation 0 3 0
   children Shape {
     appearance USE App
+    geometry Cone { }
+  }
+}
+
+Transform { translation 3 0 0
+  children Shape {
+    appearance DEF App2 Appearance {
+      material Material { }
+      texture ShaderTexture {
+        effects USE EdgeDetectEffect
+	defaultTexCoord "BOUNDS3D"
+      }
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 3 3 0
+  children Shape {
+    appearance USE App2
     geometry Cone { }
   }
 }
