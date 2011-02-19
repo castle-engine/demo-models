@@ -89,6 +89,7 @@ Collision {
         shininess 0.0976563021540641
         transparency 0.2
       }
+#      texture ImageTexture { url "../textures/test_texture.png" }
       effects [
         Effect {
           language "GLSL"
