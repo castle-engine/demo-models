@@ -3,6 +3,9 @@ PROFILE Interchange
 
 # ElevationGrid, with heights animated by the noise implemented in GLSL effect.
 # We also apply texture mixing from terrain.x3dv.
+#
+# Note: this requires GPU with sufficiently powerful vertex shader.
+# - Radeon X1600 (fglrx) is not enough.
 
 EXTERNPROTO TerrainTextureEffect [ ] "terrain.x3dv#TerrainTextureEffect"
 
