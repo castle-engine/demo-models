@@ -4282,7 +4282,7 @@ appearance Appearance {
           varying vec3 position;
           varying vec4 color;
 
-          void PLUG_texture_apply(inout vec4 fragment_color)
+          void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
           {
             vec4 tex;
             if (position.y <= z0)
