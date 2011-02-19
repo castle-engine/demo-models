@@ -10,7 +10,9 @@ PROFILE Interchange
 # and the (worse quality, but even faster) linear 2D noise.
 #
 # We also have a version using GLSL noise1() function,
-# but it's not available at least on Radeon X1600 (with fglrx).
+# but it's not available:
+# - Radeon X1600 (fglrx) writes "Fragment Shader not supported by HW"
+# - NVidia GeForce 450 always returns 0
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.3635934591293335 -0.4768730998039245 -0.800240933895111
