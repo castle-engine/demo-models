@@ -15,9 +15,9 @@ PROTO TerrainTextureEffect [ ]
 varying vec3 position;
 varying vec4 color;
 
-void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
+void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
 {
-  position = vec3(gl_Vertex);
+  position = vec3(vertex_object);
   color = gl_Color;
 }" }
         EffectPart {

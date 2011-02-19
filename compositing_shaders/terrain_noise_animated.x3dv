@@ -6,6 +6,7 @@ PROFILE Interchange
 #
 # Note: this requires GPU with sufficiently powerful vertex shader.
 # - Radeon X1600 (fglrx) is not enough.
+# - Works great on NVidia GeForce 450.
 
 EXTERNPROTO TerrainTextureEffect [ ] "terrain.x3dv#TerrainTextureEffect"
 
@@ -22,27 +23,52 @@ Shape {
   }
   appearance Appearance {
     effects [
-      TerrainTextureEffect { }
       DEF AnimatedHeightEffect Effect {
         language "GLSL"
         inputOnly SFTime time
+        initializeOnly SFNode white_noise ImageTexture3D {
+          url "textures/white_noise_3d.dds"
+          repeatS TRUE
+          repeatT TRUE
+          repeatR TRUE
+          textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+        }
         parts [
           EffectPart { type "VERTEX" url "noise.glsl" }
           EffectPart { type "VERTEX" url "data:text/plain,
 
+#define VERTEX_OBJECT_SPACE_CHANGED
+
 uniform float time;
+
+vec3 vertex_noised(const float x, const float z)
+{
+  vec3 result = vec3(x, time / 10.0, z);
+  result.y = (
+    noise_3d_cos(result * 2.1) +
+    noise_3d_cos(result * 3.8) / 2.5 +
+    noise_3d_cos(result * 7.3) / 4.6
+    ) * 0.9 - 0.4;
+  return result;
+}
+
 void PLUG_vertex_object_space(inout vec4 vertex_object, inout vec3 normal_object)
 {
-  vec3 noise_coord = vec3(vertex_object.x, time / 10.0, vertex_object.z);
-  vertex_object.y = (
-    noise_3d_cos(noise_coord * 4.0) +
-    noise_3d_cos(noise_coord * 8.0) / 2.0 +
-    noise_3d_cos(noise_coord * 16.0) / 4.0
-    ) / 3.0;
+  vertex_object.xyz = vertex_noised(vertex_object.x, vertex_object.z);
+
+  /* For the sake of calculating normal_object, we have to calculate
+     also right and upper vertex neighbor. */
+  vec3 vertex_z = vertex_noised(vertex_object.x, vertex_object.z + 0.03125);
+  vec3 vertex_x = vertex_noised(vertex_object.x + 0.03125, vertex_object.z);
+
+  normal_object = normalize(cross(
+    vertex_z - vec3(vertex_object),
+    vertex_x - vec3(vertex_object)));
 }"
           }
         ]
       }
+      TerrainTextureEffect { }
     ]
     material Material { }
   }
