@@ -1,3 +1,6 @@
+/* Noise functions. See noise.x3dv for demo.
+   These are usable for both vertex and fragment shaders. */
+
 uniform sampler3D white_noise;
 
 const float white_noise_size = 8.0;

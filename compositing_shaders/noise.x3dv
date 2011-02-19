@@ -50,7 +50,7 @@ Shape {
         }
         inputOnly SFTime time
         parts [
-          DEF NoiseLibrary EffectPart { type "FRAGMENT" url "noise.fs" }
+          DEF NoiseLibrary EffectPart { type "FRAGMENT" url "noise.glsl" }
           EffectPart {
             type "FRAGMENT"
             url "data:text/plain,
