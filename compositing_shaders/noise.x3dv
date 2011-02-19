@@ -65,7 +65,7 @@ const float white_noise_size = 8.0;
 float noise_2d_lin(const vec2 v)
 {
   return texture3D(white_noise,
-    vec3((v.xy + vec2(1.0)) / (white_noise_size * 2.0), 0.0)).r;
+    vec3((v.xy * 2.0 + vec2(1.0)) / (white_noise_size * 2.0), 0.0)).r;
 }
 
 /* Cosine-interpolated 2D noise.
