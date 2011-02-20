@@ -100,6 +100,22 @@ Collision {
             EffectPart { type "FRAGMENT" url "water_normalmap.fs" }
           ]
         }
+        # DEF NoiseEffect Effect {
+        #   language "GLSL"
+        #   initializeOnly SFNode white_noise ImageTexture3D {
+        #     url "../textures/white_noise_3d.dds"
+        #     repeatS TRUE
+        #     repeatT TRUE
+        #     repeatR TRUE
+        #     textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+        #   }
+        #   inputOnly SFTime time
+        #   parts [
+        #     EffectPart { type "VERTEX" url "water_normalmap.vs" }
+        #     EffectPart { type "FRAGMENT" url "../compositing_shaders/noise.glsl" }
+        #     EffectPart { type "FRAGMENT" url "water_normalnoise.fs" }
+        #   ]
+        # }
         DEF ReflectRefractEffect Effect {
           language "GLSL"
           initializeOnly SFNode envMap
@@ -148,3 +164,27 @@ function key_press(value, timestamp)
 
 ROUTE KeyS.keyPress TO Scr.key_press
 ROUTE Scr.tex_update TO GenTex1.update
+
+# Time stuff -----------------------------------------------------------------
+
+DEF Timer TimeSensor { loop TRUE }
+#ROUTE Timer.time TO NoiseEffect.time
+
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFFloat  speed
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFBool   isBound
+  initializeOnly  SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+  headlight TRUE
+  type ["EXAMINE", "ANY"]
+  timeOriginAtLoad TRUE
+}
