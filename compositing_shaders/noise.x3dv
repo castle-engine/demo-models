@@ -26,7 +26,7 @@ Viewpoint {
 Shape {
   appearance DEF App Appearance {
     material Material { }
-    texture ImageTexture3D { url "textures/white_noise_3d.dds"
+    texture ImageTexture3D { url "../textures/white_noise_3d.dds"
       textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
     }
   }
@@ -42,7 +42,7 @@ Shape {
       effects DEF NoiseEffect1 Effect {
         language "GLSL"
         initializeOnly SFNode white_noise ImageTexture3D {
-          url "textures/white_noise_3d.dds"
+          url "../textures/white_noise_3d.dds"
           repeatS TRUE
           repeatT TRUE
           repeatR TRUE
@@ -78,7 +78,7 @@ Shape {
       effects DEF NoiseEffect2 Effect {
         language "GLSL"
         initializeOnly SFNode white_noise ImageTexture3D {
-          url "textures/white_noise_3d.dds"
+          url "../textures/white_noise_3d.dds"
           repeatS TRUE
           repeatT TRUE
           repeatR TRUE
@@ -114,7 +114,7 @@ Shape {
       effects DEF NoiseEffect3 Effect {
         language "GLSL"
         initializeOnly SFNode white_noise ImageTexture3D {
-          url "textures/white_noise_3d.dds"
+          url "../textures/white_noise_3d.dds"
           repeatS TRUE
           repeatT TRUE
           repeatR TRUE
