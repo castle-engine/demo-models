@@ -7,8 +7,11 @@ COMPONENT CubeMapTexturing:3
 # And 2nd effect that adds reclection / refraction from environment cube map.
 #
 # We also have an alternative effect for normals: instead of taking them
-# texture, we can calculate them from a 3d noise. This is commented out for now,
-# as it is quite slower (but works nicely on good GPU like NVidia GeForce 450).
+# from the texture, we can calculate them from a 3d noise.
+# This is commented out for now,
+# as it is quite slower and causes awful bugs on Radeon X1600 (fglrx).
+# But works perfectly on NVidia GeForce 450 (although also is slower,
+# but from ~400 FPS to ~200 FPS so still very real-time :) ).
 
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
