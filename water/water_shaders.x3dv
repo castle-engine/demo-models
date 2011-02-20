@@ -29,10 +29,23 @@ Transform {
   }
 }
 
-NavigationInfo {
-  avatarSize [ 0.05, 0.10 ]
-#  speed 20
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFFloat  speed
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFBool   isBound
+  initializeOnly  SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
   headlight TRUE
+  timeOriginAtLoad TRUE
+  avatarSize [ 0.05, 0.10 ]
   type "FLY"
 }
 
@@ -74,6 +87,8 @@ Transform {
   }
 }
 
+DEF Timer TimeSensor { loop TRUE }
+
 # ----------------------------------------------------------------------------
 # Waves geometry.
 # This time, geometry is trivial, just a flat plane, we only animate
@@ -110,8 +125,9 @@ Collision {
         #     textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
         #   }
         #   inputOnly SFTime time
+        #   ROUTE Timer.time TO NoiseEffect.time
         #   parts [
-        #     EffectPart { type "VERTEX" url "water_normalmap.vs" }
+        #     EffectPart { type "VERTEX" url "water_normalnoise.vs" }
         #     EffectPart { type "FRAGMENT" url "../compositing_shaders/noise.glsl" }
         #     EffectPart { type "FRAGMENT" url "water_normalnoise.fs" }
         #   ]
@@ -164,27 +180,3 @@ function key_press(value, timestamp)
 
 ROUTE KeyS.keyPress TO Scr.key_press
 ROUTE Scr.tex_update TO GenTex1.update
-
-# Time stuff -----------------------------------------------------------------
-
-DEF Timer TimeSensor { loop TRUE }
-#ROUTE Timer.time TO NoiseEffect.time
-
-EXTERNPROTO KambiNavigationInfo [
-  inputOnly   SFBool   set_bind
-  inputOutput MFFloat  avatarSize
-  inputOutput SFBool   headlight
-  inputOutput SFFloat  speed
-  inputOutput MFString type
-  inputOutput SFFloat  visibilityLimit
-  outputOnly  SFBool   isBound
-  initializeOnly  SFBool   timeOriginAtLoad
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
-]
-
-KambiNavigationInfo {
-  headlight TRUE
-  type ["EXAMINE", "ANY"]
-  timeOriginAtLoad TRUE
-}
