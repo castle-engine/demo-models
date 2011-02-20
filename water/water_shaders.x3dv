@@ -2,6 +2,14 @@
 PROFILE Interchange
 COMPONENT CubeMapTexturing:3
 
+# Nice water by shader effects.
+# We have 1 effect that modifies normals per fragment, to simulate waves.
+# And 2nd effect that adds reclection / refraction from environment cube map.
+#
+# We also have an alternative effect for normals: instead of taking them
+# texture, we can calculate them from a 3d noise. This is commented out for now,
+# as it is quite slower (but works nicely on good GPU like NVidia GeForce 450).
+
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
 ] [ "../x3d/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
