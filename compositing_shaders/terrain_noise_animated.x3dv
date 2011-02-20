@@ -6,6 +6,9 @@ PROFILE Interchange
 #
 # Note: this requires GPU with sufficiently powerful vertex shader.
 # - Radeon X1600 (fglrx) is not enough.
+#   Outputs "Fragment shader(s) linked,  vertex shader(s) failed to link. "
+#   (You also need to fix const floats for buggy fglrx, otherwise
+#   0.9 will be changed into 0.0 and the whole code optimized out.)
 # - Works great on NVidia GeForce 450.
 
 EXTERNPROTO TerrainTextureEffect [ ] "terrain.x3dv#TerrainTextureEffect"
