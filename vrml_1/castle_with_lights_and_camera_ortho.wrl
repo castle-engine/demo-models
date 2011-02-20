@@ -4,6 +4,7 @@ Group{
   OrthographicCamera {
     position 0 0 133.75753784179687
     orientation 4.37113882867379E-008 0 -0.99999994039535522 1.5707963705062866
+    height 200
   }
   WWWInline { name "castle_with_lights.wrl" }
 }
