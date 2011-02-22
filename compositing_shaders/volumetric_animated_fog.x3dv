@@ -82,7 +82,7 @@ float get_fog_density(in vec3 pos)
   return 1.0 - clamp((1.0 - texture3D(fog_density, pos).r) / 3.0, 0.0, 1.0);
 }
 
-void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
 {
   /* fog = how much light passes through (so it's actually 1 - fog density) */
   float fog = 1.0;
