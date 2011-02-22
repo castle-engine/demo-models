@@ -1,0 +1,139 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Volumetric animated fog, with realistic look: we sample a couple
+# of times along the line between camera and visible vertex.
+# This is implemented as an "effect", so it can be used with normal
+# effects of our engine like bump mapping (shown here).
+#
+# For a full idea see
+# http://www.humus.name/index.php?page=3D&ID=70
+# http://www.evl.uic.edu/sjames/cs525/shader.html
+#
+# Our simplifications: For one thing, we don't do a first pass
+# to calculate z-buffer to use in later fog pass.
+# Instead, we just calculate fogging during the one and only pass.
+# This means that you'll get a lot of slowdown if given pixel
+# is covered by more than one polygon,
+# and we happen to render the more distant polygons first
+# (althoug occlusion culling, even mere sorting, will help you fight it).
+#
+# TODO: no shadows. humus used 3d light map. Light shaft through fog.
+# TODO: more interesting scene, some corridors and things inside rooms.
+# TODO: show bump mapping.
+# TODO: try our gpu 3d noise.
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.6918365955352783 -0.2143978178501129 -0.6894893646240234
+# up -0.1518595218658447 0.9767465591430664 -0.1513442993164062
+# gravityUp 0 1 0
+DEF MyViewpoint Viewpoint {
+  position 3.2019360065460205 1.7992808818817139 3.3988723754882813
+  orientation -0.2513565421104431 0.9622508883476257 0.1043660789728164 0.8147231936454773
+}
+
+Transform { translation 0 +1.5 0
+  children Shape {
+    appearance Appearance { material Material { }
+      effects DEF FogEffect Effect {
+        language "GLSL"
+        initializeOnly SFNode fog_density ImageTexture3D {
+          url "textures/noise_from_humus.dds"
+          repeatS TRUE
+          repeatT TRUE
+          repeatR TRUE }
+        inputOnly SFMatrix4f cameraInverseMatrix
+        initializeOnly SFVec3f fog_color 0.5 0.5 0.5
+        inputOnly SFTime time
+        parts [
+          EffectPart {
+            type "VERTEX"
+            url "data:text/plain,
+
+uniform mat4 cameraInverseMatrix;
+varying vec3 vertex_world;
+varying vec3 camera_world;
+
+void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
+{
+  vertex_world = vec3(cameraInverseMatrix * vertex_eye);
+  /* TODO: constant for shader, should be just passed from Viewpoint */
+  camera_world = vec3(cameraInverseMatrix * vec4(0.0, 0.0, 0.0, 1.0));
+}" }
+
+          EffectPart {
+            type "FRAGMENT"
+            url "data:text/plain,
+
+uniform sampler3D fog_density;
+uniform vec3 fog_color;
+
+varying vec3 vertex_world;
+varying vec3 camera_world;
+
+uniform float time;
+
+float get_fog_density(in vec3 pos)
+{
+  pos /= 20.0;
+  pos.y -= time / 10.0;
+//  return texture3D(fog_density, pos).r;
+  /* Make fog less dense */
+  return 1.0 - clamp((1.0 - texture3D(fog_density, pos).r) / 3.0, 0.0, 1.0);
+}
+
+void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+{
+  /* fog = how much light passes through (so it's actually 1 - fog density) */
+  float fog = 1.0;
+  float full_distance = distance(vertex_world, camera_world);
+  float sampled_distance = 0.0;
+  float distance_step = 1.0;
+
+  while (sampled_distance < full_distance)
+  {
+    fog *= get_fog_density(mix(vertex_world, camera_world,
+      sampled_distance / full_distance));
+    sampled_distance += distance_step;
+  }
+  /* to prevent fog bands (because we do a discrete number of steps to reach
+     full_distance), do the final step, scaled by the remainder
+     of the distance */
+  fog *= pow(get_fog_density(mix(vertex_world, camera_world,
+    sampled_distance / full_distance)),
+    (full_distance - (sampled_distance - distance_step)) / distance_step);
+
+  fragment_color.rgb = mix(fog_color, fragment_color.rgb, fog);
+}" }
+        ]
+        ROUTE MyViewpoint.cameraInverseMatrix TO FogEffect.cameraInverseMatrix
+      }
+    }
+    geometry Box { size 10 3 10 solid FALSE }
+  }
+}
+
+# Time stuff ----------------------------------------------------------------
+
+DEF Timer TimeSensor { loop TRUE }
+ROUTE Timer.time TO FogEffect.time
+
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFFloat  speed
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFBool   isBound
+  initializeOnly  SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+  headlight TRUE
+  type ["FLY", "ANY"]
+  timeOriginAtLoad TRUE
+  speed 10
+}
