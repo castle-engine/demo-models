@@ -7,7 +7,8 @@ PROFILE Interchange
 # We use white noise image texture underneath.
 #
 # Shows also the 2D (optimized) version of noise,
-# and the (worse quality, but even faster) linear 2D noise.
+# and the (worse quality, but even faster) linear 2D noise,
+# and the smooth 3D noise from texture.
 #
 # We also have a version using GLSL noise1() function,
 # but it's not usable:
@@ -141,13 +142,48 @@ void PLUG_texture_color(inout vec4 texture_color,
   geometry Box { }
 } }
 
-# Transform { translation 12 0 0 children
+Transform { translation 12 0 0 children
+Shape {
+  appearance DEF App Appearance {
+    material Material { }
+    # This could actually be done without ShaderTexture and without
+    # Effects at all, we just show ImageTexture3D inside.
+    texture ShaderTexture {
+      defaultTexCoord "BOUNDS3D"
+      effects DEF NoiseEffect4 Effect {
+        language "GLSL"
+        initializeOnly SFNode smooth_noise_tex ImageTexture3D {
+          url "textures/noise_from_humus.dds"
+          repeatS TRUE
+          repeatT TRUE
+          repeatR TRUE
+  #        textureProperties TextureProperties { minificationFilter "AVG_PIXEL" }
+        }
+        inputOnly SFTime time
+        parts [
+          EffectPart {
+            type "FRAGMENT"
+            url "data:text/plain,
+
+uniform float time;
+uniform sampler3D smooth_noise_tex;
+void PLUG_texture_color(inout vec4 texture_color,
+  in vec4 tex_coord)
+{
+  tex_coord.xyz += vec3(time / 2.0);
+  tex_coord /= 4.0;
+  texture_color = texture3D(smooth_noise_tex, tex_coord.xyz);
+}" } ] } } }
+  geometry Box { }
+} }
+
+# Transform { translation 15 0 0 children
 # Shape {
 #   appearance DEF App Appearance {
 #     material Material { }
 #     texture ShaderTexture {
 #       defaultTexCoord "BOUNDS3D"
-#       effects DEF NoiseEffect4 Effect {
+#       effects DEF NoiseEffect5 Effect {
 #         language "GLSL"
 #         inputOnly SFTime time
 #         parts [
@@ -176,7 +212,8 @@ DEF Timer TimeSensor { loop TRUE }
 ROUTE Timer.time TO NoiseEffect1.time
 ROUTE Timer.time TO NoiseEffect2.time
 ROUTE Timer.time TO NoiseEffect3.time
-#ROUTE Timer.time TO NoiseEffect4.time
+ROUTE Timer.time TO NoiseEffect4.time
+#ROUTE Timer.time TO NoiseEffect5.time
 
 EXTERNPROTO KambiNavigationInfo [
   inputOnly   SFBool   set_bind
