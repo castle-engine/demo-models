@@ -1,0 +1,20 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo {
+  headlight FALSE
+  type "WALK"
+  avatarSize [ 0.1 1.75 0.2 ]
+  speed 5
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.3430213928222656 -0.1144181564450264 -0.9323448538780212
+# up 0.0395063497126102 0.9934325218200683 -0.1073799505829811
+# gravityUp 0 1 0
+Viewpoint {
+  position -8.4413690567016602 1.7283909320831299 8.4269313812255859
+  orientation -0.3062531948089599 -0.9503881335258483 -0.0545356348156929 0.3705373704433441
+}
+
+Inline { url "volumetric_animated_fog_geometry.x3d" }
