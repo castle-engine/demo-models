@@ -52,7 +52,7 @@ DEF FogEffect Effect {
   # so e.g. Ctrl+H (headlight switch) causes reset of camera_world,
   # until we move (and cause ProxSensor to update position_changed).
   inputOutput SFVec3f camera_world 0 0 0
-  initializeOnly SFVec3f fog_color 0.5 0.5 0.5
+  initializeOnly SFVec3f fog_color 0.8 0.8 0.8
   inputOnly SFTime time
   parts [
     EffectPart {
