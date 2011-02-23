@@ -6,6 +6,9 @@ PROFILE Interchange
 # This is implemented as an "effect", so it can be used with normal
 # effects of our engine like bump mapping (shown here).
 #
+# Toggle fog effect with Shift key (this is also a test that
+# Effect.enabled field works fine).
+#
 # For a full idea see
 # http://www.humus.name/index.php?page=3D&ID=70
 # http://www.evl.uic.edu/sjames/cs525/shader.html
@@ -148,3 +151,11 @@ KambiNavigationInfo {
   avatarSize [ 0.1 1.75 0.2 ]
   speed 5
 }
+
+# Toggle effect "enabled" with shift key -------------------------------------
+
+DEF K KeySensor { }
+DEF EnableToggle BooleanToggle { toggle TRUE }
+
+ROUTE K.shiftKey TO EnableToggle.set_boolean
+ROUTE EnableToggle.toggle TO FogEffect.enabled
