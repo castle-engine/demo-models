@@ -35,29 +35,26 @@ DEF ProxSensor ProximitySensor {
   size 100 100 100
 }
 
-Transform { translation 0 +1.5 0
-  children Shape {
-    appearance Appearance { material Material { }
-      effects DEF FogEffect Effect {
-        language "GLSL"
-        initializeOnly SFNode fog_density ImageTexture3D {
-          url "textures/noise_from_humus.dds"
-          repeatS TRUE
-          repeatT TRUE
-          repeatR TRUE }
-        inputOnly SFMatrix4f cameraInverseMatrix
-        # TODO: inputOnly should be enough for camera_world.
-        # But when shaders are regenerated, we don't update immediately
-        # uniform values from inputOnly (because we don't store them anywhere),
-        # so e.g. Ctrl+H (headlight switch) causes reset of camera_world,
-        # until we move (and cause ProxSensor to update position_changed).
-        inputOutput SFVec3f camera_world 0 0 0
-        initializeOnly SFVec3f fog_color 0.5 0.5 0.5
-        inputOnly SFTime time
-        parts [
-          EffectPart {
-            type "VERTEX"
-            url "data:text/plain,
+DEF FogEffect Effect {
+  language "GLSL"
+  initializeOnly SFNode fog_density ImageTexture3D {
+    url "textures/noise_from_humus.dds"
+    repeatS TRUE
+    repeatT TRUE
+    repeatR TRUE }
+  inputOnly SFMatrix4f cameraInverseMatrix
+  # TODO: inputOnly should be enough for camera_world.
+  # But when shaders are regenerated, we don't update immediately
+  # uniform values from inputOnly (because we don't store them anywhere),
+  # so e.g. Ctrl+H (headlight switch) causes reset of camera_world,
+  # until we move (and cause ProxSensor to update position_changed).
+  inputOutput SFVec3f camera_world 0 0 0
+  initializeOnly SFVec3f fog_color 0.5 0.5 0.5
+  inputOnly SFTime time
+  parts [
+    EffectPart {
+      type "VERTEX"
+      url "data:text/plain,
 
 uniform mat4 cameraInverseMatrix;
 varying vec3 vertex_world;
@@ -67,9 +64,9 @@ void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
   vertex_world = vec3(cameraInverseMatrix * vertex_eye);
 }" }
 
-          EffectPart {
-            type "FRAGMENT"
-            url "data:text/plain,
+    EffectPart {
+      type "FRAGMENT"
+      url "data:text/plain,
 
 uniform sampler3D fog_density;
 uniform vec3 fog_color;
@@ -111,11 +108,14 @@ void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
 
   fragment_color.rgb = mix(fog_color, fragment_color.rgb, fog);
 }" }
-        ]
-        ROUTE MyViewpoint.cameraInverseMatrix TO FogEffect.cameraInverseMatrix
-        ROUTE ProxSensor.position_changed TO FogEffect.camera_world
-      }
-    }
+  ]
+  ROUTE MyViewpoint.cameraInverseMatrix TO FogEffect.cameraInverseMatrix
+  ROUTE ProxSensor.position_changed TO FogEffect.camera_world
+}
+
+Transform { translation 0 +1.5 0
+  children Shape {
+    appearance Appearance { material Material { } }
     geometry Box { size 10 3 10 solid FALSE }
   }
 }
