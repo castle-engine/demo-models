@@ -32,6 +32,10 @@ DEF MyViewpoint Viewpoint {
   orientation -0.2513565421104431 0.9622508883476257 0.1043660789728164 0.8147231936454773
 }
 
+DEF ProxSensor ProximitySensor {
+  size 100 100 100
+}
+
 Transform { translation 0 +1.5 0
   children Shape {
     appearance Appearance { material Material { }
@@ -43,6 +47,12 @@ Transform { translation 0 +1.5 0
           repeatT TRUE
           repeatR TRUE }
         inputOnly SFMatrix4f cameraInverseMatrix
+        # TODO: inputOnly should be enough for camera_world.
+        # But when shaders are regenerated, we don't update immediately
+        # uniform values from inputOnly (because we don't store them anywhere),
+        # so e.g. Ctrl+H (headlight switch) causes reset of camera_world,
+        # until we move (and cause ProxSensor to update position_changed).
+        inputOutput SFVec3f camera_world 0 0 0
         initializeOnly SFVec3f fog_color 0.5 0.5 0.5
         inputOnly SFTime time
         parts [
@@ -52,13 +62,10 @@ Transform { translation 0 +1.5 0
 
 uniform mat4 cameraInverseMatrix;
 varying vec3 vertex_world;
-varying vec3 camera_world;
 
 void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
 {
   vertex_world = vec3(cameraInverseMatrix * vertex_eye);
-  /* TODO: constant for shader, should be just passed from Viewpoint */
-  camera_world = vec3(cameraInverseMatrix * vec4(0.0, 0.0, 0.0, 1.0));
 }" }
 
           EffectPart {
@@ -69,7 +76,7 @@ uniform sampler3D fog_density;
 uniform vec3 fog_color;
 
 varying vec3 vertex_world;
-varying vec3 camera_world;
+uniform vec3 camera_world;
 
 uniform float time;
 
@@ -107,6 +114,7 @@ void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
 }" }
         ]
         ROUTE MyViewpoint.cameraInverseMatrix TO FogEffect.cameraInverseMatrix
+        ROUTE ProxSensor.position_changed TO FogEffect.camera_world
       }
     }
     geometry Box { size 10 3 10 solid FALSE }
