@@ -6,8 +6,8 @@ floortiles:
 http://opengameart.org/content/dirty-quake-ish-floor-tiles
 by Sindwiller
 license: GNU GPL 2.0, GNU GPL 3.0, CC-BY-SA 3.0
-Kambi added normalmap version (despite the fact that original texture
-author warns it will be ugly :)
+Kambi made lighter, reddish checker fields, and added normalmap version
+(despite the fact that original texture author warns it will be ugly :)
 
 tarmac_0: based on
 http://opengameart.org/content/weatherd-tarmac-2-freshly-tarred
