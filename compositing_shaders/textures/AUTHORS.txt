@@ -1,3 +1,22 @@
 bread: http://opengameart.org/content/white-bread
 sand: http://opengameart.org/content/generic-tileable-sand-texture
 rock_d01: http://opengameart.org/content/generic-rock-texture
+
+floortiles:
+http://opengameart.org/content/dirty-quake-ish-floor-tiles
+by Sindwiller
+license: GNU GPL 2.0, GNU GPL 3.0, CC-BY-SA 3.0
+Kambi added normalmap version (despite the fact that original texture
+author warns it will be ugly :)
+
+tarmac_0: based on
+http://opengameart.org/content/weatherd-tarmac-2-freshly-tarred
+by Daniel Gregory Benoy
+license: GNU GPL 2.0, GNU GPL 3.0, CC-BY-SA 3.0
+Kambi made seamless, have power of 2 size, added normalmap.
+
+cool_water_texture_seamless: based on
+http://opengameart.org/content/cool-water-texture
+by Rudy Phelippeau
+license: CC0 (Public Domain)
+Kambi made seamless, have power of 2 size, added normalmap.
