@@ -19,7 +19,6 @@ PROFILE Interchange
 # (although occlusion culling, even mere sorting, will help you fight it).
 #
 # TODO: no shadows. humus used 3d light map. Light shaft through fog.
-# TODO: use volumetric_animated_fog_gometry
 # TODO: try our gpu 3d noise.
 
 # Camera settings "encoded" in the VRML declaration below :
@@ -99,11 +98,12 @@ void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
       sampled_distance / full_distance));
     sampled_distance += distance_step;
   }
-  /* to prevent fog bands (because we do a discrete number of steps to reach
+
+  /* To prevent fog bands (because we do a discrete number of steps to reach
      full_distance), do the final step, scaled by the remainder
-     of the distance */
-  fog *= pow(get_fog_density(mix(vertex_world, camera_world,
-    sampled_distance / full_distance)),
+     of the distance. For this, we sample the fog depth at full_distance,
+     that is mix(vertex_world, camera_world, 1.0), that is camera_world. */
+  fog *= pow(get_fog_density(camera_world),
     (full_distance - (sampled_distance - distance_step)) / distance_step);
 
   fragment_color.rgb = mix(fog_color, fragment_color.rgb, fog);
