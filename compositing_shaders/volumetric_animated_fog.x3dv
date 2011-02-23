@@ -16,11 +16,10 @@ PROFILE Interchange
 # This means that you'll get a lot of slowdown if given pixel
 # is covered by more than one polygon,
 # and we happen to render the more distant polygons first
-# (althoug occlusion culling, even mere sorting, will help you fight it).
+# (although occlusion culling, even mere sorting, will help you fight it).
 #
 # TODO: no shadows. humus used 3d light map. Light shaft through fog.
-# TODO: more interesting scene, some corridors and things inside rooms.
-# TODO: show bump mapping.
+# TODO: use volumetric_animated_fog_gometry
 # TODO: try our gpu 3d noise.
 
 # Camera settings "encoded" in the VRML declaration below :
