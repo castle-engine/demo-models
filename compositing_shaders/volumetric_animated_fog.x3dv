@@ -18,6 +18,8 @@ PROFILE Interchange
 # and we happen to render the more distant polygons first
 # (although occlusion culling, even mere sorting, will help you fight it).
 #
+# TODO: There are artifacts visible --- bad colored lines, some inaccuracy
+# in our "remaining distance" calculation.
 # TODO: no shadows. humus used 3d light map. Light shaft through fog.
 # TODO: try our gpu 3d noise.
 
