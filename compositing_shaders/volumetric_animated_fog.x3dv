@@ -21,7 +21,6 @@ PROFILE Interchange
 # TODO: There are artifacts visible --- bad colored lines, some inaccuracy
 # in our "remaining distance" calculation.
 # TODO: no shadows. humus used 3d light map. Light shaft through fog.
-# TODO: try our gpu 3d noise.
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.8253530859947204 -0.1064514964818954 0.5544890761375427
