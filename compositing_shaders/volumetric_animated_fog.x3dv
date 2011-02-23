@@ -82,7 +82,7 @@ uniform float time;
 float get_fog_density(in vec3 pos)
 {
   pos /= 80.0;
-  pos.y -= time / 10.0;
+  pos.y -= time / 20.0;
   return texture3D(fog_density, pos).r;
   /* Make fog less dense */
 //  return 1.0 - clamp((1.0 - texture3D(fog_density, pos).r) / 3.0, 0.0, 1.0);
