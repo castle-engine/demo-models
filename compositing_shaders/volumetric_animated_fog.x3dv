@@ -23,12 +23,12 @@ PROFILE Interchange
 # TODO: try our gpu 3d noise.
 
 # Camera settings "encoded" in the VRML declaration below :
-# direction -0.6918365955352783 -0.2143978178501129 -0.6894893646240234
-# up -0.1518595218658447 0.9767465591430664 -0.1513442993164062
+# direction -0.8253530859947204 -0.1064514964818954 0.5544890761375427
+# up -0.0883623585104942 0.9943180680274963 0.0593639127910137
 # gravityUp 0 1 0
 DEF MyViewpoint Viewpoint {
-  position 3.2019360065460205 1.7992808818817139 3.3988723754882813
-  orientation -0.2513565421104431 0.9622508883476257 0.1043660789728164 0.8147231936454773
+  position 3.4308829307556152 1.7320748567581177 -4.6322202682495117
+  orientation -0.0283925142139196 0.9981759190559387 0.0532803125679493 2.1638731956481934
 }
 
 DEF ProxSensor ProximitySensor {
@@ -78,11 +78,11 @@ uniform float time;
 
 float get_fog_density(in vec3 pos)
 {
-  pos /= 20.0;
+  pos /= 80.0;
   pos.y -= time / 10.0;
-//  return texture3D(fog_density, pos).r;
+  return texture3D(fog_density, pos).r;
   /* Make fog less dense */
-  return 1.0 - clamp((1.0 - texture3D(fog_density, pos).r) / 3.0, 0.0, 1.0);
+//  return 1.0 - clamp((1.0 - texture3D(fog_density, pos).r) / 3.0, 0.0, 1.0);
 }
 
 void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
@@ -91,7 +91,7 @@ void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
   float fog = 1.0;
   float full_distance = distance(vertex_world, camera_world);
   float sampled_distance = 0.0;
-  float distance_step = 1.0;
+  float distance_step = 16.0;
 
   while (sampled_distance < full_distance)
   {
@@ -113,12 +113,14 @@ void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
   ROUTE ProxSensor.position_changed TO FogEffect.camera_world
 }
 
-Transform { translation 0 +1.5 0
-  children Shape {
-    appearance Appearance { material Material { } }
-    geometry Box { size 10 3 10 solid FALSE }
-  }
-}
+# Transform { translation 0 +1.5 0
+#   children Shape {
+#     appearance Appearance { material Material { } }
+#     geometry Box { size 10 3 10 solid FALSE }
+#   }
+# }
+
+Inline { url "volumetric_animated_fog_geometry.x3d" }
 
 # Time stuff ----------------------------------------------------------------
 
@@ -139,8 +141,9 @@ EXTERNPROTO KambiNavigationInfo [
 ]
 
 KambiNavigationInfo {
-  headlight TRUE
-  type ["FLY", "ANY"]
   timeOriginAtLoad TRUE
-  speed 10
+  headlight FALSE
+  type "WALK"
+  avatarSize [ 0.1 1.75 0.2 ]
+  speed 5
 }
