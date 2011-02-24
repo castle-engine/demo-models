@@ -48,7 +48,7 @@ Transform {
           DEF CompShader1 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "SOMETHING-STRANGE" url "glsl_not_existing.vs" }
+              ShaderPart { type "SOMETHING-STRANGE" url "glsl_simple.vs" }
               ShaderPart { type "FRAGMENT" url "glsl_negative.fs" }
             ]
           }
