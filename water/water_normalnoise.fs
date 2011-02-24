@@ -1,5 +1,3 @@
-varying mat3 normal_matrix;
-varying vec2 normalMapTexCooord;
 uniform float time;
 
 /* 1 / wave_height_inverse is wave height (in object space).
@@ -17,13 +15,13 @@ vec3 vertex_noised(const float x, const float y)
   return result;
 }
 
-void PLUG_fragment_normal_eye(inout vec3 normal_eye_fragment)
+void PLUG_water_normal_object_space(inout vec3 normal,
+  const in vec2 normalMapTexCooord)
 {
   /* We calculate normal from a random noise */
   vec3 vertex   = vertex_noised(normalMapTexCooord.x      , normalMapTexCooord.y      );
   vec3 vertex_y = vertex_noised(normalMapTexCooord.x      , normalMapTexCooord.y + 1.0 / 100.0);
   vec3 vertex_x = vertex_noised(normalMapTexCooord.x + 1.0 / 100.0, normalMapTexCooord.y      );
 
-  normal_eye_fragment = normal_matrix *
-    normalize(cross(vertex_x - vertex, vertex_y - vertex));
+  normal = normalize(cross(vertex_x - vertex, vertex_y - vertex));
 }

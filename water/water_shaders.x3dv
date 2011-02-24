@@ -2,16 +2,28 @@
 PROFILE Interchange
 COMPONENT CubeMapTexturing:3
 
-# Nice water by shader effects.
-# We have 1 effect that modifies normals per fragment, to simulate waves.
-# And 2nd effect that adds reclection / refraction from environment cube map.
+# Beautiful water by shader effects.
 #
-# We also have an alternative effect for normals: instead of taking them
-# from the texture, we can calculate them from a 3d noise.
-# This is commented out for now,
-# as it is quite slower and causes awful bugs on Radeon X1600 (fglrx).
-# But works perfectly on NVidia GeForce 450 (although also is slower,
-# but from ~400 FPS to ~200 FPS so still very real-time :) ).
+# - 1st effect modifies normals per fragment, to simulate waves.
+#
+# - 2nd effect provides normals in tangent space for the 1st effect:
+#   - from texture (MovieTexture storing normalmaps)
+#   - or from GPU generated noise.
+#     This results in a smoother look (GPU noise has no texture pixelization),
+#     but requires better GPU. Some GPUs may be slower,
+#     and the worst graphic driver in the world (fglrx) may just crash.
+#     Works perfectly on NVidia GeForce 450 (although is also slower,
+#     but from ~400 FPS to ~200 FPS so still very real-time :) ).
+#
+#   Press "n" to switch between these two choices. Default is the safer,
+#   faster, and less quality: normalmaps from MovieTexture.
+#
+# - 3rd, independent effect adds reflection / refraction from environment cube map.
+#
+# The environment cube map texture is not updated every frame,
+# for best speed. This isn't entirely correct, as moving the camera
+# changes the headlight, and so environment changes.
+# Press "Space" to manually regenerate environment cube map texture.
 
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
@@ -101,9 +113,9 @@ Transform {
 DEF Timer TimeSensor { loop TRUE }
 
 # ----------------------------------------------------------------------------
-# Waves geometry.
-# This time, geometry is trivial, just a flat plane, we only animate
-# normal map.
+# Waves geometry and shader.
+# Geometry is trivial, just a flat plane, the whole magic happens
+# in the GLSL effects.
 
 Collision {
   enabled FALSE
@@ -115,34 +127,47 @@ Collision {
         shininess 0.0976563021540641
         transparency 0.2
       }
+
+# Thanks to our effects, you could even add here a normal texture.
 #      texture ImageTexture { url "../textures/test_texture.png" }
+
       effects [
         Effect {
           language "GLSL"
+          parts [
+            EffectPart { type "VERTEX" url "water_normal.vs" }
+            EffectPart { type "FRAGMENT" url "water_normal.fs" }
+          ]
+        }
+
+        DEF NormalsFromTexture Effect {
+          language "GLSL"
+          enabled TRUE
           initializeOnly SFNode normalMap
             MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
           parts [
-            EffectPart { type "VERTEX" url "water_normalmap.vs" }
             EffectPart { type "FRAGMENT" url "water_normalmap.fs" }
           ]
         }
-        # DEF NoiseEffect Effect {
-        #   language "GLSL"
-        #   initializeOnly SFNode white_noise ImageTexture3D {
-        #     url "../textures/white_noise_3d.dds"
-        #     repeatS TRUE
-        #     repeatT TRUE
-        #     repeatR TRUE
-        #     textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
-        #   }
-        #   inputOnly SFTime time
-        #   ROUTE Timer.time TO NoiseEffect.time
-        #   parts [
-        #     EffectPart { type "VERTEX" url "water_normalnoise.vs" }
-        #     EffectPart { type "FRAGMENT" url "../compositing_shaders/noise.glsl" }
-        #     EffectPart { type "FRAGMENT" url "water_normalnoise.fs" }
-        #   ]
-        # }
+
+        DEF NormalsFromGPUNoise Effect {
+          language "GLSL"
+          enabled FALSE
+          initializeOnly SFNode white_noise ImageTexture3D {
+            url "../textures/white_noise_3d.dds"
+            repeatS TRUE
+            repeatT TRUE
+            repeatR TRUE
+            textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+          }
+          inputOnly SFTime time
+          ROUTE Timer.time TO NormalsFromGPUNoise.time
+          parts [
+            EffectPart { type "FRAGMENT" url "../compositing_shaders/noise.glsl" }
+            EffectPart { type "FRAGMENT" url "water_normalnoise.fs" }
+          ]
+        }
+
         DEF ReflectRefractEffect Effect {
           language "GLSL"
           initializeOnly SFNode envMap
@@ -168,26 +193,33 @@ Collision {
 
 ROUTE View.cameraRotationInverseMatrix TO ReflectRefractEffect.cameraRotationInverseMatrix
 
-# ----------------------------------------------------------------------------
-# Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.
-# NEXT_FRAME_ONLY will automatically change to NONE after next frame,
-# so after this, you will need to keep pressing space again to force update
-# of the cubemap texture.
+# Key handling -----------------------------------------------------------------
 
 DEF KeyS KeySensor { }
 
 DEF Scr Script {
   inputOnly SFString key_press
   outputOnly SFString tex_update
+  inputOutput SFBool normals_from_texture TRUE
+  outputOnly SFBool normals_from_gpu_noise
 
   url "kambiscript:
 
 function key_press(value, timestamp)
   when (value = ' ',
     tex_update := 'NEXT_FRAME_ONLY'
+  );
+  when (value = 'n',
+    { Negate both normals_from_gpu_noise and normals_from_texture,
+      knowing they are already negations of each other. }
+    normals_from_gpu_noise := normals_from_texture;
+    normals_from_texture := not(normals_from_texture)
   )
 "
 }
 
 ROUTE KeyS.keyPress TO Scr.key_press
+
 ROUTE Scr.tex_update TO GenTex1.update
+ROUTE Scr.normals_from_texture TO NormalsFromTexture.enabled
+ROUTE Scr.normals_from_gpu_noise TO NormalsFromGPUNoise.enabled
