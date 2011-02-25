@@ -57,6 +57,7 @@ Shape {
             url "data:text/plain,
 
 uniform float time;
+float noise_3d_cos(const vec3 v);
 void PLUG_texture_color(inout vec4 texture_color,
   in vec4 tex_coord)
 {
@@ -93,6 +94,7 @@ Shape {
             url "data:text/plain,
 
 uniform float time;
+float noise_2d_cos(const vec2 v);
 void PLUG_texture_color(inout vec4 texture_color,
   in vec4 tex_coord)
 {
@@ -129,6 +131,7 @@ Shape {
             url "data:text/plain,
 
 uniform float time;
+float noise_2d_lin(const vec2 v);
 void PLUG_texture_color(inout vec4 texture_color,
   in vec4 tex_coord)
 {
