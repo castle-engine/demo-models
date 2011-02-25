@@ -9,7 +9,7 @@ COMPONENT Shaders:1
 
 
 NavigationInfo {
-	headlight FALSE
+	headlight TRUE # without headlight, the toon effect is not nicely visible
 	visibilityLimit 0.0
 	type ["EXAMINE", "ANY"]
 	avatarSize [0.25, 1.75, 0.75]
