@@ -1,0 +1,95 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Simple demo that you can use ComposedShader with our plugs and effects.
+# You can define new plug points and/or provide new ones, as you wish.
+# This example defines an unlit shader (that still applies textures).
+
+Transform {
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+      shaders DEF MyShader ComposedShader {
+        language "GLSL"
+        parts [
+          ShaderPart {
+            type "VERTEX"
+            url "data:text/plain,
+/* PLUG-DECLARATIONS */
+void main(void)
+{
+  vec4 vertex_eye = gl_ModelViewMatrix * gl_Vertex;
+  vec3 normal_eye = normalize(gl_NormalMatrix * gl_Normal);
+  /* PLUG: vertex_process (vertex_eye, normal_eye) */
+
+  gl_FrontColor = gl_Color;
+  gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+}" }
+
+          ShaderPart {
+            type "FRAGMENT"
+            url "data:text/plain,
+/* PLUG-DECLARATIONS */
+void main(void)
+{
+  gl_FragColor = gl_Color;
+
+  vec4 fragment_color = gl_FragColor;
+  /* PLUG: texture_apply (fragment_color) */
+  gl_FragColor = fragment_color;
+}"
+          }
+        ]
+      }
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 2.5 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 0.5 0.5 1 }
+      shaders USE MyShader
+    }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 0 2.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture { url "../textures/test_texture.png" }
+      shaders USE MyShader
+    }
+    geometry Cone { }
+  }
+}
+
+Transform {
+  translation 2.5 2.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture { url "../textures/test_texture.png" }
+      shaders USE MyShader
+    }
+    geometry Cylinder { }
+  }
+}
+
+Transform {
+  translation 5 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0 }
+      texture ImageTexture { url "../textures/test_texture.png" }
+      shaders USE MyShader
+    }
+    geometry Teapot { }
+  }
+}
