@@ -62,7 +62,7 @@ DEF FogEffect Effect {
 uniform mat4 cameraInverseMatrix;
 varying vec3 vertex_world;
 
-void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
+void PLUG_vertex_eye_space(const in vec4 vertex_eye, const in vec3 normal_eye)
 {
   vertex_world = vec3(cameraInverseMatrix * vertex_eye);
 }" }

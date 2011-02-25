@@ -33,7 +33,7 @@ Shape {
               uniform float time;
               varying float height;
 
-              void PLUG_vertex_process(const in vec4 vertex_eye, const in vec3 normal_eye)
+              void PLUG_vertex_eye_space(const in vec4 vertex_eye, const in vec3 normal_eye)
               {
                 height = (gl_Vertex.y  + time / 4.0) * 5.0;
               }"

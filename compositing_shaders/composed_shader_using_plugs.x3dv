@@ -21,7 +21,7 @@ void main(void)
 {
   vec4 vertex_eye = gl_ModelViewMatrix * gl_Vertex;
   vec3 normal_eye = normalize(gl_NormalMatrix * gl_Normal);
-  /* PLUG: vertex_process (vertex_eye, normal_eye) */
+  /* PLUG: vertex_eye_space (vertex_eye, normal_eye) */
 
   gl_FrontColor = gl_Color;
   gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;

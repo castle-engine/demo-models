@@ -40,8 +40,6 @@ Shape {
           EffectPart { type "VERTEX" url "noise.glsl" }
           EffectPart { type "VERTEX" url "data:text/plain,
 
-#define VERTEX_OBJECT_SPACE_CHANGED
-
 uniform float time;
 
 float noise_3d_cos(const vec3 v);
@@ -57,7 +55,7 @@ vec3 vertex_noised(const float x, const float z)
   return result;
 }
 
-void PLUG_vertex_object_space(inout vec4 vertex_object, inout vec3 normal_object)
+void PLUG_vertex_object_space_change(inout vec4 vertex_object, inout vec3 normal_object)
 {
   vertex_object.xyz = vertex_noised(vertex_object.x, vertex_object.z);
 
