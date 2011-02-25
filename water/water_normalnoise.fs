@@ -4,6 +4,8 @@ uniform float time;
    Using inverse, to workaround fglrx bugs. */
 const float wave_height_inverse = 50.0;
 
+float noise_3d_cos(const vec3 v);
+
 vec3 vertex_noised(const float x, const float y)
 {
   vec3 result = vec3(x, y, time / 5.0);
