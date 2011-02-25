@@ -20,3 +20,8 @@ http://opengameart.org/content/cool-water-texture
 by Rudy Phelippeau
 license: CC0 (Public Domain)
 Kambi made seamless, have power of 2 size, added normalmap.
+
+flower111.png: based on
+http://www.openclipart.org/detail/75427
+by aungkarns
+license: public domain

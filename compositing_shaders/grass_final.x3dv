@@ -1,0 +1,79 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Animated flowers scenery. The idea is to create an illusion of wind,
+# using our GLSL "effects".
+#
+# This is the main file, with GLSL code of the effects and other setup.
+# The geometry was modeled and textures in Blender, and is only inlined here.
+
+Group {
+  children [
+    DEF FlowersEffect Effect {
+      language "GLSL"
+      inputOnly SFTime time
+      parts EffectPart {
+        type "VERTEX"
+        url "data:text/plain,
+uniform float time;
+void PLUG_vertex_object_space_change(inout vec4 vertex_object, inout vec3 normal_object)
+{
+  float move = sin(time) * vertex_object.z / 4.0;
+  /* This is a (failed) attempt to add some irregular changes.
+     We should use some smooth noise instead. */
+  move += (fract(vertex_object.x * 100) * fract(vertex_object.y * 100) * 2.0 - 1.0) / 4.0;
+  vertex_object.x += move;
+  vertex_object.y += move;
+}"
+      }
+    }
+    Inline { url "grass_flowers.x3d" }
+  ]
+}
+
+Inline { url "grass_terrain.x3d" }
+
+# Time, navigation stuff -------------------------------------------------------
+
+DEF Timer TimeSensor { loop TRUE }
+ROUTE Timer.time TO FlowersEffect.time
+
+EXTERNPROTO KambiNavigationInfo [
+  inputOnly   SFBool   set_bind
+  inputOutput MFFloat  avatarSize
+  inputOutput SFBool   headlight
+  inputOutput SFFloat  speed
+  inputOutput MFString type
+  inputOutput SFFloat  visibilityLimit
+  outputOnly  SFBool   isBound
+  initializeOnly  SFBool   timeOriginAtLoad
+] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+]
+
+KambiNavigationInfo {
+  timeOriginAtLoad TRUE
+  headlight TRUE
+  type "FLY"
+  avatarSize [ 0.1 1.75 0.2 ]
+  speed 5
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0448786206543445 -0.470697283744812 0.8811529874801635
+# up 0.0828971266746521 0.8772447705268859 0.4728316068649292
+# gravityUp 0 1 0
+Viewpoint {
+  position 23.414211273193359 12.347738265991211 -16.158269882202148
+  orientation 0.0457227267324924 0.9688209891319274 0.243506520986557 3.1182434558868408
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.3661133348941803 -0.0994350388646125 0.9252498149871826
+# up -0.0365853235125541 0.9950441122055053 0.0924592316150665
+# gravityUp 0 1 0
+Viewpoint {
+  description "for flowers screenshot"
+  position 32.981113433837891 -0.9383051395416259 -16.965105056762695
+  orientation -0.0094901071861386 0.9987152218818664 0.0497766695916652 2.7652788162231445
+}
