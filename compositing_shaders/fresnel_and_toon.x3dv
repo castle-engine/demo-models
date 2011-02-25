@@ -15,7 +15,7 @@ Shape {
       parts EffectPart {
         type "FRAGMENT" url "data:text/plain,
 
-          void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+          void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
           {
             fragment_color.a = 1.0 - pow(normal_eye.z, 2.0);
           }"
