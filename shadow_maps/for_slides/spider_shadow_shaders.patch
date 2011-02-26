@@ -1,0 +1,13 @@
+diff --git a/kambi_vrml_game_engine/src/vrml/opengl/glsl/shadow_map_common.fs b/kambi_vrml_game_engine/src/vrml/opengl/glsl/shadow_map_common.fs
+index fea1802..24b9e2a 100644
+--- a/kambi_vrml_game_engine/src/vrml/opengl/glsl/shadow_map_common.fs
++++ b/kambi_vrml_game_engine/src/vrml/opengl/glsl/shadow_map_common.fs
+@@ -19,7 +19,7 @@ float shadow(sampler2DShadow shadowMap, vec4 shadowMapCoord)
+   vec2 coord2 = shadowMapCoord.st / shadowMapCoord.q;
+   if (coord2.s < 0.0 || coord2.s > 1.0 ||
+       coord2.t < 0.0 || coord2.t > 1.0)
+-    return 0.0;
++    return 1.0;
+ 
+ #ifdef PCF4_BILINEAR
+ 

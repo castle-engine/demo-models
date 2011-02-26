@@ -1,0 +1,70 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# To make a perfect screenshot:
+# - apply spider_shadow_shaders.patch, make to regen shaders, recompile
+# - remember to turn off box and status in view3dscene
+
+Background { skyColor 0.8 0.8 0.8 }
+
+NavigationInfo {
+	headlight TRUE
+	type ["FLY", "ANY"]
+	avatarSize [0.25, 2, 0.75]
+        speed 10
+}
+
+# brighter ambient, color, to make the shadow all the more visible
+KambiHeadLight {
+  ambientIntensity 1
+  color 2 2 2 # yes, we allow colors > 1 since OpenGL allows them
+}
+
+EXTERNPROTO PlaneNotTesselated [
+  inputOutput SFBool solid
+] [ "../../../demo_models/x3d/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+
+DEF MySpot SpotLight {
+  location 0 0 3
+  direction 0 0 -1
+  defaultShadowMap GeneratedShadowMap { size 1024 update "ALWAYS" }
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.1290220320224762 0.1291394680738449 -0.0817086845636367
+# up -0.2887520492076873 0.2890154719352722 0.9127389192581176
+# gravityUp 0 -4.3711388286737929E-008 1
+Transform {
+  translation 1.7688752412796021 -1.5842987298965454 1.3720829486846924
+  rotation 1 0 -0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.4504992067813873 0.8730838298797607 0.1864818632602691 0.8854610323905944
+  }
+}
+
+Transform {
+#  translation 0 0 10
+  scale 10 10 10
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture {
+        url "../../../demo_models/textures/016marbre.jpg"
+        textureProperties TextureProperties {
+          anisotropicDegree 32
+          minificationFilter "NICEST"
+          magnificationFilter "NICEST"
+        }
+      }
+      textureTransform TextureTransform { scale 10 10 }
+      shadowCaster FALSE
+      receiveShadows USE MySpot
+    }
+    geometry PlaneNotTesselated {
+      solid FALSE
+    }
+  }
+}
+
+Inline { url "../../../castle/data/creatures/spider/spider_stand.wrl" }

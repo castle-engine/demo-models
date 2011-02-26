@@ -1,0 +1,70 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction -0.0100365802645683 -0.000921790022403 -0.0172748044133186
+# up -0.023152120411396 0.9989358186721801 -0.0398522652685642
+# gravityUp 0 1 0
+Viewpoint {
+  position 13.086308479309082 0.8104792237281799 28.411211013793945
+  orientation -0.0852522701025009 0.9960952401161193 0.0229517575353384 0.5282965898513793
+}
+
+NavigationInfo {
+  type [ "FLY" "EXAMINE", "ANY" ]
+  headlight TRUE
+  speed 10
+}
+
+KambiHeadLight {
+  intensity 0.2
+}
+
+EXTERNPROTO TesselatedPlane [
+  inputOutput SFNode texCoord
+] [ "../../../demo_models/x3d/tesselated_plane.wrl#TesselatedPlane" ]
+
+EXTERNPROTO EditableTransform [
+  inputOutput MFNode children
+  inputOutput SFVec3f translation
+  inputOutput SFVec3f scale
+  inputOutput SFString description
+] [ "../../../demo_models/x3d/useful_prototypes.x3dv#EditableTransform" ]
+
+# spot test ------------------------------------------------------------------
+
+EditableTransform {
+  description "spot shadow receiver"
+  children [
+    DEF MySpot SpotLight {
+      location 0 2 100
+      direction 0 0 -1
+      projectionNear 90
+      projectionFar 100
+      projectionAngle 0.15
+      defaultShadowMap GeneratedShadowMap { size 1024 update "ALWAYS" }
+    }
+    Shape {
+      appearance Appearance { material Material { }
+        receiveShadows USE MySpot
+        shadowCaster FALSE
+      }
+      geometry TesselatedPlane { }
+    }
+  ]
+}
+
+# some shadow casters (not receivers) -----------------------------------------
+
+EditableTransform {
+  description "shadow caster middle"
+  translation 0 0 2
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry Teapot {
+      size 4 4 4
+    }
+  }
+}
+
+Background { skyColor 1 1 1 }
