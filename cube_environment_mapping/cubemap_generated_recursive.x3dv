@@ -78,7 +78,7 @@ NavigationInfo {
 
 EXTERNPROTO ViewportInfo [
   inputOutput MFString info
-] [ "useful_prototypes.x3dv#ViewportInfo" ]
+] [ "../x3d/useful_prototypes.x3dv#ViewportInfo" ]
 
 ViewportInfo {
   info [
@@ -114,7 +114,7 @@ EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "useful_prototypes.x3dv#EditableTransform" ]
+] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
 
 EditableTransform {
   translation 2 2 0

@@ -22,7 +22,7 @@ EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "useful_prototypes.x3dv#EditableTransform" ]
+] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
 
 # ----------------------------------------------------------------------------
 # Teapot
@@ -112,7 +112,7 @@ Viewpoint {
   orientation -0.0273569524288177 0.9963133931159973 0.0813096836209297 2.4947032928466797
 }
 
-Inline { url "dynamic_world.x3dv" }
+Inline { url "../x3d/dynamic_world.x3dv" }
 
 # ----------------------------------------------------------------------------
 # Script to change gen cubemap update to NEXT_FRAME_ONLY on space press.
