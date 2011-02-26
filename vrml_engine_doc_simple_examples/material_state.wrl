@@ -1,0 +1,36 @@
+#VRML V1.0 ascii
+
+Group {
+  # Default material will be used here:
+  Sphere { }
+
+  DEF RedMaterial Material { diffuseColor 1 0 0 }
+
+  Transform { translation 5 0 0 }
+  # This uses the last material : red
+  Sphere { }
+
+  Transform { translation 5 0 0 }
+  # This still uses uses the red material
+  Sphere { }
+
+  Material { diffuseColor 0 0 1 }
+
+  Transform { translation 5 0 0 }
+  # Material changed to blue
+  Sphere { }
+
+  Transform { translation 5 0 0 }
+  # Still blue...
+  Sphere { }
+
+  USE RedMaterial
+
+  Transform { translation 5 0 0 }
+  # Red again !
+  Sphere { }
+
+  Transform { translation 5 0 0 }
+  # Still red.
+  Sphere { }
+}

@@ -1,0 +1,45 @@
+#VRML V1.0 ascii
+
+Separator {
+  Sphere { }
+  Transform { translation 0 -3 0 }
+  Group {
+    Material { diffuseColor 1 0 0 }
+    Transform { scaleFactor 2 2 2 }
+    Sphere { }
+  }
+  # A Group, so both Material change and scaling "leaks out"
+  Transform { translation 0 -3 0 }
+  Sphere { }
+}
+
+Transform { translation 5 0 0 }
+
+Separator {
+  Sphere { }
+  Transform { translation 0 -3 0 }
+  TransformSeparator {
+    Material { diffuseColor 1 0 0 }
+    Transform { scaleFactor 2 2 2 }
+    Sphere { }
+  }
+  # A TransformSeparator, so only Material change "leaks out"
+  Transform { translation 0 -3 0 }
+  Sphere { }
+}
+
+Transform { translation 5 0 0 }
+
+Separator {
+  Sphere { }
+  Transform { translation 0 -3 0 }
+  Separator {
+    Material { diffuseColor 1 0 0 }
+    Transform { scaleFactor 2 2 2 }
+    Sphere { }
+  }
+  # A Separator, so nothing "leaks out".
+  # The last sphere is identical to the first one.
+  Transform { translation 0 -3 0 }
+  Sphere { }
+}

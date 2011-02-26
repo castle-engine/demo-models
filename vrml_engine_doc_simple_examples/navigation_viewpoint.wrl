@@ -1,0 +1,14 @@
+#VRML V2.0 utf8
+
+Viewpoint  {
+  position 11.832 2.897 6.162
+  orientation -0.463 0.868 0.172 0.810
+}
+
+NavigationInfo {
+  avatarSize [ 0.5, 2 ]
+  speed 1.0
+  headlight TRUE
+}
+
+Inline { url "inline.wrl" }

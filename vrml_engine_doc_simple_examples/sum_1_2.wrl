@@ -1,0 +1,23 @@
+#VRML V2.0 utf8
+
+Separator {
+  DEF VRML2Cube Shape {
+    appearance Appearance { material Material { } }
+    geometry Sphere { }
+  }
+
+  Translation { translation 3 0 0 }
+
+  USE VRML2Cube
+
+  Transform {
+    translation 3 0 0
+    children [
+      USE VRML2Cube
+
+      Translation { translation 3 0 0 }
+
+      USE VRML2Cube
+    ]
+  }
+}

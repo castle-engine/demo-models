@@ -1,0 +1,63 @@
+#VRML V2.0 utf8
+
+Shape {
+  appearance Appearance {
+    texture DEF SampleTexture
+      ImageTexture { url "sample_texture.png" }
+  }
+  geometry Box { }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    appearance Appearance {
+      texture USE SampleTexture
+      # translate texture
+      textureTransform TextureTransform { translation 0.5 0.5 }
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 6 0 0
+  children Shape {
+    appearance Appearance {
+      texture USE SampleTexture
+      # rotate texture by Pi/4
+      textureTransform TextureTransform { rotation 0.7853981634 }
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 9 0 0
+  children Shape {
+    appearance Appearance {
+      texture USE SampleTexture
+      # scale texture
+      textureTransform TextureTransform { scale 2 2 }
+    }
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation 12 0 0
+  children Shape {
+    appearance Appearance {
+      texture USE SampleTexture
+      # scale and rotate the texture.
+      # There's no way to accumulate texture transformations,
+      # so we just do both rotation and scaling by
+      # TextureTransform node below.
+      textureTransform TextureTransform {
+        rotation 0.7853981634
+        scale 2 2
+      }
+    }
+    geometry Box { }
+  }
+}

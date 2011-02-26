@@ -1,0 +1,39 @@
+#VRML V1.0 ascii
+
+Group {
+  Texture2 { filename "sample_texture.png" }
+
+  Cube { }
+
+  Transform { translation 3 0 0 }
+
+  Separator {
+    # translate texture
+    Texture2Transform { translation 0.5 0.5 }
+    Cube { }
+  }
+
+  Transform { translation 3 0 0 }
+
+  Separator {
+    # rotate texture by Pi/4
+    Texture2Transform { rotation 0.7853981634 }
+    Cube { }
+  }
+
+  Transform { translation 3 0 0 }
+
+  Separator {
+    # scale texture
+    Texture2Transform { scaleFactor 2 2 }
+    Cube { }
+
+    Transform { translation 3 0 0 }
+
+    # rotate texture by Pi/4.
+    # Texture transformation accumulates, so this will
+    # be both scaled and rotated.
+    Texture2Transform { rotation 0.7853981634 }
+    Cube { }
+  }
+}

@@ -1,0 +1,30 @@
+#VRML V2.0 utf8
+
+Viewpoint  {
+  position -10.642 8.193 -5.614
+  orientation -0.195 -0.921 -0.336 2.158
+}
+
+Transform {
+  translation 4 0 1.25
+  children Shape {
+    appearance DEF ALit Appearance { material Material { } }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 4 0 4
+  children Shape {
+    appearance USE ALit
+    geometry Box { }
+  }
+}
+
+Transform {
+  translation -4 0 -4
+  children Shape {
+    appearance USE ALit
+    geometry Box { }
+  }
+}

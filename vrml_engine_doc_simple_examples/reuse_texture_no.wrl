@@ -1,0 +1,18 @@
+#VRML V2.0 utf8
+
+Shape {
+  appearance Appearance {
+    texture ImageTexture { url "sample_texture.png" }
+  }
+  geometry Box { }
+}
+
+Transform {
+  translation 5 0 0
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture { url "sample_texture.png" }
+    }
+    geometry Sphere { }
+  }
+}

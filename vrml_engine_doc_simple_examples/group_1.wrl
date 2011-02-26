@@ -1,0 +1,6 @@
+#VRML V1.0 ascii
+
+Group {
+  Sphere { }
+  Cube { width 1.5 height 1.5 depth 1.5 }
+}

@@ -1,0 +1,47 @@
+#VRML V1.0 ascii
+
+Group {
+  PerspectiveCamera {
+    position 6 4 14
+  }
+
+  PointLight {
+    color 0.3 0.3 0.3
+    location 6 4 10
+  }
+
+  Switch {
+    DEF ALight SpotLight {
+      location 0 0 3
+      direction 0 0 -1
+      cutOffAngle 0.3
+      color 1 1 0
+    }
+    DEF Col Separator {
+      Separator { USE ALight Cube     { } }
+      Translation { translation 0 4 0 }
+      Separator { USE ALight Cone     { } }
+      Translation { translation 0 4 0 }
+      Separator { USE ALight Cylinder { } }
+    }
+  }
+
+  KambiTriangulation {
+    quadricStacks 1 rectDivisions 0 }
+  USE Col
+
+  Translation { translation 4 0 0 }
+  KambiTriangulation {
+    quadricStacks 8 rectDivisions 4 }
+  USE Col
+
+  Translation { translation 4 0 0 }
+  KambiTriangulation {
+    quadricSlices 30 quadricStacks 30 rectDivisions 10 }
+  USE Col
+
+  Translation { translation 4 0 0 }
+  KambiTriangulation {
+    quadricSlices 100 quadricStacks 100 rectDivisions 100 }
+  USE Col
+}
