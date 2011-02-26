@@ -159,7 +159,7 @@ DEF OB_Wood1 Transform {
 							transparency 0.0
 						}
 						texture DEF tree_texture_jpg ImageTexture {
-							url "../../textures/tree_texture.jpg"
+							url "../textures/tree_texture.jpg"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -939,7 +939,7 @@ DEF OB_Cube_002 Transform {
 							transparency 0.0
 						}
 						texture DEF _17_gris_vert_kambi_ma ImageTexture {
-							url "../../textures/17_gris_vert_kambi_made_red.png"
+							url "../textures/17_gris_vert_kambi_made_red.png"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -1330,7 +1330,7 @@ DEF OB_Cube_001 Transform {
 							transparency 0.0
 						}
 						texture DEF _016marbre_jpg ImageTexture {
-							url "../../textures/016marbre.jpg"
+							url "../textures/016marbre.jpg"
 						}
 					}
 					geometry IndexedFaceSet {
@@ -3510,7 +3510,7 @@ DEF OB_Komin Transform {
 							transparency 0.0
 						}
 						texture DEF _17_gris_vert_jpg ImageTexture {
-							url "../../textures/17_gris_vert.jpg"
+							url "../textures/17_gris_vert.jpg"
 						}
 					}
 					geometry IndexedFaceSet {
