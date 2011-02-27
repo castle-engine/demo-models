@@ -23,7 +23,13 @@ void main(void)
   vec3 normal_eye = normalize(gl_NormalMatrix * gl_Normal);
   /* PLUG: vertex_eye_space (vertex_eye, normal_eye) */
 
+  /* Depending on LIT, only material or only color may be passed */
+#ifdef LIT
+  gl_FrontColor = gl_FrontMaterial.diffuse;
+#else
   gl_FrontColor = gl_Color;
+#endif
+
   gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
 }" }
 
