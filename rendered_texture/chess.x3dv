@@ -104,7 +104,7 @@ DEF Board_T Transform {
           mode [ "MODULATE", "BLENDFACTORALPHA" ]
           texture [
             ImageTexture {
-              url "chequered.png"
+              url "../textures/chequered.png"
               repeatS TRUE
               repeatT TRUE
               textureProperties TextureProperties {

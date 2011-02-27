@@ -23,7 +23,7 @@ NavigationInfo { type [ "FLY", "ANY" ] speed 5 }
 Shape {
   appearance Appearance {
     material Material { ambientIntensity 1 diffuseColor 0.5 1 0.5 }
-    texture ImageTexture { url "rendered_texture/chequered.png" }
+    texture ImageTexture { url "../textures/chequered.png" }
     textureTransform TextureTransform { scale 10 10 }
   }
   geometry IndexedFaceSet {
