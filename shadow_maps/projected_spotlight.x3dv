@@ -25,6 +25,10 @@ DEF reflector Group {
           radius 75
           #kambiShadowsMain TRUE
           #kambiShadows TRUE
+          defaultShadowMap GeneratedShadowMap {
+            update "ALWAYS"
+            size 1024
+          }
         }
         DEF lightBeam Shape {
           appearance Appearance {
@@ -277,33 +281,20 @@ DEF reflector Group {
 
 DEF room Shape {
   appearance Appearance {
+    receiveShadows USE redSpotlight
     material Material {
       diffuseColor 0.9 0.89 0.88
       specularColor 0.5 0.5 0.5
       ambientIntensity 0.4
     }
-    texture MultiTexture {
-      texture [
-        DEF spotLightTexture ImageTexture {
-          url "spotlight.png"
-          repeatS FALSE
-          repeatT FALSE
-        }
-        GeneratedShadowMap {
-          light USE redSpotlight
-          update "ALWAYS"
-          size 1024
-        }
-      ]
+    texture DEF spotLightTexture ImageTexture {
+      url "spotlight.png"
+      repeatS FALSE
+      repeatT FALSE
     }
   }
   geometry IndexedFaceSet {
-    texCoord MultiTextureCoordinate {
-      texCoord [
-        DEF projTexCoord ProjectedTextureCoordinate { projector USE redSpotlight }
-        USE projTexCoord
-      ]
-    }
+    texCoord DEF projTexCoord ProjectedTextureCoordinate { projector USE redSpotlight }
     coord DEF coord_room Coordinate {
       point [
         -10.0 10.0 10.0           -10.0 10.0 -10.0          10.0 10.0 10.0            10.0 10.0 -10.0
