@@ -6,8 +6,9 @@ PROFILE Interchange
 NavigationInfo {
   headlight FALSE
   visibilityLimit 100
-  type [ "EXAMINE", "ANY" ]
+  type [ "FLY", "ANY" ]
   avatarSize [0.25, 1.75, 0.75]
+  speed 5
 }
 
 DEF reflector Group {
@@ -372,14 +373,13 @@ DEF sphere_T Transform {
   }
 }
 
-DEF Camera_T Transform {
-  translation -7.637654 6.501738 8.303329
-  rotation 0.908540 -0.310283 0.279784 1.509504
-  children DEF Camera_001 Viewpoint {
-    description "Camera.001"
-    position 0.0 0.0 0.0
-    orientation 1.0 0.0 0.0 -1.570796
-  }
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.5438955426216125 -0.151632010936737 -0.8253396153450012
+# up 0.0710756257176399 0.9883289337158203 -0.1347379237413406
+# gravityUp 0 1 0
+Viewpoint {
+  position -7.6376538276672363 6.5017380714416504 8.3033294677734375
+  orientation -0.2533006370067596 -0.9660978317260742 -0.0499383322894573 0.6007658243179321
 }
 
 # Add some movement:
