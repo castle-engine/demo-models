@@ -4,6 +4,21 @@
 # I also add here WorldInfo with a title --- it should be used
 # by VRML browsers.
 
+# Just for test, add an effect.
+Effect {
+  language "GLSL"
+  parts EffectPart {
+    type "FRAGMENT"
+    url "data:text/plain,
+    void PLUG_texture_apply(
+       inout vec4 fragment_color,
+       const in vec3 normal)
+    {
+       fragment_color.rgb = pow(fragment_color.rgb * 3.0 / 2.0, vec3(3.0));
+    }"
+  }
+}
+
 Group{
   children [
     # Camera settings "encoded" in the VRML declaration below :
