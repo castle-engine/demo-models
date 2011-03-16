@@ -3,7 +3,8 @@ PROFILE Interchange
 
 # Basic X3DTextureNode.effects test.
 # Adds black/yellowish circle inside a 2D texture.
-# TODO: very uninspired effect...
+# Then, just for test, applies simple pow to make everything overburned
+# and contrasting.
 
 Transform {
   children Shape {
@@ -30,6 +31,8 @@ Transform {
                  to_center.t * to_center.t);
               if (to_center_sqr < 1.0)
                 texture_color.rgb *= mix(vec3(0.0), vec3(1.0, 1.0, 0.0), to_center_sqr);
+
+              texture_color.rgb = pow(texture_color.rgb * 3.0 / 2.0, vec3(3.0));
             }"
           }
         }
