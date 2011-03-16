@@ -273,6 +273,19 @@ DEF reflector Group {
       ]
     }
     # Clipping planes for the light beam
+    #
+    # The light beam cone is taller than needed, and these clip planes
+    # keep it inside the room. This was a hack to make the light cone
+    # lighter --- as the top of the cone is light and the bottom is dark 
+    # (as bottom's side edges are almost parallel to spot light dir),
+    # we can abuse the fact that colors are interpolated linearly for Gouraud
+    # shading, and make the cone taller --- to make the lighter colors longer.
+    # However, this hack stopped working once we have per-pixel lighting.
+    # It is now done by using emissiveColor instead.
+    #
+    # TODO: this means that we may cut the light cone geometry a little,
+    # make it shorter (but still long enough to always be a *little* outside
+    # the room box).
     ClipPlane { plane 0 1 0 -0.5 }
     ClipPlane { plane 1 0 0 9.5 }
     ClipPlane { plane -1 0 0 9.5 }
