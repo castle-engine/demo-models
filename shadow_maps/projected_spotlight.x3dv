@@ -34,8 +34,9 @@ DEF reflector Group {
           appearance Appearance {
             shadowCaster FALSE
             material Material {
-              diffuseColor 1 1 1
+              diffuseColor 0 0 0
               ambientIntensity 0
+              emissiveColor 1 0.75 0.75
               transparency 0.95
             }
           }
