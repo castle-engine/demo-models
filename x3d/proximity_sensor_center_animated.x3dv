@@ -1,8 +1,19 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-# position_changed (visualized in 3rd box) reflects your position
-# in the current ProximitySensor.
+# Demo that animating ProximitySensor.center works as appropriate.
+#
+# The moving YELLOW BOX visualizes the current ProximitySensor
+# position and size. It constantly moves, just as ProximitySensor.center
+# is moving. Try to navigate your camera to go inside it.
+# Or just stand still --- as the initial camera position
+# is set such that after a while, the ProximitySensor will pass through you.
+#
+# The YELLOW SPHERE visualizes your position inside the ProximitySensor.
+# Since we animate the ProximitySensor.center, the yellow sphere may go
+# far outside of the BLUE BOX. That is, ProximitySensor.position_changed
+# is generated in local ProximitySensor coordinate system --- it depends
+# on ProximitySensor parent transforms, but not on ProximitySensor.center.
 
 EXTERNPROTO KambiAppearance [
   inputOutput SFNode material
@@ -95,5 +106,5 @@ DEF BigBoxToVisualizePosition Transform {
 }
 
 ROUTE ProxSens.position_changed TO SmallBoxToVisualizePosition.translation
-DEF L Logger { level 3 }
-ROUTE ProxSens.position_changed TO L.write
+# DEF L Logger { level 3 }
+# ROUTE ProxSens.position_changed TO L.write

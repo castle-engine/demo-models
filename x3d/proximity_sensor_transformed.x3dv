@@ -1,11 +1,14 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-# One ProximitySensor, instanced two times, and moving by transformations.
-# When ProximitySensor becomes in contact with non-moving viewer, also
-# appropriate events must be generated --- this tests this.
-# Also position_changed (visualized in 3rd box) reflects your position
-# in the current ProximitySensor.
+# Demo that ProximitySensor can move, and be instanced two times,
+# and still everything works.
+#
+# When the camera enters inside one of the ProximitySensor YELLOW BOXES,
+# or when camera stays still but the moving ProximitySensor passes through it,
+# appropriate events are generated.
+# position_changed (visualized by YELLOW SPHERE in the BLUE BOX)
+# reflects your position in the current ProximitySensor.
 
 EXTERNPROTO KambiAppearance [
   inputOutput SFNode material
