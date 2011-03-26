@@ -29,11 +29,11 @@ const
 
 procedure ForceSaveAsX3D(Model: TVRMLNode);
 begin
-  { TODO: when Model is not TVRMLRootNode_2, wrap it inside new
-    TVRMLRootNode_2. Don't assume Model always is TVRMLRootNode_2.
+  { TODO: when Model is not TVRMLRootNode, wrap it inside new
+    TVRMLRootNode. Don't assume Model always is TVRMLRootNode.
     (For now, LoadVRML on VRML 97 file always produces file when it's true,
     so no need.) }
-  (Model as TVRMLRootNode_2).ForceSaveAsX3D;
+  (Model as TVRMLRootNode).ForceSaveAsX3D;
 end;
 
 { Find Blender's light with given name, and add X3D fields setting
