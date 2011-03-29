@@ -1,0 +1,128 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Tests of LineProperties node, to change line width and type (pattern).
+#
+# LineProperties have most sense on LineSet and IndexedLineSet nodes,
+# but they can also be used for filled shapes (e.g. IndexedFaceSet).
+# In the latter case, their effects will be visible if you view model
+# in wireframe mode (see "View -> Fill Mode" in view3dscene).
+
+# default, whole white color
+Transform {
+  translation -3 1.5 0
+  children Shape {
+    appearance Appearance { lineProperties LineProperties { applied FALSE linewidthScaleFactor 10 linetype 5 } }
+    geometry LineSet {
+      coord DEF C Coordinate { point [
+        0   0   0, 1   1   0, 2   0   0, 1   -1   0, 0   0   0,
+        0.1 0   0, 1.1 1   0, 2.1 0   0, 1.1 -1   0, 0.1 0   0, ] }
+      vertexCount [ 5 5 ]
+    }
+  }
+}
+
+# take from material.emissiveColor
+Transform {
+  translation -3 -1.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { emissiveColor 1 0 0 }
+      lineProperties LineProperties { linewidthScaleFactor 2 linetype 1 }
+    }
+    geometry LineSet {
+      coord USE C
+      vertexCount [ 5 5 ]
+    }
+  }
+}
+
+# separate color for each vertex.
+# left: shades of red. right: shades of blue.
+Transform {
+  translation -3 +4.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { emissiveColor 1 0 0 }
+      lineProperties LineProperties { linewidthScaleFactor 2 linetype 2 }
+    }
+    geometry LineSet {
+      coord USE C
+      vertexCount [ 5 5 ]
+      color Color { color [
+        1 0 0, 0.75 0 0, 0.5 0 0, 0.25 0 0, 1 0 0,
+        0 0 1, 0 0 0.75, 0 0 0.5, 0 0 0.25, 0 0 1, ] }
+    }
+  }
+}
+
+# in this case colors with be sequentially applied to polylines.
+# left: red. right: blue.
+Transform {
+  translation 3 -1.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { emissiveColor 1 0 0 }
+      lineProperties LineProperties { linewidthScaleFactor 2 linetype 3 }
+    }
+    geometry IndexedLineSet {
+      coord DEF C2 Coordinate { point [
+        0   0   0, 1   1   0, 2   0   0, 1   -1   0,
+        0.1 0   0, 1.1 1   0, 2.1 0   0, 1.1 -1   0 ] }
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      colorPerVertex FALSE
+      color Color { color [
+        1 0 0,
+        0 0 1 ] }
+    }
+  }
+}
+
+# colors are per vertex and colorIndex specifies which colors should be used.
+# yellow -> white -> red -> green -> blue colors will be used
+# (yes, discontinuity at leftmost point). For both polylines.
+Transform {
+  translation +3 +1.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { emissiveColor 1 0 0 }
+      lineProperties LineProperties { linewidthScaleFactor 2 linetype 4 }
+    }
+    geometry IndexedLineSet {
+      coord USE C2
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      color Color { color [
+        1 1 0, 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
+      colorIndex [ 0 1 2 3 4 -1 0 1 2 3 4 ]
+    }
+  }
+}
+
+Transform {
+  translation +3 +4.5 0
+  children Shape {
+    appearance Appearance {
+      material Material { emissiveColor 1 0 0 }
+      lineProperties LineProperties { linewidthScaleFactor 2 linetype 5 }
+    }
+    geometry IndexedLineSet {
+      coord USE C2
+      coordIndex [ 0 1 2 3 0 -1 4 5 6 7 4 ]
+      color Color { color [
+        1 1 0, 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
+      colorIndex [ 0 1 2 3 4 -1 0 1 2 3 4 ]
+    }
+  }
+}
+
+Transform {
+  translation +6 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+      lineProperties LineProperties { linewidthScaleFactor 2 linetype 2 }
+    }
+    geometry Sphere {
+    }
+  }
+}
