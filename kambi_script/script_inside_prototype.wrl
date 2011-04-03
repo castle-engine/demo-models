@@ -1,0 +1,75 @@
+#VRML V2.0 utf8
+
+# Test that Script, with custom events and IS clauses, inside a PROTO,
+# works Ok.
+#
+# Based on sample from simon on
+# https://sourceforge.net/apps/phpbb/vrmlengine/viewtopic.php?f=3&t=31
+
+PROTO calculateIntermediateLocation [
+eventIn SFVec3f location1
+eventIn SFVec3f location2
+eventOut SFVec3f intermediateLocation
+]{
+DEF Scr Script {
+
+# Both versions (on events and on exposedFields) should work.
+
+eventIn SFVec3f location1 IS location1
+eventIn SFVec3f location2 IS location2
+eventOut SFVec3f intermediateLocation IS intermediateLocation
+
+# exposedField SFVec3f location1 IS location1
+# exposedField SFVec3f location2 IS location2
+# exposedField SFVec3f intermediateLocation IS intermediateLocation
+
+field SFVec3f loc1 -1 0 0  # keep this synchronized with initial obj1.translation to behave intuitively
+field SFVec3f loc2  1 0 0  # keep this synchronized with initial obj2.translation to behave intuitively
+
+url["kambiscript:
+function location1(value,ts)
+loc1:=value;
+intermediateLocation := loc1/2 + loc2/2
+
+function location2(value,ts)
+loc2:=value;
+intermediateLocation := loc1/2 + loc2/2
+
+"]
+}
+}
+
+
+DEF obj1 Transform { translation -1 0 0
+children [
+Shape {geometry Sphere{}}
+DEF PS1 PlaneSensor { maxPosition 10 10 minPosition -10 -10
+  offset -1 0 0 # keep this synchronized with initial obj1.translation to behave intuitively
+}
+]
+}
+
+DEF obj2 Transform { translation 1 0 0
+children [
+Shape {geometry Cylinder{}}
+DEF PS2 PlaneSensor { maxPosition 10 10 minPosition -10 -10
+  offset 1 0 0 # keep this synchronized with initial obj2.translation to behave intuitively
+}
+]
+}
+
+
+DEF obj3 Transform {
+children [
+Shape {geometry Box{} appearance Appearance {material Material {transparency .5}}}
+]
+}
+ROUTE PS1.translation_changed TO obj1.translation
+ROUTE PS2.translation_changed TO obj2.translation
+
+
+DEF calculateIntermediateLocation1 calculateIntermediateLocation{}
+
+ROUTE PS1.translation_changed TO calculateIntermediateLocation1.location1
+ROUTE PS2.translation_changed TO calculateIntermediateLocation1.location2
+ROUTE calculateIntermediateLocation1.intermediateLocation TO obj3.translation
