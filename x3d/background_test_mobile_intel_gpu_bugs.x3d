@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<X3D profile='Immersive' version='3.2'>
+
+  <!-- This fails under older drivers for Intel GPU on Windows XP.
+    Seems like a specific Background.groundAngle is needed, along with
+    any shape in the scene.
+
+    Reported by Jens Spielman, details:
+    - Windows XP Professional (5.1, Build 2600) with Service Pack 3
+    - HP laptop
+    - GPU: OpenGL info:
+      Version string: "1.5.0 - Build 7.14.10.4953"
+      Vendor: Intel
+      Renderer: Intel Cantiga
+      Actual GL version (by loading functions) is 1.3, not higher.
+
+    Once disabling VBO rendering it works. It also worked in view3dscne 3.8.0,
+    where rendering was with display lists, as opposed to new VBO.
+
+    It also works once graphic drivers were updated from HP.
+    New GPU info:
+    - Version string: 2.1.0 - Build 6.14.10.5303
+    - Vendor: Intel
+    - Renderer: Mobile Intel(R) 4 Series Express Chipset Family
+  -->
+
+  <head>
+  </head>
+<Scene>
+	<Background groundAngle='1.0 1.0' groundColor='1 1 0 1 1 0 1 1 0'/>
+	<Shape>
+		<Sphere radius='1'/>
+		<Appearance>
+			<Material
+				diffuseColor='1.0 0.0
+			0.0'/>
+		</Appearance>
+	</Shape>
+</Scene>
+</X3D>
