@@ -722,10 +722,7 @@ DEF OB_TableTop_002 Transform {
 							url "../textures/bois5.png"
 						}
                                                 normalMap DEF bois5_normalMap ImageTexture {
-							url "../textures/bois5_normal_map.png"
-						}
-                                                heightMap DEF bois5_heightMap ImageTexture {
-							url "../textures/bois5_height_map.png"
+							url "../textures/bois5_normal_and_height_maps.png"
 						}
                                                 heightMapScale 0.05
 					}
@@ -796,7 +793,6 @@ DEF OB_Cube_002 Transform {
 						}
 						texture USE bois5_jpg
                                                 normalMap USE bois5_normalMap
-                                                heightMap USE bois5_heightMap
                                                 heightMapScale 0.05
 
 					}
@@ -1050,7 +1046,6 @@ DEF OB_TableTop_001 Transform {
 						material USE MA_MatWhiteUnderTexture
 						texture USE bois5_jpg
                                                 normalMap USE bois5_normalMap
-                                                heightMap USE bois5_heightMap
                                                 heightMapScale 0.05
 
 					}
@@ -2402,10 +2397,7 @@ DEF OB_TableTop Transform {
 						material USE MA_MatWhiteUnderTexture
 						texture USE bois5_jpg
                                                 normalMap ImageTexture {
-							url "../textures/bois5_normal_map.png"
-						}
-                                                heightMap ImageTexture {
-							url "../textures/bois5_height_map.png"
+							url "../textures/bois5_normal_and_height_maps.png"
 						}
                                                 heightMapScale 0.05
 
@@ -2472,10 +2464,7 @@ DEF OB_Cube Transform {
 							url "../textures/brick_1.png"
 						}
                                                 normalMap ImageTexture {
-							url "../textures/brick_1_normal_map.png"
-						}
-                                                heightMap ImageTexture {
-							url "../textures/brick_1_height_map.png"
+							url "../textures/brick_1_normal_and_height_maps.png"
 						}
                                                 heightMapScale 0.02
 
