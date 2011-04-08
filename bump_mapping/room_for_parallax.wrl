@@ -918,10 +918,7 @@ DEF OB_Cube_001 Transform {
 							url "../textures/bumps.png"
 						}
                                                 normalMap ImageTexture {
-							url "../textures/bumps_normal_map.png"
-						}
-                                                heightMap ImageTexture {
-							url "../textures/bumps.png"
+							url "../textures/bumps_normal_and_height_maps.png"
 						}
                                                 heightMapScale 0.05
 
