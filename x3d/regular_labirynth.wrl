@@ -39,12 +39,9 @@ DEF OB_Cube_719 Transform {
 							url "../textures/lion.png"
 						}
                                                 # Added by hand by Kambi
-                                                heightMap ImageTexture {
-							url "../textures/lion_height_map.png"
-						}
                                                 heightMapScale 0.05
                                                 normalMap ImageTexture {
-							url "../textures/lion_normal_map.png"
+							url "../textures/lion_normal_height_maps.png"
 						}
 					}
 					geometry IndexedFaceSet {
