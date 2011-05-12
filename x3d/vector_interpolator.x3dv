@@ -1,0 +1,28 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+        geometry DEF Grid ElevationGrid {
+                creaseAngle 4
+                height [ 0 1 0 1 2 1 0 1 0 ]
+                xDimension 3
+                xSpacing 1
+                zDimension 3
+                zSpacing 1
+                
+        }
+        appearance Appearance {
+                material Material { }
+        }
+}
+
+DEF Time TimeSensor { loop TRUE cycleInterval 2 }
+DEF Interpolator VectorInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ 0  0.5 0  0.5  1  0.5 0  0.5 0
+             0 -0.5 0 -0.5 -1 -0.5 0 -0.5 0
+             0  0.5 0  0.5  1  0.5 0  0.5 0 ]
+}
+
+ROUTE Time.fraction_changed TO Interpolator.set_fraction
+ROUTE Interpolator.value_changed TO Grid.set_height
