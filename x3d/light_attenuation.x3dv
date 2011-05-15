@@ -9,7 +9,7 @@ NavigationInfo { headlight FALSE }
 
 DEF MyShape Shape {
   appearance Appearance { material Material { diffuseColor 1 1 1 } }
-  geometry Box { size 0.6 0.6 0.6 }
+  geometry Teapot { size 1.2 1.2 1.2 }
 }
 
 DEF Column Transform { children [
