@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<meta name="filename" content="light_street_lights_radius.x3d" />
+	<meta name="generator" content="Blender 2.57 (sub 0)" />
+	<meta name="translator" content="X3D exporter v1.55 (2006/01/17) (with Kambi mods)" />
+</head>
+<Scene>
+<NavigationInfo headlight="false" visibilityLimit="0.0" type='"EXAMINE","ANY"' avatarSize="0.25, 1.75, 0.75" />
+<Background DEF="World0" groundColor="0.057 0.221 0.4" skyColor="0.057 0.221 0.4" />
+
+<PointLight DEF="Lamp_007" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="7.0306 0.8544 1.5531" />
+
+<Collision enabled="false">
+	<Transform DEF="Circle_007" translation="7.030616 0.754411 1.553088" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+		<Group DEF="G_Circle">
+			<Shape>
+				<Appearance>
+					<Material DEF="MA_Material_001" diffuseColor="0.8 0.8 0.8" specularColor="0.401 0.401 0.401" emissiveColor="0.0 0.0 0.0" 
+						ambientIntensity="0.333" shininess="0.098" transparency="0.0" />					
+				</Appearance>
+				<IndexedFaceSet solid="true" coordIndex="1 0 32 33 -1, 2 1 33 34 -1, 3 2 34 35 -1, 4 3 35 36 -1, 5 4 36 37 -1, 6 5 37 38 -1, 7 6 38 39 -1, 8 7 39 40 -1, 9 8 40 41 -1, 10 9 41 42 -1, 11 10 42 43 -1, 12 11 43 44 -1, 13 12 44 45 -1, 14 13 45 46 -1, 15 14 46 47 -1, 16 15 47 48 -1, 17 16 48 49 -1, 18 17 49 50 -1, 19 18 50 51 -1, 20 19 51 52 -1, 21 20 52 53 -1, 22 21 53 54 -1, 23 22 54 55 -1, 24 23 55 56 -1, 25 24 56 57 -1, 26 25 57 58 -1, 27 26 58 59 -1, 28 27 59 60 -1, 29 28 60 61 -1, 30 29 61 62 -1, 31 30 62 63 -1, 31 0 32 63 -1, " >
+					<Coordinate DEF="coord_Circle" 
+				point="0.007071 0.007071 0.000000, 0.008315 0.005556 0.000000, 0.009239 0.003827 0.000000, 0.009808 0.001951 0.000000, 0.010000 0.000000 0.000000, 0.009808 -0.001951 0.000000, 0.009239 -0.003827 0.000000, 0.008315 -0.005555 0.000000, 0.007071 -0.007071 0.000000, 0.005556 -0.008314 0.000000, 0.003827 -0.009239 0.000000, 0.001951 -0.009808 0.000000, 0.000000 -0.010000 0.000000, -0.001951 -0.009808 0.000000, -0.003827 -0.009239 0.000000, -0.005555 -0.008314 0.000000, -0.007071 -0.007071 0.000000, -0.008314 -0.005555 0.000000, -0.009238 -0.003827 0.000000, -0.009808 -0.001951 0.000000, -0.010000 0.000000 0.000000, -0.009808 0.001951 0.000000, -0.009238 0.003827 0.000000, -0.008314 0.005556 0.000000, -0.007071 0.007071 0.000000, -0.005555 0.008315 0.000000, -0.003826 0.009239 0.000000, -0.001951 0.009808 0.000000, 0.000000 0.010000 0.000000, 0.001951 0.009808 0.000000, 0.003827 0.009239 0.000000, 0.005556 0.008315 0.000000, 0.007071 0.007071 -1.100000, 0.008315 0.005556 -1.100000, 0.009239 0.003827 -1.100000, 0.009808 0.001951 -1.100000, 0.010000 0.000000 -1.100000, 0.009808 -0.001951 -1.100000, 0.009239 -0.003827 -1.100000, 0.008315 -0.005555 -1.100000, 0.007071 -0.007071 -1.100000, 0.005556 -0.008314 -1.100000, 0.003827 -0.009239 -1.100000, 0.001951 -0.009808 -1.100000, 0.000000 -0.010000 -1.100000, -0.001951 -0.009808 -1.100000, -0.003827 -0.009239 -1.100000, -0.005555 -0.008314 -1.100000, -0.007071 -0.007071 -1.100000, -0.008314 -0.005555 -1.100000, -0.009238 -0.003827 -1.100000, -0.009808 -0.001951 -1.100000, -0.010000 0.000000 -1.100000, -0.009808 0.001951 -1.100000, -0.009238 0.003827 -1.100000, -0.008314 0.005556 -1.100000, -0.007071 0.007071 -1.100000, -0.005555 0.008315 -1.100000, -0.003826 0.009239 -1.100000, -0.001951 0.009808 -1.100000, 0.000000 0.010000 -1.100000, 0.001951 0.009808 -1.100000, 0.003827 0.009239 -1.100000, 0.005556 0.008315 -1.100000, " />					
+				</IndexedFaceSet>
+			</Shape>
+		</Group>
+	</Transform>
+</Collision>
+
+<Collision enabled="false">
+	<Transform DEF="Circle_006" translation="3.030616 0.754411 1.553088" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+		<Group USE="G_Circle" />
+		</Transform>
+	</Collision>
+
+<PointLight DEF="Lamp_006" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="3.0306 0.8544 1.5531" />
+
+<PointLight DEF="Lamp_005" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="-0.9694 0.8544 1.5531" />
+
+	<Collision enabled="false">
+		<Transform DEF="Circle_005" translation="-0.969384 0.754411 1.553088" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+			<Group USE="G_Circle" />
+			</Transform>
+		</Collision>
+
+		<Collision enabled="false">
+			<Transform DEF="Circle_004" translation="-4.969384 0.754411 1.553088" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+				<Group USE="G_Circle" />
+				</Transform>
+			</Collision>
+
+<PointLight DEF="Lamp_004" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="-4.9694 0.8544 1.5531" />
+
+<PointLight DEF="Lamp_003" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="-4.9694 0.8544 -1.4469" />
+
+			<Collision enabled="false">
+				<Transform DEF="Circle_003" translation="-4.969384 0.754411 -1.446912" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+					<Group USE="G_Circle" />
+					</Transform>
+				</Collision>
+
+				<Collision enabled="false">
+					<Transform DEF="Circle_002" translation="-0.969384 0.754411 -1.446912" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+						<Group USE="G_Circle" />
+						</Transform>
+					</Collision>
+
+<PointLight DEF="Lamp_002" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="-0.9694 0.8544 -1.4469" />
+
+<PointLight DEF="Lamp_001" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="3.0306 0.8544 -1.4469" />
+
+					<Collision enabled="false">
+						<Transform DEF="Circle_001" translation="3.030616 0.754411 -1.446912" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+							<Group USE="G_Circle" />
+							</Transform>
+						</Collision>
+
+						<Collision enabled="false">
+							<Transform DEF="Circle" translation="7.030616 0.754411 -1.446912" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+								<Group USE="G_Circle" />
+								</Transform>
+							</Collision>
+
+							<Collision enabled="false">
+								<Transform DEF="Cube_007" translation="-5.577132 1.684203 3.398382" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+									<Group DEF="G_Cube_001">
+										<Shape>
+											<Appearance>
+												<Material DEF="MA_Material" diffuseColor="0.8 0.8 0.8" specularColor="0.0 0.0 0.0" emissiveColor="0.0 0.0 0.0" 
+													ambientIntensity="0.333" shininess="0.098" transparency="0.0" />												
+											</Appearance>
+											<IndexedFaceSet solid="true" coordIndex="0 1 2 3 -1, 4 7 6 5 -1, 0 4 5 1 -1, 1 5 6 2 -1, 2 6 7 3 -1, 4 0 3 7 -1, " >
+												<Coordinate DEF="coord_Cube_001" 
+				point="1.000000 1.000000 -1.000000, 1.000000 -1.000000 -1.000000, -1.000000 -1.000000 -1.000000, -1.000000 1.000000 -1.000000, 1.000000 0.999999 1.000000, 0.999999 -1.000001 1.000000, -1.000000 -1.000000 1.000000, -1.000000 1.000000 1.000000, " />												
+											</IndexedFaceSet>
+										</Shape>
+									</Group>
+								</Transform>
+							</Collision>
+
+							<Collision enabled="false">
+								<Transform DEF="Cube_006" translation="-1.577132 1.684203 3.398382" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+									<Group USE="G_Cube_001" />
+									</Transform>
+								</Collision>
+
+								<Collision enabled="false">
+									<Transform DEF="Cube_005" translation="2.422868 1.684203 3.398382" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+										<Group USE="G_Cube_001" />
+										</Transform>
+									</Collision>
+
+									<Collision enabled="false">
+										<Transform DEF="Cube_004" translation="6.422868 1.684203 3.398382" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+											<Group USE="G_Cube_001" />
+											</Transform>
+										</Collision>
+
+										<Collision enabled="false">
+											<Transform DEF="Cube_003" translation="5.637142 1.684203 -3.601618" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+												<Group USE="G_Cube_001" />
+												</Transform>
+											</Collision>
+
+											<Collision enabled="false">
+												<Transform DEF="Cube_002" translation="1.637142 1.684203 -3.601618" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+													<Group USE="G_Cube_001" />
+													</Transform>
+												</Collision>
+
+												<Collision enabled="false">
+													<Transform DEF="Cube_001" translation="-2.362858 1.684203 -3.601618" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+														<Group USE="G_Cube_001" />
+														</Transform>
+													</Collision>
+
+													<Collision enabled="false">
+														<Transform DEF="Cube" translation="-6.362858 1.684203 -3.601618" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+															<Group USE="G_Cube_001" />
+															</Transform>
+														</Collision>
+
+														<Collision enabled="false">
+															<Transform DEF="Plane" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
+																<Group DEF="G_Plane">
+																	<Shape>
+																		<Appearance>
+																			<Material USE="MA_Material" />
+																		</Appearance>
+																		<IndexedFaceSet solid="true" coordIndex="0 3 2 1 -1, 1 2 4 5 -1, 3 0 7 6 -1, 5 4 8 9 -1, 6 7 11 10 -1, " >
+																			<Coordinate DEF="coord_Plane" 
+				point="13.000000 1.000000 0.000000, 13.000000 -1.000000 0.000000, -8.000002 -1.000000 0.000000, -7.999998 1.000000 0.000000, -8.000002 -1.000000 0.145450, 13.000000 -1.000000 0.145450, -7.999998 1.000000 0.145450, 13.000000 1.000000 0.145450, -8.000002 -5.400000 0.145450, 13.000000 -5.400001 0.145450, -7.999998 5.400002 0.145450, 13.000000 5.399999 0.145450, " />																			
+																		</IndexedFaceSet>
+																	</Shape>
+																</Group>
+															</Transform>
+														</Collision>
+
+<PointLight DEF="Lamp" ambientIntensity="0.0000" color="1.0000 1.0000 1.0000" intensity="0.5714" radius="2.0000" location="7.0306 0.8544 -1.4469" />
+
+<Viewpoint DEF="Camera" description="Camera" centerOfRotation="0 0 0" position="12.32 3.76 -1.45" orientation="-0.15 0.97 0.18 1.80" fieldOfView="0.858"  />
+
+
+</Scene>
+</X3D>
