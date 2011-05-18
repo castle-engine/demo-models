@@ -1,0 +1,52 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# ComposedShader with some uniform values that are deliberately invalid
+# (not existing or invalid types). X3D browser should make clear
+# warnings indicating problems, and then render this correctly
+# (a shader mixes texture with yellowish color).
+
+Shape {
+  appearance Appearance {
+    shaders DEF MyShader ComposedShader {
+      language "GLSL"
+      inputOutput SFNode tex ImageTexture  { url "../../textures/brick031.jpg" }
+      inputOutput SFColor color 1 1 0
+      # Invalid uniform type
+      inputOutput SFVec3f color_scale 1 2 3
+      # Not existing uniform
+      inputOutput SFVec3f not_existing 4 5 6
+      # Not existing uniform (texture)
+      inputOutput SFNode tex_not_existing ImageTexture  { url "../../textures/brick031.jpg" }
+      parts [
+        ShaderPart { type "VERTEX" url "data:text/plain,
+          void main(void)
+          {
+            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+            gl_Position = ftransform();
+          }" }
+        ShaderPart { type "FRAGMENT" url "data:text/plain,
+          uniform sampler2D tex;
+          uniform vec4 color;
+          uniform float color_scale;
+          void main(void)
+          {
+            gl_FragColor = texture2D(tex, gl_TexCoord[0].st) * color * (1.0 - color_scale);
+          }"
+        }
+      ]
+    }
+  }
+  geometry Sphere { }
+}
+
+DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
+DEF PosInterp PositionInterpolator {
+  key      [ 0      1     ]
+  keyValue [ 0 0 0  1 1 1 ]
+}
+ROUTE Timer.fraction_changed TO PosInterp.set_fraction
+# Animate the invalid uniforms, to make test harder
+ROUTE PosInterp.value_changed TO MyShader.color_scale
+ROUTE PosInterp.value_changed TO MyShader.not_existing
