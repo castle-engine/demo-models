@@ -8,7 +8,7 @@ Transform {
 
     Shape {
       appearance DEF App1_WithTexture Appearance {
-        texture ImageTexture  { url "../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           # I don't handle HLSL (and Kambi engine never will, I'm not going
           # to port to M$ Direct X API). This is just to test that
@@ -25,7 +25,7 @@ Transform {
             language "GLSL"
             parts [
               ShaderPart { type "VERTEX" url "glsl_deliberately_incorrect.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
+              ShaderPart { type "FRAGMENT" url "../glsl_simple.fs" }
             ]
           }
 
@@ -48,8 +48,8 @@ Transform {
           DEF CompShader1 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "SOMETHING-STRANGE" url "glsl_simple.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_negative.fs" }
+              ShaderPart { type "SOMETHING-STRANGE" url "../glsl_simple.vs" }
+              ShaderPart { type "FRAGMENT" url "../glsl_negative.fs" }
             ]
           }
         ]
@@ -90,17 +90,17 @@ Transform {
 
     Shape {
       appearance DEF App2_WithTexture Appearance {
-        texture ImageTexture  { url "../textures/brick031.jpg" }
+        texture ImageTexture  { url "../../textures/brick031.jpg" }
         shaders [
           # Vertex and fragment programs specified multiple times.
           DEF CompShader2 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
+              ShaderPart { type "FRAGMENT" url "../glsl_simple.fs" }
+              ShaderPart { type "FRAGMENT" url "../glsl_simple.fs" }
+              ShaderPart { type "VERTEX" url "../glsl_simple.vs" }
+              ShaderPart { type "FRAGMENT" url "../glsl_simple.fs" }
+              ShaderPart { type "VERTEX" url "../glsl_simple.vs" }
             ]
           }
         ]
