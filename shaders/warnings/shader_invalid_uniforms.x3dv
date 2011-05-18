@@ -17,6 +17,8 @@ Shape {
       inputOutput SFVec3f color_scale 1 2 3
       # Not existing uniform
       inputOutput SFVec3f not_existing 4 5 6
+      # Not existing uniform (inputOnly)
+      inputOnly SFVec3f not_existing_event
       # Not existing uniform (texture)
       inputOutput SFNode tex_not_existing ImageTexture  { url "../../textures/brick031.jpg" }
       parts [
@@ -50,3 +52,4 @@ ROUTE Timer.fraction_changed TO PosInterp.set_fraction
 # Animate the invalid uniforms, to make test harder
 ROUTE PosInterp.value_changed TO MyShader.color_scale
 ROUTE PosInterp.value_changed TO MyShader.not_existing
+ROUTE PosInterp.value_changed TO MyShader.not_existing_event
