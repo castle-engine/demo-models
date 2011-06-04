@@ -21,7 +21,7 @@ Shape {
 
 Transform {
   translation 0 -5 0
-  children Inline { url "shaders/kambi_extensions/headlight_shaders_teapot.x3dv" }
+  children Inline { url "../shaders/headlight_shaders_teapot.x3dv" }
 }
 
 # Camera settings "encoded" in the VRML declaration below :
