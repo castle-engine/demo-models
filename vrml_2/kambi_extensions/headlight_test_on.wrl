@@ -8,6 +8,7 @@ EXTERNPROTO KambiHeadLight [
   exposedField SFBool      spot
   exposedField SFFloat     spotDropOffRate
   exposedField SFFloat     spotCutOffAngle
+  exposedField SFFloat     spotBeamWidth
 ] [ "urn:vrmlengine.sourceforge.net:node:KambiHeadLight" ]
 
 NavigationInfo {
@@ -25,13 +26,14 @@ Switch {
     KambiHeadLight {
       color 1 1 0
       spot TRUE
-      spotDropOffRate 0.1
+      spotBeamWidth 0.05
     }
     KambiHeadLight {
       color 1 1 1
       ambientIntensity 1
       spot TRUE
-      spotDropOffRate 0.1
+      spotCutOffAngle 0.3
+      spotBeamWidth 0.1
     }
     KambiHeadLight {
       # No dropOff. This is a sharp spot, spot circle should look
@@ -39,7 +41,7 @@ Switch {
       color 1 1 1
       ambientIntensity 1
       spot TRUE
-      spotCutOffAngle 0.4
+      spotCutOffAngle 0.3
     }
 
   ]
