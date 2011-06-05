@@ -51,7 +51,7 @@ Switch {
       # radius below is not needed (in X3D, we can limit by global=FALSE).
       # But it's useful: we can see light radius on far spheres,
       # when shader (per-pixel) rendering (and checking or radius) in on.
-      radius 20
+      #radius 20
       global FALSE
     }
 
@@ -72,7 +72,7 @@ Switch {
       # radius below is not needed (in X3D, we can limit by global=FALSE).
       # But it's useful: we can see light radius on far spheres,
       # when shader (per-pixel) rendering (and checking or radius) in on.
-      radius 20
+      #radius 20
       global FALSE
     }
 
