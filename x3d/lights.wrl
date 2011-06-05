@@ -1,41 +1,37 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
 
-# VRML 2.0 lights demo
-# We have three lights : point light (the red one; has position),
-# spot light (the blue one; has position AND direction) and
-# directional light (green one; has only direction).
+# Lights demo.
+#
+# Three lights : point light (the red one; has position),
+# spot light (the blue one; has position and direction)
+# and directional light (green one; has only direction).
 #
 # We can see the same scene duplicated three times.
 # The left one is illuminated by the point light and spot light.
 # The middle one is illuminated only by the directional light.
 # And the right one is illuminated by all three kinds of lights.
 #
-# You can use color modulators in view3dscene to view separate lights.
-# (view only one color channel). You can also use built-in raytracer
+# You can use built-in raytracer
 # in view3dscene (use "classic" raytracer for this model)
 # to render view of this model with shadows.
-
-# VRML 2.0 notes:
-# - In VRML 2.0, positional lights affect everything within their radius,
-#   regardless of position in VRML node hierarchy. So I had to set appropriate
-#   radius for them and make the three object instances far away to actually
-#   make this test accurate (otherwise e.g. point light from leftmost instance
-#   would illuminate also middle and rightmost instance).
-# - I use "ambientIntensity 1" for evey light to make this look the same
-#   as VRML 1.0 analogous file. In VRML 1.0 ambientIntensity is taken from
-#   intensity, and default intensity is 1. In VRML 2.0 default ambientIntensity
-#   is 0. So lights in VRML 2.0 by default are darker (and usually better-looking,
-#   actually) than VRML 1.0.
+#
+# Note: I use "ambientIntensity 1" for evey light to make this look the same
+# as VRML 1.0 analogous file (see ../vrml_1/lights.wrl).
+# In VRML 1.0 ambientIntensity is taken from
+# intensity, and default intensity is 1. In VRML >= 2.0 default ambientIntensity
+# is 0. So lights in VRML >= 2.0 by default are darker (and usually better-looking,
+# actually) than VRML 1.0.
 
 NavigationInfo { headlight FALSE }
 
 # Camera settings "encoded" in the VRML declaration below :
-# direction -0.001740425010212 -0.029249431565404 -0.113615833222866
-# up -0.003818256547675 0.968430042266846 -0.249255642294884
+# direction -0.003885044017807 -0.000000000002812 -0.11726900190115
+# up 1.56576085430515E-009 1 4.36595186670274E-008
 # gravityUp 0 1 0
 Viewpoint {
-  position 43.164356231689453 15.558923721313477 69.951637268066406
-  orientation -0.998149335384369 0.060339916497469 0.007452552206814 0.25240433216095
+  position 26.037553787231445 -0.00000117056959 37.542552947998047
+  orientation 0.010424139909446 0.999979853630066 -0.000200989466975 0.033117223531008
 }
 
 Switch {
@@ -52,7 +48,11 @@ Switch {
       ambientIntensity 1
       location 10 0 0
       color 1 0 0
+      # radius below is not needed (in X3D, we can limit by global=FALSE).
+      # But it's useful: we can see light radius on far spheres,
+      # when shader (per-pixel) rendering (and checking or radius) in on.
       radius 20
+      global FALSE
     }
 
     # setup spot light
@@ -69,7 +69,11 @@ Switch {
       direction -0.2 0 -1
       color 0 0 1
       cutOffAngle 0.1
+      # radius below is not needed (in X3D, we can limit by global=FALSE).
+      # But it's useful: we can see light radius on far spheres,
+      # when shader (per-pixel) rendering (and checking or radius) in on.
       radius 20
+      global FALSE
     }
 
     # setup directional light
@@ -136,7 +140,7 @@ Transform {
 }
 
 Transform {
-  translation 40 0 0
+  translation 20 0 0
   children [
     USE LightDir
     USE Objects
@@ -144,7 +148,7 @@ Transform {
 }
 
 Transform {
-  translation 80 0 0
+  translation 40 0 0
   children [
     USE LightPointPos
     USE LightPoint
