@@ -16,11 +16,12 @@ PROFILE Interchange
 # in view3dscene (use "classic" raytracer for this model)
 # to render view of this model with shadows.
 #
-# Note: I use "ambientIntensity 1" for evey light to make this look the same
-# as VRML 1.0 analogous file (see ../vrml_1/lights.wrl).
-# In VRML 1.0 ambientIntensity is taken from
-# intensity, and default intensity is 1. In VRML >= 2.0 default ambientIntensity
-# is 0. So lights in VRML >= 2.0 by default are darker (and usually better-looking,
+# We want this to be exactly identical to analogous VRML 1.0 version inside
+# see ../vrml_1/lights.wrl. Just for the sake of test.
+# To do this, we use "ambientIntensity 1" for every light.
+# In VRML 1.0 ambientIntensity is taken from intensity,
+# and default intensity is 1. In VRML >= 2.0 default ambientIntensity is 0.
+# So lights in VRML >= 2.0 by default are darker (and usually better-looking,
 # actually) than VRML 1.0.
 
 NavigationInfo { headlight FALSE }
@@ -93,7 +94,7 @@ Switch {
           translation 4 0 0
           children Shape {
             appearance
-              DEF DefLitAppearance Appearance { material Material { } }
+              DEF DefLitAppearance Appearance { material Material { diffuseColor 1 1 1 } }
             geometry Box { }
           }
         }
@@ -110,7 +111,7 @@ Switch {
           translation 0 0 4
           children Shape {
             appearance Appearance {
-              material Material { }
+              material Material { diffuseColor 1 1 1 }
               texture ImageTexture { url "../textures/brick031.jpg" }
             }
             geometry Cone { }
