@@ -1,7 +1,7 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# Simple test of animating KambiHeadlight properties.
+# Simple test of animating headlight properties.
 
 EXTERNPROTO KambiTriangulation [
   inputOutput SFLong    quadricSlices

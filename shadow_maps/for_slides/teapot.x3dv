@@ -10,14 +10,11 @@ Viewpoint {
   orientation -0.0852522701025009 0.9960952401161193 0.0229517575353384 0.5282965898513793
 }
 
-NavigationInfo {
+KambiNavigationInfo {
   type [ "FLY" "EXAMINE", "ANY" ]
   headlight TRUE
   speed 10
-}
-
-KambiHeadLight {
-  intensity 0.2
+  headlightNode DirectionalLight { intensity 0.2 }
 }
 
 EXTERNPROTO TesselatedPlane [

@@ -25,14 +25,11 @@ Transform {
   }
 }
 
-NavigationInfo {
+KambiNavigationInfo {
   type [ "FLY" "EXAMINE", "ANY" ]
   headlight TRUE
   speed 10
-}
-
-KambiHeadLight {
-  intensity 0.2
+  headlightNode DirectionalLight { intensity 0.2 }
 }
 
 EXTERNPROTO TesselatedPlane [

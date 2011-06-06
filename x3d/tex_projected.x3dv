@@ -4,13 +4,10 @@ PROFILE Interchange
 # Projective texturing.
 # Test both with and without GLSL versions.
 
-NavigationInfo {
+KambiNavigationInfo {
   type [ "EXAMINE", "ANY" ]
   headlight TRUE
-}
-
-KambiHeadLight {
-  intensity 0.2
+  headlightNode DirectionalLight { intensity 0.2 }
 }
 
 # Camera settings "encoded" in the VRML declaration below :

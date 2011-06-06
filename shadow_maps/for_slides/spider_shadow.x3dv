@@ -7,17 +7,16 @@ PROFILE Interchange
 
 Background { skyColor 0.8 0.8 0.8 }
 
-NavigationInfo {
+KambiNavigationInfo {
 	headlight TRUE
 	type ["FLY", "ANY"]
 	avatarSize [0.25, 2, 0.75]
         speed 10
-}
-
-# brighter ambient, color, to make the shadow all the more visible
-KambiHeadLight {
-  ambientIntensity 1
-  color 2 2 2 # yes, we allow colors > 1 since OpenGL allows them
+        # brighter ambient, color, to make the shadow all the more visible
+        headlightNode DirectionalLight {
+          ambientIntensity 1
+          color 2 2 2 # yes, we allow colors > 1 since OpenGL allows them
+        }
 }
 
 EXTERNPROTO PlaneNotTesselated [

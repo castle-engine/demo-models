@@ -19,27 +19,25 @@
     }
   }
 
-  NavigationInfo {
+  KambiNavigationInfo {
     avatarSize [ 0.5, 2 ]
     speed 20
     headlight TRUE
     type "WALK"
+    headlightNode DirectionalLight {
+      ambientIntensity 0.5
+      intensity 0.5
+      color 1 1 1
+    }
   }
-
-  KambiHeadLight {
-    ambientIntensity 0.5
-    intensity 0.5
-    color 1 1 1
-  }
-
 
 Switch {
 	DEF MatGround
 	Material {
 		diffuseColor 0.983449 0.983351 0.983351
 		specularColor 0.213701 0.213701 0.213701
-		shininess 0.500000 
-		transparency 0.000000 
+		shininess 0.500000
+		transparency 0.000000
 	}
 
 	DEF MeshGround
@@ -241,4 +239,4 @@ Switch {
 #   rotation 0 1 0 1
 # }
 		USE MeshGround
-	
+

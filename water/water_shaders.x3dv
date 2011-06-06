@@ -70,12 +70,11 @@ KambiNavigationInfo {
   timeOriginAtLoad TRUE
   avatarSize [ 0.05, 0.10 ]
   type "FLY"
-}
-
-KambiHeadLight {
-  ambientIntensity 0.5
-  intensity 0.5
-  color 1 1 1
+  headlightNode DirectionalLight {
+    ambientIntensity 0.5
+    intensity 0.5
+    color 1 1 1
+  }
 }
 
 Transform {

@@ -2,21 +2,20 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
-NavigationInfo {
+KambiNavigationInfo {
   speed 5
   headlight TRUE
   type "WALK"
-}
-
-# Turn on normal directional headlight, we need this to have the scene basically
-# lighted (otherwise it's pure black everywhere, and fragment shader has
-# no color to multiply). Moreover, turn the color full white.
-# Shader will scale it down around headlight (alternative, when color is dim,
-# and shader scales it up, works badly, since we lose precision --- shader
-# gets dark colors with low precision).
-KambiHeadLight {
-  ambientIntensity 0.2
-  color 0.8 0.8 0.8
+  # Turn on normal directional headlight, we need this to have the scene basically
+  # lighted (otherwise it's pure black everywhere, and fragment shader has
+  # no color to multiply). Moreover, turn the color full white.
+  # Shader will scale it down around headlight (alternative, when color is dim,
+  # and shader scales it up, works badly, since we lose precision --- shader
+  # gets dark colors with low precision).
+  headlightNode DirectionalLight {
+    ambientIntensity 0.2
+    color 0.8 0.8 0.8
+  }
 }
 
 # Camera settings "encoded" in the VRML declaration below :
