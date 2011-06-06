@@ -33,13 +33,12 @@ Viewpoint {
   orientation -1.286994404381403E-007 1.0000003576278687 0 0.3465334475040435
 }
 
-NavigationInfo {
+KambiNavigationInfo {
   speed 5
   headlight TRUE
   type "WALK"
+  headlightNode DEF MyHeadLight SpotLight { cutOffAngle 0.1 beamWidth 0.05 }
 }
-
-DEF MyHeadLight KambiHeadLight { spot TRUE spotCutOffAngle 0.1 spotBeamWidth 0.05 }
 
 DEF MyTimer TimeSensor { loop TRUE }
 DEF InterpolateCutOff ScalarInterpolator {
@@ -48,7 +47,7 @@ DEF InterpolateCutOff ScalarInterpolator {
 }
 
 ROUTE MyTimer.fraction_changed TO InterpolateCutOff.set_fraction
-ROUTE InterpolateCutOff.value_changed TO MyHeadLight.spotCutOffAngle
+ROUTE InterpolateCutOff.value_changed TO MyHeadLight.cutOffAngle
 
 # DEF L Logger { enabled TRUE level 3 }
 # ROUTE InterpolateCutOff.value_changed TO L.write

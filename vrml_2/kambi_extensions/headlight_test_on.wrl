@@ -1,49 +1,33 @@
 #VRML V2.0 utf8
 
-EXTERNPROTO KambiHeadLight [
-  exposedField SFFloat     ambientIntensity
-  exposedField SFVec3f     attenuation
-  exposedField SFColor     color
-  exposedField SFFloat     intensity
-  exposedField SFBool      spot
-  exposedField SFFloat     spotDropOffRate
-  exposedField SFFloat     spotCutOffAngle
-  exposedField SFFloat     spotBeamWidth
-] [ "urn:vrmlengine.sourceforge.net:node:KambiHeadLight" ]
-
-NavigationInfo {
-  speed 5
-  type "WALK"
-}
-
 Switch {
   whichChoice 2
 
   choice [
-    KambiHeadLight {
-      color 1 1 0
-    }
-    KambiHeadLight {
-      color 1 1 0
-      spot TRUE
-      spotBeamWidth 0.05
-    }
-    KambiHeadLight {
-      color 1 1 1
-      ambientIntensity 1
-      spot TRUE
-      spotCutOffAngle 0.3
-      spotBeamWidth 0.1
-    }
-    KambiHeadLight {
-      # No dropOff. This is a sharp spot, spot circle should look
-      # tha same with OpenGL rendering and ray-tracer.
-      color 1 1 1
-      ambientIntensity 1
-      spot TRUE
-      spotCutOffAngle 0.3
-    }
-
+    KambiNavigationInfo { speed 5 type "WALK"
+      headlightNode DirectionalLight {
+        color 1 1 0
+      } }
+    KambiNavigationInfo { speed 5 type "WALK"
+      headlightNode SpotLight {
+        color 1 1 0
+        beamWidth 0.05
+      } }
+    KambiNavigationInfo { speed 5 type "WALK"
+      headlightNode SpotLight {
+        color 1 1 1
+        ambientIntensity 1
+        cutOffAngle 0.3
+        beamWidth 0.1
+      } }
+    KambiNavigationInfo { speed 5 type "WALK"
+      headlightNode SpotLight {
+        color 1 1 1
+        ambientIntensity 1
+        # No beamWidth. This is a sharp spot, spot circle should look
+        # tha same with OpenGL rendering and ray-tracer.
+        cutOffAngle 0.3
+      } }
   ]
 }
 
