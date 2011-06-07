@@ -27,15 +27,6 @@ uses SysUtils, KambiUtils, KambiClassUtils, VRMLNodes, Object3DAsVRML,
 const
   ShadowMapSize = 1024;
 
-procedure ForceSaveAsX3D(Model: TVRMLNode);
-begin
-  { TODO: when Model is not TVRMLRootNode, wrap it inside new
-    TVRMLRootNode. Don't assume Model always is TVRMLRootNode.
-    (For now, LoadVRML on VRML 97 file always produces file when it's true,
-    so no need.) }
-  (Model as TVRMLRootNode).ForceSaveAsX3D;
-end;
-
 { Find Blender's light with given name, and add X3D fields setting
   projection near/far for shadow maps. }
 procedure SetLightProjection(Model: TVRMLNode;
@@ -90,7 +81,7 @@ end;
 
 var
   FileName: string;
-  Model: TVRMLNode;
+  Model: TVRMLRootNode;
   Light: TNodeX3DLightNode;
 begin
   Parameters.CheckHigh(1);
@@ -100,7 +91,7 @@ begin
 
   Model := LoadVRML(FileName);
   try
-    ForceSaveAsX3D(Model);
+    Model.ForceSaveAsX3D;
 
     SetLightProjection(Model, 'Lamp_001', 8, 31, Light);
 //    SetLightProjection(Model, 'Lamp', 10, 34, Light);
