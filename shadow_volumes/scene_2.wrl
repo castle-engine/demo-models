@@ -25,5 +25,5 @@ Group {
     Cube { }
   }
 
-  WWWInline { name "house3.wrl" }
+  WWWInline { name "house3.x3dv" }
 }
