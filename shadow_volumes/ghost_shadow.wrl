@@ -1,7 +1,7 @@
 #VRML V1.0 ascii
 
-# This is actually VRML 1.0... I'm too lazy to move it to vrml_1 subdirectory,
-# with castle_with_shadows_tests dir having only a single file.
+# Demo that partially transparent object works as shadow caster too.
+# Assumes you have castle data in ../../castle/ directory.
 
 PointLight {
   location 2 0 4
