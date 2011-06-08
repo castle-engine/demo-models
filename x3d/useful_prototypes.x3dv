@@ -70,6 +70,7 @@ PROTO EditableTransform [
   inputOutput MFNode children []
   inputOutput SFVec3f translation 0 0 0
   inputOutput SFVec3f scale 1 1 1
+  inputOutput SFVec3f center 0 0 0
   inputOutput SFRotation rotation 0 1 0 0
   inputOutput SFString description ""
 
@@ -78,6 +79,9 @@ PROTO EditableTransform [
   # some angles.
   inputOutput SFVec2f minPosition -10 -10
   inputOutput SFVec2f maxPosition  10  10
+  
+  inputOutput SFVec2f minScale 0.1 0.1 # don't scale <= 0
+  inputOutput SFVec2f maxScale 10 10
 ] {
   Transform {
     children [
@@ -86,6 +90,7 @@ PROTO EditableTransform [
         scale IS scale
         rotation IS rotation
         children IS children
+        center IS center
       }
 
       DEF MoveSensor PlaneSensor {
@@ -95,8 +100,8 @@ PROTO EditableTransform [
       }
       DEF RotateSensor SphereSensor { enabled FALSE offset IS rotation }
       DEF ScaleSensor PlaneSensor { enabled FALSE offset IS scale
-        minPosition 0.1 0.1 # don't scale <= 0
-        maxPosition 10 10
+        minPosition IS minScale
+        maxPosition IS maxScale
       }
 
       DEF Key KeySensor { }
