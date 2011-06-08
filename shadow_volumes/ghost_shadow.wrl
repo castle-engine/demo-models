@@ -10,8 +10,8 @@ PointLight {
 }
 
 Group {
-  WWWInline { name "../../../../castle/data/creatures/ghost/ghost_header.wrl" separate FALSE }
-  WWWInline { name "../../../../castle/data/creatures/ghost/ghost_stand_1.wrl" }
+  WWWInline { name "../../castle/data/creatures/ghost/ghost_header.wrl" separate FALSE }
+  WWWInline { name "../../castle/data/creatures/ghost/ghost_stand_1.wrl" }
 }
 
 Translation {
