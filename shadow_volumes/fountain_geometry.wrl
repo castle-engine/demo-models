@@ -1,10 +1,56 @@
 #VRML V2.0 utf8
 
+# ----------------------------------------------------------------------------
+# The camera and the non-shadow-casting lights.
+
+PointLight {
+	intensity 0.2000000029802322
+	location 40 0 10
+}
+PointLight {
+	intensity 0.2000000029802322
+	location -40 0 10
+}
+PointLight {
+	intensity 0.2000000029802322
+	location 0 40 10
+}
+PointLight {
+	intensity 0.2000000029802322
+	location 0 -40 10
+}
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.277092695236206 -0.612786591053009 -0.3090673685073852
+# up 0.1720504313707351 -0.3804871141910553 0.9086408019065856
+# gravityUp 0 0 1
+Transform {
+  translation -1.551781177520752 8.2984724044799805 9.9686040878295898
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.0460275933146476 -0.9758579730987548 -0.2135013192892074 2.7268810272216797
+  }
+}
+
+# Shadowing light ------------------------------------------------------------
+
+PointLight {
+	intensity 0.4337606728076934
+	color 1 1 0.7948718070983886
+	ambientIntensity 0.2991453409194946
+	kambiShadows TRUE
+	kambiShadowsMain TRUE
+	location 0 0 10
+}
+
 NavigationInfo {
   avatarSize [ 0.5, 2 ]
   speed 10
   headlight FALSE
 }
+
+# Geometry -------------------------------------------------------------------
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.1520898938179016 -0.1298794895410537 -8.7422780126189537E-009
@@ -23,13 +69,24 @@ Transform {
   rotation 1 0 0 1.5707963705062866
 
   children Background {
-    backUrl "../../skies/sunset/sunset_back.png"
-    bottomUrl "../../skies/sunset/sunset_bottom.png"
-    frontUrl "../../skies/sunset/sunset_front.png"
-    leftUrl "../../skies/sunset/sunset_left.png"
-    rightUrl "../../skies/sunset/sunset_right.png"
-    topUrl "../../skies/sunset/sunset_top.png"
+    backUrl "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/skies/sunset/sunset_back.png"
+    bottomUrl "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/skies/sunset/sunset_bottom.png"
+    frontUrl "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/skies/sunset/sunset_front.png"
+    leftUrl "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/skies/sunset/sunset_left.png"
+    rightUrl "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/skies/sunset/sunset_right.png"
+    topUrl "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/skies/sunset/sunset_top.png"
   }
 }
 
-WWWInline { name "../../bump_mapping/vrmldata/levels/fountain/fountain_final.wrl" }
+EXTERNPROTO EditableTransform [
+  exposedField MFNode children
+  exposedField SFVec3f translation
+  exposedField SFVec3f scale
+  exposedField SFString description
+  exposedField SFVec2f minPosition
+  exposedField SFVec2f maxPosition
+] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+
+EditableTransform {
+  children Inline { url "../../kambi_vrml_game_engine/examples/vrml/bump_mapping/vrmldata/levels/fountain/fountain_final.wrl" }
+}
