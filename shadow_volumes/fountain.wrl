@@ -6,18 +6,22 @@
 PointLight {
 	intensity 0.2000000029802322
 	location 40 0 10
+        on FALSE
 }
 PointLight {
 	intensity 0.2000000029802322
 	location -40 0 10
+        on FALSE
 }
 PointLight {
 	intensity 0.2000000029802322
 	location 0 40 10
+        on FALSE
 }
 PointLight {
 	intensity 0.2000000029802322
 	location 0 -40 10
+        on FALSE
 }
 
 # Camera settings "encoded" in the VRML declaration below :
