@@ -1,6 +1,5 @@
-#VRML V1.0 ascii
-
-#VRML V1.0 ascii
+#X3D V3.2 utf8
+PROFILE Interchange
 
 # Shadow casting light -------------------------------------------------------
 
@@ -13,95 +12,73 @@ PointLight {
 
 # Shadow caster --------------------------------------------------------------
 
-Separator {
-DEF ShadowCasterNav_Matrix MatrixTransform {
+EXTERNPROTO EditableTransform [
+  inputOutput MFNode children
+  inputOutput SFVec3f translation
+  inputOutput SFVec3f scale
+  inputOutput SFString description
+  inputOutput SFVec2f minPosition
+  inputOutput SFVec2f maxPosition
+  inputOutput SFVec2f minScale
+  inputOutput SFVec2f maxScale
+  inputOutput SFVec3f center
+] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+
+MatrixTransform {
         matrix 0.00115212250966579 -0.50636279582977295 -0.08322570472955704 0
                 -0.02744636684656143 0.08304598182439804 -0.50564926862716675 0
                 0.51242220401763916 0.00558660877868533 -0.02689647115767002 0
                 0.51314711570739746 0.91405576467514038 0.85039228200912476 1
-}
-
-Separator {
-  Coordinate3 { point [ 0 0 0, 1 0 0, 0.5 1 0 ] }
-  IndexedFaceSet { coordIndex [ 0, 1, 2 ] }
-}
+  children EditableTransform {
+    children Shape {
+      appearance Appearance { material Material { } }
+      geometry IndexedFaceSet {
+        solid FALSE
+        coord Coordinate { point [ 0 0 0, 1 0 0, 0.5 1 0 ] }
+        coordIndex [ 0, 1, 2 ]
+      }
+    }
+  }
 }
 
 # Shadow receivers -----------------------------------------------------------
-
-#Kambi+
-Material {
-  ambientColor 0 0 0.5
-  diffuseColor 1 1 0
-}
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.005862169433385 0.005443801172078 -0.000000000247962
 # up -0.000000580178892 6.06079652243352E-007 1
 # gravityUp 0 0 1
-Separator {
-  Transform {
-    translation -0.979725062847137 -0.973870158195496 0.612691938877106
-    rotation 1 0 0 1.570796370506287
-  }
-  PerspectiveCamera {
+Transform {
+  translation -0.979725062847137 -0.973870158195496 0.612691938877106
+  rotation 1 0 0 1.570796370506287
+  children Viewpoint {
     position 0 0 0 # camera position is expressed by translation
     orientation -0.000000082890423 -1.00000011920929 0 0.822385370731354
   }
 }
 
-# PointLight {
-#   intensity 0.6
-#   location -1.4591929912567139 0.84364336729049683 2.5744502544403076
-# }
-
-# Blender V2.0
-
-# 'Switch' is used as a hack, to ensure it is not part of the drawing
-
-Separator {
-Switch {
-	DEF Plane
-	Separator {
-		Coordinate3 {
-			point [
-				 1.000000 1.000000 0.000000,
-				 1.000000 -1.000000 0.000000,
-				 -1.000000 -1.000000 0.000000,
-				 -1.000000 1.000000 0.000000,
-				 -1.000000 1.000000 2.000000,
-				 -1.000000 -1.000000 2.000000,
-				 1.000000 -1.000000 2.000000,
-				 1.000000 1.000000 2.000000,
-			]
-		}
-		IndexedFaceSet {
-			coordIndex [
-				 0, 3, 2, 1, -1,
-				 2, 3, 4, 5, -1,
-				 3, 0, 7, 4, -1,
-				 0, 1, 6, 7, -1,
-				 1, 2, 5, 6, -1,
-			]
-		}
-	}
-
-	# Hidden Objects, in invisible layers
-
-}
-
-# Visible Objects
-
-Separator {
-	Separator {
-		MatrixTransform {
-		matrix
-			1.000000 0.000000 0.000000 0.000000
-			0.000000 1.000000 0.000000 0.000000
-			0.000000 0.000000 1.000000 0.000000
-			0.000000 0.000000 0.000000 1.000000
-		}
-		USE Plane
-	}
-}
+Shape {
+  appearance Appearance {
+    shadowCaster FALSE
+    material Material { ambientIntensity 0.1 diffuseColor 1 1 0 } }
+  geometry IndexedFaceSet {
+    coord Coordinate {
+      point [
+               1.000000 1.000000 0.000000,
+               1.000000 -1.000000 0.000000,
+               -1.000000 -1.000000 0.000000,
+               -1.000000 1.000000 0.000000,
+               -1.000000 1.000000 2.000000,
+               -1.000000 -1.000000 2.000000,
+               1.000000 -1.000000 2.000000,
+               1.000000 1.000000 2.000000,
+      ]
+    }
+    coordIndex [
+             0, 3, 2, 1, -1,
+             2, 3, 4, 5, -1,
+             3, 0, 7, 4, -1,
+             0, 1, 6, 7, -1,
+             1, 2, 5, 6, -1,
+    ]
+  }
 }
