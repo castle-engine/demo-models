@@ -1,0 +1,8 @@
+chopper model, and everything else not mentioned below,
+by Kambi (Michalis Kamburelis). License: GPL >= 2.
+
+house3.3ds from www.3dcafe.com (from "free models" (exact license unsure),
+"architecture" section).
+
+stonehenge (base): somewhere from the Internet, sthenge.obj (Wavefront OBJ format),
+public domain as far as I remember.
