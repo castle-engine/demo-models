@@ -27,4 +27,4 @@ Transform {
   }
 }
 
-Inline { url "../../3ds/p47d.3ds" }
+Inline { url "p47d.3ds" }
