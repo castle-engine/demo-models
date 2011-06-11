@@ -2,9 +2,9 @@
 
 Group{
   NavigationInfo {
-    type ["ANY", "WALK"]
-    speed 70 # 2 times larger
+    type ["ANY", "FLY"]
     avatarSize [ 1.75, 3.5, 3.5 ]
+    speed 35
   }
   
   # Camera settings "encoded" in the VRML declaration below :
@@ -22,5 +22,5 @@ Group{
     }
   }
   
-  WWWInline { name "../../castle_with_lights.wrl" }
+  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
 }

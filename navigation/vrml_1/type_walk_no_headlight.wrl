@@ -5,10 +5,9 @@ Group{
     type ["ANY", "WALK"]
     headlight FALSE
     avatarSize [ 1.75, 3.5, 3.5 ]
-    visibilityLimit 20
     speed 35
   }
-
+  
   # Camera settings "encoded" in the VRML declaration below :
   # direction 0 0.700684607028961 0.000241928064497
   # up 0 -0.000345317530446 0.999999940395355
@@ -23,20 +22,6 @@ Group{
       orientation 0 0 1 0
     }
   }
-
-  Separator {
-    Rotation { rotation 1 0 0 1.57 }
-    Background {
-      backUrl "../../../skies/sky_lake_back.jpg"
-      bottomUrl "../../../skies/sky_lake_bottom.jpg"
-      frontUrl "../../../skies/sky_lake_front.jpg"
-      leftUrl "../../../skies/sky_lake_left.jpg"
-      rightUrl "../../../skies/sky_lake_right.jpg"
-      topUrl "../../../skies/sky_lake_top.jpg"
-    }
-  }
-
-  WWWInline { name
-    "../background_texture2.wrl"
-  }
+  
+  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
 }

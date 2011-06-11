@@ -7,5 +7,5 @@ Group{
     up 0.99999994039535522 0 4.37113882867379E-008
     gravityUp 1 0 0
   }
-  WWWInline { name "../castle_with_lights.wrl" }
+  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
 }
