@@ -190,7 +190,7 @@ DEF OB_JukeboxRightBottom Transform {
                 DEF LightRightBottom DirectionalLight { on FALSE direction 0 -1 0 }
                 Sound {
                   source DEF AudioRightBottom AudioClip {
-                    url "../sounds/alien_sudden_pain.wav"
+                    url "alien_sudden_pain.wav"
                 } }
 		DEF ME_Cube Group {
 			children [
@@ -298,7 +298,7 @@ DEF OB_JukeboxRightTop Transform {
                 DEF LightRightTop DirectionalLight { on FALSE direction 0 -1 0 }
                 Sound {
                   source DEF AudioRightTop AudioClip {
-                    url "../sounds/werewolf_howling.wav"
+                    url "werewolf_howling.wav"
                 } }
 		USE ME_Cube
 	]
@@ -312,7 +312,7 @@ DEF OB_JukeboxLeftTop Transform {
                 DEF LightLeftTop DirectionalLight { on FALSE direction 0 -1 0 }
                 Sound {
                   source DEF AudioLeftTop AudioClip {
-                    url "../sounds/intro_music_mono.ogg"
+                    url "intro_music_mono.ogg"
                 } }
 		USE ME_Cube
 	]
@@ -326,8 +326,8 @@ DEF OB_JukeboxLeftBottom Transform {
                 DEF LightLeftBottom DirectionalLight { on FALSE direction 0 -1 0 }
                 Sound {
                   source DEF AudioLeftBottom AudioClip {
-                    url "../sounds/player_potion_drink.wav"
-                    # url "../sounds/werewolf_howling.wav" # to test buffers cache
+                    url "player_potion_drink.wav"
+                    # url "werewolf_howling.wav" # to test buffers cache
                 } }
 		USE ME_Cube
 	]
