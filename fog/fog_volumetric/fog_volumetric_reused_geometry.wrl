@@ -31,7 +31,7 @@ DEF OB_Tree_006 Transform {
 							transparency 0.0
 						}
 						texture DEF tree_texture_jpg_001 ImageTexture {
-							url "../../../textures/tree_texture.jpg"
+							url "../../textures/tree_texture.jpg"
 						}
 					}
 					geometry IndexedFaceSet {

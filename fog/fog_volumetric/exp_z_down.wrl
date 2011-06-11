@@ -22,4 +22,4 @@ Transform {
   }
 }
 
-Inline { url "../../castle_with_lights.wrl" }
+Inline { url "../../vrml_2/castle_with_lights.wrl" }

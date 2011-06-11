@@ -29,7 +29,7 @@ Group {
   # to shine on test cube (with LocalFog) below.
   WWWInline {
     separate FALSE
-    name "../castle_with_lights.wrl"
+    name "../../vrml_1/castle_with_lights.wrl"
   }
 
   Separator {
