@@ -18,7 +18,7 @@ Group{
         # same as before, but with _some_ textures added
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
 	skyAngle [        0.8,   2,     2.5   ]
-	backUrl "../skies/sky_lake_back.jpg"
+	backUrl "../../skies/sky_lake_back.jpg"
       }
       Background {
         # This (one simple color for sky) should be rendered with view3dscene
@@ -90,5 +90,5 @@ Group{
     }
   }
 
-  WWWInline { name "../castle_with_lights.wrl" }
+  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
 }
