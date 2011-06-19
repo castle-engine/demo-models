@@ -31,4 +31,19 @@ Switch {
   ]
 }
 
-Inline { url "headlight_test_cube.wrl" }
+EXTERNPROTO KambiTriangulation [
+  exposedField SFLong    quadricSlices
+  exposedField SFLong    quadricStacks
+  exposedField SFLong    rectDivisions
+] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+
+# triangulate more, to properly see spot lights on this
+KambiTriangulation { rectDivisions 50 }
+
+Shape {
+  appearance Appearance { material Material {
+    diffuseColor 1 1 1 ambientIntensity 1 }
+  }
+  # In fact, something like "solid TRUE outside FALSE" would be even better.
+  geometry Box { size 10 10 10 solid FALSE }
+}
