@@ -39,6 +39,7 @@ EditableTransform {
       projectionNear 90
       projectionFar 100
       projectionAngle 0.15
+      radius 200
       defaultShadowMap GeneratedShadowMap { size 1024 update "ALWAYS" }
     }
     Shape {
