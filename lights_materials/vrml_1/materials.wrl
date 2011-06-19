@@ -15,7 +15,7 @@ Group {
     specularColor [] # browser should use default specular color
   }
   MaterialBinding { value PER_PART }
-  Texture2 { filename "../textures/brick031.jpg" }
+  Texture2 { filename "../../textures/brick031.jpg" }
 
   FontStyle { size 2 }
   AsciiText { string "once upon a time" }
