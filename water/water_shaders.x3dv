@@ -27,11 +27,11 @@ COMPONENT CubeMapTexturing:3
 
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
-] [ "../x3d/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+] [ "../prototypes/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
 
 EXTERNPROTO PlaneTesselated [
   inputOutput SFBool solid
-] [ "../x3d/useful_proto_plane_tess.x3dv#PlaneTesselated" ]
+] [ "../prototypes/useful_proto_plane_tess.x3dv#PlaneTesselated" ]
 
 # ----------------------------------------------------------------------------
 # Inline castle_hall level,

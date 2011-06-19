@@ -86,7 +86,7 @@ EXTERNPROTO EditableTransform [
   exposedField SFString description
   exposedField SFVec2f minPosition
   exposedField SFVec2f maxPosition
-] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 DEF OB_FountainCore EditableTransform {
 	translation 0.000000 0.000000 1.000000

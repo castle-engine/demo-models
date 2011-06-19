@@ -83,7 +83,7 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec2f maxPosition
   inputOutput SFVec2f minScale
   inputOutput SFVec2f maxScale
-] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 EditableTransform {
   translation 11025.0751953125 9071.5078125 3306.531494140625

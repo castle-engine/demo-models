@@ -19,14 +19,14 @@ KambiNavigationInfo {
 
 EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
-] [ "../../../demo_models/x3d/tesselated_plane.wrl#TesselatedPlane" ]
+] [ "../../prototypes/tesselated_plane.wrl#TesselatedPlane" ]
 
 EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
   inputOutput SFString description
-] [ "../../../demo_models/x3d/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 # spot test ------------------------------------------------------------------
 

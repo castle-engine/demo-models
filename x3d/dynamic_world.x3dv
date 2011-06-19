@@ -52,7 +52,7 @@ DEF Light PointLight {
 
 EXTERNPROTO ViewportInfo [
   inputOutput MFString info
-] [ "useful_prototypes.x3dv#ViewportInfo" ]
+] [ "../prototypes/useful_prototypes.x3dv#ViewportInfo" ]
 
 ViewportInfo {
   info [
@@ -77,7 +77,7 @@ EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 EditableTransform {
   translation 0 0.5 0

@@ -20,7 +20,7 @@ PointLight {
 #   exposedField SFString description
 #   exposedField SFVec2f minPosition
 #   exposedField SFVec2f maxPosition
-# ] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+# ] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 # EditableTransform {
 #
 # Needs updating everything to X3D or at least VRML 2.0.

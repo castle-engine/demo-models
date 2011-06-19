@@ -22,7 +22,7 @@ EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 # ----------------------------------------------------------------------------
 # Teapot

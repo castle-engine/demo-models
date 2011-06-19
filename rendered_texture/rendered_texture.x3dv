@@ -12,7 +12,7 @@ EXTERNPROTO EditableTransform [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.0162931103259325 -0.0087941382080316 0.0075629726052284

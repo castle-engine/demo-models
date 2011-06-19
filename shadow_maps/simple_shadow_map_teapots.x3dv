@@ -34,7 +34,7 @@ KambiNavigationInfo {
 
 EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
-] [ "../x3d/tesselated_plane.wrl#TesselatedPlane" ]
+] [ "../prototypes/tesselated_plane.wrl#TesselatedPlane" ]
 
 EXTERNPROTO ShadowMapReceiver [
   inputOutput SFNode texCoord
@@ -47,7 +47,7 @@ EXTERNPROTO EditableTransform [
   inputOutput SFString description
   inputOutput SFVec2f minPosition
   inputOutput SFVec2f maxPosition
-] [ "../x3d/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 # spot test ------------------------------------------------------------------
 

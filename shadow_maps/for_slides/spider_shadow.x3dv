@@ -21,7 +21,7 @@ KambiNavigationInfo {
 
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
-] [ "../../../demo_models/x3d/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+] [ "../../prototypes/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
 
 DEF MySpot SpotLight {
   location 0 0 3
