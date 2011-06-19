@@ -3,7 +3,7 @@
 # Demonstrates textured text.
 
 Group{
-  Texture2 { filename "../textures/brick031marked.jpg" }
+  Texture2 { filename "../../textures/brick031marked.jpg" }
   FontStyle { style BOLD }
   AsciiText { string ["just a few", "lines", "of textured text"] }
 
@@ -18,6 +18,6 @@ Group{
   # files with such Texture2.filename fields (i.e. not enclosed in 
   # double quotes).
 
-  Texture2 { filename ../textures/test_texture.png }
+  Texture2 { filename ../../textures/test_texture.png }
   AsciiText { string ["and a few more", "lines", "of textured text"] }
 }
