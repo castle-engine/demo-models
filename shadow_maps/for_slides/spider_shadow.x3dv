@@ -1,9 +1,12 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# To make a perfect screenshot:
-# - apply spider_shadow_shaders.patch, make to regen shaders, recompile
-# - remember to turn off box and status in view3dscene
+# This was used to make a spider screenshot for slides.
+#
+# History: I made the outside of spot circle bright, in a hacky way:
+# modifying spot light shader to return 1 (not 0) when we're outside
+# the shadow map. For new engine, also checking for spot cutOffAngle
+# should be temporarily removed.
 
 Background { skyColor 0.8 0.8 0.8 }
 
@@ -14,7 +17,6 @@ KambiNavigationInfo {
         speed 10
         # brighter ambient, color, to make the shadow all the more visible
         headlightNode DirectionalLight {
-          ambientIntensity 1
           color 2 2 2 # yes, we allow colors > 1 since OpenGL allows them
         }
 }
