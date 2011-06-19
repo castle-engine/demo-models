@@ -104,7 +104,13 @@ Transform {
         shaders DEF ProjShader ComposedShader {
           language "GLSL"
           initializeOnly SFInt32 tex 0
-          parts ShaderPart { type "FRAGMENT" url "tex_projected.fs" }
+          parts ShaderPart { type "FRAGMENT" url "data:text/plain,
+
+          uniform sampler2D tex;
+          void main(void)
+          {
+            gl_FragColor = texture2DProj(tex, gl_TexCoord[0]) * gl_Color;
+          }" }
         }
       }
       geometry TesselatedPlane {
