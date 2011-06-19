@@ -20,8 +20,8 @@ Shape {
       color 1 0 0
 
       texture [
-        ImageTexture { url "../../textures/pattern_tex.png" alphaChannel "FULL_RANGE" }
-        ImageTexture { url "../../textures/test_texture.png" alphaChannel "FULL_RANGE" }
+        ImageTexture { url "../textures/pattern_tex.png" alphaChannel "FULL_RANGE" }
+        ImageTexture { url "../textures/test_texture.png" alphaChannel "FULL_RANGE" }
       ]
     }
     material Material { }
