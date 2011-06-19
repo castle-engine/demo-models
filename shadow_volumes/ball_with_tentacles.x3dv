@@ -83,6 +83,6 @@ EXTERNPROTO EditableTransform [
 EditableTransform {
   minPosition -5000 -5000
   maxPosition  5000  5000
-  center 11000 10000 8000
+  center 11000 10000 3000
   children Inline { url "ball_with_tentacles_shadow_caster.wrl" }
 }
