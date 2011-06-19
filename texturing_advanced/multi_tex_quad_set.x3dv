@@ -186,8 +186,8 @@ Transform {
             repeatT TRUE
           }
           MovieTexture {
-            url [ "../vrml_2/movie_texture/flame/seamless/%4d.png"
-                  "../vrml_2/movie_texture/flame/flame_seamless_compressed.avi" ]
+            url [ "../movie_texture/flame/seamless/%4d.png"
+                  "../movie_texture/flame/flame_seamless_compressed.avi" ]
             repeatS FALSE
             repeatT FALSE
             loop TRUE

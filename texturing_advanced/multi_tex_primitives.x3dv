@@ -14,8 +14,8 @@ Transform {
             url "../textures/test_texture.png"
           }
           MovieTexture {
-            url [ "../vrml_2/movie_texture/flame/seamless/%4d.png"
-                  "../vrml_2/movie_texture/flame/flame_seamless_compressed.avi" ]
+            url [ "../movie_texture/flame/seamless/%4d.png"
+                  "../movie_texture/flame/flame_seamless_compressed.avi" ]
             loop TRUE
             alphaChannel "SIMPLE_YES_NO" # hack to prevent using blending
           }

@@ -26,7 +26,7 @@ Transform {
 
 EXTERNPROTO TesselatedPlane [
   inputOutput SFNode texCoord
-] [ "tesselated_plane.wrl#TesselatedPlane" ]
+] [ "../prototypes/tesselated_plane.wrl#TesselatedPlane" ]
 
 Collision { enabled FALSE # don't waste time on collisions with this scene
   children [
