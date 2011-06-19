@@ -86,7 +86,7 @@ Transform {
   children Shape {
     appearance Appearance {
       texture DEF MovieTex MovieTexture {
-        url "../vrml_2/movie_texture/test_video.avi"
+        url "../movie_texture/test_video.avi"
         speed 10000
       } }
     geometry Box { size 3 3 3 }
