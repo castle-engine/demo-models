@@ -1,7 +1,7 @@
 This the P47 Thunderbolt of World War II. It is the first in a
 series of WWII aircraft that I am working on. As such, some of
 it is a little crude and unfinished, so feel free to touch it
-up. I may go ahead and modify it and re-upload it later. 
+up. I may go ahead and modify it and re-upload it later.
 
 This object is copyrighted by me, Orin Palmer. You may freely
 distribute, but please leave this Readme file with it. (everyone
@@ -12,3 +12,6 @@ has evolved.
 
         Orin Palmer (Sysop) Katatania Tales, (619) 420-4120
           or upload it to;   Amiga-nonymous  (619) 477-2368
+
+Kambi (Michalis Kamburelis) notes:
+this was downloaded from www.3dcafe.com (from free models section).
