@@ -47,7 +47,7 @@ Transform {
   scale 0.1 0.1 0.1
   translation -0.5 0 -0.5
   rotation 0 0 1 1.57
-  children Inline { url "../x3d/worm_crawl.x3dv" }
+  children Inline { url "../animation_simple_interpolation_and_time/worm_crawl.x3dv" }
 }
 
 # light source ---------------------------------------------------------------

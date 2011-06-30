@@ -12,7 +12,7 @@ Group {
   # the last material in inlined file, the matrix state at the end of
   # the inlined file do not change our Cube in any way.
   Separator {
-    WWWInline { name "../materials.wrl" }
+    WWWInline { name "../../lights_materials/vrml_1/materials.wrl" }
     Translation { translation 40 0 0 }
     Cube { }
   }
@@ -22,7 +22,7 @@ Group {
   # Same as above, just value of separate is specified explicitly.
   Separator {
     WWWInline {
-      name "../materials.wrl"
+      name "../../lights_materials/vrml_1/materials.wrl"
       separate TRUE }
     Translation { translation 40 0 0 }
     Cube { }
@@ -35,7 +35,7 @@ Group {
   # changes the way Cube is displayed.
   Separator {
     WWWInline {
-      name "../materials.wrl"
+      name "../../lights_materials/vrml_1/materials.wrl"
       separate FALSE }
     Translation { translation 40 0 0 }
     Cube { }
