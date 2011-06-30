@@ -2,7 +2,7 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
-# Copied from ../../vrml_2/specular_demo.wrl for kanim demo
+# Copied from ../../lights_materials/specular_demo.wrl for kanim demo
 # (and changed to X3D with shaders)
 
 NavigationInfo {
