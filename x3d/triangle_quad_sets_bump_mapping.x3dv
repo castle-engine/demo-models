@@ -25,8 +25,7 @@ Transform {
   children Shape {
     appearance DEF Col1App KambiAppearance { material Material { }
       texture   ImageTexture { url "../textures/lion.png" }
-      normalMap ImageTexture { url "../textures/lion_normal_map.png" }
-      heightMap ImageTexture { url "../textures/lion_height_map.png" }
+      normalMap ImageTexture { url "../textures/lion_normal_height_maps.png" }
       heightMapScale 0.02
     }
     geometry IndexedTriangleSet {

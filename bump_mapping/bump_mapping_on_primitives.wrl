@@ -23,8 +23,7 @@ Transform {
     appearance DEF App KambiAppearance {
       material Material { }
       texture DEF rock_d01_png ImageTexture { url "cloth/rock_d01.png" }
-      normalMap ImageTexture { url "cloth/rock_d01_normalmap.png" }
-      heightMap ImageTexture { url "cloth/rock_d01_heightmap.png"}
+      normalMap ImageTexture { url "cloth/rock_d01_normal_height_maps.png" }
       heightMapScale 0.01
     }
     geometry Box { }
