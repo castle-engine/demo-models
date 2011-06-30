@@ -1,6 +1,8 @@
 #VRML V2.0 utf8
 
-# Copied from ../vrml_2/specular_demo.wrl for kanim demo.
+# Copied from ../lights_materials/specular_demo.wrl for kanim demo.
+# Open specular_demo.kanim, and be sure to turn on
+# "Shaders->Enable For Everything" to see nice specular highlights.
 
 NavigationInfo {
   type "FLY"
