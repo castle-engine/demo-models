@@ -137,7 +137,7 @@ DEF Obj_001 Transform {
           void main (void) {
             gl_FragColor =
               shadow2DProj (shadowMap, gl_TexCoord[0]).r * gl_Color +
-              gl_FrontLightModelProduct.sceneColor + gl_FrontLightProduct[1].ambient;
+                gl_FrontLightModelProduct.sceneColor;
           }
         " }
       }
