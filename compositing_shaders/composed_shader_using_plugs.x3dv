@@ -19,7 +19,8 @@ Transform {
 /* PLUG-DECLARATIONS */
 void main(void)
 {
-  vec4 vertex_eye = gl_ModelViewMatrix * gl_Vertex;
+  vec4 vertex_object = gl_Vertex;
+  vec4 vertex_eye = gl_ModelViewMatrix * vertex_object;
   vec3 normal_eye = normalize(gl_NormalMatrix * gl_Normal);
   /* PLUG: vertex_eye_space (vertex_eye, normal_eye) */
 
