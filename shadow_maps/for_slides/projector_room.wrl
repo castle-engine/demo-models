@@ -67,22 +67,21 @@ DEF OB_Tube_001 Transform {
 							shininess 0.0976563
 							transparency 0.0
 						}
-                                                texture DEF MyTex ShaderTexture {
-                                                  effects DEF MyEffect Effect {
-                                                    exposedField SFNode baseTexture ImageTexture { url "../../textures/test_texture.png" }
+                                                texture DEF MyTex ImageTexture {
+                                                  url "../../textures/test_texture.png"
+                                                  effects Effect {
                                                     language "GLSL"
                                                     parts [
                                                       EffectPart { type "FRAGMENT" url "
-uniform sampler2D baseTexture;
 void PLUG_texture_color(
   inout vec4 texture_color,
+  const in sampler2D texture,
   const in vec4 tex_coord)
 {
-  texture_color = texture2DProj(baseTexture, tex_coord);
   vec2 coord2 = tex_coord.st / tex_coord.w;
   if (coord2.s <= 0 || coord2.s >= 1 ||
       coord2.t <= 0 || coord2.t >= 1)
-    texture_color /= 5.0;
+    texture_color.rgb /= 5.0;
 }
 " }
                                                   ]
