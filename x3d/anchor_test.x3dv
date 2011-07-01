@@ -30,7 +30,7 @@ NavigationInfo {
 }
 
 Anchor {
-  url "touch_sensor_tests.x3dv"
+  url "../sensors_pointing_device/touch_sensor_tests.x3dv"
   children [
     Shape {
       appearance DEF App1 Appearance { material Material { diffuseColor 1 0 0 } }
@@ -46,7 +46,7 @@ Anchor {
 Transform {
   translation 0 -2 0
   children Anchor {
-    url "key_sensor.x3dv"
+    url "../sensors_key/key_sensor.x3dv"
     description "Description for Anchor leading to KeySensor"
     children [
       Shape {
