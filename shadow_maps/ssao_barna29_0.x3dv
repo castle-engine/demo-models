@@ -7,11 +7,16 @@ Background {
 	skyColor 1 1 1
 }
 
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0.9639396071434021 -2.7668244401184627E-015 0.2661199271678924
+# up -4.2135148703437153E-008 1 -1.1632482532775157E-008
+# gravityUp 0 1 0
 DEF Camera_001 Viewpoint {
-	description "Camera.001" 
-	position 0 0 0
-	orientation 0 1 0 0
+  position -28.990253448486328 2.1700000762939453 10.867274284362793
+  orientation -2.8703297486905701E-015 -1 0 1.840161919593811
 }
+
+NavigationInfo { type "FLY" speed 10 }
 
 DEF scr Script {
 	inputOnly SFMatrix4f cameraInverseMatrix
