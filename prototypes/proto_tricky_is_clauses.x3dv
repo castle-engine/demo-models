@@ -1,0 +1,34 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Some test of tricky IS clause declarations
+
+PROTO Proto1 [
+  inputOnly SFBool someEvent
+  inputOnly SFBool someEvent2
+  inputOnly SFBool someEvent3
+  inputOutput SFBool someField TRUE
+] {
+  Script {
+    # yes, declarations here may also contain IS clauses
+    inputOnly SFBool anotherEvent IS someEvent
+    inputOutput SFBool anotherField IS someField
+    # also normal IS clauses, to add more events
+    anotherEvent IS someEvent2
+    anotherEvent IS someEvent3
+    anotherField IS someEvent2
+    anotherField IS someEvent3
+    url "kambiscript:"
+  }
+  NavigationInfo {
+    # yes, it can be both field and accept input event
+    headlight IS someEvent
+    headlight IS someEvent2
+    headlight IS someField
+  }
+}
+
+Proto1 { }
+
+# dummy shape, to see if the headlight is on
+Shape { appearance Appearance { material Material { } } geometry Sphere { } }
