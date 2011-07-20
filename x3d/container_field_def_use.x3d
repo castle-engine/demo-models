@@ -7,17 +7,24 @@
   and you USE this node
   (without explicit containerField indication at USE place),
   where should this node go?
-  To the default containerField of the node class?
-  Or to the containerField indicated by last DEF?
+  To the default containerField of the node class (1)?
+  Or to the containerField indicated by last DEF (2)?
 
   In other words, is the containerField value preserved for all next
-  USEs of a given node (1), or not (2)?
+  USEs of a given node (2), or not (1)?
+
   You should only see one yellow sphere if (1).
   You should see one yellow sphere and one gray to the right if (2).
 
   (Of course a writer can always put containerField= along with every USE,
   spec explicitly allows this. And it makes the situation unambigous.
   But what if we have a file without it?)
+
+  Tests with other browsers:
+  - InstantPlayer says (1).
+  - FreeWRL probably says (1) (there's a gray sphere on the left,
+    which means that either Viewpoint or translation got reversed,
+    or containerField is totally broken).
 -->
 
 <head>
