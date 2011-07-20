@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+
+<!-- Question: In X3D XML encoding,
+  when a node has DEF with (non-default) value of containerField,
+  and you USE this node
+  (without explicit containerField indication at USE place),
+  where should this node go?
+  To the default containerField of the node class?
+  Or to the containerField indicated by last DEF?
+
+  In other words, is the containerField value preserved for all next
+  USEs of a given node (1), or not (2)?
+  You should only see one yellow sphere if (1).
+  You should see one yellow sphere and one gray to the right if (2).
+
+  (Of course a writer can always put containerField= along with every USE,
+  spec explicitly allows this. And it makes the situation unambigous.
+  But what if we have a file without it?)
+-->
+
+<head>
+</head>
+<Scene>
+  <Collision>
+    <Shape DEF="MyShape" containerField="proxy">
+      <Appearance> <Material/> </Appearance>
+      <Sphere />
+    </Shape>
+  </Collision>
+
+  <Transform translation="4 0 0">
+    <Collision>
+      <Shape USE="MyShape" />
+    </Collision>
+  </Transform>
+
+  <!-- Camera settings "encoded" in the X3D declaration below :
+    direction 0 0 -1
+    up 0 1 0
+    gravityUp 0 1 0 -->
+  <Viewpoint
+    position="2 0 6"
+    orientation="0 0 1 0"
+  />
+
+  <!-- Another sphere in the middle,
+    just to make sure you're looking at the right place -->
+  <Transform translation="2 0 0">
+    <Shape>
+      <Appearance> <Material diffuseColor="1 1 0" /> </Appearance>
+      <Sphere />
+    </Shape>
+  </Transform>
+</Scene>
+</X3D>
