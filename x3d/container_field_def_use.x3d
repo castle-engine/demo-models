@@ -20,11 +20,12 @@
   spec explicitly allows this. And it makes the situation unambigous.
   But what if we have a file without it?)
 
-  Tests with other browsers:
+  Tests with browsers:
   - InstantPlayer says (1).
   - FreeWRL probably says (1) (there's a gray sphere on the left,
     which means that either Viewpoint or translation got reversed,
     or containerField is totally broken).
+  - view3dscene, since 3.10.1, also follows (1).
 -->
 
 <head>
