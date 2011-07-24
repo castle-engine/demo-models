@@ -1,0 +1,38 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Transform {
+  rotation 1 0 0 1.57
+  children Background {
+    backUrl "../skies/sunset_back.png"
+    bottomUrl "../skies/sunset_bottom.png"
+    frontUrl "../skies/sunset_front.png"
+    leftUrl "../skies/sunset_left.png"
+    rightUrl "../skies/sunset_right.png"
+    topUrl "../skies/sunset_top.png"
+  }
+}
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0.2940665185451507 0.9529988169670105 -0.0728395283222198
+# up 0.0646214932203292 0.0562100373208522 0.9963191151618957
+# gravityUp 0 1 0
+Viewpoint {
+  position -37.91656494140625 -115.01443481445313 39.221107482910156
+  orientation 0.9754984378814697 -0.1246128901839256 -0.1813133209943771 1.5294609069824219
+  description "For view3dscene webpage"
+}
+
+SpotLight {
+  location 0 0 100
+  # location -52.448650360107422 121.08433532714844 199.31890869140625
+  # direction 0.2527428269386291 -0.5487062335014343 -0.7968955636024475
+  # up 0.4866915941238403 -0.6397455930709838 0.594858705997467
+  color 1 0.5 0.5
+  radius 10000
+  beamWidth 0.5
+  #  shadows TRUE
+  #  defaultShadowMap GeneratedShadowMap { size 1024 update "ALWAYS" }
+}
+
+Inline { url "../vrml_2/castle.wrl" }
