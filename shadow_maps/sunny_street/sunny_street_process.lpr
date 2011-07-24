@@ -87,7 +87,7 @@ begin
   Parameters.CheckHigh(1);
   FileName := Parameters[1];
 
-  VRMLWarning := @VRMLWarning_Write;
+  OnWarning := @OnWarningWrite;
 
   Model := LoadVRML(FileName);
   try
