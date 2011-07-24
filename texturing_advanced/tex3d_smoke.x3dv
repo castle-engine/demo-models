@@ -142,6 +142,19 @@ PointLight {
         radius 1000000
 }
 
+Separator {
+  Rotation { rotation 1 0 0 1.57 }
+
+  Background {
+    backUrl "../../castle/data/skies/sky_back.png"
+    bottomUrl "../../castle/data/skies/sky_bottom.png"
+    frontUrl "../../castle/data/skies/sky_front.png"
+    leftUrl "../../castle/data/skies/sky_left.png"
+    rightUrl "../../castle/data/skies/sky_right.png"
+    topUrl "../../castle/data/skies/sky_top.png"
+  }
+}
+
 Inline { url "../../castle/data/levels/gate/gate_final.wrl"
 #   replaceNames "LevelBox"
 #   replaceNodes Group { }
