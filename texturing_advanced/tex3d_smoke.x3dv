@@ -142,10 +142,8 @@ PointLight {
         radius 1000000
 }
 
-Separator {
-  Rotation { rotation 1 0 0 1.57 }
-
-  Background {
+Transform { rotation 1 0 0 1.57
+  children Background {
     backUrl "../../castle/data/skies/sky_back.png"
     bottomUrl "../../castle/data/skies/sky_bottom.png"
     frontUrl "../../castle/data/skies/sky_front.png"
