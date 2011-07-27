@@ -1,22 +1,22 @@
 #VRML V1.0 ascii
 
-# base test of non-convex faces handling
+# Concave face in VRML 1.0. See ../x3d/concave.x3dv for similar X3D test.
 
 Separator {
   ShapeHints { faceType UNKNOWN_FACE_TYPE }
   Coordinate3 {
 	  point [ +0.000000000e+00 +5.000000000e-01 +0.000000000e+00,
-	  
+
 	          # same vertex specified multiple times
 	          +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
 	          +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
 	          +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
 	          +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
-	          
+
 	          +2.500000000e+00 +1.850000000e+00 +0.000000000e+00,
 	          +2.850000000e+00 +1.850000000e+00 +0.000000000e+00,
 	          +2.850000000e+00 +1.500000000e-01 +0.000000000e+00,
-	          
+
 	          # same vertex specified multiple times
 	          +0.000000000e+00 +1.500000000e-01 +0.000000000e+00,
 		  +0.000000000e+00 +1.500000000e-01 +0.000000000e+00 ]
