@@ -1,0 +1,83 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Tests of concave faces.
+
+# From #3378759, "IndexedPolygonNormal not working on all concave faces",
+# https://sourceforge.net/tracker/?func=detail&atid=974391&aid=3378759&group_id=200653
+
+Shape {
+  appearance Appearance { material Material { diffuseColor 1 1 0 } }
+  geometry IndexedFaceSet {
+    creaseAngle 0
+    solid FALSE
+    convex FALSE
+    coord Coordinate { point [-1 0 0,0 1 0,1 -1 0, 0 0 0,-1 0 0] }
+    coordIndex [0,1,2,3]
+  }
+}
+
+Transform { translation 0 3 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry IndexedFaceSet {
+      creaseAngle 0
+      solid FALSE
+      convex FALSE
+      coord Coordinate { point [0 0 0,-1 0 0,0 1 0,1 0 0, 0 -1 0] }
+      coordIndex [4,1,0,2,3,0]
+    }
+  }
+}
+
+# Equivalent to VRML 1.0 version in ../vrml_1/non_convex_face.wrl
+
+Transform { translation 3 0 0
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry IndexedFaceSet {
+      convex FALSE
+      solid FALSE
+      coord Coordinate {
+            point [ +0.000000000e+00 +5.000000000e-01 +0.000000000e+00,
+                    +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
+                    +2.500000000e+00 +1.850000000e+00 +0.000000000e+00,
+                    +2.850000000e+00 +1.850000000e+00 +0.000000000e+00,
+                    +2.850000000e+00 +1.500000000e-01 +0.000000000e+00,
+                    +0.000000000e+00 +1.500000000e-01 +0.000000000e+00 ]
+      }
+      coordIndex [ 0, 1, 2, 3, 4, 5 ]
+    }
+  }
+}
+
+Transform { translation 3 3 0
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry IndexedFaceSet {
+      convex FALSE
+      solid FALSE
+      coord Coordinate {
+            point [ +0.000000000e+00 +5.000000000e-01 +0.000000000e+00,
+
+                    # For the sake of test, specify the same vertex value
+                    # (not index, but value!) multiple times.
+
+                    # same vertex specified multiple times
+                    +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
+                    +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
+                    +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
+                    +2.500000000e+00 +5.000000000e-01 +0.000000000e+00,
+
+                    +2.500000000e+00 +1.850000000e+00 +0.000000000e+00,
+                    +2.850000000e+00 +1.850000000e+00 +0.000000000e+00,
+                    +2.850000000e+00 +1.500000000e-01 +0.000000000e+00,
+
+                    # same vertex specified multiple times
+                    +0.000000000e+00 +1.500000000e-01 +0.000000000e+00,
+                    +0.000000000e+00 +1.500000000e-01 +0.000000000e+00 ]
+      }
+      coordIndex [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    }
+  }
+}
