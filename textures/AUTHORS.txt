@@ -1,0 +1,37 @@
+Many textures in this directory come from
+public domain textures from unfinished game "Golgotha":
+http://www.wolfiesden.com/golgotha/golgotha.asp
+(previously on http://www.jonathanclark.com/, but they don't seem
+available there anymore).
+
+016marbre, 17_gris_vert, (probably) bois5 from
+LeMog - 3d Textures:
+http://www.lemog.fr/lemog_textures/index.php
+
+tree_sprite rendered from a model
+"Tree leave LowPoly", by Moser Juan Jose, CC-BY 3.0, from
+http://opengameart.org/content/tree-leave-lowpoly
+
+test_texture.png based on this photo
+http://gimp-savvy.com/cgi-bin/img.cgi?ufwsMV1VJR1LXOE702
+from Copyright-Free Photo Archive on
+http://gimp-savvy.com/PHOTO-ARCHIVE/
+(public domain).
+
+brick031.jpg from http://www.grsites.com/
+
+leaf* textures based on
+"Maple leaf on concrete" photo by Martin LaBar,
+http://flickr.com/photos/martinlabar/2072745893/
+
+lion bump mapping textures from
+Philippe David steep parallax mapping code,
+http://www-static.cc.gatech.edu/grads/d/davidp/parallax_mapping/ ,
+based on paper about steep mapping:
+http://graphics.cs.brown.edu/games/SteepParallax/index.html
+
+blood_in_the_eyes texture based on a fragment of
+Poppy background by Pieter Krul (GNU LGPL)
+http://ftp.gnome.org/pub/GNOME/teams/art.gnome.org/backgrounds/NATURE-Poppy_1024x768.jpg
+from art.gnome.org nature backgrounds:
+http://art.gnome.org/backgrounds/nature
