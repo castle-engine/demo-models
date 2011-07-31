@@ -29,7 +29,7 @@ Transform {
         initializeOnly SFNode texture_squirrel
           ImageTexture { url "../../textures/test_texture.png" }
         initializeOnly SFNode texture_brick
-          ImageTexture { url "../../textures/brick031.jpg" }
+          ImageTexture { url "../../textures/bricks2.jpg" }
 
         # These both should make nice warnings, and still allow shader to run.
         initializeOnly SFNode non_existing_field

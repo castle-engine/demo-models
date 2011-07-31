@@ -112,7 +112,7 @@ Switch {
           children Shape {
             appearance Appearance {
               material Material { diffuseColor 1 1 1 }
-              texture ImageTexture { url "../textures/brick031.jpg" }
+              texture ImageTexture { url "../textures/bricks2.jpg" }
             }
             geometry Cone { }
           }

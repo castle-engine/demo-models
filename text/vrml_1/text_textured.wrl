@@ -3,7 +3,7 @@
 # Demonstrates textured text.
 
 Group{
-  Texture2 { filename "../../textures/brick031marked.jpg" }
+  Texture2 { filename "../../textures/bricks2.jpg" }
   FontStyle { style BOLD }
   AsciiText { string ["just a few", "lines", "of textured text"] }
 

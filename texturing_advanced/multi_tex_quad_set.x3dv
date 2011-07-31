@@ -77,7 +77,7 @@ Transform {
       texture MultiTexture {
         texture [
           ImageTexture { url "../textures/test_texture.png" }
-          ImageTexture { url "../textures/brick031.jpg" }
+          ImageTexture { url "../textures/bricks2.jpg" }
         ]
       }
       # This TextureTransform *should* be ignored (that is, both
@@ -110,7 +110,7 @@ Transform {
       texture MultiTexture {
         texture [
           ImageTexture { url "../textures/test_texture.png" }
-          ImageTexture { url "../textures/brick031.jpg" }
+          ImageTexture { url "../textures/bricks2.jpg" }
         ]
       }
       textureTransform MultiTextureTransform {
@@ -145,7 +145,7 @@ Transform {
       texture MultiTexture {
         texture [
           ImageTexture { url "../textures/test_texture.png" }
-          ImageTexture { url "../textures/brick031.jpg" }
+          ImageTexture { url "../textures/bricks2.jpg" }
         ]
       }
       textureTransform MultiTextureTransform {

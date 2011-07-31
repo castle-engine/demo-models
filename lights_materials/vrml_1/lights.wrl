@@ -58,7 +58,7 @@ Group{
       Translation { translation -4 4 0 }
       Sphere {}
       Translation { translation 0 -4 4 }
-      Texture2 { filename "../../textures/brick031.jpg" }
+      Texture2 { filename "../../textures/bricks2.jpg" }
       Cone {}
       Translation { translation 0 0 -20 }
       Texture2 { }

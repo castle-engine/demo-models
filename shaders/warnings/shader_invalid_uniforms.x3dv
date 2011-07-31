@@ -11,7 +11,7 @@ Shape {
   appearance Appearance {
     shaders DEF MyShader ComposedShader {
       language "GLSL"
-      inputOutput SFNode tex ImageTexture  { url "../../textures/brick031.jpg" }
+      inputOutput SFNode tex ImageTexture  { url "../../textures/bricks2.jpg" }
       inputOutput SFColor color 1 1 0
       # Invalid uniform type
       inputOutput SFVec3f color_scale 1 2 3
@@ -20,7 +20,7 @@ Shape {
       # Not existing uniform (inputOnly)
       inputOnly SFVec3f not_existing_event
       # Not existing uniform (texture)
-      inputOutput SFNode tex_not_existing ImageTexture  { url "../../textures/brick031.jpg" }
+      inputOutput SFNode tex_not_existing ImageTexture  { url "../../textures/bricks2.jpg" }
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
           void main(void)

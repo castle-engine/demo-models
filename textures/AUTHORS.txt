@@ -18,7 +18,9 @@ from Copyright-Free Photo Archive on
 http://gimp-savvy.com/PHOTO-ARCHIVE/
 (public domain).
 
-brick031.jpg from http://www.grsites.com/
+bricks2.jpg from
+http://opengameart.org/content/brick-texture
+GPL >= 2.0, CC-BY-SA >= 3.0.
 
 leaf* textures based on
 "Maple leaf on concrete" photo by Martin LaBar,

@@ -7,7 +7,7 @@ Group {
     Shape {
       appearance Appearance {
         material Material { }
-        texture ImageTexture { url "../textures/brick031marked.jpg" }
+        texture ImageTexture { url "../textures/bricks2.jpg" }
       }
       geometry Text {
         fontStyle DEF FS FontStyle { style "BOLD" size 10 }
