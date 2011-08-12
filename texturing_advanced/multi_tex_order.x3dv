@@ -1,0 +1,60 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:3
+
+# A trivial demo of multitexturing, showing also that the order
+# of multitextures matters obviously matters for some modes.
+#
+# From left to right:
+# - yellowish material * 1st texture
+# - yellowish material * 2nd texture
+# - yellowish material * 1st texture + 2nd texture
+# - yellowish material * 2nd texture + 1st texture
+#
+# "yellowish material" above means actually
+# "X3D yellowish material combined with lighting".
+#
+# TODO: add   glLightModelv(GL_LIGHT_MODEL_AMBIENT, Vector4Single(0.8, 0.8, 0.8, 1.0));
+
+
+Transform {
+  children Shape { appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+      texture DEF I1 ImageTexture { url "../textures/brick_1.png" }
+    }
+    geometry Box { }
+  }
+}
+
+Transform { translation 3 0 0
+  children Shape { appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+      texture DEF I2 ImageTexture { url "../textures/castle/bridgerock512side.jpg" }
+    }
+    geometry Box { }
+  }
+}
+
+Transform { translation 6 0 0
+  children Shape { appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+      texture MultiTexture {
+        texture [ USE I1 USE I2 ]
+        mode [ "MODULATE", "ADD" ]
+      }
+    }
+    geometry Box { }
+  }
+}
+
+Transform { translation 9 0 0
+  children Shape { appearance Appearance {
+      material Material { diffuseColor 1 1 0 }
+      texture MultiTexture {
+        texture [ USE I2 USE I1 ]
+        mode [ "MODULATE", "ADD" ]
+      }
+    }
+    geometry Box { }
+  }
+}
