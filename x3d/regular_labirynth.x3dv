@@ -20,7 +20,7 @@ EXTERNPROTO KambiNavigationInfo [
   initializeOnly SFNode  octreeVisibleTriangles
   initializeOnly SFNode  octreeCollidableTriangles
 ] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
-    "../../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
     "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
 ]
 
@@ -74,7 +74,7 @@ DEF Chin Transform {
   children Collision {
     enabled FALSE
     children Inline {
-      url "../../kambi_vrml_game_engine/examples/vrml/radiance_transfer/models/chinchilla.wrl.gz" }
+      url "../../kambi_vrml_game_engine/examples/radiance_transfer/models/chinchilla.wrl.gz" }
   }
 }
 Transform { translation  8 0 0 children USE Chin }
