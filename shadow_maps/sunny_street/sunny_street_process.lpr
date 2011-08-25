@@ -22,27 +22,27 @@
 }
 
 uses SysUtils, KambiUtils, KambiClassUtils, VRMLNodes, X3DLoad,
-  KambiStringUtils, VRMLFields, VRMLErrors, VRMLShadowMaps;
+  KambiStringUtils, VRMLFields, KambiWarnings, VRMLShadowMaps, KambiParameters;
 
 const
   ShadowMapSize = 1024;
 
 { Find Blender's light with given name, and add X3D fields setting
   projection near/far for shadow maps. }
-procedure SetLightProjection(Model: TVRMLNode;
+procedure SetLightProjection(Model: TX3DNode;
   const LightName: string;
   const ProjectionNear, ProjectionFar: Single;
-  out L: TNodeX3DLightNode);
+  out L: TAbstractX3DLightNode);
 var
-  SM: TNodeGeneratedShadowMap;
+  SM: TGeneratedShadowMapNode;
 begin
-  L := Model.FindNodeByName(TNodeX3DLightNode, LightName, false)
-    as TNodeX3DLightNode;
+  L := Model.FindNodeByName(TAbstractX3DLightNode, LightName, false)
+    as TAbstractX3DLightNode;
   L.FdProjectionNear.Value := ProjectionNear;
   L.FdProjectionFar.Value := ProjectionFar;
 
   { add defaultShadowMap, to set size to ShadowMapSize }
-  SM := TNodeGeneratedShadowMap.Create('', '');
+  SM := TGeneratedShadowMapNode.Create('', '');
   L.FdDefaultShadowMap.Value := SM;
   SM.FdUpdate.Value := 'ALWAYS';
   SM.FdSize.Value := ShadowMapSize;
@@ -50,30 +50,30 @@ end;
 
 { Find the given Blender mesh, and set corresponding VRML Shapes
   to receive shadows from the given light. }
-procedure MakeShadowMapReceiver(Model: TVRMLNode;
-  const MeshName: string; Light: TNodeX3DLightNode);
+procedure MakeShadowMapReceiver(Model: TX3DNode;
+  const MeshName: string; Light: TAbstractX3DLightNode);
 var
-  Group: TNodeGroup;
+  Group: TGroupNode;
   ShapeNum: Integer;
-  Shape: TNodeShape;
+  Shape: TShapeNode;
 begin
-  Group := Model.TryFindNodeByName(TNodeGroup, 'ME_' + MeshName, false)
-    as TNodeGroup;
+  Group := Model.TryFindNodeByName(TGroupNode, 'ME_' + MeshName, false)
+    as TGroupNode;
   if Group = nil then
     { Retry with MOD_ prefix, exporter adds this to objects with modifiers. }
-    Group := Model.TryFindNodeByName(TNodeGroup, 'ME_MOD_' + MeshName, false)
-      as TNodeGroup;
+    Group := Model.TryFindNodeByName(TGroupNode, 'ME_MOD_' + MeshName, false)
+      as TGroupNode;
   Check(Group <> nil, 'Cannot find Blender mesh ' + MeshName);
 
   { Within a single Blender ME_xxx there may be many VRML Shapes,
     when one Blender mesh uses multiple materials. }
   for ShapeNum := 0 to Group.FdChildren.Count - 1 do
   begin
-    Shape := Group.FdChildren.Items[ShapeNum] as TNodeShape;
+    Shape := Group.FdChildren.Items[ShapeNum] as TShapeNode;
 
     { make sure Shape has some (valid) Appearance }
     if Shape.Appearance = nil then
-      Shape.Appearance := TNodeAppearance.Create('', '');
+      Shape.Appearance := TAppearanceNode.Create('', '');
 
     Shape.Appearance.FdReceiveShadows.Add(Light);
   end;
@@ -81,8 +81,8 @@ end;
 
 var
   FileName: string;
-  Model: TVRMLRootNode;
-  Light: TNodeX3DLightNode;
+  Model: TX3DRootNode;
+  Light: TAbstractX3DLightNode;
 begin
   Parameters.CheckHigh(1);
   FileName := Parameters[1];
