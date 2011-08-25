@@ -32,12 +32,12 @@ const
 procedure SetLightProjection(Model: TX3DNode;
   const LightName: string;
   const ProjectionNear, ProjectionFar: Single;
-  out L: TAbstractX3DLightNode);
+  out L: TAbstractLightNode);
 var
   SM: TGeneratedShadowMapNode;
 begin
-  L := Model.FindNodeByName(TAbstractX3DLightNode, LightName, false)
-    as TAbstractX3DLightNode;
+  L := Model.FindNodeByName(TAbstractLightNode, LightName, false)
+    as TAbstractLightNode;
   L.FdProjectionNear.Value := ProjectionNear;
   L.FdProjectionFar.Value := ProjectionFar;
 
@@ -51,7 +51,7 @@ end;
 { Find the given Blender mesh, and set corresponding VRML Shapes
   to receive shadows from the given light. }
 procedure MakeShadowMapReceiver(Model: TX3DNode;
-  const MeshName: string; Light: TAbstractX3DLightNode);
+  const MeshName: string; Light: TAbstractLightNode);
 var
   Group: TGroupNode;
   ShapeNum: Integer;
@@ -82,7 +82,7 @@ end;
 var
   FileName: string;
   Model: TX3DRootNode;
-  Light: TAbstractX3DLightNode;
+  Light: TAbstractLightNode;
 begin
   Parameters.CheckHigh(1);
   FileName := Parameters[1];
