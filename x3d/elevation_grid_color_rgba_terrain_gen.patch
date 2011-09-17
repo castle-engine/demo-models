@@ -1,7 +1,7 @@
-diff --git a/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr b/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr
+diff --git a/castle_game_engine/examples/vrml/terrain/terrain.lpr b/castle_game_engine/examples/vrml/terrain/terrain.lpr
 index 1ca43fe..8b0d493 100644
---- a/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr
-+++ b/kambi_vrml_game_engine/examples/vrml/terrain/terrain.lpr
+--- a/castle_game_engine/examples/vrml/terrain/terrain.lpr
++++ b/castle_game_engine/examples/vrml/terrain/terrain.lpr
 @@ -478,7 +478,7 @@ procedure MenuCommand(Window: TGLWindow; Item: TMenuItem);
      TexRock: TNodeImageTexture;
      Part: TNodeShaderPart;

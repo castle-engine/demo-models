@@ -172,7 +172,7 @@ function key_press(value, timestamp)
       the length of the gradient vector) with Sobel operator, in KambiScript.
       See [http://en.wikipedia.org/wiki/Sobel_operator].
       See also another KambiScript implementation in
-      kambi_vrml_game_engine/examples/kambiscript/mkimage_sobel_edge.kscript }
+      castle_game_engine/examples/kambiscript/mkimage_sobel_edge.kscript }
 
     { copy tex, to copy it's size and alpha channel }
     new_image := tex;
