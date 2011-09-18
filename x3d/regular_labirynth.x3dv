@@ -19,9 +19,9 @@ EXTERNPROTO KambiNavigationInfo [
   initializeOnly SFNode  octreeDynamicCollisions
   initializeOnly SFNode  octreeVisibleTriangles
   initializeOnly SFNode  octreeCollidableTriangles
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
     "../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
 ]
 
 # Labirynth that shows how "occlusion query" can be beneficial.

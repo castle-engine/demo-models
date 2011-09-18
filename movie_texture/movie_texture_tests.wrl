@@ -9,9 +9,9 @@ EXTERNPROTO KambiNavigationInfo [
   exposedField SFFloat  visibilityLimit
   eventOut     SFBool   isBound
   field        SFBool   timeOriginAtLoad
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
     "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo"
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
 ]
 
 KambiNavigationInfo {

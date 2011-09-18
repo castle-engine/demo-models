@@ -2,7 +2,7 @@
 PROFILE Interchange
 
 # Test of KambiOctreeProperties node.
-# See [http://vrmlengine.sourceforge.net/kambi_vrml_extensions.php#section_ext_octree_properties].
+# See [http://castle-engine.sourceforge.net/kambi_vrml_extensions.php#section_ext_octree_properties].
 
 EXTERNPROTO KambiNavigationInfo [
   inputOnly   SFBool   set_bind
@@ -22,18 +22,18 @@ EXTERNPROTO KambiNavigationInfo [
   initializeOnly SFNode  octreeDynamicCollisions
   initializeOnly SFNode  octreeVisibleTriangles
   initializeOnly SFNode  octreeCollidableTriangles
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
     "../../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
 ]
 
 EXTERNPROTO KambiOctreeProperties [
   inputOutput SFNode metadata
   initializeOnly  SFInt32  maxDepth
   initializeOnly  SFInt32  leafCapacity
-] [ "urn:vrmlengine.sourceforge.net:node:KambiOctreeProperties",
+] [ "urn:castle-engine.sourceforge.net:node:KambiOctreeProperties",
     "../../../www/htdocs/fallback_prototypes.x3dv#KambiOctreeProperties"
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiOctreeProperties"
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiOctreeProperties"
 ]
 
 KambiNavigationInfo {

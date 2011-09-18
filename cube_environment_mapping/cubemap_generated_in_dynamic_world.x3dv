@@ -14,8 +14,8 @@ EXTERNPROTO KambiAppearance [
   inputOutput SFFloat heightMapScale
   inputOutput SFNode blendMode
   inputOutput SFBool shadowCaster
-] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
 ]
 
 EXTERNPROTO EditableTransform [
@@ -33,8 +33,8 @@ EXTERNPROTO Teapot [
   initializeOnly SFBool solid
   initializeOnly SFBool manifold
   inputOutput SFNode texCoord
-] [ "urn:vrmlengine.sourceforge.net:node:Teapot",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
+] [ "urn:castle-engine.sourceforge.net:node:Teapot",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
 ]
 
 EditableTransform {

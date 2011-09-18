@@ -7,8 +7,8 @@ EXTERNPROTO Teapot [
   initializeOnly SFBool solid
   initializeOnly SFBool manifold
   inputOutput SFNode  texCoord
-] [ "urn:vrmlengine.sourceforge.net:node:Teapot",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
+] [ "urn:castle-engine.sourceforge.net:node:Teapot",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
 ]
 
 Transform {

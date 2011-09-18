@@ -19,7 +19,7 @@ EXTERNPROTO KambiTriangulation [
   exposedField SFInt32    quadricSlices
   exposedField SFInt32    quadricStacks
   exposedField SFInt32    rectDivisions
-] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+] [ "urn:castle-engine.sourceforge.net:node:KambiTriangulation" ]
 
 KambiTriangulation { quadricSlices 10 quadricStacks 5 rectDivisions 0 }
 

@@ -11,7 +11,7 @@ PROTO SimpleBox [] {
 DEF T1 Transform { children SimpleBox { } }
 
 # Invalid statement below
-# (when parsed by kambi vrmlengine, SimpleBox should still be visible)
+# (when parsed by Castle Game Engine, SimpleBox should still be visible)
 PROTO Blah [] {
   []
 }

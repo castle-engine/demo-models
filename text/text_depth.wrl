@@ -9,8 +9,8 @@ EXTERNPROTO Text3D [
   exposedField SFFloat maxExtent
   exposedField SFFloat depth
   exposedField SFBool solid
-] [ "urn:vrmlengine.sourceforge.net:node:Text3D",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#Text3D" ]
+] [ "urn:castle-engine.sourceforge.net:node:Text3D",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#Text3D" ]
 
 Transform {
   rotation 1 0 0 -1

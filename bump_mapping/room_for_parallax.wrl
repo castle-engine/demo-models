@@ -18,8 +18,8 @@ EXTERNPROTO KambiAppearance [
   exposedField SFFloat heightMapScale
   exposedField SFNode blendMode
   exposedField SFBool shadowCaster
-] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
+] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
 
 
 NavigationInfo {

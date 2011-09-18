@@ -31,9 +31,9 @@ EXTERNPROTO KambiNavigationInfo [
   field SFNode  octreeDynamicCollisions
   field SFNode  octreeVisibleTriangles
   field SFNode  octreeCollidableTriangles
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
+] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
     "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo"
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
 ]
 
 KambiNavigationInfo {
@@ -61,7 +61,7 @@ KambiInline {
       # PNG version gives best quality video, loaded from a sequence of PNG images.
       # It also has alpha channel (which is kinda essential in this case.)
       # But this will be handled only by Kambi VRML game engine,
-      # [http://vrmlengine.sourceforge.net/].
+      # [http://castle-engine.sourceforge.net/].
       #
       # For general compatibility, there's an AVI version.
 

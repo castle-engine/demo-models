@@ -2,7 +2,7 @@
 PROFILE Interchange
 
 # "Film grain" (slight noise over the image) effect.
-# See http://vrmlengine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
+# See http://castle-engine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
 # for ScreenEffect docs.
 
 Background {

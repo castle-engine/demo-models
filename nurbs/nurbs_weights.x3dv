@@ -3,7 +3,7 @@ PROFILE Immersive
 COMPONENT NURBS:1
 
 # Demonstrate weights behavior in VRML/X3D NURBS,
-# see http://vrmlengine.sourceforge.net/vrml_implementation_nurbs.php#section_homogeneous_coordinates
+# see http://castle-engine.sourceforge.net/vrml_implementation_nurbs.php#section_homogeneous_coordinates
 
 Shape {
   appearance

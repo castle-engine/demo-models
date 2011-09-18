@@ -85,8 +85,8 @@ EXTERNPROTO KambiNavigationInfo [
   inputOutput SFFloat  visibilityLimit
   outputOnly  SFBool   isBound
   initializeOnly  SFBool   timeOriginAtLoad
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
 ]
 
 KambiNavigationInfo {

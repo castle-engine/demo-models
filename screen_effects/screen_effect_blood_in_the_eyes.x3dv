@@ -3,7 +3,7 @@ PROFILE Interchange
 
 # Demo that passing uniform variables (animated TimeSensor.elapsedTime,
 # texture node) to ScreenEffect shaders works.
-# See http://vrmlengine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
+# See http://castle-engine.sourceforge.net/kambi_vrml_extensions_screen_effects.php
 # for ScreenEffect docs.
 
 Background {

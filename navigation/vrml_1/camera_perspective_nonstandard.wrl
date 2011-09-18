@@ -4,7 +4,7 @@
 # ../castle_with_lights_and_camera.wrl
 # but this time we use view3dscene-specific camera fields.
 # See
-# [http://vrmlengine.sourceforge.net/kambi_vrml_extensions.php#ext_cameras_alt_orient]
+# [http://castle-engine.sourceforge.net/kambi_vrml_extensions.php#ext_cameras_alt_orient]
 
 Group{
   PerspectiveCamera {

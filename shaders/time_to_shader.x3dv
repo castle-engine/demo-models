@@ -15,8 +15,8 @@ EXTERNPROTO KambiAppearance [
   inputOutput SFFloat heightMapScale
   inputOutput SFNode blendMode
   inputOutput SFBool shadowCaster
-] [ "urn:vrmlengine.sourceforge.net:node:KambiAppearance",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
 ]
 
 EXTERNPROTO KambiNavigationInfo [
@@ -28,8 +28,8 @@ EXTERNPROTO KambiNavigationInfo [
   inputOutput SFFloat  visibilityLimit
   outputOnly  SFBool   isBound
   initializeOnly  SFBool   timeOriginAtLoad
-] [ "urn:vrmlengine.sourceforge.net:node:KambiNavigationInfo",
-    "http://vrmlengine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
 ]
 
 KambiNavigationInfo {

@@ -6,7 +6,7 @@
 			<authoring_tool>Blender v:245 - Illusoft Collada Exporter v:0.3.159</authoring_tool>
 			<comments></comments>
 			<copyright></copyright>
-			<source_data>file:///home/michal/sources/vrmlengine/trunk/castle/data/levels/gate/cart.blend</source_data>
+			<source_data>file:///home/michal/sources/castle-engine/trunk/castle/data/levels/gate/cart.blend</source_data>
 		</contributor>
 		<created>2008-02-01T02:32:28.676655</created>
 		<modified>2008-02-01T02:32:28.676702</modified>

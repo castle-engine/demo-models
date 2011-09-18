@@ -2,7 +2,7 @@ rock_d01 from http://opengameart.org/content/generic-rock-texture
 
 Making cloth_anim.wrl:
 - export from Blender to kanim (using our converter on
-  http://vrmlengine.sourceforge.net/blender_stuff.php)
+  http://castle-engine.sourceforge.net/blender.php)
 - convert kanim to wrl:
   kanim_to_interpolators coord_MOD_Plane cloth.kanim cloth_anim.wrl
 - You can later remove them (rm -f cloth.kanim cloth???.wrl cloth??.wrl cloth?.wrl)

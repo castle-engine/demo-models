@@ -36,7 +36,7 @@ EXTERNPROTO KambiTriangulation [
   inputOutput SFLong    quadricSlices
   inputOutput SFLong    quadricStacks
   inputOutput SFLong    rectDivisions
-] [ "urn:vrmlengine.sourceforge.net:node:KambiTriangulation" ]
+] [ "urn:castle-engine.sourceforge.net:node:KambiTriangulation" ]
 
 # triangulate more, to properly see spot lights on this
 KambiTriangulation { rectDivisions 50 }

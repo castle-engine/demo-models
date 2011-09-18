@@ -12,4 +12,4 @@ then Kambi hacked the file manually to
 Remember to redo these changes if you edit and export from Blender again.
 
 Of course you can, and should :), open this X3D file with view3dscene
-(http://vrmlengine.sourceforge.net/view3dscene.php).
+(http://castle-engine.sourceforge.net/view3dscene.php).
