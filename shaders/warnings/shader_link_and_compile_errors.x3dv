@@ -136,7 +136,7 @@ Transform {
 }
 
 # Test isSelected, isValid of X3DShaderNode. You can uncomment these
-# and check with Kambi VRML game engine, other VRML browsers may
+# and check with Castle Game Engine, other VRML browsers may
 # not know non-standard Logger node.
 
 # DEF L Logger { level 3 }

@@ -2,7 +2,7 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 
 <!--
-  Just a testcase of nasty bug corrected one day in Kambi VRML game engine.
+  Just a testcase of nasty bug corrected one day in Castle Game Engine.
   Note that the 1st Coordinate node dictates wrong containerField,
   bug since top-level doesn't use containerField,
   it's reported only on 2nd Coordinate insertion.

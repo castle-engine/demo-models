@@ -22,7 +22,7 @@ Transform {
     }
   ]
   # In standard X3D, Rectangle2D.size is not exposed
-  # (you can trivially modify Kambi VRML engine to make it exposed for this test)
+  # (you can trivially modify Castle Game Engine to make it exposed for this test)
   # ROUTE T1.textBounds TO R1.size
 }
 
@@ -44,7 +44,7 @@ Transform {
     }
   ]
   # In standard X3D, Rectangle2D.size is not exposed
-  # (you can trivially modify Kambi VRML engine to make it exposed for this test)
+  # (you can trivially modify Castle Game Engine to make it exposed for this test)
   # ROUTE T2.textBounds TO R2.size
 }
 

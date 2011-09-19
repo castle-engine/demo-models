@@ -2,7 +2,7 @@
 PROFILE Interchange
 
 # Test for [Indexed][Triangle/Quad][Fan/Strip]Set (8 nodes total)
-# bump mapping (Kambi VRML game engine extension).
+# bump mapping (Castle Game Engine extension).
 
 EXTERNPROTO KambiAppearance [
   inputOutput SFNode material

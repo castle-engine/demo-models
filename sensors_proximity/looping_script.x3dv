@@ -117,7 +117,7 @@ PROTO Door [ ] {
             we change open_animation_plays, and so the same script is called
             once again.
 
-            In the Kambi VRML engine code: Field.EventIn is called
+            In the Castle Game Engine code: Field.EventIn is called
             from AfterExecute, which triggers script callback OnReceive,
             which fires the script again.
             We protect against this by LastEventTimes. }

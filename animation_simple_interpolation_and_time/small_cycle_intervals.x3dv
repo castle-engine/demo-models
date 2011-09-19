@@ -4,7 +4,7 @@ PROFILE Interactive
 # Test that things work Ok even with very small cycleIntervals for
 # time-dependent nodes.
 #
-# This is not obvious, as the implementation (in Kambi VRML game engine,
+# This is not obvious, as the implementation (in Castle Game Engine,
 # before version 1.6)
 # was catching the fact that node should be (de)activated only at
 # time ticks (that is, TVRMLScene.IncreaseWorldTime). This didn't work

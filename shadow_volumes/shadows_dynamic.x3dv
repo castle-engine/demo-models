@@ -1,7 +1,7 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# Demo of dynamic shadows by Kambi VRML game engine:
+# Demo of dynamic shadow volumes by Castle Game Engine:
 # - Light source moves.
 # - Worm has animated coordinates.
 # - Spheres/boxes have animated transformation.
@@ -85,9 +85,10 @@ DEF Scr Script {
   url "kambiscript:
 
 { We animate light location by script, as opposed to placing light within
-  a transform and rotating that transform. Reason: Kambi VRML game engine
-  is not optimized now for animating light's transform (but it's optimized
-  for animating light's location). }
+  a transform and rotating that transform. The reason is historic:
+  animating light's transform was not optimized as well as it should be
+  in Castle Game Engine. This is fixed in Castle Game Engine since a long time,
+  and we could as well reimplement it now using Transform to rotate. }
 
 function time(value, timestamp)
   mainLightLoc := vector(

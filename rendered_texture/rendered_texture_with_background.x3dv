@@ -2,7 +2,7 @@
 PROFILE Interactive
 
 # Simple RenderedTexture test inside a textured Background.
-# (for Kambi VRML engine, this tests a special line of code that has
+# (for Castle Game Engine, this tests a special line of code that has
 # to generate rotation-only matrix before RenderedTexture output.)
 # Just for a cool look, teapot is also a mirror.
 

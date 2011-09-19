@@ -60,7 +60,7 @@ KambiInline {
 
       # PNG version gives best quality video, loaded from a sequence of PNG images.
       # It also has alpha channel (which is kinda essential in this case.)
-      # But this will be handled only by Kambi VRML game engine,
+      # But this will be handled only by Castle Game Engine,
       # [http://castle-engine.sourceforge.net/].
       #
       # For general compatibility, there's an AVI version.

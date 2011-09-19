@@ -1,12 +1,7 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-# Only lighting location is animated.
-#
-# view3dscene scene test: animation should play in all optimizations
-# (in particular test in "scene as a whole", where the disp list
-# must be rebuild), also when doing --debug-log-vrml-changes
-# no ChangedAll should occur.
+# Light source "location" field is animated.
 
 NavigationInfo { headlight FALSE }
 

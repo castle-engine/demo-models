@@ -4,7 +4,7 @@ Note for Collada 1.3.1 versions of humanoid:
   a bug in Blender Collada 1.3.1 exporter.
 
   The 1.3.1 exporter is generally buggy, e.g. <accessor> count is wrong,
-  but this can be detected and fixed by Kambi VRML game engine.
+  but this can be detected and fixed by Castle Game Engine.
   For humanoid, there are transformation problems
   that simply prevent any program to correctly reread these Collada files:
 

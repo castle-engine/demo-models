@@ -36,7 +36,7 @@ Transform {
 NavigationInfo {
   headlight TRUE
   type ["FLY", "ANY"]
-  # "WALK" would be better, but for Kambi VRML game engine you may be forced
+  # "WALK" would be better, but for Castle Game Engine you may be forced
   # to temporarily turn collision detection off, which means that you
   # fall on the ground with gravity=on...
   avatarSize [0.25, 1.75, 0.75]

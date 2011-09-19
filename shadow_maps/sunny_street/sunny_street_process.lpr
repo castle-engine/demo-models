@@ -2,20 +2,20 @@
 {
   Copyright 2010-2011 Michalis Kamburelis.
 
-  This file is part of "Kambi VRML game engine".
+  This file is part of "Castle Game Engine".
 
-  "Kambi VRML game engine" is free software; you can redistribute it and/or modify
+  "Castle Game Engine" is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
-  "Kambi VRML game engine" is distributed in the hope that it will be useful,
+  "Castle Game Engine" is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with "Kambi VRML game engine"; if not, write to the Free Software
+  along with "Castle Game Engine"; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   ----------------------------------------------------------------------------
@@ -110,7 +110,7 @@ begin
     //   MakeShadowMapReceiver(Model, 'wall1_001', Light);
     //   MakeShadowMapReceiver(Model, 'oak', Light); {< oak leaves }
 
-    SaveVRML(Model, StdOutStream, 'sunny_street_process (Kambi VRML game engine demo models)',
+    SaveVRML(Model, StdOutStream, 'sunny_street_process (from Castle Game Engine demo models)',
       ExtractFileName(FileName), xeClassic);
   finally FreeAndNil(Model) end;
 end.
