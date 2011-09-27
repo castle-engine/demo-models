@@ -12,7 +12,7 @@ sunny_street_process: sunny_street_process.lpr
 # Clean stuff that should not be in tar.gz
 .PHONY: clean
 clean:
-	rm -f sunny_street_process
+	rm -Rf sunny_street_process sunny_street_process.res lib/
 
 # Clean all auto-generated stuff
 .PHONY: cleanmore
