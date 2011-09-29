@@ -21,8 +21,8 @@
   ----------------------------------------------------------------------------
 }
 
-uses SysUtils, KambiUtils, KambiClassUtils, VRMLNodes, X3DLoad,
-  KambiStringUtils, VRMLFields, KambiWarnings, VRMLShadowMaps, KambiParameters;
+uses SysUtils, CastleUtils, CastleClassUtils, VRMLNodes, X3DLoad,
+  CastleStringUtils, VRMLFields, CastleWarnings, VRMLShadowMaps, CastleParameters;
 
 const
   ShadowMapSize = 1024;
