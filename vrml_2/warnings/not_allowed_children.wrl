@@ -1,7 +1,6 @@
 #VRML V2.0 utf8
 
 # Invalid (Material cannot be in root level)
-# TODO: view3dscene ignores this silently for now
 DEF InvalidRootMaterial Material { }
 
 Transform {
