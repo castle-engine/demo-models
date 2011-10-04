@@ -46,7 +46,7 @@ PROTO JukeboxScript [
     inputOutput SFTime startTime IS startTime
     inputOutput SFTime stopTime IS stopTime
     inputOutput SFBool isActive IS isActive
-    url "kambiscript:
+    url "castlescript:
 
 function touchTime(value, timestamp)
   if (isActive, stopTime := value, startTime := value)

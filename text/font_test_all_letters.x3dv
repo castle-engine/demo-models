@@ -29,7 +29,7 @@ DEF MyScript Script {
   initializeOnly SFString line ""
   initializeOnly SFString char ""
 
-  url "kambiscript:
+  url "castlescript:
 function generate_now(value, timestamp)
   array_set_count(generated, 16);
 

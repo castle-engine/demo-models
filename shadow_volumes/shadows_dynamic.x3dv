@@ -82,7 +82,7 @@ DEF Scr Script {
   inputOnly SFString keyPress
   inputOutput SFBool shadows TRUE
 
-  url "kambiscript:
+  url "castlescript:
 
 { We animate light location by script, as opposed to placing light within
   a transform and rotating that transform. The reason is historic:

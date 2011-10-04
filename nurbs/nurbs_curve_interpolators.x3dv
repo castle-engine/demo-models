@@ -62,7 +62,7 @@ DEF Scr Script {
   initializeOnly SFTime timeDiff 0
   inputOnly SFTime time
 
-  url "kambiscript:
+  url "castlescript:
 
 function initialize(time)
   { send initial output position event, to set initial sphere position. }

@@ -18,7 +18,7 @@ PROTO Proto1 [
     anotherEvent IS someEvent3
     anotherField IS someEvent2
     anotherField IS someEvent3
-    url "kambiscript:"
+    url "castlescript:"
   }
   NavigationInfo {
     # yes, it can be both field and accept input event

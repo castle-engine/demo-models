@@ -22,7 +22,7 @@
     <Script DEF="Scr">
       <field accessType="inputOnly" type="SFBool" name="over" />
       <field accessType="outputOnly"  type="SFFloat" name="transp" />
-      <![CDATA[kambiscript:
+      <![CDATA[castlescript:
 function over(value, timestamp)
   transp := 0.5 - (1 - float(value)) / 2
 ]]>

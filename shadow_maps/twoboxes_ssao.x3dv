@@ -44,7 +44,7 @@ DEF Camera_Rot Transform {
 				outputOnly SFVec3f direction
 				outputOnly SFVec3f up
 				initializeOnly SFVec4f locationH 0 0 0 1
-				url "kambiscript:
+				url "castlescript:
 					function cameraInverseMatrix(value, t)
 						locationH := value * vector(0,0,0,1);
 						location := vector(vector_get(locationH,0),vector_get(locationH,1),vector_get(locationH,2))

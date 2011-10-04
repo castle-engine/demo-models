@@ -45,12 +45,12 @@ DEF AnimatedPlane ClipPlane { plane 1 0 0 1 }
 DEF Timer TimeSensor { loop TRUE cycleInterval 4 }
 
 # There is no interpolator for vec4f values in the standard?
-# No problem, we'll make a simple interpolator using KambiScript.
+# No problem, we'll make a simple interpolator using CastleScript.
 DEF Vec4Interpolator Script {
   inputOnly SFFloat set_fraction
   outputOnly SFVec4f value_changed
 
-  # Maybe add a KambiScript frac()? Maybe add a KambiScript lerp()?
+  # Maybe add a CastleScript frac()? Maybe add a CastleScript lerp()?
   # Would make script simpler.
 
   # helper variable for set_fraction, equal to frac(value).
@@ -61,7 +61,7 @@ DEF Vec4Interpolator Script {
   initializeOnly SFVec4f keyValue2 -1 0  0 1
   initializeOnly SFVec4f keyValue3  0 0 -1 1
 
-  url "kambiscript:
+  url "castlescript:
 
 function set_fraction(value, timestamp)
   val := value * 4;

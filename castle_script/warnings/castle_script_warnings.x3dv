@@ -16,38 +16,38 @@ DEF Scr Script {
 
 # Various invalid scripts, should be reported with nice error messages
 # and no memory leaks, and browser will go to the next script.
-"kambiscript: function ()",
+"castlescript: function ()",
 
-"kambiscript: function (asd)",
+"castlescript: function (asd)",
 
-"kambiscript: ff (asd)",
+"castlescript: ff (asd)",
 
-"kambiscript:
+"castlescript:
 function foo(value, timestamp)
 value + 1;
 blahblahblah
 ",
 
-"kambiscript: function touch(value, timestamp)
+"castlescript: function touch(value, timestamp)
 function foo(value, timestamp)",
 
-"kambiscript: function foo(asd,)",
+"castlescript: function foo(asd,)",
 
-"kambiscript: function foo(asd,",
+"castlescript: function foo(asd,",
 
-"kambiscript:
+"castlescript:
 function foo(value, timestamp)
 value + 1;
 blahblahblah := 2
 ",
 
-"kambiscript:
+"castlescript:
 function foo(value, timestamp)
 value + 1;
 2 := 3
 ",
 
-"kambiscript:
+"castlescript:
 function foo(value, timestamp)
 value + 1;
 2 := value
@@ -57,10 +57,10 @@ value + 1;
 "1.kscript",
 
 # Also valid (but will not be used)
-"kambiscript: ",
+"castlescript: ",
 
 # Also valid (but will not be used)
-"kambiscript:
+"castlescript:
 function foo(value, timestamp)
 value
 ",

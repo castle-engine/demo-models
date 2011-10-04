@@ -92,7 +92,7 @@ DEF MyScript Script {
   inputOutput MFInt32 dimensions [ 512 512 ]
   inputOutput MFBool depthMap [ FALSE ]
 
-  url "kambiscript:
+  url "castlescript:
 
 function keyPress(value, timestamp)
   when (value = 's',

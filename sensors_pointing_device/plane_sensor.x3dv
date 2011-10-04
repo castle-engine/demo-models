@@ -21,7 +21,7 @@ PROTO TextLight [
     inputOutput SFColor color IS color
     outputOnly SFColor materialColor
 
-    url "kambiscript:
+    url "castlescript:
     function initialize(timestamp)
       materialColor := color * int(on)
 

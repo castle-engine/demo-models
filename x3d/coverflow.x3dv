@@ -100,7 +100,7 @@ PROTO Album [
 
     inputOutput SFBool openByDefault IS openByDefault
 
-    url "kambiscript:
+    url "castlescript:
 
 function touchTime(value, timestamp)
   if (open,

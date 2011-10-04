@@ -91,7 +91,7 @@ PROTO Door [ ] {
       DEF IGenerateM1 IntegerTrigger { integerKey -1 }
       DEF IGenerate0 IntegerTrigger { integerKey 0 }
 
-      # Script in KambiScript to open/close doors.
+      # Script in CastleScript to open/close doors.
       #
       # While it's possible to express in simple VRML routes
       # to open/close doors automatically,
@@ -112,7 +112,7 @@ PROTO Door [ ] {
         outputOnly SFTime open_start_time
         outputOnly SFTime closing_start_time
 
-        url "kambiscript:
+        url "castlescript:
           { This causes looping. On receive of open_animation_plays,
             we change open_animation_plays, and so the same script is called
             once again.

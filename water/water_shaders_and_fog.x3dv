@@ -274,7 +274,7 @@ DEF Scr Script {
   inputOutput SFBool normals_from_texture TRUE
   outputOnly SFBool normals_from_gpu_noise
 
-  url "kambiscript:
+  url "castlescript:
 
 function key_press(value, timestamp)
   when (value = ' ',

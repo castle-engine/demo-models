@@ -8,7 +8,7 @@ Transform {
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
     geometry Text { string [
-      "Simple demo of changing Inline.url from a KambiScript."
+      "Simple demo of changing Inline.url from a CastleScript."
       "Press '1' to load IkeaTable.x3dv."
       "Press '2' to load worm_crawl.x3dv."
       "Press '0' to unload a scene."
@@ -22,7 +22,7 @@ DEF MyScript Script {
   inputOnly SFString key_press
   outputOnly MFString inline_url
   outputOnly SFBool inline_load
-  url "kambiscript:
+  url "castlescript:
 
 function key_press(value, timestamp)
   when (value = '1', inline_load := TRUE ; inline_url := array('IkeaTable.x3dv'));

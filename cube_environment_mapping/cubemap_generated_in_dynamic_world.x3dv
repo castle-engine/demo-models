@@ -127,7 +127,7 @@ DEF Scr Script {
   outputOnly SFString tex1_update
   outputOnly SFString tex2_update
 
-  url "kambiscript:
+  url "castlescript:
 
 function key_press(value, timestamp)
   when (value = ' ',

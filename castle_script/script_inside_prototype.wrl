@@ -26,7 +26,7 @@ eventOut SFVec3f intermediateLocation IS intermediateLocation
 field SFVec3f loc1 -1 0 0  # keep this synchronized with initial obj1.translation to behave intuitively
 field SFVec3f loc2  1 0 0  # keep this synchronized with initial obj2.translation to behave intuitively
 
-url["kambiscript:
+url["castlescript:
 function location1(value,ts)
 loc1:=value;
 intermediateLocation := loc1/2 + loc2/2

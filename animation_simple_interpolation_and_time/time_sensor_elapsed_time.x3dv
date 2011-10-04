@@ -42,7 +42,7 @@ DEF Scr Script {
   inputOnly SFTime elapsedTime
   outputOnly SFVec3f FractionVisualize_position
   outputOnly SFVec3f ElapsedTimeVisualize_position
-  url "kambiscript:
+  url "castlescript:
 
     function fraction(value, timestamp)
       FractionVisualize_position := vector(0, value, 0)

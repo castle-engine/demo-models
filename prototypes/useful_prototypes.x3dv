@@ -42,7 +42,7 @@ PROTO ViewportInfo [
       DEF ScrInfoText Script {
         inputOnly SFString keyPress
         outputOnly SFInt32 infoTextVisible
-        url "kambiscript:
+        url "castlescript:
 
       function keyPress(value, time)
         when(value = 'h',
@@ -114,7 +114,7 @@ PROTO EditableTransform [
         outputOnly SFBool rotateSensorEnabled
         outputOnly SFBool scaleSensorEnabled
 
-        url "kambiscript:
+        url "castlescript:
 
 function shiftKey(value, time)
   moveSensorEnabled   := and(not(value), not(controlKey));

@@ -80,7 +80,7 @@ ROUTE MyRenderedTexture.rendering TO MyClip.enabled
 DEF ScriptHiding Script {
   inputOnly SFBool rendering
   outputOnly SFInt32 whichChoice
-  url "kambiscript:
+  url "castlescript:
 
     function rendering(value, timestamp)
       if (value, whichChoice := -1, whichChoice := 0)"

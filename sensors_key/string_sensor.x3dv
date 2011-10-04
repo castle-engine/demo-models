@@ -25,7 +25,7 @@ DEF MyScript Script {
   outputOnly MFString string3
   outputOnly MFString string4
 
-  url "kambiscript:
+  url "castlescript:
     function initialize(timestamp)
       string1 := array(
         'Active: ' + string(isActive),

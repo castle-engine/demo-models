@@ -15,7 +15,7 @@ DEF Scr Script {
   inputOnly SFTime time
   initializeOnly SFTime previousTime 0
   inputOutput SFColor col 0.5 0.5 0.5
-  url "kambiscript:
+  url "castlescript:
 
 function initialize(timestamp)
   previousTime := timestamp
@@ -32,11 +32,11 @@ ROUTE Scr.col TO Mat.diffuseColor
 DEF ScrManager Script {
   inputOnly SFString key_press
   outputOnly MFString script_url
-  url "kambiscript:
+  url "castlescript:
 
 function key_press(value, timestamp)
   if (value = 'a',
-    script_url := array('kambiscript:
+    script_url := array('castlescript:
 
       function initialize(timestamp)
         previousTime := timestamp
@@ -46,7 +46,7 @@ function key_press(value, timestamp)
         previousTime := timestamp
       '),
   when (value = 'z',
-    script_url := array('kambiscript:
+    script_url := array('castlescript:
 
       function initialize(timestamp)
         previousTime := timestamp

@@ -1,7 +1,7 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# Demo of KambiScript rotation functions.
+# Demo of CastleScript rotation functions.
 # - When you jump to viewpoint "Same view as SpotLight", observe
 #   that texture and spot circle is nicely aligned with camera view.
 # - Click on the box to start an animation that test rotate() function.
@@ -50,7 +50,7 @@ PROTO SpotLightWithOrientation [
     inputOnly SFTime time
     inputOutput SFTime animationStartTime IS animationStartTime
 
-    url "kambiscript:
+    url "castlescript:
 
 function initialize(timestamp)
   { Test orientation_to_direction/up }

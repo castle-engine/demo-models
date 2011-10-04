@@ -29,7 +29,7 @@ PROTO TextLight [
     inputOutput SFFloat colorIntensity IS colorIntensity
     outputOnly SFColor materialColor
 
-    url "kambiscript:
+    url "castlescript:
     function initialize(timestamp)
       materialColor := color * colorIntensity * int(on)
 
@@ -74,7 +74,7 @@ DEF KeyScript Script {
   outputOnly SFString toggle
   outputOnly SFString set
   outputOnly SFString reset
-  url "kambiscript:
+  url "castlescript:
   function keyPress(value, timestamp)
     if  (value = 't', toggle := 'value of this event is ignored',
     if  (value = 's', set    := 'value of this event is ignored',

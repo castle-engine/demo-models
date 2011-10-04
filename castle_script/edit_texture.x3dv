@@ -1,8 +1,8 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# Fun with texture editing from KambiScript.
-# Done as a demo of KambiScript capabilities to get/set image contents.
+# Fun with texture editing from CastleScript.
+# Done as a demo of CastleScript capabilities to get/set image contents.
 #
 # Original texture image must have size 256x256 and must have 4 components
 # for this demo to work nicely.
@@ -11,9 +11,9 @@ PROFILE Interchange
 #   to have 3D cursor moving in 3D space synchronized with texture pixel
 #   coordinates (since we use cursor 3D position to take texture coordinates
 #   to edit)
-# - Components must be 4 because our simple script in KambiScript
+# - Components must be 4 because our simple script in CastleScript
 #   assumes this (it's possible to write more universal program in
-#   KambiScript, as you can query image_components(), but I was too lazy
+#   CastleScript, as you can query image_components(), but I was too lazy
 #   to use this.)
 
 EXTERNPROTO KambiAppearance [
@@ -81,7 +81,7 @@ DEF Scr Script {
   initializeOnly SFFloat gradient_len 0
 
   url [
-"kambiscript:
+"castlescript:
 
 function initialize(timestamp)
   { Dummy assignment to set initial CrossHair.translation }
@@ -169,10 +169,10 @@ function key_press(value, timestamp)
 
   when (value = 'e',
     { A simple edge-detection by calculating gradient (actually,
-      the length of the gradient vector) with Sobel operator, in KambiScript.
+      the length of the gradient vector) with Sobel operator, in CastleScript.
       See [http://en.wikipedia.org/wiki/Sobel_operator].
-      See also another KambiScript implementation in
-      castle_game_engine/examples/kambiscript/mkimage_sobel_edge.kscript }
+      See also another CastleScript implementation in
+      castle_game_engine/examples/castlescript/mkimage_sobel_edge.castlescript }
 
     { copy tex, to copy it's size and alpha channel }
     new_image := tex;
@@ -235,7 +235,7 @@ Transform {
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
     geometry Text { string [
-      "A toy in pure X3D using Script (in KambiScript language)"
+      "A toy in pure X3D using Script (in CastleScript language)"
       "to edit the texture (X3D SFImage field)."
       "Arrows move the cursor. 'c' / 'C' darken / lighten color."
       "'a' / 'A' decrease / increase alpha (opacity)."

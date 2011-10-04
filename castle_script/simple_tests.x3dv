@@ -24,7 +24,7 @@ DEF Scr Script {
   inputOnly SFBool over
   outputOnly SFFloat transp
   url [
-"kambiscript:
+"castlescript:
 function over(value, timestamp)
   transp := 0.5 - (1 - float(value)) / 2
 "

@@ -137,7 +137,7 @@ DEF Scr Script {
   inputOnly SFVec3f revert_normal
   outputOnly SFVec3f reverted_normal
 
-  url "kambiscript:
+  url "castlescript:
 
 function initialize(time)
   { send initial output position event, to set initial sphere position. }

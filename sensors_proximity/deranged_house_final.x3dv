@@ -90,7 +90,7 @@ PROTO Door [ ] {
 
       DEF K KeySensor { }
 
-      # Script in KambiScript to open/close doors.
+      # Script in CastleScript to open/close doors.
       #
       # While it's possible to express in simple VRML routes
       # to open/close doors automatically,
@@ -114,7 +114,7 @@ PROTO Door [ ] {
         inputOnly SFString key_press
         inputOutput SFInt32 prox_sensor_visualize -1
 
-        url "kambiscript:
+        url "castlescript:
           function start_open(value, timestamp)
             if(open_plays, 1 { do nothing, return anything },
               if(close_plays,

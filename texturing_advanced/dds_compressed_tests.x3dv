@@ -71,7 +71,7 @@ DEF Scr Script {
   inputOnly SFString key_press
   inputOutput SFVec3f shift 0 0 0
 
-  url "kambiscript:
+  url "castlescript:
 
 function key_press(value, timestamp)
   when (value = 'a', vector_set(shift, 0, vector_get(shift, 0) - 3));

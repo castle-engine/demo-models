@@ -25,7 +25,7 @@ DEF scr Script {
 	outputOnly SFRotation y_rotation
 	outputOnly SFRotation z_rotation
 	initializeOnly SFVec3f Y_axis 0 1 0
-	url "kambiscript:
+	url "castlescript:
 		function cameraInverseMatrix (value, t)
 			locationH := value * vector (0,0,0,1);
 			location := vector (vector_get (locationH,0), vector_get(locationH,1), vector_get (locationH,2))

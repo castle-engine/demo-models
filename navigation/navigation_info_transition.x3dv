@@ -56,7 +56,7 @@ DEF MyScript Script {
   outputOnly SFBool bind1
   outputOnly SFBool bind2
   outputOnly SFBool bind3
-  url "kambiscript:
+  url "castlescript:
 
     function keyPress(value, timestamp)
       when (value = '1', bind1 := TRUE);

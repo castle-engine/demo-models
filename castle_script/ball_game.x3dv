@@ -44,7 +44,7 @@ DEF Scr Script {
 
   inputOutput SFBool new_game FALSE # value of this doesn't actually matter
 
-  url "kambiscript:
+  url "castlescript:
 
 function initialize(timestamp)
   new_game := TRUE
@@ -232,7 +232,7 @@ Transform {
       material Material { diffuseColor 0.2 0.2 0.2 } }
     geometry Text { string [
       "\"Ride of the Ancient Balls\""
-      "Trivial game/toy, done in pure X3D (KeySensor and KambiScript)."
+      "Trivial game/toy, done in pure X3D (KeySensor and CastleScript)."
       "Controls: arrows (player 1), awsd (player 2), space (restart)."
       "To score, push the white ball into your opponents border."
       "All balls collide, with each other and all borders."

@@ -147,7 +147,7 @@ DEF MyScript Script {
   outputOnly SFBool set_bind_v8
   outputOnly SFBool set_bind_v9
   outputOnly SFBool set_bind_v10
-  url "kambiscript:
+  url "castlescript:
 
 function keyPress(value, timestamp)
   when (value = '1', set_bind_v1 := true);

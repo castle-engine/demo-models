@@ -333,7 +333,7 @@ DEF myScript Script {
     " b / B: dec/inc bias"
     " s / S: dec/inc scale" ]
 
-  url "kambiscript:
+  url "castlescript:
     function Initialize(t)
       bias := 100;
       scale := 6.0;
