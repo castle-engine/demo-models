@@ -21,8 +21,8 @@
   ----------------------------------------------------------------------------
 }
 
-uses SysUtils, CastleUtils, CastleClassUtils, VRMLNodes, X3DLoad,
-  CastleStringUtils, VRMLFields, CastleWarnings, VRMLShadowMaps, CastleParameters;
+uses SysUtils, CastleUtils, CastleClassUtils, X3DNodes, X3DLoad,
+  CastleStringUtils, X3DFields, CastleWarnings, X3DShadowMaps, CastleParameters;
 
 const
   ShadowMapSize = 1024;
