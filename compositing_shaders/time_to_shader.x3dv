@@ -5,7 +5,7 @@ COMPONENT Shaders:1
 # Demonstrate passing uniform variable values to Effect:
 # we pass constant alpha values, and we pass time value from TimeSensor.
 #
-# This is similar to shaders/kambi_extensions/time_to_shader.x3dv demo,
+# This is similar to shaders/time_to_shader.x3dv demo,
 # except this is implemented using our Effect node (not ComposedShader).
 # So note that the shader code is much shorter --- it only contains
 # code actually dealing with calculating alpha value based on time.
