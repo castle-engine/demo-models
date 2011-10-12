@@ -2,7 +2,7 @@
 PROFILE Interchange
 
 # Test of KambiOctreeProperties node.
-# See [http://castle-engine.sourceforge.net/kambi_vrml_extensions.php#section_ext_octree_properties].
+# See [http://castle-engine.sourceforge.net/x3d_extensions.php#section_ext_octree_properties].
 
 EXTERNPROTO KambiNavigationInfo [
   inputOnly   SFBool   set_bind
