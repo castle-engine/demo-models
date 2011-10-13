@@ -7,7 +7,7 @@ PROFILE Interactive
 # This is not obvious, as the implementation (in Castle Game Engine,
 # before version 1.6)
 # was catching the fact that node should be (de)activated only at
-# time ticks (that is, TVRMLScene.IncreaseWorldTime). This didn't work
+# time ticks (that is, TCastleSceneCore.IncreaseTime). This didn't work
 # when the cycleInterval was very small, and/or when the game was running
 # slow (for whetever reason, like some other time-consuming animation
 # was running). This is fixed in 1.6, and this file tests this fix...
