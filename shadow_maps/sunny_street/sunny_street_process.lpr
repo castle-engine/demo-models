@@ -89,7 +89,7 @@ begin
 
   OnWarning := @OnWarningWrite;
 
-  Model := LoadVRML(FileName);
+  Model := Load3D(FileName);
   try
     Model.ForceSaveAsX3D;
 
@@ -110,7 +110,7 @@ begin
     //   MakeShadowMapReceiver(Model, 'wall1_001', Light);
     //   MakeShadowMapReceiver(Model, 'oak', Light); {< oak leaves }
 
-    SaveVRML(Model, StdOutStream, 'sunny_street_process (from Castle Game Engine demo models)',
+    Save3D(Model, StdOutStream, 'sunny_street_process (from Castle Game Engine demo models)',
       ExtractFileName(FileName), xeClassic);
   finally FreeAndNil(Model) end;
 end.
