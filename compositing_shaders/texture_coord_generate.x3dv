@@ -1,0 +1,58 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Generate texture coordinates using shaders.
+# This is much more flexible than nodes like TextureCoordinateGenerator,
+# since you write your own GLSL code that calculates coordinates based
+# on any thing.
+
+Transform {
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture {
+        url "../textures/test_texture.png"
+
+        effects Effect {
+          language "GLSL"
+          parts [
+            # In vertex shader, just save the position of vertex in object-space.
+            EffectPart {
+              type "VERTEX"
+              url "data:text/plain,
+              varying vec4 saved_vertex_object;
+              void PLUG_vertex_object_space(const in vec4 vertex_object,
+                inout in vec3 normal_object)
+              {
+                saved_vertex_object = vertex_object;
+              }" }
+
+            # In fragment shader, use the PLUG_texture_color.
+            # Inside PLUG_texture_color function we can simply ignore
+            # the provided tex_coord, and instead calculate and use
+            # our own texture coordinate, using any approach we want.
+            #
+            # In this example, we use the YZ of the vertex in object-space.
+            # (That's why we had to save vertex in object-space above.)
+            EffectPart {
+              type "FRAGMENT"
+              url "data:text/plain,
+              varying vec4 saved_vertex_object;
+
+              void PLUG_texture_color(inout vec4 texture_color,
+                const in sampler2D texture, const in vec4 tex_coord)
+              {
+                /* usually in PLUG_texture_color we use provided tex_coord
+                   to sample the texture. But we can also just
+                   Example below uses object-space YZ vertex position. */
+                vec2 our_tex_coord = saved_vertex_object.yz;
+                texture_color = texture2D(texture, our_tex_coord);
+              }"
+            }
+          ]
+        }
+      }
+    }
+    geometry Teapot { }
+  }
+}
