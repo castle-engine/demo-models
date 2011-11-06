@@ -42,9 +42,6 @@ Transform {
               void PLUG_texture_color(inout vec4 texture_color,
                 const in sampler2D texture, const in vec4 tex_coord)
               {
-                /* usually in PLUG_texture_color we use provided tex_coord
-                   to sample the texture. But we can also just
-                   Example below uses object-space YZ vertex position. */
                 vec2 our_tex_coord = saved_vertex_object.yz;
                 texture_color = texture2D(texture, our_tex_coord);
               }"
