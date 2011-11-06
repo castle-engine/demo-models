@@ -4,7 +4,7 @@ PROFILE Interchange
 # Generate texture coordinates using shaders.
 # This is much more flexible than nodes like TextureCoordinateGenerator,
 # since you write your own GLSL code that calculates coordinates based
-# on any thing.
+# on... well, anything you want.
 
 Transform {
   children Shape {
