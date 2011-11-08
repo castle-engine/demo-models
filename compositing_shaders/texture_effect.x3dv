@@ -16,6 +16,12 @@ Transform {
           DEF TextureEffect Effect {
             language "GLSL"
             inputOnly SFFloat time_fraction
+
+            # to capture "no filtering problems" screenshot,
+            # see ../../papers/compositing_shaders_doc/images/shader_texture_no_filtering_problems.png,
+            # it's easiest to hardcode time_fraction
+            # inputOutput SFFloat time_fraction 0.76
+
             parts EffectPart {
               type "FRAGMENT"
               url "data:text/plain,
@@ -32,6 +38,7 @@ Transform {
                    to_center.t * to_center.t);
                 if (to_center_sqr < 1.0)
                   texture_color.rgb *= mix(vec3(0.0), vec3(1.0, 1.0, 0.0), to_center_sqr);
+/*                texture_color.rgb *= mix(vec3(0.0), vec3(0.5, 0.5, 2.0), to_center_sqr); */
 
                 /* PLUG: modify_texture_color (texture_color) */
               }"
@@ -120,12 +127,12 @@ KambiNavigationInfo {
 
 Viewpoint { description "default" }
 
-# Camera settings "encoded" in the VRML declaration below :
-# direction -1.9555907580447141E-016 -1.6420282136357959E-015 -1
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 1.9555907580447141E-016 -1.6420282136357959E-015 -1
 # up 0 1 4.3711388286737929E-008
 # gravityUp 0 1 0
 Viewpoint {
-  description "for no filtering problems screenshot"
-  position 0.5138753056526184 0.8123548030853271 1.1011397838592529
+  description "for \"no filtering problems\" screenshot"
+  position 0.2292937189340591 0.6871340274810791 1.5405303239822388
   orientation 0 0 1 0
 }
