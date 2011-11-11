@@ -118,75 +118,78 @@ DEF Timer TimeSensor { loop TRUE }
 
 Collision {
   enabled FALSE
-  children Shape {
-    appearance Appearance {
-      material DEF MA_Material Material {
-        diffuseColor 0.5 0.5 1
-        specularColor 1 1 1
-        shininess 0.0976563021540641
-        transparency 0.2
-      }
+  children Transform {
+    translation 0 0.15 -0.15
+    children Shape {
+      appearance Appearance {
+        material DEF MA_Material Material {
+          diffuseColor 0.5 0.5 1
+          specularColor 1 1 1
+          shininess 0.0976563021540641
+          transparency 0.2
+        }
 
 # Thanks to our effects, you could even add here a normal texture.
 #      texture ImageTexture { url "../textures/test_texture.png" }
 
-      effects [
-        Effect {
-          language "GLSL"
-          parts [
-            EffectPart { type "VERTEX" url "water_normal.vs" }
-            EffectPart { type "FRAGMENT" url "water_normal.fs" }
-          ]
-        }
-
-        DEF NormalsFromTexture Effect {
-          language "GLSL"
-          enabled TRUE
-          initializeOnly SFNode normalMap
-            MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
-          parts [
-            EffectPart { type "FRAGMENT" url "water_normalmap.fs" }
-          ]
-        }
-
-        DEF NormalsFromGPUNoise Effect {
-          language "GLSL"
-          enabled FALSE
-          initializeOnly SFNode white_noise ImageTexture3D {
-            url "../textures/white_noise_3d.dds"
-            repeatS TRUE
-            repeatT TRUE
-            repeatR TRUE
-            textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+        effects [
+          Effect {
+            language "GLSL"
+            parts [
+              EffectPart { type "VERTEX" url "water_normal.vs" }
+              EffectPart { type "FRAGMENT" url "water_normal.fs" }
+            ]
           }
-          inputOnly SFTime time
-          ROUTE Timer.time TO NormalsFromGPUNoise.time
-          parts [
-            EffectPart { type "FRAGMENT" url "../compositing_shaders/noise.glsl" }
-            EffectPart { type "FRAGMENT" url "water_normalnoise.fs" }
-          ]
-        }
 
-        DEF ReflectRefractEffect Effect {
-          language "GLSL"
-          initializeOnly SFNode envMap
-            DEF GenTex1 GeneratedCubeMapTexture {
-              #update "ALWAYS"
-              update "NEXT_FRAME_ONLY"
-              size 512
+          DEF NormalsFromTexture Effect {
+            language "GLSL"
+            enabled TRUE
+            initializeOnly SFNode normalMap
+              MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
+            parts [
+              EffectPart { type "FRAGMENT" url "water_normalmap.fs" }
+            ]
+          }
+
+          DEF NormalsFromGPUNoise Effect {
+            language "GLSL"
+            enabled FALSE
+            initializeOnly SFNode white_noise ImageTexture3D {
+              url "../textures/white_noise_3d.dds"
+              repeatS TRUE
+              repeatT TRUE
+              repeatR TRUE
+              textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
             }
-          inputOutput SFMatrix3f cameraRotationInverseMatrix
-            1 0 0
-            0 1 0
-            0 0 1
-          parts [
-            EffectPart { type "VERTEX" url "water_reflect_refract.vs" }
-            EffectPart { type "FRAGMENT" url "water_reflect_refract.fs" }
-          ]
-        }
-      ]
+            inputOnly SFTime time
+            ROUTE Timer.time TO NormalsFromGPUNoise.time
+            parts [
+              EffectPart { type "FRAGMENT" url "../compositing_shaders/noise.glsl" }
+              EffectPart { type "FRAGMENT" url "water_normalnoise.fs" }
+            ]
+          }
+
+          DEF ReflectRefractEffect Effect {
+            language "GLSL"
+            initializeOnly SFNode envMap
+              DEF GenTex1 GeneratedCubeMapTexture {
+                #update "ALWAYS"
+                update "NEXT_FRAME_ONLY"
+                size 512
+              }
+            inputOutput SFMatrix3f cameraRotationInverseMatrix
+              1 0 0
+              0 1 0
+              0 0 1
+            parts [
+              EffectPart { type "VERTEX" url "water_reflect_refract.vs" }
+              EffectPart { type "FRAGMENT" url "water_reflect_refract.fs" }
+            ]
+          }
+        ]
+      }
+      geometry PlaneTesselated { solid FALSE }
     }
-    geometry PlaneTesselated { solid FALSE }
   }
 }
 

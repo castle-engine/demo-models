@@ -184,7 +184,7 @@ DEF Timer TimeSensor { loop TRUE }
 # Geometry is trivial, just a flat plane, the whole magic happens
 # in the GLSL effects.
 
-Transform { translation 0 0 -0.15 children
+Transform { translation 0 0.15 -0.15 children
 
 Collision {
   enabled FALSE
