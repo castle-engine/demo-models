@@ -1,0 +1,215 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Smooth by adding triangles inside,
+# and shifting points inside by their normals.
+#
+# This is quite poor, but fun, approach to smothing :)
+# It's really a test of geometry shaders, so don't treat this way
+# of "smoothing" as something really useful :)
+
+# Smoothed objects -----------------------------------------------------------
+
+Transform { translation 0 0 0 children [
+# First use KambiTriangulation to make sphere geometry really poor
+KambiTriangulation { quadricSlices 8 quadricStacks 6 }
+Shape {
+  appearance Appearance {
+    shaders DEF SmoothingShader ComposedShader {
+      language "GLSL"
+      inputOutput SFFloat smooth_scale 1.0
+      parts [
+        ShaderPart { type "VERTEX" url "data:text/plain,
+          varying vec3 normal;
+          void main(void)
+          {
+            normal = gl_Normal.xyz;
+            gl_Position = gl_Vertex;
+          }" }
+        ShaderPart { type "GEOMETRY" url "data:text/plain,
+          #version 150 compatibility
+
+          uniform float smooth_scale;
+
+          layout(triangles) in;
+          layout(triangle_strip, max_vertices = 12) out;
+
+          in vec3[] normal;
+          out float light_intensity;
+
+          vec3 vertex_normal;
+
+          /* Use non-interpolated vertex. */
+          void set_vertex(int i)
+          {
+            gl_Position = gl_in[i].gl_Position;
+            vertex_normal = normal[i];
+          }
+
+          /* Use interpolated vertex. */
+          void set_vertex(int i, int j)
+          {
+            gl_Position = (gl_in[i].gl_Position + gl_in[j].gl_Position) / 2.0;
+            vertex_normal = normalize((normal[i] + normal[j]) / 2.0);
+
+            /* smooth gl_Position, shifting it a little along the normal vector.
+
+               Without doing this, the whole tesselation would just replace 1 flat
+               triangle with 4 flat coplanar triangles, which doesn't
+               improve the look of the object (at least, not too much ---
+               it causes Gouraud shading to look a little closer to Phong shading,
+               but that's an awfully little improvement).
+
+               To really improve the look, one has to actually smooth the surface.
+               - A more elaborate way for this would use 'triangles with adjacency',
+                 when you get enough information to really smooth the surface
+                 nicely, but view3dscene doesn't support primitives with adjacency
+                 yet.
+               - A simpler way for this would use the knowledge that this is
+                 a sphere... But I didn't want it here (when you know
+                 the geometry is a sphere, you could actually simplify
+                 much other parts of this shader too).
+               - So using the normal vector is a lame-but-working
+                 attempt at smoothing an arbitrary shape.
+            */
+            gl_Position.xyz += vertex_normal * 0.04 * smooth_scale;
+          }
+
+          /* Calculate lighting and emit vertex.
+             Common code for both interpolated and not vertexes. */
+          void finish_vertex()
+          {
+            /* go to eye space */
+            gl_Position = gl_ModelViewMatrix * gl_Position;
+
+            /* diffuse lighting equation.
+               Note: we just *assume* here that light 0 == headlight
+               in view3dscene. This is not really guaranteed, if you don't
+               like this see our \"compositing shaders\" effects instead
+               of messing with ComposedShader :) */
+            light_intensity = max(dot(
+              normalize(gl_LightSource[0].position.xyz - gl_Position.xyz),
+              normalize(gl_NormalMatrix * vertex_normal)), 0.0);
+
+            /* go to clip space */
+            gl_Position = gl_ProjectionMatrix * gl_Position;
+
+            EmitVertex();
+          }
+
+          void main()
+          {
+            /* 3 corner triangles */
+            set_vertex(2, 0);  finish_vertex();
+            set_vertex(0);     finish_vertex();
+            set_vertex(0, 1);  finish_vertex();
+            EndPrimitive();
+
+            set_vertex(0, 1);  finish_vertex();
+            set_vertex(1);     finish_vertex();
+            set_vertex(1, 2);  finish_vertex();
+            EndPrimitive();
+
+            set_vertex(1, 2);  finish_vertex();
+            set_vertex(2);     finish_vertex();
+            set_vertex(2, 0);  finish_vertex();
+            EndPrimitive();
+
+            /* middle triangle */
+            set_vertex(0, 1);  finish_vertex();
+            set_vertex(1, 2);  finish_vertex();
+            set_vertex(2, 0);  finish_vertex();
+            EndPrimitive();
+          }" }
+        ShaderPart { type "FRAGMENT" url "data:text/plain,
+          varying float light_intensity;
+          void main(void)
+          {
+            gl_FragColor = vec4(vec3(light_intensity), 1.0);
+          }" }
+      ]
+    }
+  }
+  geometry Sphere { }
+}
+] }
+
+Transform { translation 3 0 0 children [
+KambiTriangulation { quadricSlices 8 quadricStacks 6 }
+Shape {
+  appearance Appearance { shaders USE SmoothingShader }
+  geometry Cylinder { }
+}
+] }
+
+Transform { translation 6 0 0 children [
+KambiTriangulation { quadricSlices 8 quadricStacks 6 }
+Shape {
+  appearance Appearance { shaders USE SmoothingShader }
+  geometry Cone { }
+}
+] }
+
+Transform { translation 0 -3 0 children [
+KambiTriangulation { quadricSlices 8 quadricStacks 6 rectDivisions 0 }
+Shape {
+  appearance Appearance { shaders USE SmoothingShader }
+  geometry Box { }
+}
+] }
+
+Transform { translation 3 -3 0 children [
+KambiTriangulation { quadricSlices 8 quadricStacks 6 rectDivisions 0 }
+Shape {
+  appearance Appearance { shaders USE SmoothingShader }
+  geometry Teapot { }
+}
+] }
+
+# Control the smooth_scale interactively ---------------------------------------
+
+Transform { translation 3 4 0 children
+  Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry DEF ControllerText Text {
+      fontStyle FontStyle { justify "MIDDLE" size 0.4 }
+    }
+  }
+}
+
+DEF MyScript Script {
+  inputOutput SFVec3f translation 0 0 0
+  outputOnly MFString controllerString
+  outputOnly SFFloat scale
+  url "castlescript:
+function initialize(timestamp)
+  translation := vector(0, 0, 0)
+
+function translation(value, timestamp)
+  scale := (vector_get(translation, 0) + 1) / 2;
+  controllerString := array(
+    'Drag the blue ball to control the amount of smoothing.',
+    'Now: ' + string(scale),
+    '0 is no smoothing.',
+    '1 is somewhat sensible smoothing, at least for the sphere shape.',
+    'Values outside the [0, 1] range are for fun :)'
+  )
+  " }
+
+ROUTE MyScript.controllerString TO ControllerText.string
+ROUTE MyScript.scale TO SmoothingShader.smooth_scale
+
+Transform { translation 3 1.8 0 children
+  DEF ScaleController Transform {
+    children [
+      DEF MySensor PlaneSensor { minPosition -30 0 maxPosition 30 0 }
+      Shape {
+        appearance Appearance { material Material { diffuseColor 0.3 0.3 1 } }
+        geometry Sphere { radius 0.6 }
+      }
+    ]
+    ROUTE MySensor.translation_changed TO ScaleController.translation
+    ROUTE MySensor.translation_changed TO MyScript.translation
+  }
+}

@@ -24,6 +24,11 @@ Shape {
             gl_Position = ftransform();
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
+          /* Your geometry shaders must declare GLSL version 1.50 or higher.
+             Earlier versions of GLSL geometry shaders are not supported
+             by view3dscene, see
+             http://castle-engine.sourceforge.net/x3d_implementation_shaders.php#section_geometry_old
+          */
           #version 150
 
           /* Note that 'in' type must match the rendered X3D geometry type.
@@ -69,6 +74,10 @@ Shape {
 }
 
 # Extend geometry shader to pass gl_TexCoord ---------------------------------
+
+# This requires declaring "#version 150 compatibility",
+# and so is a little unclean. New OpenGL/GLSL advices to instead use custom
+# attributes for everything, no gl_TexCoord.
 
 Transform { translation 3 0 0 children
 Shape {
@@ -124,21 +133,20 @@ Shape {
       inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
-          varying vec4 tex_coord;
+          varying vec2 tex_coord;
           void main(void)
           {
-            tex_coord = gl_Vertex * 2.0;
+            tex_coord = gl_Vertex.xy * 2.0;
             gl_Position = ftransform();
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
           #version 150
 
           layout(triangles) in;
-// TODO: how?
-//          layout(triangles) in vec4 tex_coord;
-//          layout(triangles) out frag_tex_coord;
-
           layout(triangle_strip, max_vertices = 3) out;
+
+          in vec2[] tex_coord;
+          out vec2 frag_tex_coord;
 
           void main() {
             for(int i = 0; i < gl_in.length(); i++) {
@@ -146,7 +154,7 @@ Shape {
               gl_Position.y += 2.0;
 
               /* pass through other vertex data */
-//              tex_coord = gl_in[i].tex_coord; */
+              frag_tex_coord = tex_coord[i];
 
               EmitVertex();
             }
@@ -154,10 +162,64 @@ Shape {
           }" }
         ShaderPart { type "FRAGMENT" url "data:text/plain,
           uniform sampler2D myTexture;
-          varying vec4 tex_coord;
+          varying vec2 frag_tex_coord;
           void main(void)
           {
-            gl_FragColor = texture2D(myTexture, tex_coord.st);
+            gl_FragColor = texture2D(myTexture, frag_tex_coord);
+          }" }
+      ]
+    }
+  }
+  geometry Teapot { }
+}
+}
+
+# ----------------------------------------------------------------------------
+# Pass vertex in object space to geometry shader, this allows for some sensible
+# tricks
+
+Transform { translation 0 -3 0 children
+Shape {
+  appearance Appearance {
+    shaders ComposedShader {
+      language "GLSL"
+      inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
+      parts [
+        ShaderPart { type "VERTEX" url "data:text/plain,
+          varying vec2 tex_coord;
+          void main(void)
+          {
+            tex_coord = gl_Vertex.xy * 2.0;
+            gl_Position = gl_Vertex;
+          }" }
+        ShaderPart { type "GEOMETRY" url "data:text/plain,
+          #version 150 compatibility
+
+          layout(triangles) in;
+          layout(triangle_strip, max_vertices = 3) out;
+
+          in vec2[] tex_coord;
+          out vec2 frag_tex_coord;
+
+          void main() {
+            for(int i = 0; i < gl_in.length(); i++) {
+              gl_Position = gl_in[i].gl_Position;
+              gl_Position.xy = vec2(gl_Position.y, -gl_Position.x);
+              gl_Position = gl_ModelViewProjectionMatrix * gl_Position;
+
+              /* pass through other vertex data */
+              frag_tex_coord = tex_coord[i];
+
+              EmitVertex();
+            }
+            EndPrimitive();
+          }" }
+        ShaderPart { type "FRAGMENT" url "data:text/plain,
+          uniform sampler2D myTexture;
+          varying vec2 frag_tex_coord;
+          void main(void)
+          {
+            gl_FragColor = texture2D(myTexture, frag_tex_coord);
           }" }
       ]
     }
