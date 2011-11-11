@@ -1,0 +1,162 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Geometry shaders simple tests.
+# Read the comments inside GLSL code inside --- they contain a lot of notes
+# how to use geometry shaders.
+
+# Geometry shader that swaps xy ----------------------------------------------
+
+Shape {
+  appearance Appearance {
+    shaders ComposedShader {
+      language "GLSL"
+      parts [
+        ShaderPart { type "VERTEX" url "data:text/plain,
+          void main(void)
+          {
+            gl_Position = ftransform();
+          }" }
+        ShaderPart { type "GEOMETRY" url "data:text/plain,
+          #version 150
+
+          /* Note that 'in' type must match the rendered X3D geometry type.
+             - For filled shapes, you want 'triangles'.
+             - For line sets, you want 'lines'.
+             - For point sets, you want 'points'.
+             - GLSL also allows 'lines_adjacency', 'triangles_adjacency'
+               types as input. But they need special support from
+               the OpenGL application (our X3D browser), and are simply
+               not implemented in view3dscene for now. They will require
+               adding ComposedShader.geometryInputType field
+               (or maybe just SFBool ComposedShader.adjacency) to cause
+               special primitive generation code.
+             If you specify an invalid 'in' type, right now you will get
+             ugly OpenGL errors 'invalid operation'. */
+          layout(triangles) in;
+
+          /* On the other hand, the 'out' type is completely under your
+             (shader author) control.
+             Allowed values (as of GLSL 1.50) are
+             'points', 'line_strip', 'triangle_strip'. */
+          /* layout(triangle_strip, max_vertices = 3) out; */
+          layout(points, max_vertices = 3) out;
+
+          void main() {
+            for(int i = 0; i < gl_in.length(); i++) {
+              gl_Position = gl_in[i].gl_Position;
+              /* do anything, just to see that geometry shader works */
+              gl_Position.y += 2.0;
+              EmitVertex();
+            }
+            EndPrimitive();
+          }" }
+        ShaderPart { type "FRAGMENT" url "data:text/plain,
+          void main(void)
+          {
+            gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
+          }" }
+      ]
+    }
+  }
+  geometry Teapot { }
+}
+
+# Extend geometry shader to pass gl_TexCoord ---------------------------------
+
+Transform { translation 3 0 0 children
+Shape {
+  appearance Appearance {
+    shaders ComposedShader {
+      language "GLSL"
+      inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
+      parts [
+        ShaderPart { type "VERTEX" url "data:text/plain,
+          void main(void)
+          {
+            gl_TexCoord[0] = gl_Vertex * 2.0;
+            gl_Position = ftransform();
+          }" }
+        ShaderPart { type "GEOMETRY" url "data:text/plain,
+          /* Adding 'compatibility' allows us to access gl_TexCoord,
+             needed to pass it through from vertex shader to fragment shader. */
+          #version 150 compatibility
+
+          layout(triangles) in;
+          layout(triangle_strip, max_vertices = 3) out;
+
+          void main() {
+            for(int i = 0; i < gl_in.length(); i++) {
+              gl_Position = gl_in[i].gl_Position;
+              gl_Position.y += 2.0;
+              /* pass through other vertex data */
+              gl_TexCoord[0] = gl_in[i].gl_TexCoord[0];
+              EmitVertex();
+            }
+            EndPrimitive();
+          }" }
+        ShaderPart { type "FRAGMENT" url "data:text/plain,
+          uniform sampler2D myTexture;
+          void main(void)
+          {
+            gl_FragColor = texture2D(myTexture, gl_TexCoord[0].st);
+          }" }
+      ]
+    }
+  }
+  geometry Teapot { }
+}
+}
+
+# Extend geometry shader to pass uniform tex_coord ---------------------------
+
+Transform { translation 6 0 0 children
+Shape {
+  appearance Appearance {
+    shaders ComposedShader {
+      language "GLSL"
+      inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
+      parts [
+        ShaderPart { type "VERTEX" url "data:text/plain,
+          varying vec4 tex_coord;
+          void main(void)
+          {
+            tex_coord = gl_Vertex * 2.0;
+            gl_Position = ftransform();
+          }" }
+        ShaderPart { type "GEOMETRY" url "data:text/plain,
+          #version 150
+
+          layout(triangles) in;
+// TODO: how?
+//          layout(triangles) in vec4 tex_coord;
+//          layout(triangles) out frag_tex_coord;
+
+          layout(triangle_strip, max_vertices = 3) out;
+
+          void main() {
+            for(int i = 0; i < gl_in.length(); i++) {
+              gl_Position = gl_in[i].gl_Position;
+              gl_Position.y += 2.0;
+
+              /* pass through other vertex data */
+//              tex_coord = gl_in[i].tex_coord; */
+
+              EmitVertex();
+            }
+            EndPrimitive();
+          }" }
+        ShaderPart { type "FRAGMENT" url "data:text/plain,
+          uniform sampler2D myTexture;
+          varying vec4 tex_coord;
+          void main(void)
+          {
+            gl_FragColor = texture2D(myTexture, tex_coord.st);
+          }" }
+      ]
+    }
+  }
+  geometry Teapot { }
+}
+}
