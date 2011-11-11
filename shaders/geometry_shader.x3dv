@@ -6,7 +6,12 @@ COMPONENT Shaders:1
 # Read the comments inside GLSL code inside --- they contain a lot of notes
 # how to use geometry shaders.
 
-# Geometry shader that swaps xy ----------------------------------------------
+# Basic geometry shader ------------------------------------------------------
+
+# Note that you *have* to specify a vertex shader if you want to use
+# a geometry shader. And for newer OpenGL/GLSL, if you specify a vertex shader,
+# you also have to specify a fragment shader... So, no cheating:
+# if you use shaders, you have to do everything by shaders.
 
 Shape {
   appearance Appearance {
@@ -109,7 +114,7 @@ Shape {
 }
 }
 
-# Extend geometry shader to pass uniform tex_coord ---------------------------
+# Extend geometry shader to pass attribute tex_coord ---------------------------
 
 Transform { translation 6 0 0 children
 Shape {
