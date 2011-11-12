@@ -1,0 +1,230 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Demonstrate integration of our Effects
+# (see http://castle-engine.sourceforge.net/compositing_shaders.php)
+# with geometry shaders.
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction -0.683556318283081 -0.3378397226333618 -0.647003948688507
+# up -0.3216940462589263 0.9351381063461303 -0.148423433303833
+# gravityUp 0 1 0
+Viewpoint {
+  position 8.6298456192016602 1.8485687971115112 3.4631357192993164
+  orientation -0.3094626665115356 0.9109938740730285 0.272622525691986 0.9037576913833618
+}
+
+# geometryVertexSet ----------------------------------------------------------
+
+# You can simply place your geometry shader in an EffectPart,
+# without worrying about implementing the rest of shaders (vertex and fragment).
+# You have a simple function geometryVertexSet
+# to pass-through values from vertex to fragment stages.
+
+Shape {
+  appearance Appearance {
+    effects Effect {
+      language "GLSL"
+      parts EffectPart {
+        type "GEOMETRY"
+        url "data:text/plain,
+          #version 150
+
+          layout(triangles) in;
+          layout(triangle_strip, max_vertices = 3) out;
+
+          void geometryVertexSet(const int index);
+
+          void main() {
+            for(int i = 0; i < gl_in.length(); i++) {
+              gl_Position = gl_in[i].gl_Position;
+              /* do anything, just to see that geometry shader works */
+              gl_Position.y += 2.0;
+              geometryVertexSet(i);
+              EmitVertex();
+            }
+            EndPrimitive();
+          }"
+      }
+    }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
+}
+
+# geometryVertexZero/Add -----------------------------------------------------
+
+# For more advanced uses, you do not want to just pass-through vertex attributes,
+# you want to blend them.
+# You have geometryVertexZero and geometryVertexAdd for this.
+
+# This demo changes triangle mesh into lines, with one additional point
+# in the middle.
+# For clarity of view, back half of the triangle is just discarded.
+
+Transform { translation 3 0 0 children [
+ClipPlane { plane 0 0 1 0 }
+Shape {
+  appearance Appearance {
+    effects Effect {
+      language "GLSL"
+      parts [
+        EffectPart {
+          type "VERTEX"
+          url "data:text/plain,
+            #version 150
+            out vec4 saved_vertex_object;
+            void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
+            {
+              saved_vertex_object = vertex_object;
+            }"
+        }
+        EffectPart {
+          type "GEOMETRY"
+          url "data:text/plain,
+            #version 150
+
+            layout(triangles) in;
+            layout(line_strip, max_vertices = 10) out;
+
+            void geometryVertexSet(const int index);
+            void geometryVertexZero();
+            void geometryVertexAdd(const int index, const float scale);
+
+            in vec4[] saved_vertex_object;
+
+            void corner_vertex(const int index)
+            {
+              vec4 vo = saved_vertex_object[index];
+              if (vo.z < 0) return;
+
+              gl_Position = gl_in[index].gl_Position;
+              geometryVertexSet(index);
+              EmitVertex();
+            }
+
+            void middle_vertex()
+            {
+              vec4 vo = (
+                saved_vertex_object[0] +
+                saved_vertex_object[1] +
+                saved_vertex_object[2] ) / 3.0;
+              if (vo.z < 0) return;
+
+              gl_Position = (
+                gl_in[0].gl_Position +
+                gl_in[1].gl_Position +
+                gl_in[2].gl_Position ) / 3.0;
+              geometryVertexZero();
+              geometryVertexAdd(0, 0.3333);
+              geometryVertexAdd(1, 0.3333);
+              geometryVertexAdd(2, 0.3333);
+              EmitVertex();
+            }
+
+            void main()
+            {
+              corner_vertex(0);
+              corner_vertex(1);
+              corner_vertex(2);
+              corner_vertex(0);
+              EndPrimitive();
+
+              corner_vertex(0);
+              middle_vertex();
+              EndPrimitive();
+
+              corner_vertex(1);
+              middle_vertex();
+              EndPrimitive();
+
+              corner_vertex(2);
+              middle_vertex();
+              EndPrimitive();
+            }"
+        }
+      ]
+    }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
+}
+] }
+
+# This demo changes triangle mesh into a dense cloud of points.
+# For clarity of view, back half of the triangle is just discarded.
+
+Transform { translation 6 0 0 children [
+ClipPlane { plane 0 0 1 0 }
+Shape {
+  appearance Appearance {
+    effects Effect {
+      language "GLSL"
+      parts [
+        EffectPart {
+          type "VERTEX"
+          url "data:text/plain,
+            #version 150
+            out vec4 saved_vertex_object;
+            void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
+            {
+              saved_vertex_object = vertex_object;
+            }"
+        }
+        EffectPart {
+          type "GEOMETRY"
+          url "data:text/plain,
+            #version 150
+
+            layout(triangles) in;
+            layout(points, max_vertices = 36) out;
+
+            void geometryVertexZero();
+            void geometryVertexAdd(const int index, const float scale);
+
+            in vec4[] saved_vertex_object;
+
+            void inside_vertex(
+              const float weight0,
+              const float weight1,
+              const float weight2)
+            {
+              vec4 vo = (
+                saved_vertex_object[0] * weight0 +
+                saved_vertex_object[1] * weight1 +
+                saved_vertex_object[2] * weight2 );
+              if (vo.z < 0) return;
+              gl_Position = (
+                gl_in[0].gl_Position * weight0 +
+                gl_in[1].gl_Position * weight1 +
+                gl_in[2].gl_Position * weight2 );
+              geometryVertexZero();
+              geometryVertexAdd(0, weight0);
+              geometryVertexAdd(1, weight1);
+              geometryVertexAdd(2, weight2);
+              EmitVertex();
+            }
+
+            void main()
+            {
+              const int resolution = 5;
+              for (int i = 0; i <= resolution; i++)
+                for (int j = 0; j <= resolution - i; j++)
+                {
+                  int k = resolution - i - j;
+                  inside_vertex(
+                    i / float(resolution),
+                    j / float(resolution),
+                    k / float(resolution));
+                }
+              EndPrimitive();
+            }"
+        }
+      ]
+    }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
+}
+] }
