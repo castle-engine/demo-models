@@ -186,7 +186,10 @@ Shape {
       inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
-          varying vec2 tex_coord;
+          /* Just for cleanliness, this example has all shaders on GLSL 1.50
+             level (although with 'compatibility' profile, for gl_Xxx variables). */
+          #version 150 compatibility
+          out vec2 tex_coord;
           void main(void)
           {
             tex_coord = gl_Vertex.xy * 2.0;
@@ -215,8 +218,9 @@ Shape {
             EndPrimitive();
           }" }
         ShaderPart { type "FRAGMENT" url "data:text/plain,
+          #version 150 compatibility
           uniform sampler2D myTexture;
-          varying vec2 frag_tex_coord;
+          in vec2 frag_tex_coord;
           void main(void)
           {
             gl_FragColor = texture2D(myTexture, frag_tex_coord);
