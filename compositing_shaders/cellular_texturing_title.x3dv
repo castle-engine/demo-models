@@ -2,17 +2,18 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
-# Based on cellular_texturing.x3dv, more detailed sphere.
+# Based on cellular_texturing.x3dv, single more detailed shape.
+# For the title page of my Ph.D. Thesis :)
 
 Background { skyColor 1 1 1 }
 
 # Camera settings "encoded" in the VRML/X3D declaration below :
-# direction 0.3054183423519134 -0.1892068088054657 0.9332143664360046
-# up -0.0041921809315681 0.9797832369804382 0.2000171393156051
+# direction 0.1788986325263977 -0.402470588684082 0.8977791666984558
+# up 0.3063520789146423 0.8899267315864563 0.337903082370758
 # gravityUp 0 1 0
 Viewpoint {
-  position -0.8826588988304138 0.546807587146759 -2.6969890594482422
-  orientation 0.0178089886903762 -0.9948102831840515 -0.10017641633749 2.8332116603851318
+  position -1.2724165916442871 2.5093426704406738 -5.6427803039550781
+  orientation -0.1359741240739822 -0.9716815948486328 -0.1932508498430252 2.9018759727478027
 }
 
 Shape {
@@ -24,7 +25,7 @@ Shape {
           type "FRAGMENT"
           url "data:text/plain,
 
-#version 120
+#version 150
 
 const int count = 120;
 
@@ -314,13 +315,14 @@ void PLUG_texture_color(inout vec4 texture_color,
   }
 
   texture_color.rgb = pow(sqrt(distances[closest1]) - sqrt(distances[closest0]), 0.25)
-    * 2.0 * feature_colors[closest0];
+    * 2.0 * feature_colors[closest0 % 15];
 }
 "
         }
       }
       defaultTexCoord "BOUNDS3D"
     }
+    textureTransform TextureTransform3D { translation 0 0 -0.1 }
   }
-  geometry Sphere { }
+  geometry Teapot { manifold TRUE }
 }
