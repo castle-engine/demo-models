@@ -1,0 +1,81 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Simplest geometry shaders effects.
+
+Shape {
+  appearance DEF App1 Appearance {
+    effects Effect {
+      language "GLSL"
+      parts EffectPart {
+        type "GEOMETRY"
+        url "data:text/plain,
+          #version 150
+
+          layout(triangles) in;
+          layout(triangle_strip, max_vertices = 3) out;
+
+          void geometryVertexSet(const int index);
+
+          void main()
+          {
+            for(int i = 0; i < gl_in.length(); i++)
+            {
+              gl_Position = gl_in[i].gl_Position;
+              geometryVertexSet(i);
+              EmitVertex();
+            }
+            EndPrimitive();
+          }"
+      }
+    }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { }
+}
+
+Transform { translation 0 -3 0 children Shape { appearance USE App1 geometry Sphere { } } }
+Transform { translation 0 -6 0 children Shape { appearance USE App1 geometry Cone   { } } }
+Transform { translation 0 -9 0 children Shape { appearance USE App1 geometry Box    { } } }
+
+Transform { translation 3 0 0 children
+Shape {
+  appearance DEF App2 Appearance {
+    effects Effect {
+      language "GLSL"
+      parts EffectPart {
+        type "GEOMETRY"
+        url "data:text/plain,
+          #version 150
+
+          layout(triangles) in;
+          layout(points, max_vertices = 1) out;
+
+          void geometryVertexZero();
+          void geometryVertexAdd(const int index, const float scale);
+
+          void main()
+          {
+            gl_Position = (
+              gl_in[0].gl_Position +
+              gl_in[1].gl_Position +
+              gl_in[2].gl_Position ) / 3.0;
+            geometryVertexZero();
+            geometryVertexAdd(0, 1.0 / 3.0);
+            geometryVertexAdd(1, 1.0 / 3.0);
+            geometryVertexAdd(2, 1.0 / 3.0);
+            EmitVertex();
+            EndPrimitive();
+          }"
+      }
+    }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { }
+}
+}
+
+Transform { translation 3 -3 0 children Shape { appearance USE App2 geometry Sphere { } } }
+Transform { translation 3 -6 0 children Shape { appearance USE App2 geometry Cone   { } } }
+Transform { translation 3 -9 0 children Shape { appearance USE App2 geometry Box    { } } }
