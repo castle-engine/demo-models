@@ -1,0 +1,115 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Demonstrate integration of our Effects
+# (see http://castle-engine.sourceforge.net/compositing_shaders.php)
+# with geometry shaders.
+#
+# This shows that it's possible to create an Effect that works
+# both with and without geometry shader.
+
+# ----------------------------------------------------------------------------
+# Create any effect that needs to pass an attribute from
+# vertex to fragment shader to work.
+# We override special "GEOMETRY" plugs to make this attribute correctly
+# passed though geometry shaders, and we use #ifdef HAS_GEOMETRY_SHADER.
+#
+# The exact visual effect is not important here...
+# We just made the colors going to grayscale on the right side of the object,
+# nothing impressive.
+
+Shape {
+  appearance Appearance {
+    effects DEF GotoGrayscale Effect {
+      language "GLSL"
+      parts [
+        EffectPart { type "VERTEX" url "data:text/plain,
+          #version 150
+          out float vertex_x;
+
+          void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
+          {
+            vertex_x = vertex_object.x;
+          }"
+        }
+        EffectPart { type "GEOMETRY" url "data:text/plain,
+          #version 150
+          in float[] vertex_x;
+          out float vertex_x_fragment;
+
+          void PLUG_geometry_vertex_set(const in int index)
+          {
+            vertex_x_fragment = vertex_x[index];
+          }
+
+          void PLUG_geometry_vertex_zero()
+          {
+            vertex_x_fragment = 0.0;
+          }
+
+          void PLUG_geometry_vertex_add(const in int index, const in float scale)
+          {
+            vertex_x_fragment += vertex_x[index] * scale;
+          }"
+        }
+        EffectPart { type "FRAGMENT" url "data:text/plain,
+          #version 150
+          #ifdef HAS_GEOMETRY_SHADER
+            #define vertex_x vertex_x_fragment
+          #endif
+          in float vertex_x;
+
+          void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
+          {
+            /* use fragment_color.rgb with increased contrast *and* brightness */
+            vec3 color = pow(fragment_color.rgb, vec3(4.0)) * 4.0;
+
+            vec3 gray = vec3((fragment_color.r + fragment_color.g + fragment_color.b) / 3.0);
+
+            fragment_color.rgb = mix(color, gray, (vertex_x + 1.0) / 2.0);
+          }"
+        }
+      ]
+    }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
+}
+
+# ----------------------------------------------------------------------------
+# Use this effect with geometry shader.
+#
+
+Transform { translation 0 2 0 children
+Shape {
+  appearance Appearance {
+    effects [ USE GotoGrayscale, Effect {
+      language "GLSL"
+      parts [
+        EffectPart { type "GEOMETRY" url "data:text/plain,
+          #version 150
+
+          layout(triangles) in;
+          layout(triangle_strip, max_vertices = 3) out;
+
+          void geometryVertexSet(const int index);
+
+          void main()
+          {
+            for(int i = 0; i < gl_in.length(); i++)
+            {
+              gl_Position = gl_in[i].gl_Position;
+              geometryVertexSet(i);
+              EmitVertex();
+            }
+            EndPrimitive();
+          }"
+        }
+      ]
+    } ]
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
+}
+}
