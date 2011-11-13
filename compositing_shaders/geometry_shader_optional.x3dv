@@ -78,20 +78,19 @@ Shape {
 }
 
 # ----------------------------------------------------------------------------
-# Use this effect with geometry shader.
-#
+# Create a geometry shader effect turning triangles into lines.
 
-Transform { translation 0 2 0 children
+Transform { translation 0 4 0 children
 Shape {
   appearance Appearance {
-    effects [ USE GotoGrayscale, Effect {
+    effects DEF TrianglesToLines Effect {
       language "GLSL"
       parts [
         EffectPart { type "GEOMETRY" url "data:text/plain,
           #version 150
 
           layout(triangles) in;
-          layout(triangle_strip, max_vertices = 3) out;
+          layout(line_strip, max_vertices = 4) out;
 
           void geometryVertexSet(const int index);
 
@@ -103,11 +102,29 @@ Shape {
               geometryVertexSet(i);
               EmitVertex();
             }
+            gl_Position = gl_in[0].gl_Position;
+            geometryVertexSet(0);
+            EmitVertex();
             EndPrimitive();
           }"
         }
       ]
-    } ]
+    }
+    lineProperties LineProperties { linewidthScaleFactor 10 }
+    texture ImageTexture { url "../textures/test_texture.png" }
+  }
+  geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
+}
+}
+
+# ----------------------------------------------------------------------------
+# Combine both effects, to show that they are independent, but cooperate.
+
+Transform { translation 0 2 0 children
+Shape {
+  appearance Appearance {
+    effects [ USE TrianglesToLines, USE GotoGrayscale ]
+    lineProperties LineProperties { linewidthScaleFactor 10 }
     texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Teapot { texCoord TextureCoordinateGenerator { mode "COORD" } }
