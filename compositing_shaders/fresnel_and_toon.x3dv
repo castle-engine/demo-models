@@ -51,6 +51,10 @@ Transform { translation 0 2 0
                 return result;
               }
 
+              /* Test: this doesn't look like function definition,
+                 so will be ignored, although starts with the PLUG_ prefix:
+                 PLUG_xxx, PLUG_yyy blah, aPLUG_zzz(). */
+
               void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
               {
                 fragment_color.r *= intensity_toon(fragment_color.r);
