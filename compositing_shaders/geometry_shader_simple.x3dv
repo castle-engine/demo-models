@@ -8,6 +8,7 @@ Shape {
   appearance DEF App1 Appearance {
     effects Effect {
       language "GLSL"
+#      enabled FALSE # for testing how it looks without geometry shader
       parts EffectPart {
         type "GEOMETRY"
         url "data:text/plain,
@@ -30,6 +31,7 @@ Shape {
           }"
       }
     }
+    material Material { diffuseColor 1 1 0 }
     texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Teapot { }
@@ -70,6 +72,7 @@ Shape {
           }"
       }
     }
+    material Material { diffuseColor 1 1 0 }
     texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Teapot { }
