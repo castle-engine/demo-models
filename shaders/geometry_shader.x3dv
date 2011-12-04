@@ -145,7 +145,7 @@ Shape {
           layout(triangles) in;
           layout(triangle_strip, max_vertices = 3) out;
 
-          in vec2[] tex_coord;
+          in vec2 tex_coord[gl_in.length()];
           out vec2 frag_tex_coord;
 
           void main() {
@@ -201,7 +201,7 @@ Shape {
           layout(triangles) in;
           layout(triangle_strip, max_vertices = 3) out;
 
-          in vec2[] tex_coord;
+          in vec2 tex_coord[gl_in.length()];
           out vec2 frag_tex_coord;
 
           void main() {
@@ -219,6 +219,7 @@ Shape {
           }" }
         ShaderPart { type "FRAGMENT" url "data:text/plain,
           #version 150 compatibility
+          /* PLUG-DECLARATIONS */
           uniform sampler2D myTexture;
           in vec2 frag_tex_coord;
           void main(void)
