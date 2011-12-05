@@ -92,7 +92,7 @@ Shape {
             void geometryVertexZero();
             void geometryVertexAdd(const int index, const float scale);
 
-            in vec4[] saved_vertex_object;
+            in vec4 saved_vertex_object[CASTLE_GEOMETRY_INPUT_SIZE];
 
             void corner_vertex(const int index)
             {
@@ -183,7 +183,7 @@ Shape {
             void geometryVertexZero();
             void geometryVertexAdd(const int index, const float scale);
 
-            in vec4[] saved_vertex_object;
+            in vec4 saved_vertex_object[CASTLE_GEOMETRY_INPUT_SIZE];
 
             void inside_vertex(
               const float weight0,

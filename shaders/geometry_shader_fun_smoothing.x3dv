@@ -35,7 +35,7 @@ Shape {
           layout(triangles) in;
           layout(triangle_strip, max_vertices = 12) out;
 
-          in vec3[] normal;
+          in vec3 normal[CASTLE_GEOMETRY_INPUT_SIZE];
           out float light_intensity;
 
           vec3 vertex_normal;

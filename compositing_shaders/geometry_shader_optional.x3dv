@@ -35,7 +35,7 @@ Shape {
         }
         EffectPart { type "GEOMETRY" url "data:text/plain,
           #version 150
-          in float[] vertex_x;
+          in float vertex_x[CASTLE_GEOMETRY_INPUT_SIZE];
           out float vertex_x_fragment;
 
           void PLUG_geometry_vertex_set(const in int index)
@@ -55,6 +55,7 @@ Shape {
         }
         EffectPart { type "FRAGMENT" url "data:text/plain,
           #version 150
+          /* PLUG-DECLARATIONS */
           #ifdef HAS_GEOMETRY_SHADER
             #define vertex_x vertex_x_fragment
           #endif
