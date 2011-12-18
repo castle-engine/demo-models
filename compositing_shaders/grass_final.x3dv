@@ -21,7 +21,7 @@ void PLUG_vertex_object_space_change(inout vec4 vertex_object, inout vec3 normal
   float move = sin(time) * vertex_object.z / 4.0;
   /* This is a (failed) attempt to add some irregular changes.
      We should use some smooth noise instead. */
-  move += (fract(vertex_object.x * 100) * fract(vertex_object.y * 100) * 2.0 - 1.0) / 4.0;
+  move += (fract(vertex_object.x * 100.0) * fract(vertex_object.y * 100.0) * 2.0 - 1.0) / 4.0;
   vertex_object.x += move;
   vertex_object.y += move;
 }"
