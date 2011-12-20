@@ -45,7 +45,7 @@ uniform sampler2DRect screen;
 void main (void)
 {
   gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
-  if (floor(mod(gl_TexCoord[0].s, 40.0)) == 35)
+  if (int(floor(mod(gl_TexCoord[0].s, 40.0))) == 35)
     gl_FragColor.g = 2.0 / 10.0;
 }
 " } } }
