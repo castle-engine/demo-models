@@ -1,0 +1,78 @@
+#VRML V2.0 utf8
+
+# Testcase from https://sourceforge.net/p/castle-engine/discussion/general/thread/19f9dfc4/
+
+Transform {
+  rotation 1 0 0 -1.5707963268
+  translation 0 100 0
+  children [
+    Shape {
+      appearance Appearance { material Material { } }
+      geometry Extrusion {
+        crossSection [
+          -1.09 133.72, -1.09 65.09, 20.21 65.09, 20.21 44.84, 28.71 44.84, 28.71 73.59, 7.42 73.59, 7.42 133.72, -1.09 133.72
+        ]
+        spine [0 -50 0, 0 0.00 0]
+        solid TRUE
+        ccw FALSE
+        beginCap TRUE
+        endCap TRUE
+        creaseAngle 0
+        convex FALSE
+      }
+    }
+    Shape {
+      appearance Appearance { material Material { } }
+      geometry Extrusion {
+        crossSection [
+          57.40 112.55, 57.40 103.80, 71.35 103.80, 71.35 98.25, 80.70 98.25, 80.70 107.15, 66.45 107.15, 66.45 112.40, 57.40 112.55
+        ]
+        spine [0 -50 0, 0 0.00 0]
+        solid TRUE
+        ccw FALSE
+        beginCap TRUE
+        endCap TRUE
+        creaseAngle 0
+        convex FALSE
+      }
+    }
+  ]
+}
+
+Shape {
+  appearance Appearance { material Material { } }
+  geometry IndexedFaceSet {
+    coord Coordinate { point [
+      -1.09 133.72 0,
+      -1.09 65.09 0,
+      20.21 65.09 0,
+      20.21 44.84 0,
+      28.71 44.84 0,
+      28.71 73.59 0,
+      7.42 73.59 0,
+      7.42 133.72 0,
+#      -1.09 133.72 0,
+    ] }
+    coordIndex [ 0 1 2 3 4 5 6 7 ]
+    convex FALSE
+  }
+}
+
+Shape {
+  appearance Appearance { material Material { } }
+  geometry IndexedFaceSet {
+    coord Coordinate { point [
+      57.40 112.55 0,
+      57.40 103.80 0,
+      71.35 103.80 0,
+      71.35 98.25 0,
+      80.70 98.25 0,
+      80.70 107.15 0,
+      66.45 107.15 0,
+      66.45 112.40 0,
+#      57.40 112.55 0,
+    ] }
+    coordIndex [ 0 1 2 3 4 5 6 7 ]
+    convex FALSE
+  }
+}
