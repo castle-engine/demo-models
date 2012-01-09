@@ -1,0 +1,23 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo of BooleanFilter outputs. Observe Logger output on the console.
+
+Group {
+  children [
+    DEF Touch TouchSensor { }
+    Shape { geometry Box { } appearance Appearance { material Material { } } }
+  ]
+}
+
+DEF L Logger {
+  level 2
+}
+
+DEF BFilter BooleanFilter { }
+
+ROUTE Touch.isOver TO BFilter.set_boolean
+
+ROUTE BFilter.inputNegate TO L.write
+ROUTE BFilter.inputFalse  TO L.write
+ROUTE BFilter.inputTrue   TO L.write
