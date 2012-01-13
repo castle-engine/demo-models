@@ -3,14 +3,14 @@ PROFILE Interchange
 
 # Anchor node tests
 
-# Camera settings "encoded" in the VRML declaration below :
-# direction 0.0009542720508761 5.3072477612658986E-007 -0.0199772231280803
-# up 0.0003412316145841 0.9999999403953552 0.0000429102037742
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0.0477173291146755 0.0000266001297859 -0.9988608956336975
+# up 0.0004871281853411 0.9999999403953552 0.0000499451889481
 # gravityUp 0 1 0
 DEF FrontView Viewpoint {
   description "Default Front View"
-  position 7.1882648468017578 -5.6412186622619629 23.323617935180664
-  orientation 0.0008015022613108 -0.9998616576194763 -0.0102263912558555 0.0477379597723484
+  position 7.0167627334594727 -8.2467250823974609 26.886951446533203
+  orientation 0.0008564154268242 -0.9999400973320007 -0.0125247593969106 0.0477379597723484
 }
 
 # Camera settings "encoded" in the VRML declaration below :
@@ -156,6 +156,41 @@ Transform {
       Shape {
         appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string "      Click me for a Collada 3D model" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -16 0
+  children Anchor {
+    url "http://castle-engine.sourceforge.net/view3dscene.php"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text { string "      Open view3dscene website in WWW browser" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
+
+Transform {
+  translation 0 -18 0
+  children Anchor {
+    # URL with # inside
+    url "http://www.web3d.org/files/specifications/19775-1/V3.2/Part01/components/networking.html#Anchor"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text { string "      Open X3D specification for Anchor node in WWW browser" }
       }
       Shape {
         appearance USE App1
