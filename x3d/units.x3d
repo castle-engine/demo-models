@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+
+<!-- Test of <unit.../> in X3D XML encoding.
+     See units.x3dv (classic encoding version) for more comments. -->
+
+<X3D version="3.3" profile="Interchange" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
+<head>
+  <unit category="angle" name="degrees" conversionFactor="0.017453293" /> <!-- pi / 180 -->
+  <unit category="length" name="km" conversionFactor="1000" />
+  <unit category="force" name="foo" conversionFactor="123.456" />
+  <unit category="mass" name="bar" conversionFactor="789" />
+</head>
+<Scene>
+  <Transform rotation="1 0 0 90">
+    <Shape>
+      <Appearance> <Material diffuseColor="1 1 0" /> </Appearance>
+      <Cylinder />
+    </Shape>
+  </Transform>
+  <Inline url='"units_helper.x3dv"' />
+</Scene>
+</X3D>

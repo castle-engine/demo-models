@@ -1,0 +1,32 @@
+#X3D V3.3 utf8
+
+# Test of UNIT.
+#
+# view3dscene correctly handles changes to angle units
+# (they will be converted to radians during parsing).
+# Correct output shows two cylinders, yellow and blue, oriented the same way.
+#
+# For now, other changes to units are ignored (which does not usually
+# matter, unless you Inline files with various unit coordinates and
+# you expect X3D browser to normalize them; also, meters matter for
+# the speed of sound; view3dscene doesn't support physics component yet,
+# so units of force and mass and not important).
+
+PROFILE Interchange
+
+COMPONENT Rendering:5
+
+UNIT angle degrees 0.017453293 # pi / 180
+UNIT length km 1000
+UNIT force foo 123.456
+UNIT mass bar 789
+
+Transform {
+  rotation 1 0 0 90
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Cylinder { }
+  }
+}
+
+Inline { url "units_helper.x3dv" }

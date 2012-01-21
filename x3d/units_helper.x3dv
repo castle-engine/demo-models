@@ -1,0 +1,11 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Transform {
+  rotation 1 0 0 1.5707963268
+  translation 3 0 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 0 0 1 } }
+    geometry Cylinder { }
+  }
+}
