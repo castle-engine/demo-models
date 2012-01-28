@@ -12,10 +12,10 @@
   <unit category="mass" name="bar" conversionFactor="789" />
 </head>
 <Scene>
-  <Transform rotation="1 0 0 90">
+  <Transform rotation="0.001 0 0 90">
     <Shape>
       <Appearance> <Material diffuseColor="1 1 0" /> </Appearance>
-      <Cylinder />
+      <Cylinder height="0.002" radius="0.001" />
     </Shape>
   </Transform>
   <Inline url='"units_helper.x3dv"' />

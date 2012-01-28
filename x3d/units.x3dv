@@ -22,10 +22,10 @@ UNIT force foo 123.456
 UNIT mass bar 789
 
 Transform {
-  rotation 1 0 0 90
+  rotation 0.001 0 0 90
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
-    geometry Cylinder { }
+    geometry Cylinder { height 0.002 radius 0.001 }
   }
 }
 
