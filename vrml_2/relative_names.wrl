@@ -5,4 +5,4 @@
 # is resolved with respect to the directory where the current
 # VRML file is.
 
-Inline { url "subdir1/relative_inline2.wrl" }
+Inline { url "file://z:\\home\\michal\\sources\\castle-engine\\trunk\\demo_models\\vrml_2\\subdir1\\relative_inline2.wrl" }
