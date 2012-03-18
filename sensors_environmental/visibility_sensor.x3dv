@@ -1,0 +1,30 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+Transform { translation 0 0 -3
+  children [
+    Shape {
+      geometry Box { size 2 2 2 }
+      appearance Appearance { material Material { } }
+    }
+    DEF Vis1 VisibilitySensor { size 2 2 2 }
+  ]
+}
+
+DEF Log Logger { enabled TRUE level 4 }
+ROUTE Vis1.enterTime TO Log.write
+ROUTE Vis1.exitTime TO Log.write
+ROUTE Vis1.isActive TO Log.write
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0.982587993144989 -4.371517547951953E-008 0.1862635910511017
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position -5.6129655838012695 1.7289044857025146 -5.5227932929992676
+  orientation 0.0001725890033413 -1 -0.0001429827243555 1.7581377029418945
+}
+
+NavigationInfo { type "WALK" speed 10 }
+
+Inline { url "visibility_sensor_geometry.x3d" }
