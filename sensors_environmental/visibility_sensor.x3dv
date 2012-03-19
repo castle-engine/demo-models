@@ -1,20 +1,187 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-Transform { translation 0 0 -3
+# ----------------------------------------------------------------------------
+# Simple box
+Transform { translation 5.6 1 -4.8
   children [
     Shape {
-      geometry Box { size 2 2 2 }
+      geometry Box { size 1 1 1 }
       appearance Appearance { material Material { } }
     }
-    DEF Vis1 VisibilitySensor { size 2 2 2 }
+    DEF Vis1 VisibilitySensor { size 1 1 1 }
+
+    # test also invalid VisibilitySensor with size < 0.
+    # It should make a nice warning in view3dscene, and be never visible.
+    # DEF Vis1 VisibilitySensor { size -1 1 1 }
   ]
 }
 
-DEF Log Logger { enabled TRUE level 4 }
-ROUTE Vis1.enterTime TO Log.write
-ROUTE Vis1.exitTime TO Log.write
-ROUTE Vis1.isActive TO Log.write
+# ----------------------------------------------------------------------------
+# Two non-overlapping boxes (VisibilitySensor instanced 2 times with DEF/USE)
+Transform { translation 5.0 1 -1.3
+  children [
+    Transform { translation 0 3 0
+      children [
+        DEF Box2 Shape {
+          geometry Box { size 1 1 1 }
+          appearance Appearance { material Material { } }
+        }
+        DEF Vis2 VisibilitySensor { size 1 1 1 }
+      ]
+    }
+    USE Box2
+    USE Vis2
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Two overlapping boxes (VisibilitySensor instanced 2 times with DEF/USE)
+Transform { translation 3.4 1 1.9
+  children [
+    Transform { translation -0.5 0.5 -0.5
+      children [
+        DEF Box3 Shape {
+          geometry Box { size 1 1 1 }
+          appearance Appearance { material Material { } }
+        }
+        DEF Vis3 VisibilitySensor { size 1 1 1 }
+      ]
+    }
+    USE Box3
+    USE Vis3
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Box with animated center/size
+Transform { translation 1 1 4
+  children [
+    DEF Box4Transform Transform {
+      children Shape {
+        geometry Box { size 1 1 1 }
+        appearance Appearance { material Material { } }
+      }
+    }
+    DEF Vis4 VisibilitySensor { size 1 1 1 }
+  ]
+}
+DEF Timer4 TimeSensor { loop TRUE }
+DEF PositionInterpolator4 PositionInterpolator {
+  key      [ 0      0.25      0.5      0.75    1     ]
+  keyValue [ 0 0 0  1 0 0     1 1 0    0 1 0   0 0 0 ]
+}
+DEF ScaleInterpolator4 PositionInterpolator {
+  key      [ 0      0.5          1     ]
+  keyValue [ 1 1 1  0.5 0.5 0.5  1 1 1 ]
+}
+ROUTE Timer4.fraction_changed TO PositionInterpolator4.set_fraction
+ROUTE PositionInterpolator4.value_changed TO Box4Transform.set_translation
+ROUTE PositionInterpolator4.value_changed TO Vis4.set_center
+ROUTE Timer4.fraction_changed TO ScaleInterpolator4.set_fraction
+ROUTE ScaleInterpolator4.value_changed TO Box4Transform.set_scale
+ROUTE ScaleInterpolator4.value_changed TO Vis4.set_size
+
+# ----------------------------------------------------------------------------
+# Box under animated transform
+Transform { translation -2 1 5.3
+  children DEF Vis5Transform Transform {
+    children [
+      Shape {
+        geometry Box { size 1 1 1 }
+        appearance Appearance { material Material { } }
+      }
+      DEF Vis5 VisibilitySensor { size 1 1 1 }
+    ]
+  }
+}
+DEF Timer5 TimeSensor { loop TRUE }
+DEF PositionInterpolator5 PositionInterpolator {
+  key      [ 0      0.25      0.5      0.75    1     ]
+  keyValue [ 0 0 0  1 0 0     1 1 0    0 1 0   0 0 0 ]
+}
+DEF ScaleInterpolator5 PositionInterpolator {
+  key      [ 0      0.5          1     ]
+  keyValue [ 1 1 1  0.5 0.5 0.5  1 1 1 ]
+}
+ROUTE Timer5.fraction_changed TO PositionInterpolator5.set_fraction
+ROUTE PositionInterpolator5.value_changed TO Vis5Transform.set_translation
+ROUTE Timer5.fraction_changed TO ScaleInterpolator5.set_fraction
+ROUTE ScaleInterpolator5.value_changed TO Vis5Transform.set_scale
+
+# ----------------------------------------------------------------------------
+# Box with VisibilitySensor disabled
+Transform { translation -5.3 1 5.2
+  children [
+    Shape {
+      geometry Box { size 1 1 1 }
+      appearance Appearance { material Material { } }
+    }
+    DEF Vis6 VisibilitySensor { size 1 1 1 enabled FALSE }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Rest of code
+
+EXTERNPROTO ViewportInfo [
+  inputOutput MFString info
+] [ "../prototypes/useful_prototypes.x3dv#ViewportInfo" ]
+
+DEF MyViewportInfo ViewportInfo {
+  textColor 1 1 0.5
+}
+
+DEF VisualizeVisibility Script {
+  outputOnly MFString info
+  inputOutput SFBool visible1 FALSE
+  inputOutput SFBool visible2 FALSE
+  inputOutput SFBool visible3 FALSE
+  inputOutput SFBool visible4 FALSE
+  inputOutput SFBool visible5 FALSE
+  inputOutput SFBool visible6 FALSE
+
+  # Dummy field, value doesn't matter.
+  # We use this because you cannot define own functions in CastleScript.
+  inputOutput SFBool recalculateInfo FALSE
+
+  url "castlescript:
+{ Recalculate output 'info' text at initialization, and each time
+  some VisibilitySensor sends isActive event. }
+function initialize(     time) recalculateInfo := true
+function visible1(value, time) recalculateInfo := true
+function visible2(value, time) recalculateInfo := true
+function visible3(value, time) recalculateInfo := true
+function visible4(value, time) recalculateInfo := true
+function visible5(value, time) recalculateInfo := true
+function visible6(value, time) recalculateInfo := true
+
+function recalculateInfo(value, time)
+  info := array(
+    '',
+    'Walk close and look at each test chamber,',
+    'and notice how VisibilitySensor reports whether',
+    'the white box inside is visible:',
+    '',
+    'Test chambers, as seen from left to right:',
+    '- Simple box visible: ' + string(visible1),
+    '- Two non-overlapping boxes visible: ' + string(visible2),
+    '- Two overlapping boxes visible: ' + string(visible3),
+    '- Box with animated center/size: ' + string(visible4),
+    '- Box under animated transform: ' + string(visible5),
+    '- Box with VisibilitySensor disabled: ' + string(visible6),
+    '',
+    'Press key h (help) to hide/show this text at any time.'
+  )
+"
+}
+ROUTE Vis1.isActive TO VisualizeVisibility.visible1
+ROUTE Vis2.isActive TO VisualizeVisibility.visible2
+ROUTE Vis3.isActive TO VisualizeVisibility.visible3
+ROUTE Vis4.isActive TO VisualizeVisibility.visible4
+ROUTE Vis5.isActive TO VisualizeVisibility.visible5
+ROUTE Vis6.isActive TO VisualizeVisibility.visible6
+ROUTE VisualizeVisibility.info TO MyViewportInfo.info
 
 # Camera settings "encoded" in the VRML/X3D declaration below :
 # direction 0.982587993144989 -4.371517547951953E-008 0.1862635910511017

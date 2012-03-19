@@ -15,6 +15,39 @@
 		            groundColor="0.051 0.051 0.051"
 		            skyColor="0.051 0.051 0.051"
 		            />
+		<Transform DEF="Cube_005_TRANSFORM"
+		           translation="0.950071 1.000000 3.940047"
+		           scale="1.000000 1.000000 1.000000"
+		           rotation="-0.185547 -0.694828 -0.694828 2.774671"
+		           >
+			<Transform DEF="Cube_005_ifs_TRANSFORM"
+			           translation="-0.000000 -0.000000 0.000000"
+			           scale="1.000000 1.000000 1.000000"
+			           rotation="1.000000 0.000000 0.000000 0.000000"
+			           >
+				<Group DEF="group_ME_Cube_000">
+					<Shape>
+						<Appearance>
+							<Material DEF="MA_Material_000"
+							          diffuseColor="0.800 0.664 0.580"
+							          specularColor="0.401 0.401 0.401"
+							          emissiveColor="0.000 0.000 0.000"
+							          ambientIntensity="0.333"
+							          shininess="0.098"
+							          transparency="0.0"
+							          />
+						</Appearance>
+						<IndexedFaceSet solid="false"
+						                coordIndex="0 4 5 1 -1 2 6 7 3 -1 4 0 3 7 -1 "
+						                >
+							<Coordinate DEF="coords_ME_Cube_000"
+							            point="1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 0.999999 1.000000 0.999999 -1.000001 1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 "
+							            />
+						</IndexedFaceSet>
+					</Shape>
+				</Group>
+			</Transform>
+		</Transform>
 		<Transform DEF="Lamp_002_TRANSFORM"
 		           translation="3.275054 5.903862 -6.417216"
 		           scale="1.000000 1.000000 1.000000"
@@ -75,12 +108,12 @@
 			</Transform>
 		</Transform>
 		<Transform DEF="Cube_003_TRANSFORM"
-		           translation="-0.762853 1.000000 5.189054"
+		           translation="-2.083232 1.000000 5.153368"
 		           scale="1.000000 1.000000 1.000000"
 		           rotation="-0.105942 -0.703127 -0.703127 2.930497"
 		           >
 			<Transform DEF="Cube_003_ifs_TRANSFORM"
-			           translation="0.000000 0.000000 0.000000"
+			           translation="-0.000000 0.000000 0.000000"
 			           scale="1.000000 1.000000 1.000000"
 			           rotation="1.000000 0.000000 0.000000 0.000000"
 			           >
@@ -108,12 +141,12 @@
 			</Transform>
 		</Transform>
 		<Transform DEF="Cube_002_TRANSFORM"
-		           translation="3.130401 1.000000 3.085612"
+		           translation="3.415888 1.000000 1.872290"
 		           scale="1.000000 1.000000 1.000000"
 		           rotation="-0.269668 -0.680911 -0.680911 2.614789"
 		           >
 			<Transform DEF="Cube_002_ifs_TRANSFORM"
-			           translation="0.000000 0.000000 0.000000"
+			           translation="0.000000 -0.000000 0.000000"
 			           scale="1.000000 1.000000 1.000000"
 			           rotation="1.000000 0.000000 0.000000 0.000000"
 			           >
@@ -141,12 +174,12 @@
 			</Transform>
 		</Transform>
 		<Transform DEF="Cube_001_TRANSFORM"
-		           translation="5.068721 1.000000 -0.612321"
+		           translation="5.033035 1.000000 -1.433098"
 		           scale="1.000000 1.000000 1.000000"
-		           rotation="-0.369960 -0.656936 -0.656936 2.432904"
+		           rotation="-0.431310 -0.637954 -0.637954 2.327186"
 		           >
 			<Transform DEF="Cube_001_ifs_TRANSFORM"
-			           translation="0.000000 0.000000 0.000000"
+			           translation="0.000000 -0.000000 0.000000"
 			           scale="1.000000 1.000000 1.000000"
 			           rotation="1.000000 0.000000 0.000000 0.000000"
 			           >

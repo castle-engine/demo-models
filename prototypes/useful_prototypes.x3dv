@@ -9,6 +9,7 @@ PROFILE Interchange
 # It can be turned off/on by "h" (help) key.
 PROTO ViewportInfo [
   inputOutput MFString info "information"
+  inputOutput SFColor textColor 0 0 0
 ] {
   Group {
     children [
@@ -20,7 +21,7 @@ PROTO ViewportInfo [
               translation -0.1 0.07 -0.2
               children Shape {
                 appearance KambiAppearance {
-                  material Material { diffuseColor 0 0 0 }
+                  material Material { diffuseColor IS textColor }
                   shadowCaster FALSE
                 }
                 geometry Text {
@@ -79,7 +80,7 @@ PROTO EditableTransform [
   # some angles.
   inputOutput SFVec2f minPosition -10 -10
   inputOutput SFVec2f maxPosition  10  10
-  
+
   inputOutput SFVec2f minScale 0.1 0.1 # don't scale <= 0
   inputOutput SFVec2f maxScale 10 10
 ] {
