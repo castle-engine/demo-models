@@ -16,9 +16,9 @@
 		            skyColor="0.630 0.630 0.630"
 		            />
 		<Transform DEF="Default_002_TRANSFORM"
-		           translation="-0.000313 -0.750869 0.467218"
+		           translation="0.750869 0.467218 0.000313"
 		           scale="1.000000 1.000000 1.000000"
-		           rotation="-0.000000 0.300706 0.953717 3.141593"
+		           rotation="-0.419215 -0.805305 -0.419215 1.785657"
 		           >
 			<Transform DEF="Default_002_ifs_TRANSFORM"
 			           translation="-0.000000 -0.000000 0.000000"
@@ -50,9 +50,9 @@
 			</Transform>
 		</Transform>
 		<Transform DEF="Default_001_TRANSFORM"
-		           translation="-0.000313 -1.586282 -1.056801"
+		           translation="1.586282 -1.056801 0.000313"
 		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.000000 -0.500000 0.866025 3.141593"
+		           rotation="-0.694747 -0.186157 -0.694747 2.773493"
 		           >
 			<Transform DEF="Default_001_ifs_TRANSFORM"
 			           translation="-0.000000 0.000000 0.000000"
@@ -77,9 +77,9 @@
 			</Transform>
 		</Transform>
 		<Transform DEF="Lamp_TRANSFORM"
-		           translation="-6.868868 6.863454 7.232649"
+		           translation="-6.863454 7.232649 6.868868"
 		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.283385 -0.287343 -0.914946 2.902729"
+		           rotation="-0.381664 -0.656826 -0.650317 1.296573"
 		           >
 			<PointLight DEF="LA_Lamp"
 			            ambientIntensity="0.0000"
@@ -90,9 +90,9 @@
 			            />
 		</Transform>
 		<Transform DEF="Camera_TRANSFORM"
-		           translation="-24.082167 -1.667079 0.090478"
+		           translation="1.667079 0.090478 24.082167"
 		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.577176 -0.577350 -0.577525 2.094395"
+		           rotation="-0.000151 -0.000151 -0.000000 0.000691"
 		           >
 			<Viewpoint DEF="CA_Camera"
 			           centerOfRotation="0 0 0"
@@ -101,9 +101,9 @@
 			           />
 		</Transform>
 		<Transform DEF="Default_TRANSFORM"
-		           translation="-0.000313 -1.356744 0.099274"
+		           translation="1.356744 0.099274 0.000313"
 		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.000000 0.000000 1.000000 3.141593"
+		           rotation="-0.577350 -0.577350 -0.577350 2.094395"
 		           >
 			<Transform DEF="Default_ifs_TRANSFORM"
 			           translation="0.000000 0.000000 0.000000"
