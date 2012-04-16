@@ -28,11 +28,11 @@ Inline { url "../vrml_2/castle_with_lights.wrl" }
 DEF SE1 ScreenEffect { shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
+  gl_FragColor = screen_get_color(screen_position());
   gl_FragColor.b = 0.0;
 }
 " } } }
@@ -40,12 +40,13 @@ void main (void)
 DEF SE2 ScreenEffect { shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
+int screen_x();
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
-  if (int(floor(mod(gl_TexCoord[0].s, 40.0))) == 35)
+  gl_FragColor = screen_get_color(screen_position());
+  if (mod(screen_x(), 40) == 35)
     gl_FragColor.g = 2.0 / 10.0;
 }
 " } } }
@@ -53,12 +54,12 @@ void main (void)
 DEF SE3 ScreenEffect { shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen,
-    vec2(gl_TexCoord[0].s + sin(gl_TexCoord[0].t / 10.0) * 10.0, gl_TexCoord[0].t));
+  gl_FragColor = screen_get_color(screen_position() +
+    ivec2(int(sin(gl_TexCoord[0].t / 10.0) * 10.0), 0));
 }
 " } } }
 
@@ -81,24 +82,26 @@ ROUTE BFShift.inputNegate TO SE3.enabled
 ScreenEffect { enabled FALSE shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st) / 2.0;
+  gl_FragColor = screen_get_color(screen_position()) / 2.0;
 }
 " } } }
 
 ScreenEffect { enabled FALSE shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
+int screen_x();
+int screen_y();
 uniform int screen_height;
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen,
-    vec2(gl_TexCoord[0].s, float(screen_height) - gl_TexCoord[0].t));
+  gl_FragColor = screen_get_color(
+    ivec2(screen_x(), screen_height - screen_y()));
 }
 " } } }
 

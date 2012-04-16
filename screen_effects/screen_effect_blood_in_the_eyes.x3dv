@@ -40,8 +40,8 @@ ScreenEffect { shaders DEF Shader ComposedShader {
   inputOnly SFTime time
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
 uniform sampler2D bloodyTexture;
 uniform float time;
 
@@ -49,10 +49,10 @@ const vec2 bloodyTextureSize = vec2(512.0, 512.0);
 
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
-  vec2 bloodCoord = gl_TexCoord[0].st / bloodyTextureSize;
+  gl_FragColor = screen_get_color(screen_position());
+  vec2 bloodCoord = vec2(screen_position()) / bloodyTextureSize;
   /* different columns move down at slightly different speeds */
-  /* float timeScale = mix(0.8, 1.2, (sin(gl_TexCoord[0].s / 10.0) + 1.0) / 2.0); */
+  /* float timeScale = mix(0.8, 1.2, (sin(screen_position().x / 10.0) + 1.0) / 2.0); */
   bloodCoord.t += time / 10.0;
   gl_FragColor = mix(gl_FragColor,
     gl_FragColor * texture2D(bloodyTexture, bloodCoord),

@@ -39,8 +39,8 @@ ScreenEffect { shaders DEF Shader ComposedShader {
   inputOnly SFTime time
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
 uniform sampler2D grainTexture;
 uniform float time;
 
@@ -51,7 +51,7 @@ const float strength = 25.0;
 
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
+  gl_FragColor = screen_get_color(screen_position());
 
   /* Use integer (in 256 range) grayscale weights, to avoid crappy fglrx bugs with float consts */
 /*  float intensity = (gl_FragColor.r * 54.0 + gl_FragColor.g * 183.0 + gl_FragColor.b * 19.0) / 256.0;
@@ -65,7 +65,7 @@ void main (void)
   gl_FragColor.g *= 3.0 / 4.0;
   gl_FragColor.b *= 6.0 / 4.0;
 
-  vec2 grainCoord = gl_TexCoord[0].st / grainTextureSize;
+  vec2 grainCoord = vec2(screen_position()) / grainTextureSize;
 
   /* Grain changes constanly, to make the noisy effect.
      We could use a couple of textures (MovieTexture with noises),

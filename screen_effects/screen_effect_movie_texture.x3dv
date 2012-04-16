@@ -39,8 +39,8 @@ ScreenEffect { shaders DEF Shader ComposedShader {
   }
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-#extension GL_ARB_texture_rectangle : enable
-uniform sampler2DRect screen;
+ivec2 screen_position();
+vec4 screen_get_color(ivec2 position);
 uniform sampler2D movieTexture;
 uniform int screen_width;
 uniform int screen_height;
@@ -50,10 +50,10 @@ const float movieTextureScale = 2.0;
 
 void main (void)
 {
-  gl_FragColor = texture2DRect(screen, gl_TexCoord[0].st);
+  gl_FragColor = screen_get_color(screen_position());
 
   vec2 screen_middle = vec2(float(screen_width), float(screen_height)) / 2.0;
-  vec2 movieCoord = (gl_TexCoord[0].st -
+  vec2 movieCoord = (vec2(screen_position()) -
     (screen_middle - movieTextureScale * movieTextureSize / 2.0)) /
     (movieTextureScale * movieTextureSize);
 
