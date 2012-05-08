@@ -1,0 +1,70 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0.9998731017112732 0 0.0159038063138723
+# up -4.3705885133249467E-008 1 -6.9516098433197726E-010
+# gravityUp 0 1 0
+Viewpoint {
+  position -6.7746381759643555 1.5825968980789185 3.3858211040496826
+  orientation 0 -1 0 1.5867009162902832
+}
+
+# first is the NavigationInfo with VRML/X3D default, avatarSize [0.25 1.6 0.75]
+DEF NavInfo2 NavigationInfo { type "WALK" speed 5 }
+
+DEF NavInfo0 NavigationInfo { type "WALK" speed 5 avatarSize [0.25 1.6 0] }
+DEF NavInfo1 NavigationInfo { type "WALK" speed 5 avatarSize [0.25 1.6 0.1] }
+DEF NavInfo3 NavigationInfo { type "WALK" speed 5 avatarSize [0.25 1.6 0.9] }
+DEF NavInfo4 NavigationInfo { type "WALK" speed 5 avatarSize [0.25 1.6 2] }
+
+EXTERNPROTO ViewportInfo [
+  inputOutput MFString info
+] [ "../prototypes/useful_prototypes.x3dv#ViewportInfo" ]
+
+ViewportInfo {
+  textColor 1 1 0
+  info [
+    ""
+    "Test of NavigationInfo.avatarSize[2]"
+    "(height of the tallest object you can climb) feature."
+    ""
+    "Press keys 1,2,3,4 to have larger and larger values"
+    "of avatarSize[2], which will allow you to climb"
+    "taller and taller stairs."
+    ""
+    "Press key 0 to set avatarSize[2] to zero,"
+    "which disables this limit (you will then be able"
+    "to climb as long as you can move forward)."
+    ""
+    "Press key h (help) to hide/show this text at any time."
+  ]
+}
+
+DEF KS KeySensor { }
+
+DEF MyScript Script {
+  inputOnly SFString keyPress
+  outputOnly SFBool bind0
+  outputOnly SFBool bind1
+  outputOnly SFBool bind2
+  outputOnly SFBool bind3
+  outputOnly SFBool bind4
+  url "castlescript:
+    function keyPress(value, timestamp)
+      when (value = '0', bind0 := TRUE);
+      when (value = '1', bind1 := TRUE);
+      when (value = '2', bind2 := TRUE);
+      when (value = '3', bind3 := TRUE);
+      when (value = '4', bind4 := TRUE)
+    "
+}
+
+ROUTE MyScript.bind0 TO NavInfo0.set_bind
+ROUTE MyScript.bind1 TO NavInfo1.set_bind
+ROUTE MyScript.bind2 TO NavInfo2.set_bind
+ROUTE MyScript.bind3 TO NavInfo3.set_bind
+ROUTE MyScript.bind4 TO NavInfo4.set_bind
+ROUTE KS.keyPress TO MyScript.keyPress
+
+Inline { url "avatar_climb_stairs_geometry.x3d" }
