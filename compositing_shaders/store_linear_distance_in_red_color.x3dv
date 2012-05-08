@@ -1,0 +1,62 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Effect {
+  language "GLSL"
+  parts [
+    EffectPart {
+      type "VERTEX"
+      url "data:text/plain,
+varying float distance_to_camera;
+void PLUG_vertex_eye_space(const in vec4 vertex_eye, const in vec3 normal_eye)
+{
+  /* In camera space, camera position = zero. So the distance from camera
+     position to vertex is just the length of vertex_eye vector.
+     Alternatively, we could just take -vertex_eye.z
+     (which is the distance to the camera plane; somewhat worse,
+     but minimally faster and just as good usually).
+
+     Scale/shift it to squeeze into 0..1 range,
+     to fit as red color component later. */
+  /* distance_to_camera = -vertex_eye.z / 10.0; */
+  distance_to_camera = length(vertex_eye) / 10.0;
+}" }
+
+    EffectPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+varying float distance_to_camera;
+void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
+{
+  /* Optionally, put in green and blue channels the grayscale color.
+     This allows to see the depth (red) changes easily on the screen. */
+  fragment_color.gb = vec2((
+    fragment_color.r +
+    fragment_color.g +
+    fragment_color.b) / 3.0);
+
+  /*
+  Try also these ways to obtain depth:
+
+  1. fragment_color.r = gl_FragCoord.z; // this is the non-linear depth
+
+  2. extract linear depth from non-linear depth buffer, using the same
+  equation as our SSAO shader:
+
+  const float near = 1.0;
+  const float far = 1000.0;
+  fragment_color.r = (2.0 * near) / (far + near - gl_FragCoord.z * (far-near));
+  */
+
+  fragment_color.r = distance_to_camera;
+}
+"   }
+  ]
+}
+
+Shape {
+  appearance Appearance { material Material { } }
+  geometry Teapot { }
+}
+
+# Inline { url "volumetric_animated_fog_geometry.x3d" }
