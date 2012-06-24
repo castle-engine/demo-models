@@ -22,7 +22,7 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec2f minScale
   inputOutput SFVec2f maxScale
   inputOutput SFVec3f center
-] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 MatrixTransform {
         matrix 0.00115212250966579 -0.50636279582977295 -0.08322570472955704 0

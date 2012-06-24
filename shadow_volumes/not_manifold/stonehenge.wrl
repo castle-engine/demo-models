@@ -35,7 +35,7 @@ Separator {
   # Ale zeby wygladal sensownie trzeba mu dac spore creaseAngle.
   ShapeHints { creaseAngle 1.00 }
 
-  WWWInline { name "chopper.x3d" }
+  WWWInline { name "../chopper.x3d" }
 }
 # Geometry -------------------------------------------------------------------
 

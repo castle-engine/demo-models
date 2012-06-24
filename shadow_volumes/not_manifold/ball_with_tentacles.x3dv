@@ -64,7 +64,7 @@ Transform {
 
 # Shadow receiver ------------------------------------------------------------
 
-Inline { url "house3.x3dv" }
+Inline { url "../house3.x3dv" }
 
 # Shadow caster (and receiver) -----------------------------------------------
 
@@ -78,7 +78,7 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec2f minScale
   inputOutput SFVec2f maxScale
   inputOutput SFVec3f center
-] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 EditableTransform {
   minPosition -5000 -5000
