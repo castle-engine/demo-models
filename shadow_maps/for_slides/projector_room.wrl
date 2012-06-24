@@ -79,8 +79,8 @@ void PLUG_texture_color(
   const in vec4 tex_coord)
 {
   vec2 coord2 = tex_coord.st / tex_coord.w;
-  if (coord2.s <= 0 || coord2.s >= 1 ||
-      coord2.t <= 0 || coord2.t >= 1)
+  if (coord2.s <= 0.0 || coord2.s >= 1.0 ||
+      coord2.t <= 0.0 || coord2.t >= 1.0)
     texture_color.rgb /= 5.0;
 }
 " }
