@@ -1,0 +1,14 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# PROTO with Inline and other stuff that has URLs known only *after*
+# expanding prototype. Internally, this means that first TX3DNode.ParseAfter
+# (during parsing prototype) is not enough to do the job.
+
+PROTO SomeProto [
+  inputOutput MFString url "../x3d/kings_head.x3dv"
+] {
+  Inline { url IS url }
+}
+
+SomeProto { }
