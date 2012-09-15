@@ -154,6 +154,6 @@ Transform { rotation 1 0 0 1.57
 }
 
 Inline { url "../../castle/data/levels/gate/gate_final.x3dv"
-#   replaceNames "LevelBox"
+#   replaceNames "CasMoveLimit"
 #   replaceNodes Group { }
 }

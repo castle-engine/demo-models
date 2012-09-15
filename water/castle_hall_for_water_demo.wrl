@@ -291,7 +291,8 @@ Switch {
 			]
 		}
 	}
-	DEF LevelBox
+        # Kambi LevelBox -> CasMoveLimit
+	DEF CasMoveLimit
 	Separator {
 		Coordinate3 {
 			point [
