@@ -23,6 +23,10 @@ Transform {
   children Shape {
     appearance Appearance {
       texture ImageTexture { url "../../textures/texture_alpha_copy.png"
+        # new Castle Game Engine 4.0.0 also works with
+        # url "../../textures/texture_alpha_copy.png"
+        # (previous engine had a problem with caching AlphaChannelType too much,
+        # needed different url)
         alphaChannel "SIMPLE_YES_NO" }
       material Material { }
     }
