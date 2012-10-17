@@ -1,0 +1,7 @@
+Water caustics demo by Victor Amat (thousand thanks!).
+
+They are available under a modified LGPL license: it's the same license
+as used by "Castle Game Engine", see
+http://castle-engine.sourceforge.net/engine.php#section_license .
+In the future, we'd like to port some of these effects to the engine core,
+to make such beatiful water available out-of-the-box for other 3D worlds.
