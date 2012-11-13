@@ -4,8 +4,7 @@ Gus was created with Blender, based on the basic Blender tutorial:
 
 I wanted to show here that it's possible to design animation in Blender using
 the very comfortable "armature" + insert LocRocSize approach, and then
-export it to VRML in such way that my demo_animation will be able to render
-this animation.
+export it to KAnim.
 
 It is possible, although I admit that it has some quirks ---
 because Blender doesn't export animation in any form into VRML
