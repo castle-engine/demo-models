@@ -1,7 +1,7 @@
 #VRML V2.0 utf8
 
 # A test of external prototypes.
-# Rendering result should be the same as for kinds_head.wrl, but this uses
+# Rendering result should be the same as for kings_head.wrl, but this uses
 # a lot of EXTERNPROTO to rename some built-in nodes (just for testing
 # purposes...)
 
