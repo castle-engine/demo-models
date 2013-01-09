@@ -160,10 +160,10 @@ DEF OB_FountainCore Transform {
 							transparency 0.0
 						}
 						texture DEF _016marbre_jpg ImageTexture {
-							url "//../../textures/016marbre.jpg"
+							url "textures/016marbre.jpg"
 						}
                                                 normalMap DEF _016marbre_jpg_normalMap ImageTexture {
-                                                	url "../../textures/normal_maps/016marbre.png"
+                                                	url "textures/normal_maps/016marbre.png"
                                                 }
 					}
 					geometry IndexedFaceSet {
@@ -7374,10 +7374,10 @@ DEF OB_WaterSurface Transform {
 							transparency 0.5221629
 						}
 						texture DEF water2_jpg ImageTexture {
-							url "//../../textures/water2.jpg"
+							url "textures/water2.jpg"
 						}
                                                 normalMap DEF water2_jpg_normalMap ImageTexture {
-                                                	url "../../textures/normal_maps/water2.png"
+                                                	url "textures/normal_maps/water2.png"
                                                 }
 					}
 					geometry IndexedFaceSet {
@@ -9676,10 +9676,10 @@ DEF OB_Ground Transform {
 							transparency 0.0
 						}
 						texture DEF _012marbre_jpg ImageTexture {
-							url "//../../textures/012marbre.jpg"
+							url "textures/012marbre.jpg"
 						}
                                                 normalMap DEF _012marbre_jpg_normalMap ImageTexture {
-                                                	url "../../textures/normal_maps/012marbre.png"
+                                                	url "textures/normal_maps/012marbre.png"
                                                 }
 					}
 					geometry IndexedFaceSet {

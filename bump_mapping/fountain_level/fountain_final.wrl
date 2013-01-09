@@ -30,12 +30,12 @@ Transform {
   rotation 1 0 0 1.5707963705062866
 
   children Background {
-    backUrl "../../skies/sunset/sunset_back.png"
-    bottomUrl "../../skies/sunset/sunset_bottom.png"
-    frontUrl "../../skies/sunset/sunset_front.png"
-    leftUrl "../../skies/sunset/sunset_left.png"
-    rightUrl "../../skies/sunset/sunset_right.png"
-    topUrl "../../skies/sunset/sunset_top.png"
+    backUrl "../../skies/sunset_back.png"
+    bottomUrl "../../skies/sunset_bottom.png"
+    frontUrl "../../skies/sunset_front.png"
+    leftUrl "../../skies/sunset_left.png"
+    rightUrl "../../skies/sunset_right.png"
+    topUrl "../../skies/sunset_top.png"
   }
 
 #   children Background {
