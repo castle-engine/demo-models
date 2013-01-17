@@ -58,8 +58,8 @@ Transform {
     ambientIntensity     0.05
     direction            0.8 -1 -0.8
     color                1.0 1.0 0.92
-    kambiShadows         TRUE
-    kambiShadowsMain     TRUE
+    shadowVolumes         TRUE
+    shadowVolumesMain     TRUE
     projectionRectangle  -15 -15 15 15
     projectionLocation   0 150 0
     projectionNear       100

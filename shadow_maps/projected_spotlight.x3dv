@@ -23,8 +23,8 @@ DEF reflector Group {
           cutOffAngle 1.25
           beamWidth 1.25
           radius 75
-          #kambiShadowsMain TRUE
-          #kambiShadows TRUE
+          #shadowVolumesMain TRUE
+          #shadowVolumes TRUE
           defaultShadowMap GeneratedShadowMap {
             update "ALWAYS"
             size 1024

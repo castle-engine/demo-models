@@ -29,19 +29,19 @@ Viewpoint {
 
 # DEF Light PointLight {
 #   location 0 4 0
-#   kambiShadows TRUE
-#   kambiShadowsMain TRUE
+#   shadowVolumes TRUE
+#   shadowVolumesMain TRUE
 #   on FALSE # fake light, only to determine shadows position
 # }
 
 DirectionalLight {
   direction 1 1 1
-  kambiShadows TRUE
+  shadowVolumes TRUE
 }
 
 DirectionalLight {
   direction -1 -1 -1
-  kambiShadows TRUE
+  shadowVolumes TRUE
 }
 
 DirectionalLight {

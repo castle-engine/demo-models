@@ -5,8 +5,8 @@
 PointLight {
 #  intensity 0.5
   location 320.27099609375 255.10638427734375 177.58871459960937
-  kambiShadowsMain TRUE
-  kambiShadows TRUE
+  shadowVolumesMain TRUE
+  shadowVolumes TRUE
 }
 
 # Shadow caster --------------------------------------------------------------

@@ -7,8 +7,8 @@ PROFILE Interchange
 #   intensity 0.5
 #   location 21793.482421875 9821.85546875 8022.0078125
 #   radius 100000000
-#   kambiShadowsMain TRUE
-#   kambiShadows TRUE
+#   shadowVolumesMain TRUE
+#   shadowVolumes TRUE
 # }
 
 # closer positional light
@@ -16,15 +16,15 @@ PROFILE Interchange
 #   intensity 0.5
 #   location 12297.126953125 8704.490234375 4524.98828125
 #   radius 100000000
-#   kambiShadowsMain TRUE
-#   kambiShadows TRUE
+#   shadowVolumesMain TRUE
+#   shadowVolumes TRUE
 # }
 
 DirectionalLight {
   intensity 0.5
   direction -162.489013671875 -11.933350563049316 -145.55645751953125
-  kambiShadowsMain TRUE
-  kambiShadows TRUE
+  shadowVolumesMain TRUE
+  shadowVolumes TRUE
 }
 
 # Viewpoints -----------------------------------------------------------------

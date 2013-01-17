@@ -5,8 +5,8 @@
 
 PointLight {
   location 2 0 4
-  kambiShadows TRUE
-  kambiShadowsMain TRUE
+  shadowVolumes TRUE
+  shadowVolumesMain TRUE
 }
 
 Group {
