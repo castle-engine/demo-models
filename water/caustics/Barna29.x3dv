@@ -1522,7 +1522,7 @@ DEF Pool_floor Shape {
           uniform float frame;
           void main(void)
           {
-            float shadow = shadow2DProj(shadowMap, gl_TexCoord[2]);
+            float shadow = shadow2DProj(shadowMap, gl_TexCoord[2]).x;
             if (onProjShadowMap) {
               gl_FragColor = vec4(shadow);
               return;
