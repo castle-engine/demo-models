@@ -1,0 +1,67 @@
+#X3D V3.0 utf8
+PROFILE Interactive
+
+# Test how various X3D browsers mix texture color with
+# Material.diffuseColor and Color node.
+# See http://castle-engine.sourceforge.net/x3d_implementation_texturing.php#section_default_texture_mode
+
+PointLight { location 4 4 0 }
+
+# NavigationInfo { headlight FALSE }
+
+# RGB texture with red Material.diffuseColor
+Transform {
+  translation 0 0 0
+  children Shape {
+    geometry Sphere { }
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0 }
+      texture ImageTexture { url "../textures/test_texture.png" }
+    }
+  }
+}
+
+# Grayscale texture with red Material.diffuseColor
+Transform {
+  translation 2 0 0
+  children Shape {
+    geometry Sphere { }
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0 }
+      texture ImageTexture { url "../textures/test_texture_grayscale.png" }
+    }
+  }
+}
+
+# RGB texture with Color node
+Transform {
+  translation 0 -2 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      coordIndex [ 0 1 2 3 ]
+      color Color { color [ 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
+    }
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture { url "../textures/test_texture.png" }
+    }
+  }
+}
+
+
+# Grayscale texture with Color node
+Transform {
+  translation 2 -2 0
+  children Shape {
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      coordIndex [ 0 1 2 3 ]
+      color Color { color [ 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
+    }
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture { url "../textures/test_texture_grayscale.png" }
+    }
+  }
+}
