@@ -1,0 +1,82 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# When you click (on any 3D object), it will start a transition from
+# MyViewpoint1 to MyViewpoint2, and when it ends from MyViewpoint2 to MyViewpoint3.
+
+# NavigationInfo nodes -------------------------------------------------------
+#
+# We use 2 NavigationInfo nodes. These control transition speed and
+# know when current transition ended and another should start.
+# We also use NavigationInfo.type = "NONE" to disallow user to move on it's own.
+# You could extend this example to bind another NavigationInfo (that enables
+# user to move) when the last transition ended.
+
+DEF MyNavigationInfo1To2 NavigationInfo {
+  type ["NONE"]
+  transitionTime 2
+}
+
+DEF MyNavigationInfo2To3 NavigationInfo {
+  type ["NONE"]
+  transitionTime 4
+}
+
+# Viewpoint nodes ------------------------------------------------------------
+#
+# We use 3 Viewpoint nodes. These control camera. They were generated using
+# view3dscene "Console->Print Current Camera (VRML 2.0, X3D classic)" command.
+
+Transform {
+  translation 0.004618315026164 -94.837326049804687 6.33106803894043
+  rotation 1 0 0 1.570796370506287
+  children DEF MyViewpoint1 Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+Transform {
+  translation 63.429534912109375 -22.399269104003906 6.3310680389404297
+  rotation 1 0 0 1.5707963705062866
+  children DEF MyViewpoint2 Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -1.1600933430035154E-13 1 0 1.3187620639801025
+  }
+}
+
+Transform {
+  translation 169.3759765625 -49.681541442871094 117.10231018066406
+  rotation 1 0 0 1.5707963705062866
+  children DEF MyViewpoint3 Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.25974994897842407 0.94445419311523438 0.20133580267429352 1.3744720220565796
+  }
+}
+
+# Visible scene --------------------------------------------------------------
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+# TouchSensor and animation logic --------------------------------------------
+
+# TouchSensor.touchTime sends time on click.
+# It captures clicks on the sibling 3D objects, which in our case just means
+# the whole Inlined 3D model of the castle.
+DEF MyTouchSensor TouchSensor { }
+
+# MyBooleanTrigger is used to capture TouchSensor.touchTime
+# and send boolean TRUE on click.
+# This initiates transition from MyViewpoint1 to MyViewpoint2.
+DEF MyBooleanTrigger BooleanTrigger { }
+ROUTE MyTouchSensor.touchTime TO MyBooleanTrigger.set_triggerTime
+ROUTE MyBooleanTrigger.triggerTrue TO MyNavigationInfo1To2.set_bind
+ROUTE MyBooleanTrigger.triggerTrue TO MyViewpoint2.set_bind
+
+# Use MyNavigationInfo1To2.transitionComplete to initiate next transition,
+# from MyViewpoint2 to MyViewpoint3.
+# You could extend this idea to make more following transitions, to more viewpoints.
+# Note: first bind NavigationInfo, only later bind Viewpoint.
+# This way new MyNavigationInfo2To3.transitionTime is used for viewpoint animation.
+ROUTE MyNavigationInfo1To2.transitionComplete TO MyNavigationInfo2To3.set_bind
+ROUTE MyNavigationInfo1To2.transitionComplete TO MyViewpoint3.set_bind
