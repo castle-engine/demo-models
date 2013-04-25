@@ -65,12 +65,12 @@ KambiInline {
       #
       # For general compatibility, there's an AVI version.
 
-      url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+      url [ "flame/seamless/@counter(4).png" "flame/flame_seamless_compressed.avi" ]
       loop TRUE
     }
 
     MovieTexture {
-      url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+      url [ "flame/seamless/@counter(4).png" "flame/flame_seamless_compressed.avi" ]
       loop TRUE
       startTime -0.5
       stopTime -0.5
@@ -78,7 +78,7 @@ KambiInline {
     }
 
     MovieTexture {
-      url [ "flame/seamless/%4d.png" "flame/flame_seamless_compressed.avi" ]
+      url [ "flame/seamless/@counter(4).png" "flame/flame_seamless_compressed.avi" ]
       loop TRUE
       startTime -1.0
       stopTime -1.0

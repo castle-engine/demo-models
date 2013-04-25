@@ -186,7 +186,7 @@ Transform {
             repeatT TRUE
           }
           MovieTexture {
-            url [ "../movie_texture/flame/seamless/%4d.png"
+            url [ "../movie_texture/flame/seamless/@counter(4).png"
                   "../movie_texture/flame/flame_seamless_compressed.avi" ]
             repeatS FALSE
             repeatT FALSE

@@ -32,7 +32,7 @@ Inline { url "../vrml_2/castle_with_lights.wrl" }
 
 ScreenEffect { shaders DEF Shader ComposedShader {
   inputOutput SFNode movieTexture MovieTexture {
-    url "../movie_texture/flame/seamless/%4d.png"
+    url "../movie_texture/flame/seamless/@counter(4).png"
     loop TRUE
     repeatS FALSE
     repeatT FALSE
