@@ -1,0 +1,19 @@
+Care was taken to use only data explicitly declared as "public domain"
+on trusted websites:
+
+test_video.avi (for testing MovieTexture)
+  By Michalis Kamburelis using Blender.
+  The Blender source file is included.
+
+bricks.jpg
+  From public-domain Golgotha textures.
+  Previously on http://www.jonathanclark.com/ .
+  Previously on http://www.wolfiesden.com/golgotha/golgotha.asp .
+  Now on http://opengameart.org/node/7591 .
+
+test_texture.png
+  Based on this photo http://gimp-savvy.com/cgi-bin/img.cgi?ufwsMV1VJR1LXOE702
+  from Copyright-Free Photo Archive on http://gimp-savvy.com/PHOTO-ARCHIVE/
+
+pattern_tex.png
+  Generated using GIMP by Michalis.
