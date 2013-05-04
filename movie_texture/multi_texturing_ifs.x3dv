@@ -1,0 +1,52 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:3
+
+# ----------------------------------------------------------------------------
+# 2 textures: ImageTexture + MovieTexture. Different wrap modes.
+#
+# Similar to ../multi_texturing/multi_tex.x3dv test,
+# but using our @counter() extension, see
+# http://castle-engine.sourceforge.net/x3d_extensions.php#section_ext_movie_from_image_sequence
+
+
+Transform {
+  translation 10 0 0
+  children Shape {
+    appearance Appearance {
+      texture MultiTexture {
+        mode [ "MODULATE", "ADD" ]
+        texture [
+          ImageTexture {
+            url "../textures/test_texture.png"
+            repeatS TRUE
+            repeatT TRUE
+          }
+          MovieTexture {
+            url [ "flame/seamless/@counter(4).png"
+                  "flame/flame_seamless_compressed.avi" ]
+            repeatS FALSE
+            repeatT FALSE
+            loop TRUE
+          }
+        ]
+      }
+      textureTransform MultiTextureTransform {
+        textureTransform [
+          TextureTransform { scale 2 2 }
+          # not specified, so 2nd transform should be used as identity
+        ]
+      }
+      material Material { }
+    }
+    geometry IndexedFaceSet {
+      coord DEF Coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                                           0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      coordIndex [ 0 1 2 3, -1, 4 5 6 7 ]
+      texCoord DEF StdTexCoord TextureCoordinate {
+        point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+      }
+      solid FALSE
+    }
+  }
+}
