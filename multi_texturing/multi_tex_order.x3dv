@@ -2,25 +2,36 @@
 PROFILE Interchange
 COMPONENT Texturing:3
 
-# A trivial demo of multitexturing, showing also that the order
-# of multitextures matters obviously matters for some modes.
+# Demo of multitexturing MODULATE and ADD modes used together.
+# It shows that the order of operations matters (for some cases).
 #
 # From left to right:
-# - yellowish material * 1st texture
-# - yellowish material * 2nd texture
-# - yellowish material * 1st texture + 2nd texture
-# - yellowish material * 2nd texture + 1st texture
+# 1. yellowish material * squirrel texture
+# 2. yellowish material * bricks texture
+# 3. yellowish material * squirrel texture + bricks texture
+# 4. yellowish material * bricks texture   + squirrel texture
+#
+# Notice how 3. and 4. are different --- order matters!
 #
 # "yellowish material" above means actually
 # "X3D yellowish material combined with lighting".
-#
-# TODO: add   glLightModelv(GL_LIGHT_MODEL_AMBIENT, Vector4Single(0.8, 0.8, 0.8, 1.0));
 
+# A nice test is to disable headlight (Ctrl + H in view3dscene).
+# If the X3D implementation calculates the lighting before texturing
+# (which is always true for Gouraud shading), then turning headlight off
+# should make the lighting result black, which should result in:
+#
+# From left to right:
+# 1. black
+# 2. black
+# 3. black + bricks texture   = just bricks texture
+# 4. black + squirrel texture = just squirrel texture
+# NavigationInfo { headlight FALSE }
 
 Transform {
   children Shape { appearance Appearance {
       material Material { diffuseColor 1 1 0 }
-      texture DEF I1 ImageTexture { url "../textures/brick_1.png" }
+      texture DEF I1 ImageTexture { url "data/squirrel.png" }
     }
     geometry Box { }
   }
@@ -29,7 +40,7 @@ Transform {
 Transform { translation 3 0 0
   children Shape { appearance Appearance {
       material Material { diffuseColor 1 1 0 }
-      texture DEF I2 ImageTexture { url "../textures/castle/bridgerock512side.jpg" }
+      texture DEF I2 ImageTexture { url "data/bricks.jpg" }
     }
     geometry Box { }
   }
