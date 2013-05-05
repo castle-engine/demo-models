@@ -1,0 +1,66 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+COMPONENT Text:1
+
+# Multitexture with separate modes and sources for RGB/alpha.
+# Expected result:
+# - On RGB: we subtract "pattern texture - squiirel texture".
+# - On Alpha: we set constant alpha (ignoring alpha from textures
+#   and alpha from material).
+#   We set alpha = 0.6 and you should see a red box behind the quad.
+
+Shape {
+  appearance Appearance {
+    texture MultiTexture {
+      mode [
+        # Note that it doesn't matter what 1st texture unit does with alpha
+        # channel, because 2nd alpha channel will just replace it (SELECTARG2).
+        "REPLACE"
+        "SUBTRACT / SELECTARG2"
+      ]
+      source [
+        ""           # equivalent to "DIFFUSE" or "DIFFUSE / DIFFUSE"
+        " / FACTOR"  # equivalent to "DIFFUSE / FACTOR"
+      ]
+
+      # This is the actual alpha (opacity) of the expected result.
+      # Changing this *has* an effect (how much transparent is the quad).
+      alpha 0.6
+
+      # This color is unused. You should *not* see anything blue
+      # in the result, and changing this color has no effect.
+      # Although "source" field uses "FACTOR", but it's only used for alpha channel.
+      color 0 0 1
+
+      texture [
+        ImageTexture { url "data/pattern.png" }
+        ImageTexture { url "data/squirrel.png" }
+      ]
+    }
+    material Material {
+      # Use some non-trivial transparency value, to use blending.
+      # The actual transparency value given here will be ignored
+      # (multitexturing above says to use MultiTexture.alpha).
+      transparency 0.1
+    }
+  }
+  geometry IndexedFaceSet {
+    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+    coordIndex [ 0 1 2 3 ]
+    texCoord TextureCoordinate {
+      point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+    }
+    solid FALSE
+  }
+}
+
+Transform {
+  translation 0.5 0.5 -2
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0 }
+    }
+    geometry Box { size 0.5 0.5 0.5 }
+  }
+}
