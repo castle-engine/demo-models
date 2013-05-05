@@ -3,6 +3,12 @@ PROFILE Interchange
 COMPONENT Texturing:2
 COMPONENT Text:1
 
+# This tests various values for MultiTexture.mode and MultiTexture.source.
+# Every test applies two textures on a simple quad: pattern.png and squirrel.png.
+# The pattern.png is always modulated with primary color.
+# The squirrel.png is applied using various modes (for each column)
+# and is mixed with various sources (for each row).
+
 PROTO MyText [ initializeOnly MFString string "" ] {
   Transform {
     translation 0 1.5 0
@@ -26,8 +32,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -41,7 +47,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate" }
+    MyText { string [ "modulate" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -53,8 +59,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADD" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -68,7 +74,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add 2nd tex" }
+    MyText { string [ "add 2nd tex" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -80,8 +86,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "REPLACE" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -95,7 +101,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "replace 2nd tex" }
+    MyText { string [ "replace 2nd tex" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -107,8 +113,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -122,7 +128,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "subtract (2nd - 1st)" }
+    MyText { string [ "subtract (2nd - 1st)" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -134,8 +140,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE2X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -149,7 +155,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate 2x" }
+    MyText { string [ "modulate 2x" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -161,8 +167,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE4X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -176,7 +182,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate 4x" }
+    MyText { string [ "modulate 4x" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -188,8 +194,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -203,7 +209,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add signed" }
+    MyText { string [ "add signed" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -215,8 +221,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED2X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -230,7 +236,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add signed 2x" }
+    MyText { string [ "add signed 2x" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -242,8 +248,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG1" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -257,7 +263,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "select arg1" }
+    MyText { string [ "select arg1" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -269,8 +275,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG2" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -284,7 +290,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "select arg2" }
+    MyText { string [ "select arg2" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -296,8 +302,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "OFF" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -311,7 +317,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "off 2nd tex" }
+    MyText { string [ "off 2nd tex" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -323,8 +329,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT / REPLACE" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -338,7 +344,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "subtract (2nd - 1st) on RGB only" }
+    MyText { string [ "subtract (2nd - 1st) on RGB only" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -352,8 +358,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -368,7 +374,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate" }
+    MyText { string [ "modulate" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -380,8 +386,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADD" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -396,7 +402,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add 2nd tex" }
+    MyText { string [ "add 2nd tex" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -408,8 +414,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "REPLACE" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -424,7 +430,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "replace 2nd tex" }
+    MyText { string [ "replace 2nd tex" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -436,8 +442,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -452,7 +458,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "subtract (2nd - 1st)" }
+    MyText { string [ "subtract (2nd - 1st)" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -464,8 +470,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE2X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -480,7 +486,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate 2x" }
+    MyText { string [ "modulate 2x" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -492,8 +498,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE4X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -508,7 +514,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate 4x" }
+    MyText { string [ "modulate 4x" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -520,8 +526,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -536,7 +542,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add signed" }
+    MyText { string [ "add signed" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -548,8 +554,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED2X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -564,7 +570,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add signed 2x" }
+    MyText { string [ "add signed 2x" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -576,8 +582,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG1" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -592,7 +598,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "select arg1" }
+    MyText { string [ "select arg1" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -604,8 +610,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG2" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -620,7 +626,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "select arg2" }
+    MyText { string [ "select arg2" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -632,8 +638,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "OFF" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -648,7 +654,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "off 2nd tex" }
+    MyText { string [ "off 2nd tex" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -661,8 +667,8 @@ Transform {
           mode [ "MODULATE" "SUBTRACT / REPLACE" ]
           source [ "" "DIFFUSE" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -676,7 +682,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "subtract (2nd - 1st) on RGB only" }
+    MyText { string [ "subtract (2nd - 1st) on RGB only" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -690,8 +696,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -707,7 +713,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate" }
+    MyText { string [ "modulate" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -719,8 +725,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADD" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -736,7 +742,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add 2nd tex" }
+    MyText { string [ "add 2nd tex" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -748,8 +754,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "REPLACE" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -765,7 +771,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "replace 2nd tex" }
+    MyText { string [ "replace 2nd tex" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -777,8 +783,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -794,7 +800,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "subtract (2nd - 1st)" }
+    MyText { string [ "subtract (2nd - 1st)" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -806,8 +812,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE2X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -823,7 +829,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate 2x" }
+    MyText { string [ "modulate 2x" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -835,8 +841,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE4X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -852,7 +858,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "modulate 4x" }
+    MyText { string [ "modulate 4x" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -864,8 +870,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -881,7 +887,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add signed" }
+    MyText { string [ "add signed" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -893,8 +899,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED2X" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -910,7 +916,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "add signed 2x" }
+    MyText { string [ "add signed 2x" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -922,8 +928,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG1" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -939,7 +945,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "select arg1" }
+    MyText { string [ "select arg1" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -951,8 +957,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG2" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -968,7 +974,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "select arg2" }
+    MyText { string [ "select arg2" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -980,8 +986,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "OFF" ]
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -997,7 +1003,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "off 2nd tex" }
+    MyText { string [ "off 2nd tex" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -1011,8 +1017,8 @@ Transform {
           source [ "" "FACTOR" ]
           color 1 1 0
           texture [
-            ImageTexture { url "data/squirrel.png" }
             ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
           ]
         }
         material Material { }
@@ -1026,6 +1032,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "subtract (2nd - 1st) on RGB only" }
+    MyText { string [ "subtract (2nd - 1st) on RGB only" "(yellow with squirrel)" ] }
   ]
 }
