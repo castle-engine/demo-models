@@ -4,7 +4,7 @@ COMPONENT Texturing:2
 COMPONENT CADGeometry:1
 
 # Test MultiTexture together with IndexedQuadSet from CAD component.
-# This is very similar to faces_transform_and_coordinates.x3dv
+# This is very similar to transform_and_coordinates_faces.x3dv
 # (in fact the result should look *exactly* the same)
 # but now uses IndexedQuadSet instead of IndexedFaceSet.
 
