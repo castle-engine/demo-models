@@ -1,0 +1,43 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:3
+
+# Test ImageTexture + MovieTexture mixing using MultiTexture.
+# Note the different repeatS/T values for two textures.
+
+Shape {
+  appearance Appearance {
+    texture MultiTexture {
+      mode [ "MODULATE", "ADD" ]
+      texture [
+        ImageTexture {
+          url "data/squirrel.png"
+          repeatS TRUE
+          repeatT TRUE
+        }
+        MovieTexture {
+          url "data/test_video.avi"
+          repeatS FALSE
+          repeatT FALSE
+          loop TRUE
+        }
+      ]
+    }
+    textureTransform MultiTextureTransform {
+      textureTransform [
+        TextureTransform { scale 2 2 }
+        # not specified, so 2nd transform should be used as identity
+      ]
+    }
+    material Material { }
+  }
+  geometry IndexedFaceSet {
+    coord DEF Coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                                         0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+    coordIndex [ 0 1 2 3, -1, 4 5 6 7 ]
+    texCoord DEF StdTexCoord TextureCoordinate {
+      point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+    }
+    solid FALSE
+  }
+}

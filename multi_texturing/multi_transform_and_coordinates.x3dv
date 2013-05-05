@@ -2,6 +2,8 @@
 PROFILE Interchange
 COMPONENT Texturing:3
 
+# Test various MultiTextureTransform and MultiTextureCoordinate values.
+
 # ----------------------------------------------------------------------------
 # Use MultiTexture with 1 texture, normal TextureTransform and TextureCoordinate.
 # Should look just normal, like without multitexturing.
@@ -151,46 +153,6 @@ Transform {
           TextureCoordinate { point [ 0 0.8, 1 0.8, 1 1, 0 1, 0 0.8, 1 0.8, 1 1, 0 1, ] }
         ]
       }
-      solid FALSE
-    }
-  }
-}
-
-# ----------------------------------------------------------------------------
-# 2 textures: ImageTexture + MovieTexture. Different wrap modes.
-
-Transform {
-  translation 10 0 0
-  children Shape {
-    appearance Appearance {
-      texture MultiTexture {
-        mode [ "MODULATE", "ADD" ]
-        texture [
-          ImageTexture {
-            url "data/squirrel.png"
-            repeatS TRUE
-            repeatT TRUE
-          }
-          MovieTexture {
-            url "data/test_video.avi"
-            repeatS FALSE
-            repeatT FALSE
-            loop TRUE
-          }
-        ]
-      }
-      textureTransform MultiTextureTransform {
-        textureTransform [
-          TextureTransform { scale 2 2 }
-          # not specified, so 2nd transform should be used as identity
-        ]
-      }
-      material Material { }
-    }
-    geometry IndexedFaceSet {
-      coord USE Coord
-      coordIndex [ 0 1 2 3, -1, 4 5 6 7 ]
-      texCoord USE StdTexCoord
       solid FALSE
     }
   }
