@@ -1,9 +1,10 @@
 #X3D V3.0 utf8
 PROFILE Interactive
 
-# Test how various X3D browsers mix texture color with
-# Material.diffuseColor and Color node.
-# See http://castle-engine.sourceforge.net/x3d_implementation_texturing.php#section_default_texture_mode
+# This is not a MultiTexture test, but it tests a feature related
+# to some multi-texturing problems:
+# how various X3D browsers mix (single) texture
+# with Material.diffuseColor and Color node.
 
 PointLight { location 4 4 0 }
 
@@ -13,10 +14,10 @@ PointLight { location 4 4 0 }
 Transform {
   translation 0 0 0
   children Shape {
-    geometry Sphere { }
+    geometry Box { size 1 1 1 }
     appearance Appearance {
       material Material { diffuseColor 1 0 0 }
-      texture ImageTexture { url "../textures/test_texture.png" }
+      texture ImageTexture { url "data/squirrel.png" }
     }
   }
 }
@@ -25,7 +26,7 @@ Transform {
 Transform {
   translation 2 0 0
   children Shape {
-    geometry Sphere { }
+    geometry Box { size 1 1 1 }
     appearance Appearance {
       material Material { diffuseColor 1 0 0 }
       texture ImageTexture { url "../textures/test_texture_grayscale.png" }
@@ -37,14 +38,15 @@ Transform {
 Transform {
   translation 0 -2 0
   children Shape {
-    geometry IndexedFaceSet {
+    geometry DEF MyIFS IndexedFaceSet {
       coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
       coordIndex [ 0 1 2 3 ]
       color Color { color [ 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
+      solid FALSE
     }
     appearance Appearance {
       material Material { }
-      texture ImageTexture { url "../textures/test_texture.png" }
+      texture ImageTexture { url "data/squirrel.png" }
     }
   }
 }
@@ -54,14 +56,21 @@ Transform {
 Transform {
   translation 2 -2 0
   children Shape {
-    geometry IndexedFaceSet {
-      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-      coordIndex [ 0 1 2 3 ]
-      color Color { color [ 1 1 1, 1 0 0, 0 1 0, 0 0 1 ] }
-    }
+    geometry USE MyIFS
     appearance Appearance {
       material Material { }
-      texture ImageTexture { url "../textures/test_texture_grayscale.png" }
+      texture ImageTexture { url "data/squirrel_grayscale.png" }
     }
   }
+}
+
+# Viewpoint ------------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0 0 -1
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 1 -0.5 6.0999994277954102
+  orientation 0 0 1 0
 }
