@@ -26,8 +26,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -53,8 +53,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADD" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -80,8 +80,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "REPLACE" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -107,8 +107,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -134,8 +134,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE2X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -161,8 +161,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE4X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -188,8 +188,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -215,8 +215,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED2X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -242,8 +242,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG1" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -269,8 +269,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG2" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -296,8 +296,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "OFF" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -323,8 +323,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT / REPLACE" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -352,8 +352,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -380,8 +380,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADD" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -408,8 +408,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "REPLACE" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -436,8 +436,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -464,8 +464,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE2X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -492,8 +492,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE4X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -520,8 +520,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -548,8 +548,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED2X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -576,8 +576,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG1" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -604,8 +604,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG2" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -632,8 +632,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "OFF" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "DIFFUSE" ]
         }
@@ -661,8 +661,8 @@ Transform {
           mode [ "MODULATE" "SUBTRACT / REPLACE" ]
           source [ "" "DIFFUSE" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }
@@ -690,8 +690,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -719,8 +719,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADD" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -748,8 +748,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "REPLACE" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -777,8 +777,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SUBTRACT" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -806,8 +806,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE2X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -835,8 +835,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "MODULATE4X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -864,8 +864,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -893,8 +893,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "ADDSIGNED2X" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -922,8 +922,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG1" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -951,8 +951,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "SELECTARG2" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -980,8 +980,8 @@ Transform {
         texture MultiTexture {
           mode [ "MODULATE" "OFF" ]
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           source [ "" "FACTOR" ]
           color 1 1 0
@@ -1011,8 +1011,8 @@ Transform {
           source [ "" "FACTOR" ]
           color 1 1 0
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
         }
         material Material { }

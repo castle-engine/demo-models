@@ -3,6 +3,8 @@ PROFILE Interchange
 COMPONENT Texturing:2
 COMPONENT Text:1
 
+# Test of MultiTexture.mode values "BLENDxxx"
+
 PROTO MyText [ initializeOnly MFString string "" ] {
   Transform {
     translation 0 1.5 0
@@ -23,8 +25,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           mode [ "REPLACE" "BLENDDIFFUSEALPHA" ]
         }
@@ -50,8 +52,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           mode [ "REPLACE" "BLENDTEXTUREALPHA" ]
         }
@@ -77,8 +79,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           mode [ "REPLACE" "BLENDFACTORALPHA" ]
           alpha 0.2
@@ -105,8 +107,8 @@ Transform {
       appearance Appearance {
         texture MultiTexture {
           texture [
-            ImageTexture { url "../textures/test_texture.png" }
-            ImageTexture { url "../textures/pattern_tex.png" }
+            ImageTexture { url "data/squirrel.png" }
+            ImageTexture { url "data/pattern.png" }
           ]
           mode [ "REPLACE" "BLENDCURRENTALPHA" ]
         }

@@ -11,7 +11,7 @@ Transform {
         mode [ "MODULATE", "ADD" ]
         texture [
           ImageTexture {
-            url "../textures/test_texture.png"
+            url "data/squirrel.png"
           }
           MovieTexture {
             url [ "../movie_texture/flame/seamless/@counter(4).png"

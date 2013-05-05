@@ -10,7 +10,7 @@ COMPONENT Texturing:3
 Shape {
   appearance Appearance {
     texture MultiTexture {
-      texture ImageTexture { url "../textures/test_texture.png" }
+      texture ImageTexture { url "data/squirrel.png" }
     }
 
     # This texture transform will be ignored: X3D spec says that
@@ -44,7 +44,7 @@ Transform {
   children Shape {
     appearance Appearance {
       texture MultiTexture {
-        texture ImageTexture { url "../textures/test_texture.png" }
+        texture ImageTexture { url "data/squirrel.png" }
       }
       textureTransform MultiTextureTransform {
         textureTransform TextureTransform { scale 2 2 }
@@ -71,8 +71,8 @@ Transform {
     appearance Appearance {
       texture MultiTexture {
         texture [
-          ImageTexture { url "../textures/test_texture.png" }
-          ImageTexture { url "../textures/bricks2.jpg" }
+          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/bricks.jpg" }
         ]
       }
       # This TextureTransform *should* be ignored (that is, both
@@ -100,8 +100,8 @@ Transform {
     appearance Appearance {
       texture MultiTexture {
         texture [
-          ImageTexture { url "../textures/test_texture.png" }
-          ImageTexture { url "../textures/bricks2.jpg" }
+          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/bricks.jpg" }
         ]
       }
       textureTransform MultiTextureTransform {
@@ -131,8 +131,8 @@ Transform {
     appearance Appearance {
       texture MultiTexture {
         texture [
-          ImageTexture { url "../textures/test_texture.png" }
-          ImageTexture { url "../textures/bricks2.jpg" }
+          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/bricks.jpg" }
         ]
       }
       textureTransform MultiTextureTransform {
@@ -167,7 +167,7 @@ Transform {
         mode [ "MODULATE", "ADD" ]
         texture [
           ImageTexture {
-            url "../textures/test_texture.png"
+            url "data/squirrel.png"
             repeatS TRUE
             repeatT TRUE
           }
