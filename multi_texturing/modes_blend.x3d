@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile="Interchange" version="3.0"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+     xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<component name="Texturing" level="2" />
+	<component name="Text" level="1" />
+	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<meta name="source" content="modes_blend.x3dv" />
+</head>
+<Scene>
+	<ProtoDeclare name="MyText">
+		<ProtoInterface>
+				<field accessType="initializeOnly" type="MFString" name="string" value='""' />
+		</ProtoInterface>
+		<ProtoBody>
+			<Transform
+				translation="0.6000000238418579 0.2000000029802322 0">
+				<Shape>
+					<Appearance>
+						<Material
+							diffuseColor="1 1 0" />
+					</Appearance>
+					<Text>
+						<FontStyle
+							size="0.2000000029802322" />
+						<IS>
+							<connect nodeField="string" protoField="string" />
+						</IS>
+					</Text>
+				</Shape>
+			</Transform>
+		</ProtoBody>
+	</ProtoDeclare>
+	<Transform>
+		<Shape>
+			<Appearance>
+				<MultiTexture
+					mode='"REPLACE" "BLENDDIFFUSEALPHA"'>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/pattern.png"' />
+				</MultiTexture>
+				<Material
+					transparency="0.5" />
+			</Appearance>
+			<IndexedFaceSet DEF="MyQuad"
+				coordIndex="0 1 2 3"
+				solid="false">
+				<Coordinate
+					point="-0.5 -0.5 0 0.5 -0.5 0 0.5 0.5 0 -0.5 0.5 0" />
+				<TextureCoordinate
+					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
+			</IndexedFaceSet>
+		</Shape>
+		<ProtoInstance name="MyText" containerField="children">
+			<fieldValue name="string"
+				value='"BLENDDIFFUSEALPHA" "Blends 2 textures using Material.transparency." "In this case: 0.5 * squirrel + 0.5 * pattern"' />
+		</ProtoInstance>
+	</Transform>
+	<Transform
+		translation="0 -1.1000000238418579 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture
+					mode='"REPLACE" "BLENDTEXTUREALPHA"'>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/pattern.png"' />
+				</MultiTexture>
+				<Material />
+			</Appearance>
+			<IndexedFaceSet USE="MyQuad" />
+		</Shape>
+		<ProtoInstance name="MyText" containerField="children">
+			<fieldValue name="string"
+				value='"BLENDTEXTUREALPHA" "Blends 2 textures using current texture alpha." "In this case: should be equal to just pattern texture" "(as it is opaque, alpha = 1 everywhere)"' />
+		</ProtoInstance>
+	</Transform>
+	<Transform
+		translation="0 -2.2000000476837158 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture
+					mode='"REPLACE" "BLENDFACTORALPHA"'
+					alpha="0.2000000029802322">
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/pattern.png"' />
+				</MultiTexture>
+				<Material />
+			</Appearance>
+			<IndexedFaceSet USE="MyQuad" />
+		</Shape>
+		<ProtoInstance name="MyText" containerField="children">
+			<fieldValue name="string"
+				value='"BLENDFACTORALPHA" "Blends 2 textures using MultiTexture.alpha." "In this case: 0.2 * pattern + 0.8 * squirrel"' />
+		</ProtoInstance>
+	</Transform>
+	<Transform
+		translation="0 -3.2999999523162842 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture
+					mode='"REPLACE" "BLENDCURRENTALPHA"'>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/pattern.png"' />
+				</MultiTexture>
+				<Material />
+			</Appearance>
+			<IndexedFaceSet USE="MyQuad" />
+		</Shape>
+		<ProtoInstance name="MyText" containerField="children">
+			<fieldValue name="string"
+				value='"BLENDCURRENTALPHA" "Blends 2 textures using previous texture alpha." "(Yes, the name is misleading, better name would be BLENDPREVIOUSALPHA.)" "In this case: should be equal to just pattern texture" "(as squirrel texture is opaque, alpha = 1 everywhere)"' />
+		</ProtoInstance>
+	</Transform>
+	<Viewpoint
+		position="2.690000057220459 -1.7133332490921021 7.204444408416748" />
+</Scene>
+</X3D>

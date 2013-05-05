@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.2//EN" "http://www.web3d.org/specifications/x3d-3.2.dtd">
+<X3D profile="Interchange" version="3.2"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+     xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.2.xsd">
+<head>
+	<component name="Texturing" level="2" />
+	<component name="CADGeometry" level="1" />
+	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<meta name="source" content="transform_and_coordinates_quads.x3dv" />
+</head>
+<Scene>
+	<Shape>
+		<Appearance>
+			<MultiTexture>
+				<ImageTexture
+					url='"data/squirrel.png"' />
+			</MultiTexture>
+			<TextureTransform
+				scale="2 2" />
+			<Material />
+		</Appearance>
+		<IndexedQuadSet
+			index="0 1 2 3 4 5 6 7"
+			solid="false">
+			<Coordinate
+				point="0 0 0 1 0 0 1 1 0 0 1 0 0 2 0 1 2 0 1 3 0 0 3 0" />
+			<TextureCoordinate
+				point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
+		</IndexedQuadSet>
+	</Shape>
+	<Transform
+		translation="2 0 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+				</MultiTexture>
+				<MultiTextureTransform>
+					<TextureTransform
+						scale="2 2" />
+				</MultiTextureTransform>
+				<Material />
+			</Appearance>
+			<IndexedQuadSet
+				index="0 1 2 3 4 5 6 7"
+				solid="false">
+				<Coordinate
+					point="0 0 0 1 0 0 1 1 0 0 1 0 0 2 0 1 2 0 1 3 0 0 3 0" />
+				<MultiTextureCoordinate>
+					<TextureCoordinate
+						point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
+				</MultiTextureCoordinate>
+			</IndexedQuadSet>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="4 0 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/bricks.jpg"' />
+				</MultiTexture>
+				<TextureTransform
+					scale="2 2" />
+				<Material />
+			</Appearance>
+			<IndexedQuadSet
+				index="0 1 2 3 4 5 6 7"
+				solid="false">
+				<Coordinate
+					point="0 0 0 1 0 0 1 1 0 0 1 0 0 2 0 1 2 0 1 3 0 0 3 0" />
+				<TextureCoordinate
+					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
+			</IndexedQuadSet>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="6 0 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/bricks.jpg"' />
+				</MultiTexture>
+				<MultiTextureTransform>
+					<TextureTransform
+						scale="2 2" />
+					<TextureTransform
+						scale="4 4" />
+				</MultiTextureTransform>
+				<Material />
+			</Appearance>
+			<IndexedQuadSet
+				index="0 1 2 3 4 5 6 7"
+				solid="false">
+				<Coordinate
+					point="0 0 0 1 0 0 1 1 0 0 1 0 0 2 0 1 2 0 1 3 0 0 3 0" />
+				<TextureCoordinate
+					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
+			</IndexedQuadSet>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="8 0 0">
+		<Shape>
+			<Appearance>
+				<MultiTexture>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<ImageTexture
+						url='"data/bricks.jpg"' />
+				</MultiTexture>
+				<MultiTextureTransform>
+					<TextureTransform
+						scale="2 2" />
+				</MultiTextureTransform>
+				<Material />
+			</Appearance>
+			<IndexedQuadSet
+				index="0 1 2 3 4 5 6 7"
+				solid="false">
+				<Coordinate
+					point="0 0 0 1 0 0 1 1 0 0 1 0 0 2 0 1 2 0 1 3 0 0 3 0" />
+				<MultiTextureCoordinate>
+					<TextureCoordinate
+						point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
+					<TextureCoordinate
+						point="0 0.8000000119209289 1 0.8000000119209289 1 1 0 1 0 0.8000000119209289 1 0.8000000119209289 1 1 0 1" />
+				</MultiTextureCoordinate>
+			</IndexedQuadSet>
+		</Shape>
+	</Transform>
+	<Viewpoint
+		position="4.5 1.5 9.4200115203857422" />
+</Scene>
+</X3D>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile="Interchange" version="3.0"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+     xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<component name="Texturing" level="3" />
+	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<meta name="source" content="primitives.x3dv" />
+</head>
+<Scene>
+	<Transform>
+		<Shape>
+			<Appearance DEF="App">
+				<MultiTexture
+					mode='"MODULATE" "ADD"'>
+					<ImageTexture
+						url='"data/squirrel.png"' />
+					<MovieTexture
+						url='"data/test_video.avi"'
+						loop="true" />
+				</MultiTexture>
+				<MultiTextureTransform>
+					<TextureTransform
+						scale="2 2" />
+					<TextureTransform
+						scale="2 2" />
+				</MultiTextureTransform>
+				<Material />
+			</Appearance>
+			<Box />
+		</Shape>
+	</Transform>
+	<Transform
+		translation="2.5 0 0">
+		<Shape>
+			<Appearance USE="App" />
+			<Sphere />
+		</Shape>
+	</Transform>
+	<Transform
+		translation="0 2.5 0">
+		<Shape>
+			<Appearance USE="App" />
+			<Cone />
+		</Shape>
+	</Transform>
+	<Transform
+		translation="2.5 2.5 0">
+		<Shape>
+			<Appearance USE="App" />
+			<Cylinder />
+		</Shape>
+	</Transform>
+	<Viewpoint
+		position="1.25 1.25 8.3333339691162109" />
+</Scene>
+</X3D>
