@@ -1,0 +1,114 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+COMPONENT Text:1
+
+# Very similar to modes_sources.x3dv, testing a SUBTRACT mode on RGB
+# and REPLACE on alpha. This is usually the desired way to subtract textures.
+
+PROTO MyText [ initializeOnly MFString string "" ] {
+  Transform {
+    translation 0 1.5 0
+    children Shape {
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+      geometry Text { string IS string
+        fontStyle FontStyle { size 0.2 } }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Row 1: MultiTexture.source says to mix squirrel.png
+# with previous unit (pattern.png).
+
+Transform {
+  translation 16.5 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT / REPLACE" ]
+          texture [
+            ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string [ "subtract (2nd - 1st) on RGB only" "(pattern with squirrel)" ] }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Row 2: MultiTexture.source says to mix squirrel.png with diffuse color.
+
+Transform {
+  translation 16.5 -2 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT / REPLACE" ]
+          source [ "" "DIFFUSE" ]
+          texture [
+            ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string [ "subtract (2nd - 1st) on RGB only" "(diffuse with squirrel)" ] }
+  ]
+}
+
+# ----------------------------------------------------------------------------
+# Row 3: MultiTexture.source says to mix squirrel.png with constant yellow color.
+
+Transform {
+  translation 16.5 -4 0
+  children [
+    Shape {
+      appearance Appearance {
+        texture MultiTexture {
+          mode [ "MODULATE" "SUBTRACT / REPLACE" ]
+          source [ "" "FACTOR" ]
+          color 1 1 0
+          texture [
+            ImageTexture { url "data/pattern.png" }
+            ImageTexture { url "data/squirrel.png" }
+          ]
+        }
+        material Material { }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+        coordIndex [ 0 1 2 3 ]
+        texCoord TextureCoordinate {
+          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
+        }
+        solid FALSE
+      }
+    }
+    MyText { string [ "subtract (2nd - 1st) on RGB only" "(yellow with squirrel)" ] }
+  ]
+}
