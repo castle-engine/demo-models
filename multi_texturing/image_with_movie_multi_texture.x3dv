@@ -41,3 +41,14 @@ Shape {
     solid FALSE
   }
 }
+
+# Viewpoint ------------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0 0 -1
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 0.5 1.5 3.9799988269805908
+  orientation 0 0 1 0
+}

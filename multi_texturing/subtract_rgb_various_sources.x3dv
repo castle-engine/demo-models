@@ -112,3 +112,14 @@ Transform {
     MyText { string [ "subtract (2nd - 1st) on RGB only" "(yellow with squirrel)" ] }
   ]
 }
+
+# Viewpoint ------------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0 0 -1
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 17.573333740234375 -1.1633334159851074 7.1944084167480469
+  orientation 0 0 1 0
+}
