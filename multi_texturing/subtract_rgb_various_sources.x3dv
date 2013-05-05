@@ -3,7 +3,7 @@ PROFILE Interchange
 COMPONENT Texturing:2
 COMPONENT Text:1
 
-# Very similar to modes_sources.x3dv, testing a SUBTRACT mode on RGB
+# Very similar to modes_and_sources.x3dv, testing a SUBTRACT mode on RGB
 # and REPLACE on alpha. This is usually the desired way to subtract textures.
 
 PROTO MyText [ initializeOnly MFString string "" ] {
