@@ -7,7 +7,7 @@ COMPONENT Text:1
 
 PROTO MyText [ initializeOnly MFString string "" ] {
   Transform {
-    translation 0 1.5 0
+    translation 0.6 0.2 0
     children Shape {
       appearance Appearance {
         material Material { diffuseColor 1 1 0 }
@@ -32,8 +32,8 @@ Transform {
         }
         material Material { transparency 0.5 }
       }
-      geometry IndexedFaceSet {
-        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      geometry DEF MyQuad IndexedFaceSet {
+        coord Coordinate { point [ -0.5 -0.5 0, 0.5 -0.5 0, 0.5 0.5 0, -0.5 0.5 0 ] }
         coordIndex [ 0 1 2 3 ]
         texCoord TextureCoordinate {
           point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
@@ -41,12 +41,16 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string "BLENDDIFFUSEALPHA (using mat alpha)" }
+    MyText { string [
+      "BLENDDIFFUSEALPHA"
+      "Blends 2 textures using Material.transparency."
+      "In this case: 0.5 * squirrel + 0.5 * pattern" ]
+    }
   ]
 }
 
 Transform {
-  translation 0 -2 0
+  translation 0 -1.1 0
   children [
     Shape {
       appearance Appearance {
@@ -59,21 +63,19 @@ Transform {
         }
         material Material { }
       }
-      geometry IndexedFaceSet {
-        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-        coordIndex [ 0 1 2 3 ]
-        texCoord TextureCoordinate {
-          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
-        }
-        solid FALSE
-      }
+      geometry USE MyQuad
     }
-    MyText { string "BLENDTEXTUREALPHA (using cur tex alpha)" }
+    MyText { string [
+      "BLENDTEXTUREALPHA"
+      "Blends 2 textures using current texture alpha."
+      "In this case: should be equal to just pattern texture"
+      "(as it is opaque, alpha = 1 everywhere)" ]
+    }
   ]
 }
 
 Transform {
-  translation 0 -4 0
+  translation 0 -2.2 0
   children [
     Shape {
       appearance Appearance {
@@ -87,21 +89,18 @@ Transform {
         }
         material Material { }
       }
-      geometry IndexedFaceSet {
-        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-        coordIndex [ 0 1 2 3 ]
-        texCoord TextureCoordinate {
-          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
-        }
-        solid FALSE
-      }
+      geometry USE MyQuad
     }
-    MyText { string "BLENDFACTORALPHA (using const alpha)" }
+    MyText { string [
+      "BLENDFACTORALPHA"
+      "Blends 2 textures using MultiTexture.alpha."
+      "In this case: 0.2 * pattern + 0.8 * squirrel" ]
+    }
   ]
 }
 
 Transform {
-  translation 0 -6 0
+  translation 0 -3.3 0
   children [
     Shape {
       appearance Appearance {
@@ -114,15 +113,14 @@ Transform {
         }
         material Material { }
       }
-      geometry IndexedFaceSet {
-        coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-        coordIndex [ 0 1 2 3 ]
-        texCoord TextureCoordinate {
-          point [ 0 0, 1 0, 1 1, 0 1, 0 0, 1 0, 1 1, 0 1, ]
-        }
-        solid FALSE
-      }
+      geometry USE MyQuad
     }
-    MyText { string "BLENDCURRENTALPHA (using prev tex alpha)" }
+    MyText { string [
+      "BLENDCURRENTALPHA"
+      "Blends 2 textures using previous texture alpha."
+      "(Yes, the name is misleading, better name would be BLENDPREVIOUSALPHA.)"
+      "In this case: should be equal to just pattern texture"
+      "(as squirrel texture is opaque, alpha = 1 everywhere)" ]
+    }
   ]
 }
