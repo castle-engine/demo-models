@@ -4,10 +4,25 @@ COMPONENT Texturing:2
 COMPONENT Text:1
 
 # This tests various values for MultiTexture.mode and MultiTexture.source.
+#
 # Every test applies two textures on a simple quad: pattern.png and squirrel.png.
+#
 # The pattern.png is always modulated with primary color.
 # The squirrel.png is applied using various modes (for each column)
 # and is mixed with various sources (for each row).
+#
+# Row 1: MultiTexture.source says to mix squirrel.png
+# with previous unit (pattern.png).
+#
+# Row 2: MultiTexture.source says to mix squirrel.png with diffuse color.
+# For browsers that do lighting calculation before texturing
+# (this applies to all browsers using Gouraud shading) this actually
+# mixes squirrel.png with the lighting result (whole material + lighting summed).
+#
+# Row 3: MultiTexture.source says to mix squirrel.png with constant yellow color.
+# When rotating the model, you will notice that "row 3" colors stay constant,
+# while the colors of other rows are affected by the lighting from
+# the default headlight (so they get darker when viewer from the side).
 
 PROTO MyText [ initializeOnly MFString string "" ] {
   Transform {
@@ -23,7 +38,8 @@ PROTO MyText [ initializeOnly MFString string "" ] {
 }
 
 # ----------------------------------------------------------------------------
-# Row 1 - with previous
+# Row 1: MultiTexture.source says to mix squirrel.png
+# with previous unit (pattern.png).
 
 Transform {
   translation 0 0 0
@@ -349,7 +365,7 @@ Transform {
 }
 
 # ----------------------------------------------------------------------------
-# Row 2 - with primary color
+# Row 2: MultiTexture.source says to mix squirrel.png with diffuse color.
 
 Transform {
   translation 0 -2 0
@@ -687,7 +703,7 @@ Transform {
 }
 
 # ----------------------------------------------------------------------------
-# Row 3 - with constant color
+# Row 3: MultiTexture.source says to mix squirrel.png with constant yellow color.
 
 Transform {
   translation 0 -4 0
