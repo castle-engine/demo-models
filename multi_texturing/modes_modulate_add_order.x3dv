@@ -69,3 +69,14 @@ Transform { translation 9 0 0
     geometry Box { }
   }
 }
+
+# Viewpoint ------------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0 0 -1
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 4.5 0 12.499993324279785
+  orientation 0 0 1 0
+}
