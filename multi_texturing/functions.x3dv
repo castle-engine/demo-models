@@ -6,13 +6,15 @@ COMPONENT Texturing:2
 
 # ----------------------------------------------------------------------------
 # Result = complement(material * squirrel)
+# We use squirrel_alpha.png instead of squirrel.png to visualize that alpha
+# channel is untouched by function=COMPLEMENT, it only inverts RGB.
 
 Transform {
   children Shape {
     appearance Appearance {
       material Material { }
       texture MultiTexture {
-        texture ImageTexture { url "data/squirrel.png" }
+        texture ImageTexture { url "data/squirrel_alpha.png" }
         function "COMPLEMENT"
       }
     }
@@ -30,7 +32,7 @@ Transform {
       material Material { }
       texture MultiTexture {
         texture [
-          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/squirrel_alpha.png" }
           ImageTexture { url "data/pattern.png" }
         ]
         function [ "" "COMPLEMENT" ]
@@ -51,7 +53,7 @@ Transform {
       material Material { }
       texture MultiTexture {
         texture [
-          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/squirrel_alpha.png" }
           ImageTexture { url "data/pattern.png" }
         ]
         function [ "COMPLEMENT" "COMPLEMENT" ]
