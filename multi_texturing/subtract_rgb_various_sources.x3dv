@@ -46,7 +46,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract (2nd - 1st) on RGB only" "(pattern with squirrel)" ] }
+    MyText { string [ "subtract on RGB only" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -77,7 +77,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract (2nd - 1st) on RGB only" "(diffuse with squirrel)" ] }
+    MyText { string [ "subtract on RGB only" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -109,7 +109,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract (2nd - 1st) on RGB only" "(yellow with squirrel)" ] }
+    MyText { string [ "subtract on RGB only" "(yellow with squirrel)" ] }
   ]
 }
 

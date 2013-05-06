@@ -144,7 +144,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract (2nd - 1st)" "(pattern with squirrel)" ] }
+    MyText { string [ "subtract" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -447,7 +447,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract (2nd - 1st)" "(diffuse with squirrel)" ] }
+    MyText { string [ "subtract" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -761,7 +761,7 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract (2nd - 1st)" "(yellow with squirrel)" ] }
+    MyText { string [ "subtract" "(yellow with squirrel)" ] }
   ]
 }
 
