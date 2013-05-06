@@ -3,7 +3,7 @@ PROFILE Interchange
 COMPONENT Texturing:2
 COMPONENT Text:1
 
-# Multitexture with separate modes and sources for RGB/alpha.
+# MultiTexture with separate modes and sources for RGB/alpha.
 # Expected result:
 # - On RGB: we subtract "pattern texture - squirrel texture".
 # - On Alpha: we set constant alpha (ignoring alpha from textures

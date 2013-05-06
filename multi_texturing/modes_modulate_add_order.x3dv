@@ -2,7 +2,7 @@
 PROFILE Interchange
 COMPONENT Texturing:3
 
-# Demo of multitexturing MODULATE and ADD modes used together.
+# Test of multitexturing MODULATE and ADD modes used together.
 # It shows that the order of operations matters (for some cases).
 #
 # From left to right:
