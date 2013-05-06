@@ -16,9 +16,8 @@
 					mode='"MODULATE" "ADD"'>
 					<ImageTexture
 						url='"data/squirrel.png"' />
-					<MovieTexture
-						url='"data/test_video.avi"'
-						loop="true" />
+					<ImageTexture
+						url='"data/bricks.jpg"' />
 				</MultiTexture>
 				<MultiTextureTransform>
 					<TextureTransform

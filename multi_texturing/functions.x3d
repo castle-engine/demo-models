@@ -15,8 +15,10 @@
 				<Material />
 				<MultiTexture
 					function='"COMPLEMENT"'>
-					<ImageTexture
-						url='"data/squirrel.png"' />
+					<ImageTexture DEF="TextureSquirrelAlpha"
+						url='"data/squirrel_alpha.png"'
+						repeatS="false"
+						repeatT="false" />
 				</MultiTexture>
 			</Appearance>
 			<Box />
@@ -29,8 +31,7 @@
 				<Material />
 				<MultiTexture
 					function='"" "COMPLEMENT"'>
-					<ImageTexture
-						url='"data/squirrel.png"' />
+					<ImageTexture USE="TextureSquirrelAlpha" />
 					<ImageTexture
 						url='"data/pattern.png"' />
 				</MultiTexture>
@@ -45,8 +46,7 @@
 				<Material />
 				<MultiTexture
 					function='"COMPLEMENT" "COMPLEMENT"'>
-					<ImageTexture
-						url='"data/squirrel.png"' />
+					<ImageTexture USE="TextureSquirrelAlpha" />
 					<ImageTexture
 						url='"data/pattern.png"' />
 				</MultiTexture>
