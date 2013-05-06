@@ -136,7 +136,7 @@
 		</Shape>
 		<ProtoInstance name="MyText" containerField="children">
 			<fieldValue name="string"
-				value='"subtract (2nd - 1st)" "(pattern with squirrel)"' />
+				value='"subtract" "(pattern with squirrel)"' />
 		</ProtoInstance>
 	</Transform>
 	<Transform
@@ -436,7 +436,7 @@
 		</Shape>
 		<ProtoInstance name="MyText" containerField="children">
 			<fieldValue name="string"
-				value='"subtract (2nd - 1st)" "(diffuse with squirrel)"' />
+				value='"subtract" "(diffuse with squirrel)"' />
 		</ProtoInstance>
 	</Transform>
 	<Transform
@@ -747,7 +747,7 @@
 		</Shape>
 		<ProtoInstance name="MyText" containerField="children">
 			<fieldValue name="string"
-				value='"subtract (2nd - 1st)" "(yellow with squirrel)"' />
+				value='"subtract" "(yellow with squirrel)"' />
 		</ProtoInstance>
 	</Transform>
 	<Transform

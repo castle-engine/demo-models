@@ -57,7 +57,7 @@
 		</Shape>
 		<ProtoInstance name="MyText" containerField="children">
 			<fieldValue name="string"
-				value='"subtract (2nd - 1st) on RGB only" "(pattern with squirrel)"' />
+				value='"subtract on RGB only" "(pattern with squirrel)"' />
 		</ProtoInstance>
 	</Transform>
 	<Transform
@@ -85,7 +85,7 @@
 		</Shape>
 		<ProtoInstance name="MyText" containerField="children">
 			<fieldValue name="string"
-				value='"subtract (2nd - 1st) on RGB only" "(diffuse with squirrel)"' />
+				value='"subtract on RGB only" "(diffuse with squirrel)"' />
 		</ProtoInstance>
 	</Transform>
 	<Transform
@@ -114,7 +114,7 @@
 		</Shape>
 		<ProtoInstance name="MyText" containerField="children">
 			<fieldValue name="string"
-				value='"subtract (2nd - 1st) on RGB only" "(yellow with squirrel)"' />
+				value='"subtract on RGB only" "(yellow with squirrel)"' />
 		</ProtoInstance>
 	</Transform>
 	<Viewpoint
