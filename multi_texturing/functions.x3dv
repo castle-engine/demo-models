@@ -1,0 +1,120 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+
+# Test MultiTexture.function.
+
+# ----------------------------------------------------------------------------
+# Result = complement(material * squirrel)
+
+Transform {
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture MultiTexture {
+        texture ImageTexture { url "data/squirrel.png" }
+        function "COMPLEMENT"
+      }
+    }
+    geometry Box { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Result = complement(material * squirrel * pattern)
+
+Transform {
+  translation 2.2 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture MultiTexture {
+        texture [
+          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/pattern.png" }
+        ]
+        function [ "" "COMPLEMENT" ]
+      }
+    }
+    geometry Box { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Result = complement(complement(material * squirrel) * pattern)
+# You should notice normal colors of the squirrel (it's inverted twice).
+
+Transform {
+  translation 4.4 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture MultiTexture {
+        texture [
+          ImageTexture { url "data/squirrel.png" }
+          ImageTexture { url "data/pattern.png" }
+        ]
+        function [ "COMPLEMENT" "COMPLEMENT" ]
+      }
+    }
+    geometry Box { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Result = white (unlit)
+# (because squirrel in opaque, alpha = 1 everywhere).
+# You should notice normal colors of the squirrel (it's inverted twice).
+
+Transform {
+  translation 6.6 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture MultiTexture {
+        texture ImageTexture { url "data/squirrel.png" }
+        function "ALPHAREPLICATE"
+      }
+    }
+    geometry Box { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Result = gray (unlit)
+# (because texture is ignored, we just take constant MultiTexture.alpha
+# and copy it to red, green, blue).
+
+Transform {
+  translation 8.8 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      texture MultiTexture {
+        texture ImageTexture { url "data/squirrel.png" }
+        source "FACTOR"
+        mode "SELECTARG2"
+        alpha 0.5
+
+        # color should be unused.
+        # If you see a blue box, then your X3D browser ignored
+        # function="ALPHAREPLICATE".
+        color 0 0 1
+
+        function "ALPHAREPLICATE"
+      }
+    }
+    geometry Box { }
+  }
+}
+
+# Viewpoint ------------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0 0 -1
+# up 0 1 0
+# gravityUp 0 1 0
+Viewpoint {
+  position 4.4000000953674316 0 11.656000137329102
+  orientation 0 0 1 0
+}
