@@ -3,8 +3,7 @@ PROFILE Interchange
 COMPONENT Texturing:3
 
 # Test MultiTexture on primitives (Box, Sphere, Cone, Cylinder).
-# Tests simple MultiTexture setup mixing ImageTexture and MovieTexture,
-# with a TextureTransform.
+# Tests simple MultiTexture setup mixing 2 ImageTextures with a TextureTransform.
 
 Transform {
   children Shape {
@@ -15,9 +14,8 @@ Transform {
           ImageTexture {
             url "data/squirrel.png"
           }
-          MovieTexture {
-            url "data/test_video.avi"
-            loop TRUE
+          ImageTexture {
+            url "data/bricks.jpg"
           }
         ]
       }
