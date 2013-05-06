@@ -14,7 +14,11 @@ Transform {
     appearance Appearance {
       material Material { }
       texture MultiTexture {
-        texture ImageTexture { url "data/squirrel_alpha.png" }
+        texture DEF TextureSquirrelAlpha ImageTexture {
+          url "data/squirrel_alpha.png"
+          repeatS FALSE
+          repeatT FALSE
+        }
         function "COMPLEMENT"
       }
     }
@@ -32,7 +36,7 @@ Transform {
       material Material { }
       texture MultiTexture {
         texture [
-          ImageTexture { url "data/squirrel_alpha.png" }
+          USE TextureSquirrelAlpha
           ImageTexture { url "data/pattern.png" }
         ]
         function [ "" "COMPLEMENT" ]
@@ -53,7 +57,7 @@ Transform {
       material Material { }
       texture MultiTexture {
         texture [
-          ImageTexture { url "data/squirrel_alpha.png" }
+          USE TextureSquirrelAlpha
           ImageTexture { url "data/pattern.png" }
         ]
         function [ "COMPLEMENT" "COMPLEMENT" ]
