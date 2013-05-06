@@ -11,9 +11,9 @@ bricks.jpg
   Previously on http://www.wolfiesden.com/golgotha/golgotha.asp .
   Now on http://opengameart.org/node/7591 .
 
-test_texture.png
+squirrel*
   Based on this photo http://gimp-savvy.com/cgi-bin/img.cgi?ufwsMV1VJR1LXOE702
   from Copyright-Free Photo Archive on http://gimp-savvy.com/PHOTO-ARCHIVE/
 
-pattern_tex.png
+pattern.png
   Generated using GIMP by Michalis.
