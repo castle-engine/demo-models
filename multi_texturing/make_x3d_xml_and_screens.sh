@@ -6,4 +6,5 @@ for FILE_NAME in *.x3dv; do
   echo 'Processing '"$FILE_NAME"
   tovrmlx3d --encoding xml "$FILE_NAME" > "${BASE_NAME}.x3d"
   view3dscene "$FILE_NAME" --screenshot 0 "${BASE_NAME}_screen.png"
+  view3dscene "$FILE_NAME" --screenshot 0 --geometry 200x160 "${BASE_NAME}_screen_thumb.png"
 done
