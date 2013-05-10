@@ -145,7 +145,7 @@ Collision {
             language "GLSL"
             enabled TRUE
             initializeOnly SFNode normalMap
-              MovieTexture { url "baked_normals_low_res_seamless/baked_normals_%4d.png" loop TRUE }
+              MovieTexture { url "baked_normals_low_res_seamless/baked_normals_@counter(4).png" loop TRUE }
             parts [
               EffectPart { type "FRAGMENT" url "water_normalmap.fs" }
             ]
