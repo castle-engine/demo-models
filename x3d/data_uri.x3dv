@@ -124,6 +124,22 @@ Transform {
   }
 }
 
+# Scripts.
+#
+# Note that you can also use special protocol names "ecmascript:"
+# (or, less adviced, "javascript:") instead of "data:application/javascript,"
+# to embed script text. But using data URI may be more consistent for this.
+#
+# As MIME type for ECMAScript/JavaScript, Castle Game Engine allows:
+# - "application/javascript" (official in RFC),
+# - "text/javascript" (common in HTML),
+# - "application/x-javascript" (commonly returned by http servers),
+# - "text/ecmascript" (suggested by SVG).
+# - Also "text/plain" inside Script is interpreted as JavaScript,
+#   but that's very discouraged.
+# see http://stackoverflow.com/questions/189850/what-is-the-javascript-mime-type-what-belongs-in-the-type-attribute-of-a-script
+# and http://annevankesteren.nl/2005/02/javascript-mime-type .
+
 # TODO: We don't handle ECMAScript yet.
 # Transform {
 #   translation 0 -16 0
@@ -137,12 +153,41 @@ Transform {
 #     DEF MyScript Script {
 #       outputOnly SFVec3f
 #       inputOnly SFTime time
-#       # Code inside text/plain should be treated as ECMAScript aka JavaScript,
-#       # standard VRML/X3D scripting language. It is *not* CastleScript
-#       # (you have to use special "castlescript:" protocol instead
-#       # of "data:text/plain," to indicate CastleScript).
-#       url "data:text/plain,
+#       url "data:application/javascript,
 #         s = 'foo';"
 #     }
 #   ]
 # }
+#
+# When ECMAScript handled:
+#       # Test also that text/plain should be treated as ECMAScript aka JavaScript,
+#       # standard VRML/X3D scripting language. It is *not* CastleScript.
+
+# Scripts in CastleScript.
+#
+# Note that you can also use special protocol name "castlescript:"
+# instead of "data:text/x-castlescript,"
+# to embed script text. But using data URI may be more consistent for this.
+
+Transform {
+  translation 0 -18 0
+  children [
+    DEF ScriptedTransform Transform {
+      children Shape {
+        appearance Appearance { material Material { } }
+        geometry Box { }
+      }
+    }
+    DEF MyScript Script {
+      outputOnly SFVec3f translation
+      inputOnly SFTime time
+      url "data:text/x-castlescript,
+        function time(value, timestamp)
+          translation := vector(sin(value), 0.0, 0.0)
+        "
+    }
+    DEF MyTimeSensor TimeSensor { loop TRUE }
+  ]
+  ROUTE MyTimeSensor.elapsedTime TO MyScript.time
+  ROUTE MyScript.translation TO ScriptedTransform.translation
+}
