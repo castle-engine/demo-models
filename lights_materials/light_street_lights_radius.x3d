@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+
+<!-- 
+  Modified by Kambi by hand to use
+  http://castle-engine.sourceforge.net/x3d_extensions.php#section_ext_shading
+  
+  See also
+  http://castle-engine.sourceforge.net/x3d_implementation_lighting.php
+  for description of this test.
+-->
+
 <head>
 	<meta name="filename" content="light_street_lights_radius.x3d" />
 	<meta name="generator" content="Blender 2.57 (sub 0)" />
@@ -15,7 +25,7 @@
 <Collision enabled="false">
 	<Transform DEF="Circle_007" translation="7.030616 0.754411 1.553088" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
 		<Group DEF="G_Circle">
-			<Shape>
+			<Shape shading="PHONG">
 				<Appearance>
 					<Material DEF="MA_Material_001" diffuseColor="0.8 0.8 0.8" specularColor="0.401 0.401 0.401" emissiveColor="0.0 0.0 0.0" 
 						ambientIntensity="0.333" shininess="0.098" transparency="0.0" />					
@@ -86,7 +96,7 @@
 							<Collision enabled="false">
 								<Transform DEF="Cube_007" translation="-5.577132 1.684203 3.398382" scale="1.600000 1.600000 1.600000" rotation="-1.000000 0.000000 0.000000 1.570796" >
 									<Group DEF="G_Cube_001">
-										<Shape>
+										<Shape shading="PHONG">
 											<Appearance>
 												<Material DEF="MA_Material" diffuseColor="0.8 0.8 0.8" specularColor="0.0 0.0 0.0" emissiveColor="0.0 0.0 0.0" 
 													ambientIntensity="0.333" shininess="0.098" transparency="0.0" />												
@@ -145,7 +155,7 @@
 														<Collision enabled="false">
 															<Transform DEF="Plane" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796" >
 																<Group DEF="G_Plane">
-																	<Shape>
+																	<Shape shading="PHONG">
 																		<Appearance>
 																			<Material USE="MA_Material" />
 																		</Appearance>
