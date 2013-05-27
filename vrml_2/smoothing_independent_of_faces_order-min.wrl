@@ -1,0 +1,80 @@
+#VRML V2.0 utf8
+
+# A simplified testcase from bug
+# https://sourceforge.net/p/castle-engine/tickets/12/
+
+DirectionalLight {
+}
+Shape {
+	appearance Appearance {
+		material Material {
+		}
+	}
+	geometry IndexedFaceSet {
+		coord Coordinate {
+			point [
+				0     0     1.86,
+				0     1.91  3.78,
+				1.91  0     3.78,
+				0     -1.91 3.78,
+				-1.91 0     3.78,
+				0     0     5.70,
+			]
+		}
+		coordIndex [
+0, 1, 2, -1,
+0, 2, 3, -1,
+0, 4, 1, -1,
+0, 3, 4, -1,
+2, 1, 5, -1,
+2, 5, 3, -1,
+4, 5, 1, -1,
+4, 3, 5, -1,
+		]
+                # The problem is visible with solid=FALSE as well.
+                # Using solid=TRUE helps to confirm visually that all
+                # faces are oriented consistently outside.
+		solid TRUE
+		creaseAngle 1.5708
+	}
+}
+Shape {
+	appearance Appearance {
+		material Material {
+		}
+	}
+	geometry IndexedFaceSet {
+		coord Coordinate {
+			point [
+				1.86 -3.78 3.78,
+				3.78 -3.78 1.86,
+				3.78 -5.70 3.78,
+				3.78 -3.78 5.70,
+				3.78 -1.86 3.78,
+				5.70 -3.78 3.78,
+			]
+		}
+		coordIndex [
+0, 1, 2, -1,
+0, 2, 3, -1,
+0, 4, 1, -1,
+0, 3, 4, -1,
+2, 1, 5, -1,
+2, 5, 3, -1,
+
+# Note: original file has last two faces specified in a different
+# (but 100% equivalent) way:
+#1, 4, 5, -1,
+#5, 4, 3, -1,
+# This has no effect on the result, of course.
+# It's Ok to choose any index to start the polygon,
+# as long as the orientation (order of indexes modulo polygon vertex count)
+# remains equal.
+
+4, 5, 1, -1,
+4, 3, 5, -1,
+		]
+		solid TRUE
+		creaseAngle 1.5708
+	}
+}
