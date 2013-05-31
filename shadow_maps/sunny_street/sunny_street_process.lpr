@@ -80,16 +80,16 @@ begin
 end;
 
 var
-  FileName: string;
+  URL: string;
   Model: TX3DRootNode;
   Light: TAbstractLightNode;
 begin
   Parameters.CheckHigh(1);
-  FileName := Parameters[1];
+  URL := Parameters[1];
 
   OnWarning := @OnWarningWrite;
 
-  Model := Load3D(FileName);
+  Model := Load3D(URL);
   try
     Model.ForceSaveAsX3D;
 
@@ -111,6 +111,6 @@ begin
     //   MakeShadowMapReceiver(Model, 'oak', Light); {< oak leaves }
 
     Save3D(Model, StdOutStream, 'sunny_street_process (from Castle Game Engine demo models)',
-      ExtractFileName(FileName), xeClassic);
+      ExtractURIName(URL), xeClassic);
   finally FreeAndNil(Model) end;
 end.
