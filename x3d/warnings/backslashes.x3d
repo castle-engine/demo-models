@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<meta name="filename" content="axis.x3d" />
+	<meta name="generator" content="Blender 245" />
+	<meta name="translator" content="X3D exporter v1.55 (2006/01/17)" />
+</head>
+<Scene>
+  <Shape>
+    <Appearance> <Material/> </Appearance>
+    <Text string='"MFString in classic encoding." "You should see single backslash: \\" "You should see double qoute: \"" "You should see double qoute again: \&quot;" "This is invalid \blahblah" "C:/Users/Me/Documents/data/Temp/........\maya\projects\default\images\untitled-files\Default.tif"' />
+  </Shape>
+</Scene>
+</X3D>

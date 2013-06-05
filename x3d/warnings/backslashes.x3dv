@@ -1,0 +1,15 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance { material Material { } }
+  geometry Text {
+    string [
+      "MFString in classic encoding."
+      "You should see single backslash: \\"
+      "You should see double qoute: \""
+      "This is invalid \blahblah"
+      "C:/Users/Me/Documents/data/Temp/........\maya\projects\default\images\untitled-files\Default.tif"
+    ]
+  }
+}
