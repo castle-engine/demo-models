@@ -199,3 +199,20 @@ Transform {
     ]
   }
 }
+
+Transform {
+  translation 0 -20 0
+  children Anchor {
+    url "../textures/test_texture.png"
+    children [
+      Shape {
+        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text { string "      Open test_texture.png in default program for PNG" }
+      }
+      Shape {
+        appearance USE App1
+        geometry Sphere { }
+      }
+    ]
+  }
+}
