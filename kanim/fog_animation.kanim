@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
 <animation backwards="true" loop="true">
-  <frame file_name="fog_1.wrl" time="0" />
-  <frame file_name="fog_2.wrl" time="2" />
+  <frame url="fog_1.wrl" time="0" />
+  <frame url="fog_2.wrl" time="2" />
 </animation>

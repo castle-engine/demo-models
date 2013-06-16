@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 
 <animation loop="true">
-  <frame file_name="worm_crawl_0.wrl" time="0" />
-  <frame file_name="worm_crawl_1.wrl" time="1" />
-  <frame file_name="worm_crawl_2.wrl" time="2" />
-  <frame file_name="worm_crawl_3.wrl" time="3" />
-  <frame file_name="worm_crawl_4.wrl" time="4" />
-  <frame file_name="worm_crawl_5.wrl" time="5" />
-  <frame file_name="worm_crawl_6.wrl" time="6" />
-  <frame file_name="worm_crawl_7.wrl" time="7" />
-  <frame file_name="worm_crawl_8.wrl" time="8" />
-  <frame file_name="worm_crawl_0.wrl" time="8.5" />
+  <frame url="worm_crawl_0.wrl" time="0" />
+  <frame url="worm_crawl_1.wrl" time="1" />
+  <frame url="worm_crawl_2.wrl" time="2" />
+  <frame url="worm_crawl_3.wrl" time="3" />
+  <frame url="worm_crawl_4.wrl" time="4" />
+  <frame url="worm_crawl_5.wrl" time="5" />
+  <frame url="worm_crawl_6.wrl" time="6" />
+  <frame url="worm_crawl_7.wrl" time="7" />
+  <frame url="worm_crawl_8.wrl" time="8" />
+  <frame url="worm_crawl_0.wrl" time="8.5" />
 </animation>
