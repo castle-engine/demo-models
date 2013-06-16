@@ -2,3 +2,11 @@
 PROFILE Interchange
 
 Inline { url "percent%254d.x3dv" }
+
+# This is correct way to encode space in URL.
+Inline { url "percent%20space.x3dv" }
+
+# This will work too, but should not be used.
+Transform { translation 2 0 0
+  children Inline { url "percent space.x3dv" }
+}
