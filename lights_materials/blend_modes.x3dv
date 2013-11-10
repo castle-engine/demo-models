@@ -1,0 +1,159 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+EXTERNPROTO KambiAppearance [
+  inputOutput SFNode material
+  inputOutput SFNode texture
+  inputOutput SFNode textureTransform
+  inputOutput SFNode fillProperties
+  inputOutput SFNode lineProperties
+  inputOutput SFNode metadata
+  inputOutput MFNode shaders
+  inputOutput SFNode normalMap
+  inputOutput SFNode heightMap
+  inputOutput SFFloat heightMapScale
+  inputOutput SFNode blendMode
+  inputOutput SFBool shadowCaster
+] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
+
+# background just copied from ../background_texture1.wrl, to show
+# that teapots are transparent.
+Background {
+  backUrl "../skies/sky_red_back.bmp"
+  bottomUrl "../skies/sky_red_bottom.png"
+  frontUrl "../skies/sky_red_front.jpg"
+  leftUrl "../skies/sky_red_left.ppm"
+  rightUrl "../skies/sky_red_right.rgbe"
+  topUrl "../skies/sky_red_top.png"
+}
+
+DEF TeapotRow Group {
+  children [
+
+DEF Teapot1 Transform {
+    scale 10 10 10
+	children [
+		DEF ME_Mesh Group {
+			children [
+				Shape {
+					appearance Appearance {
+						material DEF MA_Material_001 Material {
+							diffuseColor 0.8 0.8 1
+							ambientIntensity 0.1666667
+							specularColor 0.4012008 0.4012008 0.4012008
+							emissiveColor  0.0 0.0 0.0
+							shininess 0.0976563
+							transparency 0.8
+						}
+					}
+					geometry DEF Teapot_IFS Teapot { size 0.5 0.5 0.5 }
+				}
+			]
+		}
+	]
+}
+
+
+Transform {
+  translation 3 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        destFactor "one"
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 6 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_color"
+        destFactor "one_minus_src_alpha"
+        color 1 0 0
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 9 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_color"
+        destFactor "one"
+        color 1 0 0
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 12 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_alpha"
+        destFactor "one_minus_src_alpha"
+        colorTransparency 0.9
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+Transform {
+  translation 15 0 0
+  scale 10 10 10
+  children Shape {
+    appearance KambiAppearance {
+      material USE MA_Material_001
+      blendMode BlendMode {
+        srcFactor "constant_alpha"
+        destFactor "one"
+        colorTransparency 0.9
+      }
+    }
+    geometry USE Teapot_IFS
+  }
+}
+
+
+] }
+
+# Now show the same against light background
+
+Transform {
+  translation 0 3 0
+  children [
+
+    Transform {
+      translation 7.5 0 -3
+      children Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0.8 0.8 0.8
+          }
+        }
+        geometry Box { size 22 3 0.1 }
+      }
+    }
+
+    USE TeapotRow
+  ]
+}
