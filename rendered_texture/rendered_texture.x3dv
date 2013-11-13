@@ -98,19 +98,16 @@ TestingBox {
       # Test this will cause appropriate warning and size will change to 32 x 32
 #      dimensions [ 32 32 ]
     }
-    shaders DEF MyShader ComposedShader {
+    effects DEF MyEffect Effect {
       language "GLSL"
       parts [
-        ShaderPart { type "FRAGMENT" url
-
-"uniform sampler2D tex;
-void main(void)
+        EffectPart { type "FRAGMENT" url
+"data:text/plain,
+void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
-  gl_FragColor = texture2D(tex, gl_TexCoord[0].st) * gl_Color;
   // add some ambient
   gl_FragColor.rgb += vec3(0.1, 0.1, 0.1);
-}
-"       }
+}"       }
       ]
     }
 
@@ -133,7 +130,7 @@ Transform {
       }
       # Test TextureTransform (and repeatS/T) work Ok
       textureTransform TextureTransform { scale 2 2 }
-      shaders USE MyShader
+      effects USE MyEffect
     }
   }
 }
@@ -165,7 +162,7 @@ Transform {
           orientation -0.0151009261608123 -0.9997622370719909 -0.0157377813011407 1.6124224662780762
         }
       }
-      shaders USE MyShader
+      effects USE MyEffect
     }
   }
 }
@@ -190,7 +187,7 @@ Transform {
           magnificationFilter "NEAREST_PIXEL"
         }
       }
-      shaders USE MyShader
+      effects USE MyEffect
     }
   }
 }
