@@ -85,8 +85,8 @@ ViewportInfo {
     "Demo of recursive mirror reflections by GeneratedCubeMapTexture."
     ""
     "Textures are *not* automatically generated, instead each"
-    "press of [space] key will trigger one generation pass."
-    "By pressing [space] repeatedly you should see how recursive"
+    "press of [g] key will trigger one generation pass."
+    "By pressing [g] repeatedly you should see how recursive"
     "mirror reflections are propagated through the textures."
     ""
     "You can edit the world like in dynamic_world.x3dv,"
@@ -202,7 +202,7 @@ DEF Scr Script {
   url "castlescript:
 
 function key_press(value, timestamp)
-  when (value = ' ',
+  when (value = 'g',
     tex1_update := 'NEXT_FRAME_ONLY';
     tex2_update := 'NEXT_FRAME_ONLY';
     tex3_update := 'NEXT_FRAME_ONLY';

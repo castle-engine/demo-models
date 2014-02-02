@@ -130,7 +130,7 @@ DEF Scr Script {
   url "castlescript:
 
 function key_press(value, timestamp)
-  when (value = ' ',
+  when (value = 'g',
     tex1_update := 'NEXT_FRAME_ONLY';
     tex2_update := 'NEXT_FRAME_ONLY'
   )
