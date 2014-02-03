@@ -42,8 +42,6 @@ ScreenEffect { shaders DEF Shader ComposedShader {
 ivec2 screen_position();
 vec4 screen_get_color(ivec2 position);
 uniform sampler2D movieTexture;
-uniform int screen_width;
-uniform int screen_height;
 
 const vec2 movieTextureSize = vec2(256.0, 256.0);
 const float movieTextureScale = 2.0;

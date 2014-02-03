@@ -46,7 +46,8 @@ int screen_x();
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position());
-  if (int(mod(screen_x(), 40)) == 35)
+  // no sensible way to make modulo in GLSL on ints, for both OpenGLES and desktop OpenGL
+  if (int(mod(float(screen_x()), 40.0)) == 35)
     gl_FragColor.g = 2.0 / 10.0;
 }
 " } } }
