@@ -46,7 +46,7 @@ int screen_x();
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position());
-  if (mod(screen_x(), 40) == 35)
+  if (int(mod(screen_x(), 40)) == 35)
     gl_FragColor.g = 2.0 / 10.0;
 }
 " } } }
@@ -60,7 +60,7 @@ int screen_y();
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position() +
-    ivec2(int(sin(screen_y() / 10.0) * 10.0), 0));
+    ivec2(int(sin(float(screen_y()) / 10.0) * 10.0), 0));
 }
 " } } }
 
