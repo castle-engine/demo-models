@@ -45,7 +45,7 @@ begin
   { add defaultShadowMap, to set size to ShadowMapSize }
   SM := TGeneratedShadowMapNode.Create('', '');
   L.FdDefaultShadowMap.Value := SM;
-  SM.FdUpdate.Value := 'ALWAYS';
+  SM.FdUpdate.Value := upAlways;
   SM.FdSize.Value := ShadowMapSize;
 end;
 
