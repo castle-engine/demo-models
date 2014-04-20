@@ -1,0 +1,43 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Transform {
+  rotation 1 0 0 1.57
+  children TextureBackground {
+    skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
+    skyAngle [        0.8,   2,     2.5   ]
+    backTexture DEF MovieTex MovieTexture {
+      # movie from png with alpha channel, sky/ground colors visible underneath
+#      url "../movie_texture/flame/seamless/@counter(4).png"
+      # movie from avi
+      url "../movie_texture/test_video.avi"
+      # play movie in a loop
+      loop TRUE
+      # textureProperties of course work here too
+      textureProperties TextureProperties {
+        minificationFilter "NEAREST_PIXEL"
+        magnificationFilter "NEAREST_PIXEL"
+      }
+    }
+    bottomTexture USE MovieTex
+    frontTexture USE MovieTex
+    leftTexture USE MovieTex
+    rightTexture USE MovieTex
+    topTexture USE MovieTex
+  }
+}
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction -0.0011730595724657178 0.96568644046783447 0.25971138477325439
+# up 0.00031557740294374526 -0.25971102714538574 0.96568626165390015
+# gravityUp 0 0 1
+Transform {
+  translation -0.97235441207885742 -91.912796020507813 3.4604239463806152
+  rotation 1 0 0 1.5707963705062866
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0.99998784065246582 0.0046893623657524586 -0.0013066022656857967 0.26272621750831604
+  }
+}
+
+Inline { url "../vrml_2/castle.wrl" }
