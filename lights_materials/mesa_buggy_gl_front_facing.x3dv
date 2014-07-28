@@ -1,0 +1,45 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# This is buggy on Mesa 10.x with OpenGL 3.x with Shaders->Always pipeline,
+# somewhat workarounded (but still both sides are lit, instead of one,
+# so it is only really safe with SOLID=true),
+# using "Buggy gl_FrontFacing" setting.
+
+NavigationInfo {
+  type [ "EXAMINE", "ANY" ]
+  headlight FALSE
+}
+
+DirectionalLight {
+  direction 0 -1 0 # from no side???
+  #direction 0 1 0 # from both sides???
+  color 1 0.1 0.1
+}
+
+Group {
+  children [
+    DEF LavaShape Shape {
+      appearance Appearance {
+        material Material { specularColor 0 0 0 }
+      }
+      geometry DEF Lava IndexedFaceSet {
+        solid FALSE
+        texCoord TextureCoordinate {
+          point [
+            0 0,
+            0 1,
+            1 1,
+            1 0 ] }
+        creaseAngle 0
+        coord Coordinate {
+          point [
+            -10 0 -10,
+            -10 0  10,
+             10 0  10,
+             10 0 -10 ] }
+        coordIndex [ 0 1 2 3 ]
+      }
+    }
+  ]
+}
