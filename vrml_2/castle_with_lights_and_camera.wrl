@@ -45,6 +45,15 @@ Group{
     }
 
     Inline { url "castle_with_lights.wrl" }
+
+    # Transform {
+    #   translation 0 0 100
+    #   rotation 1 0 0 1.57
+    #   scale 0.1 0.1 0.1
+    #   children [
+    #     Inline { url "file:///home/michalis/installed/SpineTrial/examples/dragon/export/dragon.json" }
+    #     Inline { url "file:///home/michalis/sources/venice/trunk/data/animation/hero/skeleton.json" }
+    #   ]
+    # }
   ]
 }
-
