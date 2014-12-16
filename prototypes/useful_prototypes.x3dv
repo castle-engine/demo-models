@@ -25,7 +25,7 @@ PROTO ViewportInfo [
                   shadowCaster FALSE
                 }
                 geometry Text {
-                  fontStyle FontStyle { size 0.008 style "BOLD" }
+                  fontStyle FontStyle { size 0.006 style "BOLD" }
                   string IS info
                 }
               }
