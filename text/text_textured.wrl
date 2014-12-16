@@ -11,14 +11,14 @@ Group {
       }
       geometry Text {
         fontStyle DEF FS FontStyle { style "BOLD" size 10 }
-        string ["just a few", "lines", "of textured text"]
+        string ["A three", "lines", "of textured text."]
       }
     }
 
     Transform {
-      translation 0 -30 0
+      translation 0 -40 0
       children Transform {
-        rotation 1 0 0 0.7
+        # rotation 1 0 0 0.7
         children Shape {
           appearance Appearance {
             material Material { }
@@ -26,7 +26,42 @@ Group {
           }
           geometry Text {
             fontStyle USE FS
-            string ["and a few more", "lines", "of textured text"]
+            string ["More lines", "of textured text", "with different texture."]
+          }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -80 0
+      children Transform {
+        # rotation 1 0 0 0.7
+        children Shape {
+          appearance Appearance {
+            material Material { }
+            texture ImageTexture { url "../textures/test_texture.png" }
+            textureTransform TextureTransform { scale 10 10 }
+          }
+          geometry Text {
+            fontStyle USE FS
+            string ["More lines", "of textured text,", "now with TextureTransform."]
+          }
+        }
+      }
+    }
+
+    Transform {
+      translation 0 -120 0
+      children Transform {
+        # rotation 1 0 0 0.7
+        children Shape {
+          appearance Appearance {
+            material Material { }
+            texture ImageTexture { url "../textures/test_texture.png" repeatS FALSE repeatT FALSE }
+          }
+          geometry Text {
+            fontStyle USE FS
+            string ["And yet more lines", "of textured text,", "now with non-repeated texture."]
           }
         }
       }
