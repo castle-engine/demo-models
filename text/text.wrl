@@ -13,6 +13,7 @@ Transform {
         geometry Text {
           string "this is sans-serif"
           fontStyle FontStyle { size 10 family "SANS" }
+          #solid TRUE
         }
       }
     }
