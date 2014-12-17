@@ -66,5 +66,26 @@ Group {
         }
       }
     }
+
+    Transform {
+      translation 0 -160 0
+      children Transform {
+        # rotation 1 0 0 0.7
+        children Shape {
+          appearance Appearance {
+            material Material { }
+            texture ImageTexture { url "../textures/test_texture.png" repeatS TRUE repeatT TRUE }
+          }
+          geometry Text {
+            fontStyle USE FS
+            string ["And yet more lines", "of textured text,", "with TextureCoordinateGenerator."]
+            texCoord TextureCoordinateGenerator { mode "COORD-EYE" }
+            # MultiTextureCoordinate {
+            #   texCoord TextureCoordinateGenerator { mode "COORD-EYE" }
+            # }
+          }
+        }
+      }
+    }
   ]
 }
