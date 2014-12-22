@@ -43,6 +43,7 @@ Transform {
     geometry Text {
       string "Some textured text"
       fontStyle FontStyle {
+        blending FALSE
         justify "MIDDLE"
       }
     }
@@ -54,11 +55,12 @@ Transform {
   rotation 1 0 0 -1
   children Shape {
     appearance Appearance {
-      material Material { }
+      material Material { diffuseColor 1 0 0 }
     }
     geometry Text {
       string "Some text"
       fontStyle FontStyle {
+        blending FALSE
         justify "MIDDLE"
       }
     }
