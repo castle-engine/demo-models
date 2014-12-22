@@ -32,6 +32,39 @@ Transform { translation 1 -8 0
   }
 }
 
+Transform {
+  translation 0 -7 -0.5
+  rotation 1 0 0 -1
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture { url "../textures/test_texture.png" }
+      material Material { }
+    }
+    geometry Text {
+      string "Some textured text"
+      fontStyle FontStyle {
+        justify "MIDDLE"
+      }
+    }
+  }
+}
+
+Transform {
+  translation 0 -7 0.5
+  rotation 1 0 0 -1
+  children Shape {
+    appearance Appearance {
+      material Material { }
+    }
+    geometry Text {
+      string "Some text"
+      fontStyle FontStyle {
+        justify "MIDDLE"
+      }
+    }
+  }
+}
+
 # Move the sphere, just to show that we can and shadow follows.
 
 DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
