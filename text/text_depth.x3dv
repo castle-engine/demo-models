@@ -1,14 +1,15 @@
-#VRML V2.0 utf8
+#X3D V3.3 utf8
+PROFILE Immersive
 
 # Text3D demo
 
 EXTERNPROTO Text3D [
-  exposedField MFString string
-  exposedField SFNode fontStyle
-  exposedField MFFloat length
-  exposedField SFFloat maxExtent
-  exposedField SFFloat depth
-  exposedField SFBool solid
+  inputOutput MFString string
+  inputOutput SFNode fontStyle
+  inputOutput MFFloat length
+  inputOutput SFFloat maxExtent
+  inputOutput SFFloat depth
+  inputOutput SFBool solid
 ] [ "urn:castle-engine.sourceforge.net:node:Text3D",
     "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#Text3D" ]
 
