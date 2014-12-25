@@ -1,0 +1,145 @@
+#VRML V2.0 utf8
+
+# Test FontStyle.justify values.
+
+PROTO JustifyTest [
+  field MFString justify []
+  field MFString string []
+  field SFVec3f translation 0 0 0
+] {
+  Transform {
+    translation IS translation
+    children [
+      Shape {
+        geometry Box { size 0.2 0.2 0.2 }
+      }
+      Shape {
+        appearance Appearance { material Material { diffuseColor 1 1 0 } }
+        geometry Text {
+          string IS string
+          fontStyle FontStyle { justify IS justify }
+        }
+      }
+    ]
+  }
+}
+
+JustifyTest {
+  string [ "Default justify" "2nd line" "3rd line" "(should look like BEGIN FIRST)" ]
+}
+
+# minor = FIRST --------------------------------------------------------------
+
+JustifyTest {
+  justify [ "FIRST" "FIRST" ]
+  string [ "FIRST FIRST justify" "2nd line" "3rd line" ]
+  translation 20 0 0
+}
+
+JustifyTest {
+  justify [ "BEGIN" "FIRST" ]
+  string [ "BEGIN FIRST justify" "2nd line" "3rd line" ]
+  translation 40 0 0
+}
+
+JustifyTest {
+  justify [ "MIDDLE" "FIRST" ]
+  string [ "MIDDLE FIRST justify" "2nd line" "3rd line" ]
+  translation 60 0 0
+}
+
+JustifyTest {
+  justify [ "END" "FIRST" ]
+  string [ "END FIRST justify" "2nd line" "3rd line" ]
+  translation 80 0 0
+}
+
+# minor = BEGIN --------------------------------------------------------------
+
+Transform { translation 0 -5 0
+  children [
+    JustifyTest {
+      justify [ "FIRST" "BEGIN" ]
+      string [ "FIRST BEGIN justify" "2nd line" "3rd line" ]
+      translation 20 0 0
+    }
+
+    JustifyTest {
+      justify [ "BEGIN" "BEGIN" ]
+      string [ "BEGIN BEGIN justify" "2nd line" "3rd line" ]
+      translation 40 0 0
+    }
+
+    JustifyTest {
+      justify [ "MIDDLE" "BEGIN" ]
+      string [ "MIDDLE BEGIN justify" "2nd line" "3rd line" ]
+      translation 60 0 0
+    }
+
+    JustifyTest {
+      justify [ "END" "BEGIN" ]
+      string [ "END BEGIN justify" "2nd line" "3rd line" ]
+      translation 80 0 0
+    }
+  ]
+}
+
+# minor = MIDDLE --------------------------------------------------------------
+
+Transform { translation 0 -10 0
+  children [
+    JustifyTest {
+      justify [ "FIRST" "MIDDLE" ]
+      string [ "FIRST MIDDLE justify" "2nd line" "3rd line" ]
+      translation 20 0 0
+    }
+
+    JustifyTest {
+      justify [ "BEGIN" "MIDDLE" ]
+      string [ "BEGIN MIDDLE justify" "2nd line" "3rd line" ]
+      translation 40 0 0
+    }
+
+    JustifyTest {
+      justify [ "MIDDLE" "MIDDLE" ]
+      string [ "MIDDLE MIDDLE justify" "2nd line" "3rd line" ]
+      translation 60 0 0
+    }
+
+    JustifyTest {
+      justify [ "END" "MIDDLE" ]
+      string [ "END MIDDLE justify" "2nd line" "3rd line" ]
+      translation 80 0 0
+    }
+  ]
+}
+
+# minor = END --------------------------------------------------------------
+
+Transform { translation 0 -15 0
+  children [
+    JustifyTest {
+      justify [ "FIRST" "END" ]
+      string [ "FIRST END justify" "2nd line" "3rd line" ]
+      translation 20 0 0
+    }
+
+    JustifyTest {
+      justify [ "BEGIN" "END" ]
+      string [ "BEGIN END justify" "2nd line" "3rd line" ]
+      translation 40 0 0
+    }
+
+    JustifyTest {
+      justify [ "MIDDLE" "END" ]
+      string [ "MIDDLE END justify" "2nd line" "3rd line" ]
+      translation 60 0 0
+    }
+
+    JustifyTest {
+      justify [ "END" "END" ]
+      string [ "END END justify" "2nd line" "3rd line" ]
+      translation 80 0 0
+    }
+  ]
+}
