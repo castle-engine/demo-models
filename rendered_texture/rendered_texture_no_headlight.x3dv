@@ -1,0 +1,48 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# Test of correct RenderedTexture update,
+# when you move the camera --- the RenderedTexture on a box should change.
+# Even though no shape geoemetry changes, even though no light changes
+# (headlight is deliberately off).
+#
+# See engine code in TCastleScene.CameraChanged.
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.0162931103259325 -0.0087941382080316 0.0075629726052284
+# up 0.398832231760025 0.8981400728225708 0.1851321160793304
+# gravityUp 0 1 0
+Viewpoint {
+  position -10.518335342407227 6.0124320983886719 -2.6900680065155029
+  orientation -0.1425759643316268 -0.9642499685287475 -0.223369762301445 2.0381448268890381
+}
+
+KambiNavigationInfo {
+  type "FLY"
+  speed 10
+  headlight FALSE
+}
+
+Shape {
+  appearance Appearance {
+    texture RenderedTexture {
+      update "ALWAYS"
+      dimensions [ 512 512 ]
+      repeatS TRUE
+      repeatT TRUE
+    }
+  }
+  geometry Box { }
+}
+
+Transform {
+  translation 3 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material { emissiveColor 1 1 0 }
+      }
+      geometry Box { }
+    }
+  ]
+}
