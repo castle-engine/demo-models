@@ -19,23 +19,9 @@ EXTERNPROTO KambiAppearance [
     "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
 ]
 
-EXTERNPROTO KambiNavigationInfo [
-  inputOnly   SFBool   set_bind
-  inputOutput MFFloat  avatarSize
-  inputOutput SFBool   headlight
-  inputOutput SFFloat  speed
-  inputOutput MFString type
-  inputOutput SFFloat  visibilityLimit
-  outputOnly  SFBool   isBound
-  initializeOnly  SFBool   timeOriginAtLoad
-] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
-]
-
-KambiNavigationInfo {
+NavigationInfo {
 	headlight TRUE
 	type ["EXAMINE", "ANY"]
-        timeOriginAtLoad TRUE
 }
 
 # This file was authored with Blender (http://www.blender.org/)
@@ -3235,5 +3221,7 @@ DEF OB_Teapot Transform {
 }
 
 # Kambi+, to route TimeSensor to shader
+DEF MyProximitySensor ProximitySensor { size 10000000 10000000 10000000 }
 DEF KamTime TimeSensor { loop TRUE }
-ROUTE KamTime.time TO KamShader.time
+ROUTE MyProximitySensor.enterTime TO KamTime.startTime
+ROUTE KamTime.elapsedTime TO KamShader.time
