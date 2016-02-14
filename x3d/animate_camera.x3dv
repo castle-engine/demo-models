@@ -1,0 +1,73 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Example of camera (Viewpoint in X3D) animation,
+# using the PositionInterpolator and OrientationInterpolator.
+# The whole animation takes 10 seconds (see MyTimer.cycleInterval below),
+# you could record it into a movie using view3dscene like this:
+#
+# view3dscene animate_camera.x3dv --screenshot-range 0 0.1 100 movie.avi
+#
+# See view3dscene documentation for details, in particular here:
+# http://castle-engine.sourceforge.net/view3dscene.php#section_screenshot
+
+Transform {
+  # Rotate the castle_with_lights.wrl model, to make "up" in +Y,
+  # this makes things simplest (when gravity up = +Y).
+  rotation 1 0 0 -1.570796370506287
+  children Inline { url "../vrml_2/castle_with_lights.wrl" }
+}
+
+DEF MyViewpoint Viewpoint {
+  # Starting camera position/rotation, before we run the animation.
+  #
+  # They are right now hardcoded to match initial position/orientation
+  # of animation (their values are equal to 1st position of PositionInterpolator,
+  # and 1st orientation of OrientationInterpolator), but that's totally
+  # not necessary.
+  #
+  # During animation, the interpolators below will override this.
+  position 0.28374481201171875 31.009798049926758 326.170166015625
+  orientation 0 0 1 0
+}
+
+# Camera positions.
+DEF MyCameraPositionInterpolator PositionInterpolator {
+  key [ 0 0.15 0.3 0.45 0.6 0.7 0.8 0.9 1 ]
+  keyValue [
+    0.28374481201171875 31.009798049926758 326.170166015625
+    0.28374481201171875 31.009798049926758 115.96472930908203
+    102.90022277832031 45.533096313476563 114.12515258789063
+    145.55215454101563 50.303508758544922 -106.76725006103516
+    -131.79124450683594 101.35492706298828 -115.78330993652344
+    -134.99575805664063 70.439163208007813 118.24293518066406
+    -2.4280040264129639 14.535518646240234 129.16746520996094
+    0.95505481958389282 4.8075361251831055 94.554718017578125
+    0.19202326238155365 2.6759240627288818 24.340366363525391
+  ]
+}
+
+# Camera rotations.
+DEF MyCameraOrientationInterpolator OrientationInterpolator {
+  key [ 0 0.15 0.3 0.45 0.6 0.7 0.8 0.9 1 ]
+  keyValue [
+    0 0 1 0
+    -0.99998927116394043 -0.00017263226618524641 -0.0032940139062702656 0.10472068935632706
+    -0.18615898489952087 0.97949087619781494 0.077085636556148529 0.79995536804199219
+    -0.035195872187614441 0.9962996244430542 0.078409984707832336 2.3005318641662598
+    -0.081810161471366882 -0.97486889362335205 -0.20721399784088135 2.4067699909210205
+    -0.28917926549911499 -0.94908547401428223 -0.12494848668575287 0.85443884134292603
+    -0.74378859996795654 0.66817820072174072 0.016986889764666557 0.070380531251430511
+    -0.7437814474105835 0.66820430755615234 0.017680516466498375 0.070380531251430511
+    0.000054722033382859081 0.99998831748962402 0 0.047038562595844269
+  ]
+}
+
+DEF MyTimer TimeSensor {
+  cycleInterval 10.0
+  loop TRUE
+}
+ROUTE MyTimer.fraction_changed TO MyCameraPositionInterpolator.set_fraction
+ROUTE MyTimer.fraction_changed TO MyCameraOrientationInterpolator.set_fraction
+ROUTE MyCameraPositionInterpolator.value_changed TO MyViewpoint.position
+ROUTE MyCameraOrientationInterpolator.value_changed TO MyViewpoint.orientation
