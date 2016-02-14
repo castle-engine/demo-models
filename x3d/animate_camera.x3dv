@@ -4,9 +4,16 @@ PROFILE Interchange
 # Example of camera (Viewpoint in X3D) animation,
 # using the PositionInterpolator and OrientationInterpolator.
 # The whole animation takes 10 seconds (see MyTimer.cycleInterval below),
-# you could record it into a movie using view3dscene like this:
+# you can view it in view3dscene (it runs in a loop).
 #
-# view3dscene animate_camera.x3dv --screenshot-range 0 0.1 100 movie.avi
+# You can record it into a movie using view3dscene command-line like this:
+#
+#   view3dscene animate_camera.x3dv --screenshot-range 0 0.1 100 movie.avi
+#
+# (Note that the command above will actually produce a shorter movie
+# than 10 seconds, because it only samples 10 frames per second,
+# but the resulting movie.avi is always synthesized with speed
+# of 25 frames per second. So the result is around 4 seconds long.)
 #
 # See view3dscene documentation for details, in particular here:
 # http://castle-engine.sourceforge.net/view3dscene.php#section_screenshot
