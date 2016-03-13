@@ -1,7 +1,7 @@
 #VRML V1.0 ascii
 
 # Demo that partially transparent object works as shadow caster too.
-# Assumes you have castle data in ../../castle/ directory.
+# Using "ghost" from castle-game data.
 
 PointLight {
   location 2 0 4
@@ -10,8 +10,8 @@ PointLight {
 }
 
 Group {
-  WWWInline { name "../../castle/data/creatures/ghost/ghost_header.wrl" separate FALSE }
-  WWWInline { name "../../castle/data/creatures/ghost/ghost_stand_1.wrl" }
+  WWWInline { name "ghost_header.wrl" separate FALSE }
+  WWWInline { name "ghost_stand_1.wrl" }
 }
 
 Translation {

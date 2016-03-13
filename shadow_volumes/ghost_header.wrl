@@ -1,0 +1,10 @@
+#VRML V1.0 ascii
+
+Group {
+  Scale {
+    scaleFactor 2.5 2.5 2.5
+  }
+  Scale {
+    scaleFactor 0.7 0.7 0.7
+  }
+}
