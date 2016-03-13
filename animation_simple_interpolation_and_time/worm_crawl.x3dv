@@ -6748,6 +6748,6 @@ DEF CoordInterp CoordinateInterpolator {
 
 ] }
 
-DEF Timer TimeSensor { loop TRUE cycleInterval 2 }
-ROUTE Timer.fraction_changed TO CoordInterp.set_fraction
+DEF WormTimer TimeSensor { loop TRUE cycleInterval 2 }
+ROUTE WormTimer.fraction_changed TO CoordInterp.set_fraction
 ROUTE CoordInterp.value_changed TO Coord.point
