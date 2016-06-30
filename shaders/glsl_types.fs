@@ -7,6 +7,13 @@
    If you see any other colors (typically, red vertical stripes),
    then some uniform is not correctly set. */
 
+// to have % operator available (you cannot use #ifdef before #version, so this will only work on desktop)
+/* #ifdef GL_ES */
+/*   #version 300 es */
+/* #else */
+#version 130
+ /* #endif */
+
 uniform bool my_bool;
 uniform int my_long;
 uniform int my_int32;
