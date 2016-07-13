@@ -43,7 +43,7 @@ begin
   L.FdProjectionFar.Value := ProjectionFar;
 
   { add defaultShadowMap, to set size to ShadowMapSize }
-  SM := TGeneratedShadowMapNode.Create('', '');
+  SM := TGeneratedShadowMapNode.Create;
   L.FdDefaultShadowMap.Value := SM;
   SM.FdUpdate.Value := upAlways;
   SM.FdSize.Value := ShadowMapSize;
@@ -74,7 +74,7 @@ begin
 
     { make sure Shape has some (valid) Appearance }
     if Shape.Appearance = nil then
-      Shape.Appearance := TAppearanceNode.Create('', '');
+      Shape.Appearance := TAppearanceNode.Create;
 
     Shape.Appearance.FdReceiveShadows.Add(Light);
   end;

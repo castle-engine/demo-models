@@ -15,8 +15,8 @@ index 1ca43fe..8b0d493 100644
        Grid.FdZSpacing.Value := Size / (CountSteps - 1);
        Grid.FdHeight.Items.Count := CountSteps * CountSteps;
  
--      Color := TNodeColor.Create('', '');
-+      Color := TNodeColorRGBA.Create('', '');
+-      Color := TNodeColor.Create;
++      Color := TNodeColorRGBA.Create;
        Grid.FdColor.Value := Color;
        Color.FdColor.Items.Count := CountSteps * CountSteps;
  
@@ -33,4 +33,4 @@ index 1ca43fe..8b0d493 100644
 +              ), 1));
          end;
  
-       Appearance := TNodeAppearance.Create('', '');
+       Appearance := TNodeAppearance.Create;
