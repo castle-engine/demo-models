@@ -7,7 +7,7 @@ sunny_street_processed.x3dv: sunny_street.wrl sunny_street_process
 	./sunny_street_process sunny_street.wrl > sunny_street_processed.x3dv
 
 sunny_street_process: sunny_street_process.lpr
-	fpcdebug sunny_street_process.lpr
+	castle-engine simple-compile sunny_street_process.lpr
 
 # Clean stuff that should not be in tar.gz
 .PHONY: clean
