@@ -22,8 +22,8 @@
 }
 
 uses SysUtils, CastleUtils, CastleClassUtils, X3DNodes, X3DLoad,
-  CastleStringUtils, X3DFields, CastleWarnings, X3DShadowMaps, CastleParameters,
-  CastleURIUtils;
+  CastleStringUtils, X3DFields, X3DShadowMaps, CastleParameters,
+  CastleURIUtils, CastleApplicationProperties;
 
 const
   ShadowMapSize = 1024;
@@ -88,7 +88,7 @@ begin
   Parameters.CheckHigh(1);
   URL := Parameters[1];
 
-  OnWarning := @OnWarningWrite;
+  ApplicationProperties.OnWarning.Add(@ApplicationProperties.WriteWarningOnConsole);
 
   Model := Load3D(URL);
   try
