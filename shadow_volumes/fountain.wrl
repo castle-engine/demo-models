@@ -106,10 +106,10 @@ DEF OB_FountainCore EditableTransform {
 							transparency 0.0
 						}
 						texture DEF _016marbre_jpg ImageTexture {
-							url "../../castle/data/textures/016marbre.jpg"
+							url "fountain-textures/016marbre.jpg"
 						}
                                                 normalMap DEF _016marbre_jpg_normalMap ImageTexture {
-                                                	url "../../castle/data/textures/normal_maps/016marbre.png"
+                                                	url "fountain-textures/normal_maps/016marbre.png"
                                                 }
 					}
 					geometry IndexedFaceSet {
@@ -7320,10 +7320,10 @@ DEF OB_WaterSurface EditableTransform {
 							transparency 0.5221629
 						}
 						texture DEF water2_jpg ImageTexture {
-							url "../../castle/data/textures/water2.jpg"
+							url "fountain-textures/water2.jpg"
 						}
                                                 normalMap DEF water2_jpg_normalMap ImageTexture {
-                                                	url "../../castle/data/textures/normal_maps/water2.png"
+                                                	url "fountain-textures/normal_maps/water2.png"
                                                 }
 					}
 					geometry IndexedFaceSet {
@@ -9622,10 +9622,10 @@ DEF OB_Ground EditableTransform {
 							transparency 0.0
 						}
 						texture DEF _012marbre_jpg ImageTexture {
-							url "../../castle/data/textures/012marbre.jpg"
+							url "fountain-textures/012marbre.jpg"
 						}
                                                 normalMap DEF _012marbre_jpg_normalMap ImageTexture {
-                                                	url "../../castle/data/textures/normal_maps/012marbre.png"
+                                                	url "fountain-textures/normal_maps/012marbre.png"
                                                 }
 					}
 					geometry IndexedFaceSet {
