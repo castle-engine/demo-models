@@ -68,7 +68,7 @@ DEF OB_Tube_001 Transform {
 							transparency 0.0
 						}
                                                 texture DEF MyTex ImageTexture {
-                                                  url "../../textures/test_texture.png"
+                                                  url "../textures/test_texture.png"
                                                   effects Effect {
                                                     language "GLSL"
                                                     parts [

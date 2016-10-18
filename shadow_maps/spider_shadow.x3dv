@@ -1,12 +1,21 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-# This was used to make a spider screenshot for slides.
+# Simple spider casting a shadow.
+# Shows how shadows help use to see the world: without shadows,
+# it's difficult to say whether spider stands on the floor,
+# or is hovering over it.
 #
-# History: I made the outside of spot circle bright, in a hacky way:
-# modifying spot light shader to return 1 (not 0) when we're outside
-# the shadow map. For new engine, also checking for spot cutOffAngle
-# should be temporarily removed.
+# History: This was used to make a spider screenshot for slides
+# showing off our shadow maps extensions:
+# http://castle-engine.sourceforge.net/x3d_extensions_shadow_maps.php
+#
+# I used a hacked engine version to make the SpotLight
+# outside bright:
+# - the spot light shader was modified to return 1 (not 0)
+#   when we're outside the shadow map.
+# - For new engine, also checking for spot cutOffAngle
+#   should be temporarily removed.
 
 Background { skyColor 0.8 0.8 0.8 }
 
@@ -23,7 +32,7 @@ KambiNavigationInfo {
 
 EXTERNPROTO PlaneNotTesselated [
   inputOutput SFBool solid
-] [ "../../prototypes/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+] [ "../prototypes/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
 
 DEF MySpot SpotLight {
   location 0 0 3
@@ -51,7 +60,7 @@ Transform {
     appearance Appearance {
       material Material { }
       texture ImageTexture {
-        url "../../../demo_models/textures/016marbre.jpg"
+        url "../textures/016marbre.jpg"
         textureProperties TextureProperties {
           anisotropicDegree 32
           minificationFilter "NICEST"
@@ -68,4 +77,4 @@ Transform {
   }
 }
 
-Inline { url "../../../castle/data/creatures/spider/spider_stand.wrl" }
+Inline { url "spider_stand_without_shadow.wrl" }
