@@ -1,0 +1,97 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test of triangulation fields (slices, stacks, divisions).
+#
+# Shows five rows of shapes.
+# First (upper) row = slices, stacks and divisions at default values.
+# Next three rows = some parameters set to very high values,
+# next three rows = some parameters set to very low values.
+#
+# Bets viewed in 'wireframe' mode with lighting off.
+
+PROTO Row [
+  inputOutput SFInt32 stacks -1
+  inputOutput SFInt32 slices -1
+  inputOutput SFInt32 divisions -1
+] {
+  Group {
+    children [
+      Shape {
+        geometry Sphere {
+          stacks IS stacks
+          slices IS slices
+        }
+      }
+      Transform {
+        translation 2 0 0
+        children Shape {
+          geometry Cone {
+            stacks IS stacks
+            slices IS slices
+          }
+        }
+      }
+      Transform {
+        translation 4 0 0
+        children Shape {
+          geometry Cylinder {
+            stacks IS stacks
+            slices IS slices
+          }
+        }
+      }
+      Transform {
+        translation 6 0 0
+        children Shape {
+          geometry Box {
+            divisions IS divisions
+          }
+        }
+      }
+      Transform {
+        translation 8 0 0
+        children Shape {
+          geometry Circle2D {
+            slices IS slices
+          }
+        }
+      }
+    ]
+  }
+}
+
+Row { }
+
+Transform {
+  translation 0 -2.5 0
+  children Row { slices 100 }
+}
+Transform {
+  translation 0 -5.0 0
+  children Row { stacks 100 }
+}
+Transform {
+  translation 0 -7.5 0
+  children Row { divisions 100 }
+}
+
+Transform {
+  translation 0 -10.0 0
+  children Row { slices 3 }
+}
+Transform {
+  translation 0 -12.5 0
+  children Row { stacks 3 }
+}
+Transform {
+  translation 0 -15.0 0
+  children Row {
+    divisions 0
+
+    # Additional tests: can you handle wrong values?
+    # divisions -299
+    # slices -3
+    # slices 1
+  }
+}
