@@ -111,14 +111,13 @@ Viewpoint {
   description "Same view as SpotLight"
 }
 
-KambiTriangulation { rectDivisions 30 }
-
 Shape {
   appearance Appearance {
     material Material { ambientIntensity 1 }
     texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Box {
+    divisions 30
     texCoord ProjectedTextureCoordinate {
       projector USE MySpot
     }

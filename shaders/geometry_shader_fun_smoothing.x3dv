@@ -12,8 +12,6 @@ COMPONENT Shaders:1
 # Smoothed objects -----------------------------------------------------------
 
 Transform { translation 0 0 0 children [
-# First use KambiTriangulation to make sphere geometry really poor
-KambiTriangulation { quadricSlices 8 quadricStacks 6 }
 Shape {
   appearance Appearance {
     shaders DEF SmoothingShader ComposedShader {
@@ -131,39 +129,51 @@ Shape {
       ]
     }
   }
-  geometry Sphere { }
+  geometry Sphere {
+    # make geometry low-quality
+    slices 8
+    stacks 6
+  }
 }
 ] }
 
 Transform { translation 3 0 0 children [
-KambiTriangulation { quadricSlices 8 quadricStacks 6 }
 Shape {
   appearance Appearance { shaders USE SmoothingShader }
-  geometry Cylinder { }
+  geometry Cylinder {
+    # make geometry low-quality
+    slices 8
+    stacks 6
+  }
 }
 ] }
 
 Transform { translation 6 0 0 children [
-KambiTriangulation { quadricSlices 8 quadricStacks 6 }
 Shape {
   appearance Appearance { shaders USE SmoothingShader }
-  geometry Cone { }
+  geometry Cone {
+    # make geometry low-quality
+    slices 8
+    stacks 6
+  }
 }
 ] }
 
 Transform { translation 0 -3 0 children [
-KambiTriangulation { quadricSlices 8 quadricStacks 6 rectDivisions 0 }
 Shape {
   appearance Appearance { shaders USE SmoothingShader }
-  geometry Box { }
+  geometry Box {
+    # make geometry low-quality
+    divisions 0
+  }
 }
 ] }
 
 Transform { translation 3 -3 0 children [
-KambiTriangulation { quadricSlices 8 quadricStacks 6 rectDivisions 0 }
 Shape {
   appearance Appearance { shaders USE SmoothingShader }
-  geometry Teapot { }
+  geometry Teapot {
+  }
 }
 ] }
 

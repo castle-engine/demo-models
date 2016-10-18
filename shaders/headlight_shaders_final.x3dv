@@ -32,15 +32,6 @@ Background {
 	skyColor 0.0565629 0.2208154 0.4
 }
 
-EXTERNPROTO KambiTriangulation [
-  inputOutput SFLong    quadricSlices
-  inputOutput SFLong    quadricStacks
-  inputOutput SFLong    rectDivisions
-] [ "urn:castle-engine.sourceforge.net:node:KambiTriangulation" ]
-
-# triangulate more, to properly see spot lights on this
-KambiTriangulation { rectDivisions 50 }
-
 Shape {
   appearance Appearance { material Material {
     diffuseColor 1 1 1 ambientIntensity 1 }
@@ -51,7 +42,12 @@ Shape {
       ]
     }
   }
-  geometry Box { size 10 10 10 solid FALSE }
+  geometry Box {
+    size 10 10 10
+    solid FALSE
+    # triangulate more, to properly see spot lights on this
+    divisions 50
+  }
 }
 
 Transform {

@@ -363,8 +363,6 @@ DEF room Shape {
   }
 }
 
-KambiTriangulation { quadricSlices 100 quadricStacks 100 }
-
 DEF sphere_T Transform {
   translation 0 1.5 0
   children Shape {
@@ -376,7 +374,11 @@ DEF sphere_T Transform {
       }
       texture USE spotLightTexture
     }
-    geometry Sphere { texCoord USE projTexCoord }
+    geometry Sphere {
+      texCoord USE projTexCoord
+      slices 100
+      stacks 100
+    }
   }
 }
 

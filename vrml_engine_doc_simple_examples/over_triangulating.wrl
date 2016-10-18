@@ -1,5 +1,8 @@
 #VRML V1.0 ascii
 
+# TODO: this should be translated to X3D.
+# The KambiTriangulation node is no longer available.
+
 Group {
   PerspectiveCamera {
     position 6 4 14
@@ -26,22 +29,22 @@ Group {
     }
   }
 
-  KambiTriangulation {
-    quadricStacks 1 rectDivisions 0 }
+  # KambiTriangulation {
+  #   quadricStacks 1 rectDivisions 0 }
   USE Col
 
   Translation { translation 4 0 0 }
-  KambiTriangulation {
-    quadricStacks 8 rectDivisions 4 }
+  # KambiTriangulation {
+  #   quadricStacks 8 rectDivisions 4 }
   USE Col
 
   Translation { translation 4 0 0 }
-  KambiTriangulation {
-    quadricSlices 30 quadricStacks 30 rectDivisions 10 }
+  # KambiTriangulation {
+  #   quadricSlices 30 quadricStacks 30 rectDivisions 10 }
   USE Col
 
   Translation { translation 4 0 0 }
-  KambiTriangulation {
-    quadricSlices 100 quadricStacks 100 rectDivisions 100 }
+  # KambiTriangulation {
+  #   quadricSlices 100 quadricStacks 100 rectDivisions 100 }
   USE Col
 }
