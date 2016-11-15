@@ -1,0 +1,24 @@
+"Office" and "Graz"
+  are from the collection of models of the RenderPark project:
+  http://graphics.cs.kuleuven.be/renderpark/ .
+  You can download the scenes collection from
+  http://graphics.cs.kuleuven.be/renderpark/download.html
+  (go to "HTTP download area" there in case ftp doesn't work).
+
+  The "office" model is also part of MGF Example Scenes:
+  http://radsite.lbl.gov/mgf/scenes.html
+
+  They were converted to VRML 1.0 using
+  http://castle-engine.sourceforge.net/kambi_mgf2inv.php
+
+  The license of the original MGF models is unclear,
+  but I assume that the models are free to be distributed,
+  as they are distributed alongside the MGF, Radiance and RenderPark
+  projects, all of which are open-source on liberal licenses.
+
+The "alien" in alien_mirror.blend is a highly modified version of the model
+  from www.3dcafe.com section "Free models".
+  The license details (as well as original download page) is unfortunately lost in time.
+
+The rest was done by Michalis Kamburelis,
+  license: GPL >= 2.

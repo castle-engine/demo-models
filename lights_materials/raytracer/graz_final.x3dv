@@ -1,0 +1,38 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# four point lights under the ceiling
+# (positions determined by mouse-picking in view3dscene)
+
+NavigationInfo { headlight FALSE }
+
+PointLight { location 1.50 1.54 2.46 intensity 0.7 }
+PointLight { location 1.50 2.94 2.46 intensity 0.7 }
+PointLight { location 3.50 2.94 2.46 intensity 0.7 }
+PointLight { location 3.50 1.54 2.46 intensity 0.7 }
+
+Viewpoint {
+  description "1"
+  position 2.0725550651550293 0.37345081567764282 1.370098352432251
+  orientation 0.98562967777252197 0.11378365755081177 0.12484905868768692 1.4925401210784912
+}
+
+Viewpoint {
+  description "2"
+  position 4.3612027168273926 0.05522316694259644 2.0355026721954346
+  orientation 0.98081445693969727 0.1139269545674324 0.15818828344345093 1.2667312622070313
+}
+
+Viewpoint {
+  description "3"
+  position 3.6990854740142822 4.197394847869873 2.5642874240875244
+  orientation 0.32325908541679382 0.55317997932434082 0.76778620481491089 2.2981009483337402
+}
+
+Viewpoint {
+  description "4 (ray-tracer with depth >= 6)"
+  position -2.5253393650054932 2.1190719604492188 1.6413816213607788
+  orientation 0.59159189462661743 -0.54256528615951538 -0.59635734558105469 1.9885001182556152
+}
+
+Inline { url "graz.wrl" }
