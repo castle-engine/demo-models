@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+
+<!--
+  This testcase is INVALID according to X3D specification.
+  See https://sourceforge.net/p/castle-engine/tickets/39/ .
+  Unfortunately, X3DDOM supports such invalid constructions,
+  and so we (Castle Game Engine) may support them in the future too.
+-->
+
+<head>
+</head>
+<Scene>
+        <NavigationInfo type="'FLY','ANY'" />
+        <Background skyColor='0 0 0'></Background>
+        <Shape>
+                <Appearance>
+                        <Material />
+                </Appearance>
+                <Box/>
+        </Shape>
+        <Transform translation="0 1 0">
+                <Shape>
+                        <Appearance>
+                                <Material />
+                        </Appearance>
+                        <Text string='"This should be always sans-serif and justified to middle."'>
+                                <FontStyle justify='"MIDDLE"' family='"SANS"'></FontStyle>
+                        </Text>
+                </Shape>
+        </Transform>
+        <Transform translation="0 2 0">
+                <Shape>
+                        <Appearance>
+                                <Material />
+                        </Appearance>
+                        <Text string='"If this is sans-serif, middle, and you are flying, then this X3D browser allows single quotes inside MFString parts."'>
+                                <FontStyle justify="'MIDDLE'" family="'SANS'"></FontStyle>
+                        </Text>
+                </Shape>
+        </Transform>
+</Scene>
+</X3D>
