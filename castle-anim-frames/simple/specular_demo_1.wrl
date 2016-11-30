@@ -1,6 +1,6 @@
 #VRML V2.0 utf8
 
-# Copied from ../lights_materials/specular_demo.wrl for kanim demo.
+# Copied from ../lights_materials/specular_demo.wrl for castle-anim-frames demo.
 # Open specular_demo.kanim, and be sure to turn on
 # "Shaders->Enable For Everything" to see nice specular highlights.
 
@@ -11,7 +11,7 @@ NavigationInfo {
 
 Transform {
   center 0 0 0
-  rotation 0 0 1 6.2831853072 # 2*pi
+  rotation 0 0 1 0
   children Transform {
     translation 10 0 10
     children [

@@ -11,19 +11,19 @@ PROFILE Immersive
 # and play them like
 # Scene.PlayAnimation('dying') or Scene.PlayAnimation('flying').
 
-# import flying from flying.kanim --------------------------------------------
+# import flying from flying.castle-anim-frames --------------------------------------------
 
 DEF FlyingSwitch Switch {
   whichChoice 0 # both animations are visible at the initial pose, to easily compare them
-  children DEF Flying Inline { url "raptor.kanim" }
+  children DEF Flying Inline { url "raptor.castle-anim-frames" }
 }
 IMPORT Flying.animation AS flying
 
-# import dying from dying.kanim ----------------------------------------------
+# import dying from dying.castle-anim-frames ----------------------------------------------
 
 DEF DyingSwitch Switch {
   whichChoice 0 # both animations are visible at the initial pose, to easily compare them
-  children DEF Dying Inline { url "sphere.kanim" }
+  children DEF Dying Inline { url "sphere.castle-anim-frames" }
 }
 IMPORT Dying.animation AS dying
 
