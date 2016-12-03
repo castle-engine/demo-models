@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <animations>
 	<animation name="die">
-		<frame time="0.000000">
+		<frame time="0.000000" bounding_box_center="-0.000000 5.411570 0.275672" bounding_box_size="9.831875 11.130349 4.536256">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -97,7 +97,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.200000">
+		<frame time="0.200000" bounding_box_center="0.034769 5.455345 0.485505" bounding_box_size="9.996974 11.208022 4.429046">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -193,7 +193,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.400000">
+		<frame time="0.400000" bounding_box_center="0.129542 5.545791 1.046673" bounding_box_size="10.571540 11.372307 4.298261">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -289,7 +289,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.600000">
+		<frame time="0.600000" bounding_box_center="0.231505 5.637707 1.484754" bounding_box_size="11.587368 11.507597 4.932304">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -385,7 +385,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.800000">
+		<frame time="0.800000" bounding_box_center="0.274606 5.476136 2.052090" bounding_box_size="12.881659 11.072790 5.831095">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -481,7 +481,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.000000">
+		<frame time="1.000000" bounding_box_center="0.283028 5.061126 2.725393" bounding_box_size="14.282299 10.294550 7.012807">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -577,7 +577,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.200000">
+		<frame time="1.200000" bounding_box_center="0.155560 4.291115 3.383199" bounding_box_size="16.523850 9.005441 8.669472">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -673,7 +673,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.400000">
+		<frame time="1.400000" bounding_box_center="0.014736 3.428190 3.948888" bounding_box_size="18.383015 7.466638 10.143742">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -769,7 +769,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.600000">
+		<frame time="1.600000" bounding_box_center="-0.043572 2.529254 4.466279" bounding_box_size="19.381157 6.190872 11.329860">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -865,7 +865,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.800000">
+		<frame time="1.800000" bounding_box_center="-0.091865 1.949655 5.156487" bounding_box_size="20.069018 4.432114 11.741260">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -961,7 +961,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.960000">
+		<frame time="1.960000" bounding_box_center="-0.091527 1.770736 5.370568" bounding_box_size="20.216111 4.017286 11.761311">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1059,7 +1059,7 @@
 		</frame>
 	</animation>
 	<animation name="stay">
-		<frame time="0.000000">
+		<frame time="0.000000" bounding_box_center="-0.062155 5.406302 0.203810" bounding_box_size="9.828450 11.115645 4.572250">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1155,7 +1155,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.200000">
+		<frame time="0.200000" bounding_box_center="-0.056097 5.408546 0.227945" bounding_box_size="9.829100 11.121377 4.560677">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1251,7 +1251,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.400000">
+		<frame time="0.400000" bounding_box_center="-0.039145 5.414528 0.295278" bounding_box_size="9.830552 11.135590 4.527853">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1347,7 +1347,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.600000">
+		<frame time="0.600000" bounding_box_center="-0.017992 5.420868 0.378844" bounding_box_size="9.831608 11.150646 4.486016">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1443,7 +1443,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.800000">
+		<frame time="0.800000" bounding_box_center="-0.002713 5.421078 0.438896" bounding_box_size="9.831858 11.168500 4.455200">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1539,7 +1539,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.000000">
+		<frame time="1.000000" bounding_box_center="0.001010 5.420045 0.453496" bounding_box_size="9.831855 11.174922 4.447614">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1635,7 +1635,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.200000">
+		<frame time="1.200000" bounding_box_center="-0.006917 5.421847 0.422398" bounding_box_size="9.831832 11.161845 4.463730">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1731,7 +1731,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.400000">
+		<frame time="1.400000" bounding_box_center="-0.024409 5.419255 0.353543" bounding_box_size="9.831374 11.146031 4.498811">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1827,7 +1827,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.600000">
+		<frame time="1.600000" bounding_box_center="-0.044573 5.412660 0.273751" bounding_box_size="9.830145 11.131331 4.538433">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -1923,7 +1923,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.800000">
+		<frame time="1.800000" bounding_box_center="-0.058579 5.407634 0.218060" bounding_box_size="9.828843 11.119071 4.565429">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2019,7 +2019,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.960000">
+		<frame time="1.960000" bounding_box_center="-0.062155 5.406302 0.203810" bounding_box_size="9.828450 11.115645 4.572250">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2117,7 +2117,7 @@
 		</frame>
 	</animation>
 	<animation name="walk">
-		<frame time="0.000000">
+		<frame time="0.000000" bounding_box_center="-0.000000 5.400173 -0.173035" bounding_box_size="9.831875 11.153144 8.010845">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2213,7 +2213,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.200000">
+		<frame time="0.200000" bounding_box_center="0.029786 5.330933 -0.125746" bounding_box_size="9.840866 11.290466 7.477531">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2309,7 +2309,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.400000">
+		<frame time="0.400000" bounding_box_center="0.097450 5.234110 -0.060094" bounding_box_size="9.835888 11.483053 5.881143">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2405,7 +2405,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.600000">
+		<frame time="0.600000" bounding_box_center="0.121081 5.301267 0.163963" bounding_box_size="9.815771 11.348470 4.758906">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2501,7 +2501,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="0.800000">
+		<frame time="0.800000" bounding_box_center="0.090247 5.266716 0.040645" bounding_box_size="9.806011 11.417750 6.444122">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2597,7 +2597,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.000000">
+		<frame time="1.000000" bounding_box_center="0.034165 5.356930 -0.118925" bounding_box_size="9.817528 11.238049 7.724306">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2693,7 +2693,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.200000">
+		<frame time="1.200000" bounding_box_center="-0.007220 5.401227 -0.170700" bounding_box_size="9.834890 11.150961 7.994929">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2789,7 +2789,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.400000">
+		<frame time="1.400000" bounding_box_center="-0.055835 5.314754 -0.123445" bounding_box_size="9.845621 11.320020 7.306219">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2885,7 +2885,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.600000">
+		<frame time="1.600000" bounding_box_center="-0.107030 5.233368 -0.079864" bounding_box_size="9.834078 11.484545 5.733581">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -2981,7 +2981,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="1.800000">
+		<frame time="1.800000" bounding_box_center="-0.120628 5.296463 0.168153" bounding_box_size="9.816078 11.358113 4.750480">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -3077,7 +3077,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="2.000000">
+		<frame time="2.000000" bounding_box_center="-0.077654 5.259677 0.029474" bounding_box_size="9.811286 11.431386 6.360320">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -3173,7 +3173,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="2.200000">
+		<frame time="2.200000" bounding_box_center="-0.016697 5.359118 -0.115983" bounding_box_size="9.825321 11.234879 7.707946">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
@@ -3269,7 +3269,7 @@
 	</Scene>
 </X3D>
 		</frame>
-		<frame time="2.360000">
+		<frame time="2.360000" bounding_box_center="-0.000000 5.400173 -0.173035" bounding_box_size="9.831875 11.153144 8.010845">
 
 
 <X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
