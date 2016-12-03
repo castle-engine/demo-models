@@ -1,57 +1,48 @@
 #X3D V3.0 utf8
 PROFILE Immersive
 
-# This X3D file demonstrates how to include 2 KAnim animations in a single X3D file.
-# We use IMPORT to create new names for the inlined animations
-# (otherwise, the KAnim animation is always called "animation").
-# We then use CastleScript to show only the one (playing)
-# animation at a given moment.
+# Demonstrates how to include two castle-anim-frames animations
+# in a single X3D file.
+# - We use IMPORT to rename the inlined animations.
+# - We use Switch and BooleanFilter X3D nodes
+#   to show only the one (playing) animation at a given moment.
+#
+# Note that you could also just define two animations inside
+# a single castle-anim-frames file, and avoid this complication.
+# However, this approach is flexible for all the occasions
+# when you need to "mix" the animations from different 3D files.
 #
 # This way you can load this file in Castle Game Engine TCastleScene,
-# and play them like
+# and play animations from code like
 # Scene.PlayAnimation('dying') or Scene.PlayAnimation('flying').
+#
+# Note that for this to work 100% reliably, the underlying
+# animations should not have loop=TRUE. With loop=TRUE,
+# time sensors play automatically when the scene loads,
+# and this causes a bit of confusion for the Scene.PlayAnimation
+# as it doesn't stop the automatically playing animation OK.
+# To loop reliably, just use the paForceLooping parameter for
+# Scene.PlayAnimation call.
 
-# import flying from flying.castle-anim-frames --------------------------------------------
-
-DEF FlyingSwitch Switch {
-  whichChoice 0 # both animations are visible at the initial pose, to easily compare them
-  children DEF Flying Inline { url "raptor.castle-anim-frames" }
-}
-IMPORT Flying.animation AS flying
-
-# import dying from dying.castle-anim-frames ----------------------------------------------
-
-DEF DyingSwitch Switch {
-  whichChoice 0 # both animations are visible at the initial pose, to easily compare them
-  children DEF Dying Inline { url "sphere.castle-anim-frames" }
-}
-IMPORT Dying.animation AS dying
-
-# toggle visibility of objects -----------------------------------------------
-
-DEF MyScript Script {
-  inputOutput SFBool flyingActive FALSE
-  inputOutput SFBool dyingActive FALSE
-  outputOnly SFInt32 flyingWhichChoice
-  outputOnly SFInt32 dyingWhichChoice
-  url [
-"castlescript:
-function flyingActive(value, timestamp)
-  when(value,
-    flyingWhichChoice := 0;
-    dyingWhichChoice := -1
-  )
-
-function dyingActive(value, timestamp)
-  when(value,
-    flyingWhichChoice := -1;
-    dyingWhichChoice := 0
-  )
-"
+DEF animation_switch Switch {
+  whichChoice 0
+  children [
+    DEF flying_inline Inline { url "cube_opening.castle-anim-frames" }
+    DEF dying_inline Inline { url "sphere_x3d.castle-anim-frames" }
   ]
 }
 
-ROUTE flying.isActive TO MyScript.flyingActive
-ROUTE MyScript.flyingWhichChoice TO FlyingSwitch.whichChoice
-ROUTE dying.isActive TO MyScript.dyingActive
-ROUTE MyScript.dyingWhichChoice TO DyingSwitch.whichChoice
+IMPORT flying_inline.animation AS flying
+IMPORT dying_inline.animation AS dying
+
+DEF flying_filter BooleanFilter { }
+DEF flying_trigger IntegerTrigger { integerKey 0 }
+ROUTE flying.isActive TO flying_filter.set_boolean
+ROUTE flying_filter.inputTrue TO flying_trigger.set_boolean
+ROUTE flying_trigger.triggerValue TO animation_switch.whichChoice
+
+DEF dying_filter BooleanFilter { }
+DEF dying_trigger IntegerTrigger { integerKey 1 }
+ROUTE dying.isActive TO dying_filter.set_boolean
+ROUTE dying_filter.inputTrue TO dying_trigger.set_boolean
+ROUTE dying_trigger.triggerValue TO animation_switch.whichChoice
