@@ -49,7 +49,7 @@ Group {
               appearance Appearance { material Material { diffuseColor 1 0 0 } }
               geometry Text {
                 fontStyle FontStyle { size 0.5 }
-                string "We are above... I hope so"
+                string "Above"
               }
             }
           ]

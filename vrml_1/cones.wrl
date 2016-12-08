@@ -24,7 +24,7 @@ Group {
         Translation { translation 0 1 0 }
         USE Krzyzyk
         FontStyle { size 0.5 }
-        AsciiText { string "We are above... I hope so" }
+        AsciiText { string "Above" }
       }
     }
     Material { diffuseColor 0 1 0 }
