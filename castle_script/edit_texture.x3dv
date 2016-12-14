@@ -40,7 +40,7 @@ Shape {
       # the alpha channel to make it more interesting (press "e").
       # To make this work reliably, force texture rendering using blending.
       # See http://castle-engine.sourceforge.net/x3d_extensions.php#section_ext_alpha_channel_detection
-      alphaChannel "FULL_RANGE"
+      alphaChannel "BLENDING"
     }
     # Force blending mode according to default BlendMode values,
     # in particular destFactor "one_minus_src_alpha".

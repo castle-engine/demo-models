@@ -27,7 +27,7 @@ Transform {
         # url "../../textures/texture_alpha_copy.png"
         # (previous engine had a problem with caching AlphaChannelType too much,
         # needed different url)
-        alphaChannel "SIMPLE_YES_NO" }
+        alphaChannel "TEST" }
       material Material { }
     }
     geometry USE QS
