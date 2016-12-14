@@ -6,7 +6,7 @@ DEF Light SpotLight {
   direction 0 -1 0
   shadows TRUE
   cutOffAngle 0.6
-  defaultShadowMap GeneratedShadowMap { update "ALWAYS" size 1024 bias 100 }
+  defaultShadowMap GeneratedShadowMap { update "ALWAYS" size 1024 }
 }
 
 DEF SphereTransform Transform {
