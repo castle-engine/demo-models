@@ -1,0 +1,23 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Shape {
+  appearance Appearance {
+    texture PixelTexture {
+      # The PixelTexture.image has a special SFImage type,
+      # see http://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/EncodingOfFields.html#SFImage
+      # for the documentation how to use it.
+      # See also inlined_pixel_textures.x3dv demo here.
+      image
+        # width
+        1
+        # height
+        1
+        # number of components ("3" means "RGB")
+        3
+        # the 1st (and only) pixel is red
+        0xFF0000
+    }
+  }
+  geometry Box { }
+}
