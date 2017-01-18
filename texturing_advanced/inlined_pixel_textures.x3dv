@@ -1,31 +1,33 @@
-#VRML V2.0 utf8
+#X3D V3.2 utf8
+PROFILE Interchange
 
-# test of textures inlining : textures content can be specified
-# directly in VRML file.
+# Test of textures inlining using PixelTexture.
+# This way texture content can be specified
+# directly in the VRML/X3D file.
+#
+# Note: There is an alternative way to embed texture content
+# in the VRML/X3D file: using the "data URI".
+# A demo of it is inside ../x3d/data_uri.x3dv file.
 
 Group {
   children [
-    # first grayscale (1 component) texture 2x2 pixels :
+    # first test shape:
+    # grayscale (1 component) texture 2x2 pixels :
     #    white light
     #    black dark
     Shape {
       appearance Appearance {
-        # Every Appearance here uses EmptyMaterial
-        # to look exactly like VRML 1.0 analogous file
-        # (otherwise VRML 2.0 spec says that nodes without
-        # material stay unlit).
-        #
-        # Actually, without this material node, even when we would
-        # render VRML 1.0 with lighting disabled,
-        # we would get different results:
-        # VRML 1.0 would be a little darker, because in VRML 1.0
-        # diffuse color of default material would be used
-        # (which is 0.8, 0.8, 0.8) as a glColor, while in VRML 2.0
-        # white (as specified by VRML 2.0) spec would be used
-        # since the node is unlit.
-        #
         material DEF EmptyMaterial Material { }
-        texture PixelTexture { image 2 2 1  0 0x50 0xFF 0xA0 }
+
+        texture PixelTexture {
+          image 2 2 1  0 0x50 0xFF 0xA0
+          # Use TextureProperties to have "NEAREST_PIXEL" filtering,
+          # instead of the default bilinear (X3D calls it "AVG_PIXEL").
+          # In this case, for a very small textures, "NEAREST_PIXEL" looks better.
+          textureProperties DEF MyTextureProperties TextureProperties {
+            magnificationFilter "NEAREST_PIXEL"
+          }
+        }
       }
       geometry Box { }
     }
@@ -36,10 +38,12 @@ Group {
       children Shape {
         appearance Appearance {
           material USE EmptyMaterial
-          texture DEF Tex1 PixelTexture { image 4 3  3
-            0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF  # bottom row : red white white blue
-            0 0x00FF00 0x00FF00 0 # middle row : black green green black
-            0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF # top row : yellow something something something
+          texture DEF Tex1 PixelTexture {
+            image 4 3 3
+              0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF  # bottom row : red white white blue
+              0 0x00FF00 0x00FF00 0 # middle row : black green green black
+              0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF # top row : yellow something something something
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Box { }
@@ -68,7 +72,10 @@ Group {
         appearance Appearance {
           material USE EmptyMaterial
           texture PixelTexture {
-            image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
+            image 2 2 2
+              0x00FF 0x5000
+              0xFF00 0xA0FF
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Box { }
@@ -89,6 +96,7 @@ Group {
               0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
               0 0x00FF0000 0x00FF0000 0
               0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Box { }
@@ -113,8 +121,12 @@ Transform {
       appearance Appearance {
         material USE EmptyMaterial
         texture PixelTexture {
-          image 2 2 1  0 0x50 0xFF 0xA0
-          repeatS FALSE repeatT FALSE
+          image 2 2 1
+            0 0x50
+            0xFF 0xA0
+          repeatS FALSE
+          repeatT FALSE
+          textureProperties USE MyTextureProperties
         }
       }
       geometry Box { }
@@ -126,11 +138,13 @@ Transform {
         appearance Appearance {
           material USE EmptyMaterial
           texture DEF Tex1 PixelTexture {
-            image 4 3  3
+            image 4 3 3
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
               0 0x00FF00 0x00FF00 0
               0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
-            repeatS FALSE repeatT FALSE
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Box { }
@@ -156,7 +170,9 @@ Transform {
           material USE EmptyMaterial
           texture PixelTexture {
             image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
-            repeatS FALSE repeatT FALSE
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Box { }
@@ -173,7 +189,9 @@ Transform {
               0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
               0 0x00FF0000 0x00FF0000 0
               0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
-            repeatS FALSE repeatT FALSE
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Box { }
@@ -193,7 +211,9 @@ Transform {
         material USE EmptyMaterial
         texture PixelTexture {
           image 2 2 1  0 0x50 0xFF 0xA0
-          repeatS FALSE repeatT FALSE
+          repeatS FALSE
+          repeatT FALSE
+          textureProperties USE MyTextureProperties
         }
       }
       geometry Cone { }
@@ -209,7 +229,9 @@ Transform {
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
               0 0x00FF00 0x00FF00 0
               0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
-            repeatS FALSE repeatT FALSE
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Cylinder { }
@@ -235,7 +257,9 @@ Transform {
           material USE EmptyMaterial
           texture PixelTexture {
             image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
-            repeatS FALSE repeatT FALSE
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Sphere { }
@@ -252,7 +276,9 @@ Transform {
               0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
               0 0x00FF0000 0x00FF0000 0
               0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
-            repeatS FALSE repeatT FALSE
+            repeatS FALSE
+            repeatT FALSE
+            textureProperties USE MyTextureProperties
           }
         }
         geometry Cone { }

@@ -1,7 +1,12 @@
 #VRML V1.0 ascii
 
-# test of textures inlining : textures content can be specified
-# directly in VRML file.
+# Test of textures inlining using PixelTexture in VRML 1.0.
+# This way texture content can be specified
+# directly in the VRML/X3D file.
+
+# A more modern version of this file, using X3D (a much newer
+# version of VRML 1.0), can be found inside the
+# ../inlined_pixel_textures.x3dv file.
 
 Group {
   Separator{
