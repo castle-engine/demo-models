@@ -4,7 +4,7 @@
 # This way texture content can be specified
 # directly in the VRML/X3D file.
 
-# A more modern version of this file, using X3D (a much newer
+# A more modern version of this demo, using X3D (a much newer
 # version of VRML 1.0), can be found inside the
 # ../inlined_pixel_textures.x3dv file.
 
