@@ -5,7 +5,7 @@
 <!--
   This testcase is INVALID according to X3D specification.
   See https://sourceforge.net/p/castle-engine/tickets/39/ .
-  Unfortunately, X3DDOM supports such invalid constructions,
+  Unfortunately, X3DOM supports such invalid constructions,
   and so we (Castle Game Engine) at least try to warn about them gracefully.
 -->
 
