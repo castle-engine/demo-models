@@ -21,7 +21,7 @@ EXTERNPROTO KambiNavigationInfo [
   initializeOnly SFNode  octreeRendering
   initializeOnly SFNode  octreeDynamicCollisions
   initializeOnly SFNode  octreeVisibleTriangles
-  initializeOnly SFNode  octreeCollidableTriangles
+  initializeOnly SFNode  octreeStaticCollisions
 ] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
     "../../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo"
     "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
@@ -78,7 +78,7 @@ KambiNavigationInfo {
     maxDepth 0
   }
 
-  octreeCollidableTriangles KambiOctreeProperties {
+  octreeStaticCollisions KambiOctreeProperties {
     # This octree is not be used by anything currently.
     # Just testing some dummy values.
     maxDepth 3

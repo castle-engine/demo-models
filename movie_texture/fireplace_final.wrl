@@ -30,7 +30,7 @@ EXTERNPROTO KambiNavigationInfo [
   field SFNode  octreeRendering
   field SFNode  octreeDynamicCollisions
   field SFNode  octreeVisibleTriangles
-  field SFNode  octreeCollidableTriangles
+  field SFNode  octreeStaticCollisions
 ] [ "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
     "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo"
     "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
