@@ -73,13 +73,20 @@ ViewportInfo {
 
 # editable objects -----------------------------------------------------------
 
-EXTERNPROTO EditableTransform [
+EXTERNPROTO EditableTransformXZ [
   inputOutput MFNode children
   inputOutput SFVec3f translation
   inputOutput SFVec3f scale
-] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
+  inputOutput SFVec3f center
+  inputOutput SFRotation rotation
+  inputOutput SFString description
+  inputOutput SFVec2f minPosition
+  inputOutput SFVec2f maxPosition
+  inputOutput SFVec2f minScale
+  inputOutput SFVec2f maxScale
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransformXZ" ]
 
-EditableTransform {
+EditableTransformXZ {
   translation 0 0.5 0
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
@@ -87,7 +94,7 @@ EditableTransform {
   }
 }
 
-EditableTransform {
+EditableTransformXZ {
   translation -2 0.5 0
   children Shape {
     appearance Appearance { material Material { diffuseColor 0 1 0 } }
@@ -95,7 +102,7 @@ EditableTransform {
   }
 }
 
-EditableTransform {
+EditableTransformXZ {
   translation -4 0.5 0
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 1 } }
@@ -103,7 +110,7 @@ EditableTransform {
   }
 }
 
-EditableTransform {
+EditableTransformXZ {
   translation -1 0.5 1
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
@@ -111,7 +118,7 @@ EditableTransform {
   }
 }
 
-EditableTransform {
+EditableTransformXZ {
   translation -2 0.5 1
   children Shape {
     appearance Appearance { material Material { diffuseColor 0 1 0 } }
@@ -119,7 +126,7 @@ EditableTransform {
   }
 }
 
-EditableTransform {
+EditableTransformXZ {
   translation -3 0.5 1
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 1 } }
