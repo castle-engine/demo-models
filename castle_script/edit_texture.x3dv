@@ -252,6 +252,8 @@ Transform {
   }
 }
 
+# checkerboard background
+
 Shape {
   appearance Appearance {
     texture PixelTexture { image 2 2 1 0 0xFF 0xFF 0

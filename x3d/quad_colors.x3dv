@@ -1,0 +1,46 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Quad with 4 RGB colors: red, green, blue, white
+Shape {
+  appearance Appearance { material Material { } }
+  geometry QuadSet {
+    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+    color Color { color [ 1 0 0, 0 1 0, 0 0 1, 1 1 1 ] }
+  }
+}
+
+# Quad with 4 RGBA colors: red opaque, green transparent, blue opaque, white transparent
+Transform {
+  translation 2 0 0
+  children Shape {
+    appearance Appearance { material Material { } }
+    geometry QuadSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      color ColorRGBA { color [ 1 0 0 1, 0 1 0 0.5, 0 0 1 1, 1 1 1 0.5 ] }
+    }
+  }
+}
+
+# checkerboard background
+
+Transform {
+  translation 0 0 -0.1
+  children Shape {
+    appearance Appearance {
+      texture PixelTexture { image 2 2 1 0 0xFF 0xFF 0
+        textureProperties TextureProperties {
+          magnificationFilter "NEAREST_PIXEL"
+          minificationFilter "NEAREST_PIXEL"
+        }
+      }
+      textureTransform TextureTransform {
+        scale 20 20
+      }
+    }
+    geometry QuadSet {
+      coord Coordinate { point [ 0 0 0, 3 0 0, 3 1 0, 0 1 0 ] }
+      texCoord TextureCoordinate { point [ 0 0, 3 0, 3 1, 0 1 ] }
+    }
+  }
+}
