@@ -36,10 +36,12 @@ Shape {
         -1 -1 -0.51
         -1  1 -0.51
 
-         1  1  0
-         1 -1  0
-        -1 -1  0
-        -1  1  0
+        # 0.01, not 0, to make NEAREST filtering behave "stable",
+        # needed (at least) on GeForce GTS 450/PCIe/SSE2 (Linux x86_64).
+         1  1  0.01
+         1 -1  0.01
+        -1 -1  0.01
+        -1  1  0.01
 
          1  1  0.51
          1 -1  0.51
