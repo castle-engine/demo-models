@@ -26,6 +26,8 @@ Group {
           # In this case, for a very small textures, "NEAREST_PIXEL" looks better.
           textureProperties DEF MyTextureProperties TextureProperties {
             magnificationFilter "NEAREST_PIXEL"
+            # do not scale to power of two
+            guiTexture TRUE
           }
         }
       }
