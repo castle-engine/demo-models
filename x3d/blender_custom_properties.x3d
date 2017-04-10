@@ -20,12 +20,20 @@
 		           scale="1.000000 1.000000 1.000000"
 		           rotation="0.000000 0.707107 0.707107 3.141593"
 		           >
+			<MetadataSet name="custom_properties">
+				<MetadataString containerField='value' name='MyObjectProperty' value='"object prop value"'/>
+				<MetadataInteger containerField='value' name='IntProperty' value='123'/>
+				<MetadataFloat containerField='value' name='FloatProperty' value='456.789'/>
+			</MetadataSet>
 			<Transform DEF="MyObject_ifs_TRANSFORM"
 			           translation="0.000000 0.000000 0.000000"
 			           scale="1.000000 1.000000 1.000000"
 			           rotation="1.000000 0.000000 0.000000 0.000000"
 			           >
 				<Group DEF="group_ME_Cube">
+					<MetadataSet name="custom_properties">
+						<MetadataString containerField='value' name='MyMeshProperty' value='"mesh prop value"'/>
+					</MetadataSet>
 					<Shape>
 						<Appearance>
 							<Material DEF="MA_Material"
@@ -35,7 +43,11 @@
 							          ambientIntensity="0.333"
 							          shininess="0.098"
 							          transparency="0.0"
-							          />
+							          >
+								<MetadataSet name="custom_properties">
+									<MetadataString containerField='value' name='MyMaterialProperty' value='"material prop value"'/>
+								</MetadataSet>
+							</Material>
 						</Appearance>
 						<IndexedFaceSet solid="true"
 						                coordIndex="0 1 2 3 -1 4 7 6 5 -1 0 4 5 1 -1 1 5 6 2 -1 2 6 7 3 -1 4 0 3 7 -1 "
