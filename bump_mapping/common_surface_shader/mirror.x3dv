@@ -11,6 +11,7 @@ Transform {
     appearance Appearance {
       material Material { }
       shaders CommonSurfaceShader {
+        diffuseFactor 0.3 0.3 0.3
         # blueish mirror (only used by ray-tracer)
         reflectionFactor 0.5 0.5 1
       }
