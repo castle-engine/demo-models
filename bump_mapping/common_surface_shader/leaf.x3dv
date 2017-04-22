@@ -1,0 +1,19 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo { headlight FALSE }
+PointLight { location 1 0 2 }
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    shaders CommonSurfaceShader {
+      # diffuseTexture DEF MyTexture ImageTexture { url "../../textures/leaf.png" }
+      # alphaTexture USE MyTexture
+      multiDiffuseAlphaTexture ImageTexture { url "../../textures/leaf.png" }
+      normalTexture ImageTexture { url "../../textures/leaf_normal_map.png" }
+    }
+  }
+  geometry Box {
+  }
+}

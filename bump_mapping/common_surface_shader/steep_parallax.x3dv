@@ -1,0 +1,20 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo { headlight FALSE }
+PointLight { location 1 0 2 }
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    shaders CommonSurfaceShader {
+      multiDiffuseAlphaTexture ImageTexture { url "../../textures/lion.png" }
+      normalTexture DEF normalMapAndDisplacement
+        ImageTexture { url "../../textures/lion_normal_height_maps.png" }
+      displacementTexture USE normalMapAndDisplacement
+      displacementFactor 10
+    }
+  }
+  geometry Box {
+  }
+}

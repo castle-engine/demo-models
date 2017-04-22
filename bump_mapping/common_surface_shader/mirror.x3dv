@@ -1,0 +1,29 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo { headlight FALSE }
+PointLight { location 1 0 -2 }
+PointLight { location -1 0 2 }
+
+Transform {
+  translation 0 0 -4
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      shaders CommonSurfaceShader {
+        # blueish mirror (only used by ray-tracer)
+        reflectionFactor 0.5 0.5 1
+      }
+    }
+    geometry Rectangle2D {
+      size 10 10
+    }
+  }
+}
+
+Shape {
+  appearance Appearance {
+    material Material { }
+  }
+  geometry Teapot { }
+}
