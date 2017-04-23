@@ -18,7 +18,11 @@ Group {
 
     Shape {
       appearance Appearance {
-        texture ImageTexture  { url "../textures/crown.gif" repeatT FALSE }
+        texture ImageTexture  {
+          url "../textures/crown.gif"
+          repeatT FALSE
+          alphaChannel "TEST"
+        }
         material Material { }
       }
       geometry Cylinder { top FALSE bottom FALSE }

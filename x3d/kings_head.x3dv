@@ -19,7 +19,11 @@ Group {
 
     Shape {
       appearance Appearance {
-        texture ImageTexture  { url "../textures/crown.png" repeatT FALSE }
+        texture ImageTexture {
+          url "../textures/crown.png"
+          repeatT FALSE
+          alphaChannel "TEST"
+        }
         material Material { }
       }
       geometry Cylinder { top FALSE bottom FALSE solid FALSE }
