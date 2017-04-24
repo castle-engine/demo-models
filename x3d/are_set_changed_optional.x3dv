@@ -1,0 +1,16 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Click on box to make the light shine.
+
+DEF MyTouchSensor TouchSensor { }
+
+Shape {
+  geometry Box { }
+  appearance Appearance { material Material { } }
+}
+
+DEF MyLight DirectionalLight { on FALSE }
+
+ROUTE MyTouchSensor.isActive TO MyLight.on
+#ROUTE MyTouchSensor.isActive TO MyLight.set_on
