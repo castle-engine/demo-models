@@ -4,6 +4,7 @@ PROFILE Interchange
 NavigationInfo { headlight FALSE }
 PointLight { location 1 0 -2 }
 PointLight { location -1 0 2 }
+Background { skyColor 1 1 1 }
 
 Transform {
   translation 0 0 -4
@@ -13,7 +14,7 @@ Transform {
       shaders CommonSurfaceShader {
         diffuseFactor 0.3 0.3 0.3
         # blueish mirror (only used by ray-tracer)
-        reflectionFactor 0.5 0.5 1
+        reflectionFactor 0.25 0.25 0.5
       }
     }
     geometry Rectangle2D {
