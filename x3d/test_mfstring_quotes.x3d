@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile="Immersive" version="3.3" >
+<head>
+</head>
+<Scene>
+
+<Transform translation="0 0 0">
+  <Shape><Text string='"blablah"' /></Shape>
+</Transform>
+
+<Transform translation="0 -2 0">
+  <Shape><Text string='&quot;blablah&quot;' /></Shape>
+</Transform>
+
+<Transform translation="0 -4 0">
+  <Shape><Text string="&quot;blablah&quot;" /></Shape>
+</Transform>
+
+<Transform translation="0 -6 0">
+  <Shape><Text string='"You will see quotes \"around this string\""' /></Shape>
+</Transform>
+
+<Transform translation="0 -8 0">
+  <Shape><Text string='&quot;You will see quotes \&quot;around this string\&quot;&quot;' /></Shape>
+</Transform>
+
+<Transform translation="0 -10 0">
+  <Shape><Text string='"You will see quotes \&quot;around this string\&quot;"' /></Shape>
+</Transform>
+
+</Scene>
+</X3D>
