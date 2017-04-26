@@ -29,5 +29,16 @@
   <Shape><Text string='"You will see quotes \&quot;around this string\&quot;"' /></Shape>
 </Transform>
 
+<Transform translation="0 -12 0">
+  <!-- Since you surround XML attribute with single quotes (apostrophe '),
+       it doesn't really matter whether you use " or &quot; inside,
+       you can mix them as you wish. -->
+  <Shape><Text string='&quot;You will see quotes \"around this string\&quot;"' /></Shape>
+</Transform>
+
+<Transform translation="0 -14 0">
+  <Shape><Text string="&quot;You will see quotes \&quot;around this string\&quot;&quot;" /></Shape>
+</Transform>
+
 </Scene>
 </X3D>
