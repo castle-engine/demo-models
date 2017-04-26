@@ -108,19 +108,6 @@ DEF Interp PositionInterpolator {
 ROUTE Timer.fraction_changed TO Interp.set_fraction
 ROUTE Interp.value_changed TO TexTrans.set_translation
 
-# Camera settings "encoded" in the VRML declaration below :
-# direction 0.4647503793239593 1.5775790214538574 -0.4828848540782928
-# up 0.0796121060848236 0.2702409029006958 0.9594956040382385
-# gravityUp 0 0 1
-Transform {
-  translation -31.734153747558594 -278.51263427734375 15.623250007629395
-  rotation 1 0 0 1.5707963705062866
-  children Viewpoint {
-    position 0 0 0 # camera position is expressed by translation
-    orientation -0.7023437023162841 -0.7045930027961731 -0.1012981832027435 0.4038321375846862
-  }
-}
-
 NavigationInfo {
   type "WALK"
   headlight TRUE
@@ -144,16 +131,50 @@ PointLight {
 
 Transform { rotation 1 0 0 1.57
   children Background {
-    backUrl "../../castle/data/skies/sky_back.png"
-    bottomUrl "../../castle/data/skies/sky_bottom.png"
-    frontUrl "../../castle/data/skies/sky_front.png"
-    leftUrl "../../castle/data/skies/sky_left.png"
-    rightUrl "../../castle/data/skies/sky_right.png"
-    topUrl "../../castle/data/skies/sky_top.png"
+    backUrl "../skies/sunset_back.png"
+    bottomUrl "../skies/sunset_bottom.png"
+    frontUrl "../skies/sunset_front.png"
+    leftUrl "../skies/sunset_left.png"
+    rightUrl "../skies/sunset_right.png"
+    topUrl "../skies/sunset_top.png"
   }
 }
 
-Inline { url "../../castle/data/levels/gate/gate_final.x3dv"
+# ----------------------------------------------------------------------------
+# Inline castle model
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 0.700684607028961 0.000241928064497
+# up 0 -0.000345317530446 0.999999940395355
+# gravityUp 0 0 1
+Transform {
+  translation 0.004618315026164 -94.837326049804687 6.33106803894043
+  rotation 1 0 0 1.570796370506287
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+# ----------------------------------------------------------------------------
+# Alternative version, if you have castle-game data from
+# https://github.com/castle-engine/castle-game :
+#
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0.4647503793239593 1.5775790214538574 -0.4828848540782928
+# up 0.0796121060848236 0.2702409029006958 0.9594956040382385
+# gravityUp 0 0 1
+# Transform {
+#   translation -31.734153747558594 -278.51263427734375 15.623250007629395
+#   rotation 1 0 0 1.5707963705062866
+#   children Viewpoint {
+#     position 0 0 0 # camera position is expressed by translation
+#     orientation -0.7023437023162841 -0.7045930027961731 -0.1012981832027435 0.4038321375846862
+#   }
+# }
+# KambiInline { url "../../castle-game/data/levels/gate/gate_final.x3dv"
 #   replaceNames "CasMoveLimit"
 #   replaceNodes Group { }
-}
+# }
