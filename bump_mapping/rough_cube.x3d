@@ -36,8 +36,6 @@
 							          shininess="0.098"
 							          transparency="0.0"
 							          />
-                                                        <!-- Michalis: added by hand -->
-                                                        <ImageTexture url='"../textures/white.png"' />
                                                         <ImageTexture containerField="normalMap" url='"rough_cube_normalmap.png"' />
 						</Appearance>
 						<IndexedFaceSet solid="true"
