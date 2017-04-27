@@ -1,9 +1,11 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 
-# Kambi test of some shape nodes :
+# Test of some simple X3D geometry nodes:
 # Cone, Cylinder, PointSet and IndexedLineSet nodes.
-# With X3D features: "solid" field for quadrics.
+#
+# This is exactly like the corresponding VRML 2.0 test in ../vrml_2/cones.wrl,
+# additionally it tests the "solid" field added for quadrics in X3D.
 
 Group {
   children [
@@ -51,7 +53,7 @@ Group {
               appearance Appearance { material Material { diffuseColor 1 0 0 } }
               geometry Text {
                 fontStyle FontStyle { size 0.5 }
-                string "We are above... I hope so"
+                string "Above"
               }
             }
           ]
