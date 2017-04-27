@@ -8,8 +8,9 @@ PointLight { location 0 0 2 }
 
 Shape {
   appearance Appearance {
-    material Material { }
-    normalMap MovieTexture { url "baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
+    shaders CommonSurfaceShader {
+      normalTexture MovieTexture { url "../baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
+    }
   }
   geometry Box {
   }
@@ -19,8 +20,9 @@ Transform {
   translation 0 -2 0
   children Shape {
     appearance Appearance {
-      material Material { }
-      normalMap MovieTexture { url "baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
+      shaders CommonSurfaceShader {
+        normalTexture MovieTexture { url "../baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
+      }
     }
     geometry Teapot {
     }
