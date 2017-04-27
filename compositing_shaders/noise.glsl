@@ -1,3 +1,7 @@
+#ifdef GL_ES
+#extension GL_OES_texture_3D : enable
+#endif
+
 /* Noise functions. See noise.x3dv for demo.
    These are usable for both vertex and fragment shaders. */
 

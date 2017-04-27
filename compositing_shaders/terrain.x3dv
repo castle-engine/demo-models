@@ -18,7 +18,11 @@ varying vec4 color;
 void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
 {
   position = vec3(vertex_object);
+#ifdef GL_ES
+  color = castle_Color;
+#else
   color = gl_Color;
+#endif
 }" }
         EffectPart {
           type "FRAGMENT" url "data:text/plain,
