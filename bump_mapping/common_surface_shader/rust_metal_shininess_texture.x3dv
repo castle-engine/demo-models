@@ -9,15 +9,15 @@ Shape {
     material Material { }
     shaders CommonSurfaceShader {
       multiDiffuseAlphaTexture
-        ImageTexture { url "rust_metal/metall001-new-tileable.png" }
+        ImageTexture { url "rust_metal_textures/metall001-new-tileable.png" }
 
       normalTexture DEF MyNormalAndDisplacenent
-        ImageTexture { url "rust_metal/metall001-new-nm.png" }
+        ImageTexture { url "rust_metal_textures/metall001-new-nm.png" }
       displacementTexture USE MyNormalAndDisplacenent
       displacementFactor 10
 
       shininessFactor 1
-      shininessTexture ImageTexture { url "rust_metal/metall001-new-contrast.png" }
+      shininessTexture ImageTexture { url "rust_metal_textures/metall001-new-contrast.png" }
       shininessTextureChannelMask "r"
 
       specularFactor 1 1 1
