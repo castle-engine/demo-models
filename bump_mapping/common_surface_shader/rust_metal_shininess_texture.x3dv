@@ -1,0 +1,28 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo { headlight FALSE }
+PointLight { location 1 0 2 ambientIntensity 1 }
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    shaders CommonSurfaceShader {
+      multiDiffuseAlphaTexture
+        ImageTexture { url "rust_metal/metall001-new-tileable.png" }
+
+      normalTexture DEF MyNormalAndDisplacenent
+        ImageTexture { url "rust_metal/metall001-new-nm.png" }
+      displacementTexture USE MyNormalAndDisplacenent
+      displacementFactor 10
+
+      shininessFactor 1
+      shininessTexture ImageTexture { url "rust_metal/metall001-new-contrast.png" }
+      shininessTextureChannelMask "r"
+
+      specularFactor 1 1 1
+    }
+  }
+  geometry Box {
+  }
+}

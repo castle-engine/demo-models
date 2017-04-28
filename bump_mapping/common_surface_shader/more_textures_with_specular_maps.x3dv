@@ -1,0 +1,210 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo { headlight FALSE }
+PointLight {
+  location 1 0 2
+}
+
+Transform {
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      shaders CommonSurfaceShader {
+        multiDiffuseAlphaTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_240/diffuse.tga" }
+        normalTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_240/normal.tga" }
+        specularTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_240/specular.tga" }
+        specularFactor 1 1 1
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      shaders CommonSurfaceShader {
+        multiDiffuseAlphaTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_241/diffuse.tga" }
+        normalTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_241/normal.tga" }
+        specularTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_241/specular.tga" }
+        specularFactor 1 1 1
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+
+Transform {
+  translation 6 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      shaders CommonSurfaceShader {
+        multiDiffuseAlphaTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_242/diffuse.tga" }
+        normalTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_242/normal.tga" }
+        specularTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_242/specular.tga" }
+        specularFactor 1 1 1
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+
+Transform {
+  translation 9 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      shaders CommonSurfaceShader {
+        multiDiffuseAlphaTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_243/diffuse.tga" }
+        normalTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_243/normal.tga" }
+        specularTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_243/specular.tga" }
+        specularFactor 1 1 1
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+
+Transform {
+  translation 12 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      shaders CommonSurfaceShader {
+        multiDiffuseAlphaTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_244/diffuse.tga" }
+        normalTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_244/normal.tga" }
+        specularTexture
+          ImageTexture { url "more_textures_with_specular_maps/pattern_244/specular.tga" }
+        specularFactor 1 1 1
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+
+Transform {
+  translation 0 3 0
+  children [
+    Transform {
+      children Shape {
+        appearance Appearance {
+          material Material { }
+          shaders CommonSurfaceShader {
+            # multiDiffuseAlphaTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_240/diffuse.tga" }
+            # normalTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_240/normal.tga" }
+            specularTexture
+              ImageTexture { url "more_textures_with_specular_maps/pattern_240/specular.tga" }
+            specularFactor 1 1 1
+          }
+        }
+        geometry Box {
+        }
+      }
+    }
+
+    Transform {
+      translation 3 0 0
+      children Shape {
+        appearance Appearance {
+          material Material { }
+          shaders CommonSurfaceShader {
+            # multiDiffuseAlphaTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_241/diffuse.tga" }
+            # normalTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_241/normal.tga" }
+            specularTexture
+              ImageTexture { url "more_textures_with_specular_maps/pattern_241/specular.tga" }
+            specularFactor 1 1 1
+          }
+        }
+        geometry Box {
+        }
+      }
+    }
+
+    Transform {
+      translation 6 0 0
+      children Shape {
+        appearance Appearance {
+          material Material { }
+          shaders CommonSurfaceShader {
+            # multiDiffuseAlphaTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_242/diffuse.tga" }
+            # normalTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_242/normal.tga" }
+            specularTexture
+              ImageTexture { url "more_textures_with_specular_maps/pattern_242/specular.tga" }
+            specularFactor 1 1 1
+          }
+        }
+        geometry Box {
+        }
+      }
+    }
+
+    Transform {
+      translation 9 0 0
+      children Shape {
+        appearance Appearance {
+          material Material { }
+          shaders CommonSurfaceShader {
+            # multiDiffuseAlphaTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_243/diffuse.tga" }
+            # normalTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_243/normal.tga" }
+            specularTexture
+              ImageTexture { url "more_textures_with_specular_maps/pattern_243/specular.tga" }
+            specularFactor 1 1 1
+          }
+        }
+        geometry Box {
+        }
+      }
+    }
+
+    Transform {
+      translation 12 0 0
+      children Shape {
+        appearance Appearance {
+          material Material { }
+          shaders CommonSurfaceShader {
+            # multiDiffuseAlphaTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_244/diffuse.tga" }
+            # normalTexture
+            #   ImageTexture { url "more_textures_with_specular_maps/pattern_244/normal.tga" }
+            specularTexture
+              ImageTexture { url "more_textures_with_specular_maps/pattern_244/specular.tga" }
+            specularFactor 1 1 1
+          }
+        }
+        geometry Box {
+        }
+      }
+    }
+  ]
+}

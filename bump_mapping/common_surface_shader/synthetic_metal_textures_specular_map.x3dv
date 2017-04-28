@@ -1,0 +1,22 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo { headlight FALSE }
+PointLight { location 1 0 2 }
+
+Shape {
+  appearance Appearance {
+    material Material { }
+    shaders CommonSurfaceShader {
+      multiDiffuseAlphaTexture
+        ImageTexture { url "synthetic_metal_textures_with_specular_maps/synthetic_metal_06_diffuse.png" }
+      normalTexture
+        ImageTexture { url "synthetic_metal_textures_with_specular_maps/synthetic_metal_06_normal.png" }
+      specularTexture
+        ImageTexture { url "synthetic_metal_textures_with_specular_maps/synthetic_metal_06_specular.png" }
+      specularFactor 1 1 1
+    }
+  }
+  # geometry Box { }
+  geometry Sphere { }
+}
