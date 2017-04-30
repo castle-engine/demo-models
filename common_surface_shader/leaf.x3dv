@@ -8,10 +8,10 @@ Shape {
   appearance Appearance {
     material Material { }
     shaders CommonSurfaceShader {
-      # diffuseTexture DEF MyTexture ImageTexture { url "../../textures/leaf.png" }
+      # diffuseTexture DEF MyTexture ImageTexture { url "../textures/leaf.png" }
       # alphaTexture USE MyTexture
-      multiDiffuseAlphaTexture ImageTexture { url "../../textures/leaf.png" }
-      normalTexture ImageTexture { url "../../textures/leaf_normal_map.png" }
+      multiDiffuseAlphaTexture ImageTexture { url "../textures/leaf.png" }
+      normalTexture ImageTexture { url "../textures/leaf_normal_map.png" }
     }
   }
   geometry Box {

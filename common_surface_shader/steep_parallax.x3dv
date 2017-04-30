@@ -8,9 +8,9 @@ Shape {
   appearance Appearance {
     material Material { }
     shaders CommonSurfaceShader {
-      multiDiffuseAlphaTexture ImageTexture { url "../../textures/lion.png" }
+      multiDiffuseAlphaTexture ImageTexture { url "../textures/lion.png" }
       normalTexture DEF normalMapAndDisplacement
-        ImageTexture { url "../../textures/lion_normal_height_maps.png" }
+        ImageTexture { url "../textures/lion_normal_height_maps.png" }
       displacementTexture USE normalMapAndDisplacement
       displacementFactor 10
     }

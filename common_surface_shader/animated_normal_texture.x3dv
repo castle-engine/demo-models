@@ -9,7 +9,7 @@ PointLight { location 0 0 2 }
 Shape {
   appearance Appearance {
     shaders DEF NormalsFromMovie CommonSurfaceShader {
-      normalTexture MovieTexture { url "../baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
+      normalTexture MovieTexture { url "../bump_mapping/baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
     }
   }
   geometry Box {
@@ -37,14 +37,14 @@ Transform {
     appearance Appearance {
       shaders DEF CubeMapAndNormalsFromMovie CommonSurfaceShader {
         diffuseTexture ComposedCubeMapTexture {
-          top    ImageTexture { url "../../skies/sky_lake_top.jpg" }
-          bottom ImageTexture { url "../../skies/sky_lake_bottom.jpg" }
-          front  ImageTexture { url "../../skies/sky_lake_front.jpg" }
-          back   ImageTexture { url "../../skies/sky_lake_back.jpg" }
-          left   ImageTexture { url "../../skies/sky_lake_left.jpg" }
-          right  ImageTexture { url "../../skies/sky_lake_right.jpg" }
+          top    ImageTexture { url "../skies/sky_lake_top.jpg" }
+          bottom ImageTexture { url "../skies/sky_lake_bottom.jpg" }
+          front  ImageTexture { url "../skies/sky_lake_front.jpg" }
+          back   ImageTexture { url "../skies/sky_lake_back.jpg" }
+          left   ImageTexture { url "../skies/sky_lake_left.jpg" }
+          right  ImageTexture { url "../skies/sky_lake_right.jpg" }
         }
-        normalTexture MovieTexture { url "../baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
+        normalTexture MovieTexture { url "../bump_mapping/baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
         normalTextureCoordinatesId 1
       }
     }
