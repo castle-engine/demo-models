@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
     <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
@@ -9,25 +10,7 @@
     <p>(Rather useless test, reflectionFactor does not do anything in X3DOM. I just wanted to confirm it.)
     <x3d width='500px' height='400px'>
     <scene>
-      <Background skyColor="1 1 1"></Background>
-      <NavigationInfo headlight="FALSE"></NavigationInfo>
-      <PointLight location="1 0 -2"></PointLight>
-      <PointLight location="-1 0 2"></PointLight>
-
-      <Transform translation="0 0 -4">
-        <Shape>
-          <Appearance>
-            <CommonSurfaceShader diffuseFactor="0.3 0.3 0.3" reflectionFactor="0.25 0.25 0.5">
-            </CommonSurfaceShader>
-          </Appearance>
-          <Plane size="10 10"></Plane>
-        </Shape>
-      </Transform>
-
-      <Shape>
-        <Appearance><Material></Material></Appearance>
-        <Sphere></Sphere>
-      </Shape>
+      <inline url="mirror.x3d"></inline>
     </scene>
   </x3d>
 

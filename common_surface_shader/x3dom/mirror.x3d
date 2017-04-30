@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+</head>
+<Scene>
+  <Background skyColor="1 1 1"></Background>
+  <NavigationInfo headlight="FALSE"></NavigationInfo>
+  <PointLight location="1 0 -2"></PointLight>
+  <PointLight location="-1 0 2"></PointLight>
+
+  <Transform translation="0 0 -4">
+    <Shape>
+      <Appearance>
+        <CommonSurfaceShader diffuseFactor="0.3 0.3 0.3" reflectionFactor="0.25 0.25 0.5">
+        </CommonSurfaceShader>
+      </Appearance>
+      <Plane size="10 10"></Plane>
+    </Shape>
+  </Transform>
+
+  <Shape>
+    <Appearance><Material></Material></Appearance>
+    <Sphere></Sphere>
+  </Shape>
+</Scene>
+</X3D>

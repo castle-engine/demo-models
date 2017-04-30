@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+</head>
+<Scene>
+  <Background skyColor="0 0 0"></Background>
+  <NavigationInfo headlight="FALSE"></NavigationInfo>
+  <Viewpoint position="0 0 4"></Viewpoint>
+  <PointLight location="1 0 2"></PointLight>
+
+  <Shape>
+    <Appearance>
+      <CommonSurfaceShader specularFactor="1 1 1" shininessTextureChannelMask="r" shininessFactor="1">
+        <ImageTexture containerField="diffuseTexture" url='"textures/rust_metal_textures/metall001-new-tileable.png"'></ImageTexture>
+        <ImageTexture containerField="normalTexture" url='"textures/rust_metal_textures/metall001-new-nm.png"'></ImageTexture>
+        <ImageTexture containerField="shininessTexture" url='"textures/rust_metal_textures/metall001-new-contrast.png"'></ImageTexture>
+      </CommonSurfaceShader>
+    </Appearance>
+    <Box></Box>
+  </Shape>
+</Scene>
+</X3D>
