@@ -1,0 +1,7 @@
+By p0ss
+  From https://opengameart.org/content/rusted-metal-texture-pack
+  License(s): GPL 2.0, GPL 3.0, CC-BY 3.0
+
+  The -contrast version is just a crude programmer's art by Michalis Kamburelis,
+  in GIMP. It is just for testing ambient and shininess maps in Castle Game Engine.
+  You're welcome to submit something prettier:)

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+    <title>Leaf - CommonSurfaceShader - X3DOM test</title>
+  </head>
+  <body>
+    <h1>Leaf - CommonSurfaceShader - X3DOM test</h1>
+    <x3d width='500px' height='400px'>
+    <scene>
+      <Background skyColor="0 0 0"></Background>
+      <NavigationInfo headlight="FALSE"></NavigationInfo>
+      <PointLight location="1 0 2"></PointLight>
+
+      <Shape>
+        <Appearance>
+          <CommonSurfaceShader>
+            <!-- X3DOM mentions multiDiffuseAlphaTexture, but it does not seem to work?
+                 https://doc.x3dom.org/author/Shaders/CommonSurfaceShader.html -->
+            <!-- <ImageTexture containerField="multiDiffuseAlphaTexture" url='"textures/leaf.png"' ></ImageTexture> -->
+
+            <ImageTexture DEF="MyDiffuseAlphaTexture" containerField="diffuseTexture" url='"textures/leaf.png"' ></ImageTexture>
+
+            <!-- alphaTexture does not seem actually needed,
+                 X3DOM automatically uses alpha from diffuseTexture, it seems.
+                 Confirmed by uncommenting the sphere shape below.
+                 This bug is compatible with current CGE bug. -->
+            <ImageTexture USE="MyDiffuseAlphaTexture" containerField="alphaTexture" ></ImageTexture>
+
+            <ImageTexture containerField="normalTexture" url='"textures/leaf_normal_map.png"' ></ImageTexture>
+          </CommonSurfaceShader>
+        </Appearance>
+        <Box></Box>
+      </Shape>
+
+      <!-- <Shape> -->
+      <!--   <Appearance><Material></Material></Appearance> -->
+      <!--   <Sphere></Sphere> -->
+      <!-- </Shape> -->
+    </scene>
+  </x3d>
+
+  <button onclick="x3dom.debug.activate(true)">Show X3DOM console</button>
+</body>
