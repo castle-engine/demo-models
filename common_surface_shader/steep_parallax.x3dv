@@ -9,10 +9,8 @@ Shape {
     material Material { }
     shaders CommonSurfaceShader {
       multiDiffuseAlphaTexture ImageTexture { url "../textures/lion.png" }
-      normalTexture DEF normalMapAndDisplacement
-        ImageTexture { url "../textures/lion_normal_height_maps.png" }
-      displacementTexture USE normalMapAndDisplacement
-      displacementFactor 10
+      normalTexture ImageTexture { url "../textures/lion_normal_height_maps.png" }
+      normalTextureParallaxHeight 0.05
     }
   }
   geometry Box {

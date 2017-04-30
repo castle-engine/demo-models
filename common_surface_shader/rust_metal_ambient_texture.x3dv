@@ -11,10 +11,8 @@ Shape {
       multiDiffuseAlphaTexture
         ImageTexture { url "rust_metal_textures/metall001-new-tileable.png" }
 
-      normalTexture DEF MyNormalAndDisplacenent
-        ImageTexture { url "rust_metal_textures/metall001-new-nm.png" }
-      displacementTexture USE MyNormalAndDisplacenent
-      displacementFactor 10
+      normalTexture ImageTexture { url "rust_metal_textures/metall001-new-nm.png" }
+      # normalTextureParallaxHeight 0.01 # don't use, not a cool effect with this texture
 
       ambientFactor 1 1 1
       ambientTexture ImageTexture { url "rust_metal_textures/metall001-new-contrast.png" }
