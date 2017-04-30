@@ -15,7 +15,7 @@
         <ImageTexture DEF="MyDiffuseAlphaTexture" containerField="diffuseTexture" crossOrigin="anonymous" url='"textures/lion.png"'></ImageTexture>
         <ImageTexture USE="MyDiffuseAlphaTexture" containerField="alphaTexture" ></ImageTexture>
 
-        <ImageTexture containerField="normalTexture" url='"textures/lion_normal_height_maps.png"' ></ImageTexture>
+        <ImageTexture containerField="normalTexture" crossOrigin="anonymous" url='"textures/lion_normal_height_maps.png"' ></ImageTexture>
 
         <!-- lion_normal_height_maps.png also contains the displacement in alpha channel.
              For now there's no way to tell it to X3DOM
