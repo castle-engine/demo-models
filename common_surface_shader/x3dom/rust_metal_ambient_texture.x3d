@@ -12,11 +12,11 @@
   <Shape>
     <Appearance>
       <CommonSurfaceShader ambientFactor="1 1 1" specularFactor="1 1 1">
-        <ImageTexture containerField="diffuseTexture" url='"textures/rust_metal_textures/metall001-new-tileable.png"'></ImageTexture>
-        <ImageTexture containerField="normalTexture" url='"textures/rust_metal_textures/metall001-new-nm.png"'></ImageTexture>
+        <ImageTexture containerField="diffuseTexture" crossOrigin=" anonymous"url='"textures/rust_metal_textures/metall001-new-tileable.png"'></ImageTexture>
+        <ImageTexture containerField="normalTexture" crossOrigin="anonymous" url='"textures/rust_metal_textures/metall001-new-nm.png"'></ImageTexture>
         <!-- ambientTexture seems not implemented by X3DOM,
              line below does nothing. -->
-        <ImageTexture containerField="ambientTexture" url='"textures/rust_metal_textures/metall001-new-contrast.png"'></ImageTexture>
+        <ImageTexture containerField="ambientTexture" crossOrigin="anonymous" url='"textures/rust_metal_textures/metall001-new-contrast.png"'></ImageTexture>
       </CommonSurfaceShader>
     </Appearance>
     <Box></Box>
