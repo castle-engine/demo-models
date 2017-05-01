@@ -12,16 +12,16 @@
   <Shape>
     <Appearance>
       <CommonSurfaceShader displacementFactor="0.5">
-        <ImageTexture DEF="MyDiffuseAlphaTexture" containerField="diffuseTexture" url='"textures/lion.png"'></ImageTexture>
+        <ImageTexture DEF="MyDiffuseAlphaTexture" containerField="diffuseTexture" crossOrigin="anonymous" url='"textures/lion.png"'></ImageTexture>
         <ImageTexture USE="MyDiffuseAlphaTexture" containerField="alphaTexture" ></ImageTexture>
 
-        <ImageTexture containerField="normalTexture" url='"textures/lion_normal_height_maps.png"' ></ImageTexture>
+        <ImageTexture containerField="normalTexture" crossOrigin="anonymous" url='"textures/lion_normal_height_maps.png"' ></ImageTexture>
 
         <!-- lion_normal_height_maps.png also contains the displacement in alpha channel.
              For now there's no way to tell it to X3DOM
              (these is no displacementTextureChannelMask),
              so it is passed in a separate texture. -->
-        <ImageTexture containerField="displacementTexture" url='"textures/lion_displacement_map.png"' ></ImageTexture>
+        <ImageTexture containerField="displacementTexture" crossOrigin="anonymous" url='"textures/lion_displacement_map.png"' ></ImageTexture>
         <!-- <ImageTexture containerField="displacementTexture" url='"textures/white_test.png"' ></ImageTexture> -->
       </CommonSurfaceShader>
     </Appearance>
