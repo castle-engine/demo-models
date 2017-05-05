@@ -7,8 +7,15 @@
   <Background skyColor="0 0 0"></Background>
   <NavigationInfo headlight="FALSE"></NavigationInfo>
   <Viewpoint position="0 0 4"></Viewpoint>
-  <PointLight location="1 0 2"></PointLight>
-
+  <Transform DEF='light' translation='1 0 2'>
+    <PointLight DEF='light' location="0 0 0"></PointLight>
+    <Shape>
+      <Appearance>
+        <Material emissiveColor='1 1 1'></Material>
+      </Appearance>
+      <Sphere radius='0.1'></Sphere>
+    </Shape>
+  </Transform>  
   <Shape>
     <Appearance>
       <CommonSurfaceShader>
@@ -29,7 +36,10 @@
     </Appearance>
     <Box></Box>
   </Shape>
-
+  <TimeSensor DEF="TS" cycleInterval="5" loop="true"></TimeSensor>
+  <PositionInterpolator DEF="MOVER" key="0 0.5 1" keyValue="-2 0.5 2  2 0.5 2  -2 0.5 2"></PositionInterpolator>
+  <Route fromNode="TS" fromField="fraction_changed" toNode="MOVER" toField="set_fraction"></Route> 
+	<Route fromNode="MOVER" fromField="value_changed" toNode="light" toField="location"></Route>  
   <!-- <Shape> -->
   <!--   <Appearance><Material></Material></Appearance> -->
   <!--   <Sphere></Sphere> -->
