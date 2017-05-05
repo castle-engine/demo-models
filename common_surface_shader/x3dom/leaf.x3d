@@ -8,12 +8,12 @@
   <NavigationInfo headlight="FALSE"></NavigationInfo>
   <Viewpoint position="0 0 4"></Viewpoint>
   <Transform DEF='light' translation='1 0 2'>
-    <PointLight DEF='light' location="0 0 0"></PointLight>
+    <PointLight location="0 0 0"></PointLight>
     <Shape>
       <Appearance>
-        <Material emissiveColor='1 1 1'></Material>
+        <Material emissiveColor='0.5 0.5 0.5'></Material>
       </Appearance>
-      <Sphere radius='0.1'></Sphere>
+      <Sphere radius='0.02'></Sphere>
     </Shape>
   </Transform>  
   <Shape>
