@@ -39,7 +39,7 @@
   <TimeSensor DEF="TS" cycleInterval="5" loop="true"></TimeSensor>
   <PositionInterpolator DEF="MOVER" key="0 0.5 1" keyValue="-2 0.5 2  2 0.5 2  -2 0.5 2"></PositionInterpolator>
   <Route fromNode="TS" fromField="fraction_changed" toNode="MOVER" toField="set_fraction"></Route> 
-	<Route fromNode="MOVER" fromField="value_changed" toNode="light" toField="location"></Route>  
+	<Route fromNode="MOVER" fromField="value_changed" toNode="light" toField="translation"></Route>  
   <!-- <Shape> -->
   <!--   <Appearance><Material></Material></Appearance> -->
   <!--   <Sphere></Sphere> -->
