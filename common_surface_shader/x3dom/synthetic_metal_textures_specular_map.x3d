@@ -12,10 +12,10 @@
   <Shape>
     <Appearance>
       <CommonSurfaceShader specularFactor="1 1 1">
-        <ImageTexture containerField="diffuseTexture" url='"textures/synthetic_metal_textures_with_specular_maps/synthetic_metal_06_diffuse.png"'></ImageTexture>
-        <ImageTexture containerField="normalTexture" url='"textures/synthetic_metal_textures_with_specular_maps/synthetic_metal_06_normal.png"'></ImageTexture>
+        <ImageTexture containerField="diffuseTexture" crossOrigin="anonymous" url='"textures/synthetic_metal_textures_with_specular_maps/synthetic_metal_06_diffuse.png"'></ImageTexture>
+        <ImageTexture containerField="normalTexture" crossOrigin="anonymous" url='"textures/synthetic_metal_textures_with_specular_maps/synthetic_metal_06_normal.png"'></ImageTexture>
         <!-- specularTexture seems ignored by X3DOM, line below does nothing? -->
-        <ImageTexture containerField="specularTexture" url='"textures/synthetic_metal_textures_with_specular_maps/synthetic_metal_06_specular.png"'></ImageTexture>
+        <ImageTexture containerField="specularTexture" crossOrigin="anonymous" url='"textures/synthetic_metal_textures_with_specular_maps/synthetic_metal_06_specular.png"'></ImageTexture>
       </CommonSurfaceShader>
     </Appearance>
     <Box></Box>
