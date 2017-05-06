@@ -11,7 +11,7 @@
 
   <Shape>
     <Appearance>
-      <CommonSurfaceShader displacementFactor="0.5">
+      <CommonSurfaceShader displacementFactor="0.15">
         <ImageTexture DEF="MyDiffuseAlphaTexture" containerField="diffuseTexture" crossOrigin="anonymous" url='"textures/lion.png"'></ImageTexture>
         <ImageTexture USE="MyDiffuseAlphaTexture" containerField="alphaTexture" ></ImageTexture>
 
