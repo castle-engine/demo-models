@@ -22,7 +22,7 @@
 }
 
 uses SysUtils, CastleUtils, CastleClassUtils, X3DNodes, X3DLoad,
-  CastleStringUtils, X3DFields, X3DShadowMaps, CastleParameters,
+  CastleStringUtils, X3DFields, CastleParameters,
   CastleURIUtils, CastleApplicationProperties;
 
 const
