@@ -13,6 +13,9 @@ Shape {
     }
   }
   geometry Box {
+    # For consistency with Box below, use BOUNDS2D generation here too,
+    # do not use default Box texture coordinate algorithm.
+    texCoord TextureCoordinateGenerator { mode "BOUNDS2D" }
   }
 }
 
