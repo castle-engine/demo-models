@@ -7,6 +7,6 @@
   <frame url="sphere_x3d_1.x3dv" time="2" />
   <frame url="sphere_x3d_2.x3dv" time="3" />
 
-  <frame url="cube_opening/cube_opening_1_final.wrl" time="4" />
-  <frame url="cube_opening/cube_opening_2_final.wrl" time="5" />
+  <frame url="specular_demo_1.wrl" time="4" />
+  <frame url="specular_demo_2.wrl" time="5" />
 </animation>
