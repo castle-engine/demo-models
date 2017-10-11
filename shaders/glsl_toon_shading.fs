@@ -1,6 +1,8 @@
 // Kambi changed these to be const in fragment code
 // uniform vec4 Colour1,Colour2,Colour3,Colour4; // "shades"
 
+#define light_position vec3(3.0, 3.0, 3.0)
+
 varying vec3 normal;
 void main()
 {
@@ -11,7 +13,7 @@ void main()
   vec3 n = normalize(normal);
 
   // Normalize light direction and convert to a vec3
-  vec3 lDir = normalize(vec3(gl_LightSource[0].position));
+  vec3 lDir = normalize(light_position);
 
   // Compute light intensity using dot product
   intensity = dot(lDir,n);

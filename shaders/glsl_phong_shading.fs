@@ -1,31 +1,30 @@
-// Taken from
-// http://www.clockworkcoders.com/oglsl/tutorial5.htm
+// Inspired by http://www.clockworkcoders.com/oglsl/tutorial5.htm
 
 varying vec3 N;
 varying vec3 v;
 
+#define light_position vec3(3.0, 3.0, 3.0)
+#define light_material_ambient vec4(0.1)
+#define light_material_diffuse vec4(1.0, 1.0, 0.0, 1.0)
+#define light_material_specular vec4(1.0)
+#define material_shininess 1.0
+
 void main (void)
 {
-vec3 L = normalize(gl_LightSource[0].position.xyz - v);
-vec3 E = normalize(-v); // we are in Eye Coordinates, so EyePos is (0,0,0)
-vec3 R = normalize(-reflect(L,N));
+  vec3 L = normalize(light_position - v);
+  vec3 E = normalize(-v); // we are in Eye Coordinates, so EyePos is (0,0,0)
+  vec3 R = normalize(-reflect(L,N));
 
-//calculate Ambient Term:
-vec4 Iamb = gl_FrontLightProduct[0].ambient;
+  //calculate Ambient Term:
+  vec4 Iamb = light_material_ambient;
 
-//calculate Diffuse Term:
-vec4 Idiff = gl_FrontLightProduct[0].diffuse * max(dot(N,L), 0.0);
+  //calculate Diffuse Term:
+  vec4 Idiff = light_material_diffuse * max(dot(N,L), 0.0);
 
-// calculate Specular Term:
-vec4 Ispec = gl_FrontLightProduct[0].specular
-  * pow(max(dot(R,E),0.0),
-    /* 0.3 * gl_FrontMaterial.shininess was here, but on Radeon with closed
-       ATI drivers on Linux MacBookPro this produced always white
-       result... Somehow, "gl_FrontMaterial.shininess / 3.0" which
-       calculates almost the same in almost the same way...) works OK. */
-       gl_FrontMaterial.shininess / 3.0);
+  // calculate Specular Term:
+  vec4 Ispec = light_material_specular
+    * pow(max(dot(R,E),0.0), material_shininess * 0.3);
 
-// write Total Color:
-gl_FragColor = gl_FrontLightModelProduct.sceneColor + Iamb + Idiff + Ispec;
-
+  // write Total Color:
+  gl_FragColor = Iamb + Idiff + Ispec;
 }
