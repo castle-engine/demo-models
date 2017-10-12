@@ -121,6 +121,7 @@ Collision {
   children Transform {
     translation 0 0.15 -0.15
     children Shape {
+      shading "PHONG" # needed for PLUG fragment_eye_space
       appearance Appearance {
         material DEF MA_Material Material {
           diffuseColor 0.5 0.5 1
