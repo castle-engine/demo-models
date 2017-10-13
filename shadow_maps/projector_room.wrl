@@ -58,6 +58,7 @@ DEF OB_Tube_001 Transform {
 		DEF ME_Tube_003 Group {
 			children [
 				Shape {
+					shading "PHONG"
 					appearance Appearance {
 						material DEF MA_MatWoodEdges Material {
 							diffuseColor 1.0 1.0 1.0
@@ -1438,6 +1439,7 @@ void PLUG_texture_color(
 					}
 				}
 				Shape {
+					shading "PHONG"
 					appearance Appearance {
 						material DEF MA_MatWoodLegs Material {
 							diffuseColor 0.8810089 0.6057469 0.7785453
@@ -1812,6 +1814,7 @@ void PLUG_texture_color(
 				}
 
 				Shape {
+					shading "PHONG"
 					appearance Appearance {
 						material DEF MA_MatWoodOther Material {
 							diffuseColor 0.8810089 0.6057469 0.7785453
@@ -1851,6 +1854,7 @@ void PLUG_texture_color(
 					}
 				}
 				Shape {
+					shading "PHONG"
 					appearance Appearance {
 						material DEF MA_MatWoodWalls Material {
 							diffuseColor 0.8 0.8 0.8
@@ -1885,6 +1889,7 @@ void PLUG_texture_color(
 					}
 				}
 				Shape {
+					shading "PHONG"
 					appearance Appearance {
 						material DEF MA_Material Material {
 							diffuseColor 0.8 0.8 0.8
@@ -1909,6 +1914,7 @@ void PLUG_texture_color(
 					}
 				}
 				Shape {
+					shading "PHONG"
 					appearance Appearance {
 						material DEF MA_MatLampBase Material {
 							diffuseColor 0.7 0.7 0.7
