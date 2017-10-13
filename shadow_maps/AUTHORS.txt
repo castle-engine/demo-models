@@ -1,6 +1,5 @@
 Many tests here by Victor Amat (thousand thanks!) :
-- all Screen Space Ambient Occlusion Demos: ssao_*, twoboxes_ssao.x3dv, myssao.fs
 - shadow map tests: original shadow_bias.x3dv, twoboxes_shadowmap.x3dv, shadow_map_vamat.fs
 - animated light source for shadow maps: projected_Spotlight.x3dv
-- helpers: axes.x3dv, test.jpg.
-- soft_shadow_poisson_sampling: soft shadows, an adaptation from nVidia SDK 9, but using a PoissonDisk sampler instead of a jittered grid pattern.
+- helpers: axes.x3dv.
+- old_soft_shadow_poisson_sampling: soft shadows, an adaptation from nVidia SDK 9, but using a PoissonDisk sampler instead of a jittered grid pattern.

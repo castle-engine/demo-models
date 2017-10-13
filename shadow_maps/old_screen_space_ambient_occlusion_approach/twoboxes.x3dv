@@ -15,7 +15,7 @@ Background {
 
 Transform {
 	scale 1 1 1
-	children Inline { url "axes.x3dv" }
+	children Inline { url "../axes.x3dv" }
 }
 
 DEF pLight PointLight {
@@ -85,7 +85,7 @@ DEF Obj_001 Transform {
 			}
 			texture DEF myTex MultiTexture {
 				texture [
-					GeneratedShadowMap {
+					DEF spotDepthMap GeneratedShadowMap {
 						light USE viewSpot
 						update "ALWAYS"
 						size 1024
@@ -93,16 +93,17 @@ DEF Obj_001 Transform {
 						bias 4.0
 						compareMode "NONE"
 					}
-					ImageTexture {}
+					# dummy texture, only to cause generating castle_TexCoord1 for myssao.fs shader
+					ShaderTexture {}
 				]
 			}
-			shaders DEF myssao ComposedShader {
+			effects DEF myssao Effect {
 				initializeOnly SFFloat Near 3
 				initializeOnly SFFloat Far 50
-				initializeOnly SFInt32 depthMap 0
+				initializeOnly SFNode depthMap USE spotDepthMap
 				language "GLSL"
 				parts [
-					ShaderPart { type "FRAGMENT" url "myssao.fs" }
+					EffectPart { type "FRAGMENT" url "myssao.fs" }
 				]
 			}
 		}
@@ -203,7 +204,7 @@ DEF Obj_002 Transform {
 				transparency 0
 			}
 			texture USE myTex
-			shaders USE myssao
+			effects USE myssao
 		}
 		geometry DEF box IndexedFaceSet {
 			solid TRUE
@@ -248,7 +249,7 @@ DEF Obj_003 Transform {
 				transparency 0
 			}
 			texture USE myTex
-			shaders USE myssao
+			effects USE myssao
 		}
 		geometry USE box
 	}

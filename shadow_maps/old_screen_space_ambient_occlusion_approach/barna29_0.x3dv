@@ -56,7 +56,7 @@ Shape {
 		}
 		texture DEF myTex MultiTexture {
 			texture [
-				GeneratedShadowMap {
+				DEF spotDepthMap GeneratedShadowMap {
 					light USE viewSpot
 					update "ALWAYS"
 					size 1024
@@ -64,17 +64,20 @@ Shape {
 					bias 4.0
 					compareMode "NONE"
 				}
-				ImageTexture {}
+				# dummy texture, only to cause generating castle_TexCoord1 for myssao.fs shader
+				ShaderTexture {}
 			]
 		}
-    shaders DEF myssao ComposedShader {
-			initializeOnly SFFloat Near 1
-			initializeOnly SFFloat Far 100
-			initializeOnly SFInt32 depthMap 0
+    effects DEF myssao Effect {
+      #initializeOnly SFInt32 depthMap 0
+      initializeOnly SFNode depthMap USE spotDepthMap
+      #initializeOnly SFNode textureMap USE textureMap
+      initializeOnly SFFloat Near 1
+      initializeOnly SFFloat Far 100
       language "GLSL"
       parts [
-        ShaderPart { type "FRAGMENT" url "myssao.fs" }
-			]
+        EffectPart { type "FRAGMENT" url "myssao.fs" }
+      ]
     }
   }
 	geometry IndexedFaceSet {
@@ -279,7 +282,7 @@ Shape {
 			ambientIntensity 0.73
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 	}
 	geometry IndexedFaceSet {
 		texCoord USE myTexCoord
@@ -319,7 +322,7 @@ Shape {
 			ambientIntensity 0.75
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 		#url "file:///D:/RVirtual/Builder/Textures/STONES/traverbn.png"
 	}
 	geometry IndexedFaceSet {
@@ -1185,7 +1188,7 @@ Shape {
 			ambientIntensity 1.0
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 	}
 	geometry IndexedFaceSet {
 		texCoord USE myTexCoord
@@ -1384,7 +1387,7 @@ Shape {
 			ambientIntensity 1.0
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 	}
 	geometry IndexedFaceSet {
 		texCoord USE myTexCoord
@@ -1434,7 +1437,7 @@ Shape {
 			ambientIntensity 1.0
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 		#texture ImageTexture { url "texturas/piedras.png" }
 	}
 	geometry IndexedFaceSet {
@@ -1479,7 +1482,7 @@ Group {
 					ambientIntensity 1.0
 				}
 				texture USE myTex
-				shaders USE myssao
+				effects USE myssao
 			}
 			geometry IndexedFaceSet {
 				texCoord USE myTexCoord
@@ -1509,7 +1512,7 @@ Group {
 						-11.73 1.493 14.62,
 						-11.73 1.2 14.62,
 						-11.73 1.2 14.38,
-						-11.73 1.493 14.38,	
+						-11.73 1.493 14.38,
 						-11.61 1.493 14.62,
 						-11.61 1.2 14.62,
 						-11.61 1.493 14.38,
@@ -1675,7 +1678,7 @@ Shape {
 			ambientIntensity 1.0
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 	}
 	geometry IndexedFaceSet {
 		texCoord USE myTexCoord
@@ -1753,7 +1756,7 @@ Shape {
 			ambientIntensity 1.0
 		}
 		texture USE myTex
-    shaders USE myssao
+    effects USE myssao
 	}
 	geometry IndexedFaceSet {
 		texCoord USE myTexCoord

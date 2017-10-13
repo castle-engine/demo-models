@@ -68,7 +68,7 @@ DEF scr Script {
 
 Transform {
 	scale 1 1 1
-	children Inline { url "axes.x3dv" }
+	children Inline { url "../axes.x3dv" }
 }
 
 DEF pLight PointLight {
@@ -115,7 +115,7 @@ DEF spotT1 Transform {
 						diffuseColor 0 0 0
 						ambientIntensity 0.0
 					}
-					texture ImageTexture {url "test.jpg"}
+					texture ImageTexture {url "../test.jpg"}
 				}
 			} }
 		}	
@@ -158,7 +158,7 @@ DEF Obj_001 Transform {
 			}
 			texture MultiTexture {
 				texture [
-					DEF tex1 GeneratedShadowMap {
+					DEF spotDepthMap GeneratedShadowMap {
 						light USE viewSpot
 						update "ALWAYS"
 						size 1024
@@ -166,16 +166,17 @@ DEF Obj_001 Transform {
 						bias 4.0
 						compareMode "NONE"
 					}
-					ImageTexture {}
+					# dummy texture, only to cause generating castle_TexCoord1 for myssao.fs shader
+					ShaderTexture {}
 				]
 			}
-			shaders DEF myssao ComposedShader {
-				initializeOnly SFInt32 depthMap 0
+			effects DEF myssao Effect {
+				initializeOnly SFNode depthMap USE spotDepthMap
 				initializeOnly SFFloat Near 3
 				initializeOnly SFFloat Far 50
 				language "GLSL"
 				parts [
-					ShaderPart {type "FRAGMENT" url "myssao.fs"}
+					EffectPart {type "FRAGMENT" url "myssao.fs"}
 				]
 			}
 		}
