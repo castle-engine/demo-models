@@ -121,6 +121,8 @@ Switch {
         Transform {
           translation 0 0 -16
           children Shape {
+            # make SpotLight circle perfect
+            shading "PHONG"
             appearance USE DefLitAppearance
             geometry Sphere { radius 4 }
           }
