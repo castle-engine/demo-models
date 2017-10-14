@@ -19,9 +19,12 @@ Shape {
       language "GLSL"
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
+          uniform mat4 castle_ModelViewMatrix;
+          uniform mat4 castle_ProjectionMatrix;
+          attribute vec4 castle_Vertex;
           void main(void)
           {
-            gl_Position = ftransform();
+            gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
           /* Your geometry shaders must declare GLSL version 1.50 or higher.
@@ -73,11 +76,7 @@ Shape {
   geometry Teapot { }
 }
 
-# Extend geometry shader to pass gl_TexCoord ---------------------------------
-
-# This requires declaring "#version 150 compatibility",
-# and so is a little unclean. New OpenGL/GLSL advices to instead use custom
-# attributes for everything, no gl_TexCoord.
+# Extend geometry shader to pass attribute tex_coord ---------------------------
 
 Transform { translation 3 0 0 children
 Shape {
@@ -87,57 +86,14 @@ Shape {
       inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
-          void main(void)
-          {
-            gl_TexCoord[0] = gl_Vertex * 2.0;
-            gl_Position = ftransform();
-          }" }
-        ShaderPart { type "GEOMETRY" url "data:text/plain,
-          /* Adding 'compatibility' allows us to access gl_TexCoord,
-             needed to pass it through from vertex shader to fragment shader. */
-          #version 150 compatibility
-
-          layout(triangles) in;
-          layout(triangle_strip, max_vertices = 3) out;
-
-          void main() {
-            for(int i = 0; i < gl_in.length(); i++) {
-              gl_Position = gl_in[i].gl_Position;
-              gl_Position.y += 2.0;
-              /* pass through other vertex data */
-              gl_TexCoord[0] = gl_in[i].gl_TexCoord[0];
-              EmitVertex();
-            }
-            EndPrimitive();
-          }" }
-        ShaderPart { type "FRAGMENT" url "data:text/plain,
-          uniform sampler2D myTexture;
-          void main(void)
-          {
-            gl_FragColor = texture2D(myTexture, gl_TexCoord[0].st);
-          }" }
-      ]
-    }
-  }
-  geometry Teapot { }
-}
-}
-
-# Extend geometry shader to pass attribute tex_coord ---------------------------
-
-Transform { translation 6 0 0 children
-Shape {
-  appearance Appearance {
-    shaders ComposedShader {
-      language "GLSL"
-      inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
-      parts [
-        ShaderPart { type "VERTEX" url "data:text/plain,
+          uniform mat4 castle_ModelViewMatrix;
+          uniform mat4 castle_ProjectionMatrix;
+          attribute vec4 castle_Vertex;
           varying vec2 tex_coord;
           void main(void)
           {
-            tex_coord = gl_Vertex.xy * 2.0;
-            gl_Position = ftransform();
+            tex_coord = castle_Vertex.xy * 2.0;
+            gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
           #version 150
@@ -151,7 +107,7 @@ Shape {
           void main() {
             for(int i = 0; i < gl_in.length(); i++) {
               gl_Position = gl_in[i].gl_Position;
-              gl_Position.y += 2.0;
+              /* gl_Position.y += 2.0; */
 
               /* pass through other vertex data */
               frag_tex_coord = tex_coord[i];
@@ -186,17 +142,20 @@ Shape {
       inputOutput SFNode myTexture ImageTexture { url "../textures/test_texture.png" }
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
-          /* Just for cleanliness, this example has all shaders on GLSL 1.50
-             level (although with 'compatibility' profile, for gl_Xxx variables). */
-          #version 150 compatibility
+          /* For demo, this example has all shaders on GLSL 1.50 level. */
+          #version 150
+          attribute vec4 castle_Vertex;
           out vec2 tex_coord;
           void main(void)
           {
-            tex_coord = gl_Vertex.xy * 2.0;
-            gl_Position = gl_Vertex;
+            tex_coord = castle_Vertex.xy * 2.0;
+            gl_Position = castle_Vertex;
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
-          #version 150 compatibility
+          #version 150
+
+          uniform mat4 castle_ModelViewMatrix;
+          uniform mat4 castle_ProjectionMatrix;
 
           layout(triangles) in;
           layout(triangle_strip, max_vertices = 3) out;
@@ -208,7 +167,8 @@ Shape {
             for(int i = 0; i < gl_in.length(); i++) {
               gl_Position = gl_in[i].gl_Position;
               gl_Position.xy = vec2(gl_Position.y, -gl_Position.x);
-              gl_Position = gl_ModelViewProjectionMatrix * gl_Position;
+              /* for demo, this transforms by projection + modelview in geometry shader */
+              gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * gl_Position);
 
               /* pass through other vertex data */
               frag_tex_coord = tex_coord[i];
@@ -218,7 +178,7 @@ Shape {
             EndPrimitive();
           }" }
         ShaderPart { type "FRAGMENT" url "data:text/plain,
-          #version 150 compatibility
+          #version 150
           /* PLUG-DECLARATIONS */
           uniform sampler2D myTexture;
           in vec2 frag_tex_coord;
