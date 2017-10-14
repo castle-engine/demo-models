@@ -80,8 +80,8 @@ DEF OB_Teapot Transform {
                                                 shaders DEF KamShader ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "time_to_shader.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "time_to_shader.fs" }
+                                                    ShaderPart { type "VERTEX" url "glsl/time_to_shader.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl/time_to_shader.fs" }
                                                   ]
                                                   inputOutput SFFloat alpha1 0.1
                                                   inputOutput SFFloat alpha2 1.0

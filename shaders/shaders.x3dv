@@ -64,8 +64,8 @@ Transform {
           DEF CompShader2 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "FRAGMENT" url "glsl_simple.fs" }
-              ShaderPart { type "VERTEX" url "glsl_simple.vs" }
+              ShaderPart { type "VERTEX" url "glsl/simple.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl/simple.fs" }
             ]
           }
         ]
@@ -114,8 +114,8 @@ Transform {
           DEF CompShader3 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "VERTEX" url "glsl_phong_shading.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_phong_shading.fs" }
+              ShaderPart { type "VERTEX" url "glsl/phong_shading.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl/phong_shading.fs" }
             ]
           }
         ]
@@ -164,8 +164,8 @@ Transform {
           DEF CompShader4 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "VERTEX" url "glsl_toon_shading.vs" }
-              ShaderPart { type "FRAGMENT" url "glsl_toon_shading.fs" }
+              ShaderPart { type "VERTEX" url "glsl/toon_shading.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl/toon_shading.fs" }
             ]
           }
         ]
@@ -214,7 +214,8 @@ Transform {
           DEF CompShader5 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "FRAGMENT" url "glsl_negative.fs" }
+              ShaderPart { type "VERTEX" url "glsl/negative.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl/negative.fs" }
             ]
           }
         ]
@@ -263,7 +264,8 @@ Transform {
           DEF CompShader6 ComposedShader {
             language "GLSL"
             parts [
-              ShaderPart { type "VERTEX" url "glsl_some_deform.vs" }
+              ShaderPart { type "VERTEX" url "glsl/some_deform.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl/simple.fs" }
             ]
           }
         ]
@@ -314,9 +316,9 @@ Transform {
             parts [
               # This is a valid GLSL program, two fragment shaders but only
               # one of them has main() function.
-              ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_helper.fs" }
-              ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_main.fs" }
-              ShaderPart { type "VERTEX" url "glsl_toon_shading.vs" }
+              ShaderPart { type "FRAGMENT" url "glsl/toon_shading_2_helper.fs" }
+              ShaderPart { type "FRAGMENT" url "glsl/toon_shading_2_main.fs" }
+              ShaderPart { type "VERTEX" url "glsl/toon_shading.vs" }
             ]
           }
         ]

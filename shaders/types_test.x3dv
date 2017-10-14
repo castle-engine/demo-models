@@ -10,7 +10,10 @@ Shape {
   appearance Appearance {
     shaders ComposedShader {
       language "GLSL"
-      parts ShaderPart { type "FRAGMENT" url "glsl_types.fs" }
+      parts [
+        ShaderPart { type "VERTEX" url "glsl/simple.vs" }
+        ShaderPart { type "FRAGMENT" url "glsl/types.fs" }
+      ]
       initializeOnly SFBool my_bool TRUE
       initializeOnly SFLong my_long 666
       initializeOnly SFInt32 my_int32 1234

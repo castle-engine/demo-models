@@ -19,15 +19,22 @@ Shape {
       inputOutput SFFloat smooth_scale 1.0
       parts [
         ShaderPart { type "VERTEX" url "data:text/plain,
+          attribute vec4 castle_Vertex;
+          attribute vec3 castle_Normal;
+
           varying vec3 normal;
+
           void main(void)
           {
-            normal = gl_Normal.xyz;
-            gl_Position = gl_Vertex;
+            normal = castle_Normal;
+            gl_Position = castle_Vertex;
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
-          #version 150 compatibility
+          #version 150
 
+          uniform mat4 castle_ModelViewMatrix;
+          uniform mat4 castle_ProjectionMatrix;
+          uniform mat3 castle_NormalMatrix;
           uniform float smooth_scale;
 
           layout(triangles) in;
@@ -79,7 +86,7 @@ Shape {
           void finish_vertex()
           {
             /* go to eye space */
-            gl_Position = gl_ModelViewMatrix * gl_Position;
+            gl_Position = castle_ModelViewMatrix * gl_Position;
 
             /* diffuse lighting equation.
                Note: we just *assume* here that light 0 == headlight
@@ -87,11 +94,11 @@ Shape {
                like this see our \"compositing shaders\" effects instead
                of messing with ComposedShader :) */
             light_intensity = max(dot(
-              normalize(gl_LightSource[0].position.xyz - gl_Position.xyz),
-              normalize(gl_NormalMatrix * vertex_normal)), 0.0);
+              normalize(- gl_Position.xyz),
+              normalize(castle_NormalMatrix * vertex_normal)), 0.0);
 
             /* go to clip space */
-            gl_Position = gl_ProjectionMatrix * gl_Position;
+            gl_Position = castle_ProjectionMatrix * gl_Position;
 
             EmitVertex();
           }

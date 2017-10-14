@@ -27,30 +27,7 @@ Viewpoint {
   orientation -1.286994404381403E-007 1.0000003576278687 0 0.3465334475040435
 }
 
-Background {
-	groundColor 0.0565629 0.2208154 0.4
-	skyColor 0.0565629 0.2208154 0.4
-}
-
-Shape {
-  appearance Appearance { material Material {
-    diffuseColor 1 1 1 ambientIntensity 1 }
-    shaders ComposedShader {
-      language "GLSL"
-      parts [
-        ShaderPart { type "FRAGMENT" url "headlight_shaders.fs" }
-      ]
-    }
-  }
-  geometry Box {
-    size 10 10 10
-    solid FALSE
-    # triangulate more, to properly see spot lights on this
-    divisions 50
-  }
-}
-
 Transform {
   translation 0 -5 0
-  children Inline { url "headlight_shaders_teapot.x3dv" }
+  children Inline { url "headlight_shaders.x3d" }
 }

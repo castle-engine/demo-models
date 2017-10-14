@@ -59,6 +59,7 @@ DEF OB_Teapot Transform {
 		DEF ME_Mesh Group {
 			children [
 				Shape {
+					shading "PHONG"
 					appearance KambiAppearance {
 						material DEF MA_Material_001 Material {
 							diffuseColor 0.8 0.8 0.8
@@ -70,20 +71,20 @@ DEF OB_Teapot Transform {
 							transparency 0.5
 						}
 
-                                                # Kambi+ added this by hand to activate shader
-                                                shaders ComposedShader {
-                                                  language "GLSL"
-                                                  parts [
-                                                    ShaderPart { type "VERTEX" url "fake_fresnel.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "fake_fresnel.fs" }
-                                                  ]
-                                                  inputOutput SFVec3f baseColor  0.6 0.6 0.6
-                                                }
+						# Kambi+ added this by hand to activate shader
+						shaders ComposedShader {
+						  language "GLSL"
+						  parts [
+						    ShaderPart { type "VERTEX" url "glsl/fake_fresnel.vs" }
+						    ShaderPart { type "FRAGMENT" url "glsl/fake_fresnel.fs" }
+						  ]
+						  inputOutput SFVec3f baseColor	 0.6 0.6 0.6
+						}
 
-                                                # Kambi+ to correctly display blending
-                                                blendMode BlendMode {
-                                                  destFactor "one"
-                                                }
+						# Kambi+ to correctly display blending
+						blendMode BlendMode {
+						  destFactor "one"
+						}
 					}
 					geometry IndexedFaceSet {
 						solid FALSE

@@ -11,7 +11,8 @@ Shape {
     shaders ComposedShader {
       language "GLSL"
       parts [
-        ShaderPart { type "VERTEX" url "glsl_sinus.vs" }
+        ShaderPart { type "VERTEX" url "glsl/sinus.vs" }
+        ShaderPart { type "FRAGMENT" url "glsl/sinus.fs" }
       ]
     }
   }

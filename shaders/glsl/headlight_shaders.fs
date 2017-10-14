@@ -18,7 +18,6 @@
   One day I may do this as a texture and use in real-world game.
 */
 
-
 const int screen_width = 800;
 const int screen_height = 600;
 
@@ -30,9 +29,11 @@ const float headlight_inner_radius = 100.0;
 /* Larger, the darker the scene will be around headlight */
 const float max_light_dim = 3.0;
 
+varying vec3 color;
+
 void main()
 {
-  gl_FragColor = gl_Color;
+  gl_FragColor = vec4(color, 1.0);
 
   vec2 distance_xy = gl_FragCoord.xy -
     vec2(float(screen_width ) / 2.0,

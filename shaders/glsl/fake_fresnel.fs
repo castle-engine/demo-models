@@ -6,6 +6,6 @@ uniform vec3 baseColor;
 
 void main(void)
 {
-  float factor = 1.0 - pow(normal.z, 1.0);
+  float factor = 1.0 - pow(normal.z, 2.0);
   gl_FragColor = vec4(baseColor, factor);
 }

@@ -57,9 +57,9 @@ DEF OB_Teapot Transform {
                                                 shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "glsl_toon_shading.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_main.fs" }
-                                                    ShaderPart { type "FRAGMENT" url "glsl_toon_shading_2_helper.fs" }
+                                                    ShaderPart { type "VERTEX" url "glsl/toon_shading.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl/toon_shading_2_main.fs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl/toon_shading_2_helper.fs" }
                                                   ]
                                                 }
 

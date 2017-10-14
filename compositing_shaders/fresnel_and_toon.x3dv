@@ -5,6 +5,7 @@ COMPONENT Shaders:1
 DirectionalLight { direction -1 -1 0 intensity 0.25 }
 
 Shape {
+  shading "PHONG"
   appearance Appearance {
     material Material { diffuseColor 1 0 0
       transparency 0.5 # anything <> 1 to force blending rendering
@@ -27,6 +28,7 @@ Shape {
 
 Transform { translation 0 2 0
   children Shape {
+    shading "PHONG"
     appearance Appearance {
       material Material { diffuseColor 1 0 0 }
       effects DEF Toon Effect {
@@ -72,6 +74,7 @@ Transform { translation 0 2 0
 
 Transform { translation 3 1 0
   children Shape {
+    shading "PHONG"
     appearance Appearance {
       material Material { diffuseColor 1 0 0
         transparency 0.5 # anything <> 1 to force blending rendering

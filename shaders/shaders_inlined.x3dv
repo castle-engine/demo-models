@@ -14,20 +14,33 @@ Shape {
         parts [
           ShaderPart { type "VERTEX"
             url "data:text/plain,
-            void main(void)
-            {
-              gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
-              gl_Position = ftransform();
-            }" }
+
+              uniform mat4 castle_ModelViewMatrix;
+              uniform mat4 castle_ProjectionMatrix;
+              attribute vec4 castle_Vertex;
+              attribute vec4 castle_MultiTexCoord0;
+
+              varying vec4 tex_coord;
+
+              void main(void)
+              {
+                tex_coord = castle_MultiTexCoord0;
+                gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);
+              }
+              " }
 
           ShaderPart { type "FRAGMENT"
             url "data:text/plain,
-            uniform sampler2D tex;
-            void main(void)
-            {
-              gl_FragColor = texture2D(tex, gl_TexCoord[0].st);
-              gl_FragColor.gb = vec2(0.0, 0.0);
-            }" }
+
+              uniform sampler2D tex;
+              varying vec4 tex_coord;
+
+              void main()
+              {
+                vec4 texColor = texture2D(tex, tex_coord.st);
+                gl_FragColor = texColor;
+                gl_FragColor.gb = vec2(0.0, 0.0);
+              }" }
         ]
       }
     ]

@@ -12,7 +12,8 @@ Transform {
       shaders ComposedShader {
         language "GLSL"
         parts [
-          ShaderPart { type "FRAGMENT" url "simple_multitex_shaders.fs" }
+          ShaderPart { type "VERTEX" url "glsl/simple_multitex_shaders.vs" }
+          ShaderPart { type "FRAGMENT" url "glsl/simple_multitex_shaders.fs" }
         ]
         initializeOnly SFNode texture_squirrel
           ImageTexture { url "../textures/test_texture.png" }
@@ -44,17 +45,20 @@ Transform {
       shaders ComposedShader {
         language "GLSL"
         parts [
-          ShaderPart { type "FRAGMENT" url
-          "data:text/plain,
-           uniform sampler2D textures[2];
-           void main()
-           {
-             gl_FragColor = gl_Color *
-               max(
-                 texture2D(textures[0], gl_TexCoord[0].st),
-                 texture2D(textures[1], gl_TexCoord[1].st));
-           }
-          " }
+          ShaderPart { type "VERTEX" url "glsl/simple_multitex_shaders.vs" }
+          ShaderPart { type "FRAGMENT"
+            url "data:text/plain,
+
+              uniform sampler2D textures[2];
+              varying vec4 tex_coord;
+
+              void main()
+              {
+                gl_FragColor = max(
+                  texture2D(textures[0], tex_coord.st),
+                  texture2D(textures[1], tex_coord.st));
+              }"
+          }
         ]
         initializeOnly MFNode textures [
           ImageTexture { url "../textures/test_texture.png" }
@@ -94,7 +98,8 @@ Transform {
       shaders ComposedShader {
         language "GLSL"
         parts [
-          ShaderPart { type "FRAGMENT" url "simple_multitex_shaders.fs" }
+          ShaderPart { type "VERTEX" url "glsl/simple_multitex_shaders.vs" }
+          ShaderPart { type "FRAGMENT" url "glsl/simple_multitex_shaders.fs" }
         ]
         initializeOnly SFInt32 texture_squirrel 0
         initializeOnly SFInt32 texture_brick 1

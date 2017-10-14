@@ -57,10 +57,9 @@ DEF OB_Teapot Transform {
                                                 shaders ComposedShader {
                                                   language "GLSL"
                                                   parts [
-                                                    ShaderPart { type "VERTEX" url "bricks.vs" }
-                                                    ShaderPart { type "FRAGMENT" url "bricks.fs" }
+                                                    ShaderPart { type "VERTEX" url "glsl/bricks.vs" }
+                                                    ShaderPart { type "FRAGMENT" url "glsl/bricks.fs" }
                                                   ]
-                                                  inputOutput SFVec3f LightPosition 2 2 2
                                                   inputOutput SFVec3f BrickColor 0.5 0.5 1
                                                   inputOutput SFVec3f MortarColor 0.2 0.2 0.2
                                                   inputOutput SFVec2f BrickSize 0.03 0.03
