@@ -88,7 +88,6 @@ EditableTransformXZ {
       shadowCaster FALSE
     }
     geometry Box {
-      solid FALSE
       texCoord MultiGeneratedTextureCoordinate {
         texCoord [
           TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
