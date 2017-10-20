@@ -27,58 +27,8 @@ Transform {
   }
 }
 
-# TODO: This doesn't work because:
-#
-# - We need different UVs in this case for normalMap (MovieTexture) than for main cubemap texture.
-#   Our engine right now supports normalmap only with UVs from the main texture,
-#   so the main (1st) texture must be 2D.
-#
-# - Also, the normalMap modifies normal for lighting, but it (probably??) does not modify
-#   the normal for sampling cubemap in our shaders. YET.
-
-# Transform {
-#   translation 2 0 0
-#   children Shape {
-#     appearance Appearance {
-#       material Material { }
-#       texture ComposedCubeMapTexture {
-#         top ImageTexture { url "top.jpg" }
-#         bottom ImageTexture { url "bottom.jpg" }
-#         front ImageTexture { url "front.jpg" }
-#         back ImageTexture { url "back.jpg" }
-#         left ImageTexture { url "left.jpg" }
-#         right ImageTexture { url "right.jpg" }
-#       }
-#       normalMap MovieTexture { url "baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
-#     }
-# #    geometry Box {
-# #      texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
-# #    }
-#     # geometry IndexedFaceSet {
-#     #   texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
-#     #   coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-#     #   coordIndex [ 0 1 2 3 ]
-#     # }
-#   }
-# }
-
-# Transform {
-#   translation 2 -2 0
-#   children Shape {
-#     appearance Appearance {
-#       material Material { }
-#       texture ComposedCubeMapTexture {
-#         top ImageTexture { url "top.jpg" }
-#         bottom ImageTexture { url "bottom.jpg" }
-#         front ImageTexture { url "front.jpg" }
-#         back ImageTexture { url "back.jpg" }
-#         left ImageTexture { url "left.jpg" }
-#         right ImageTexture { url "right.jpg" }
-#       }
-#       normalMap MovieTexture { url "baked_normals_movie/baked_normals_@counter(4).png" loop TRUE }
-#     }
-#     geometry Teapot {
-# #      texCoord TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
-#     }
-#   }
-# }
+# For a more impressive test,
+# with normalmap using MovieTexture combined with CubeMap,
+# see ../common_surface_shader/animated_normal_texture.x3dv .
+# That demo uses CommonSurfaceShader.normalTextureCoordinatesId,
+# which is necessary to mix cubemap tex coords with 2D tex coords of normalmap.
