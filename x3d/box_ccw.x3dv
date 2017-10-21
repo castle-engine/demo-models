@@ -1,0 +1,44 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# Test Box.ccw field.
+
+# visible and lit from outside.
+Transform {
+  translation 0 0 0
+  children Shape {
+    appearance Appearance { material Material {  } }
+    geometry Box { }
+  }
+}
+
+# visible and lit from inside.
+Transform {
+  translation 3 0 0
+  children Shape {
+    appearance Appearance { material Material {  } }
+    geometry Box { ccw FALSE }
+  }
+}
+
+# visible from both sides,
+# lit from both sides in "Phong Shading" or fixed-function pipeline,
+# lit only from outside in "Gouraud Shading" in shader pipeline.
+Transform {
+  translation 6 0 0
+  children Shape {
+    appearance Appearance { material Material {  } }
+    geometry Box { solid FALSE }
+  }
+}
+
+# visible from both sides,
+# lit from both sides in "Phong Shading" or fixed-function pipeline,
+# lit only from inside in "Gouraud Shading" in shader pipeline.
+Transform {
+  translation 9 0 0
+  children Shape {
+    appearance Appearance { material Material {  } }
+    geometry Box { solid FALSE ccw FALSE }
+  }
+}
