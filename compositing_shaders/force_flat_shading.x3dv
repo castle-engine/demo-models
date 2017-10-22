@@ -1,0 +1,51 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# A shader effect that forces flat (per-face) normals with Phong shading
+# (so you get perfect specular highlights, but still on a deliberately
+# flat-shader mesh)
+# by calculating per-face normal within GLSL using dFdx / dFdy
+# (see https://makc3d.wordpress.com/2015/09/17/alternative-to-gl_frontfacing/ ).
+
+Effect {
+  language "GLSL"
+  parts [
+    EffectPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+
+      void PLUG_fragment_eye_space(
+        const vec4 vertex_eye,
+        inout vec3 normal_eye)
+      {
+        vec3 fdx = dFdx(vertex_eye.xyz);
+        vec3 fdy = dFdy(vertex_eye.xyz);
+        normal_eye = normalize(cross(fdx, fdy));
+      }"
+    }
+  ]
+}
+
+Transform {
+  children Shape {
+    shading "PHONG"
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture { url "textures/floortiles.png" }
+    }
+    geometry Teapot { }
+  }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    shading "PHONG"
+    appearance Appearance {
+      material Material { }
+      texture ImageTexture { url "textures/floortiles.png" }
+    }
+    geometry Sphere { }
+  }
+}
