@@ -237,7 +237,7 @@ Transform {
       "To score, push the white ball into your opponents border."
       "All balls collide, with each other and all borders."
       ]
-      fontStyle FontStyle {  justify "MIDDLE" }
+      fontStyle FontStyle {  justify "MIDDLE" size 0.7 }
     }
   }
 }
@@ -269,7 +269,7 @@ Transform {
   children Shape {
     appearance USE Player1App
     geometry DEF Player1ScoreText Text { string "blah"
-      fontStyle FontStyle { size 2 }
+      fontStyle FontStyle { size 1.5 }
     }
   }
 }
@@ -302,7 +302,7 @@ Transform {
   children Shape {
     appearance USE Player2App
     geometry DEF Player2ScoreText Text { string "blah"
-      fontStyle FontStyle { size 2 justify "END" }
+      fontStyle FontStyle { size 1.5 justify "END" }
     }
   }
 }
