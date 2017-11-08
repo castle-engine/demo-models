@@ -1,0 +1,29 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+EXTERNPROTO Teapot [
+  inputOutput    SFNode  metadata
+  initializeOnly SFVec3f size
+  initializeOnly SFBool  solid
+  initializeOnly SFBool  manifold
+  inputOutput    SFNode  texCoord
+] [
+  # Try using implementation as an "X3D standard node".
+  # This is only shown for demonstration purposes here.
+  # It should not actually work, as Teapot is not in the X3D standard,
+  # nor is it planned to be in X3D standard.
+#  "urn:web3d:x3d:node:Teapot"
+
+  # Try implementation as Castle Game Engine extension.
+  # This will work OK, in Castle Game Engine / view3dscene.
+  "urn:castle-engine.sourceforge.io:node:Teapot"
+
+  # Fallback on implementation using PROTO.
+  # This will work OK in other X3D browsers.
+  "teapot_fallback_implementation.x3dv#Teapot"
+]
+
+Shape {
+  appearance Appearance { material Material { } }
+  geometry Teapot { }
+}
