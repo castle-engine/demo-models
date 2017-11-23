@@ -9,10 +9,10 @@ varying vec3 v;
 
 void main(void)
 {
-   vec4 vertex_eye = castle_ModelViewMatrix * castle_Vertex;
-   v = vec3(vertex_eye);
+  vec4 vertex_eye = castle_ModelViewMatrix * castle_Vertex;
+  v = vec3(vertex_eye);
 
-   N = normalize(castle_NormalMatrix * castle_Normal);
+  N = normalize(castle_NormalMatrix * castle_Normal);
 
-   gl_Position = castle_ProjectionMatrix * vertex_eye;
+  gl_Position = castle_ProjectionMatrix * vertex_eye;
 }
