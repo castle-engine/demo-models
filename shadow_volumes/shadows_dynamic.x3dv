@@ -39,7 +39,7 @@ NavigationInfo {
 }
 
 Shape{
-  geometry Box { solid FALSE size 2.4 2.4 2.4 }
+  geometry Box { size 2.4 2.4 2.4 ccw FALSE }
   appearance Appearance { material Material { } }
 }
 
