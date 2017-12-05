@@ -13,16 +13,10 @@ PROTO TerrainTextureEffect [ ]
           type "VERTEX" url "data:text/plain,
 
 varying vec3 position;
-varying vec4 color;
 
 void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
 {
   position = vec3(vertex_object);
-#ifdef GL_ES
-  color = castle_Color;
-#else
-  color = gl_Color;
-#endif
 }" }
         EffectPart {
           type "FRAGMENT" url "data:text/plain,
@@ -39,10 +33,9 @@ uniform float z2; // below bread
 uniform float z3; // below bread + rock
 // above only rock
 
-uniform float color_mix;
+uniform float texture_mix;
 
 varying vec3 position;
-varying vec4 color;
 
 void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
@@ -61,7 +54,7 @@ void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
                (position.y - z2) / (z3 - z2)); else
     tex = texture2D(tex_rock, position.xz);
 
-  fragment_color.rgb *= tex.rgb * mix(color.rgb, vec3(1.0), color_mix);
+  fragment_color.rgb = mix(fragment_color.rgb, tex.rgb, texture_mix);
 }
             "
         }
@@ -71,7 +64,7 @@ void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
       initializeOnly SFFloat z2 0.8
       initializeOnly SFFloat z1 0.5
       initializeOnly SFFloat z0 0.2
-      initializeOnly SFFloat color_mix 0.7
+      initializeOnly SFFloat texture_mix 0.5
       initializeOnly SFNode tex_rock ImageTexture {
         url "textures/rock_d01.png"
       }
