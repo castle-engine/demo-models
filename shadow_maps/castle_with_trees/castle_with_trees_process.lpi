@@ -40,7 +40,7 @@
     </RequiredPackages>
     <Units Count="1">
       <Unit0>
-        <Filename Value="sunny_street_process.lpr"/>
+        <Filename Value="castle_with_trees_process.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
@@ -56,7 +56,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="sunny_street_process"/>
+      <Filename Value="castle_with_trees_process"/>
     </Target>
     <SearchPaths>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>

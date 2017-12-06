@@ -111,7 +111,7 @@ begin
     //   MakeShadowMapReceiver(Model, 'wall1_001', Light);
     //   MakeShadowMapReceiver(Model, 'oak', Light); {< oak leaves }
 
-    Save3D(Model, StdOutStream, 'sunny_street_process (from Castle Game Engine demo models)',
+    Save3D(Model, StdOutStream, 'castle_with_trees_process (from Castle Game Engine demo models)',
       ExtractURIName(URL), xeClassic);
   finally FreeAndNil(Model) end;
 end.

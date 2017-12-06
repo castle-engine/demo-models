@@ -97,4 +97,4 @@ Transform {
   # }
 }
 
-Inline { url "sunny_street_processed.x3dv" }
+Inline { url "castle_with_trees_processed.x3dv" }

@@ -2,8 +2,8 @@
 
 PROFILE Interchange
 
-META "generator" "sunny_street_process (from Castle Game Engine demo models)"
-META "source" "sunny_street.wrl"
+META "generator" "castle_with_trees_process (from Castle Game Engine demo models)"
+META "source" "castle_with_trees.wrl"
 
 NavigationInfo {
 	headlight FALSE

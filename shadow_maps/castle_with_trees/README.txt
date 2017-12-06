@@ -2,13 +2,13 @@ This is a scene for showing off shadow maps.
 
 You can open with view3dscene
 (http://castle-engine.sourceforge.net/view3dscene.php) every VRML file here.
-To see the final beautiful scene open sunny_street_final.x3dv.
+To see the final scene open castle_with_trees_final.x3dv.
 
-You can edit with Blender sunny_street.blend scene,
-then export it to sunny_street.wrl (preferably with our exporter from
-http://castle-engine.sourceforge.net/blender.php),
-then run "make" (this makes sunny_street_processed.x3dv from
-sunny_street.wrl). This way you can design most important stuff
+You can edit with Blender castle_with_trees.blend scene,
+then export it to castle_with_trees.wrl (preferably with our exporter from
+http://castle-engine.sourceforge.net/blender.php ),
+then run "make" (this makes castle_with_trees_processed.x3dv from
+castle_with_trees.wrl). This way you can design most important stuff
 (including lights positions) in Blender.
 
 ------------------------------------------------------------------------------
