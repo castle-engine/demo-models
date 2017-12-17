@@ -1,0 +1,85 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+Shape {
+  appearance Appearance {
+    shaders ComposedShader {
+      language "GLSL"
+      parts [
+        ShaderPart {
+          type "VERTEX"
+          url "data:text/plain,
+
+            uniform mat4 castle_ModelViewMatrix;
+            uniform mat4 castle_ProjectionMatrix;
+            attribute vec4 castle_Vertex;
+
+            // texture coords
+            attribute vec4 castle_MultiTexCoord0;
+            attribute vec4 castle_MultiTexCoord1;
+            varying vec4 tex_coord0;
+            varying vec4 tex_coord1;
+
+            void main(void)
+            {
+              tex_coord0 = castle_MultiTexCoord0;
+              tex_coord1 = castle_MultiTexCoord1;
+              gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);
+            }"
+        }
+
+        ShaderPart {
+          type "FRAGMENT"
+          url "data:text/plain,
+
+            uniform sampler2D texture_one;
+            uniform sampler2D texture_two;
+
+            varying vec4 tex_coord0;
+            varying vec4 tex_coord1;
+
+            void main()
+            {
+              gl_FragColor =
+                texture2D(texture_one, tex_coord0) *
+                texture2D(texture_two, tex_coord1);
+            }"
+        }
+      ]
+      initializeOnly SFNode texture_one ImageTexture { url "../textures/bricks2.jpg" }
+      initializeOnly SFNode texture_two ImageTexture { url "../textures/test_texture.png" }
+    }
+  }
+  geometry IndexedFaceSet {
+    coord Coordinate {
+      point [
+        0 0 0
+        1 0 0
+        1 1 0
+        0 1 0
+      ]
+    }
+    coordIndex [ 0 1 2 3 ]
+    texCoord MultiTextureCoordinate {
+      texCoord [
+        TextureCoordinate {
+          point [
+            0 0
+            1 0
+            1 1
+            0 1
+          ]
+        }
+        TextureCoordinate {
+          point [
+            0 0
+            1 0
+            1 1
+            0 1
+          ]
+        }
+      ]
+    }
+  }
+}
