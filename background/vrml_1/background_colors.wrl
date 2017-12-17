@@ -18,7 +18,7 @@ Group{
         # same as before, but with _some_ textures added
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
 	skyAngle [        0.8,   2,     2.5   ]
-	backUrl "../../skies/sky_lake_back.jpg"
+	backUrl "../../skies/sky_lake_back.png"
       }
       Background {
         # This (one simple color for sky) should be rendered with view3dscene
@@ -28,8 +28,8 @@ Group{
       Background {
         # same as before, but with _some_ textures added
         skyColor 0 1 1
-        leftUrl "../../skies/sky_lake_left.jpg"
-        frontUrl "../../skies/sky_lake_front.jpg"
+        leftUrl "../../skies/sky_lake_left.png"
+        frontUrl "../../skies/sky_lake_front.png"
       }
       Background {
 	skyColor [ 1 0 0, 1 1 0, 0 1 0, 0 0 1 ]
@@ -69,8 +69,8 @@ Group{
 	skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9, ]
 	groundColor [ 0 0.5 0, 0 0.25 0.25 ]
 	groundAngle [          1 ]
-        leftUrl "../../skies/sky_lake_left.jpg"
-        backUrl "../../skies/sky_lake_back.jpg"
+        leftUrl "../../skies/sky_lake_left.png"
+        backUrl "../../skies/sky_lake_back.png"
       }
     }
   }

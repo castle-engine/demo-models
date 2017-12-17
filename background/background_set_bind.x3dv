@@ -29,8 +29,8 @@ DEF Background1 Background {
   skyAngle [        0.8,   2,     2.5,   2.6,   2.7,   2.8,   2.9, ]
   groundColor [ 0 0.5 0, 0 0.25 0.25 ]
   groundAngle [          1 ]
-  rightUrl "../skies/sky_lake_left.jpg"
-  frontUrl "../skies/sky_lake_back.jpg"
+  rightUrl "../skies/sky_lake_left.png"
+  frontUrl "../skies/sky_lake_back.png"
 }
 
 Transform {

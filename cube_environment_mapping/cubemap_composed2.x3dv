@@ -9,12 +9,12 @@ COMPONENT CubeMapTexturing:1
 # Exported using VRML97 exporter v1.55-kambi4
 
 Background {
-  backUrl   "../skies/sky_lake_back.jpg"
-  bottomUrl "../skies/sky_lake_bottom.jpg"
-  frontUrl  "../skies/sky_lake_front.jpg"
-  leftUrl   "../skies/sky_lake_left.jpg"
-  rightUrl  "../skies/sky_lake_right.jpg"
-  topUrl    "../skies/sky_lake_top.jpg"
+  backUrl   "../skies/sky_lake_back.png"
+  bottomUrl "../skies/sky_lake_bottom.png"
+  frontUrl  "../skies/sky_lake_front.png"
+  leftUrl   "../skies/sky_lake_left.png"
+  rightUrl  "../skies/sky_lake_right.png"
+  topUrl    "../skies/sky_lake_top.png"
 }
 
 
@@ -66,12 +66,12 @@ texture ComposedCubeMapTexture {
 #     magnificationFilter "FASTEST"
 #   }
 
-  back   ImageTexture { url "../skies/sky_lake_back.jpg" }
-  bottom ImageTexture { url "../skies/sky_lake_bottom.jpg" }
-  front  ImageTexture { url "../skies/sky_lake_front.jpg" }
-  left   ImageTexture { url "../skies/sky_lake_left.jpg" }
-  right  ImageTexture { url "../skies/sky_lake_right.jpg" }
-  top    ImageTexture { url "../skies/sky_lake_top.jpg" }
+  back   ImageTexture { url "../skies/sky_lake_back.png" }
+  bottom ImageTexture { url "../skies/sky_lake_bottom.png" }
+  front  ImageTexture { url "../skies/sky_lake_front.png" }
+  left   ImageTexture { url "../skies/sky_lake_left.png" }
+  right  ImageTexture { url "../skies/sky_lake_right.png" }
+  top    ImageTexture { url "../skies/sky_lake_top.png" }
 }
 					}
 					geometry IndexedFaceSet {

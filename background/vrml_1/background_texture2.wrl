@@ -4,12 +4,12 @@ Group{
   Separator {
     Rotation { rotation 1 0 0 1.57 }
     Background {
-      backUrl "../../skies/sky_lake_back.jpg"
-      bottomUrl "../../skies/sky_lake_bottom.jpg"
-      frontUrl "../../skies/sky_lake_front.jpg"
-      leftUrl "../../skies/sky_lake_left.jpg"
-      rightUrl "../../skies/sky_lake_right.jpg"
-      topUrl "../../skies/sky_lake_top.jpg"
+      backUrl "../../skies/sky_lake_back.png"
+      bottomUrl "../../skies/sky_lake_bottom.png"
+      frontUrl "../../skies/sky_lake_front.png"
+      leftUrl "../../skies/sky_lake_left.png"
+      rightUrl "../../skies/sky_lake_right.png"
+      topUrl "../../skies/sky_lake_top.png"
     }
   }
 
