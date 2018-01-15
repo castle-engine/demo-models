@@ -1480,7 +1480,7 @@ DEF Pool_floor Shape {
       diffuseColor      0.725 0.825 0.925
       ambientIntensity  1.0
     }
-    shaders DEF FloorCausticsShader ComposedShader {
+    effects DEF FloorCausticsShader Effect {
       initializeOnly SFNode textureMap ImageTexture {
         url "stones.png"
         textureProperties TextureProperties {
@@ -1511,30 +1511,38 @@ DEF Pool_floor Shape {
       inputOutput SFBool  onRefractTex    TRUE
       inputOnly   SFBool  onProjShadowMap
       language "GLSL"
-      parts DEF CausticsShaderPart ShaderPart {
-        type "FRAGMENT"
-        url "data:text/plain,
-          uniform bool onProjShadowMap;
-          uniform bool onRefractTex;
-          uniform sampler2D textureMap;
-          uniform sampler3D wavesMap;
-          uniform sampler2DShadow shadowMap;
-          uniform float frame;
-          void main(void)
-          {
-            float shadow = shadow2DProj(shadowMap, gl_TexCoord[2]).x;
-            if (onProjShadowMap) {
-              gl_FragColor = vec4(shadow);
-              return;
-            }
-            gl_FragColor = gl_Color * texture2D(textureMap, gl_TexCoord[0].st);
-            if (!onRefractTex) {
-              float caustics = texture3D(wavesMap, vec3(gl_TexCoord[1].st, frame)).a * 2.0;
-              gl_FragColor *= mix(1.0, caustics, shadow);
+      parts [
+        DEF CausticsShaderFragment EffectPart {
+          type "FRAGMENT"
+          url "causticsShader.fs"
+        }
+        DEF CausticsShaderVertex EffectPart {
+          type "VERTEX"
+          url "causticsShader.vs"
+        }
+      ]
+    }
+    # using dummy ShaderTexture below is only a trick to get texture coordinates
+    # available to causticsShader.vs/fs
+    texture MultiTexture {
+      texture [
+        DEF DummyWhiteTexture ShaderTexture {
+          effects Effect {
+            language "GLSL"
+            parts EffectPart {
+              type "FRAGMENT"
+              url "data:text/plain,
+                void PLUG_texture_color(inout vec4 texture_color,
+                  const in vec4 tex_coord)
+                {
+                  texture_color = vec4(1.0);
+                }"
             }
           }
-        "
-      }
+        }
+        USE DummyWhiteTexture
+        USE DummyWhiteTexture
+      ]
     }
   }
   geometry IndexedFaceSet {
@@ -1558,7 +1566,7 @@ DEF Pool_walls Shape {
       diffuseColor      0.8 0.9 1.0
       transparency      1.0
     }
-    shaders DEF WallsCausticsShader ComposedShader {
+    effects DEF WallsCausticsShader Effect {
       initializeOnly  SFNode  textureMap USE TravertineTex
       initializeOnly  SFNode  wavesMap USE WavesMap
       initializeOnly  SFNode  shadowMap USE ShadowMap
@@ -1566,7 +1574,19 @@ DEF Pool_walls Shape {
       inputOutput     SFBool  onRefractTex     TRUE
       inputOnly       SFBool  onProjShadowMap
       language  "GLSL"
-      parts USE CausticsShaderPart
+      parts [
+        USE CausticsShaderFragment
+        USE CausticsShaderVertex
+      ]
+    }
+    # using dummy ShaderTexture below is only a trick to get texture coordinates
+    # available to causticsShader.vs/fs
+    texture MultiTexture {
+      texture [
+        USE DummyWhiteTexture
+        USE DummyWhiteTexture
+        USE DummyWhiteTexture
+      ]
     }
   }
   geometry IndexedFaceSet {
@@ -1638,7 +1658,7 @@ Collision {
   enabled FALSE
   children Shape {
     appearance Appearance {
-      shaders DEF WaterShader ComposedShader {
+      effects DEF WaterShader Effect {
         inputOutput     SFVec3f     light   0 0 0
         inputOutput     SFVec3f     eye   0 0 0
         inputOnly       SFMatrix4f  reflectViewMatrix
@@ -1684,17 +1704,24 @@ Collision {
         }
         initializeOnly  SFNode  wavesMap  USE WavesMap
         language  "GLSL"
-        parts ShaderPart { type "FRAGMENT" url "waterShader.fs" }
+        parts [
+          EffectPart { type "VERTEX" url "waterShader.vs" }
+          EffectPart { type "FRAGMENT" url "waterShader.fs" }
+        ]
       }
       shadowCaster FALSE
     }
     geometry IndexedFaceSet {
       creaseAngle 0.5
-      texCoord  MultiTextureCoordinate {
-        texCoord [
-          TextureCoordinateGenerator { mode "COORD" }
-          TextureCoordinate { point [ 0 0.280285, 4 0.280285, 4 3.719715, 0 3.719715 ] }
+      attrib FloatVertexAttribute {
+        name "water_tex3d_coord"
+        value [
+          0 0.280285,
+          4 0.280285,
+          4 3.719715,
+          0 3.719715
         ]
+        numComponents 2
       }
       coord Coordinate {
         point [
