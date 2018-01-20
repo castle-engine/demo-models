@@ -2,6 +2,6 @@ chopper, houses, fountain, and everything else not mentioned below,
   by Michalis Kamburelis.
   License: GPL >= 2.
 
-stonehenge (base): somewhere from the Internet,
+stonehenge.wrl: somewhere from the Internet,
   sthenge.obj (Wavefront OBJ format),
   public domain as far as I remember.

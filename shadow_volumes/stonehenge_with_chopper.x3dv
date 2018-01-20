@@ -43,13 +43,13 @@ EXTERNPROTO EditableTransform [
   inputOutput SFVec2f maxPosition
   inputOutput SFVec2f minScale
   inputOutput SFVec2f maxScale
-] [ "../../prototypes/useful_prototypes.x3dv#EditableTransform" ]
+] [ "../prototypes/useful_prototypes.x3dv#EditableTransform" ]
 
 EditableTransform {
   translation -20 7.5 2.5
   minPosition -40 -40
   maxPosition  40  40
-  children DEF Chopper Inline { url "../chopper/chopper.castle-anim-frames" }
+  children DEF Chopper Inline { url "chopper/chopper.castle-anim-frames" }
 }
 
 # Start the "fly" animation of chopper as soon as we open the file
