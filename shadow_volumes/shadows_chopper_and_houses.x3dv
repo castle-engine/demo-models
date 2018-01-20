@@ -44,5 +44,15 @@ EditableTransform {
   translation -20 7.5 2.5
   minPosition -40 -40
   maxPosition  40  40
-  children Inline { url "chopper.x3d" }
+  children DEF Chopper Inline { url "chopper/chopper.castle-anim-frames" }
 }
+
+# Start the "fly" animation of chopper as soon as we open the file
+IMPORT Chopper.fly
+DEF MyProximitySensor ProximitySensor { size 10000000 10000000 10000000 }
+ROUTE MyProximitySensor.enterTime TO fly.startTime
+
+# Make the "fly" animation of chopper looping
+DEF MyBooleanTrigger BooleanTrigger { }
+ROUTE MyProximitySensor.enterTime TO MyBooleanTrigger.set_triggerTime
+ROUTE MyBooleanTrigger.triggerTrue TO fly.loop
