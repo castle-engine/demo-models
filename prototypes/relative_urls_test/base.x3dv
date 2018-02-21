@@ -1,0 +1,17 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+EXTERNPROTO BlueGeometry [
+  inputOutput MFString sphereTexture
+] [ "blue/prototype.x3dv#BlueGeometry" ]
+
+EXTERNPROTO RedGeometry [
+  inputOutput MFString sphereTexture
+] [ "red/prototype.x3dv#RedGeometry" ]
+
+BlueGeometry { sphereTexture "texture.png" }
+
+Transform {
+  translation 0 2 0
+  children RedGeometry { sphereTexture "texture.png" }
+}

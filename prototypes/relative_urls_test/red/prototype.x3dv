@@ -1,0 +1,22 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+PROTO RedGeometry [
+  inputOutput MFString sphereTexture ""
+] {
+  Group {
+    children [
+      Shape {
+        geometry Sphere { }
+        appearance Appearance { texture ImageTexture { url IS sphereTexture } }
+      }
+      Transform {
+        translation 2 0 0
+        children Shape {
+          geometry Box { }
+          appearance Appearance { texture ImageTexture { url "texture.png" } }
+        }
+      }
+    ]
+  }
+}
