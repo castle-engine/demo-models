@@ -1,11 +1,7 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-EXTERNPROTO NestedBlueGeometry [
-  inputOutput MFString sphereTexture
-] [ "nested/prototype.x3dv#NestedBlueGeometry" ]
-
-PROTO BlueGeometry [
+PROTO NestedBlueGeometry [
   inputOutput MFString sphereTexture ""
 ] {
   Group {
@@ -20,10 +16,6 @@ PROTO BlueGeometry [
           geometry Box { }
           appearance Appearance { texture ImageTexture { url "texture.png" } }
         }
-      }
-      Transform {
-        translation 6 0 0
-        children NestedBlueGeometry { sphereTexture "texture.png" }
       }
     ]
   }

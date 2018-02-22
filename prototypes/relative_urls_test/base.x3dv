@@ -23,6 +23,6 @@ Transform {
 #   up 0 1 0
 #   gravityUp 0 1 0
 Viewpoint {
-  position 1 1 7.6666665077209473
+  position 3.9444441795349121 1.3888890743255615 10.333334922790527
   orientation 0 0 1 0
 }
