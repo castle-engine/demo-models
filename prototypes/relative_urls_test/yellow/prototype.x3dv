@@ -1,0 +1,22 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+PROTO YellowGeometry [
+  inputOutput SFNode sphereTextureNode ImageTexture { url "texture.png" }
+] {
+  Group {
+    children [
+      Shape {
+        geometry Sphere { }
+        appearance Appearance { texture IS sphereTextureNode }
+      }
+      Transform {
+        translation 2 0 0
+        children Shape {
+          geometry Box { }
+          appearance Appearance { texture ImageTexture { url "texture.png" } }
+        }
+      }
+    ]
+  }
+}
