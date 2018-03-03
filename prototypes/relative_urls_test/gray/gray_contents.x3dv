@@ -1,0 +1,18 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Group {
+  children [
+    Shape {
+      geometry Sphere { }
+      appearance DEF A Appearance { texture ImageTexture { url "texture.png" } }
+    }
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Box { }
+        appearance USE A
+      }
+    }
+  ]
+}

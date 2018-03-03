@@ -1,0 +1,11 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+PROTO GrayGeometry [
+] {
+  # TODO: This does work correctly in view3dscene.
+  # view3dscene expects URLs relative to relative_urls_test/gray/ ,
+  # but actually it should be URL relative to just relative_urls_test/
+  # (because GrayGeometry is instantiated in relative_urls_test/base.x3dv).
+  Inline { url "gray/gray_contents.x3dv" }
+}
