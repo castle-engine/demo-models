@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile="Interactive" version="3.0"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+     xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<meta name="generator" content="view3dscene, http://castle-engine.sourceforge.net/view3dscene.php" />
+	<meta name="source" content="material_alpha_mixed_with_texture_alpha.x3dv" />
+</head>
+<Scene>
+	<PointLight
+		global="true"
+		location="4 4 0" />
+	<Transform
+		translation="0 2 0">
+		<Shape>
+			<Box
+				size="1 1 1" />
+			<Appearance>
+				<ImageTexture
+					url='"data/squirrel_alpha.png"' />
+			</Appearance>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="2 2 0">
+		<Shape>
+			<Box
+				size="1 1 1" />
+			<Appearance>
+				<ImageTexture
+					url='"data/squirrel_grayscale_alpha.png"' />
+			</Appearance>
+		</Shape>
+	</Transform>
+	<Transform>
+		<Shape>
+			<Box
+				size="1 1 1" />
+			<Appearance>
+				<Material
+					transparency="0.5" />
+				<ImageTexture
+					url='"data/squirrel_alpha.png"' />
+			</Appearance>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="2 0 0">
+		<Shape>
+			<Box
+				size="1 1 1" />
+			<Appearance>
+				<Material
+					transparency="0.5" />
+				<ImageTexture
+					url='"data/squirrel_grayscale_alpha.png"' />
+			</Appearance>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="0 -2 0">
+		<Shape>
+			<IndexedFaceSet DEF="MyIFS"
+				coordIndex="0 1 2 3"
+				solid="false">
+				<Coordinate
+					point="0 0 0 1 0 0 1 1 0 0 1 0" />
+				<ColorRGBA
+					color="1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1" />
+			</IndexedFaceSet>
+			<Appearance>
+				<Material />
+				<ImageTexture
+					url='"data/squirrel_alpha.png"' />
+			</Appearance>
+		</Shape>
+	</Transform>
+	<Transform
+		translation="2 -2 0">
+		<Shape>
+			<IndexedFaceSet USE="MyIFS" />
+			<Appearance>
+				<Material />
+				<ImageTexture
+					url='"data/squirrel_grayscale_alpha.png"' />
+			</Appearance>
+		</Shape>
+	</Transform>
+	<Viewpoint
+		position="0.765625 0.625 7.9000005722045898" />
+</Scene>
+</X3D>
