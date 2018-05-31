@@ -6,6 +6,7 @@ Transform {
   rotation 1 0 0 1.5707963268
   children [
     Shape {
+      shading "PHONG" # for two-sided lighting
       appearance Appearance {  material Material { } }
       geometry NurbsPatchSurface {
         uDimension 8
