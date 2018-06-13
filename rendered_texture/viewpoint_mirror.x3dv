@@ -1,0 +1,28 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Inline { url "../vrml_2/castle_with_lights.wrl" }
+
+Transform {
+  translation 0 100 0
+  rotation 1 0 0 1.57
+  children Shape {
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 100 0 0, 100 100 0, 0 100 0, ] }
+      coordIndex [ 0 1 2 3 ]
+      solid FALSE
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1, ] }
+    }
+    appearance Appearance {
+      texture RenderedTexture {
+        dimensions [ 1024 1024 3 ]
+        viewpoint ViewpointMirror {
+          # TODO: this workaround for a first, clumsy ViewpointMirror implementation
+          # should disappear soon
+          distanceFromShape 50
+        }
+        update "ALWAYS"
+      }
+    }
+  }
+}
