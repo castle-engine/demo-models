@@ -1,26 +1,28 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-Inline { url "../vrml_2/castle_with_lights.wrl" }
+Transform {
+  # rotate to have up in +Y
+  rotation 1 0 0 -1.570796370506287
+  children Inline { url "../vrml_2/castle_with_lights.wrl" }
+}
 
 Transform {
-  translation 0 100 0
-  rotation 1 0 0 1.57
+  translation 0 0 -100
   children Shape {
     geometry IndexedFaceSet {
       coord Coordinate { point [ 0 0 0, 100 0 0, 100 100 0, 0 100 0, ] }
       coordIndex [ 0 1 2 3 ]
       solid FALSE
-      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1, ] }
+      # TODO: texCoord must be set to TextureCoordinate.
+      # Contents will be updated by ViewpointMirror.
+      texCoord TextureCoordinate { }
+      #texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1, ] }
     }
     appearance Appearance {
       texture RenderedTexture {
         dimensions [ 1024 1024 3 ]
-        viewpoint ViewpointMirror {
-          # TODO: this workaround for a first, clumsy ViewpointMirror implementation
-          # should disappear soon
-          distanceFromShape 50
-        }
+        viewpoint ViewpointMirror { }
         update "ALWAYS"
       }
     }
