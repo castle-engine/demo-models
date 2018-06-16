@@ -10,21 +10,23 @@ Transform {
 Transform {
   translation 0 0 -100
   children Shape {
-    geometry IndexedFaceSet {
-      coord Coordinate { point [ 0 0 0, 100 0 0, 100 100 0, 0 100 0, ] }
-      coordIndex [ 0 1 2 3 ]
-      solid FALSE
-      # TODO: texCoord must be set to TextureCoordinate.
-      # Contents will be updated by ViewpointMirror.
-      texCoord TextureCoordinate { }
-      #texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1, ] }
-    }
     appearance Appearance {
       texture RenderedTexture {
         dimensions [ 1024 1024 3 ]
         viewpoint ViewpointMirror { }
+        repeatS FALSE
+        repeatT FALSE
         update "ALWAYS"
       }
+    }
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 100 0 0, 100 100 0, 0 100 0, ] }
+      coordIndex [ 0 1 2 3 ]
+      # both sides act as mirror
+      solid FALSE
+      # generate texture coordinates
+      # that match the texture produced by ViewpointMirror
+      texCoord TextureCoordinateGenerator { mode "MIRROR-PLANE" }
     }
   }
 }
