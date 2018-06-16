@@ -7,6 +7,18 @@ Transform {
   children Inline { url "../vrml_2/castle_with_lights.wrl" }
 }
 
+Background {
+  backUrl   "../skies/sky_lake_back.png"
+  bottomUrl "../skies/sky_lake_bottom.png"
+  frontUrl  "../skies/sky_lake_front.png"
+  leftUrl   "../skies/sky_lake_left.png"
+  rightUrl  "../skies/sky_lake_right.png"
+  topUrl    "../skies/sky_lake_top.png"
+}
+
+# ----------------------------------------------------------------------------
+# simple mirror
+
 Transform {
   translation 0 0 -100
   children Shape {
@@ -27,6 +39,73 @@ Transform {
       # generate texture coordinates
       # that match the texture produced by ViewpointMirror
       texCoord TextureCoordinateGenerator { mode "MIRROR-PLANE" }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# mirror on the opposite side, to test recursive mirrors
+
+Transform {
+  translation 0 0 100
+  children Shape {
+    appearance Appearance {
+      texture RenderedTexture {
+        dimensions [ 1024 1024 3 ]
+        viewpoint ViewpointMirror { }
+        repeatS FALSE
+        repeatT FALSE
+        update "ALWAYS"
+      }
+    }
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 50 0 0, 50 50 0, 0 50 0, ] }
+      coordIndex [ 0 1 2 3 ]
+      # both sides act as mirror
+      solid FALSE
+      # generate texture coordinates
+      # that match the texture produced by ViewpointMirror
+      texCoord TextureCoordinateGenerator { mode "MIRROR-PLANE" }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# mirror mixed with material and multi-texturing
+
+Transform {
+  translation -100 0 -50
+  rotation 0 1 0 0.4
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 0 0 }
+      texture MultiTexture {
+        mode [ "MODULATE" "ADD" ]
+        texture [
+          ImageTexture { url "../textures/test_texture.png" }
+          RenderedTexture {
+            dimensions [ 1024 1024 3 ]
+            viewpoint ViewpointMirror { }
+            repeatS FALSE
+            repeatT FALSE
+            update "ALWAYS"
+          }
+        ]
+      }
+    }
+    geometry IndexedFaceSet {
+      coord Coordinate { point [ 0 0 0, 100 0 0, 100 100 0, 0 100 0, ] }
+      coordIndex [ 0 1 2 3 ]
+      # both sides act as mirror
+      solid FALSE
+      texCoord MultiTextureCoordinate {
+        texCoord [
+          TextureCoordinateGenerator { mode "BOUNDS" }
+          # generate texture coordinates
+          # that match the texture produced by ViewpointMirror
+          TextureCoordinateGenerator { mode "MIRROR-PLANE" }
+        ]
+      }
     }
   }
 }
