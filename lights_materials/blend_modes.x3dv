@@ -20,11 +20,11 @@ EXTERNPROTO KambiAppearance [
 # background just copied from ../background_texture1.wrl, to show
 # that teapots are transparent.
 Background {
-  backUrl "../skies/sky_red_back.bmp"
+  backUrl "../skies/sky_red_back.png"
   bottomUrl "../skies/sky_red_bottom.png"
-  frontUrl "../skies/sky_red_front.jpg"
-  leftUrl "../skies/sky_red_left.ppm"
-  rightUrl "../skies/sky_red_right.rgbe"
+  frontUrl "../skies/sky_red_front.png"
+  leftUrl "../skies/sky_red_left.png"
+  rightUrl "../skies/sky_red_right.png"
   topUrl "../skies/sky_red_top.png"
 }
 
