@@ -1,0 +1,15 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Rendering:5
+
+#ClipPlane { plane 0 1 0 0 }
+ClipPlane { plane 1 1 1 0 }
+
+Shape {
+  geometry Box {
+    solid FALSE # visible from both sides
+  }
+  appearance Appearance {
+    material Material { }
+  }
+}
