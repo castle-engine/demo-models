@@ -39,33 +39,23 @@ ScreenEffect { shaders DEF Shader ComposedShader {
   inputOnly SFTime time
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
 uniform sampler2D grainTexture;
 uniform float time;
 
-const vec2 grainTextureSize = vec2(256.0, 256.0);
-
-/* Adjust this as you like, larger values -> grain is less noticeable */
-const float strength = 25.0;
+/* Larger values -> grain is more noticeable, 0 = no grain is visible */
+const float strength = 0.04;
+/* Larger values -> grain is \"smaller dots\" */
+const float density = 10.0;
 
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position());
 
-  /* Use integer (in 256 range) grayscale weights, to avoid crappy fglrx bugs with float consts */
-/*  float intensity = (gl_FragColor.r * 54.0 + gl_FragColor.g * 183.0 + gl_FragColor.b * 19.0) / 256.0;
-  gl_FragColor.r = 4.0 * intensity / 5.0;
-  gl_FragColor.g = 4.0 * intensity / 5.0;
-  gl_FragColor.b = 7.0 * intensity / 5.0;
-*/
-
-  /* Unrelated effect, just for style: blueish */
-  gl_FragColor.r *= 3.0 / 4.0;
-  gl_FragColor.g *= 3.0 / 4.0;
-  gl_FragColor.b *= 6.0 / 4.0;
-
-  vec2 grainCoord = vec2(screen_position()) / grainTextureSize;
+  /* Squeeze grainCoord into [0..1,0..1]. */
+  int screen_size = max(screen_width, screen_height);
+  vec2 grainCoord = density *
+    vec2(screen_position()) /
+    vec2(screen_size, screen_size);
 
   /* Grain changes constanly, to make the noisy effect.
      We could use a couple of textures (MovieTexture with noises),
@@ -78,19 +68,16 @@ void main (void)
      at each frame looks best.  */
   grainCoord += vec2(time * 789.0, time * 456.0);
 
-  float grain = (
+  float grain = strength * (
     /* Take a couple of noise layers.
-
        It's best to use somewhat distorted weights (not just 2, 4...)
-       for nice irregular but smooth effect.
-       As usual: beware of using float consts on crappy Radeon fglrx,
-       that's why we write 22.0/10.0 instead of 2.2 etc. */
-    (texture2D(grainTexture, grainCoord / (11.0 / 10.0)).r +
-     texture2D(grainTexture, grainCoord / (33.0 / 10.0)).r)
-     - 2.0 / 2.0 /* -0.5 for each noise layer */
-    ) / strength;
+       for nice irregular but smooth effect. */
+    (texture2D(grainTexture, grainCoord / 1.1).r +
+     texture2D(grainTexture, grainCoord / 3.3).r)
+     - 1.0 /* -0.5 for each noise layer */
+  );
 
-  gl_FragColor.rgb += vec3(grain, grain, grain);
+  gl_FragColor.rgb += vec3(grain);
 }
 " } } }
 

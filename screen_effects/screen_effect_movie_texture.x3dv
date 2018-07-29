@@ -39,8 +39,6 @@ ScreenEffect { shaders DEF Shader ComposedShader {
   }
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
 uniform sampler2D movieTexture;
 
 const vec2 movieTextureSize = vec2(256.0, 256.0);

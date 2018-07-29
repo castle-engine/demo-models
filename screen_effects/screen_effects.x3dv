@@ -28,8 +28,6 @@ Inline { url "../vrml_2/castle_with_lights.wrl" }
 DEF SE1 ScreenEffect { shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position());
@@ -40,9 +38,6 @@ void main (void)
 DEF SE2 ScreenEffect { shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
-int screen_x();
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position());
@@ -55,9 +50,6 @@ void main (void)
 DEF SE3 ScreenEffect { shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
-int screen_y();
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position() +
@@ -84,8 +76,6 @@ ROUTE BFShift.inputNegate TO SE3.enabled
 ScreenEffect { enabled FALSE shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
 void main (void)
 {
   gl_FragColor = screen_get_color(screen_position()) / 2.0;
@@ -95,11 +85,6 @@ void main (void)
 ScreenEffect { enabled FALSE shaders ComposedShader {
   language "GLSL"
   parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-ivec2 screen_position();
-vec4 screen_get_color(ivec2 position);
-int screen_x();
-int screen_y();
-uniform int screen_height;
 void main (void)
 {
   gl_FragColor = screen_get_color(
