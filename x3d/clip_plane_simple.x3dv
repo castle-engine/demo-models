@@ -12,4 +12,9 @@ Shape {
   appearance Appearance {
     material Material { }
   }
+
+  # Phong shading for 2-sided lighting, otherwise by default CGE uses Gouraud,
+  # and inside may look like unlit black.
+  # See https://castle-engine.io/x3d_implementation_shape_extensions.php#section_ext_shading .
+  shading "PHONG"
 }

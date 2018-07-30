@@ -2,47 +2,81 @@
 PROFILE Interchange
 COMPONENT Rendering:5
 
-ClipPlane { plane 0 1 0 0 }
+ClipPlane {
+  plane 0 1 0 0
+}
 # if below is enabled, you will only see an infinitely thin slice of the geometry
-ClipPlane { plane 0 -1 0 0 enabled FALSE }
-
-# uncomment these, to see that local clip planes will get ignored first
-# (most OpenGL support only 6 clipping planes, and following X3D spec
-# the "more global" clip planes are more important)
-# ClipPlane { plane 0 1 0 0 }
-# ClipPlane { plane 0 1 0 0 }
-# ClipPlane { plane 0 1 0 0 }
-# ClipPlane { plane 0 1 0 0 }
-# ClipPlane { plane 0 1 0 0 }
-# ClipPlane { plane 0 1 0 0 }
-
-# Some geometry
-Transform { translation -1.5 0 -1
-  children DEF T Shape {
-    appearance Appearance { material Material { } }
-    geometry Teapot { solid FALSE } } }
-Transform { translation  1.5 0 -1 children USE T }
-DEF Tea1Trnsf Transform {
-    translation  1.5 0 1
-    children [
-        USE T
-        # notice that this plane is defined in local coords of this Transform,
-        # and it affects only the one teapot within this Transform
-        ClipPlane { plane 1 0 0 0 }
-    ]
+ClipPlane {
+  plane 0 -1 0 0
+  enabled FALSE
 }
+
+# Uncomment these, to see that local clip planes will get ignored first
+# (most OpenGL support only 8 clipping planes, and following X3D spec
+# the "more global" clip planes are more important.)
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+# ClipPlane { plane 0 1 0 0 }
+
+# Sample Teapot geometry
 Transform {
-    translation -1.5 0 1
-    children [
-        ClipPlane { plane 1 0 0 0 }
-        # this teapot rotates, but the ClipPlane remains fixed
-        DEF Tea2Trnsf Transform { children USE T }
-    ]
+  translation -1.5 0 -1
+  children DEF MyTeapotShape Shape {
+    appearance Appearance {
+      material Material { }
+    }
+    geometry Teapot { solid FALSE }
+
+    # Phong shading for 2-sided lighting, otherwise by default CGE uses Gouraud,
+    # and inside may look like unlit black.
+    # See https://castle-engine.io/x3d_implementation_shape_extensions.php#section_ext_shading .
+    shading "PHONG"
+  }
 }
 
-DEF AnimatedPlane ClipPlane { plane 1 0 0 1 }
+Transform {
+  translation  1.5 0 -1
+  children USE MyTeapotShape
+}
 
-DEF Timer TimeSensor { loop TRUE cycleInterval 4 }
+DEF Tea1Trnsf Transform {
+  translation  1.5 0 1
+  children [
+    USE MyTeapotShape
+    # notice that this plane is defined in local coords of this Transform,
+    # and it affects only the one teapot within this Transform
+    ClipPlane {
+      plane 1 0 0 0
+    }
+  ]
+}
+
+Transform {
+  translation -1.5 0 1
+  children [
+    ClipPlane {
+      plane 1 0 0 0
+    }
+    # this teapot rotates, but the ClipPlane remains fixed
+    DEF Tea2Trnsf Transform {
+      children USE MyTeapotShape
+    }
+  ]
+}
+
+DEF AnimatedPlane ClipPlane {
+  plane 1 0 0 1
+}
+
+DEF Timer TimeSensor {
+  loop TRUE
+  cycleInterval 4
+}
 
 # There is no interpolator for vec4f values in the standard?
 # No problem, we'll make a simple interpolator using CastleScript.
@@ -77,18 +111,18 @@ ROUTE Vec4Interpolator.value_changed TO AnimatedPlane.plane
 
 # 2nd Animation clock
 DEF Clock TimeSensor {
-    cycleInterval 20.0
-    loop TRUE
+  cycleInterval 20.0
+  loop TRUE
 }
 
 # Rotation path
 DEF rotPath OrientationInterpolator {
-    key [ 0.0 0.5 1.0 ]
-    keyValue [
-        0.0 1.0 0.0 -6.28,
-        0.0 1.0 0.0 -3.14,
-        0.0 1.0 0.0 0.0,
-    ]
+  key [ 0.0 0.5 1.0 ]
+  keyValue [
+    0.0 1.0 0.0 -6.28,
+    0.0 1.0 0.0 -3.14,
+    0.0 1.0 0.0 0.0,
+  ]
 }
 
 ROUTE Clock.fraction_changed TO rotPath.set_fraction
