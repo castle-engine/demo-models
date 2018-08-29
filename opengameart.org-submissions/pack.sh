@@ -8,5 +8,5 @@ pack_dir ()
 }
 
 pack_dir car
-#pack_dir dragon
-#pack_dir trees
+pack_dir dragon
+pack_dir trees
