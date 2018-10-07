@@ -9,7 +9,7 @@ PROFILE Interchange
 # To add a water to your game, you can use this file:
 #
 # - Make sure to copy it, alongside with
-#   ../baked_normals_low_res_seamless/ subdirectory.
+#   ../baked_normals/ subdirectory.
 #   You can change the relative path by changing MovieTexture.url in this file.
 #
 # - Change the Inline.url (in this file) to include your game level.
@@ -80,7 +80,7 @@ Collision {
             update "ALWAYS"
           }
           normalTexture MovieTexture {
-            url "../baked_normals_low_res_seamless/baked_normals_@counter(4).png"
+            url "../baked_normals/baked_normals_@counter(4).png"
             loop TRUE
           }
           normalTextureCoordinatesId 1
