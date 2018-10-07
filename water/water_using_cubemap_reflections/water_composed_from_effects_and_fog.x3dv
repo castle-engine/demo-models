@@ -1,0 +1,303 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT CubeMapTexturing:3
+
+# Combination of water_shaders and volumetric_animated_fog effects,
+# with some parameters tweaked to match.
+
+# TODO: Causes OpenGL errors in CGE >= 6.5...
+
+# Camera settings "encoded" in the VRML/X3D declaration below :
+# direction 0.7828816175460815 -0.0286901798099279 -0.621535837650299
+# up 0.6193693280220031 0.1309012770652771 0.7741103172302246
+# gravityUp 0 0 1
+Transform {
+  translation -1.1308588981628418 -0.0163916945457458 1.0128024816513062
+  rotation 1 0 0 1.5707963705062866
+  children DEF MyViewpoint Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation -0.3780224323272705 -0.891189157962799 -0.2507605850696563 1.6686675548553467
+  }
+}
+
+DEF ProxSensor ProximitySensor {
+  size 100 100 100
+}
+
+DEF FogEffect Effect {
+  language "GLSL"
+  initializeOnly SFNode fog_density ImageTexture3D {
+    url "../../compositing_shaders/textures/noise_from_humus.dds"
+    repeatS TRUE
+    repeatT TRUE
+    repeatR TRUE }
+  inputOnly SFMatrix4f cameraInverseMatrix
+  # TODO: inputOnly should be enough for camera_world.
+  # But when shaders are regenerated, we don't update immediately
+  # uniform values from inputOnly (because we don't store them anywhere),
+  # so e.g. Ctrl+H (headlight switch) causes reset of camera_world,
+  # until we move (and cause ProxSensor to update position_changed).
+  inputOutput SFVec3f camera_world 0 0 0
+  initializeOnly SFVec3f fog_color 0.8 0.8 0.8
+  inputOnly SFTime time
+  parts [
+    EffectPart {
+      type "VERTEX"
+      url "data:text/plain,
+
+uniform mat4 cameraInverseMatrix;
+varying vec3 vertex_world;
+
+void PLUG_vertex_eye_space(const in vec4 vertex_eye, const in vec3 normal_eye)
+{
+  vertex_world = vec3(cameraInverseMatrix * vertex_eye);
+}" }
+
+    EffectPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+
+#ifdef GL_ES
+#extension GL_OES_texture_3D : enable
+#endif
+
+uniform sampler3D fog_density;
+uniform vec3 fog_color;
+
+varying vec3 vertex_world;
+uniform vec3 camera_world;
+
+uniform float time;
+
+float get_fog_density(in vec3 pos)
+{
+  pos /= 10.0;
+  pos.z -= time / 20.0;
+  return texture3D(fog_density, pos).r;
+  /* Make fog less dense */
+//  return 1.0 - clamp((1.0 - texture3D(fog_density, pos).r) / 3.0, 0.0, 1.0);
+}
+
+void PLUG_fog_apply(inout vec4 fragment_color, const vec3 normal_eye_fragment)
+{
+  /* fog = how much light passes through (so it's actually 1 - fog density) */
+  float fog = 1.0;
+  float full_distance = distance(vertex_world, camera_world);
+  float sampled_distance = 0.0;
+  float distance_step = 8.0;
+
+  while (sampled_distance < full_distance)
+  {
+    fog *= get_fog_density(mix(vertex_world, camera_world,
+      sampled_distance / full_distance));
+    sampled_distance += distance_step;
+  }
+
+  /* To prevent fog bands (because we do a discrete number of steps to reach
+     full_distance), do the final step, scaled by the remainder
+     of the distance. For this, we sample the fog depth at full_distance,
+     that is mix(vertex_world, camera_world, 1.0), that is camera_world. */
+  fog *= pow(get_fog_density(camera_world),
+    (full_distance - (sampled_distance - distance_step)) / distance_step);
+
+  fragment_color.rgb = mix(fog_color, fragment_color.rgb, fog);
+}" }
+  ]
+  ROUTE MyViewpoint.cameraInverseMatrix TO FogEffect.cameraInverseMatrix
+  ROUTE ProxSensor.position_changed TO FogEffect.camera_world
+}
+
+# NavigationInfo -------------------------------------------------------------
+
+KambiNavigationInfo {
+  timeOriginAtLoad TRUE
+  headlight FALSE
+  type "FLY"
+  avatarSize [ 0.1 1.75 0.2 ]
+  speed 5
+  # headlightNode DirectionalLight {
+  #   ambientIntensity 0.5
+  #   intensity 0.5
+  #   color 1 1 1
+  # }
+}
+
+# Time stuff ----------------------------------------------------------------
+
+DEF Timer TimeSensor { loop TRUE }
+ROUTE Timer.time TO FogEffect.time
+
+# Toggle effect "enabled" with shift key -------------------------------------
+
+DEF K KeySensor { }
+DEF EnableToggle BooleanToggle { toggle TRUE }
+
+ROUTE K.shiftKey TO EnableToggle.set_boolean
+ROUTE EnableToggle.toggle TO FogEffect.enabled
+
+# water ----------------------------------------------------------------------
+
+EXTERNPROTO PlaneNotTesselated [
+  inputOutput SFBool solid
+] [ "../../prototypes/useful_proto_plane_tess.x3dv#PlaneNotTesselated" ]
+
+EXTERNPROTO PlaneTesselated [
+  inputOutput SFBool solid
+] [ "../../prototypes/useful_proto_plane_tess.x3dv#PlaneTesselated" ]
+
+# ----------------------------------------------------------------------------
+# Inline castle_hall level,
+# with some parts that would obstruct nice reflections removed,
+# with better sky (and not so black, so it's visible in reflections),
+# with different camera.
+
+Transform {
+  rotation 1 0 0 1.57
+  children
+
+  Background {
+     backUrl "../../skies/foggy_sky_back.png"
+     bottomUrl "../../skies/foggy_sky_bottom.png"
+     frontUrl "../../skies/foggy_sky_front.png"
+     leftUrl "../../skies/foggy_sky_left.png"
+     rightUrl "../../skies/foggy_sky_right.png"
+     topUrl "../../skies/foggy_sky_top.png"
+  }
+}
+
+Transform {
+  children Transform {
+    scale 0.05 0.05 0.05
+    translation 0 0 -0.1
+    children [
+      PointLight {
+        location  10  10 10
+        color 0.3 0.3 0.3
+      }
+      PointLight {
+        location -10 -10 10
+        color 0.3 0.3 0.3
+      }
+      Inline { url "castle_hall_for_water_demo.wrl" }
+    ]
+  }
+}
+
+DEF Timer TimeSensor { loop TRUE }
+
+# ----------------------------------------------------------------------------
+# Waves geometry and shader.
+# Geometry is trivial, just a flat plane, the whole magic happens
+# in the GLSL effects.
+
+Transform { translation 0 0.15 -0.15 children
+
+Collision {
+  enabled FALSE
+  children Shape {
+    shading "PHONG" # needed for PLUG fragment_eye_space
+    appearance Appearance {
+      material DEF MA_Material Material {
+        diffuseColor 0.5 0.5 1
+        specularColor 1 1 1
+        shininess 0.0976563021540641
+        transparency 0.2
+      }
+
+# Thanks to our effects, you could even add here a normal texture.
+#      texture ImageTexture { url "../textures/test_texture.png" }
+
+      effects [
+        Effect {
+          language "GLSL"
+          parts [
+            EffectPart { type "VERTEX" url "shaders/water_normal.vs" }
+            EffectPart { type "FRAGMENT" url "shaders/water_normal.fs" }
+          ]
+        }
+
+        DEF NormalsFromTexture Effect {
+          language "GLSL"
+          enabled TRUE
+          initializeOnly SFNode normalMap
+            MovieTexture { url "../baked_normals_low_res_seamless/baked_normals_@counter(4).png" loop TRUE }
+          parts [
+            EffectPart { type "FRAGMENT" url "shaders/water_normalmap.fs" }
+          ]
+        }
+
+        DEF NormalsFromGPUNoise Effect {
+          language "GLSL"
+          enabled FALSE
+          initializeOnly SFNode white_noise ImageTexture3D {
+            url "../../textures/white_noise_3d.dds"
+            repeatS TRUE
+            repeatT TRUE
+            repeatR TRUE
+            textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+          }
+          inputOnly SFTime time
+          ROUTE Timer.time TO NormalsFromGPUNoise.time
+          parts [
+            EffectPart { type "FRAGMENT" url "../../compositing_shaders/noise.glsl" }
+            EffectPart { type "FRAGMENT" url "shaders/water_normalnoise.fs" }
+          ]
+        }
+
+        DEF ReflectRefractEffect Effect {
+          language "GLSL"
+          initializeOnly SFNode envMap
+            DEF GenTex1 GeneratedCubeMapTexture {
+              #update "ALWAYS"
+              update "NEXT_FRAME_ONLY"
+              size 512
+            }
+          inputOutput SFMatrix3f cameraRotationInverseMatrix
+            1 0 0
+            0 1 0
+            0 0 1
+          parts [
+            EffectPart { type "VERTEX" url "shaders/water_reflect_refract.vs" }
+            EffectPart { type "FRAGMENT" url "shaders/water_reflect_refract.fs" }
+          ]
+        }
+      ]
+    }
+    geometry PlaneTesselated { solid FALSE }
+  }
+}
+
+}
+
+ROUTE MyViewpoint.cameraRotationInverseMatrix TO ReflectRefractEffect.cameraRotationInverseMatrix
+
+# Key handling -----------------------------------------------------------------
+
+DEF KeyS KeySensor { }
+
+DEF Scr Script {
+  inputOnly SFString key_press
+  outputOnly SFString tex_update
+  inputOutput SFBool normals_from_texture TRUE
+  outputOnly SFBool normals_from_gpu_noise
+
+  url "castlescript:
+
+function key_press(value, timestamp)
+  when (value = ' ',
+    tex_update := 'NEXT_FRAME_ONLY'
+  );
+  when (value = 'n',
+    { Negate both normals_from_gpu_noise and normals_from_texture,
+      knowing they are already negations of each other. }
+    normals_from_gpu_noise := normals_from_texture;
+    normals_from_texture := not(normals_from_texture)
+  )
+"
+}
+
+ROUTE KeyS.keyPress TO Scr.key_press
+
+ROUTE Scr.tex_update TO GenTex1.update
+ROUTE Scr.normals_from_texture TO NormalsFromTexture.enabled
+ROUTE Scr.normals_from_gpu_noise TO NormalsFromGPUNoise.enabled
