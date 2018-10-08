@@ -2,22 +2,29 @@
 PROFILE Interchange
 
 # Plane with water.
-# Uses RenderedTexture, ViewpointMirror and MIRROR-PLANE texture mapping
-# for reflections.
-# Uses MovieTexture with a sequence of PNG for animated bump map.
+# - Uses RenderedTexture, ViewpointMirror and MIRROR-PLANE texture mapping
+#   for reflections.
+# - Uses MovieTexture with a sequence of PNG for animated bump map.
 #
 # To add a water to your game, you can use this file:
 #
-# - Make sure to copy it, alongside with
+# - Make sure to copy this file, alongside with
 #   ../baked_normals/ subdirectory.
 #   You can change the relative path by changing MovieTexture.url in this file.
 #
 # - Change the Inline.url (in this file) to include your game level.
 #
-# - Remember to place any "bindable" nodes
-#   (Viewpoint, NavigationInfo, Fog, Background) in this file.
-#   X3D requires bindable nodes to be present in the main file (not Inline)
-#   to be recognized as "default bindable value".
+# - Adjust the "bindable" nodes in this file
+#   (Viewpoint, NavigationInfo, Fog, Background)
+#   to match your game level.
+#   Note that X3D requires bindable nodes to be present in the main file
+#   (not Inline) to be recognized as "default bindable value".
+#
+# - Adjust water parameters:
+#   - Adjust WaterTransform translation/scale,
+#     to make the plane appear where it should.
+#   - Adjust some constants in shaders/animate_normals.fs:
+#     wave_speed, wave_size, wave_calmness
 
 # ----------------------------------------------------------------------------
 # Bindable nodes
@@ -61,7 +68,7 @@ Inline {
 
 Collision {
   enabled FALSE
-  children Transform {
+  children DEF WaterTransform Transform {
     translation -10 -0.1 -10 # move and scale it as you wish
     scale 20 20 20
 
@@ -79,6 +86,14 @@ Collision {
             repeatT FALSE
             update "ALWAYS"
           }
+
+          # TODO: These normals are not seamless, because forcing
+          # procedurally-generated textures in Blender to be seamless
+          # (when baked and repeated) requires some work:
+          # https://blender.stackexchange.com/questions/26692/how-do-i-create-repeating-patterns-with-cycles-procedural-textures
+          # (Pull requests to actually set it up in ../baked_normals/scene_for_baking.blend
+          # are welcome!)
+
           normalTexture MovieTexture {
             url "../baked_normals/baked_normals_@counter(4).png"
             loop TRUE
@@ -96,9 +111,11 @@ Collision {
             # generate texture coordinates
             # that match the texture produced by RenderedTexture and ViewpointMirror
             # (in diffuseTexture)
-            TextureCoordinateGenerator { mode "MIRROR-PLANE" }
+            TextureCoordinateGenerator {
+              mode "MIRROR-PLANE"
+            }
+            # This is useful to make waves smaller/larger.
             TextureCoordinate {
-              # change the 10 to make waves smaller/larger
               point [ 0 0, 0 10, 10 10, 10 0, ]
             }
           ]
