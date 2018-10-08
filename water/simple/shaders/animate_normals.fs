@@ -44,11 +44,13 @@ void PLUG_fragment_eye_space(const vec4 vertex_eye, inout vec3 normal_eye)
   normal_in_object_space = simple_3d_noise(noise_input);
   normal_in_object_space = normalize(normal_in_object_space);
 
-  // only positive Y makes sense for us
+  // only positive Y makes sense for us, bring Y in [0..1] range
   normal_in_object_space.y = (normal_in_object_space.y + 1.0) * 0.5;
 
   // to force calmer waves, just enlarge Y and normalize again
-  normal_in_object_space.y = abs(normal_in_object_space.y) * wave_calmness;
+  //normal_in_object_space.y = normal_in_object_space.y * wave_calmness;
+  normal_in_object_space.y = mix(wave_calmness * 0.5, wave_calmness, normal_in_object_space.y);
+
   normal_in_object_space = normalize(normal_in_object_space);
 
   // just to test, dummy generation instead of using simple_3d_noise
@@ -61,14 +63,4 @@ void PLUG_fragment_eye_space(const vec4 vertex_eye, inout vec3 normal_eye)
   */
 
   normal_eye = normalize(castle_NormalMatrix * normal_in_object_space);
-}
-
-void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
-{
-  /* vec3 normal_in_object_space; */
-  /* vec3 noise_input = vec3(water_vertex_object.x, time, water_vertex_object.z); */
-  /* snoise(noise_input, normal_in_object_space); */
-  /* fragment_color.rgb = normal_in_object_space; */
-
-//  fragment_color.rgb = vec3(frac(time));
 }
