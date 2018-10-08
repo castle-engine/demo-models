@@ -13,6 +13,7 @@ float snoise(vec3 v, out vec3 gradient);
 #define wave_speed 1.0
 #define wave_size 20.0
 #define wave_calmness 10.0
+#define wave_perturb_reflection 0.01
 
 vec3 simple_3d_noise(vec3 input)
 {
@@ -34,9 +35,10 @@ vec3 simple_3d_noise(vec3 input)
   return output1 + output2 + output3;
 }
 
+vec3 normal_in_object_space;
+
 void PLUG_fragment_eye_space(const vec4 vertex_eye, inout vec3 normal_eye)
 {
-  vec3 normal_in_object_space;
   vec3 noise_input = vec3(
     water_vertex_object.x * wave_size,
     time * wave_speed,
@@ -63,4 +65,17 @@ void PLUG_fragment_eye_space(const vec4 vertex_eye, inout vec3 normal_eye)
   */
 
   normal_eye = normalize(castle_NormalMatrix * normal_in_object_space);
+}
+
+void PLUG_texture_coord_shift(inout vec2 tex_coord)
+{
+  /* We perturb reflections simply by shifting a tiny bit tex_coord.xy,
+     which is used for sampling the RenderedTexture that contains the mirror.
+
+     This trick is *not* based in reality.
+     We should instead use normal_in_object_space to calculate
+     the correctly reflected color.
+     However, this is much easier, and looks convincing :)
+  */
+  tex_coord.xy += normal_in_object_space.xz * wave_perturb_reflection;
 }
