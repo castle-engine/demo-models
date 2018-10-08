@@ -20,11 +20,17 @@ PROFILE Interchange
 #   Note that X3D requires bindable nodes to be present in the main file
 #   (not Inline) to be recognized as "default bindable value".
 #
-# - Adjust water parameters:
-#   - Adjust WaterTransform translation/scale,
-#     to make the plane appear where it should.
-#   - Adjust some constants in shaders/animate_normals.fs:
-#     wave_speed, wave_size, wave_calmness
+# - You can adjust water parameters as you wish:
+#   - You can adjust WaterTransform translation/scale/rotation,
+#     to make the plane appear where you want it.
+#   - You can adjust TextureCoordinate at the end,
+#     to increase/decrease waves frequency.
+#
+# TODO: This version of the demo has some (fixable) shortcomings for now:
+#
+# - The baked normals texture is not seamless, and the seams are visible
+#   if you look hard enough.
+# - This doesn't perturb the reflection.
 
 # ----------------------------------------------------------------------------
 # Bindable nodes

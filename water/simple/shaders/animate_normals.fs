@@ -14,25 +14,33 @@ float snoise(vec3 v, out vec3 gradient);
 #define wave_size 20.0
 #define wave_calmness 10.0
 #define wave_perturb_reflection 0.01
+//#define wave_faster // uncomment this if you want
 
 vec3 simple_3d_noise(vec3 input)
 {
-  vec3 output1; snoise(input, output1);
+  vec3 result;
 
-  /* Add a couple of noise layers, to make it interesting.
-     To values that we use to multiply below are just increasing powers
+  vec3 output1;
+  snoise(input, output1);
+  result += output1;
+
+#ifndef wave_faster
+  /* Add more noise layers, to make it interesting.
+     The values that we use to multiply below are just increasing powers
      of two, but disturbed a little, so that their loops are not multiplies
-     of each other. */
+     of each other.
+  */
 
   vec3 output2;
   snoise(input * 2.1, output2);
-  output2 *= 1/2.5;
+  result += output2 / 2.5;
 
   vec3 output3;
   snoise(input * 3.8, output3);
-  output3 *= 1/4.6;
+  result += output3 / 4.6;
+#endif
 
-  return output1 + output2 + output3;
+  return result;
 }
 
 vec3 normal_in_object_space;
