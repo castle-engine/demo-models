@@ -16,12 +16,12 @@ float snoise(vec3 v, out vec3 gradient);
 #define wave_perturb_reflection 0.01
 //#define wave_faster // uncomment this if you want
 
-vec3 simple_3d_noise(vec3 input)
+vec3 simple_3d_noise(vec3 noise_input)
 {
   vec3 result;
 
   vec3 output1;
-  snoise(input, output1);
+  snoise(noise_input, output1);
   result += output1;
 
 #ifndef wave_faster
@@ -32,11 +32,11 @@ vec3 simple_3d_noise(vec3 input)
   */
 
   vec3 output2;
-  snoise(input * 2.1, output2);
+  snoise(noise_input * 2.1, output2);
   result += output2 / 2.5;
 
   vec3 output3;
-  snoise(input * 3.8, output3);
+  snoise(noise_input * 3.8, output3);
   result += output3 / 4.6;
 #endif
 
