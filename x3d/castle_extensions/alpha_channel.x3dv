@@ -6,15 +6,37 @@ Background {
   skyAngle [        1.5    , 2, ]
 }
 
-Shape {
-  appearance Appearance {
-    texture ImageTexture { url "../../textures/texture_alpha.png" }
-    material Material { }
+Transform {
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture { url "../../textures/texture_alpha.png" }
+      material Material { }
+    }
+    geometry DEF QS QuadSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
+      solid FALSE
+    }
+    shading "PHONG" # ensure using 2-sided lighting, which makes back faces correctly lit
   }
-  geometry DEF QS QuadSet {
-    coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-    texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
-    solid FALSE
+}
+
+Transform {
+  translation 1 0 0
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture {
+        url "../../textures/texture_alpha.png"
+        alphaChannel "BLENDING"
+      }
+      material Material { }
+    }
+    geometry DEF QS QuadSet {
+      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
+      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
+      solid FALSE
+    }
+    shading "PHONG"
   }
 }
 
@@ -22,14 +44,164 @@ Transform {
   translation 2 0 0
   children Shape {
     appearance Appearance {
-      texture ImageTexture { url "../../textures/texture_alpha_copy.png"
+      texture ImageTexture {
+        url "../../textures/texture_alpha_copy.png"
         # new Castle Game Engine 4.0.0 also works with
         # url "../../textures/texture_alpha_copy.png"
         # (previous engine had a problem with caching AlphaChannelType too much,
         # needed different url)
-        alphaChannel "TEST" }
+        alphaChannel "TEST"
+      }
       material Material { }
     }
     geometry USE QS
+    shading "PHONG"
+  }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture {
+        url "../../textures/texture_alpha_copy.png"
+        alphaChannel "NONE"
+      }
+      material Material { }
+    }
+    geometry USE QS
+    shading "PHONG"
+  }
+}
+
+Transform {
+  translation 0 1 0
+  children [
+    Transform {
+      children Shape {
+        appearance Appearance {
+          texture ImageTexture { url "../../textures/texture_alpha.png" }
+          material Material { }
+        }
+        geometry USE QS
+        shading "PHONG"
+      }
+    }
+
+    Transform {
+      translation 1 0 0
+      children Shape {
+        appearance Appearance {
+          texture ImageTexture { url "../../textures/texture_alpha_copy.png" }
+          material Material { }
+          alphaChannel "BLENDING"
+        }
+        geometry USE QS
+        shading "PHONG"
+      }
+    }
+
+    Transform {
+      translation 2 0 0
+      children Shape {
+        appearance Appearance {
+          texture ImageTexture { url "../../textures/texture_alpha_copy.png" }
+          material Material { }
+          alphaChannel "TEST"
+        }
+        geometry USE QS
+        shading "PHONG"
+      }
+    }
+
+    Transform {
+      translation 3 0 0
+      children Shape {
+        appearance Appearance {
+          texture ImageTexture { url "../../textures/texture_alpha_copy.png" }
+          material Material { }
+          alphaChannel "NONE"
+        }
+        geometry USE QS
+        shading "PHONG"
+      }
+    }
+  ]
+}
+
+# Display texts --------------------------------------------------------------
+
+Transform {
+  translation 0.5 2.2 0
+  children Shape {
+    geometry Text {
+      string [ "alphaChannel", "AUTO" ]
+      fontStyle DEF MyFontStyle FontStyle {
+        size 0.07
+        justify [ "MIDDLE", "MIDDLE" ]
+      }
+    }
+    appearance DEF TextAppearance Appearance {
+      material Material {
+        emissiveColor 0 0 0
+        diffuseColor 0 0 0
+        specularColor 0 0 0
+      }
+    }
+  }
+}
+
+Transform {
+  translation 1.5 2.2 0
+  children Shape {
+    geometry Text {
+      string [ "alphaChannel", "BLENDING" ]
+      fontStyle USE MyFontStyle
+    }
+    appearance USE TextAppearance
+  }
+}
+
+Transform {
+  translation 2.5 2.2 0
+  children Shape {
+    geometry Text {
+      string [ "alphaChannel", "TEST" ]
+      fontStyle USE MyFontStyle
+    }
+    appearance USE TextAppearance
+  }
+}
+
+Transform {
+  translation 3.5 2.2 0
+  children Shape {
+    geometry Text {
+      string [ "alphaChannel", "NONE" ]
+      fontStyle USE MyFontStyle
+    }
+    appearance USE TextAppearance
+  }
+}
+
+Transform {
+  translation -0.75 0.5 0
+  children Shape {
+    geometry Text {
+      string [ "alphaChannel specified at:", "ImageTexture" ]
+      fontStyle USE MyFontStyle
+    }
+    appearance USE TextAppearance
+  }
+}
+
+Transform {
+  translation -0.75 1.5 0
+  children Shape {
+    geometry Text {
+      string [ "alphaChannel specified at:", "Appearance" ]
+      fontStyle USE MyFontStyle
+    }
+    appearance USE TextAppearance
   }
 }
