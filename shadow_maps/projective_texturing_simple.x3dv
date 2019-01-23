@@ -1,0 +1,108 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# A simple example of projective texturing
+# ( https://castle-engine.io/x3d_extensions_shadow_maps.php#section_texture_projective )
+# on geometry.
+#
+# A light source, or a viewpoint can project texture coordinates.
+# In this example, we use a Viewpoint (shared across a couple of nodes using DEF / USE).
+#
+# Tip: use view3dscene menu item "Clipboard -> Print Current Camera"
+# to easily generate viewpoint nodes.
+#
+# Any geometry node that has "texCoord" field can receive the projected texture
+# (this includes primitives in case of Castle Game Engine, see
+# https://castle-engine.io/x3d_implementation_texturing_extensions.php#section_ext_tex_coord ).
+
+# Just a default viewpoint to view the scene.
+Viewpoint {
+  position 1.8200068473815918 -4.1393332481384277 6.3421926498413086
+  orientation 0.92456203699111938 -0.17879363894462585 -0.33647772669792175 0.71193265914916992
+}
+
+# ----------------------------------------------------------------------------
+# Simple projective texturing on IndexedFaceSet
+
+Shape {
+  appearance Appearance {
+    texture ImageTexture {
+      url "../textures/test_texture.png"
+    }
+  }
+  geometry IndexedFaceSet {
+    solid FALSE
+    coord Coordinate {
+      point [
+        0 0 0
+        2 0 0
+        2 2 0
+        0 2 0
+      ]
+    }
+    coordIndex [ 0 1 2 3 ]
+    texCoord ProjectedTextureCoordinate {
+      projector DEF MyProjector Viewpoint {
+        position 3.4446113109588623 0.13303852081298828 1.506553053855896
+        orientation -0.071722023189067841 -0.052780110388994217 -0.99602729082107544 0.99722754955291748
+      }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Simple projective texturing on Box
+
+Transform {
+  translation 3.5 0 0
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture {
+        url "../textures/test_texture.png"
+      }
+    }
+    geometry Box {
+      size 1.5 1.5 1.5
+      texCoord ProjectedTextureCoordinate {
+        projector USE MyProjector
+      }
+    }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Example how ProjectedTextureCoordinate cooperates with multi-texturing.
+
+Transform {
+  translation 6 0 0
+  children Shape {
+    appearance Appearance {
+      texture MultiTexture {
+        mode [ "MODULATE" "MODULATE" ]
+        texture [
+          ImageTexture {
+            url "../textures/brick_1.png"
+          }
+          ImageTexture {
+            url "../textures/test_texture.png"
+          }
+        ]
+      }
+    }
+    geometry Box {
+      size 1.5 1.5 1.5
+      texCoord MultiTextureCoordinate {
+        texCoord [
+          TextureCoordinateGenerator {
+            # Using BOUNDS generation mode is another Castle Game Engine extension,
+            # https://castle-engine.io/x3d_implementation_texturing_extensions.php#section_ext_tex_coord
+            mode "BOUNDS"
+          }
+          ProjectedTextureCoordinate {
+            projector USE MyProjector
+          }
+        ]
+      }
+    }
+  }
+}
