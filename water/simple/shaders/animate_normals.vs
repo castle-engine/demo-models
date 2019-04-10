@@ -1,4 +1,4 @@
-/* Use the PLUG_vertex_object_space to pass the vertex position in object
+/* Use the plug vertex_object_space to pass the vertex position in object
    space to the fragment shader.
 */
 
