@@ -3,19 +3,21 @@ PROFILE Interchange
 
 Shape {
   appearance Appearance { material Material { } }
-  geometry Text { string [
-    "All KeySensor events occuring"
-    "when Shift key is pressed"
-    "will be logged"
-    "(see stdout)"
-  ] }
+  geometry Text {
+    string [
+      "All KeySensor events occuring"
+      "when Shift key is pressed"
+      "will be logged"
+      "(see the log file)"
+    ]
+  }
 }
 
 DEF K KeySensor { }
 
 DEF L Logger {
   enabled FALSE # initial value
-  # logFile "/tmp/a.txt"
+  # logFile "my_log_output"
   level 3
 }
 
