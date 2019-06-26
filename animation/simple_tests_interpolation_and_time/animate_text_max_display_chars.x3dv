@@ -1,0 +1,29 @@
+#X3D V3.3 utf8
+PROFILE Immersive
+
+# Simple demo of maxDisplayChars.
+# Animate it to get an effect of text that gradually appears.
+
+Shape {
+  geometry DEF MyText Text {
+    string ["Lorem ipsum", "more lorem ipsum", "even more lorem ipsum."]
+    # maxDisplayChars 10
+  }
+}
+
+DEF MyTimeSensor TimeSensor {
+  loop TRUE
+  cycleInterval 4
+}
+
+DEF MyScript Script {
+  inputOnly SFFloat fraction
+  outputOnly SFInt32 maxDisplayChars
+  url "castlescript:
+function fraction(value, timestamp)
+  maxDisplayChars := round(value * 100)
+"
+}
+
+ROUTE MyTimeSensor.fraction_changed TO MyScript.fraction
+ROUTE MyScript.maxDisplayChars TO MyText.maxDisplayChars
