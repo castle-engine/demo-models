@@ -7,11 +7,19 @@ ImageBackground {
   texture ImageTexture {
     url "../textures/test_texture.png"
   }
+  # texCoords [
+  #   0.25 0.25,
+  #   0.75 0.25,
+  #   0.75 0.75,
+  #   0.25 0.75
+  # ]
+  # You can also use texCoords to repeat the texture.
+  # Note that it honors the ImageTexture.repeatS/T, by default they are true.
   texCoords [
-    0.25 0.25,
-    0.75 0.25,
-    0.75 0.75,
-    0.25 0.75
+    0 0,
+    10 0,
+    10 10,
+    0 10
   ]
   color 0 0 1 0.5
 }
