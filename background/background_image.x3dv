@@ -1,0 +1,19 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test ImageBackground
+
+ImageBackground {
+  texture ImageTexture {
+    url "../textures/test_texture.png"
+  }
+}
+
+Shape {
+  appearance Appearance {
+    material Material {
+    }
+  }
+  geometry Box {
+  }
+}
