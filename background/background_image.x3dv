@@ -6,6 +6,9 @@ PROFILE Interchange
 ImageBackground {
   texture ImageTexture {
     url "../textures/test_texture.png"
+    # textureProperties TextureProperties {
+    #   magnificationFilter "NEAREST_PIXEL"
+    # }
   }
 }
 
