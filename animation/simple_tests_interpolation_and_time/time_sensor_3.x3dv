@@ -54,7 +54,7 @@ Transform {
       children [Shape {
          appearance Appearance {
             texture ImageTexture {
-                  url ["../textures/test_texture.png"]
+                  url ["../../textures/test_texture.png"]
                     }#ImageTexture
                     }#Appearance
 

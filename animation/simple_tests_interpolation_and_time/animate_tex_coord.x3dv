@@ -3,7 +3,7 @@ PROFILE Interchange
 
 Shape {
   appearance Appearance {
-    texture ImageTexture { url "../textures/test_texture.png" }
+    texture ImageTexture { url "../../textures/test_texture.png" }
     textureTransform TextureTransform { scale 2 2 }
     material Material { }
   }
