@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+  By Elmar Knittel from
+  https://github.com/castle-engine/view3dscene/issues/19
+-->
+
+<X3D profile="Full" version="3.3">
+  <Scene>
+
+    <Viewpoint/>
+
+    <ImageBackground DEF="IB" color="1 0 1 0.5" texCoords="0 0 1 0 1 1 0 1">
+      <PixelTexture DEF="PT" image="2 2 2 0xFFFF 0xFF80 0xFF80 0xFFFF ">
+        <TextureProperties magnificationFilter="NEAREST_PIXEL"/>
+      </PixelTexture>
+    </ImageBackground>
+
+    <Shape DEF='QUAD'>
+      <Appearance><Material/><PixelTexture USE="PT"/></Appearance>
+      <IndexedQuadSet index="0 1 2 3" solid="true">
+        <Coordinate point="-2 -2 2, 2 -2 2, 2 2 2, -2 2 2"/>
+        <TextureCoordinate DEF="TC" point="0 0 1 0 1 1 0 1"/>
+      </IndexedQuadSet>
+    </Shape>
+    <Transform rotation='1 0 0  1.5707963268'><Shape USE='QUAD'/></Transform>
+    <Transform rotation='1 0 0 -1.5707963268'><Shape USE='QUAD'/></Transform>
+    <Transform rotation='0 1 0  1.5707963268'><Shape USE='QUAD'/></Transform>
+    <Transform rotation='0 1 0 -1.5707963268'><Shape USE='QUAD'/></Transform>
+    <Transform rotation='0 1 0  3.1415926536'><Shape USE='QUAD'/></Transform>
+
+    <TimeSensor DEF="TS" loop="true" cycleInterval="10"/>
+    <!--
+
+      ' VBScript: compute texture coordinates for smooth quad rotation
+
+      option explicit
+
+      const S = .70710678118654752440084436210485 ' sqr(.5)
+      const T = .01745329251994329576923690768489 ' pi/180 = degree to rad
+
+      dim A,N,K,VALUE,KEY
+
+      for  N =    0 to 360 step 10
+       for K = -135 to 135 step 90
+        A = ( N + K ) * T
+        VALUE = VALUE & round( cos( A ) * S + .5, 5 ) & " "
+        VALUE = VALUE & round( sin( A ) * S + .5, 5 ) & " "
+       next
+       VALUE = VALUE & chr(10)
+      next
+
+      wscript.echo( VALUE ) ' print keyValue
+
+      for N = 0 to 36 step 1
+       KEY = KEY & round( N / 36, 5 ) & " "
+      next
+
+      wscript.echo( KEY ) ' print key
+
+    -->
+    <CoordinateInterpolator2D DEF="CI"
+      key="
+        0
+        0.02778 0.05556 0.08333 0.11111 0.13889 0.16667 0.19444 0.22222 0.25
+        0.27778 0.30556 0.33333 0.36111 0.38889 0.41667 0.44444 0.47222 0.5
+        0.52778 0.55556 0.58333 0.61111 0.63889 0.66667 0.69444 0.72222 0.75
+        0.77778 0.80556 0.83333 0.86111 0.88889 0.91667 0.94444 0.97222 1
+      "
+      keyValue="
+        0 0 1 0 1 1 0 1
+        0.09442 -0.07923 1.07923 0.09442 0.90558 1.07923 -0.07923 0.90558
+        0.20116 -0.14086 1.14086 0.20116 0.79884 1.14086 -0.14086 0.79884
+        0.31699 -0.18301 1.18301 0.31699 0.68301 1.18301 -0.18301 0.68301
+        0.43837 -0.20442 1.20442 0.43837 0.56163 1.20442 -0.20442 0.56163
+        0.56163 -0.20442 1.20442 0.56163 0.43837 1.20442 -0.20442 0.43837
+        0.68301 -0.18301 1.18301 0.68301 0.31699 1.18301 -0.18301 0.31699
+        0.79884 -0.14086 1.14086 0.79884 0.20116 1.14086 -0.14086 0.20116
+        0.90558 -0.07923 1.07923 0.90558 0.09442 1.07923 -0.07923 0.09442
+        1 0 1 1 0 1 0 0
+        1.07923 0.09442 0.90558 1.07923 -0.07923 0.90558 0.09442 -0.07923
+        1.14086 0.20116 0.79884 1.14086 -0.14086 0.79884 0.20116 -0.14086
+        1.18301 0.31699 0.68301 1.18301 -0.18301 0.68301 0.31699 -0.18301
+        1.20442 0.43837 0.56163 1.20442 -0.20442 0.56163 0.43837 -0.20442
+        1.20442 0.56163 0.43837 1.20442 -0.20442 0.43837 0.56163 -0.20442
+        1.18301 0.68301 0.31699 1.18301 -0.18301 0.31699 0.68301 -0.18301
+        1.14086 0.79884 0.20116 1.14086 -0.14086 0.20116 0.79884 -0.14086
+        1.07923 0.90558 0.09442 1.07923 -0.07923 0.09442 0.90558 -0.07923
+        1 1 0 1 0 0 1 0
+        0.90558 1.07923 -0.07923 0.90558 0.09442 -0.07923 1.07923 0.09442
+        0.79884 1.14086 -0.14086 0.79884 0.20116 -0.14086 1.14086 0.20116
+        0.68301 1.18301 -0.18301 0.68301 0.31699 -0.18301 1.18301 0.31699
+        0.56163 1.20442 -0.20442 0.56163 0.43837 -0.20442 1.20442 0.43837
+        0.43837 1.20442 -0.20442 0.43837 0.56163 -0.20442 1.20442 0.56163
+        0.31699 1.18301 -0.18301 0.31699 0.68301 -0.18301 1.18301 0.68301
+        0.20116 1.14086 -0.14086 0.20116 0.79884 -0.14086 1.14086 0.79884
+        0.09442 1.07923 -0.07923 0.09442 0.90558 -0.07923 1.07923 0.90558
+        0 1 0 0 1 0 1 1
+        -0.07923 0.90558 0.09442 -0.07923 1.07923 0.09442 0.90558 1.07923
+        -0.14086 0.79884 0.20116 -0.14086 1.14086 0.20116 0.79884 1.14086
+        -0.18301 0.68301 0.31699 -0.18301 1.18301 0.31699 0.68301 1.18301
+        -0.20442 0.56163 0.43837 -0.20442 1.20442 0.43837 0.56163 1.20442
+        -0.20442 0.43837 0.56163 -0.20442 1.20442 0.56163 0.43837 1.20442
+        -0.18301 0.31699 0.68301 -0.18301 1.18301 0.68301 0.31699 1.18301
+        -0.14086 0.20116 0.79884 -0.14086 1.14086 0.79884 0.20116 1.14086
+        -0.07923 0.09442 0.90558 -0.07923 1.07923 0.90558 0.09442 1.07923
+        0 0 1 0 1 1 0 1
+      "
+    />
+
+    <ROUTE fromNode="TS" fromField="fraction_changed"
+             toNode="CI"   toField="set_fraction"/>
+    <ROUTE fromNode="CI" fromField="value_changed"
+             toNode="IB"   toField="set_texCoords"/>
+    <ROUTE fromNode="CI" fromField="value_changed"
+             toNode="TC"   toField="set_point"/>
+
+    <KeySensor DEF="KS"/>
+    <BooleanFilter DEF="BF"/>
+
+    <ROUTE fromNode="KS" fromField="controlKey"
+             toNode="BF"   toField="set_boolean"/>
+    <ROUTE fromNode="BF" fromField="inputNegate"
+             toNode="TS"   toField="set_enabled"/>
+  </Scene>
+</X3D>
