@@ -13,10 +13,10 @@ ImageBackground {
       # the background color will be visible if PNG images are partially-transparent.
       # Set the background e.g. in view3dscene using
       # "Preferences -> Default Background Color".
-      "../movie_texture/flame/seamless/@counter(4).png"
+      "../../movie_texture/flame/seamless/@counter(4).png"
 
       # You can also just load a movie from AVI. Note that this doesn't support alpha channel.
-      "../movie_texture/flame/flame_seamless_compressed.avi"
+      "../../movie_texture/flame/flame_seamless_compressed.avi"
     ]
     loop TRUE
   }
