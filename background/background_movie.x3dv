@@ -1,0 +1,32 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test ImageBackground with MovieTexture
+
+ImageBackground {
+  texture MovieTexture {
+    url [
+      # Load movie from image sequence. This is a CGE extension, see
+      # https://castle-engine.io/x3d_implementation_texturing_extensions.php#section_ext_movie_from_image_sequence
+      #
+      # It allows the movie to utilize alpha channel. That is, underneath the movie,
+      # the background color will be visible if PNG images are partially-transparent.
+      # Set the background e.g. in view3dscene using
+      # "Preferences -> Default Background Color".
+      "../movie_texture/flame/seamless/@counter(4).png"
+
+      # You can also just load a movie from AVI. Note that this doesn't support alpha channel.
+      "../movie_texture/flame/flame_seamless_compressed.avi"
+    ]
+    loop TRUE
+  }
+}
+
+Shape {
+  appearance Appearance {
+    material Material {
+    }
+  }
+  geometry Box {
+  }
+}

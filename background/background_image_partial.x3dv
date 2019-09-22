@@ -6,6 +6,9 @@ PROFILE Interchange
 ImageBackground {
   texture ImageTexture {
     url "../textures/test_texture.png"
+    # repeatXxx are supported as well.
+    # repeatS FALSE
+    # repeatT FALSE
   }
   # texCoords [
   #   0.25 0.25,
