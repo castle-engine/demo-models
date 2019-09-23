@@ -1,35 +1,45 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  By Elmar Knittel from
-  https://github.com/castle-engine/view3dscene/issues/19
--->
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN"
+ "http://www.web3d.org/specifications/x3d-3.3.dtd">
 
 <X3D profile="Full" version="3.3">
+  <Engine>
+    <RenderJob>
+      <WindowGroup>
+	<Window size='512 512' sample='8' sampleFilterMode='nicest'/>
+      </WindowGroup>
+    </RenderJob>
+  </Engine>
   <Scene>
-
+    <WorldInfo title="Press CTRL to stop animation">
+      <MetadataString containerField="metadata" name="AUTHOR" value='
+        "background_image_animated.x3d (C) Elmar Knittel 07-Sept-2019"
+        "from: https://github.com/castle-engine/view3dscene/issues/19"
+      '></MetadataString>
+    </WorldInfo>
     <Viewpoint/>
-
-    <ImageBackground DEF="IB" color="1 0 1 0.5" texCoords="0 0 1 0 1 1 0 1">
-      <PixelTexture DEF="PT" image="2 2 2 0xFFFF 0xFF80 0xFF80 0xFFFF ">
+    <ImageBackground DEF="IB" color="1 0 1 .5" texCoords="0 0 1 0 1 1 0 1">
+      <PixelTexture  DEF="PT" image="2 2 2 0xFFFF 0xFF80 0xFF80 0xFFFF">
         <TextureProperties magnificationFilter="NEAREST_PIXEL"/>
       </PixelTexture>
     </ImageBackground>
-
-    <Shape DEF='QUAD'>
-      <Appearance><Material/><PixelTexture USE="PT"/></Appearance>
-      <IndexedQuadSet index="0 1 2 3" solid="true">
-        <Coordinate point="-2 -2 2, 2 -2 2, 2 2 2, -2 2 2"/>
-        <TextureCoordinate DEF="TC" point="0 0 1 0 1 1 0 1"/>
-      </IndexedQuadSet>
-    </Shape>
-    <Transform rotation='1 0 0  1.5707963268'><Shape USE='QUAD'/></Transform>
-    <Transform rotation='1 0 0 -1.5707963268'><Shape USE='QUAD'/></Transform>
-    <Transform rotation='0 1 0  1.5707963268'><Shape USE='QUAD'/></Transform>
-    <Transform rotation='0 1 0 -1.5707963268'><Shape USE='QUAD'/></Transform>
-    <Transform rotation='0 1 0  3.1415926536'><Shape USE='QUAD'/></Transform>
-
-    <TimeSensor DEF="TS" loop="true" cycleInterval="10"/>
+    <Transform DEF="TF">
+      <Transform rotation="0 0 1 .5">
+        <Shape DEF='QUAD'>
+          <Appearance><Material/><PixelTexture USE="PT"/></Appearance>
+          <IndexedQuadSet index="0 1 2 3" solid="true">
+            <Coordinate point="-2 -2 2, 2 -2 2, 2 2 2, -2 2 2"/>
+            <TextureCoordinate DEF="TC" point="0 0 1 0 1 1 0 1"/>
+          </IndexedQuadSet>
+        </Shape>
+        <Transform rotation='1 0 0  1.57079633'><Shape USE='QUAD'/></Transform>
+        <Transform rotation='1 0 0 -1.57079633'><Shape USE='QUAD'/></Transform>
+        <Transform rotation='0 1 0  1.57079633'><Shape USE='QUAD'/></Transform>
+        <Transform rotation='0 1 0 -1.57079633'><Shape USE='QUAD'/></Transform>
+        <Transform rotation='0 1 0  3.14159265'><Shape USE='QUAD'/></Transform>
+      </Transform>
+    </Transform>
     <!--
 
       ' VBScript: compute texture coordinates for smooth quad rotation
@@ -107,6 +117,15 @@
         0 0 1 0 1 1 0 1
       "
     />
+    <OrientationInterpolator DEF="OI" key="0 .333 .666 1"
+      keyValue="0 1 0 0, 0 1 0 2.094, 0 1 0 4.189, 0 1 0 0"
+    />
+    <TimeSensor DEF="TS" loop="true" cycleInterval="4"/>
+
+    <ROUTE fromNode="TS" fromField="fraction_changed"
+             toNode="OI"   toField="set_fraction"/>
+    <ROUTE fromNode="OI" fromField="value_changed"
+             toNode="TF"   toField="set_rotation"/>
 
     <ROUTE fromNode="TS" fromField="fraction_changed"
              toNode="CI"   toField="set_fraction"/>
@@ -115,8 +134,7 @@
     <ROUTE fromNode="CI" fromField="value_changed"
              toNode="TC"   toField="set_point"/>
 
-    <KeySensor DEF="KS"/>
-    <BooleanFilter DEF="BF"/>
+    <KeySensor DEF="KS"/> <BooleanFilter DEF="BF"/>
 
     <ROUTE fromNode="KS" fromField="controlKey"
              toNode="BF"   toField="set_boolean"/>
