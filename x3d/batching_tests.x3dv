@@ -1,0 +1,62 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+Transform {
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 1 } }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 4 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 1 1 }
+      texture DEF Tex ImageTexture { url "../textures/bricks2.jpg" }
+    }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 8 0 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 1 } }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 12 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 1 1 }
+      texture USE Tex
+    }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation 16 0 0
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 1 1 1 }
+    }
+    geometry Sphere { }
+    # Different shading should prevent batching
+    shading "PHONG"
+  }
+}
+
+Transform {
+  translation 20 0 0
+  children Shape {
+    appearance Appearance {
+      # Different color should prevent batching
+      material Material { diffuseColor 1 0 0 }
+    }
+    geometry Sphere { }
+  }
+}
