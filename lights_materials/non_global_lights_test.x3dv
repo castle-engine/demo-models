@@ -1,0 +1,43 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+NavigationInfo {
+  headlight FALSE
+}
+
+Transform {
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry Box {
+      }
+    }
+    PointLight {
+      location 0 2 2
+      global FALSE
+      color 1 0 0
+    }
+  ]
+}
+
+Transform {
+  translation 3  0 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+      }
+      geometry Box {
+      }
+    }
+    PointLight {
+      location 0 2 2
+      global FALSE
+      color 0 0 1
+    }
+  ]
+}
