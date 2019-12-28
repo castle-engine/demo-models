@@ -4,7 +4,7 @@ PROFILE Interchange
 # This is to test Viewpoint.set_bind features for X3D.
 
 NavigationInfo {
-  type "WALK"
+  type "FLY"
   avatarSize [ 0.5 2 0.5 ]
   speed 20
 }
