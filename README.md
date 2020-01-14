@@ -1,6 +1,6 @@
-# Demo VRML / X3D models of Castle Game Engine
+# Demo models of Castle Game Engine
 
-A collection of test and demo 3D models (and textures and other media). Useful with Castle Game Engine tools (for example view3dscene, https://castle-engine.io/view3dscene.php ), Many of them follow standard file formats (like VRML / X3D) and as such can be also viewed / edited using other tools.
+This is a collection of demo models (along with textures and some other media). Created to test [Castle Game Engine](https://castle-engine.io/) and CGE tools like [view3dscene](https://castle-engine.io/view3dscene.php).
 
 Complete documentation on https://castle-engine.io/demo_models.php .
 
