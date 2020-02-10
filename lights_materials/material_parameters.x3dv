@@ -30,7 +30,7 @@ DEF MyOrientationInterpolator OrientationInterpolator {
 }
 
 Transform {
-  translation 5 7.5 0
+  translation 3 0 0
   children DEF LightTransform Transform {
     children Transform {
       translation 5 0 2
