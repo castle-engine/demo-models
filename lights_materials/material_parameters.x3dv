@@ -30,7 +30,7 @@ DEF MyOrientationInterpolator OrientationInterpolator {
 }
 
 Transform {
-  translation 3 0 0
+  translation 2 0 0
   children DEF LightTransform Transform {
     children Transform {
       translation 5 0 2
@@ -44,6 +44,29 @@ Transform {
 
 ROUTE MyTimeSensor.fraction_changed TO MyOrientationInterpolator.set_fraction
 ROUTE MyOrientationInterpolator.value_changed TO LightTransform.rotation
+
+# material=NULL (unlit always white) --------------------------------------------------------------
+
+Transform {
+  translation -2 0 0
+  children Shape {
+    appearance Appearance {
+    }
+    geometry Sphere { }
+  }
+}
+
+Transform {
+  translation -2 -2 0
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture {
+        url "../textures/test_texture.png"
+      }
+    }
+    geometry Sphere { }
+  }
+}
 
 # only emissive --------------------------------------------------------------
 
