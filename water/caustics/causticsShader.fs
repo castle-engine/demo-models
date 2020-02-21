@@ -16,7 +16,7 @@ varying vec4 tex_coord0;
 varying vec4 tex_coord1;
 varying vec4 tex_coord2;
 
-void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
   float shadow = shadow2DProj(shadowMap, tex_coord2).x;
   if (onProjShadowMap) {

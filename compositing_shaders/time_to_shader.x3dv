@@ -45,7 +45,7 @@ Shape {
               uniform float alpha2;
               varying float height;
 
-              void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+              void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
               {
                 float h = fract(height);
 

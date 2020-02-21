@@ -23,7 +23,7 @@ varying vec2 water_tex3d_coord_frag;
 
 #define HEIGHT (center.y - 1.17)
 
-void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
   vec3 Inc = normalize(water_coord - eye);
   vec3 Normal = texture3D(wavesMap, vec3(water_tex3d_coord_frag, frame)).xzy;
@@ -67,7 +67,7 @@ void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
   // coordinates of the previous point in mirrored camera - space
   vec4 texcoord_4 = reflectViewMatrix * vec4(Q, 1.0);
   // adjusts (s,t) to 0 - 1 interval
-  texcoord_4.st = (1 - texcoord_4.st / texcoord_4.p) * 0.5;
+  texcoord_4.st = (vec2(1.0) - texcoord_4.st / texcoord_4.p) * 0.5;
   texcoord_4.p *= -1.0;
   vec4 reflectedColor = texture2DProj(reflectMap, texcoord_4);
   float FresnelTerm = 0.985 - dot(-Inc, Normal);

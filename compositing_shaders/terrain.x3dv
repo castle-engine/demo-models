@@ -37,7 +37,7 @@ uniform float texture_mix;
 
 varying vec3 position;
 
-void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
   vec4 tex;
   if (position.y <= z0)

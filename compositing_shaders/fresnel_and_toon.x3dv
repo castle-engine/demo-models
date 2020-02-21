@@ -16,7 +16,7 @@ Shape {
       parts EffectPart {
         type "FRAGMENT" url "data:text/plain,
 
-          void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
+          void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
           {
             fragment_color.a = 1.0 - pow(normal_eye.z, 2.0);
           }"
@@ -57,12 +57,11 @@ Transform { translation 0 2 0
                  so will be ignored, although starts with the PLUG_ prefix:
                  PLUG_xxx, PLUG_yyy blah, aPLUG_zzz(). */
 
-              void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+              void PLUG_lighting_apply(inout vec4 fragment_color, const in vec4 position, const in vec3 normal)
               {
                 fragment_color.r *= intensity_toon(fragment_color.r);
                 fragment_color.g *= intensity_toon(fragment_color.g);
                 fragment_color.b *= intensity_toon(fragment_color.b);
-                fragment_color.a = intensity_toon(fragment_color.a);
               }
               " }
         ]

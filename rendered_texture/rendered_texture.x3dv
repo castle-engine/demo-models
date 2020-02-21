@@ -103,7 +103,7 @@ TestingBox {
       parts [
         EffectPart { type "FRAGMENT" url
 "data:text/plain,
-void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
   // add some ambient
   gl_FragColor.rgb += vec3(0.1, 0.1, 0.1);

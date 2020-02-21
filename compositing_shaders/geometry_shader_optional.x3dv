@@ -61,7 +61,7 @@ Shape {
           #endif
           in float vertex_x;
 
-          void PLUG_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
+          void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
           {
             /* use fragment_color.rgb with increased contrast *and* brightness */
             vec3 color = pow(fragment_color.rgb, vec3(4.0)) * 4.0;
