@@ -1,0 +1,6 @@
+brick_normal
+  from https://opengameart.org/node/45589
+  by beaterator (Submitted by stereoscopic)
+  License(s): CC0
+
+Rest of test here by Michalis Kamburelis
