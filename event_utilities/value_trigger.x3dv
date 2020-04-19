@@ -1,0 +1,29 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Demo of ValueTrigger
+# (extension defined by InstantReality http://doc.instantreality.org/documentation/nodetype/ValueTrigger/
+# implemented also in Castle Game Engine)
+
+DEF MyAnimation TimeSensor {
+}
+
+DEF MyValueTrigger ValueTrigger {
+  inputOutput SFColor color 1 1 0
+}
+
+DEF MyLogger Logger {
+  enabled TRUE
+  level 3
+}
+
+DEF MyShape Shape {
+  geometry Teapot { }
+  appearance Appearance {
+    material DEF MyMaterial Material { }
+  }
+}
+
+ROUTE MyAnimation.isActive TO MyValueTrigger.trigger
+ROUTE MyValueTrigger.color TO MyLogger.write
+ROUTE MyValueTrigger.color TO MyMaterial.diffuseColor
