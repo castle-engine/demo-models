@@ -1,0 +1,46 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Implement some tone-mapping-like operations using
+# Castle Game Engine compositing shaders extensions (Effect node)
+# documented on https://castle-engine.io/compositing_shaders.php .
+# In particular use PLUG_fog_apply (see https://castle-engine.io/compositing_shaders_doc/html/section.fragment_plugs.html )
+# to modify colors just before the monitor gamma is applied, and after everything else.
+#
+# Click Shift to toggle effect on/off.
+
+# Some demo geometry ---------------------------------------------------------
+
+Transform {
+  rotation 1 0 0 -1.57
+  children Inline { url "../vrml_2/castle_with_lights_and_camera.wrl" }
+}
+Transform {
+  scale 4 4 4
+  translation 25 25 0
+  children Inline { url "../blender/simple/monkeys.glb" }
+}
+
+# Effect that processes colors -----------------------------------------------
+
+DEF ColorEffect Effect {
+  language "GLSL"
+  parts EffectPart {
+    type "FRAGMENT"
+    url "data:text/plain,
+      void PLUG_fog_apply(
+        inout vec4 fragment_color,
+        const vec3 normal_eye_fragment)
+      {
+        fragment_color.rgb = pow(fragment_color.rgb * 3.0 / 2.0, vec3(3.0));
+      }"
+  }
+}
+
+# Toggle effect "enabled" with shift key -------------------------------------
+
+DEF K KeySensor { }
+DEF EnableToggle BooleanToggle { toggle TRUE }
+
+ROUTE K.shiftKey TO EnableToggle.set_boolean
+ROUTE EnableToggle.toggle TO ColorEffect.enabled

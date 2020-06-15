@@ -1,23 +1,7 @@
 #VRML V2.0 utf8
 
 # Simple test of Viewpoint node.
-# I also add here WorldInfo with a title --- it should be used
-# by VRML browsers.
-
-# Just for test, add an effect.
-Effect {
-  language "GLSL"
-  parts EffectPart {
-    type "FRAGMENT"
-    url "data:text/plain,
-    void PLUG_main_texture_apply(
-       inout vec4 fragment_color,
-       const in vec3 normal)
-    {
-       fragment_color.rgb = pow(fragment_color.rgb * 3.0 / 2.0, vec3(3.0));
-    }"
-  }
-}
+# I also add here WorldInfo with a title --- it should be used by VRML/X3D browsers.
 
 Group{
   children [
