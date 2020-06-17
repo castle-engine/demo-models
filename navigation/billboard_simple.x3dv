@@ -1,0 +1,22 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Simplest example of using X3D Billboard node.
+# See Billboard description in
+# - CGE docs:
+#   https://castle-engine.io/x3d_implementation_navigation.php
+# - X3D specification
+#   https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/navigation.html#Billboard
+
+Billboard {
+  axisOfRotation 0 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        # default material, just to be lit
+        material Material { }
+      }
+      geometry Box { }
+    }
+  ]
+}
