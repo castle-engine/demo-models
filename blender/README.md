@@ -1,4 +1,4 @@
-# Blender demos with Castle Game Engine and X3D
+# Blender demos with Castle Game Engine and glTF and X3D
 
 Test of some export features from [Blender](https://www.blender.org/).
 
