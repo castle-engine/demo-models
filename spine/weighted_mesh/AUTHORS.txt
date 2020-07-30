@@ -1,0 +1,2 @@
+These Spine models were illustrated, rigged and animated by Kagamma
+as testcase for CGE Spine weighted mesh implementation.
