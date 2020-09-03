@@ -25,37 +25,60 @@ NavigationInfo {
 
 Inline { url "../vrml_2/castle_with_lights.wrl" }
 
-DEF SE1 ScreenEffect { shaders ComposedShader {
-  language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-void main (void)
-{
-  gl_FragColor = screen_get_color(screen_position());
-  gl_FragColor.b = 0.0;
+DEF SE1 ScreenEffect {
+  # enabled FALSE
+  shaders ComposedShader {
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+      void main (void)
+      {
+        gl_FragColor = screenf_get_original_color();
+        gl_FragColor.b = 0.0;
+      }
+      "
+    }
+  }
 }
-" } } }
 
-DEF SE2 ScreenEffect { shaders ComposedShader {
-  language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-void main (void)
-{
-  gl_FragColor = screen_get_color(screen_position());
-  // no sensible way to make modulo in GLSL on ints, for both OpenGLES and desktop OpenGL
-  if (int(mod(float(screen_x()), 40.0)) == 35)
-    gl_FragColor.g = 2.0 / 10.0;
+DEF SE2 ScreenEffect {
+  # enabled FALSE
+  shaders ComposedShader {
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+      void main (void)
+      {
+        gl_FragColor = screenf_get_original_color();
+        // no sensible way to make modulo in GLSL on ints, for both OpenGLES and desktop OpenGL
+        if (int(mod(screenf_x(), 40.0)) == 35) {
+          gl_FragColor.g = 2.0 / 10.0;
+        }
+      }
+      "
+    }
+  }
 }
-" } } }
 
-DEF SE3 ScreenEffect { shaders ComposedShader {
-  language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-void main (void)
-{
-  gl_FragColor = screen_get_color(screen_position() +
-    ivec2(int(sin(float(screen_y()) / 10.0) * 10.0), 0));
+DEF SE3 ScreenEffect {
+  # enabled FALSE
+  shaders ComposedShader {
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+      void main (void)
+      {
+        vec2 pos = screenf_position();
+        pos.x += sin(screenf_y() / 10.0) * 10.0;
+        gl_FragColor = screenf_get_color(pos);
+      }
+      "
+    }
+  }
 }
-" } } }
 
 DEF K KeySensor { }
 
@@ -71,25 +94,40 @@ DEF BFShift BooleanFilter { }
 ROUTE K.shiftKey TO BFShift.set_boolean
 ROUTE BFShift.inputNegate TO SE3.enabled
 
-# some disabled screen effect tests --------------------------------------------
+# some more screen effects (disabled by default) --------------------------------------------
 
-ScreenEffect { enabled FALSE shaders ComposedShader {
-  language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-void main (void)
-{
-  gl_FragColor = screen_get_color(screen_position()) / 2.0;
+ScreenEffect {
+  enabled FALSE
+  shaders ComposedShader {
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+      void main (void)
+      {
+        gl_FragColor = screenf_get_original_color() / 2.0;
+      }
+      "
+    }
+  }
 }
-" } } }
 
-ScreenEffect { enabled FALSE shaders ComposedShader {
-  language "GLSL"
-  parts ShaderPart { type "FRAGMENT" url "data:text/plain,
-void main (void)
-{
-  gl_FragColor = screen_get_color(
-    ivec2(screen_x(), screen_height - screen_y()));
+ScreenEffect {
+  enabled FALSE
+  shaders ComposedShader {
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+      void main (void)
+      {
+        vec2 pos = screenf_position();
+        pos.y = float(screen_height) - pos.y;
+        gl_FragColor = screenf_get_color(pos);
+      }
+      "
+    }
+  }
 }
-" } } }
 
 ScreenEffect { } # just to test that it does nothing
