@@ -1,0 +1,81 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# Test of Material.emissiveColor .
+# Note that some edge-cases are different in Gouraud and Phong shading
+# (making it better was one reason for adding UnlitMaterial in X3Dv4,
+# https://github.com/michaliskambi/x3d-tests/wiki/Why-is-UnlitMaterial-useful ).
+
+# ----------------------------------------------------------------------------
+# Lit white sphere with yellow emissive.
+# Looks equal in both Gouraud and Phong shading.
+Transform {
+  translation 0 0 0
+  children Shape {
+    appearance Appearance {
+      material Material {
+        emissiveColor 1 1 0
+      }
+    }
+    geometry Sphere { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Lit white sphere with yellow emissive and a texture.
+# In Gouraud shading, this is (necessarily) "(emissive+diffuse)*texture".
+# In Phong shading, this is (correct) "emissive+(diffuse*texture)".
+# So in Phong shading, the "yellow emissive" is more evident.
+Transform {
+  translation 0 2 0
+  children Shape {
+    appearance Appearance {
+      material Material {
+        emissiveColor 1 1 0
+      }
+      texture ImageTexture {
+        url "../textures/test_texture.png"
+      }
+    }
+    geometry Sphere { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Unlit white sphere with yellow emissive.
+# Looks equal in both Gouraud and Phong shading.
+Transform {
+  translation 2 0 0
+  children Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 0 0 0
+        specularColor 0 0 0
+        emissiveColor 1 1 0
+      }
+    }
+    geometry Sphere { }
+  }
+}
+
+# ----------------------------------------------------------------------------
+# Unlit white sphere with yellow emissive and a texture.
+# In Gouraud shading, this is (necessarily) "(emissive+diffuse)*texture = yellow*texture".
+# In Phong shading, this is (correct) "emissive+(diffuse*texture) = yellow + zero*texture = yellow".
+# So in Phong shading, the texture disappears (as it should -- texture only affects diffuse).
+Transform {
+  translation 2 2 0
+  children Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 0 0 0
+        specularColor 0 0 0
+        emissiveColor 1 1 0
+      }
+      texture ImageTexture {
+        url "../textures/test_texture.png"
+      }
+    }
+    geometry Sphere { }
+  }
+}
