@@ -2,6 +2,12 @@
 PROFILE Interchange
 
 # Screen effect making grayscale.
+#
+# Note that in actual game using Castle Game Engine, you don't need to place both screen effect
+# and actual geometry (Box in this case) in the same X3D file.
+# In the game, you would usually create one X3D file only with ScreenEffect node,
+# and call AddScreenEffect to make it happen (on TCastleViewport or TCastleScreeneEffect).
+# See CGE examples/screen_effects_demo.
 
 ScreenEffect {
   shaders ComposedShader {
