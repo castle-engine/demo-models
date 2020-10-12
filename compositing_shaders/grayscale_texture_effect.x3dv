@@ -1,0 +1,30 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# Effect making grayscale on a particular texture.
+
+Shape {
+  geometry Box { }
+  appearance Appearance {
+    material Material {
+      diffuseTexture ImageTexture {
+        url "../textures/test_texture.png"
+        effects Effect {
+          language "GLSL"
+          parts EffectPart {
+            type "FRAGMENT"
+            url "data:text/plain,
+            void PLUG_texture_apply(
+               inout vec4 fragment_color,
+               const in vec3 normal)
+            {
+              float avgcolor = (fragment_color[0] + fragment_color[1] + fragment_color[2]) / 3.0;
+              fragment_color.xyz = vec3(avgcolor); // set all XYZ components to the same value
+            }
+            "
+          }
+        }
+      }
+    }
+  }
+}
