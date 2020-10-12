@@ -1,0 +1,31 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# Screen effect making grayscale.
+
+ScreenEffect {
+  shaders ComposedShader {
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+      void main (void)
+      {
+        vec4 color = screenf_get_original_color();
+        float avgcolor = (color[0] + color[1] + color[2]) / 3.0;
+        color.xyz = vec3(avgcolor); // set all XYZ components to the same value
+        gl_FragColor = color;
+      }
+      "
+    }
+  }
+}
+
+Shape {
+  geometry Box { }
+  appearance Appearance {
+    material Material {
+      diffuseTexture ImageTexture { url "../textures/test_texture.png" }
+    }
+  }
+}
