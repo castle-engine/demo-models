@@ -1,0 +1,195 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Shaders:1
+
+# Test custom per-vertex attributes (passed to GLSL shaders from X3D FloatVertexAttribute)
+# combined with GLSL effects defined using Effect/EffectPart nodes.
+#
+# Note that the color effect we implement here is trivial, you could as well
+# achieve it simpler using X3D Color node (with mode = "MODULATE" it will multiply original color),
+# without any GLSL code.
+# But of course the advantage of this approach is flexibility -- you can implement more interesting
+# color operation than "just multiply".
+
+# ElevationGrid with attributes.
+Shape {
+  appearance Appearance {
+    material Material { }
+    effects DEF MyColorEffect Effect {
+      language "GLSL"
+      parts [
+        EffectPart {
+          type "VERTEX"
+          url "data:text/plain,
+            attribute vec3 my_color_attribute;
+            varying vec3 my_color_attribute_fragment;
+
+            // Pass the my_color_attribute to fragment shader.
+            void PLUG_vertex_eye_space(const in vec4 vertex_eye, const in vec3 normal_eye)
+            {
+              my_color_attribute_fragment = my_color_attribute;
+            }
+          "
+        }
+        EffectPart {
+          type "FRAGMENT"
+          url "data:text/plain,
+            varying vec3 my_color_attribute_fragment;
+
+            // Modify the color by my_color_attribute_fragment.
+            void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
+            {
+              fragment_color.rgb *= my_color_attribute_fragment;
+            }
+          "
+        }
+      ]
+    }
+  }
+  geometry ElevationGrid {
+    height [
+      0   0.1 0
+      0.1 0.3 0.1
+      0   0.1 0
+    ]
+    xDimension 3
+    zDimension 3
+    creaseAngle 4
+    attrib FloatVertexAttribute {
+      name "my_color_attribute"
+      value [
+        1 0 0
+        1 1 0
+        0 0 1
+        1 0 0
+        1 1 0
+        0 0 1
+        1 0 0
+        1 1 0
+        0 0 1
+      ]
+      numComponents 3
+    }
+  }
+}
+
+# Same Effect, now on a triangle by IndexedFaceSet.
+Transform {
+  translation 0 2 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      effects USE MyColorEffect
+    }
+    geometry IndexedFaceSet {
+      coordIndex [ 0 1 2 ]
+      coord Coordinate {
+        point [
+          0 1 0
+          -1 0 0
+          +1 0 0
+        ]
+      }
+      attrib FloatVertexAttribute {
+        name "my_color_attribute"
+        value [
+          1 0 0
+          1 1 0
+          0 0 1
+        ]
+        numComponents 3
+      }
+    }
+  }
+}
+
+# Should render same as above IndexedFaceSet.
+# Internally, we have coordinates and attributes in inverted order,
+# but then we use coordIndex to access them in inverted order too.
+Transform {
+  translation 2 2 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      effects USE MyColorEffect
+    }
+    geometry IndexedFaceSet {
+      coordIndex [ 2 1 0 ]
+      coord Coordinate {
+        point [
+          +1 0 0
+          -1 0 0
+          0 1 0
+        ]
+      }
+      attrib FloatVertexAttribute {
+        name "my_color_attribute"
+        value [
+          0 0 1
+          1 1 0
+          1 0 0
+        ]
+        numComponents 3
+      }
+    }
+  }
+}
+
+# Should render same as above IndexedFaceSet, this time using IndexedTriangleSet.
+Transform {
+  translation 4 2 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      effects USE MyColorEffect
+    }
+    geometry IndexedTriangleSet {
+      index [ 0 1 2 ]
+      coord Coordinate {
+        point [
+          0 1 0
+          -1 0 0
+          +1 0 0
+        ]
+      }
+      attrib FloatVertexAttribute {
+        name "my_color_attribute"
+        value [
+          1 0 0
+          1 1 0
+          0 0 1
+        ]
+        numComponents 3
+      }
+    }
+  }
+}
+
+# Should render same as above IndexedFaceSet, this time using non-indexed TriangleSet.
+Transform {
+  translation 6 2 0
+  children Shape {
+    appearance Appearance {
+      material Material { }
+      effects USE MyColorEffect
+    }
+    geometry TriangleSet {
+      coord Coordinate {
+        point [
+          0 1 0
+          -1 0 0
+          +1 0 0
+        ]
+      }
+      attrib FloatVertexAttribute {
+        name "my_color_attribute"
+        value [
+          1 0 0
+          1 1 0
+          0 0 1
+        ]
+        numComponents 3
+      }
+    }
+  }
+}
