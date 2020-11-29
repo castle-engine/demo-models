@@ -18,7 +18,7 @@ uniform bool my_bool;
 uniform int my_long;
 uniform int my_int32;
 
-uniform vec4 my_color;
+uniform vec3 my_color;
 uniform vec4 my_rotation;
 
 uniform float my_float;
@@ -42,7 +42,7 @@ uniform mat4 my_dmat4;
 uniform bool a_bool[2];
 uniform int a_long[2];
 uniform int a_int32[2];
-uniform vec4 a_color[2];
+uniform vec3 a_color[2];
 uniform vec4 a_rotation[2];
 uniform float a_float[2];
 uniform vec2 a_vec2[2];
@@ -94,7 +94,7 @@ void main(void)
     } else
     if (int(gl_FragCoord.x) % 36 == 3)
     {
-      gl_FragColor = my_color;
+      gl_FragColor = vec4(my_color, 1.0);
     } else
     if (int(gl_FragCoord.x) % 36 == 4)
     {
@@ -180,7 +180,7 @@ void main(void)
   } else
   if (int(gl_FragCoord.x) % 36 == 21)
   {
-    gl_FragColor = a_color[1];
+    gl_FragColor = vec4(a_color[1], 1.0);
   } else
   if (int(gl_FragCoord.x) % 36 == 22)
   {
