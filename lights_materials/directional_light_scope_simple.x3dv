@@ -1,0 +1,45 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# In X3D, by default, DirectionalLight has global=FALSE
+# (otherwise it would affect the whole scene),
+# while PointLight and SpotLight have global=TRUE
+# (because they are typically limited by their radius field.
+#
+# See the example below. The light L1 shines on both sphere and box.
+# The light L2 shines only on a sphere.
+
+NavigationInfo {
+  # turn off headlight
+  headlight FALSE
+}
+
+DEF L1 DirectionalLight {
+  color 1 0 0 # red
+}
+
+Shape {
+  # assign Appearance and Material to make the shape lit
+  appearance Appearance {
+    material Material { }
+  }
+  geometry Box { }
+}
+
+Transform {
+  translation 2 0 0
+
+  children [
+    DEF L2 DirectionalLight {
+      color 0 1 0 # green
+    }
+
+    Shape {
+      # assign Appearance and Material to make the shape lit
+      appearance Appearance {
+        material Material { }
+      }
+      geometry Sphere { }
+    }
+  ]
+}
