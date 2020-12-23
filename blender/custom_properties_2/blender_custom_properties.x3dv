@@ -1,0 +1,140 @@
+#X3D V3.2 utf8
+
+PROFILE Interchange
+
+META "generator" "view3dscene, https://castle-engine.io/view3dscene.php"
+META "source" "blender_custom_properties.gltf"
+
+DEF MyObject Transform {
+	metadata MetadataSet {
+		name "ContainerForAllMetadataValues"
+		value [
+			MetadataString {
+				name "MyObjectProperty"
+				value "object prop value"
+			}
+			MetadataDouble {
+				name "IntProperty"
+				value 123
+			}
+			MetadataDouble {
+				name "FloatProperty"
+				value 456.78899999999999
+			}
+		]
+	}
+	children DEF Cube Group {
+		metadata MetadataSet {
+			name "ContainerForAllMetadataValues"
+			value MetadataString {
+				name "MyMeshProperty"
+				value "mesh prop value"
+			}
+		}
+		children Shape {
+			appearance DEF Material Appearance {
+				material PhysicalMaterial {
+					metadata MetadataSet {
+						name "ContainerForAllMetadataValues"
+						value MetadataString {
+							name "MyMaterialProperty"
+							value "material prop value"
+						}
+					}
+					baseColor 0.80000001192092896 0.80000001192092896 0.80000001192092896
+					metallic 0
+					roughness 0.5
+				}
+				alphaChannel "NONE"
+			}
+			geometry IndexedTriangleSet {
+				coord Coordinate {
+					point [
+1 -1 -0.99999994039535522,
+1 -1 -0.99999994039535522,
+1 -1 -0.99999994039535522,
+1 -1 1,
+1 -1 1,
+1 -1 1,
+-1.0000001192092896 -1 0.99999982118606567,
+-1.0000001192092896 -1 0.99999982118606567,
+-1.0000001192092896 -1 0.99999982118606567,
+-0.99999964237213135 -1 -1.0000003576278687,
+-0.99999964237213135 -1 -1.0000003576278687,
+-0.99999964237213135 -1 -1.0000003576278687,
+1.0000004768371582 1 -0.99999946355819702,
+1.0000004768371582 1 -0.99999946355819702,
+1.0000004768371582 1 -0.99999946355819702,
+0.99999934434890747 1 1.0000005960464478,
+0.99999934434890747 1 1.0000005960464478,
+0.99999934434890747 1 1.0000005960464478,
+-1.0000003576278687 1 0.99999964237213135,
+-1.0000003576278687 1 0.99999964237213135,
+-1.0000003576278687 1 0.99999964237213135,
+-0.99999994039535522 1 -1,
+-0.99999994039535522 1 -1,
+-0.99999994039535522 1 -1,
+					]
+				}
+				normal Normal {
+					vector [
+0 -1 0,
+2.384185791015625E-7 2.0861625671386719E-7 -1,
+1 4.4703412527269393E-8 2.8312206268310547E-7,
+-2.8312206268310547E-7 -1.0430819230577981E-7 1,
+0 -1 0,
+1 4.4703412527269393E-8 2.8312206268310547E-7,
+-1 -1.3411043653377419E-7 -2.2351744632942427E-7,
+-2.8312206268310547E-7 -1.0430819230577981E-7 1,
+0 -1 0,
+-1 -1.3411043653377419E-7 -2.2351744632942427E-7,
+0 -1 0,
+2.384185791015625E-7 2.0861625671386719E-7 -1,
+0 1 0,
+2.384185791015625E-7 2.0861625671386719E-7 -1,
+1 4.4703412527269393E-8 2.8312206268310547E-7,
+-2.8312206268310547E-7 -1.0430819230577981E-7 1,
+0 1 0,
+1 4.4703412527269393E-8 2.8312206268310547E-7,
+-1 -1.3411043653377419E-7 -2.2351744632942427E-7,
+-2.8312206268310547E-7 -1.0430819230577981E-7 1,
+0 1 0,
+-1 -1.3411043653377419E-7 -2.2351744632942427E-7,
+0 1 0,
+2.384185791015625E-7 2.0861625671386719E-7 -1,
+					]
+				}
+				solid FALSE
+				index [
+0, 4, 8, 0, 8, 10, 12, 22, 20, 12, 20, 16, 2, 14, 17, 2, 17, 5, 3, 15, 19, 3, 19, 7, 6, 18, 21, 6, 21, 9, 13, 1, 11, 13, 11, 23,
+				]
+			}
+			bboxCenter 5.9604644775390625E-8 0 1.1920928955078125E-7
+			bboxSize 2.0000009536743164 2 2.0000009536743164
+		}
+	}
+}
+DEF Lamp Transform {
+	children DEF Lamp_Orientation Transform {
+		children DEF Lamp_2 PointLight {
+			global TRUE
+			intensity 100
+			attenuation 0 0 1
+			radius -1
+		}
+		rotation -0.99999994039535522 0 0 1.5707963705062866
+	}
+	rotation 0.20594216883182526 0.92069756984710693 -0.33151742815971375 1.9262735843658447
+	translation 4.0762453079223633 5.9038619995117188 -1.0054539442062378
+}
+DEF Camera Transform {
+	children DEF Camera_Orientation Transform {
+		children DEF Camera_2 Viewpoint {
+			gravityTransform FALSE
+			fieldOfView 0.25168997049331665
+		}
+		rotation -0.99999994039535522 0 0 1.5707963705062866
+	}
+	rotation 0.77343815565109253 0.53884166479110718 -0.33383104205131531 1.3507175445556641
+	translation 7.4811315536499023 5.3436651229858398 6.5076398849487305
+}

@@ -1,0 +1,267 @@
+#X3D V3.2 utf8
+
+PROFILE Interchange
+
+META "generator" "view3dscene, https://castle-engine.io/view3dscene.php"
+META "source" "blender_custom_properties.gltf"
+
+DEF Cube Transform {
+	children DEF Cube_2 Group {
+		metadata MetadataSet {
+			name "ContainerForAllMetadataValues"
+			value [
+				MetadataDouble {
+					name "mesh_custom_property"
+					value 1
+				}
+				MetadataString {
+					name "mesh_property_2"
+					value "some string"
+				}
+			]
+		}
+		children Shape {
+			appearance DEF Material Appearance {
+				material PhysicalMaterial {
+					baseColor 0.80000001192092896 0.80000001192092896 0.80000001192092896
+					metallic 0
+					roughness 0.40000000596046448
+				}
+				alphaChannel "NONE"
+			}
+			geometry IndexedTriangleSet {
+				coord Coordinate {
+					point [
+1 1 1,
+1 1 -1,
+-1 1 -1,
+-1 1 1,
+-1 1 1,
+-1 -1 1,
+1 -1 1,
+1 1 1,
+-1 1 -1,
+-1 -1 -1,
+-1 -1 1,
+-1 1 1,
+-1 -1 1,
+-1 -1 -1,
+1 -1 -1,
+1 -1 1,
+1 1 1,
+1 -1 1,
+1 -1 -1,
+1 1 -1,
+1 1 -1,
+1 -1 -1,
+-1 -1 -1,
+-1 1 -1,
+					]
+				}
+				normal Normal {
+					vector [
+0 1 0,
+0 1 0,
+0 1 0,
+0 1 0,
+0 0 1,
+0 0 1,
+0 0 1,
+0 0 1,
+-1 0 0,
+-1 0 0,
+-1 0 0,
+-1 0 0,
+0 -1 0,
+0 -1 0,
+0 -1 0,
+0 -1 0,
+1 0 0,
+1 0 0,
+1 0 0,
+1 0 0,
+0 0 -1,
+0 0 -1,
+0 0 -1,
+0 0 -1,
+					]
+				}
+				texCoord MultiTextureCoordinate {
+					texCoord TextureCoordinate {
+						mapping "TEXCOORD_0"
+						point [
+0.625 0.25,
+0.625 0.5,
+0.875 0.5,
+0.875 0.25,
+0.625 0,
+0.375 0,
+0.375 0.25,
+0.625 0.25,
+0.625 0.75,
+0.375 0.75,
+0.375 1,
+0.625 1,
+0.125 0.25,
+0.125 0.5,
+0.375 0.5,
+0.375 0.25,
+0.625 0.25,
+0.375 0.25,
+0.375 0.5,
+0.625 0.5,
+0.625 0.5,
+0.375 0.5,
+0.375 0.75,
+0.625 0.75,
+						]
+					}
+				}
+				solid FALSE
+				index [
+0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23,
+				]
+			}
+			bboxSize 2 2 2
+		}
+	}
+}
+DEF Light Transform {
+	children DEF Light_Orientation Transform {
+		children DEF Light_2 PointLight {
+			global TRUE
+			intensity 1000
+			attenuation 0 0 1
+			radius -1
+		}
+		rotation -0.99999994039535522 0 0 1.5707963705062866
+	}
+	rotation 0.20594216883182526 0.92069756984710693 -0.33151742815971375 1.9262735843658447
+	translation 4.0762453079223633 5.9038619995117188 -1.0054539442062378
+}
+DEF Camera Transform {
+	children DEF Camera_Orientation Transform {
+		children DEF Camera_2 Viewpoint {
+			gravityTransform FALSE
+			fieldOfView 0.19979825615882874
+		}
+		rotation -0.99999994039535522 0 0 1.5707963705062866
+	}
+	rotation 0.77343815565109253 0.53884166479110718 -0.33383104205131531 1.3507175445556641
+	translation 7.358891487121582 4.9583091735839844 6.9257907867431641
+}
+DEF CastleEncoded_Cube$46$001 Transform {
+	metadata MetadataSet {
+		name "ContainerForAllMetadataValues"
+		value [
+			MetadataDouble {
+				name "object_custom_property"
+				value 123123
+			}
+			MetadataString {
+				name "object_prop_2"
+				value "some free string"
+			}
+		]
+	}
+	children DEF CastleEncoded_Cube$46$001_2 Group {
+		children Shape {
+			appearance USE Material
+			geometry IndexedTriangleSet {
+				coord Coordinate {
+					point [
+1 1 1,
+1 1 -1,
+-1 1 -1,
+-1 1 1,
+-1 1 1,
+-1 -1 1,
+1 -1 1,
+1 1 1,
+-1 1 -1,
+-1 -1 -1,
+-1 -1 1,
+-1 1 1,
+-1 -1 1,
+-1 -1 -1,
+1 -1 -1,
+1 -1 1,
+1 1 1,
+1 -1 1,
+1 -1 -1,
+1 1 -1,
+1 1 -1,
+1 -1 -1,
+-1 -1 -1,
+-1 1 -1,
+					]
+				}
+				normal Normal {
+					vector [
+0 1 0,
+0 1 0,
+0 1 0,
+0 1 0,
+0 0 1,
+0 0 1,
+0 0 1,
+0 0 1,
+-1 0 0,
+-1 0 0,
+-1 0 0,
+-1 0 0,
+0 -1 0,
+0 -1 0,
+0 -1 0,
+0 -1 0,
+1 0 0,
+1 0 0,
+1 0 0,
+1 0 0,
+0 0 -1,
+0 0 -1,
+0 0 -1,
+0 0 -1,
+					]
+				}
+				texCoord MultiTextureCoordinate {
+					texCoord TextureCoordinate {
+						mapping "TEXCOORD_0"
+						point [
+0.625 0.25,
+0.625 0.5,
+0.875 0.5,
+0.875 0.25,
+0.625 0,
+0.375 0,
+0.375 0.25,
+0.625 0.25,
+0.625 0.75,
+0.375 0.75,
+0.375 1,
+0.625 1,
+0.125 0.25,
+0.125 0.5,
+0.375 0.5,
+0.375 0.25,
+0.625 0.25,
+0.375 0.25,
+0.375 0.5,
+0.625 0.5,
+0.625 0.5,
+0.375 0.5,
+0.375 0.75,
+0.625 0.75,
+						]
+					}
+				}
+				solid FALSE
+				index [
+0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23,
+				]
+			}
+			bboxSize 2 2 2
+		}
+	}
+	translation 1.0864952802658081 2.5730297565460205 -5.6313896179199219
+}
