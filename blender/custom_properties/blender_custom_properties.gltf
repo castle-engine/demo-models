@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.2.75",
+        "generator" : "Khronos glTF Blender I/O v1.4.40",
         "version" : "2.0"
     },
     "extensionsUsed" : [
@@ -126,8 +126,12 @@
     ],
     "cameras" : [
         {
+            "extras" : {
+                "my_camera_property" : "false"
+            },
             "name" : "Camera",
             "perspective" : {
+                "aspectRatio" : 1.7777777777777777,
                 "yfov" : 0.39959652046304894,
                 "zfar" : 100,
                 "znear" : 0.10000000149011612
@@ -138,11 +142,6 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0,
-                0,
-                0
-            ],
             "name" : "Material",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
