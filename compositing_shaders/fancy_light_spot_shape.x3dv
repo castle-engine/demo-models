@@ -41,7 +41,10 @@ DEF LightTransform Transform {
         url "data:text/plain,
           uniform sampler2D spot_texture;
           uniform mat3 cameraRotationMatrix;
+          // do not redeclare
+          #ifndef GL_ES
           uniform vec3 castle_LightSource0SpotDirection;
+          #endif
 
           void PLUG_light_scale(inout float light_scale,
             const in vec3 normal_eye,
