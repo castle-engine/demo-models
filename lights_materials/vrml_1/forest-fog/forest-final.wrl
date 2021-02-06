@@ -1,0 +1,35 @@
+#VRML V1.0 ascii
+
+Group{
+  PerspectiveCamera {
+    position -3.2428598403930664 -5.2128839492797852 0.64614886045455932
+    orientation 0.8960353136062622 -0.31394317746162414 -0.31394323706626892 1.6803526878356933
+  }
+  
+  PointLight {
+    location -3.9034719467163085 3.9377014636993408 3.5096714496612548
+    intensity 0.6
+  }
+  PointLight {
+    location 2.0082542896270752 1.9033458232879638 6.059211254119873
+    intensity 0.6
+  }
+  PointLight {
+    location 3.0382764339447021 -5.1610255241394043 3.8265032768249511
+    intensity 0.6
+  }
+  
+  Separator {
+    Material { emissiveColor 0.7 0.7 0.7 }
+    Translation { translation 4.6683659553527832 5.1358842849731445 3.2053220272064209 }
+#    Sphere {}
+  }
+
+  Fog {
+    color 0.1 0.3 0.1
+    fogType "EXPONENTIAL"
+    visibilityRange 10
+  }
+  WWWInline { name "forest.wrl" }
+}
+
