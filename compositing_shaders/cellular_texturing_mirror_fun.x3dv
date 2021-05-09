@@ -148,7 +148,7 @@ void PLUG_texture_color(inout vec4 texture_color,
 Shape {
   appearance CellularTextureAppearance { }
   geometry Teapot {
-    texCoord DEF CellularTexCoord MultiTextureCoordinate {
+    texCoord DEF CellularTexCoord MultiGeneratedTextureCoordinate {
       texCoord [
         TextureCoordinateGenerator { mode "BOUNDS3D" }
         TextureCoordinateGenerator { mode "WORLDSPACEREFLECTIONVECTOR" }
