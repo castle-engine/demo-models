@@ -12,7 +12,15 @@ PROFILE Interchange
 #   projectionLocation 21.015087127685547 -19.955547332763672 41.178668975830078
 #   direction -0.1091001406311988 0.0821000486612319 -0.1461419463157653
 #   up -0.5838444232940673 0.4393674433231353 0.682690143585205
-#   projectionRectangle -50 50 -50 70
+#   # order on projectionRectangle: left, bottom, right, top (order like for OrthoViewpoint.fieldOfView).
+#   projectionRectangle -50 -50 50 70
+#
+#   defaultShadowMap GeneratedShadowMap {
+#     update "ALWAYS"
+#     size 1024
+#     scale 4
+#     bias 10
+#   }
 # }
 
 DEF MyLight SpotLight {
@@ -3956,4 +3964,3 @@ DEF OB_Ground Transform {
 		}
 	]
 }
-
