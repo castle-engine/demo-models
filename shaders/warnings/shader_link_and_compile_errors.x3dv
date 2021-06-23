@@ -10,9 +10,11 @@ Transform {
       appearance DEF App1_WithTexture Appearance {
         texture ImageTexture  { url "../../textures/bricks2.jpg" }
         shaders [
-          # I don't handle HLSL (and Kambi engine never will, I'm not going
-          # to port to M$ Direct X API). This is just to test that
-          # such ProgramShader is correctly parsed and ignored.
+          # We don't handle HLSL now, as we don't have Direct3D renderer.
+          # TODO: Though https://github.com/Microsoft/ShaderConductor
+          # could be a way to use HLSL even with OpenGL(ES) renderer.
+          #
+          # For now this is just to test that such ProgramShader is correctly parsed and ignored.
           DEF TestHLSL ProgramShader {
             language "HLSL"
             programs [
