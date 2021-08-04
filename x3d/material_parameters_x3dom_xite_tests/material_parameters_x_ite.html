@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript"
+			src="https://cdn.rawgit.com/create3000/x_ite/latest/dist/x_ite.js">
+		</script>
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.rawgit.com/create3000/x_ite/latest/dist/x_ite.css"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.js"></script>
+    <title>material_parameters test - x_ite</title>
+    <style>
+      X3DCanvas {
+         width: 500px;
+         height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+<script type="text/javascript">
+X3D (function ()
+{
+  // Now, X3D is ready. We can get access to the browser object.
+
+  var Browser = X3D.getBrowser("#browser");
+//  Browser.setBrowserOption("SplashScreen", false);
+  Browser.setBrowserOption("Shading", "PHONG");
+
+//  browser .loadURL (new X3D .MFNode ("/path/to/your/world.x3dv"),
+//                    new X3D .MFNode ());
+});
+ </script>
+  
+    <h1>material_parameters test</h1>
+    <X3DCanvas src="material_parameters.x3dv" id="browser">
+      <p>Your browser may not support all features required by Cobweb!</p>
+    </X3DCanvas>
+
+  </body>
+</html>
