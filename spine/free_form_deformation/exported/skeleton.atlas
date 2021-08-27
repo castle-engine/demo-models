@@ -1,13 +1,5 @@
-
 skeleton.png
-size: 512,256
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
+size:512,256
+filter:Linear,Linear
 cthulhu
-  rotate: false
-  xy: 2, 2
-  size: 394, 252
-  orig: 394, 252
-  offset: 0, 0
-  index: -1
+bounds:2,2,394,252
