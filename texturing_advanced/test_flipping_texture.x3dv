@@ -1,0 +1,22 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+Transform {
+  translation 0 0 0
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+        translation 0 -1
+        scale 1 -1
+      }
+      material Material {
+        diffuseTexture ImageTexture {
+          url "../textures/test_texture.png"
+          repeatS FALSE
+          repeatT FALSE
+        }
+      }
+    }
+    geometry Box { }
+  }
+}
