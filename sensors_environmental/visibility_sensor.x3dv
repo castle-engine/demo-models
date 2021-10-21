@@ -192,6 +192,6 @@ Viewpoint {
   orientation 0.0001725890033413 -1 -0.0001429827243555 1.7581377029418945
 }
 
-NavigationInfo { type "WALK" speed 10 }
+NavigationInfo { type "FLY" speed 10 }
 
 Inline { url "visibility_sensor_geometry.x3d" }
