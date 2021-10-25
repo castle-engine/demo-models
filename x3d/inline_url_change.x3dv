@@ -25,8 +25,8 @@ DEF MyScript Script {
   url "castlescript:
 
 function key_press(value, timestamp)
-  when (value = '1', inline_load := TRUE ; inline_url := array('IkeaTable.x3dv'));
-  when (value = '2', inline_load := TRUE ; inline_url := array('worm_crawl.x3dv'));
+  when (value = '1', inline_load := TRUE ; inline_url := array('../animation/simple_tests_interpolation_and_time/IkeaTable.x3dv'));
+  when (value = '2', inline_load := TRUE ; inline_url := array('../animation/simple_tests_interpolation_and_time/worm_crawl.x3dv'));
   when (value = '0', inline_load := FALSE)
 "
 }
