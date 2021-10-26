@@ -8,6 +8,10 @@ PROFILE Interchange
 #
 # See the example below. The light L1 shines on both sphere and box.
 # The light L2 shines only on a sphere.
+#
+# Correct effect should be:
+# - box front is red (rest of the box is black)
+# - sphere front is purple (red+blue), NOT red, NOT blue
 
 NavigationInfo {
   # turn off headlight
@@ -31,7 +35,7 @@ Transform {
 
   children [
     DEF L2 DirectionalLight {
-      color 0 1 0 # green
+      color 0 0 1 # blue
     }
 
     Shape {

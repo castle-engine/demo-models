@@ -1,6 +1,14 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
+# Test of settting PointLight.global explicitly to FALSE.
+#
+# Correct effect should be:
+# - box is red
+# - sphere is blue
+# - if you comment out "global FALSE" lines, they are both purple (with non-uniform colors
+#   across surface), as red+blue mix on both.
+
 NavigationInfo {
   headlight FALSE
 }
@@ -31,7 +39,7 @@ Transform {
         material Material {
         }
       }
-      geometry Box {
+      geometry Sphere {
       }
     }
     PointLight {
