@@ -17,6 +17,9 @@ DEF AnimatedHumanoid HAnimHumanoid {
       }
     ]
   }
+  joints [
+    USE AnimatedJoint
+  ]
 }
 
 DEF Timer TimeSensor { loop TRUE cycleInterval 5.0 }
