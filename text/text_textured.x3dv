@@ -81,7 +81,7 @@ Group {
             fontStyle USE FS
             string ["And yet more lines", "of textured text,", "with TextureCoordinateGenerator."]
             texCoord TextureCoordinateGenerator { mode "COORD-EYE" }
-            # MultiTextureCoordinate {
+            # MultiGeneratedTextureCoordinate {
             #   texCoord TextureCoordinateGenerator { mode "COORD-EYE" }
             # }
           }

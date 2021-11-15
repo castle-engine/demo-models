@@ -91,7 +91,7 @@ Transform {
     }
     geometry Box {
       size 1.5 1.5 1.5
-      texCoord MultiTextureCoordinate {
+      texCoord MultiGeneratedTextureCoordinate {
         texCoord [
           TextureCoordinateGenerator {
             # Using BOUNDS generation mode is another Castle Game Engine extension,
