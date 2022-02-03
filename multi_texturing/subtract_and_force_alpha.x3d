@@ -4,9 +4,9 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
      xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
 <head>
-	<component name="Texturing" level="2" />
 	<component name="Text" level="1" />
-	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<component name="Texturing" level="2" />
+	<meta name="generator" content="tovrmlx3d, https://castle-engine.io/view3dscene.php#section_converting" />
 	<meta name="source" content="subtract_and_force_alpha.x3dv" />
 </head>
 <Scene>
@@ -15,7 +15,7 @@
 			<MultiTexture
 				mode='"REPLACE" "SUBTRACT / SELECTARG2"'
 				source='"" " / FACTOR"'
-				alpha="0.6000000238418579"
+				alpha="0.60000002384185791"
 				color="0 0 1">
 				<ImageTexture
 					url='"data/pattern.png"' />
@@ -23,7 +23,7 @@
 					url='"data/squirrel.png"' />
 			</MultiTexture>
 			<Material
-				transparency="0.1000000014901161" />
+				transparency="0.10000000149011612" />
 		</Appearance>
 		<IndexedFaceSet
 			coordIndex="0 1 2 3"

@@ -5,7 +5,7 @@
      xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
 <head>
 	<component name="Texturing" level="3" />
-	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<meta name="generator" content="tovrmlx3d, https://castle-engine.io/view3dscene.php#section_converting" />
 	<meta name="source" content="transform_and_coordinates_faces.x3dv" />
 </head>
 <Scene>
@@ -123,7 +123,7 @@
 				<MultiTextureCoordinate>
 					<TextureCoordinate USE="StdTexCoord" />
 					<TextureCoordinate
-						point="0 0.8000000119209289 1 0.8000000119209289 1 1 0 1 0 0.8000000119209289 1 0.8000000119209289 1 1 0 1" />
+						point="0 0.80000001192092896 1 0.80000001192092896 1 1 0 1 0 0.80000001192092896 1 0.80000001192092896 1 1 0 1" />
 				</MultiTextureCoordinate>
 			</IndexedFaceSet>
 		</Shape>

@@ -4,9 +4,9 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
      xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
 <head>
-	<component name="Texturing" level="2" />
 	<component name="Text" level="1" />
-	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<component name="Texturing" level="2" />
+	<meta name="generator" content="tovrmlx3d, https://castle-engine.io/view3dscene.php#section_converting" />
 	<meta name="source" content="subtract_rgb_various_sources.x3dv" />
 </head>
 <Scene>
@@ -24,7 +24,7 @@
 					</Appearance>
 					<Text>
 						<FontStyle
-							size="0.2000000029802322" />
+							size="0.20000000298023224" />
 						<IS>
 							<connect nodeField="string" protoField="string" />
 						</IS>

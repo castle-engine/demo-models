@@ -4,9 +4,9 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
      xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
 <head>
-	<component name="Texturing" level="2" />
 	<component name="Text" level="1" />
-	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<component name="Texturing" level="2" />
+	<meta name="generator" content="tovrmlx3d, https://castle-engine.io/view3dscene.php#section_converting" />
 	<meta name="source" content="modes_and_sources.x3dv" />
 </head>
 <Scene>
@@ -24,7 +24,7 @@
 					</Appearance>
 					<Text>
 						<FontStyle
-							size="0.2000000029802322" />
+							size="0.15000000596046448" />
 						<IS>
 							<connect nodeField="string" protoField="string" />
 						</IS>
@@ -33,7 +33,93 @@
 			</Transform>
 		</ProtoBody>
 	</ProtoDeclare>
+	<Transform
+		translation="0 -0.25 0">
+		<Transform>
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"modulate"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="1.5 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"add 2nd tex"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="3 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"replace 2nd tex"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="4.5 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"subtract"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="6 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"modulate 2x"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="7.5 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"modulate 4x"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="9 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"add signed"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="10.5 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"add signed 2x"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="12 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"select arg1"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="13.5 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"select arg2"' />
+			</ProtoInstance>
+		</Transform>
+		<Transform
+			translation="15 0 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"off 2nd tex"' />
+			</ProtoInstance>
+		</Transform>
+	</Transform>
 	<Transform>
+		<Transform
+			translation="-1.5 -1 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"pattern texture" "mixed with" "squirrel texture"' />
+			</ProtoInstance>
+		</Transform>
 		<Shape>
 			<Appearance>
 				<MultiTexture>
@@ -53,10 +139,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="1.5 0 0">
@@ -80,10 +162,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add 2nd tex" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="3 0 0">
@@ -107,10 +185,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"replace 2nd tex" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="4.5 0 0">
@@ -134,10 +208,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"subtract" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="6 0 0">
@@ -161,10 +231,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate 2x" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="7.5 0 0">
@@ -188,10 +254,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate 4x" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="9 0 0">
@@ -215,10 +277,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add signed" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="10.5 0 0">
@@ -242,10 +300,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add signed 2x" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="12 0 0">
@@ -269,10 +323,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"select arg1" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="13.5 0 0">
@@ -296,10 +346,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"select arg2" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="15 0 0">
@@ -323,13 +369,16 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"off 2nd tex" "(pattern with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="0 -2 0">
+		<Transform
+			translation="-1.5 -1 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"material diffuse" "mixed with" "squirrel texture"' />
+			</ProtoInstance>
+		</Transform>
 		<Shape>
 			<Appearance>
 				<MultiTexture
@@ -350,10 +399,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="1.5 -2 0">
@@ -378,10 +423,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add 2nd tex" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="3 -2 0">
@@ -406,10 +447,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"replace 2nd tex" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="4.5 -2 0">
@@ -434,10 +471,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"subtract" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="6 -2 0">
@@ -462,10 +495,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate 2x" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="7.5 -2 0">
@@ -490,10 +519,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate 4x" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="9 -2 0">
@@ -518,10 +543,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add signed" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="10.5 -2 0">
@@ -546,10 +567,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add signed 2x" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="12 -2 0">
@@ -574,10 +591,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"select arg1" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="13.5 -2 0">
@@ -602,10 +615,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"select arg2" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="15 -2 0">
@@ -630,13 +639,16 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"off 2nd tex" "(diffuse with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="0 -4 0">
+		<Transform
+			translation="-1.5 -1 0">
+			<ProtoInstance name="MyText" containerField="children">
+				<fieldValue name="string"
+					value='"constant yellow" "mixed with" "squirrel texture"' />
+			</ProtoInstance>
+		</Transform>
 		<Shape>
 			<Appearance>
 				<MultiTexture
@@ -658,10 +670,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="1.5 -4 0">
@@ -687,10 +695,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add 2nd tex" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="3 -4 0">
@@ -716,10 +720,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"replace 2nd tex" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="4.5 -4 0">
@@ -745,10 +745,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"subtract" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="6 -4 0">
@@ -774,10 +770,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate 2x" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="7.5 -4 0">
@@ -803,10 +795,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"modulate 4x" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="9 -4 0">
@@ -832,10 +820,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add signed" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="10.5 -4 0">
@@ -861,10 +845,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"add signed 2x" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="12 -4 0">
@@ -890,10 +870,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"select arg1" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="13.5 -4 0">
@@ -919,10 +895,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"select arg2" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Transform
 		translation="15 -4 0">
@@ -948,10 +920,6 @@
 					point="0 0 1 0 1 1 0 1 0 0 1 0 1 1 0 1" />
 			</IndexedFaceSet>
 		</Shape>
-		<ProtoInstance name="MyText" containerField="children">
-			<fieldValue name="string"
-				value='"off 2nd tex" "(yellow with squirrel)"' />
-		</ProtoInstance>
 	</Transform>
 	<Viewpoint
 		position="8.2433338165283203 -1.1633334159851074 16.80467414855957" />

@@ -5,7 +5,7 @@
      xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.2.xsd">
 <head>
 	<component name="Texturing" level="2" />
-	<meta name="generator" content="tovrmlx3d, http://castle-engine.sourceforge.net/view3dscene.php#section_converting" />
+	<meta name="generator" content="tovrmlx3d, https://castle-engine.io/view3dscene.php#section_converting" />
 	<meta name="source" content="functions.x3dv" />
 </head>
 <Scene>
