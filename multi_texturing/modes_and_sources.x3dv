@@ -32,9 +32,72 @@ PROTO MyText [ initializeOnly MFString string "" ] {
         material Material { diffuseColor 1 1 0 }
       }
       geometry Text { string IS string
-        fontStyle FontStyle { size 0.2 } }
+        fontStyle FontStyle { size 0.15 } }
     }
   }
+}
+
+# ----------------------------------------------------------------------------
+# Row 0: column captions.
+
+Transform {
+  translation 0 -0.25 0
+  children [
+    Transform {
+      translation 0 0 0
+      children MyText { string [ "modulate" ] }
+    }
+
+    Transform {
+      translation 1.5 0 0
+      children MyText { string [ "add 2nd tex" ] }
+    }
+
+    Transform {
+      translation 3 0 0
+      children MyText { string [ "replace 2nd tex" ] }
+    }
+
+    Transform {
+      translation 4.5 0 0
+      children MyText { string [ "subtract" ] }
+    }
+
+    Transform {
+      translation 6 0 0
+      children MyText { string [ "modulate 2x" ] }
+    }
+
+    Transform {
+      translation 7.5 0 0
+      children MyText { string [ "modulate 4x" ] }
+    }
+
+    Transform {
+      translation 9 0 0
+      children MyText { string [ "add signed" ] }
+    }
+
+    Transform {
+      translation 10.5 0 0
+      children MyText { string [ "add signed 2x" ] }
+    }
+
+    Transform {
+      translation 12 0 0
+      children MyText { string [ "select arg1" ] }
+    }
+
+    Transform {
+      translation 13.5 0 0
+      children MyText { string [ "select arg2" ] }
+    }
+
+    Transform {
+      translation 15 0 0
+      children MyText { string [ "off 2nd tex" ] }
+    }
+  ]
 }
 
 # ----------------------------------------------------------------------------
@@ -44,6 +107,10 @@ PROTO MyText [ initializeOnly MFString string "" ] {
 Transform {
   translation 0 0 0
   children [
+    Transform {
+      translation -1.5 -1 0
+      children MyText { string [ "pattern texture" "mixed with" "squirrel texture" ] }
+    }
     Shape {
       appearance Appearance {
         texture MultiTexture {
@@ -63,7 +130,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -90,7 +156,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add 2nd tex" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -117,7 +182,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "replace 2nd tex" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -144,7 +208,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -171,7 +234,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate 2x" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -198,7 +260,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate 4x" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -225,7 +286,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add signed" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -252,7 +312,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add signed 2x" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -279,7 +338,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "select arg1" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -306,7 +364,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "select arg2" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -333,7 +390,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "off 2nd tex" "(pattern with squirrel)" ] }
   ]
 }
 
@@ -343,6 +399,10 @@ Transform {
 Transform {
   translation 0 -2 0
   children [
+    Transform {
+      translation -1.5 -1 0
+      children MyText { string [ "material diffuse" "mixed with" "squirrel texture" ] }
+    }
     Shape {
       appearance Appearance {
         texture MultiTexture {
@@ -363,7 +423,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -391,7 +450,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add 2nd tex" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -419,7 +477,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "replace 2nd tex" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -447,7 +504,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -475,7 +531,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate 2x" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -503,7 +558,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate 4x" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -531,7 +585,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add signed" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -559,7 +612,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add signed 2x" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -587,7 +639,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "select arg1" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -615,7 +666,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "select arg2" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -643,7 +693,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "off 2nd tex" "(diffuse with squirrel)" ] }
   ]
 }
 
@@ -653,6 +702,10 @@ Transform {
 Transform {
   translation 0 -4 0
   children [
+    Transform {
+      translation -1.5 -1 0
+      children MyText { string [ "constant yellow" "mixed with" "squirrel texture" ] }
+    }
     Shape {
       appearance Appearance {
         texture MultiTexture {
@@ -674,7 +727,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -703,7 +755,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add 2nd tex" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -732,7 +783,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "replace 2nd tex" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -761,7 +811,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "subtract" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -790,7 +839,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate 2x" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -819,7 +867,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "modulate 4x" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -848,7 +895,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add signed" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -877,7 +923,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "add signed 2x" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -906,7 +951,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "select arg1" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -935,7 +979,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "select arg2" "(yellow with squirrel)" ] }
   ]
 }
 
@@ -964,7 +1007,6 @@ Transform {
         solid FALSE
       }
     }
-    MyText { string [ "off 2nd tex" "(yellow with squirrel)" ] }
   ]
 }
 
