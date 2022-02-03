@@ -1,0 +1,67 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+COMPONENT Texturing:2
+
+# Test MultiTexture.mode = "DOTPRODUCT3"
+
+Transform {
+  translation 0 0 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      alphaMode "BLEND"
+      texture MultiTexture {
+        mode "DOTPRODUCT3"
+        texture ImageTexture { url "data/squirrel.png" }
+      }
+    }
+  }
+}
+
+Transform {
+  translation 3 0 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      alphaMode "BLEND"
+      texture MultiTexture {
+        mode "DOTPRODUCT3 / REPLACE"
+        texture ImageTexture { url "data/squirrel.png" }
+      }
+    }
+  }
+}
+
+Transform {
+  translation 0 3 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      alphaMode "BLEND"
+      texture MultiTexture {
+        color 1 0 0
+        alpha 0.5
+        mode "DOTPRODUCT3"
+        source "FACTOR"
+        texture ImageTexture { url "data/squirrel.png" }
+      }
+    }
+  }
+}
+
+Transform {
+  translation 3 3 0
+  children Shape {
+    geometry Box { }
+    appearance Appearance {
+      alphaMode "BLEND"
+      texture MultiTexture {
+        color 1 0 0
+        alpha 0.5
+        mode "DOTPRODUCT3 / REPLACE"
+        source "FACTOR"
+        texture ImageTexture { url "data/squirrel.png" }
+      }
+    }
+  }
+}
