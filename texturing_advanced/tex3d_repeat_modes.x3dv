@@ -4,9 +4,9 @@ COMPONENT Texturing3D:2
 
 PROTO TestTex3DRepeats [
   inputOutput SFVec3f translation 0 0 0
-  inputOutput SFBool repeatS FALSE
-  inputOutput SFBool repeatT FALSE
-  inputOutput SFBool repeatR FALSE
+  inputOutput SFString boundaryModeS "REPEAT"
+  inputOutput SFString boundaryModeT "REPEAT"
+  inputOutput SFString boundaryModeR "REPEAT"
 ] {
   Transform {
     translation IS translation
@@ -15,16 +15,22 @@ PROTO TestTex3DRepeats [
         material Material { }
         texture ImageTexture3D {
           url "../textures/trivial_3d_tex.dds"
-          repeatS IS repeatS
-          repeatT IS repeatT
-          repeatR IS repeatR
+          # repeatS # default false for ImageTexture3D, ignored when TextureProperties
+          # repeatT # default false for ImageTexture3D, ignored when TextureProperties
+          # repeatR # default false for ImageTexture3D, ignored when TextureProperties
           textureProperties TextureProperties {
             minificationFilter "NEAREST_PIXEL"
             magnificationFilter "NEAREST_PIXEL"
+            boundaryModeS IS boundaryModeS
+            boundaryModeT IS boundaryModeT
+            boundaryModeR IS boundaryModeR
           }
         }
         textureTransform TextureTransform3D {
-          scale 4 4 4
+          # Using 4.1 instead of exact 4.0, as exact 4.0 would (validly)
+          # cause a noise on some sides where "REPEAT" is used,
+          # as the trivial_3d_tex.dds is not prepared to be tiling at all.
+          scale 4.1 4.1 4.1
         }
       }
       geometry Box {
@@ -36,56 +42,56 @@ PROTO TestTex3DRepeats [
 
 TestTex3DRepeats {
   translation 0 0 0
-  repeatS FALSE
-  repeatT FALSE
-  repeatR FALSE
+  boundaryModeS "CLAMP_TO_EDGE"
+  boundaryModeT "CLAMP_TO_EDGE"
+  boundaryModeR "CLAMP_TO_EDGE"
 }
 
 TestTex3DRepeats {
   translation 3 0 0
-  repeatS TRUE
-  repeatT FALSE
-  repeatR FALSE
+  boundaryModeS "REPEAT"
+  boundaryModeT "CLAMP_TO_EDGE"
+  boundaryModeR "CLAMP_TO_EDGE"
 }
 
 TestTex3DRepeats {
   translation 0 3 0
-  repeatS FALSE
-  repeatT TRUE
-  repeatR FALSE
+  boundaryModeS "CLAMP_TO_EDGE"
+  boundaryModeT "REPEAT"
+  boundaryModeR "CLAMP_TO_EDGE"
 }
 
 TestTex3DRepeats {
   translation 3 3 0
-  repeatS TRUE
-  repeatT TRUE
-  repeatR FALSE
+  boundaryModeS "REPEAT"
+  boundaryModeT "REPEAT"
+  boundaryModeR "CLAMP_TO_EDGE"
 }
 
 TestTex3DRepeats {
   translation 0 0 3
-  repeatS FALSE
-  repeatT FALSE
-  repeatR TRUE
+  boundaryModeS "CLAMP_TO_EDGE"
+  boundaryModeT "CLAMP_TO_EDGE"
+  boundaryModeR "REPEAT"
 }
 
 TestTex3DRepeats {
   translation 3 0 3
-  repeatS TRUE
-  repeatT FALSE
-  repeatR TRUE
+  boundaryModeS "REPEAT"
+  boundaryModeT "CLAMP_TO_EDGE"
+  boundaryModeR "REPEAT"
 }
 
 TestTex3DRepeats {
   translation 0 3 3
-  repeatS FALSE
-  repeatT TRUE
-  repeatR TRUE
+  boundaryModeS "CLAMP_TO_EDGE"
+  boundaryModeT "REPEAT"
+  boundaryModeR "REPEAT"
 }
 
 TestTex3DRepeats {
   translation 3 3 3
-  repeatS TRUE
-  repeatT TRUE
-  repeatR TRUE
+  boundaryModeS "REPEAT"
+  boundaryModeT "REPEAT"
+  boundaryModeR "REPEAT"
 }
