@@ -4,120 +4,186 @@ PROFILE Interchange
 # default: S, T = repeat
 Transform {
   translation 0 0 0
-  children Shape {
-    appearance Appearance {
-      material Material {
-        diffuseTexture ImageTexture {
-          url "../textures/test_texture.png"
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseTexture ImageTexture {
+            url "../textures/test_texture.png"
+          }
+        }
+        textureTransform TextureTransform { scale 2 2 }
+      }
+      geometry Box { }
+    }
+    Transform {
+      translation 0 2 1
+      children Shape {
+        geometry Text {
+          string [ "S, T = repeat" "(default without" "TextureProperties)" ]
+          fontStyle FontStyle { size 0.2 justify "MIDDLE" }
         }
       }
-      textureTransform TextureTransform { scale 2 2 }
     }
-    geometry Box { }
-  }
+  ]
 }
 
 # S = repeat, T = clamp
 Transform {
   translation 3 0 0
-  children Shape {
-    appearance Appearance {
-      material Material {
-        diffuseTexture ImageTexture {
-          url "../textures/test_texture.png"
-          repeatS TRUE
-          repeatT FALSE
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseTexture ImageTexture {
+            url "../textures/test_texture.png"
+            repeatS TRUE
+            repeatT FALSE
+          }
+        }
+        textureTransform TextureTransform { scale 2 2 }
+      }
+      geometry Box { }
+    }
+    Transform {
+      translation 0 2 1
+      children Shape {
+        geometry Text {
+          string [ "S = repeat, T = clamp" "(without" "TextureProperties)" ]
+          fontStyle FontStyle { size 0.2 justify "MIDDLE" }
         }
       }
-      textureTransform TextureTransform { scale 2 2 }
     }
-    geometry Box { }
-  }
+  ]
 }
 
 # default: S, T = repeat
 Transform {
   translation 6 0 0
-  children Shape {
-    appearance Appearance {
-      material Material {
-        diffuseTexture ImageTexture {
-          url "../textures/test_texture.png"
-          textureProperties TextureProperties {
-            # TODO: minificationFilter, magnificationFilter should be removed from this file, we fixed X3D 4.0 to have "DEFAULT" by default, we need to apply this fix to CGE
-           minificationFilter "DEFAULT"
-           magnificationFilter "DEFAULT"
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseTexture ImageTexture {
+            url "../textures/test_texture.png"
+            textureProperties TextureProperties {
+              # TODO: minificationFilter, magnificationFilter should be removed from this file, we fixed X3D 4.0 to have "DEFAULT" by default, we need to apply this fix to CGE
+             minificationFilter "DEFAULT"
+             magnificationFilter "DEFAULT"
+            }
           }
         }
+        textureTransform TextureTransform { scale 2 2 }
       }
-      textureTransform TextureTransform { scale 2 2 }
+      geometry Box { }
     }
-    geometry Box { }
-  }
+    Transform {
+      translation 0 2 1
+      children Shape {
+        geometry Text {
+          string [ "S, T = repeat" "(default with" "TextureProperties)" ]
+          fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+        }
+      }
+    }
+  ]
 }
 
 # S = repeat, T = clamp
 Transform {
   translation 9 0 0
-  children Shape {
-    appearance Appearance {
-      material Material {
-        diffuseTexture ImageTexture {
-          url "../textures/test_texture.png"
-          textureProperties TextureProperties {
-            boundaryModeS "REPEAT"
-            boundaryModeT "CLAMP_TO_EDGE"
-            minificationFilter "DEFAULT"
-            magnificationFilter "DEFAULT"
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseTexture ImageTexture {
+            url "../textures/test_texture.png"
+            textureProperties TextureProperties {
+              boundaryModeS "REPEAT"
+              boundaryModeT "CLAMP_TO_EDGE"
+              minificationFilter "DEFAULT"
+              magnificationFilter "DEFAULT"
+            }
           }
         }
+        textureTransform TextureTransform { scale 2 2 }
       }
-      textureTransform TextureTransform { scale 2 2 }
+      geometry Box { }
     }
-    geometry Box { }
-  }
+    Transform {
+      translation 0 2 1
+      children Shape {
+        geometry Text {
+          string [ "S = repeat, T = clamp" "(with" "TextureProperties)" ]
+          fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+        }
+      }
+    }
+  ]
 }
 
 # S = repeat, T = mirror repeat
 Transform {
   translation 12 0 0
-  children Shape {
-    appearance Appearance {
-      material Material {
-        diffuseTexture ImageTexture {
-          url "../textures/test_texture.png"
-          textureProperties TextureProperties {
-            boundaryModeS "REPEAT"
-            boundaryModeT "MIRRORED_REPEAT"
-            minificationFilter "DEFAULT"
-            magnificationFilter "DEFAULT"
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseTexture ImageTexture {
+            url "../textures/test_texture.png"
+            textureProperties TextureProperties {
+              boundaryModeS "REPEAT"
+              boundaryModeT "MIRRORED_REPEAT"
+              minificationFilter "DEFAULT"
+              magnificationFilter "DEFAULT"
+            }
           }
         }
+        textureTransform TextureTransform { scale 2 2 }
       }
-      textureTransform TextureTransform { scale 2 2 }
+      geometry Box { }
     }
-    geometry Box { }
-  }
+    Transform {
+      translation 0 2 1
+      children Shape {
+        geometry Text {
+          string [ "S = repeat," "T = mirror repeat" "(with" "TextureProperties)" ]
+          fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+        }
+      }
+    }
+  ]
 }
 
 # S, T = mirror repeat
 Transform {
   translation 15 0 0
-  children Shape {
-    appearance Appearance {
-      material Material {
-        diffuseTexture ImageTexture {
-          url "../textures/test_texture.png"
-          textureProperties TextureProperties {
-            boundaryModeS "MIRRORED_REPEAT"
-            boundaryModeT "MIRRORED_REPEAT"
-            minificationFilter "DEFAULT"
-            magnificationFilter "DEFAULT"
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseTexture ImageTexture {
+            url "../textures/test_texture.png"
+            textureProperties TextureProperties {
+              boundaryModeS "MIRRORED_REPEAT"
+              boundaryModeT "MIRRORED_REPEAT"
+              minificationFilter "DEFAULT"
+              magnificationFilter "DEFAULT"
+            }
           }
         }
+        textureTransform TextureTransform { scale 2 2 }
       }
-      textureTransform TextureTransform { scale 2 2 }
+      geometry Box { }
     }
-    geometry Box { }
-  }
+    Transform {
+      translation 0 2 1
+      children Shape {
+        geometry Text {
+          string [ "S = mirror repeat," "T = mirror repeat" "(with" "TextureProperties)" ]
+          fontStyle FontStyle { size 0.2 justify "MIDDLE" }
+        }
+      }
+    }
+  ]
 }
