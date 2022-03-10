@@ -67,9 +67,6 @@ Transform {
           diffuseTexture ImageTexture {
             url "../textures/test_texture.png"
             textureProperties TextureProperties {
-              # TODO: minificationFilter, magnificationFilter should be removed from this file, we fixed X3D 4.0 to have "DEFAULT" by default, we need to apply this fix to CGE
-             minificationFilter "DEFAULT"
-             magnificationFilter "DEFAULT"
             }
           }
         }
@@ -101,8 +98,6 @@ Transform {
             textureProperties TextureProperties {
               boundaryModeS "REPEAT"
               boundaryModeT "CLAMP_TO_EDGE"
-              minificationFilter "DEFAULT"
-              magnificationFilter "DEFAULT"
             }
           }
         }
@@ -134,8 +129,6 @@ Transform {
             textureProperties TextureProperties {
               boundaryModeS "REPEAT"
               boundaryModeT "MIRRORED_REPEAT"
-              minificationFilter "DEFAULT"
-              magnificationFilter "DEFAULT"
             }
           }
         }
@@ -167,8 +160,6 @@ Transform {
             textureProperties TextureProperties {
               boundaryModeS "MIRRORED_REPEAT"
               boundaryModeT "MIRRORED_REPEAT"
-              minificationFilter "DEFAULT"
-              magnificationFilter "DEFAULT"
             }
           }
         }
