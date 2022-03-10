@@ -1,7 +1,13 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-NavigationInfo { type "WALK" speed 10 }
+NavigationInfo {
+  type "WALK"
+  speed 10
+  # zero transitionTime allows to quickly compare
+  # the texture filtering by switching viewpoints by PageUp/Down in view3dscene
+  transitionTime 0
+}
 
 PROTO Test [
   inputOutput SFVec3f translation 0 0 0
