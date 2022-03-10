@@ -105,9 +105,9 @@ DEF Board_T Transform {
           texture [
             ImageTexture {
               url "../textures/chequered.png"
-              repeatS TRUE
-              repeatT TRUE
               textureProperties TextureProperties {
+                boundaryModeS "REPEAT"
+                boundaryModeT "REPEAT"
                 magnificationFilter "NICEST"
                 minificationFilter "NICEST"
                 anisotropicDegree 16

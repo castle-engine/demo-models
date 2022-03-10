@@ -28,7 +28,12 @@ Shape {
   appearance DEF App Appearance {
     material Material { }
     texture ImageTexture3D { url "../textures/white_noise_3d.dds"
-      textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+      textureProperties TextureProperties {
+        minificationFilter "NEAREST_PIXEL"
+        boundaryModeS "CLAMP_TO_EDGE"
+        boundaryModeT "CLAMP_TO_EDGE"
+        boundaryModeR "CLAMP_TO_EDGE"
+      }
     }
   }
   geometry Box { }
@@ -44,10 +49,12 @@ Shape {
         language "GLSL"
         initializeOnly SFNode white_noise ImageTexture3D {
           url "../textures/white_noise_3d.dds"
-          repeatS TRUE
-          repeatT TRUE
-          repeatR TRUE
-          textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+          textureProperties TextureProperties {
+            minificationFilter "NEAREST_PIXEL"
+            boundaryModeS "REPEAT"
+            boundaryModeT "REPEAT"
+            boundaryModeR "REPEAT"
+          }
         }
         inputOnly SFTime time
         parts [
@@ -81,10 +88,12 @@ Shape {
         language "GLSL"
         initializeOnly SFNode white_noise ImageTexture3D {
           url "../textures/white_noise_3d.dds"
-          repeatS TRUE
-          repeatT TRUE
-          repeatR TRUE
-          textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+          textureProperties TextureProperties {
+            minificationFilter "NEAREST_PIXEL"
+            boundaryModeS "REPEAT"
+            boundaryModeT "REPEAT"
+            boundaryModeR "REPEAT"
+          }
         }
         inputOnly SFTime time
         parts [
@@ -118,10 +127,12 @@ Shape {
         language "GLSL"
         initializeOnly SFNode white_noise ImageTexture3D {
           url "../textures/white_noise_3d.dds"
-          repeatS TRUE
-          repeatT TRUE
-          repeatR TRUE
-  #        textureProperties TextureProperties { minificationFilter "AVG_PIXEL" }
+          textureProperties TextureProperties {
+            # minificationFilter "AVG_PIXEL"
+            boundaryModeS "REPEAT"
+            boundaryModeT "REPEAT"
+            boundaryModeR "REPEAT"
+          }
         }
         inputOnly SFTime time
         parts [
@@ -157,10 +168,12 @@ Shape {
         language "GLSL"
         initializeOnly SFNode smooth_noise_tex ImageTexture3D {
           url "textures/noise_from_humus.dds"
-          repeatS TRUE
-          repeatT TRUE
-          repeatR TRUE
-  #        textureProperties TextureProperties { minificationFilter "AVG_PIXEL" }
+          textureProperties TextureProperties {
+            # minificationFilter "AVG_PIXEL"
+            boundaryModeS "REPEAT"
+            boundaryModeT "REPEAT"
+            boundaryModeR "REPEAT"
+          }
         }
         inputOnly SFTime time
         parts [

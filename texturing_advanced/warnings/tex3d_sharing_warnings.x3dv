@@ -7,7 +7,7 @@ COMPONENT Texturing3D:2
 #   random3d.dds is loaded only once (even though it's used by two different
 #   ImageTexture3D nodes, even with different repeatS/T/R)
 # - warnings about wrong files for first ImageTexture3D should be nice,
-#   and eventually result in loading random3d.dds, and no memory leaks should be.
+#   and eventually result in loading random3d.dds, and no memory leaks should occur.
 
 Shape {
   appearance Appearance {
@@ -18,12 +18,15 @@ Shape {
         "../../textures/castle_end_sequence.dds"
         "../../textures/random3d.dds"
       ]
-      repeatS TRUE
-      repeatT TRUE
-      repeatR TRUE
+      repeatS TRUE # actually TextureProperties overrides this
+      repeatT TRUE # actually TextureProperties overrides this
+      repeatR TRUE # actually TextureProperties overrides this
       textureProperties TextureProperties {
         minificationFilter "NICEST"
         magnificationFilter "NICEST"
+        boundaryModeS "REPEAT"
+        boundaryModeT "REPEAT"
+        boundaryModeR "REPEAT"
       }
     }
     textureTransform DEF TexTrans TextureTransform3D {
@@ -40,12 +43,15 @@ Transform {
     appearance Appearance {
       texture DEF Tex3D ImageTexture3D {
         url "../../textures/random3d.dds"
-        repeatS FALSE
-        repeatT FALSE
-        repeatR FALSE
+        repeatS FALSE # actually TextureProperties overrides this
+        repeatT FALSE # actually TextureProperties overrides this
+        repeatR FALSE # actually TextureProperties overrides this
         textureProperties TextureProperties {
           minificationFilter "NICEST"
           magnificationFilter "NICEST"
+          boundaryModeS "CLAMP_TO_EDGE"
+          boundaryModeT "CLAMP_TO_EDGE"
+          boundaryModeR "CLAMP_TO_EDGE"
         }
       }
       textureTransform DEF TexTrans TextureTransform3D {

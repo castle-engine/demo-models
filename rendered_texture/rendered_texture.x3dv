@@ -177,12 +177,12 @@ Transform {
       material Material { }
       texture RenderedTexture {
         update "ALWAYS"
-        repeatS FALSE
-        repeatT FALSE
 
         # Test this will cause texture to look with blocky pixels
         dimensions [ 32 32 ]
         textureProperties TextureProperties {
+          boundaryModeS "CLAMP_TO_EDGE"
+          boundaryModeT "CLAMP_TO_EDGE"
           minificationFilter "NEAREST_PIXEL"
           magnificationFilter "NEAREST_PIXEL"
         }

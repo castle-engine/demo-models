@@ -24,7 +24,9 @@ Group {
           # Use TextureProperties to have "NEAREST_PIXEL" filtering,
           # instead of the default bilinear (X3D calls it "AVG_PIXEL").
           # In this case, for a very small textures, "NEAREST_PIXEL" looks better.
-          textureProperties DEF MyTextureProperties TextureProperties {
+          textureProperties DEF MyTexturePropertiesRepeat TextureProperties {
+            boundaryModeS "REPEAT"
+            boundaryModeT "REPEAT"
             magnificationFilter "NEAREST_PIXEL"
             # do not scale to power of two
             guiTexture TRUE
@@ -45,7 +47,7 @@ Group {
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF  # bottom row : red white white blue
               0 0x00FF00 0x00FF00 0 # middle row : black green green black
               0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF # top row : yellow something something something
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesRepeat
           }
         }
         geometry Box { }
@@ -77,7 +79,7 @@ Group {
             image 2 2 2
               0x00FF 0x5000
               0xFF00 0xA0FF
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesRepeat
           }
         }
         geometry Box { }
@@ -98,7 +100,7 @@ Group {
               0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
               0 0x00FF0000 0x00FF0000 0
               0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesRepeat
           }
         }
         geometry Box { }
@@ -126,9 +128,13 @@ Transform {
           image 2 2 1
             0 0x50
             0xFF 0xA0
-          repeatS FALSE
-          repeatT FALSE
-          textureProperties USE MyTextureProperties
+          textureProperties DEF MyTexturePropertiesClamp TextureProperties {
+            boundaryModeS "CLAMP_TO_EDGE"
+            boundaryModeT "CLAMP_TO_EDGE"
+            magnificationFilter "NEAREST_PIXEL"
+            # do not scale to power of two
+            guiTexture TRUE
+          }
         }
       }
       geometry Box { }
@@ -144,9 +150,7 @@ Transform {
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
               0 0x00FF00 0x00FF00 0
               0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesClamp
           }
         }
         geometry Box { }
@@ -172,9 +176,7 @@ Transform {
           material USE MyMaterial
           texture PixelTexture {
             image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesClamp
           }
         }
         geometry Box { }
@@ -191,9 +193,7 @@ Transform {
               0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
               0 0x00FF0000 0x00FF0000 0
               0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesClamp
           }
         }
         geometry Box { }
@@ -213,9 +213,7 @@ Transform {
         material USE MyMaterial
         texture PixelTexture {
           image 2 2 1  0 0x50 0xFF 0xA0
-          repeatS FALSE
-          repeatT FALSE
-          textureProperties USE MyTextureProperties
+          textureProperties USE MyTexturePropertiesClamp
         }
       }
       geometry Cone { }
@@ -231,9 +229,7 @@ Transform {
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
               0 0x00FF00 0x00FF00 0
               0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesClamp
           }
         }
         geometry Cylinder { }
@@ -259,9 +255,7 @@ Transform {
           material USE MyMaterial
           texture PixelTexture {
             image 2 2 2  0x00FF 0x5000 0xFF00 0xA0FF
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesClamp
           }
         }
         geometry Sphere { }
@@ -278,9 +272,7 @@ Transform {
               0xFF0000FF 0xFFFFFF00 0xFFFFFF00 0x0000FFFF
               0 0x00FF0000 0x00FF0000 0
               0xFFFF00FF 0x00FFFF00 0x00FFFF00 0xFF00FFFF
-            repeatS FALSE
-            repeatT FALSE
-            textureProperties USE MyTextureProperties
+            textureProperties USE MyTexturePropertiesClamp
           }
         }
         geometry Cone { }

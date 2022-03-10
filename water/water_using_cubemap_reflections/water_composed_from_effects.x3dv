@@ -157,10 +157,12 @@ Collision {
             enabled FALSE
             initializeOnly SFNode white_noise ImageTexture3D {
               url "../../textures/white_noise_3d.dds"
-              repeatS TRUE
-              repeatT TRUE
-              repeatR TRUE
-              textureProperties TextureProperties { minificationFilter "NEAREST_PIXEL" }
+              textureProperties TextureProperties {
+                minificationFilter "NEAREST_PIXEL"
+                boundaryModeS "REPEAT"
+                boundaryModeT "REPEAT"
+                boundaryModeR "REPEAT"
+              }
             }
             inputOnly SFTime time
             ROUTE Timer.time TO NormalsFromGPUNoise.time

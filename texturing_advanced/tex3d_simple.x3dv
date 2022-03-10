@@ -17,6 +17,9 @@ Shape {
       textureProperties TextureProperties {
         minificationFilter "NEAREST_PIXEL"
         magnificationFilter "NEAREST_PIXEL"
+        boundaryModeS "CLAMP_TO_EDGE"
+        boundaryModeT "CLAMP_TO_EDGE"
+        boundaryModeR "CLAMP_TO_EDGE"
       }
     }
     textureTransform TextureTransform3D {
@@ -42,6 +45,9 @@ Transform {
         textureProperties TextureProperties {
           minificationFilter "NEAREST_PIXEL"
           magnificationFilter "NEAREST_PIXEL"
+          boundaryModeS "CLAMP_TO_EDGE"
+          boundaryModeT "CLAMP_TO_EDGE"
+          boundaryModeR "CLAMP_TO_EDGE"
         }
       }
     }
@@ -75,6 +81,9 @@ Transform {
         textureProperties TextureProperties {
           minificationFilter "NEAREST_PIXEL"
           magnificationFilter "NEAREST_PIXEL"
+          boundaryModeS "CLAMP_TO_EDGE"
+          boundaryModeT "CLAMP_TO_EDGE"
+          boundaryModeR "CLAMP_TO_EDGE"
         }
       }
     }

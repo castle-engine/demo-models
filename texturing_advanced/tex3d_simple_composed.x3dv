@@ -14,6 +14,9 @@ Shape {
         minificationFilter "AVG_PIXEL"
         #minificationFilter "NICEST"
         magnificationFilter "AVG_PIXEL"
+        boundaryModeS "CLAMP_TO_EDGE"
+        boundaryModeT "CLAMP_TO_EDGE"
+        boundaryModeR "CLAMP_TO_EDGE"
       }
     }
     textureTransform TextureTransform3D {

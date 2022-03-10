@@ -17,9 +17,6 @@ Collision {
           }
           texture DEF Tex3D ImageTexture3D {
             url "../textures/random3d.dds"
-            repeatS TRUE
-            repeatT TRUE
-            repeatR TRUE
             textureProperties TextureProperties {
               minificationFilter "NICEST"
               magnificationFilter "NICEST"

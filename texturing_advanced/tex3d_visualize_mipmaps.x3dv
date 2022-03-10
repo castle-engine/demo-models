@@ -127,10 +127,10 @@ PROTO Slices3D [
 Shape {
   appearance Appearance {
     texture ImageTexture3D { url "../textures/marblebrick3d.dds"
-      repeatS TRUE
-      repeatT TRUE
-      repeatR FALSE
       textureProperties TextureProperties {
+        boundaryModeS "REPEAT"
+        boundaryModeT "REPEAT"
+        boundaryModeR "CLAMP_TO_EDGE"
         #minificationFilter "AVG_PIXEL"
         minificationFilter "NICEST"
         magnificationFilter "AVG_PIXEL"
