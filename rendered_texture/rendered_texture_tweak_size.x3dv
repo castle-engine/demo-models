@@ -100,8 +100,8 @@ function keyPress(value, timestamp)
     array_set(dimensions, 1, array_get(dimensions, 1) * 2)
   );
   when (value = 'S',
-    array_set(dimensions, 0, array_get(dimensions, 0) / 2);
-    array_set(dimensions, 1, array_get(dimensions, 1) / 2)
+    array_set(dimensions, 0, array_get(dimensions, 0) div 2);
+    array_set(dimensions, 1, array_get(dimensions, 1) div 2)
   );
   when (value = 'd',
     array_set(depthMap, 0, not(array_get(depthMap, 0)))
