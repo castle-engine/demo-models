@@ -7,6 +7,10 @@ set -eu
 # - no arguments (regenerate everything here)
 # - directory name as argument (regenerate everything there, recursively)
 # - file name as argument (regenerate this one file)
+#
+# Resulting files are called _screenshot.png.
+# This makes their purpose more obvious, and also allows to easily find/delete them
+# (without deleting other PNGs).
 # ----------------------------------------------------------------------------
 
 # Allows to properly handle filenames with spaces,
@@ -20,14 +24,11 @@ do_file ()
 {
   MODEL_FILE="$1"
 
-  # Use bash expansion to strip extensions.
-  #
-  # Note: we could use %% to strip even double extensions like .wrl.gz,
-  # but then filename like ../x3d-tests/aa.x3d fails.
-  #
-  # See https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
-  # and https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion
-  SCREENSHOT_FILE="${1%.*}.png"
+  # Note that we don't strip MODEL_FILE extension,
+  # as it would make ambiguous files in case
+  # you have multiple models with same name, like aaa.gltf and aaa.x3d .
+  # It's both simpler and more informative to leave MODEL_FILE extension.
+  SCREENSHOT_FILE="$1_screenshot.png"
 
   echo "Making screenshot ${MODEL_FILE} -> ${SCREENSHOT_FILE}"
   view3dscene "${MODEL_FILE}" --geometry 1600x900 --screenshot 0 "${SCREENSHOT_FILE}"
@@ -36,10 +37,15 @@ do_file ()
 # Regenerate screenshot for everything in directory $1
 do_dir ()
 {
+  # We ignore some hard-coded dirs:
+  # - errors/ are invalid files.
+  # - multi_texturing/ already contains screenshots.
   find "$1" \
     '(' -type d -iname 'errors' -prune ')' -or \
     '(' -type f -name '*test_temporary*' ')' -or \
-    '(' -type f '(' -iname '*.wrl' -or \
+    '(' -type f \
+       '(' -not -iwholename '*multi_texturing/*' ')' \
+                '(' -iname '*.wrl' -or \
                     -iname '*.wrz' -or \
                     -iname '*.wrl.gz' -or \
                     -iname '*.x3d' -or \
