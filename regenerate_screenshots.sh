@@ -40,11 +40,13 @@ do_dir ()
   # We ignore some hard-coded dirs:
   # - errors/ are invalid files.
   # - multi_texturing/ already contains screenshots.
+  # - shader_invalid_uniforms makes errors when rendering to FBO.
   find "$1" \
     '(' -type d -iname 'errors' -prune ')' -or \
     '(' -type f -name '*test_temporary*' ')' -or \
     '(' -type f \
        '(' -not -iwholename '*multi_texturing/*' ')' \
+       '(' -not -iwholename '*shaders/warnings/shader_invalid_uniforms.x3dv' ')' \
                 '(' -iname '*.wrl' -or \
                     -iname '*.wrz' -or \
                     -iname '*.wrl.gz' -or \
