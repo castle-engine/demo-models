@@ -20,11 +20,14 @@ do_file ()
 {
   MODEL_FILE="$1"
 
-  # use bash expansion to strip extensions,
-  # even double extensions like .wrl.gz,
-  # see https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+  # Use bash expansion to strip extensions.
+  #
+  # Note: we could use %% to strip even double extensions like .wrl.gz,
+  # but then filename like ../x3d-tests/aa.x3d fails.
+  #
+  # See https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
   # and https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html#Shell-Parameter-Expansion
-  SCREENSHOT_FILE="${1%%.*}.png"
+  SCREENSHOT_FILE="${1%.*}.png"
 
   echo "Making screenshot ${MODEL_FILE} -> ${SCREENSHOT_FILE}"
   view3dscene "${MODEL_FILE}" --geometry 1600x900 --screenshot 0 "${SCREENSHOT_FILE}"
