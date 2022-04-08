@@ -30,7 +30,8 @@ ROUTE PosInterp.value_changed TO KingsEye.set_translation
 
 # export warnings test -------------------------------------------------------
 
-EXPORT KingsEye
+EXPORT KingsEye # This no longer makes warning: CGE allows it now, although X3D spec does not
+
 EXPORT PosInterpBlah AS PosInterp
 
 # ----------------------------------------------------------------------------
