@@ -1,0 +1,13 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+DEF Xxx Transform {
+  children [
+    Shape {
+      geometry Box { }
+    }
+    Script {
+      inputOutput SFNode myField USE Xxx
+    }
+  ]
+}
