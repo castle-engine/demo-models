@@ -14,12 +14,13 @@ Shape {
           parts EffectPart {
             type "FRAGMENT"
             url "data:text/plain,
-            void PLUG_texture_apply(
-               inout vec4 fragment_color,
-               const in vec3 normal)
+            void PLUG_texture_color(
+              inout vec4 texture_color,
+              const in sampler2D texture,
+              const in vec4 tex_coord)
             {
-              float avgcolor = (fragment_color[0] + fragment_color[1] + fragment_color[2]) / 3.0;
-              fragment_color.xyz = vec3(avgcolor); // set all XYZ components to the same value
+              float avgcolor = (texture_color[0] + texture_color[1] + texture_color[2]) / 3.0;
+              texture_color.xyz = vec3(avgcolor); // set all XYZ components to the same value
             }
             "
           }
