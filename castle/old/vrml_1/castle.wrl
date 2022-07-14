@@ -17,7 +17,7 @@ Switch {
 	DEF Circle_001
 	Separator {
 		Texture2 {
-			filename ../textures/castle/wood_clear.jpg
+			filename ../textures/wood_clear.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -664,7 +664,7 @@ Switch {
 	DEF MeshFosa
 	Separator {
 		Texture2 {
-			filename ../textures/castle/water2.jpg
+			filename ../textures/water2.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -839,7 +839,7 @@ Switch {
 	DEF MeshGround
 	Separator {
 		Texture2 {
-			filename ../textures/castle/grassfull.jpg
+			filename ../textures/grassfull.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -1009,7 +1009,7 @@ Switch {
 	DEF MeshGround_002
 	Separator {
 		Texture2 {
-			filename ../textures/castle/grassfull.jpg
+			filename ../textures/grassfull.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -1050,7 +1050,7 @@ Switch {
 	DEF MeshGroundInside
 	Separator {
 		Texture2 {
-			filename ../textures/castle/airbase_radar_panels.jpg
+			filename ../textures/airbase_radar_panels.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -1102,7 +1102,7 @@ Switch {
 	DEF MeshMostek
 	Separator {
 		Texture2 {
-			filename ../textures/castle/misslescararm.jpg
+			filename ../textures/misslescararm.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -1181,7 +1181,7 @@ Switch {
 	DEF MeshMurek
 	Separator {
 		Texture2 {
-			filename ../textures/castle/bricksmokesidebot.jpg
+			filename ../textures/bricksmokesidebot.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -1320,7 +1320,7 @@ Switch {
 	DEF MeshMurekWejscie
 	Separator {
 		Texture2 {
-			filename ../textures/castle/bricksmokesidebot.jpg
+			filename ../textures/bricksmokesidebot.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -1767,7 +1767,7 @@ Switch {
 	DEF MeshWieza
 	Separator {
 		Texture2 {
-			filename ../textures/castle/france_housered.jpg
+			filename ../textures/france_housered.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
@@ -2114,7 +2114,7 @@ Switch {
 	DEF Circle
 	Separator {
 		Texture2 {
-			filename ../textures/castle/waterwall.jpg
+			filename ../textures/waterwall.jpg
 			wrapS REPEAT 
 			wrapT REPEAT 
 		}
