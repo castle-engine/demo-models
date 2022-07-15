@@ -45,5 +45,5 @@ Group{
     }
   }
 
-  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
+  WWWInline { name "../../castle/old/vrml_1/castle_with_lights.wrl" }
 }

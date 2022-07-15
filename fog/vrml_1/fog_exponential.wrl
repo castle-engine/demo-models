@@ -26,5 +26,5 @@ Group {
     visibilityRange 160
     fogType "EXPONENTIAL"
   }
-  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
+  WWWInline { name "../../castle/old/vrml_1/castle_with_lights.wrl" }
 }

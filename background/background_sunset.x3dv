@@ -35,4 +35,4 @@ SpotLight {
   #  defaultShadowMap GeneratedShadowMap { size 1024 update "ALWAYS" }
 }
 
-Inline { url "../vrml_2/castle.wrl" }
+Inline { url "../castle/old/vrml_2/castle.wrl" }

@@ -22,7 +22,7 @@ Transform {
   # Rotate the castle_with_lights.wrl model, to make "up" in +Y,
   # this makes things simplest (when gravity up = +Y).
   rotation 1 0 0 -1.570796370506287
-  children Inline { url "../vrml_2/castle_with_lights.wrl" }
+  children Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }
 }
 
 DEF MyViewpoint Viewpoint {

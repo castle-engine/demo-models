@@ -25,5 +25,5 @@ Group {
     color 0.6 0.6 0.6
     visibilityRange 160
   }
-  WWWInline { name "../../vrml_1/castle_with_lights.wrl" }
+  WWWInline { name "../../castle/old/vrml_1/castle_with_lights.wrl" }
 }

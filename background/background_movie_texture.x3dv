@@ -42,4 +42,4 @@ Transform {
   }
 }
 
-Inline { url "../vrml_2/castle.wrl" }
+Inline { url "../castle/old/vrml_2/castle.wrl" }

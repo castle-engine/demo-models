@@ -8,7 +8,7 @@ Transform {
   scale 0.5 0.5 0.5
   translation 2 3 4
   children [
-    Inline { url "../vrml_2/castle_with_lights.wrl" }
+    Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }
     DEF SS SphereSensor { }
 
     DEF TrackPointVisualize Transform {

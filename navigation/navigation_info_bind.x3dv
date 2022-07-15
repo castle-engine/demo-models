@@ -56,4 +56,4 @@ ROUTE MyScript.bind2 TO NI2.set_bind
 ROUTE MyScript.bind3 TO NI3.set_bind
 ROUTE KS.keyPress TO MyScript.keyPress
 
-Inline { url "../vrml_2/castle_with_lights.wrl" }
+Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }

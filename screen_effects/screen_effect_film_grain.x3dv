@@ -28,7 +28,7 @@ NavigationInfo {
   avatarSize [ 0.5 4 ]
 }
 
-Inline { url "../vrml_2/castle_with_lights.wrl" }
+Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }
 
 ScreenEffect { shaders DEF Shader ComposedShader {
   inputOutput SFNode grainTexture ImageTexture {

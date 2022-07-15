@@ -54,4 +54,4 @@ DEF MyProx ProximitySensor { size 10000000 10000000 10000000 }
 ROUTE MyProx.orientation_changed TO PlayerSurrounding.set_rotation
 ROUTE MyProx.position_changed TO PlayerSurrounding.set_translation
 
-Inline { url "../vrml_2/castle_with_lights.wrl" }
+Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }

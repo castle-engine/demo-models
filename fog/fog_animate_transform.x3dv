@@ -9,7 +9,7 @@ NavigationInfo {
   speed 20
 }
 
-Inline { url "../vrml_2/castle_with_lights.wrl" }
+Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }
 
 DEF FogTransform Transform {
   children DEF Fog Fog {
