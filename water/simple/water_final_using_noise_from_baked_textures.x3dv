@@ -4,6 +4,7 @@ PROFILE Interchange
 # Plane with water.
 # - Uses RenderedTexture, ViewpointMirror and MIRROR-PLANE texture mapping
 #   for reflections.
+#   See https://castle-engine.io/x3d_extensions_mirror_plane.php
 # - Uses MovieTexture with a sequence of PNG for animated bump map.
 #
 # To add a water to your game, you can use this file:
@@ -12,13 +13,14 @@ PROFILE Interchange
 #   ../baked_normals/ subdirectory.
 #   You can change the relative path by changing MovieTexture.url in this file.
 #
-# - Change the Inline.url (in this file) to include your game level.
+# - Probably remove the Inline node that includes water_simple_scene.x3d here.
+#   In real game, you should add additional geometry using CGE component
+#   TCastleScene. You can compose world from multiple TCastleScene instances.
 #
-# - Adjust the "bindable" nodes in this file
-#   (Viewpoint, NavigationInfo, Fog, Background)
-#   to match your game level.
-#   Note that X3D requires bindable nodes to be present in the main file
-#   (not Inline) to be recognized as "default bindable value".
+# - Probably remove the "bindable" nodes in this file
+#   (Viewpoint, NavigationInfo, Fog, Background).
+#   In real game, you like setup camera/fog/background using CGE components
+#   TCastleCamera, TCastleFog, TCastleBackground, not using X3D nodes.
 #
 # - You can adjust water parameters as you wish:
 #   - You can adjust WaterTransform translation/scale/rotation,
