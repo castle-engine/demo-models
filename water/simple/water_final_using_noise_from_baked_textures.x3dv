@@ -81,19 +81,18 @@ Collision {
     scale 20 20 20
 
     children Shape {
-      shading "PHONG"
       appearance Appearance {
-        shaders CommonSurfaceShader {
-          alphaFactor 0.9 # opacity = 1 - transparency
-          specularFactor 1 1 1
-          shininessFactor 0.6
-          diffuseTexture RenderedTexture {
+        material PhysicalMaterial {
+          transparency 0.25
+          baseColor 0.6 0.6 1.0
+          baseTexture RenderedTexture {
             dimensions [ 2048 2048 3 ]
             viewpoint ViewpointMirror { }
             repeatS FALSE
             repeatT FALSE
             update "ALWAYS"
           }
+          baseTextureMapping "BASE"
 
           # TODO: These normals are not seamless, because forcing
           # procedurally-generated textures in Blender to be seamless
@@ -106,7 +105,7 @@ Collision {
             url "../baked_normals/baked_normals_@counter(4).png"
             loop TRUE
           }
-          normalTextureCoordinatesId 1
+          normalTextureMapping "NORMAL"
         }
       }
       geometry IndexedFaceSet {
@@ -121,10 +120,12 @@ Collision {
             # (in diffuseTexture)
             TextureCoordinateGenerator {
               mode "MIRROR-PLANE"
+              mapping "BASE"
             }
             # This is useful to make waves smaller/larger.
             TextureCoordinate {
               point [ 0 0, 0 10, 10 10, 10 0, ]
+              mapping "NORMAL"
             }
           ]
         }
