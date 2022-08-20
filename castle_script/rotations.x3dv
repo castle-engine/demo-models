@@ -117,7 +117,6 @@ Shape {
     texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Box {
-    divisions 30
     texCoord ProjectedTextureCoordinate {
       projector USE MySpot
     }

@@ -170,8 +170,6 @@ Transform { translation 0 -3 0 children [
 Shape {
   appearance Appearance { shaders USE SmoothingShader }
   geometry Box {
-    # make geometry low-quality
-    divisions 0
   }
 }
 ] }

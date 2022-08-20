@@ -39,7 +39,5 @@ Shape {
   geometry Box {
     size 10 10 10
     solid FALSE
-    # triangulate more, to properly see spot lights on this
-    divisions 50
   }
 }

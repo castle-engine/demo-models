@@ -30,21 +30,21 @@ Group {
   }
 
   # KambiTriangulation {
-  #   quadricStacks 1 rectDivisions 0 }
+  #   quadricStacks 1 }
   USE Col
 
   Translation { translation 4 0 0 }
   # KambiTriangulation {
-  #   quadricStacks 8 rectDivisions 4 }
+  #   quadricStacks 8 }
   USE Col
 
   Translation { translation 4 0 0 }
   # KambiTriangulation {
-  #   quadricSlices 30 quadricStacks 30 rectDivisions 10 }
+  #   quadricSlices 30 quadricStacks 30 }
   USE Col
 
   Translation { translation 4 0 0 }
   # KambiTriangulation {
-  #   quadricSlices 100 quadricStacks 100 rectDivisions 100 }
+  #   quadricSlices 100 quadricStacks 100 }
   USE Col
 }
