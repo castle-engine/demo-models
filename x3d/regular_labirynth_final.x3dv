@@ -67,9 +67,6 @@ KambiNavigationInfo {
   headlight TRUE
   avatarSize [ 0.1 1 ]
   speed 4
-  octreeRendering KambiOctreeProperties {
-#    leafCapacity 20
-  }
 }
 
 Inline { url "regular_labirynth.x3d" }
