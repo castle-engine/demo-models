@@ -4,7 +4,6 @@ COMPONENT Shaders:1
 
 NavigationInfo {
   headlight        FALSE
-  visibilityLimit  1000
   avatarSize       [ 0.25 1.6 1.40 ]
   type             [ "WALK" "ANY" ]
 }
