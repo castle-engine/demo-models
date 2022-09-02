@@ -7,16 +7,16 @@ Group {
   Separator{
     DEF RenderBefore Group{
       Coordinate3 { point [ 0 -2 0, 0 2 0 ] }
-      Material { diffuseColor 1 0 0 }
+      Material { emissiveColor 1 0 0 }
       IndexedLineSet { coordIndex [ 0, 1 ] }
   
       TransformSeparator {
         Translation { translation 0 -1 0 }
         DEF Krzyzyk Separator {
-          Material { diffuseColor 0 0 1 }
+          Material { emissiveColor 0 0 1 }
           Coordinate3 { point [ -2 0 0, 2 0 0, 0 0 -2, 0 0 2 ] }
           IndexedLineSet { coordIndex [ 0, 1, -1, 2, 3, ] }
-          Material { diffuseColor 1 1 1 }
+          Material { emissiveColor 1 1 1 }
           PointSet { startIndex 0 }
         }
       }
