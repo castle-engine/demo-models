@@ -94,10 +94,17 @@ DEF LightTransform Transform {
 ROUTE MyViewpoint.cameraRotationMatrix TO SpotEffect.cameraRotationMatrix
 
 DEF LightRotationInterpolator OrientationInterpolator {
-  key [ 0.0, 1.0 ]
+  key [
+    0
+    0.333
+    0.666
+    1
+  ]
   keyValue [
     0 1 0 0,
-    0 1 0 6.2831853072 # Pi * 2
+    0 1 0 2.094395102, # 2*pi / 3
+    0 1 0 4.188790205, # 2*pi * 2 / 3
+    0 1 0 6.283185307, # 2*pi
   ]
 }
 
