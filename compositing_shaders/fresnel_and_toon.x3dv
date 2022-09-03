@@ -10,7 +10,7 @@ Shape {
     material Material { diffuseColor 1 0 0
       transparency 0.5 # anything <> 1 to force blending rendering
     }
-    blendMode BlendMode { destFactor "one" } # otherwise blending causes artifacts
+    blendMode BlendMode { destFactor "ONE" } # otherwise blending causes artifacts
     effects DEF Fresnel Effect {
       language "GLSL"
       parts EffectPart {
@@ -78,7 +78,7 @@ Transform { translation 3 1 0
       material Material { diffuseColor 1 0 0
         transparency 0.5 # anything <> 1 to force blending rendering
       }
-      blendMode BlendMode { destFactor "one" } # otherwise blending causes artifacts
+      blendMode BlendMode { destFactor "ONE" } # otherwise blending causes artifacts
       effects [ USE Toon USE Fresnel ]
     }
     geometry Teapot { }

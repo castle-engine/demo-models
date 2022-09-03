@@ -21810,7 +21810,7 @@ DEF OB_NotCollidable Transform {
 						material USE MA_Material
                                                 # Kambi+
                                                 blendMode BlendMode {
-                                                  destFactor "one"
+                                                  destFactor "ONE"
                                                 }
 					}
 					geometry IndexedFaceSet {

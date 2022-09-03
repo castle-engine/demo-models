@@ -61,7 +61,7 @@ DEF ProxSensTransform Transform {
             transparency 0.5
             diffuseColor 2 2 0
           }
-          blendMode BlendMode { destFactor "one" }
+          blendMode BlendMode { destFactor "ONE" }
         }
         geometry Box { size 1 1 1 solid FALSE }
       }
@@ -98,7 +98,7 @@ DEF BigBoxToVisualizePosition Transform {
           transparency 0.1
           diffuseColor 0.2 0.2 0.9
         }
-	blendMode BlendMode { destFactor "one" }
+	blendMode BlendMode { destFactor "ONE" }
       }
       geometry Box { size 1 1 1 solid FALSE }
     }

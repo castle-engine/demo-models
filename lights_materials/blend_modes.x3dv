@@ -62,7 +62,7 @@ Transform {
     appearance KambiAppearance {
       material USE MA_Material_001
       blendMode BlendMode {
-        destFactor "one"
+        destFactor "ONE"
       }
     }
     geometry USE Teapot_IFS
@@ -76,8 +76,8 @@ Transform {
     appearance KambiAppearance {
       material USE MA_Material_001
       blendMode BlendMode {
-        srcFactor "constant_color"
-        destFactor "one_minus_src_alpha"
+        srcFactor "CONSTANT_COLOR"
+        destFactor "ONE_MINUS_SRC_ALPHA"
         color 1 0 0
       }
     }
@@ -92,8 +92,8 @@ Transform {
     appearance KambiAppearance {
       material USE MA_Material_001
       blendMode BlendMode {
-        srcFactor "constant_color"
-        destFactor "one"
+        srcFactor "CONSTANT_COLOR"
+        destFactor "ONE"
         color 1 0 0
       }
     }
@@ -108,8 +108,8 @@ Transform {
     appearance KambiAppearance {
       material USE MA_Material_001
       blendMode BlendMode {
-        srcFactor "constant_alpha"
-        destFactor "one_minus_src_alpha"
+        srcFactor "CONSTANT_ALPHA"
+        destFactor "ONE_MINUS_SRC_ALPHA"
         colorTransparency 0.9
       }
     }
@@ -124,8 +124,8 @@ Transform {
     appearance KambiAppearance {
       material USE MA_Material_001
       blendMode BlendMode {
-        srcFactor "constant_alpha"
-        destFactor "one"
+        srcFactor "CONSTANT_ALPHA"
+        destFactor "ONE"
         colorTransparency 0.9
       }
     }

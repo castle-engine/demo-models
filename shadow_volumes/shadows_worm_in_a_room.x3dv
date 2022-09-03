@@ -144,7 +144,7 @@ DEF SpBlue Transform {
       Shape {
         appearance KambiAppearance { material Material { diffuseColor 0.1 0.1 1
           transparency 0.5 }
-          blendMode BlendMode { srcFactor "src_alpha" }
+          blendMode BlendMode { srcFactor "SRC_ALPHA" }
         }
         geometry Sphere { radius 0.15 } }
     ] } }
@@ -168,7 +168,7 @@ DEF BoxRed Transform {
         appearance KambiAppearance {
           material Material { diffuseColor 1 0.1 0.1
             transparency 0.5 }
-          blendMode BlendMode { srcFactor "src_alpha" }
+          blendMode BlendMode { srcFactor "SRC_ALPHA" }
         }
         geometry Box { size 0.2 0.2 0.2 } }
     ] } }

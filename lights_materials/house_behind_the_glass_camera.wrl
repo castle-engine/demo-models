@@ -38,7 +38,7 @@ Shape {
 
   # to correctly display blending
   blendMode BlendMode {
-    destFactor "one"
+    destFactor "ONE"
   }
   }
   geometry Sphere { radius 0.562 }

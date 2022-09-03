@@ -83,7 +83,7 @@ DEF OB_Teapot Transform {
 
 						# Kambi+ to correctly display blending
 						blendMode BlendMode {
-						  destFactor "one"
+						  destFactor "ONE"
 						}
 					}
 					geometry IndexedFaceSet {

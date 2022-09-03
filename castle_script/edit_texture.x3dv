@@ -43,7 +43,7 @@ Shape {
       alphaChannel "BLENDING"
     }
     # Force blending mode according to default BlendMode values,
-    # in particular destFactor "one_minus_src_alpha".
+    # in particular destFactor "ONE_MINUS_SRC_ALPHA".
     blendMode BlendMode { }
   }
   geometry IndexedFaceSet {
