@@ -1,7 +1,7 @@
 #VRML V1.0 ascii
 
 Group {
-  Texture2 { filename "sample_texture.png" }
+  Texture2 { filename "../textures/test_texture.png" }
 
   Cube { }
 

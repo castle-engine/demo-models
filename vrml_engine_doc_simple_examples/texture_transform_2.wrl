@@ -3,7 +3,7 @@
 Shape {
   appearance Appearance {
     texture DEF SampleTexture
-      ImageTexture { url "sample_texture.png" }
+      ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Box { }
 }

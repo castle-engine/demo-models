@@ -2,7 +2,7 @@
 
 Shape {
   appearance Appearance {
-    texture ImageTexture { url "sample_texture.png" }
+    texture ImageTexture { url "../textures/test_texture.png" }
   }
   geometry Box { }
 }
@@ -11,7 +11,7 @@ Transform {
   translation 5 0 0
   children Shape {
     appearance Appearance {
-      texture ImageTexture { url "sample_texture.png" }
+      texture ImageTexture { url "../textures/test_texture.png" }
     }
     geometry Sphere { }
   }
