@@ -1,7 +1,6 @@
 #VRML V2.0 utf8
 
-# This is a test of mixing VRML versions: Viewpoint, PerspectiveCamera and
-# OrthographicCamera nodes in one VRML file.
+# This is a test of Viewpoint.
 
 Group{
   children [
@@ -23,25 +22,6 @@ Group{
       orientation 1 0 0 1.5711416006088257
     }
 
-    Transform {
-      translation 2 2 2
-      rotation 1 0 0 1.570796370506287
-      children PerspectiveCamera {
-        position 0 0 0 # camera position is expressed by translation
-        orientation 0 0 1 0
-      }
-    }
-
-    DEF Same_as_before_but_without_correct_gravity PerspectiveCamera {
-      position 2 2 2
-      orientation 1 0 0 1.5711416006088257
-    }
-
-    DEF Camera3_3_3 PerspectiveCamera {
-      position 3 3 3
-      orientation 1 0 0 1.5711416006088257
-    }
-
     Viewpoint {
       position 1 1 10
       orientation 1 0 0 1.5711416006088257
@@ -58,31 +38,6 @@ More text... More text... More text... More text... More text... More text...
 More text... More text... More text... More text... More text... More text...
 More text... More text... More text... More text... More text... More text...
 "
-    }
-
-    DEF OrtoCamera OrthographicCamera{
-      position 4 4 4
-      orientation 1 0 0 1.5711416006088257
-    }
-
-    OrthographicCamera{
-      position 5 5 5
-      orientation 1 0 0 1.5711416006088257
-    }
-
-    Transform {
-      translation 10 10 10
-      children [
-        DEF CameraTranslated PerspectiveCamera {
-          position 1 1 1
-          orientation 1 0 0 1.5711416006088257
-        }
-        Viewpoint {
-          position 2 2 2
-          orientation 1 0 0 1.5711416006088257
-          description "translated viewpoint"
-        }
-      ]
     }
 
     # Camera settings "encoded" in the VRML declaration below :
