@@ -44,7 +44,16 @@ EditableTransform {
   translation -20 7.5 2.5
   minPosition -40 -40
   maxPosition  40  40
-  children DEF Chopper Inline { url "chopper/chopper.castle-anim-frames" }
+  children Transform {
+    rotation 0 1 0 3.1
+    children DEF Chopper Inline {
+      # TODO: Unknown why, but moving this castle-anim-frames causes stutter in CGE.
+      # Probably not important - we deprecate castle-anim-frames anyway,
+      # animations in glTF are a much better idea.
+      # url "chopper/chopper.castle-anim-frames"
+      url "chopper/chopper.gltf"
+    }
+  }
 }
 
 # Start the "fly" animation of chopper as soon as we open the file
