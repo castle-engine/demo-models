@@ -118,21 +118,6 @@ EditableTransform {
   maxPosition  30  10
 }
 
-# Cube to visualize shadow map -----------------------------------------------
-
-Transform {
-  translation 0 8 0
-  children Shape {
-    appearance Appearance {
-      material Material { }
-      texture GeneratedShadowMap {
-        light USE MySpot update "ALWAYS" size 512 compareMode "NONE"
-      }
-    }
-    geometry Box { size 6 6 6 }
-  }
-}
-
 # some shadow casters (not receivers) -----------------------------------------
 
 EditableTransform {
