@@ -11,13 +11,15 @@ vec4 color_from_intensity(float intensity);
 vec4 color_from_intensity_alt(float intensity);
 
 varying vec3 normal;
+varying vec4 vertex_eye;
+
 void main()
 {
   float intensity;
   // Normalize the normal, again
   vec3 n = normalize(normal);
-  // Normalize light direction and convert to a vec3
-  vec3 lDir = normalize(vec3(gl_LightSource[0].position));
+  // Assume a headlight, so light direction in eye space is -vertex_eye
+  vec3 lDir = normalize(-vertex_eye.xyz);
   // Compute light intensity using dot product
   intensity = dot(lDir,n);
   // Compute light intensity using dot product

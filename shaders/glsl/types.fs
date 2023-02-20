@@ -5,14 +5,15 @@
 
    If all is white, then the test succeded.
    If you see any other colors (typically, red vertical stripes),
-   then some uniform is not correctly set. */
+   then some uniform is not correctly set.
 
-// to have % operator available (you cannot use #ifdef before #version, so this will only work on desktop)
-/* #ifdef GL_ES */
-/*   #version 300 es */
-/* #else */
-#version 130
- /* #endif */
+   Note: to have % operator available, this needs
+
+   - OpenGLES: #version 300 es
+   - OpenGL: #version 130
+
+   CGE will declare such versions (even higher) if possible on this GPU.
+*/
 
 uniform bool my_bool;
 uniform int my_long;
@@ -61,9 +62,9 @@ uniform mat4 a_dmat4[2];
 void main(void)
 {
   /* Reason for the first "int(gl_FragCoord.x) % 36 < 18":
-     FUCK FGLRX (ATI (Radeon) under Linux).
-     1001th Fglrx bug: "if-else" clauses with more than 33
-     parts produces very weird results, some random parts of pixels
+     fglrx (closed-source ATI (Radeon) Linux drivers) bug.
+     "if-else" clauses with more than 33
+     parts produce very weird results, some random parts of pixels
      get black then (not only columns, black diagonal stripes pass through
      whole screen where shaders run).
   */

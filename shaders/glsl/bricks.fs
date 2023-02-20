@@ -4,10 +4,6 @@
   presentation by Randi Rost, 3DLabs (GLSLOverview2005.pdf)
 */
 
-#ifdef GL_ES
-precision mediump float;
-#endif
-
 uniform vec3 BrickColor;
 uniform vec3 MortarColor;
 uniform vec2 BrickSize;

@@ -39,10 +39,6 @@ void main(void)
           ShaderPart {
             type "FRAGMENT"
             url "data:text/plain,
-#ifdef GL_ES
-precision mediump float;
-#endif
-
 /* PLUG-DECLARATIONS */
 
 void main(void)
