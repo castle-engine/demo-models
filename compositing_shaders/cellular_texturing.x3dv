@@ -29,7 +29,7 @@ Shape {
           type "FRAGMENT"
           url "data:text/plain,
 
-#version 120
+/* Note: This requires on newer GLSL version, at least 120, for some syntax. */
 
 const int count = 30;
 
