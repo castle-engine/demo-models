@@ -57,9 +57,7 @@ void PLUG_vertex_eye_space(const in vec4 vertex_eye, const in vec3 normal_eye)
       type "FRAGMENT"
       url "data:text/plain,
 
-#ifdef GL_ES
-#extension GL_OES_texture_3D : enable
-#endif
+/* This shader requires texture3D support */
 
 uniform sampler3D fog_density;
 uniform vec3 fog_color;
