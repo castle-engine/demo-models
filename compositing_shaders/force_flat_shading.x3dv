@@ -19,8 +19,9 @@ Effect {
         const vec4 vertex_eye,
         inout vec3 normal_eye)
       {
-        vec3 fdx = dFdx(vertex_eye.xyz);
-        vec3 fdy = dFdy(vertex_eye.xyz);
+        // normalizing dFdx/y is needed on OpenGLES
+        vec3 fdx = normalize(dFdx(vertex_eye.xyz));
+        vec3 fdy = normalize(dFdy(vertex_eye.xyz));
         normal_eye = normalize(cross(fdx, fdy));
       }"
     }
