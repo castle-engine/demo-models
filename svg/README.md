@@ -20,3 +20,8 @@ Process:
 4. Fixed manually Z of various transformations in X3D, result in `cge_logo_fixed_z.x3d` .
 
 4. Added shader effect. Open `cge_logo_final,x3dv`, it inlines `cge_logo_fixed_z.x3d` .
+
+## Screenshots
+
+![2D view](screenshot1.png)
+![3D view](screenshot2.png)
