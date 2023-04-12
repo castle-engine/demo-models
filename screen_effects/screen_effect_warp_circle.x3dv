@@ -1,0 +1,88 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# ---------------------------------------------------------------
+# Demo: warp the screen in the middle.
+# See https://discord.com/channels/389676745957310465/797203903120408576/1095605637448208445 .
+# ---------------------------------------------------------------
+
+# Camera settings "encoded" in the VRML declaration below :
+# direction 0 0.700684607028961 0.000241928064497
+# up 0 -0.000345317530446 0.999999940395355
+# gravityUp 0 0 1
+Transform {
+  translation 0.004618315026164 -94.837326049804687 6.33106803894043
+  rotation 1 0 0 1.570796370506287
+  children Viewpoint {
+    position 0 0 0 # camera position is expressed by translation
+    orientation 0 0 1 0
+  }
+}
+
+NavigationInfo {
+  type "WALK"
+  speed 20
+  avatarSize [ 0.5 4 ]
+}
+
+Inline { url "../castle/old/vrml_2/castle_with_lights.wrl" }
+
+ScreenEffect {
+  shaders DEF Shader ComposedShader {
+    inputOnly SFTime time # TODO use this to make effect cooler
+    language "GLSL"
+    parts ShaderPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+
+// 2D rotation matrix, from https://github.com/dmnsgn/glsl-rotate/blob/main/rotation-2d.glsl
+mat2 rotation2d(float angle)
+{
+  float s = sin(angle);
+  float c = cos(angle);
+  return mat2(
+    c, -s,
+    s, c
+  );
+}
+
+vec2 rotate_point(vec2 point, vec2 center, float angle)
+{
+  return rotation2d(angle) * (point - center) + center;
+}
+
+uniform float time;
+
+void main (void)
+{
+  vec2 pos = screenf_position();
+  vec2 screen_middle = vec2(float(screen_width) / 2.0, float(screen_height) / 2.0);
+  float distance_to_screen_middle = length(screen_middle - pos);
+
+  #define RADIUS 200.0
+
+  // how much to warp, in range 0 (outside RADIUS) .. 1 (in the middle of the screen)
+  float warp_amount = 1.0 - clamp(distance_to_screen_middle / RADIUS, 0.0, 1.0);
+
+  // wrap animation after 1 second
+  float new_time = fract(time);
+
+  // rotate pos around screen_middle, by angle ~= warp_amount
+  pos = rotate_point(pos, screen_middle, new_time * warp_amount * 10.0);
+
+  gl_FragColor = screenf_get_color(pos);
+}
+"
+    }
+  }
+}
+
+DEF Timer TimeSensor { stopTime 1 loop TRUE }
+ROUTE Timer.elapsedTime TO Shader.time
+
+# Start Timer when world is loaded (otherwise the elapsedTime
+# would be huge at the start, and this is bad --- calculation using it
+# are not precise).
+# (We could use KambiNavigationInfo.timeOriginAtStart instead.)
+DEF PS ProximitySensor { size 10000000 10000000 10000000 }
+ROUTE PS.enterTime TO Timer.startTime
