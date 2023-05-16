@@ -18,7 +18,12 @@ varying vec4 tex_coord2;
 
 void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal)
 {
+  #ifdef CASTLE_GLSL_VERSION_UPGRADE
+  // New CGE
+  float shadow = textureProj(shadowMap, tex_coord2);
+  #else
   float shadow = shadow2DProj(shadowMap, tex_coord2).x;
+  #endif
   if (onProjShadowMap) {
     fragment_color = vec4(shadow);
     return;
