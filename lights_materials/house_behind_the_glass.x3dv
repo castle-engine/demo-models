@@ -13,13 +13,19 @@ Viewpoint {
 }
 
 Shape {
-  appearance Appearance { material Material {
-    diffuseColor 0.300722 0.658765 1.000000
-    specularColor 0.488773 0.488724 0.488724
-    shininess 0.500000
-    transparency 0.575540
-  } }
+  appearance Appearance {
+    material Material {
+      diffuseColor 0.300722 0.658765 1.000000
+      specularColor 0.488773 0.488724 0.488724
+      shininess 0.500000
+      transparency 0.575540
+    }
+    # to correctly display blending
+    blendMode BlendMode {
+      destFactor "ONE"
+    }
+  }
   geometry Sphere { radius 0.562 }
 }
 
-Inline { url "house_behind_the_glass_base.x3d" }
+Inline { url "house_behind_the_glass_base.glb" }
