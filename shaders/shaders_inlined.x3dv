@@ -2,17 +2,26 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
-# Test of inlining shader source code inside the file,
-# like on http://www.instantreality.org/tutorial/shader-programs/
+# -------------------------------------------------------------------
+# Test of inlining shader source code inside the file.
+#
+# Works in X3D in Castle Game Engine, view3dscene
+# ( https://castle-engine.io/x3d_implementation_shaders.php )
+# and InstantReality
+# ( http://www.instantreality.org/tutorial/shader-programs/ )
+# -------------------------------------------------------------------
 
 Shape {
   appearance DEF App Appearance {
-    texture ImageTexture  { url "../textures/bricks2.jpg" }
+    texture ImageTexture  {
+      url "../textures/bricks2.jpg"
+    }
     shaders [
       ComposedShader {
         language "GLSL"
         parts [
-          ShaderPart { type "VERTEX"
+          ShaderPart {
+            type "VERTEX"
             url "data:text/plain,
 
               uniform mat4 castle_ModelViewMatrix;
@@ -29,7 +38,8 @@ Shape {
               }
               " }
 
-          ShaderPart { type "FRAGMENT"
+          ShaderPart {
+            type "FRAGMENT"
             url "data:text/plain,
 
               uniform sampler2D tex;
@@ -39,7 +49,11 @@ Shape {
               {
                 vec4 texColor = texture2D(tex, tex_coord.st);
                 gl_FragColor = texColor;
-                gl_FragColor.gb = vec2(0.0, 0.0);
+
+                // do some color modification
+                //gl_FragColor.r = 1.0 - gl_FragColor.r;
+                //gl_FragColor.gb = vec2(0.0, 0.0);
+                gl_FragColor.rgb = pow(gl_FragColor.rgb + vec3(0.1), vec3(4.0));
               }" }
         ]
       }
@@ -54,5 +68,14 @@ Transform {
     Shape {
       appearance USE App
       geometry Box { }
+    }
+}
+
+Transform {
+  translation 6 0 0
+  children
+    Shape {
+      appearance USE App
+      geometry Cone { }
     }
 }
