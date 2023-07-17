@@ -1,11 +1,33 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 
+# ------------------------------------------------------------------------------
+# Test non-unique node names are handled OK.
+# In Castle Game Engine, we allow non-unique node names in both VRML and X3D
+# (and we warn about them also in both VRML and X3D).
+#
+# Explanation:
+#
 # All VRML versions allow non-unique node names.
 # Each DEF XXX overrides all previous ("previous" in lexical sense,
 # i.e. normal order of tokens in the file) DEF XXX with the same XXX,
 # thus hiding previous node name "XXX".
-# X3D doesn't advice it, but it's still allowed.
+#
+# Spec of VRML 97: ( https://tecfa.unige.ch/guides/vrml/vrml97/spec/part1/concepts.html#4.6.2 )
+#
+# """
+# If multiple nodes are given the same name, each USE statement refers
+# to the closest node with the given name preceding it in either the
+# VRML file or prototype definition.
+# """
+#
+# X3D doesn't allow them:
+# https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD/Part01/concepts.html#DEFL_USESemantics
+#
+# """
+# Node names shall be unique in the context within which the associated
+# DEF keyword occurs.
+# """
 #
 # One problem with non-unique names
 # is when saving: you have to be very careful about the order of ROUTE, PROTO,
@@ -20,6 +42,7 @@ PROFILE Interchange
 # to keep the same DEF/USE sharing of nodes. (And for ROUTEs, it could
 # be impossible at all to save them, since ROUTE always must be specified
 # when appropriate node names are bound).
+# ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # Define yellow sphere under XXX name
