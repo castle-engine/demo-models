@@ -50,11 +50,11 @@ Transform {
     description "Description for Anchor leading to KeySensor"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 0 1 0 } }
+        appearance DEF App2 Appearance { material Material { diffuseColor 0 1 0 } }
         geometry Text { string "      Click me for KeySensor test" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App2
         geometry Sphere { }
       }
     ]
@@ -67,12 +67,12 @@ Transform {
     url "castle_static_group_ortho_view.x3dv#SomeNonOrthoViewpoint"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 0 0 1 } }
+        appearance DEF App3 Appearance { material Material { diffuseColor 0 0 1 } }
         geometry Text { string [ "      Click me for castle_static_group_ortho_view.x3dv,"
                                  "      but with non-default camera" ] }
       }
       Shape {
-        appearance USE App1
+        appearance USE App3
         geometry Sphere { }
       }
     ]
@@ -85,12 +85,12 @@ Transform {
     url "castle_static_group_ortho_view.x3dv#NotExisting"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 0 0 } }
+        appearance DEF App4 Appearance { material Material { diffuseColor 1 0 0 } }
         geometry Text { string [ "      Click me for castle_static_group_ortho_view.x3dv, "
                                  "      but with non-existing camera (should load default)" ] }
       }
       Shape {
-        appearance USE App1
+        appearance USE App4
         geometry Sphere { }
       }
     ]
@@ -103,11 +103,11 @@ Transform {
     url [ "non_existing.wrl" "#NotExisting" "#SideView" ]
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 0.5 0.5 1 } }
+        appearance DEF App5 Appearance { material Material { diffuseColor 0.5 0.5 1 } }
         geometry Text { string "      Click me for warning + side view of the same file" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App5
         geometry Sphere { }
       }
     ]
@@ -120,11 +120,11 @@ Transform {
     url "anchor_test.x3dv#FrontView"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 0.5 0 } }
+        appearance DEF App6 Appearance { material Material { diffuseColor 1 0.5 0 } }
         geometry Text { string "      Click me for front view of the same file, with reload" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App6
         geometry Sphere { }
       }
     ]
@@ -137,11 +137,11 @@ Transform {
     url "#NotExisting"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 1 } }
+        appearance DEF App7 Appearance { material Material { diffuseColor 1 1 1 } }
         geometry Text { string "      Click me for nothing (invalid viewpoint in self)" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App7
         geometry Sphere { }
       }
     ]
@@ -154,11 +154,11 @@ Transform {
     url "../collada/humanoid-collada140.dae"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        appearance DEF App8 Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string "      Click me for a Collada 3D model" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App8
         geometry Sphere { }
       }
     ]
@@ -171,11 +171,11 @@ Transform {
     url "http://castle-engine.sourceforge.net/view3dscene.php"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        appearance DEF App9 Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string "      Open view3dscene website in WWW browser" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App9
         geometry Sphere { }
       }
     ]
@@ -189,11 +189,11 @@ Transform {
     url "http://www.web3d.org/files/specifications/19775-1/V3.2/Part01/components/networking.html#Anchor"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        appearance DEF App10 Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string "      Open X3D specification for Anchor node in WWW browser" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App10
         geometry Sphere { }
       }
     ]
@@ -206,11 +206,11 @@ Transform {
     url "../textures/test_texture.png"
     children [
       Shape {
-        appearance DEF App1 Appearance { material Material { diffuseColor 1 1 0 } }
+        appearance DEF App11 Appearance { material Material { diffuseColor 1 1 0 } }
         geometry Text { string "      Open test_texture.png in default program for PNG" }
       }
       Shape {
-        appearance USE App1
+        appearance USE App11
         geometry Sphere { }
       }
     ]
