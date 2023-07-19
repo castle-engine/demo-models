@@ -31,11 +31,7 @@ Transform {
       }
       material Material { }
     }
-    geometry DEF QS QuadSet {
-      coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0 ] }
-      texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1 ] }
-      solid FALSE
-    }
+    geometry USE QS
     shading "PHONG"
   }
 }

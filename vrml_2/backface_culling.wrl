@@ -51,7 +51,7 @@ Transform {
       Shape {
         appearance Appearance { material Material { } }
         geometry IndexedFaceSet {
-          coord DEF BoxCoords Coordinate {
+          coord Coordinate {
               point [-1 -1 -1, -1 -1 1, -1 1 -1, -1 1 1,
                       1 -1 -1,  1 -1 1,  1 1 -1,  1 1 1  ] }
           coordIndex [ 4, 6, 2, 0, -1,
@@ -76,7 +76,7 @@ Transform {
       Shape {
         appearance Appearance { material Material { } }
         geometry IndexedFaceSet {
-          coord DEF BoxCoords Coordinate {
+          coord Coordinate {
               point [-1 -1 -1, -1 -1 1, -1 1 -1, -1 1 1,
                       1 -1 -1,  1 -1 1,  1 1 -1,  1 1 1  ] }
           coordIndex [ 4, 6, 2, 0, -1,
@@ -101,7 +101,7 @@ Transform {
       Shape {
         appearance Appearance { material Material { } }
         geometry IndexedFaceSet {
-          coord DEF BoxCoords Coordinate {
+          coord Coordinate {
               point [-1 -1 -1, -1 -1 1, -1 1 -1, -1 1 1,
                       1 -1 -1,  1 -1 1,  1 1 -1,  1 1 1  ] }
           coordIndex [ 0, 2, 6, 4, -1,
@@ -126,7 +126,7 @@ Transform {
       Shape {
         appearance Appearance { material Material { } }
         geometry IndexedFaceSet {
-          coord DEF BoxCoords Coordinate {
+          coord Coordinate {
               point [-1 -1 -1, -1 -1 1, -1 1 -1, -1 1 1,
                       1 -1 -1,  1 -1 1,  1 1 -1,  1 1 1  ] }
           coordIndex [ 0, 2, 6, 4, -1,

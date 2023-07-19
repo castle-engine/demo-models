@@ -1,8 +1,10 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 
+# ------------------------------------------------------------------------------
 # Test handling of color, colorPerVertex, colorIndex fields of
 # IndexedFaceSet.
+# ------------------------------------------------------------------------------
 
 # default, unlit white color
 Transform {
@@ -132,9 +134,7 @@ Transform {
       children Shape {
         appearance DEF App Appearance { material Material { } }
         geometry IndexedFaceSet {
-          coord DEF C Coordinate { point [
-            0 0 0, 1 0 0, 1 1 0, 0 1 0,
-            0 2 0, 1 2 0 ] }
+          coord USE C
           coordIndex [ 0 1 2 3 -1 2 3 4 5 ]
           solid FALSE
         }

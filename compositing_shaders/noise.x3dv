@@ -25,7 +25,7 @@ Viewpoint {
 }
 
 Shape {
-  appearance DEF App Appearance {
+  appearance Appearance {
     material Material { }
     texture ImageTexture3D { url "../textures/white_noise_3d.dds"
       textureProperties TextureProperties {
@@ -41,7 +41,7 @@ Shape {
 
 Transform { translation 3 0 0 children
 Shape {
-  appearance DEF App Appearance {
+  appearance Appearance {
     material Material { }
     texture ShaderTexture {
       defaultTexCoord "BOUNDS3D"
@@ -80,7 +80,7 @@ void PLUG_texture_color(inout vec4 texture_color,
 
 Transform { translation 6 0 0 children
 Shape {
-  appearance DEF App Appearance {
+  appearance Appearance {
     material Material { }
     texture ShaderTexture {
       defaultTexCoord "BOUNDS3D"
@@ -119,7 +119,7 @@ void PLUG_texture_color(inout vec4 texture_color,
 
 Transform { translation 9 0 0 children
 Shape {
-  appearance DEF App Appearance {
+  appearance Appearance {
     material Material { }
     texture ShaderTexture {
       defaultTexCoord "BOUNDS3D"
@@ -158,7 +158,7 @@ void PLUG_texture_color(inout vec4 texture_color,
 
 Transform { translation 12 0 0 children
 Shape {
-  appearance DEF App Appearance {
+  appearance Appearance {
     material Material { }
     # This could actually be done without ShaderTexture and without
     # Effects at all, we just show ImageTexture3D inside.
@@ -194,7 +194,7 @@ void PLUG_texture_color(inout vec4 texture_color,
 
 # Transform { translation 15 0 0 children
 # Shape {
-#   appearance DEF App Appearance {
+#   appearance Appearance {
 #     material Material { }
 #     texture ShaderTexture {
 #       defaultTexCoord "BOUNDS3D"
