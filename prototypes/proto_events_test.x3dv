@@ -59,13 +59,13 @@ Transform {
       whichChoice 0
       children [
         Shape {
-          appearance DEF ATextLighOn Appearance { material Material { } }
+          appearance Appearance { material Material { } }
           geometry Text { string [
             "Hold Control key for the light."
             "Light is currently: OFF" ] }
         }
         Shape {
-          appearance DEF ATextLighOn Appearance { material Material { } }
+          appearance Appearance { material Material { } }
           geometry Text { string [
             "Hold Control key for the light."
             "Light is currently: ON" ] }

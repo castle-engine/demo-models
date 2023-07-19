@@ -85,7 +85,7 @@ More text... More text... More text... More text... More text... More text...
     }
 
     # named ViewpointGroup with description
-    DEF SampleViewpointGroup ViewpointGroup {
+    DEF SampleViewpointGroup2 ViewpointGroup {
       description "Viewpoint group submenu"
       children [
         Viewpoint { position 0 0 0  description "sample 0 0 0"  }
@@ -94,7 +94,7 @@ More text... More text... More text... More text... More text... More text...
     }
 
     # named ViewpointGroup with description -- but not displayed
-    DEF SampleViewpointGroup ViewpointGroup {
+    DEF SampleViewpointGroup3 ViewpointGroup {
       description "Viewpoint group submenu"
       displayed FALSE
       children [
@@ -104,7 +104,7 @@ More text... More text... More text... More text... More text... More text...
     }
 
     # empty ViewpointGroup (in this case, it's name of description doesn't really matter)
-    DEF SampleViewpointGroup ViewpointGroup {
+    DEF SampleViewpointGroup4 ViewpointGroup {
       description "Viewpoint group submenu"
     }
 
