@@ -82,7 +82,7 @@ Transform {
   children Shape {
     appearance USE Col1App
     geometry IndexedQuadSet {
-      coord DEF QuadSetCoord
+      coord DEF QuadSetCoordTooMuch
         Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
                              0 2 0, 1 2 0, 1 3 0, 0 3 0,
                              # These two verts should be ignored by QuadSet
@@ -98,7 +98,10 @@ Transform {
   children Shape {
     appearance USE Col1App
     geometry QuadSet {
-      coord USE QuadSetCoord
+      coord DEF QuadSetCoord
+        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
+                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+
     }
   }
 }
@@ -135,9 +138,7 @@ Transform {
   children Shape {
     appearance USE Col2App
     geometry IndexedTriangleFanSet {
-      coord DEF FanSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      coord USE FanSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       solid FALSE
     }
@@ -161,9 +162,7 @@ Transform {
   children Shape {
     appearance USE Col2App
     geometry IndexedTriangleStripSet {
-      coord DEF StripSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      coord USE StripSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       solid FALSE
     }
@@ -187,9 +186,7 @@ Transform {
   children Shape {
     appearance USE Col2App
     geometry IndexedQuadSet {
-      coord DEF quadSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
       solid FALSE
     }
@@ -239,9 +236,7 @@ Transform {
   children Shape {
     appearance USE Col3App
     geometry IndexedTriangleFanSet {
-      coord DEF FanSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      coord USE FanSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       ccw FALSE
     }
@@ -265,9 +260,7 @@ Transform {
   children Shape {
     appearance USE Col3App
     geometry IndexedTriangleStripSet {
-      coord DEF StripSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      coord USE StripSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       ccw FALSE
     }
@@ -291,9 +284,7 @@ Transform {
   children Shape {
     appearance USE Col3App
     geometry IndexedQuadSet {
-      coord DEF quadSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
       ccw FALSE
     }
@@ -350,9 +341,7 @@ Transform {
   children Shape {
     appearance USE Col4App
     geometry IndexedTriangleFanSet {
-      coord DEF FanSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      coord USE FanSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 0.5 1.5,
                                            0 0, 1 0, 1 1, 0.5 1.5 ] }
@@ -380,9 +369,7 @@ Transform {
   children Shape {
     appearance USE Col4App
     geometry IndexedTriangleStripSet {
-      coord DEF StripSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      coord USE StripSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       texCoord TextureCoordinate { point [ 0 0, 1 0, 1 1, 1.5 0.5,
                                            0 0, 1 0, 1 1, 1.5 0.5 ] }
@@ -410,11 +397,9 @@ Transform {
   children Shape {
     appearance USE Col4App
     geometry IndexedQuadSet {
-      coord DEF quadSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
-      texCoord DEF quadSetTexCoord
+      texCoord DEF QuadSetTexCoord
         TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1,
                                     0 0, 1 0, 1 1, 0 1 ] }
       solid FALSE
@@ -427,8 +412,8 @@ Transform {
   children Shape {
     appearance USE Col4App
     geometry QuadSet {
-      coord USE quadSetCoord
-      texCoord USE quadSetTexCoord
+      coord USE QuadSetCoord
+      texCoord USE QuadSetTexCoord
       solid FALSE
     }
   }
@@ -471,9 +456,7 @@ Transform {
   children Shape {
     appearance USE Col5App
     geometry IndexedTriangleFanSet {
-      coord DEF FanSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      coord USE FanSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
                                0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
@@ -501,9 +484,7 @@ Transform {
   children Shape {
     appearance USE Col5App
     geometry IndexedTriangleStripSet {
-      coord DEF StripSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      coord USE StripSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
                                0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
@@ -531,9 +512,7 @@ Transform {
   children Shape {
     appearance USE Col5App
     geometry IndexedQuadSet {
-      coord DEF quadSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
       normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
                                0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
@@ -562,7 +541,7 @@ Transform {
 Transform {
   translation 25 0 0
   children Shape {
-    appearance DEF Col5App Appearance { material Material { diffuseColor 0 1 1 } }
+    appearance DEF Col6App Appearance { material Material { diffuseColor 0 1 1 } }
     geometry IndexedTriangleSet {
       coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
                                  0 2 0, 1 2 0, 1 3 0 ] }
@@ -577,7 +556,7 @@ Transform {
 Transform {
   translation 25 5 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry TriangleSet {
       coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,
                                  0 2 0, 1 2 0, 1 3 0 ] }
@@ -590,11 +569,9 @@ Transform {
 Transform {
   translation 25 10 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry IndexedTriangleFanSet {
-      coord DEF FanSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5 ] }
+      coord USE FanSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       color DEF Colors8 Color { color [ 1 0 0, 0 1 0, 0 0 1, 1 1 1,
                                         1 1 0, 0 1 1, 1 0 1, 1 1 1, ] }
@@ -606,7 +583,7 @@ Transform {
 Transform {
   translation 25 15 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry TriangleFanSet {
       coord USE FanSetCoord
       fanCount [ 4 4 ]
@@ -619,11 +596,9 @@ Transform {
 Transform {
   translation 25 20 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry IndexedTriangleStripSet {
-      coord DEF StripSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
-                             0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5 ] }
+      coord USE StripSetCoord
       index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
       color USE Colors8
       solid FALSE
@@ -634,7 +609,7 @@ Transform {
 Transform {
   translation 25 25 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry TriangleStripSet {
       coord USE StripSetCoord
       stripCount [ 4 4 ]
@@ -648,11 +623,9 @@ Transform {
 Transform {
   translation 25 30 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry IndexedQuadSet {
-      coord DEF quadSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
+      coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
       color USE Colors8
       solid FALSE
@@ -663,7 +636,7 @@ Transform {
 Transform {
   translation 25 35 0
   children Shape {
-    appearance USE Col5App
+    appearance USE Col6App
     geometry QuadSet {
       coord USE QuadSetCoord
       color USE Colors8

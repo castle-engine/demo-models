@@ -11,7 +11,7 @@ COMPONENT Texturing3D:2
 
 Shape {
   appearance Appearance {
-    texture DEF Tex3D ImageTexture3D {
+    texture ImageTexture3D {
       url [
         "../../textures/not_existing.dds"
         "../../textures/test_texture.png"
@@ -29,7 +29,7 @@ Shape {
         boundaryModeR "REPEAT"
       }
     }
-    textureTransform DEF TexTrans TextureTransform3D {
+    textureTransform TextureTransform3D {
       scale 20 20 20
       translation 0 0 0
     }
@@ -41,7 +41,7 @@ Transform {
   translation 0 3 0
   children Shape {
     appearance Appearance {
-      texture DEF Tex3D ImageTexture3D {
+      texture ImageTexture3D {
         url "../../textures/random3d.dds"
         repeatS FALSE # actually TextureProperties overrides this
         repeatT FALSE # actually TextureProperties overrides this
@@ -54,7 +54,7 @@ Transform {
           boundaryModeR "CLAMP_TO_EDGE"
         }
       }
-      textureTransform DEF TexTrans TextureTransform3D {
+      textureTransform TextureTransform3D {
         scale 20 20 20
         translation 0 0 0
       }

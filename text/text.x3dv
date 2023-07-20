@@ -167,7 +167,7 @@ Transform {
       translation 0 -160 0
       children Shape {
         appearance
-          DEF GreenApp Appearance { material Material { diffuseColor 0 1 0 } }
+          USE GreenApp
         geometry Text {
           string [ "and a few more lines", "but now", "with different spacing"]
           fontStyle FontStyle {
