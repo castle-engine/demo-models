@@ -1,0 +1,17 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# ----------------------------------------------------------------------------
+# Volumetric fog, with reUSEd geometry inside Inline.
+# ----------------------------------------------------------------------------
+
+Fog {
+  color 0.2 0.2 1
+  fogType "LINEAR"
+  volumetric TRUE
+  volumetricDirection 0 1 0
+  volumetricVisibilityStart 100
+  visibilityRange 2000
+}
+
+Inline { url "fog_volumetric_reused_geometry.x3dv" }
