@@ -42,7 +42,7 @@ Group {
       children Shape {
         appearance Appearance {
           material USE MyMaterial
-          texture DEF Tex1 PixelTexture {
+          texture DEF TexRgb4x3_Repeat PixelTexture {
             image 4 3 3
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF  # bottom row : red white white blue
               0 0x00FF00 0x00FF00 0 # middle row : black green green black
@@ -60,7 +60,7 @@ Group {
       children Shape {
         appearance Appearance {
           material USE MyMaterial
-          texture USE Tex1
+          texture USE TexRgb4x3_Repeat
           textureTransform TextureTransform { scale 2 2 }
         }
         geometry Box { }
@@ -145,7 +145,7 @@ Transform {
       children Shape {
         appearance Appearance {
           material USE MyMaterial
-          texture DEF Tex1 PixelTexture {
+          texture DEF TexRgb4x3_Clamp PixelTexture {
             image 4 3 3
               0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
               0 0x00FF00 0x00FF00 0
@@ -162,7 +162,7 @@ Transform {
       children Shape {
         appearance Appearance {
           material USE MyMaterial
-          texture USE Tex1
+          texture USE TexRgb4x3_Clamp
           textureTransform TextureTransform { scale 2 2 }
         }
         geometry Box { }
@@ -224,13 +224,7 @@ Transform {
       children Shape {
         appearance Appearance {
           material USE MyMaterial
-          texture DEF Tex1 PixelTexture {
-            image 4 3  3
-              0xFF0000 0xFFFFFF 0xFFFFFF 0x0000FF
-              0 0x00FF00 0x00FF00 0
-              0xFFFF00 0x00FFFF 0x00FFFF 0xFF00FF
-            textureProperties USE MyTexturePropertiesClamp
-          }
+          texture USE TexRgb4x3_Clamp
         }
         geometry Cylinder { }
       }
@@ -241,7 +235,7 @@ Transform {
       children Shape {
         appearance Appearance {
           material USE MyMaterial
-          texture USE Tex1
+          texture USE TexRgb4x3_Clamp
           textureTransform TextureTransform { scale 2 2 }
         }
         geometry Cylinder { }
