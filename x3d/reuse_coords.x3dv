@@ -1,0 +1,49 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------------
+# CGE / view3dscene changed the way we calculate bounding boxes in 2021,
+# to be faster but less precise ("tight"):
+# see CASTLE_PRECISE_MESH_BOUNDING_BOXES comments at
+# https://github.com/castle-engine/castle-engine/blob/master/src/scene/x3d/x3dnodes_boundingboxes.inc .
+#
+# See 2021 commits
+# https://github.com/castle-engine/castle-engine/commit/23022336ba4216f68ada1d30d5b2ad6970a31348
+# https://github.com/castle-engine/castle-engine/commit/a99a22f03a0891c08c8bf5e9f70c4848939f6710
+#
+# Now if multiple shapes use the same Coordinate,
+# they will have equal bounding box,
+# equal to the bounding box of all vertexes in the Coordinate list.
+#
+# This should be OK in most cases:
+# - New calculation of bboxes is much faster (scanning vertex list, instead
+#   of accessing it using indexes) -- which is important,
+#   as bboxes are a basis for other optimizations (like frustum culling).
+#   It may even be "instant" in the future, if we use the glTF feature
+#   that stores min/max of all vertex lists in the file.
+# - Bounding box were never guaranteed to be
+#   "tight" (e.g. they've been always a little too big for NURBS stuff).
+#   Bounding boxes are only guaranteed "never smaller than necessary",
+#   but they may be "larger than necessary".
+#   So user code should not depend that bounding boxes are "tight".
+# - It's not an issue in most cases. Most models have 1 Coordinate node for
+#   1 shape (most models don't reUSE Coordinate nodes).
+# -----------------------------------------------------------------------------
+
+Shape {
+  geometry IndexedTriangleSet {
+    coord DEF C Coordinate {
+      point [
+        0 0  0, 1 0  0, 1 1  0,
+        0 0 10, 1 0 10, 1 1 10,
+      ]
+    }
+    index [ 0 1 2 ]
+  }
+}
+Shape {
+  geometry IndexedTriangleSet {
+    coord USE C
+    index [ 3 4 5 ]
+  }
+}
