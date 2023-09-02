@@ -1,0 +1,26 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------------
+# Test of animating AudioClip.gain.
+# The sound should oscilate between loud and silent.
+# -----------------------------------------------------------------------------
+
+Sound {
+  source DEF MyAudioClip AudioClip {
+    url "werewolf_howling.wav"
+    loop TRUE
+  }
+  spatialize FALSE
+}
+
+DEF GainAnimationTimer TimeSensor {
+  cycleInterval 5
+  loop TRUE
+}
+DEF GainAnimationInterpolator ScalarInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [ 1 0 1 ]
+}
+ROUTE GainAnimationTimer.fraction_changed TO GainAnimationInterpolator.set_fraction
+ROUTE GainAnimationInterpolator.value_changed TO MyAudioClip.gain
