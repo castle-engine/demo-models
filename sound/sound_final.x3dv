@@ -1,9 +1,11 @@
 #X3D V3.0 utf8
 PROFILE Interchange
 
+# -----------------------------------------------------------------------------
 # Test of Sound and AudioClip nodes. You can start and stop sounds
 # by clicking on the jukeboxes, you can play multiple sounds at once.
 # You can also test animating Transform containing sound.
+# -----------------------------------------------------------------------------
 
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.9900790452957153 -0 -0.1405106931924819
