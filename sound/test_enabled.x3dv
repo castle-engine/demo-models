@@ -1,0 +1,65 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------------
+# Test Sound.enabled and AudioClip.enabled.
+# Use keys:
+#   z - Sound.enabled := true
+#   x - Sound.enabled := false
+#   c - AudioClip.enabled := true
+#   v - AudioClip.enabled := false
+#
+# To hear anything, both Sound and AudioClip may have enabled = true.
+# By default they are both true, so you should hear the sound.
+# -----------------------------------------------------------------------------
+
+DEF MySound Sound {
+  source DEF MyAudioClip AudioClip {
+    url "werewolf_howling.wav"
+    loop TRUE
+  }
+  spatialize FALSE
+}
+
+Shape {
+  geometry DEF SoundStatus Text {
+    string "Sound.enabled = true"
+  }
+}
+
+Transform {
+  translation 0 -1.5 0
+  children [
+    Shape {
+      geometry DEF AudioClipStatus Text {
+        string "AudioClip.enabled = true"
+      }
+    }
+  ]
+}
+
+DEF MyKeySensor KeySensor {
+}
+
+DEF ScriptKeyProcessor Script {
+  inputOnly SFString keyPress
+  inputOutput SFBool soundEnabled TRUE # default just like MySound.enabled
+  inputOutput SFBool audioClipEnabled TRUE # default just like MyAudioClip.enabled
+  outputOnly MFString soundStatus
+  outputOnly MFString audioStatus
+  url "castlescript:
+    function keyPress(value, timestamp)
+      when(value = 'z', soundEnabled := true);
+      when(value = 'x', soundEnabled := false);
+      when(value = 'c', audioClipEnabled := true);
+      when(value = 'v', audioClipEnabled := false);
+      soundStatus := array('Sound.enabled = ' + string(soundEnabled));
+      audioStatus := array('AudioClip.enabled = ' + string(audioClipEnabled))
+    "
+}
+
+ROUTE MyKeySensor.keyPress TO ScriptKeyProcessor.keyPress
+ROUTE ScriptKeyProcessor.soundEnabled TO MySound.enabled
+ROUTE ScriptKeyProcessor.audioClipEnabled TO MyAudioClip.enabled
+ROUTE ScriptKeyProcessor.soundStatus TO SoundStatus.string
+ROUTE ScriptKeyProcessor.audioStatus TO AudioClipStatus.string
