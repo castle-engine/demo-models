@@ -1,0 +1,27 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+COMPONENT Lighting:2
+COMPONENT CubeMapTexturing:1
+
+# ----------------------------------------------------------------------------
+# Test new X3D 4.0 ComposedCubeMapTexture field names:
+# backTexture insted of back etc.
+# ----------------------------------------------------------------------------
+
+Shape {
+  geometry Teapot {
+    texCoord TextureCoordinateGenerator {
+      mode "WORLDSPACEREFLECTIONVECTOR"
+    }
+  }
+  appearance Appearance {
+    texture ComposedCubeMapTexture {
+      backTexture   ImageTexture { url "../skies/sky_lake_back.png" }
+      bottomTexture ImageTexture { url "../skies/sky_lake_bottom.png" }
+      frontTexture  ImageTexture { url "../skies/sky_lake_front.png" }
+      leftTexture   ImageTexture { url "../skies/sky_lake_left.png" }
+      rightTexture  ImageTexture { url "../skies/sky_lake_right.png" }
+      topTexture    ImageTexture { url "../skies/sky_lake_top.png" }
+    }
+  }
+}
