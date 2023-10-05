@@ -17,6 +17,9 @@ PointLight {
 Shape {
   appearance Appearance {
     alphaMode "MASK"
+    # Another valid option would be "BLEND", this means that we use blending
+    # and can account for alpha being between 0 and 1.
+    # alpha "BLEND"
     material PhysicalMaterial {
       baseTexture ImageTexture {
         url "textures/bread.png"
