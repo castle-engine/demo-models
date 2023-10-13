@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+containerField for MetadataXxx nodes changed between X3D 3.3 and X3D 4.0.
+See xxx .
+This example tests X3D 4 behavior.
+-->
+
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "http://www.web3d.org/specifications/x3d-4.0.dtd">
+<X3D profile="Interchange" version="4.0"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+     xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-4.0.xsd">
+<head>
+</head>
+<Scene>
+    <Shape>
+        <MetadataSet containerField="metadata">
+            <MetadataBoolean  DEF="SomeBooleanArray" value="true false true" />
+            <MetadataInteger  DEF="SomeIntegerArray" value="-1 -2 0 1 2 3 4" />
+            <MetadataDouble   DEF="SomeDoubleArray"  value="5.0 6.28 777.7"  />
+        </MetadataSet>
+    </Shape>
+</Scene>
+</X3D>
