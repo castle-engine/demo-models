@@ -2,7 +2,7 @@
 
 <!--
 containerField for MetadataXxx nodes changed between X3D 3.3 and X3D 4.0.
-See xxx .
+See https://github.com/castle-engine/view3dscene/issues/78 .
 This example tests X3D 4 behavior.
 -->
 
