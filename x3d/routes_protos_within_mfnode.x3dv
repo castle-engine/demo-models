@@ -1,0 +1,96 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------------
+# Test we allow writing EXTERNPROTO, PROTO, ROUTE inside MFNode in classic encoding.
+# See https://github.com/castle-engine/view3dscene/issues/79
+#
+# Expected correct result, from left to right you should see:
+# - red sphere
+# - yellow box
+# - blue code (animated down->up in a loop)
+# - blue cone (upside-down, animated as above)
+#
+# Make sure to test also "round trip" i.e. save the resulting file back
+# to X3D classic encoding, read it back, see if it still makes sense.
+#
+# See also screenshot
+# routes_protos_within_mfnode.x3dv_screenshot.png (alongside this model).
+# -----------------------------------------------------------------------------
+
+Transform {
+  children [
+    # begin of Transform with red sphere
+    Transform {
+      translation 0 0 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 1 0 0
+            }
+          }
+          geometry Sphere { }
+        }
+      ]
+    } # end of Transform with red sphere
+
+    PROTO BlueCone [] {
+      Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor 0 0 1
+          }
+        }
+        geometry Cone { }
+      }
+    }
+
+    # begin of Transform with yellow box
+    Transform {
+      translation 2 0 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 1 1 0
+            }
+          }
+          geometry Box { }
+        }
+      ]
+    } # end of Transform with yellow box
+
+    DEF BlueConeTransform Transform {
+      translation 4 0 0
+      children BlueCone { }
+    }
+
+    PROTO ProtoBasedOnBlueConeTransform [
+      inputOutput MFNode defaultContents [
+        USE BlueConeTransform
+        # Note that this is also MFNode,
+        # but it really cannot contain anything else than nodes, even in X3D 4.0.
+      ]
+    ] {
+      Transform {
+        translation 2 0 0
+        rotation 1 0 0 3.14
+        children IS defaultContents
+      }
+    }
+
+    ProtoBasedOnBlueConeTransform { }
+
+    DEF TS TimeSensor { loop TRUE }
+    DEF PI PositionInterpolator {
+      key [ 0 1 ]
+      keyValue [
+        4 0 0
+        4 0.5 0
+      ]
+    }
+    ROUTE TS.fraction_changed TO PI.set_fraction
+    ROUTE PI.value_changed TO BlueConeTransform.translation
+  ]
+}
