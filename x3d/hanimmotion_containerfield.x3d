@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Test that HAnimMotion.containerField is "smart" following X3D,
+https://github.com/castle-engine/view3dscene/issues/69 ,
+it is either "motions" or "children" depending on the parent node.
+-->
+
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "https://www.web3d.org/specifications/x3d-4.0.dtd">
+<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>
+  <head>
+  </head>
+  <Scene>
+    <HAnimHumanoid>
+      <!-- This should be OK, and the HAnimMotion.containerField should behave like "motions" -->
+      <HAnimMotion />
+    </HAnimHumanoid>
+    <Group>
+      <!-- This should be OK, and the HAnimMotion.containerField should behave like "children" -->
+      <HAnimMotion />
+    </Group>
+
+    <!-- This should be OK, the HAnimMotion at root is OK -->
+    <HAnimMotion />
+  </Scene>
+</X3D>
