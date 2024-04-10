@@ -1,0 +1,61 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# ---------------------------------------------------------------------
+# Test file that deliberately relies on browser's ability to download
+# remote resources (images, sounds, inline file) over the network.
+#
+# The related resources are deliberately *not* specified using relative
+# paths and *not* embedded in this file -- if the browser does not download
+# them, the scene will not render correctly.
+# ---------------------------------------------------------------------
+
+Shape {
+  appearance Appearance {
+    material Material {
+      diffuseColor 1 1 1
+      diffuseTexture ImageTexture {
+        url "https://github.com/castle-engine/demo-models/blob/master/textures/test_texture.png?raw=true"
+      }
+    }
+  }
+  geometry Box { }
+}
+
+Transform {
+  translation 0 -2 0
+  children [
+    DEF TouchToPlaySound TouchSensor { }
+    Shape {
+      appearance Appearance {
+        material UnlitMaterial {
+        }
+      }
+      geometry Text {
+        string "Click me to play a sound"
+        fontStyle FontStyle {
+          size 0.5
+          justify "MIDDLE"
+        }
+      }
+    }
+    DEF SoundToPlay Sound {
+      source DEF SoundToPlayClip AudioClip {
+        url "https://github.com/castle-engine/demo-models/raw/master/sound/werewolf_howling.wav"
+      }
+    }
+  ]
+}
+ROUTE TouchToPlaySound.touchTime TO SoundToPlayClip.startTime
+
+Transform {
+  translation 0 -4 0
+  scale 0.1 0.1 0.1
+  children Inline {
+    # This glTF also refers to more files (textures, bin file with vertex data)
+    #
+    # TODO: Fails now, in view3dscene,
+    # with Access Violation (but works when opened locally).
+    #url "https://github.com/castle-engine/demo-models/blob/master/castle/castle.gltf?raw=true"
+  }
+}
