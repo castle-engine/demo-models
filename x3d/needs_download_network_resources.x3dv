@@ -54,8 +54,10 @@ Transform {
   children Inline {
     # This glTF also refers to more files (textures, bin file with vertex data)
     #
-    # TODO: Fails now, in view3dscene,
-    # with Access Violation (but works when opened locally).
-    #url "https://github.com/castle-engine/demo-models/blob/master/castle/castle.gltf?raw=true"
+    # https://raw.githubusercontent.com/castle-engine/demo-models/master/castle/castle.gltf
+    # https://raw.githubusercontent.com/castle-engine/demo-models/master/castle/castle.bin
+    # see https://github.com/castle-engine/demo-models/tree/master/castle
+    #
+    url "https://raw.githubusercontent.com/castle-engine/demo-models/master/castle/castle.gltf"
   }
 }
