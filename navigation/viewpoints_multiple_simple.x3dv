@@ -1,0 +1,22 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# Simple test of Viewpoint switching.
+# Compatible with Castle Model Viewer, FreeWRL, Instant Reality.
+
+Shape {
+  appearance Appearance {
+    material Material { diffuseColor 1 0 0 }
+  }
+  geometry Box { }
+}
+
+Viewpoint {
+  position 0 0 10
+  description "First Viewpoint"
+}
+
+Viewpoint {
+  position 0 0 5
+  description "Second, Closer Viewpoint"
+}
