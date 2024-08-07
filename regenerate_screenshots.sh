@@ -2,7 +2,7 @@
 set -eu
 
 # ----------------------------------------------------------------------------
-# Regenerate, using view3dscene, proper screenshots for all models.
+# Regenerate, using castle-model-viewer, proper screenshots for all models.
 # Run with
 # - no arguments (regenerate everything here)
 # - directory name as argument (regenerate everything there, recursively)
@@ -31,7 +31,7 @@ do_file ()
   SCREENSHOT_FILE="$1_screenshot.png"
 
   echo "Making screenshot ${MODEL_FILE} -> ${SCREENSHOT_FILE}"
-  view3dscene "${MODEL_FILE}" --geometry 1600x900 --screenshot 0 "${SCREENSHOT_FILE}"
+  castle-model-viewer "${MODEL_FILE}" --geometry 1600x900 --screenshot 0 "${SCREENSHOT_FILE}"
 }
 
 # Regenerate screenshot for everything in directory $1
