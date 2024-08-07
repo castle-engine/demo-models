@@ -35,7 +35,6 @@ PROTO Row [
         translation 4 0 0
         children Shape {
           geometry Cylinder {
-            stacks IS stacks
             slices IS slices
           }
         }
@@ -51,6 +50,14 @@ PROTO Row [
         translation 8 0 0
         children Shape {
           geometry Circle2D {
+            slices IS slices
+          }
+        }
+      }
+      Transform {
+        translation 10 0 0
+        children Shape {
+          geometry Disk2D {
             slices IS slices
           }
         }
