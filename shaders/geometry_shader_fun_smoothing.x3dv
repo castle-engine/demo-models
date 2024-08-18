@@ -150,7 +150,6 @@ Shape {
   geometry Cylinder {
     # make geometry low-quality
     slices 8
-    stacks 6
   }
 }
 ] }
