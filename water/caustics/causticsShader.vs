@@ -6,9 +6,12 @@
    to cooperate with engine shaders.
 */
 
+// Do not redeclare castle_MultiTexCoord* on OpenGLES
+#ifndef GL_ES
 attribute vec4 castle_MultiTexCoord0;
 attribute vec4 castle_MultiTexCoord1;
 attribute vec4 castle_MultiTexCoord2;
+#endif
 
 varying vec4 tex_coord0;
 varying vec4 tex_coord1;
