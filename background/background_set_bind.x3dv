@@ -8,8 +8,8 @@ Transform {
   children Shape {
     appearance Appearance { material Material { diffuseColor 1 1 0 } }
     geometry Text { string [
-      "press '1' to   bind the 1st background",
-      "press '2' to unbind the 1st background" ] }
+      "press 'q' to   bind the 1st background",
+      "press 'w' to unbind the 1st background" ] }
   }
 }
 
@@ -18,8 +18,8 @@ Transform {
   children Shape {
     appearance Appearance { material Material { diffuseColor 0.2 0.2 0.2 } }
     geometry Text { string [
-      "press '3' to   bind the 2nd background",
-      "press '4' to unbind the 2nd background" ] }
+      "press 'e' to   bind the 2nd background",
+      "press 'r' to unbind the 2nd background" ] }
   }
 }
 
@@ -53,10 +53,10 @@ DEF MyScript Script {
   url "castlescript:
 
     function keyPress(value, timestamp)
-      when (value = '1', bind1 := true);
-      when (value = '2', bind1 := false);
-      when (value = '3', bind2 := true);
-      when (value = '4', bind2 := false)"
+      when (value = 'q', bind1 := true);
+      when (value = 'w', bind1 := false);
+      when (value = 'e', bind2 := true);
+      when (value = 'r', bind2 := false)"
 }
 ROUTE KS.keyPress TO MyScript.keyPress
 ROUTE MyScript.bind1 TO Background1.set_bind
