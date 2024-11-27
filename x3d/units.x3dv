@@ -1,16 +1,28 @@
 #X3D V3.3 utf8
 
-# Test of UNIT.
+# ---------------------------------------------------------------------
+# Test of UNIT statement
+# (see X3D spec: https://www.web3d.org/documents/specifications/19775-1/V4.0/Part01/components/core.html#UNITStatement ).
 #
-# view3dscene correctly handles changes to angle units
-# (they will be converted to radians during parsing).
-# Correct output shows two cylinders, yellow and blue, oriented the same way.
+# How does Castle Model Viewer ( https://castle-engine.io/castle-model-viewer )
+# handle the UNIT:
 #
-# For now, other changes to units are ignored (which does not usually
-# matter, unless you Inline files with various unit coordinates and
-# you expect X3D browser to normalize them; also, meters matter for
-# the speed of sound; view3dscene doesn't support physics component yet,
-# so units of force and mass and not important).
+# - "angle" is correctly handled.
+#   Internally, all angles are converted to radians when parsing the X3D file.
+#   The correct rendering of this file should show two cylinders,
+#   yellow and blue, oriented the same way.
+#
+# - "length" is correctly handled.
+#   Internally, it results in an internal transformation that scales the content.
+#   When you load a model, we adjust the scale to make the content be expressed
+#   in meters. When you Inline one model in another, we adjust the scale
+#   to make it match.
+#
+# - "force" and "mass" are just ignored.
+#   As we don't support the X3D physics component now, they have no use.
+#   Castle Game Engine has its own physics components,
+#   https://castle-engine.io/physics , that exist "outside" of X3D models.
+# ---------------------------------------------------------------------
 
 PROFILE Interchange
 
