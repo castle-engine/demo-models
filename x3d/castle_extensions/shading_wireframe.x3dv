@@ -1,0 +1,290 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# ---------------------------------------------------------------------------
+# IndexedFaceSet with shading=WIREFRAME
+
+# first, render mesh in normal way
+Shape {
+  appearance Appearance {
+    material Material { }
+  }
+  geometry DEF MyMeshGeometry IndexedFaceSet {
+    coord DEF Coord Coordinate {
+      point [
+        0 0 0
+        1 0 0
+        1 1 0
+        0 1 0
+      ]
+    }
+    coordIndex [ 0 1 2 3 ]
+  }
+}
+
+# black wireframe, because Material.EmissiveColor = black
+Transform {
+  translation 2 0 0
+  children Shape {
+    shading "WIREFRAME"
+    geometry USE MyMeshGeometry
+    appearance Appearance {
+      material Material { }
+    }
+  }
+}
+
+# white wireframe (default when Material=nil with shading=WIREFRAME)
+Transform {
+  translation 4 0 0
+  children Shape {
+    shading "WIREFRAME"
+    geometry USE MyMeshGeometry
+    appearance Appearance {
+    }
+  }
+}
+
+# white wireframe (UnlitMaterial.emissiveColor is white by default)
+Transform {
+  translation 6 0 0
+  children Shape {
+    shading "WIREFRAME"
+    geometry USE MyMeshGeometry
+    appearance Appearance {
+      material UnlitMaterial { }
+    }
+  }
+}
+
+# yellow wireframe (from UnlitMaterial.emissiveColor)
+Transform {
+  translation 8 0 0
+  children Shape {
+    shading "WIREFRAME"
+    geometry USE MyMeshGeometry
+    appearance Appearance {
+      material UnlitMaterial {
+        emissiveColor 1 1 0
+      }
+    }
+  }
+}
+
+# yellow wireframe (from Material.emissiveColor)
+Transform {
+  translation 10 0 0
+  children Shape {
+    shading "WIREFRAME"
+    geometry USE MyMeshGeometry
+    appearance Appearance {
+      material Material {
+        emissiveColor 1 1 0
+      }
+    }
+  }
+}
+
+# yellow wireframe (from PhysicalMaterial.emissiveColor)
+Transform {
+  translation 12 0 0
+  children Shape {
+    shading "WIREFRAME"
+    geometry USE MyMeshGeometry
+    appearance Appearance {
+      material PhysicalMaterial {
+        emissiveColor 1 1 0
+      }
+    }
+  }
+}
+
+# ------------------------------------------------------------------------------
+# Sphere with shading=WIREFRAME
+
+Transform {
+  translation 0 -2 0
+  children [
+    # first, render mesh in normal way
+    Shape {
+      appearance Appearance {
+        material Material { }
+      }
+      geometry DEF MySphereGeometry Sphere {
+        radius 0.5
+      }
+    }
+
+    # black wireframe, because Material.EmissiveColor = black
+    Transform {
+      translation 2 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MySphereGeometry
+        appearance Appearance {
+          material Material { }
+        }
+      }
+    }
+
+    # white wireframe (default when Material=nil with shading=WIREFRAME)
+    Transform {
+      translation 4 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MySphereGeometry
+        appearance Appearance {
+        }
+      }
+    }
+
+    # white wireframe (UnlitMaterial.emissiveColor is white by default)
+    Transform {
+      translation 6 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MySphereGeometry
+        appearance Appearance {
+          material UnlitMaterial { }
+        }
+      }
+    }
+
+    # yellow wireframe (from UnlitMaterial.emissiveColor)
+    Transform {
+      translation 8 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MySphereGeometry
+        appearance Appearance {
+          material UnlitMaterial {
+            emissiveColor 1 1 0
+          }
+        }
+      }
+    }
+
+    # yellow wireframe (from Material.emissiveColor)
+    Transform {
+      translation 10 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MySphereGeometry
+        appearance Appearance {
+          material Material {
+            emissiveColor 1 1 0
+          }
+        }
+      }
+    }
+
+    # yellow wireframe (from PhysicalMaterial.emissiveColor)
+    Transform {
+      translation 12 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MySphereGeometry
+        appearance Appearance {
+          material PhysicalMaterial {
+            emissiveColor 1 1 0
+          }
+        }
+      }
+    }
+  ]
+}
+
+# ------------------------------------------------------------------------------
+# Cylinder with shading=WIREFRAME
+
+Transform {
+  translation 0 -4 0
+  children [
+    # first, render mesh in normal way
+    Shape {
+      appearance Appearance {
+        material Material { }
+      }
+      geometry DEF MyCylinderGeometry Cylinder {
+        radius 0.5
+      }
+    }
+
+    # black wireframe, because Material.EmissiveColor = black
+    Transform {
+      translation 2 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MyCylinderGeometry
+        appearance Appearance {
+          material Material { }
+        }
+      }
+    }
+
+    # white wireframe (default when Material=nil with shading=WIREFRAME)
+    Transform {
+      translation 4 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MyCylinderGeometry
+        appearance Appearance {
+        }
+      }
+    }
+
+    # white wireframe (UnlitMaterial.emissiveColor is white by default)
+    Transform {
+      translation 6 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MyCylinderGeometry
+        appearance Appearance {
+          material UnlitMaterial { }
+        }
+      }
+    }
+
+    # yellow wireframe (from UnlitMaterial.emissiveColor)
+    Transform {
+      translation 8 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MyCylinderGeometry
+        appearance Appearance {
+          material UnlitMaterial {
+            emissiveColor 1 1 0
+          }
+        }
+      }
+    }
+
+    # yellow wireframe (from Material.emissiveColor)
+    Transform {
+      translation 10 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MyCylinderGeometry
+        appearance Appearance {
+          material Material {
+            emissiveColor 1 1 0
+          }
+        }
+      }
+    }
+
+    # yellow wireframe (from PhysicalMaterial.emissiveColor)
+    Transform {
+      translation 12 0 0
+      children Shape {
+        shading "WIREFRAME"
+        geometry USE MyCylinderGeometry
+        appearance Appearance {
+          material PhysicalMaterial {
+            emissiveColor 1 1 0
+          }
+        }
+      }
+    }
+  ]
+}
