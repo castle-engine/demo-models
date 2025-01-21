@@ -1,0 +1,80 @@
+#X3D V3.2 utf8
+PROFILE Interactive
+
+# -----------------------------------------------------------------------------
+# Demo of BlendMode.
+# See https://castle-engine.io/x3d_extensions.php#section_ext_blending
+# for docs.
+#
+# In short, by default, when you use partial transparency, this happens:
+#   new_screen_color = color of the teapot (yellow) * opacity (0.2) + old_screen_color * 0.8
+#
+# Using BlendMode, one can change this formula, e.g. to
+#   new_screen_color = color of the teapot (yellow) * opacity (0.2) + old_screen_color
+# (this is done by destFactor "ONE" below).
+# -----------------------------------------------------------------------------
+
+Background {
+  backUrl "../skies/sky_red_back.png"
+  bottomUrl "../skies/sky_red_bottom.png"
+  frontUrl "../skies/sky_red_front.png"
+  leftUrl "../skies/sky_red_left.png"
+  rightUrl "../skies/sky_red_right.png"
+  topUrl "../skies/sky_red_top.png"
+}
+
+# 3 teapots with BlendMode { destFactor "ONE" }
+
+Transform {
+  translation 0 0 0
+  children [
+    DEF TeapotBlendMode1 Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 0
+          transparency 0.8
+        }
+        blendMode BlendMode { destFactor "ONE" }
+      }
+      geometry Teapot { size 0.5 0.5 0.5 }
+    }
+  ]
+}
+
+Transform {
+  translation 0 0 2
+  children USE TeapotBlendMode1
+}
+
+Transform {
+  translation 0 0 4
+  children USE TeapotBlendMode1
+}
+
+# 3 teapots with default BlendMode (none specified)
+
+Transform {
+  translation 0.5 0 0
+  children [
+    DEF TeapotBlendModeDefault Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 0
+          transparency 0.8
+        }
+        # blendMode BlendMode { }
+      }
+      geometry Teapot { size 0.5 0.5 0.5 }
+    }
+  ]
+}
+
+Transform {
+  translation 0.5 0 2
+  children USE TeapotBlendModeDefault
+}
+
+Transform {
+  translation 0.5 0 4
+  children USE TeapotBlendModeDefault
+}
