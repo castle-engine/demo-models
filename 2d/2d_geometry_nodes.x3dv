@@ -29,6 +29,28 @@ Transform { translation 0 10 0
   }
 }
 
+# yellow ellipse, using CGE extension Circle2D.radiusY
+Transform { translation 0 10 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 1 1 0 } }
+    geometry Circle2D {
+      radius 6.5
+      radiusY 2
+    }
+  }
+}
+
+# blue ellipse, using CGE extension Circle2D.radiusY
+Transform { translation 0 10 0
+  children Shape {
+    appearance Appearance { material Material { emissiveColor 0 0 1 } }
+    geometry Circle2D {
+      radius 2
+      radiusY 6.5
+    }
+  }
+}
+
 Transform { translation 13 10 0
   children Shape {
     appearance Appearance { material Material { emissiveColor 1 1 0 } }
