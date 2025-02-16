@@ -1,0 +1,1811 @@
+{
+    "type": "IFC.JSON",
+    "version": "0.0.1",
+    "schemaIdentifier": "IFC4",
+    "originatingSystem": "IFC2JSON_python Version 0.0.1",
+    "preprocessorVersion": "IfcOpenShell 0.8.0",
+    "timeStamp": "2025-02-12T19:43:19",
+    "data": [
+        {
+            "type": "IfcProject",
+            "globalId": "7f8c48e2-14a2-4a3b-bea8-992f9659bd9b",
+            "name": "My Project",
+            "representationContexts": [
+                {
+                    "type": "IfcGeometricRepresentationContext",
+                    "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+                },
+                {
+                    "type": "IfcGeometricRepresentationContext",
+                    "ref": "7bb742e9-5931-4f7c-8b2e-d442781c9f71"
+                }
+            ],
+            "unitsInContext": {
+                "type": "IfcUnitAssignment",
+                "units": [
+                    {
+                        "type": "IfcConversionBasedUnit",
+                        "dimensions": {
+                            "type": "IfcDimensionalExponents",
+                            "lengthExponent": 0,
+                            "massExponent": 0,
+                            "timeExponent": 0,
+                            "electricCurrentExponent": 0,
+                            "thermodynamicTemperatureExponent": 0,
+                            "amountOfSubstanceExponent": 0,
+                            "luminousIntensityExponent": 0
+                        },
+                        "unitType": "PLANEANGLEUNIT",
+                        "name": "degree",
+                        "conversionFactor": {
+                            "type": "IfcMeasureWithUnit",
+                            "valueComponent": {
+                                "type": "IfcReal",
+                                "value": 0.0174532925199433
+                            },
+                            "unitComponent": {
+                                "type": "IfcSIUnit",
+                                "unitType": "PLANEANGLEUNIT",
+                                "name": "RADIAN",
+                                "dimensions": {
+                                    "type": "IfcDimensionalExponents"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "IfcSIUnit",
+                        "unitType": "AREAUNIT",
+                        "name": "SQUARE_METRE",
+                        "dimensions": {
+                            "type": "IfcDimensionalExponents",
+                            "LengthExponent": 2
+                        }
+                    },
+                    {
+                        "type": "IfcSIUnit",
+                        "unitType": "VOLUMEUNIT",
+                        "name": "CUBIC_METRE",
+                        "dimensions": {
+                            "type": "IfcDimensionalExponents",
+                            "LengthExponent": 3
+                        }
+                    },
+                    {
+                        "type": "IfcSIUnit",
+                        "unitType": "LENGTHUNIT",
+                        "name": "METRE",
+                        "dimensions": {
+                            "type": "IfcDimensionalExponents",
+                            "LengthExponent": 1
+                        }
+                    }
+                ]
+            },
+            "isDecomposedBy": [
+                {
+                    "type": "IfcRelAggregates",
+                    "ref": "da85214e-bf6b-4f65-8b3a-dad1a76cf63a"
+                }
+            ]
+        },
+        {
+            "type": "IfcSlab",
+            "globalId": "36dfa05b-ceb7-4119-bbe6-6168b3fe2909",
+            "name": "Plane",
+            "objectPlacement": {
+                "type": "IfcLocalPlacement",
+                "placementRelTo": {
+                    "type": "IfcLocalPlacement",
+                    "placementRelTo": {
+                        "type": "IfcLocalPlacement",
+                        "placementRelTo": {
+                            "type": "IfcLocalPlacement",
+                            "relativePlacement": {
+                                "type": "IfcAxis2Placement3D",
+                                "location": {
+                                    "type": "IfcCartesianPoint",
+                                    "coordinates": [
+                                        0.0,
+                                        0.0,
+                                        0.0
+                                    ]
+                                },
+                                "axis": {
+                                    "type": "IfcDirection",
+                                    "directionRatios": [
+                                        0.0,
+                                        0.0,
+                                        1.0
+                                    ]
+                                },
+                                "refDirection": {
+                                    "type": "IfcDirection",
+                                    "directionRatios": [
+                                        1.0,
+                                        0.0,
+                                        0.0
+                                    ]
+                                }
+                            }
+                        },
+                        "relativePlacement": {
+                            "type": "IfcAxis2Placement3D",
+                            "location": {
+                                "type": "IfcCartesianPoint",
+                                "coordinates": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ]
+                            },
+                            "axis": {
+                                "type": "IfcDirection",
+                                "directionRatios": [
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ]
+                            },
+                            "refDirection": {
+                                "type": "IfcDirection",
+                                "directionRatios": [
+                                    1.0,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        }
+                    },
+                    "relativePlacement": {
+                        "type": "IfcAxis2Placement3D",
+                        "location": {
+                            "type": "IfcCartesianPoint",
+                            "coordinates": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "axis": {
+                            "type": "IfcDirection",
+                            "directionRatios": [
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        "refDirection": {
+                            "type": "IfcDirection",
+                            "directionRatios": [
+                                1.0,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    }
+                },
+                "relativePlacement": {
+                    "type": "IfcAxis2Placement3D",
+                    "location": {
+                        "type": "IfcCartesianPoint",
+                        "coordinates": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "refDirection": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            "representation": {
+                "type": "IfcProductDefinitionShape",
+                "representations": [
+                    {
+                        "type": "IfcShapeRepresentation",
+                        "ref": "ad39a51c-8f00-48fe-b4a9-818c095f6d14"
+                    }
+                ]
+            },
+            "predefinedType": "FLOOR",
+            "containedInStructure": [
+                {
+                    "type": "IfcRelContainedInSpatialStructure",
+                    "ref": "127d68e4-30c5-4b3b-b8e9-2ee8c98ade8c"
+                }
+            ]
+        },
+        {
+            "type": "IfcBuilding",
+            "globalId": "09b30495-2b0f-47ba-b7ab-845b9edbba2b",
+            "name": "My Building",
+            "objectPlacement": {
+                "type": "IfcLocalPlacement",
+                "placementRelTo": {
+                    "type": "IfcLocalPlacement",
+                    "relativePlacement": {
+                        "type": "IfcAxis2Placement3D",
+                        "location": {
+                            "type": "IfcCartesianPoint",
+                            "coordinates": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "axis": {
+                            "type": "IfcDirection",
+                            "directionRatios": [
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        "refDirection": {
+                            "type": "IfcDirection",
+                            "directionRatios": [
+                                1.0,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    }
+                },
+                "relativePlacement": {
+                    "type": "IfcAxis2Placement3D",
+                    "location": {
+                        "type": "IfcCartesianPoint",
+                        "coordinates": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "refDirection": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            "isDecomposedBy": [
+                {
+                    "type": "IfcRelAggregates",
+                    "ref": "1be80945-8b73-40df-bad2-2aa1ae04e389"
+                }
+            ],
+            "decomposes": [
+                {
+                    "type": "IfcRelAggregates",
+                    "ref": "e6e5e1aa-70e2-45b4-9d59-84c2fa545dea"
+                }
+            ]
+        },
+        {
+            "type": "IfcBuildingStorey",
+            "globalId": "a8c125bc-3e8a-41b0-9b50-56305a9b86ac",
+            "name": "My Storey",
+            "objectPlacement": {
+                "type": "IfcLocalPlacement",
+                "placementRelTo": {
+                    "type": "IfcLocalPlacement",
+                    "placementRelTo": {
+                        "type": "IfcLocalPlacement",
+                        "relativePlacement": {
+                            "type": "IfcAxis2Placement3D",
+                            "location": {
+                                "type": "IfcCartesianPoint",
+                                "coordinates": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ]
+                            },
+                            "axis": {
+                                "type": "IfcDirection",
+                                "directionRatios": [
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ]
+                            },
+                            "refDirection": {
+                                "type": "IfcDirection",
+                                "directionRatios": [
+                                    1.0,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        }
+                    },
+                    "relativePlacement": {
+                        "type": "IfcAxis2Placement3D",
+                        "location": {
+                            "type": "IfcCartesianPoint",
+                            "coordinates": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "axis": {
+                            "type": "IfcDirection",
+                            "directionRatios": [
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        "refDirection": {
+                            "type": "IfcDirection",
+                            "directionRatios": [
+                                1.0,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    }
+                },
+                "relativePlacement": {
+                    "type": "IfcAxis2Placement3D",
+                    "location": {
+                        "type": "IfcCartesianPoint",
+                        "coordinates": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "refDirection": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            "decomposes": [
+                {
+                    "type": "IfcRelAggregates",
+                    "ref": "1be80945-8b73-40df-bad2-2aa1ae04e389"
+                }
+            ],
+            "containsElements": [
+                {
+                    "type": "IfcRelContainedInSpatialStructure",
+                    "ref": "127d68e4-30c5-4b3b-b8e9-2ee8c98ade8c"
+                }
+            ]
+        },
+        {
+            "type": "IfcSite",
+            "globalId": "8c6fd2f1-2cca-4f5f-ad9c-dcb8b788c18f",
+            "name": "My Site",
+            "objectPlacement": {
+                "type": "IfcLocalPlacement",
+                "relativePlacement": {
+                    "type": "IfcAxis2Placement3D",
+                    "location": {
+                        "type": "IfcCartesianPoint",
+                        "coordinates": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "refDirection": {
+                        "type": "IfcDirection",
+                        "directionRatios": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            "isDecomposedBy": [
+                {
+                    "type": "IfcRelAggregates",
+                    "ref": "e6e5e1aa-70e2-45b4-9d59-84c2fa545dea"
+                }
+            ],
+            "decomposes": [
+                {
+                    "type": "IfcRelAggregates",
+                    "ref": "da85214e-bf6b-4f65-8b3a-dad1a76cf63a"
+                }
+            ]
+        },
+        {
+            "type": "IfcShapeRepresentation",
+            "contextOfItems": {
+                "type": "IfcGeometricRepresentationSubContext",
+                "ref": "b7a19898-3f65-4774-9e7b-bd47ac51dd84"
+            },
+            "representationIdentifier": "Body",
+            "representationType": "Tessellation",
+            "items": [
+                {
+          "type": "IfcTriangulatedFaceSet",
+          "coordinates": {
+            "type": "IfcCartesianPointList3D",
+            "coordList": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                48.0
+              ],
+              [
+                24.0,
+                0.0,
+                0.0
+              ],
+              [
+                22.1731087802709,
+                9.18440237676215,
+                0.0
+              ],
+              [
+                16.9705627484771,
+                16.9705627484771,
+                0.0
+              ],
+              [
+                9.18440237676216,
+                22.1731087802709,
+                0.0
+              ],
+              [
+                1.46952762458685e-15,
+                24.0,
+                0.0
+              ],
+              [
+                -9.18440237676215,
+                22.1731087802709,
+                0.0
+              ],
+              [
+                -16.9705627484771,
+                16.9705627484771,
+                0.0
+              ],
+              [
+                -22.1731087802709,
+                9.18440237676216,
+                0.0
+              ],
+              [
+                -24.0,
+                2.93905524917371e-15,
+                0.0
+              ],
+              [
+                -22.1731087802709,
+                -9.18440237676215,
+                0.0
+              ],
+              [
+                -16.9705627484771,
+                -16.9705627484771,
+                0.0
+              ],
+              [
+                -9.18440237676217,
+                -22.1731087802709,
+                0.0
+              ],
+              [
+                -4.40858287376056e-15,
+                -24.0,
+                0.0
+              ],
+              [
+                9.18440237676216,
+                -22.1731087802709,
+                0.0
+              ],
+              [
+                16.9705627484771,
+                -16.9705627484771,
+                0.0
+              ],
+              [
+                22.1731087802709,
+                -9.18440237676217,
+                0.0
+              ],
+              [
+                24.0,
+                -5.87811049834741e-15,
+                0.0
+              ],
+              [
+                24.0,
+                0.0,
+                48.0
+              ],
+              [
+                22.1731087802709,
+                9.18440237676215,
+                48.0
+              ],
+              [
+                16.9705627484771,
+                16.9705627484771,
+                48.0
+              ],
+              [
+                9.18440237676216,
+                22.1731087802709,
+                48.0
+              ],
+              [
+                1.46952762458685e-15,
+                24.0,
+                48.0
+              ],
+              [
+                -9.18440237676215,
+                22.1731087802709,
+                48.0
+              ],
+              [
+                -16.9705627484771,
+                16.9705627484771,
+                48.0
+              ],
+              [
+                -22.1731087802709,
+                9.18440237676216,
+                48.0
+              ],
+              [
+                -24.0,
+                2.93905524917371e-15,
+                48.0
+              ],
+              [
+                -22.1731087802709,
+                -9.18440237676215,
+                48.0
+              ],
+              [
+                -16.9705627484771,
+                -16.9705627484771,
+                48.0
+              ],
+              [
+                -9.18440237676217,
+                -22.1731087802709,
+                48.0
+              ],
+              [
+                -4.40858287376056e-15,
+                -24.0,
+                48.0
+              ],
+              [
+                9.18440237676216,
+                -22.1731087802709,
+                48.0
+              ],
+              [
+                16.9705627484771,
+                -16.9705627484771,
+                48.0
+              ],
+              [
+                22.1731087802709,
+                -9.18440237676217,
+                48.0
+              ],
+              [
+                24.0,
+                -5.87811049834741e-15,
+                48.0
+              ],
+              [
+                24.0,
+                0.0,
+                0.0
+              ],
+              [
+                22.1731087802709,
+                9.18440237676215,
+                0.0
+              ],
+              [
+                16.9705627484771,
+                16.9705627484771,
+                0.0
+              ],
+              [
+                9.18440237676216,
+                22.1731087802709,
+                0.0
+              ],
+              [
+                1.46952762458685e-15,
+                24.0,
+                0.0
+              ],
+              [
+                -9.18440237676215,
+                22.1731087802709,
+                0.0
+              ],
+              [
+                -16.9705627484771,
+                16.9705627484771,
+                0.0
+              ],
+              [
+                -22.1731087802709,
+                9.18440237676216,
+                0.0
+              ],
+              [
+                -24.0,
+                2.93905524917371e-15,
+                0.0
+              ],
+              [
+                -22.1731087802709,
+                -9.18440237676215,
+                0.0
+              ],
+              [
+                -16.9705627484771,
+                -16.9705627484771,
+                0.0
+              ],
+              [
+                -9.18440237676217,
+                -22.1731087802709,
+                0.0
+              ],
+              [
+                -4.40858287376056e-15,
+                -24.0,
+                0.0
+              ],
+              [
+                9.18440237676216,
+                -22.1731087802709,
+                0.0
+              ],
+              [
+                16.9705627484771,
+                -16.9705627484771,
+                0.0
+              ],
+              [
+                22.1731087802709,
+                -9.18440237676217,
+                0.0
+              ],
+              [
+                24.0,
+                -5.87811049834741e-15,
+                0.0
+              ],
+              [
+                24.0,
+                0.0,
+                48.0
+              ],
+              [
+                22.1731087802709,
+                9.18440237676215,
+                48.0
+              ],
+              [
+                16.9705627484771,
+                16.9705627484771,
+                48.0
+              ],
+              [
+                9.18440237676216,
+                22.1731087802709,
+                48.0
+              ],
+              [
+                1.46952762458685e-15,
+                24.0,
+                48.0
+              ],
+              [
+                -9.18440237676215,
+                22.1731087802709,
+                48.0
+              ],
+              [
+                -16.9705627484771,
+                16.9705627484771,
+                48.0
+              ],
+              [
+                -22.1731087802709,
+                9.18440237676216,
+                48.0
+              ],
+              [
+                -24.0,
+                2.93905524917371e-15,
+                48.0
+              ],
+              [
+                -22.1731087802709,
+                -9.18440237676215,
+                48.0
+              ],
+              [
+                -16.9705627484771,
+                -16.9705627484771,
+                48.0
+              ],
+              [
+                -9.18440237676217,
+                -22.1731087802709,
+                48.0
+              ],
+              [
+                -4.40858287376056e-15,
+                -24.0,
+                48.0
+              ],
+              [
+                9.18440237676216,
+                -22.1731087802709,
+                48.0
+              ],
+              [
+                16.9705627484771,
+                -16.9705627484771,
+                48.0
+              ],
+              [
+                22.1731087802709,
+                -9.18440237676217,
+                48.0
+              ],
+              [
+                24.0,
+                -5.87811049834741e-15,
+                48.0
+              ]
+            ]
+          },
+          "normals": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.923879532511287,
+              0.38268343236509,
+              0.0
+            ],
+            [
+              0.707106781186548,
+              0.707106781186547,
+              0.0
+            ],
+            [
+              0.38268343236509,
+              0.923879532511287,
+              0.0
+            ],
+            [
+              6.12303176911189e-17,
+              1.0,
+              0.0
+            ],
+            [
+              -0.38268343236509,
+              0.923879532511287,
+              0.0
+            ],
+            [
+              -0.707106781186547,
+              0.707106781186548,
+              0.0
+            ],
+            [
+              -0.923879532511287,
+              0.38268343236509,
+              0.0
+            ],
+            [
+              -1.0,
+              1.22460635382238e-16,
+              0.0
+            ],
+            [
+              -0.923879532511287,
+              -0.38268343236509,
+              0.0
+            ],
+            [
+              -0.707106781186548,
+              -0.707106781186547,
+              0.0
+            ],
+            [
+              -0.38268343236509,
+              -0.923879532511287,
+              0.0
+            ],
+            [
+              -1.83690953073357e-16,
+              -1.0,
+              0.0
+            ],
+            [
+              0.38268343236509,
+              -0.923879532511287,
+              0.0
+            ],
+            [
+              0.707106781186547,
+              -0.707106781186548,
+              0.0
+            ],
+            [
+              0.923879532511287,
+              -0.38268343236509,
+              0.0
+            ],
+            [
+              1.0,
+              -2.44921270764475e-16,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.923879532511287,
+              0.38268343236509,
+              0.0
+            ],
+            [
+              0.707106781186548,
+              0.707106781186547,
+              0.0
+            ],
+            [
+              0.38268343236509,
+              0.923879532511287,
+              0.0
+            ],
+            [
+              6.12303176911189e-17,
+              1.0,
+              0.0
+            ],
+            [
+              -0.38268343236509,
+              0.923879532511287,
+              0.0
+            ],
+            [
+              -0.707106781186547,
+              0.707106781186548,
+              0.0
+            ],
+            [
+              -0.923879532511287,
+              0.38268343236509,
+              0.0
+            ],
+            [
+              -1.0,
+              1.22460635382238e-16,
+              0.0
+            ],
+            [
+              -0.923879532511287,
+              -0.38268343236509,
+              0.0
+            ],
+            [
+              -0.707106781186548,
+              -0.707106781186547,
+              0.0
+            ],
+            [
+              -0.38268343236509,
+              -0.923879532511287,
+              0.0
+            ],
+            [
+              -1.83690953073357e-16,
+              -1.0,
+              0.0
+            ],
+            [
+              0.38268343236509,
+              -0.923879532511287,
+              0.0
+            ],
+            [
+              0.707106781186547,
+              -0.707106781186548,
+              0.0
+            ],
+            [
+              0.923879532511287,
+              -0.38268343236509,
+              0.0
+            ],
+            [
+              1.0,
+              -2.44921270764475e-16,
+              0.0
+            ]
+          ],
+          "closed": true,
+          "coordIndex": [
+            [
+              1,
+              4,
+              3
+            ],
+            [
+              38,
+              54,
+              37
+            ],
+            [
+              38,
+              55,
+              54
+            ],
+            [
+              2,
+              20,
+              21
+            ],
+            [
+              1,
+              5,
+              4
+            ],
+            [
+              39,
+              55,
+              38
+            ],
+            [
+              39,
+              56,
+              55
+            ],
+            [
+              2,
+              21,
+              22
+            ],
+            [
+              1,
+              6,
+              5
+            ],
+            [
+              40,
+              56,
+              39
+            ],
+            [
+              40,
+              57,
+              56
+            ],
+            [
+              2,
+              22,
+              23
+            ],
+            [
+              1,
+              7,
+              6
+            ],
+            [
+              41,
+              57,
+              40
+            ],
+            [
+              41,
+              58,
+              57
+            ],
+            [
+              2,
+              23,
+              24
+            ],
+            [
+              1,
+              8,
+              7
+            ],
+            [
+              42,
+              58,
+              41
+            ],
+            [
+              42,
+              59,
+              58
+            ],
+            [
+              2,
+              24,
+              25
+            ],
+            [
+              1,
+              9,
+              8
+            ],
+            [
+              43,
+              59,
+              42
+            ],
+            [
+              43,
+              60,
+              59
+            ],
+            [
+              2,
+              25,
+              26
+            ],
+            [
+              1,
+              10,
+              9
+            ],
+            [
+              44,
+              60,
+              43
+            ],
+            [
+              44,
+              61,
+              60
+            ],
+            [
+              2,
+              26,
+              27
+            ],
+            [
+              1,
+              11,
+              10
+            ],
+            [
+              45,
+              61,
+              44
+            ],
+            [
+              45,
+              62,
+              61
+            ],
+            [
+              2,
+              27,
+              28
+            ],
+            [
+              1,
+              12,
+              11
+            ],
+            [
+              46,
+              62,
+              45
+            ],
+            [
+              46,
+              63,
+              62
+            ],
+            [
+              2,
+              28,
+              29
+            ],
+            [
+              1,
+              13,
+              12
+            ],
+            [
+              47,
+              63,
+              46
+            ],
+            [
+              47,
+              64,
+              63
+            ],
+            [
+              2,
+              29,
+              30
+            ],
+            [
+              1,
+              14,
+              13
+            ],
+            [
+              48,
+              64,
+              47
+            ],
+            [
+              48,
+              65,
+              64
+            ],
+            [
+              2,
+              30,
+              31
+            ],
+            [
+              1,
+              15,
+              14
+            ],
+            [
+              49,
+              65,
+              48
+            ],
+            [
+              49,
+              66,
+              65
+            ],
+            [
+              2,
+              31,
+              32
+            ],
+            [
+              1,
+              16,
+              15
+            ],
+            [
+              50,
+              66,
+              49
+            ],
+            [
+              50,
+              67,
+              66
+            ],
+            [
+              2,
+              32,
+              33
+            ],
+            [
+              1,
+              17,
+              16
+            ],
+            [
+              51,
+              67,
+              50
+            ],
+            [
+              51,
+              68,
+              67
+            ],
+            [
+              2,
+              33,
+              34
+            ],
+            [
+              1,
+              18,
+              17
+            ],
+            [
+              52,
+              68,
+              51
+            ],
+            [
+              52,
+              69,
+              68
+            ],
+            [
+              2,
+              34,
+              35
+            ],
+            [
+              1,
+              19,
+              18
+            ],
+            [
+              53,
+              69,
+              52
+            ],
+            [
+              53,
+              70,
+              69
+            ],
+            [
+              2,
+              35,
+              36
+            ]
+          ]
+
+                }
+            ],
+            "ofProductRepresentation": [
+                {
+                    "type": "IfcProductDefinitionShape",
+                    "representations": [
+                        {
+                            "type": "IfcShapeRepresentation",
+                            "ref": "ad39a51c-8f00-48fe-b4a9-818c095f6d14"
+                        }
+                    ]
+                }
+            ],
+            "globalId": "ad39a51c-8f00-48fe-b4a9-818c095f6d14"
+        },
+        {
+            "type": "IfcGeometricRepresentationContext",
+            "contextType": "Model",
+            "coordinateSpaceDimension": 3,
+            "precision": 1e-05,
+            "worldCoordinateSystem": {
+                "type": "IfcAxis2Placement3D",
+                "location": {
+                    "type": "IfcCartesianPoint",
+                    "coordinates": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ]
+                },
+                "axis": {
+                    "type": "IfcDirection",
+                    "directionRatios": [
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                },
+                "refDirection": {
+                    "type": "IfcDirection",
+                    "directionRatios": [
+                        1.0,
+                        0.0,
+                        0.0
+                    ]
+                }
+            },
+            "hasSubContexts": [
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "b7a19898-3f65-4774-9e7b-bd47ac51dd84"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "398da1d4-6563-4581-858e-0f83313ed46e"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "8fb16bb4-e4b5-4d36-9c7c-b739185d7a81"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "afc7ea21-b9d7-404d-acef-65c75f88e9f2"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "1d8c678d-a1c1-47dd-967b-ce714078ddea"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "f78e0c19-4a49-4a97-9834-b3468793584a"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "e82d1efc-0224-4ba6-a216-d10979ade233"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "183f98fb-307e-468f-af4b-b5fad51ba2bc"
+                }
+            ],
+            "globalId": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+        },
+        {
+            "type": "IfcGeometricRepresentationContext",
+            "contextType": "Plan",
+            "coordinateSpaceDimension": 2,
+            "precision": 1e-05,
+            "worldCoordinateSystem": {
+                "type": "IfcAxis2Placement2D",
+                "location": {
+                    "type": "IfcCartesianPoint",
+                    "coordinates": [
+                        0.0,
+                        0.0
+                    ]
+                },
+                "refDirection": {
+                    "type": "IfcDirection",
+                    "directionRatios": [
+                        1.0,
+                        0.0
+                    ]
+                }
+            },
+            "hasSubContexts": [
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "45bb4b01-788c-4fde-baca-e55a59620a88"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "781b811f-933c-4bf1-a9d9-6478975d77c6"
+                },
+                {
+                    "type": "IfcGeometricRepresentationSubContext",
+                    "ref": "834e9ab4-1221-48f4-a34c-744acbbdc232"
+                }
+            ],
+            "globalId": "7bb742e9-5931-4f7c-8b2e-d442781c9f71"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Body",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "MODEL_VIEW",
+            "representationsInContext": [
+                {
+                    "type": "IfcShapeRepresentation",
+                    "ref": "ad39a51c-8f00-48fe-b4a9-818c095f6d14"
+                }
+            ],
+            "globalId": "b7a19898-3f65-4774-9e7b-bd47ac51dd84"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Axis",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "GRAPH_VIEW",
+            "globalId": "398da1d4-6563-4581-858e-0f83313ed46e"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Box",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "MODEL_VIEW",
+            "globalId": "8fb16bb4-e4b5-4d36-9c7c-b739185d7a81"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Annotation",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "SECTION_VIEW",
+            "globalId": "afc7ea21-b9d7-404d-acef-65c75f88e9f2"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Annotation",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "ELEVATION_VIEW",
+            "globalId": "1d8c678d-a1c1-47dd-967b-ce714078ddea"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Annotation",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "MODEL_VIEW",
+            "globalId": "f78e0c19-4a49-4a97-9834-b3468793584a"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Annotation",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "PLAN_VIEW",
+            "globalId": "e82d1efc-0224-4ba6-a216-d10979ade233"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Profile",
+            "contextType": "Model",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "8861c69c-7a9d-4522-a45b-9bcaddc5f91c"
+            },
+            "targetView": "ELEVATION_VIEW",
+            "globalId": "183f98fb-307e-468f-af4b-b5fad51ba2bc"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Axis",
+            "contextType": "Plan",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "7bb742e9-5931-4f7c-8b2e-d442781c9f71"
+            },
+            "targetView": "GRAPH_VIEW",
+            "globalId": "45bb4b01-788c-4fde-baca-e55a59620a88"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Body",
+            "contextType": "Plan",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "7bb742e9-5931-4f7c-8b2e-d442781c9f71"
+            },
+            "targetView": "PLAN_VIEW",
+            "globalId": "781b811f-933c-4bf1-a9d9-6478975d77c6"
+        },
+        {
+            "type": "IfcGeometricRepresentationSubContext",
+            "contextIdentifier": "Annotation",
+            "contextType": "Plan",
+            "parentContext": {
+                "type": "IfcGeometricRepresentationContext",
+                "ref": "7bb742e9-5931-4f7c-8b2e-d442781c9f71"
+            },
+            "targetView": "PLAN_VIEW",
+            "globalId": "834e9ab4-1221-48f4-a34c-744acbbdc232"
+        },
+        {
+            "type": "IfcRelContainedInSpatialStructure",
+            "globalId": "127d68e4-30c5-4b3b-b8e9-2ee8c98ade8c",
+            "relatedElements": [
+                {
+                    "type": "IfcSlab",
+                    "ref": "36dfa05b-ceb7-4119-bbe6-6168b3fe2909"
+                }
+            ],
+            "relatingStructure": {
+                "type": "IfcBuildingStorey",
+                "ref": "a8c125bc-3e8a-41b0-9b50-56305a9b86ac"
+            }
+        },
+        {
+            "type": "IfcRelAggregates",
+            "globalId": "da85214e-bf6b-4f65-8b3a-dad1a76cf63a",
+            "relatingObject": {
+                "type": "IfcProject",
+                "ref": "7f8c48e2-14a2-4a3b-bea8-992f9659bd9b"
+            },
+            "relatedObjects": [
+                {
+                    "type": "IfcSite",
+                    "ref": "8c6fd2f1-2cca-4f5f-ad9c-dcb8b788c18f"
+                }
+            ]
+        },
+        {
+            "type": "IfcRelAggregates",
+            "globalId": "e6e5e1aa-70e2-45b4-9d59-84c2fa545dea",
+            "relatingObject": {
+                "type": "IfcSite",
+                "ref": "8c6fd2f1-2cca-4f5f-ad9c-dcb8b788c18f"
+            },
+            "relatedObjects": [
+                {
+                    "type": "IfcBuilding",
+                    "ref": "09b30495-2b0f-47ba-b7ab-845b9edbba2b"
+                }
+            ]
+        },
+        {
+            "type": "IfcRelAggregates",
+            "globalId": "1be80945-8b73-40df-bad2-2aa1ae04e389",
+            "relatingObject": {
+                "type": "IfcBuilding",
+                "ref": "09b30495-2b0f-47ba-b7ab-845b9edbba2b"
+            },
+            "relatedObjects": [
+                {
+                    "type": "IfcBuildingStorey",
+                    "ref": "a8c125bc-3e8a-41b0-9b50-56305a9b86ac"
+                }
+            ]
+        }
+    ]
+}
