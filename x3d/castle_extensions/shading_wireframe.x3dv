@@ -1,290 +1,329 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
+# ----------------------------------------------------------------------------
+# Tests of Shape.shading = "WIREFRAME" in X3D.
+# See https://castle-engine.io/x3d_implementation_shape_extensions.php#section_ext_shading
+# for documentation.
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# PROTO to test various material settings with any provided geometry
+
+PROTO TestGeometryShading [
+  inputOutput SFVec3f translation 0 0 0
+  inputOutput SFVec3f geometryScale 1 1 1
+  inputOutput SFNode geometry NULL
+] {
+  Transform {
+    translation IS translation
+    children [
+      # first, render geometry in normal way
+      Transform {
+        scale IS geometryScale
+        children Shape {
+          appearance Appearance {
+            material Material { }
+          }
+          geometry IS geometry
+        }
+      }
+
+      # black wireframe, because Material.EmissiveColor = black
+      Transform {
+        translation 2 0 0
+        scale IS geometryScale
+        children Shape {
+          shading "WIREFRAME"
+          geometry IS geometry
+          appearance Appearance {
+            material Material { }
+          }
+        }
+      }
+
+      # white wireframe (default when Material=nil with shading=WIREFRAME)
+      Transform {
+        translation 4 0 0
+        scale IS geometryScale
+        children Shape {
+          shading "WIREFRAME"
+          geometry IS geometry
+          appearance Appearance {
+          }
+        }
+      }
+
+      # white wireframe (UnlitMaterial.emissiveColor is white by default)
+      Transform {
+        translation 6 0 0
+        scale IS geometryScale
+        children Shape {
+          shading "WIREFRAME"
+          geometry IS geometry
+          appearance Appearance {
+            material UnlitMaterial { }
+          }
+        }
+      }
+
+      # yellow wireframe (from UnlitMaterial.emissiveColor)
+      Transform {
+        translation 8 0 0
+        scale IS geometryScale
+        children Shape {
+          shading "WIREFRAME"
+          geometry IS geometry
+          appearance Appearance {
+            material UnlitMaterial {
+              emissiveColor 1 1 0
+            }
+          }
+        }
+      }
+
+      # yellow wireframe (from Material.emissiveColor)
+      Transform {
+        translation 10 0 0
+        scale IS geometryScale
+        children Shape {
+          shading "WIREFRAME"
+          geometry IS geometry
+          appearance Appearance {
+            material Material {
+              emissiveColor 1 1 0
+            }
+          }
+        }
+      }
+
+      # yellow wireframe (from PhysicalMaterial.emissiveColor)
+      Transform {
+        translation 12 0 0
+        scale IS geometryScale
+        children Shape {
+          shading "WIREFRAME"
+          geometry IS geometry
+          appearance Appearance {
+            material PhysicalMaterial {
+              emissiveColor 1 1 0
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
 # ---------------------------------------------------------------------------
 # IndexedFaceSet with shading=WIREFRAME
 
-# first, render mesh in normal way
-Shape {
-  appearance Appearance {
-    material Material { }
-  }
-  geometry DEF MyMeshGeometry IndexedFaceSet {
+TestGeometryShading {
+  geometry IndexedFaceSet {
     coord DEF Coord Coordinate {
       point [
         0 0 0
         1 0 0
         1 1 0
         0 1 0
+
+        -0.5 1.5 0
+        0.5 2 0
+        1.5 1.5 0
+
+        0.5 -0.25 0
       ]
     }
-    coordIndex [ 0 1 2 3 ]
-  }
-}
+    coordIndex [
+      # Deliberately testing using polygons larger than triangles,
+      # to test they are rendered as wireframe nicely,
+      # without showing diagonal lines (resulting from triangulation).
 
-# black wireframe, because Material.EmissiveColor = black
-Transform {
-  translation 2 0 0
-  children Shape {
-    shading "WIREFRAME"
-    geometry USE MyMeshGeometry
-    appearance Appearance {
-      material Material { }
-    }
-  }
-}
+      # quad
+      0 1 2 3 -1
 
-# white wireframe (default when Material=nil with shading=WIREFRAME)
-Transform {
-  translation 4 0 0
-  children Shape {
-    shading "WIREFRAME"
-    geometry USE MyMeshGeometry
-    appearance Appearance {
-    }
-  }
-}
+      # polygon with 5 vertexes
+      6 5 4 3 2 -1
 
-# white wireframe (UnlitMaterial.emissiveColor is white by default)
-Transform {
-  translation 6 0 0
-  children Shape {
-    shading "WIREFRAME"
-    geometry USE MyMeshGeometry
-    appearance Appearance {
-      material UnlitMaterial { }
-    }
-  }
-}
-
-# yellow wireframe (from UnlitMaterial.emissiveColor)
-Transform {
-  translation 8 0 0
-  children Shape {
-    shading "WIREFRAME"
-    geometry USE MyMeshGeometry
-    appearance Appearance {
-      material UnlitMaterial {
-        emissiveColor 1 1 0
-      }
-    }
-  }
-}
-
-# yellow wireframe (from Material.emissiveColor)
-Transform {
-  translation 10 0 0
-  children Shape {
-    shading "WIREFRAME"
-    geometry USE MyMeshGeometry
-    appearance Appearance {
-      material Material {
-        emissiveColor 1 1 0
-      }
-    }
-  }
-}
-
-# yellow wireframe (from PhysicalMaterial.emissiveColor)
-Transform {
-  translation 12 0 0
-  children Shape {
-    shading "WIREFRAME"
-    geometry USE MyMeshGeometry
-    appearance Appearance {
-      material PhysicalMaterial {
-        emissiveColor 1 1 0
-      }
-    }
+      # triangle
+      1 0 7 -1
+    ]
   }
 }
 
 # ------------------------------------------------------------------------------
 # Sphere with shading=WIREFRAME
 
-Transform {
+TestGeometryShading {
   translation 0 -2 0
-  children [
-    # first, render mesh in normal way
-    Shape {
-      appearance Appearance {
-        material Material { }
-      }
-      geometry DEF MySphereGeometry Sphere {
-        radius 0.5
-      }
-    }
-
-    # black wireframe, because Material.EmissiveColor = black
-    Transform {
-      translation 2 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MySphereGeometry
-        appearance Appearance {
-          material Material { }
-        }
-      }
-    }
-
-    # white wireframe (default when Material=nil with shading=WIREFRAME)
-    Transform {
-      translation 4 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MySphereGeometry
-        appearance Appearance {
-        }
-      }
-    }
-
-    # white wireframe (UnlitMaterial.emissiveColor is white by default)
-    Transform {
-      translation 6 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MySphereGeometry
-        appearance Appearance {
-          material UnlitMaterial { }
-        }
-      }
-    }
-
-    # yellow wireframe (from UnlitMaterial.emissiveColor)
-    Transform {
-      translation 8 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MySphereGeometry
-        appearance Appearance {
-          material UnlitMaterial {
-            emissiveColor 1 1 0
-          }
-        }
-      }
-    }
-
-    # yellow wireframe (from Material.emissiveColor)
-    Transform {
-      translation 10 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MySphereGeometry
-        appearance Appearance {
-          material Material {
-            emissiveColor 1 1 0
-          }
-        }
-      }
-    }
-
-    # yellow wireframe (from PhysicalMaterial.emissiveColor)
-    Transform {
-      translation 12 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MySphereGeometry
-        appearance Appearance {
-          material PhysicalMaterial {
-            emissiveColor 1 1 0
-          }
-        }
-      }
-    }
-  ]
+  geometry Sphere {
+    radius 0.5
+  }
 }
 
 # ------------------------------------------------------------------------------
 # Cylinder with shading=WIREFRAME
 
-Transform {
+TestGeometryShading {
   translation 0 -4 0
-  children [
-    # first, render mesh in normal way
-    Shape {
-      appearance Appearance {
-        material Material { }
-      }
-      geometry DEF MyCylinderGeometry Cylinder {
-        radius 0.5
-      }
-    }
+  geometry Cylinder {
+    radius 0.5
+  }
+}
 
-    # black wireframe, because Material.EmissiveColor = black
-    Transform {
-      translation 2 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MyCylinderGeometry
-        appearance Appearance {
-          material Material { }
-        }
-      }
-    }
+# ------------------------------------------------------------------------------
+# Box with shading=WIREFRAME
 
-    # white wireframe (default when Material=nil with shading=WIREFRAME)
-    Transform {
-      translation 4 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MyCylinderGeometry
-        appearance Appearance {
-        }
-      }
-    }
+TestGeometryShading {
+  translation 0 -6 0
+  geometry Box {
+    size 0.5 0.5 0.5
+  }
+}
 
-    # white wireframe (UnlitMaterial.emissiveColor is white by default)
-    Transform {
-      translation 6 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MyCylinderGeometry
-        appearance Appearance {
-          material UnlitMaterial { }
-        }
-      }
-    }
+# ------------------------------------------------------------------------------
+# Cone with shading=WIREFRAME
 
-    # yellow wireframe (from UnlitMaterial.emissiveColor)
-    Transform {
-      translation 8 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MyCylinderGeometry
-        appearance Appearance {
-          material UnlitMaterial {
-            emissiveColor 1 1 0
-          }
-        }
-      }
-    }
+TestGeometryShading {
+  translation 0 -8 0
+  geometry Cone {
+    bottomRadius 0.5
+    height 1
+  }
+}
+# ------------------------------------------------------------------------------
+# Extrusion with shading=WIREFRAME
 
-    # yellow wireframe (from Material.emissiveColor)
-    Transform {
-      translation 10 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MyCylinderGeometry
-        appearance Appearance {
-          material Material {
-            emissiveColor 1 1 0
-          }
-        }
-      }
-    }
+TestGeometryShading {
+  translation 0 -10 0
+  geometryScale 0.3 0.3 0.3
+  geometry Extrusion {
+    # Extrusion parameters like in x3d/extrusion_squirrel_house.x3dv
+    spine       [0 0 0    , 0 0 -4   ,    4 0 -4]
+    scale       [1.0 1.0  , 1.0 1.0  ,  1.0 1.0 ]
+    orientation [0 1 0 0  , 1 0 0 0  ,   1 0 0 0]
+    crossSection [2 1, 2 -1, 0 -3, -2 -1, -2 1, 0 1, 2 1]
+  }
+}
 
-    # yellow wireframe (from PhysicalMaterial.emissiveColor)
-    Transform {
-      translation 12 0 0
-      children Shape {
-        shading "WIREFRAME"
-        geometry USE MyCylinderGeometry
-        appearance Appearance {
-          material PhysicalMaterial {
-            emissiveColor 1 1 0
-          }
-        }
-      }
+# ------------------------------------------------------------------------------
+# ElevationGrid with shading=WIREFRAME
+
+TestGeometryShading {
+  translation 0 -12 0
+  geometryScale 0.3 0.3 0.3
+  geometry ElevationGrid {
+    height [
+      0.1 0.2 0.3
+      0.1 0.7 0.2
+      0.4 0.3 0.1
+    ]
+    xDimension 3
+    zDimension 3
+    creaseAngle 4
+  }
+}
+
+# ------------------------------------------------------------------------------
+# Triangles, fans, strips, quads with shading=WIREFRAME
+#
+# Geometries copied from x3d/triangle_quad_sets.x3dv testcase.
+
+TestGeometryShading {
+  translation 0 -14 0
+  geometryScale 0.3 0.3 0.3
+  geometry IndexedTriangleSet {
+    coord Coordinate {
+      point [
+        0 0 0, 1 0 0, 1 1 0,
+        0 2 0, 1 2 0, 1 3 0
+      ]
     }
-  ]
+    index [ 0 1 2, 3 4 5 ]
+  }
+}
+
+TestGeometryShading {
+  translation 0 -16 0
+  geometryScale 0.3 0.3 0.3
+  geometry TriangleSet {
+    coord Coordinate {
+      point [
+        0 0 0, 1 0 0, 1 1 0,
+        0 2 0, 1 2 0, 1 3 0
+      ]
+    }
+  }
+}
+
+TestGeometryShading {
+  translation 0 -18 0
+  geometryScale 0.3 0.3 0.3
+  geometry IndexedTriangleFanSet {
+    coord DEF FanSetCoord Coordinate {
+      point [
+        0 0 0, 1 0 0, 1 1 0, 0.5 1.5 0.5,
+        0 2 0, 1 2 0, 1 3 0, 0.5 3.5 0.5
+      ]
+    }
+    index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+  }
+}
+
+TestGeometryShading {
+  translation 0 -20 0
+  geometryScale 0.3 0.3 0.3
+  geometry TriangleFanSet {
+    coord USE FanSetCoord
+    fanCount [ 4 4 ]
+  }
+}
+
+TestGeometryShading {
+  translation 0 -22 0
+  geometryScale 0.3 0.3 0.3
+  geometry IndexedTriangleStripSet {
+    coord DEF StripSetCoord Coordinate {
+      point [
+        0 0 0, 1 0 0, 1 1 0, 1.5 0.5 0.5,
+        0 2 0, 1 2 0, 1 3 0, 1.5 2.5 0.5
+      ]
+    }
+    index [ 0 1 2 3 -1, 4 5 6 7 -1 ]
+  }
+}
+
+TestGeometryShading {
+  translation 0 -24 0
+  geometryScale 0.3 0.3 0.3
+  geometry TriangleStripSet {
+    coord USE StripSetCoord
+    stripCount [ 4 4 ]
+  }
+}
+
+TestGeometryShading {
+  translation 0 -26 0
+  geometryScale 0.3 0.3 0.3
+  geometry IndexedQuadSet {
+    coord DEF QuadSetCoord Coordinate {
+      point [
+        0 0 0, 1 0 0, 1 1 0, 0 1 0,
+        0 2 0, 1 2 0, 1 3 0, 0 3 0,
+        # These two verts should be ignored by QuadSet
+        # (spec says to ignore coords above 4-multiple),
+        # though IndexedQuadSet will make use of them.
+        2 0 1, 2 1 1
+      ]
+    }
+    index [ 0 1 2 3, 4 5 6 7, 2 1 8 9 ]
+  }
+}
+
+TestGeometryShading {
+  translation 0 -28 0
+  geometryScale 0.3 0.3 0.3
+  geometry QuadSet {
+    coord USE QuadSetCoord
+  }
 }
