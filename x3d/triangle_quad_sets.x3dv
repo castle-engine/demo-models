@@ -82,12 +82,16 @@ Transform {
   children Shape {
     appearance USE Col1App
     geometry IndexedQuadSet {
-      coord DEF QuadSetCoordTooMuch
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0,
-                             # These two verts should be ignored by QuadSet
-                             # (spec says to ignore coords above 4-multiple)
-                                    2 0 1, 2 1 1 ] }
+      coord DEF QuadSetCoord Coordinate {
+        point [
+          0 0 0, 1 0 0, 1 1 0, 0 1 0,
+          0 2 0, 1 2 0, 1 3 0, 0 3 0,
+          # These two verts should be ignored by QuadSet
+          # (spec says to ignore coords above 4-multiple),
+          # though IndexedQuadSet will make use of them.
+          2 0 1, 2 1 1
+        ]
+      }
       index [ 0 1 2 3, 4 5 6 7, 2 1 8 9 ]
     }
   }
@@ -98,10 +102,7 @@ Transform {
   children Shape {
     appearance USE Col1App
     geometry QuadSet {
-      coord DEF QuadSetCoord
-        Coordinate { point [ 0 0 0, 1 0 0, 1 1 0, 0 1 0,
-                             0 2 0, 1 2 0, 1 3 0, 0 3 0 ] }
-
+      coord USE QuadSetCoord
     }
   }
 }
@@ -399,9 +400,14 @@ Transform {
     geometry IndexedQuadSet {
       coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
-      texCoord DEF QuadSetTexCoord
-        TextureCoordinate { point [ 0 0, 1 0, 1 1, 0 1,
-                                    0 0, 1 0, 1 1, 0 1 ] }
+      texCoord DEF QuadSetTexCoord TextureCoordinate {
+        point [
+          0 0, 1 0, 1 1, 0 1,
+          0 0, 1 0, 1 1, 0 1,
+          # ignored, just like in QuadSetTexCoord last 2 points are ignored
+          0.5 0.5, 0.5 0.5,
+        ]
+      }
       solid FALSE
     }
   }
@@ -514,8 +520,14 @@ Transform {
     geometry IndexedQuadSet {
       coord USE QuadSetCoord
       index [ 0 1 2 3, 4 5 6 7 ]
-      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
-                               0 0 1, 0 0 1, 0 0 1, 1 0 0, ] }
+      normal Normal {
+        vector [
+          1 0 0, 0 0 1, 0 0 1, 0 0 1,
+          0 0 1, 0 0 1, 0 0 1, 1 0 0,
+          # ignored, just like in QuadSetTexCoord last 2 points are ignored
+          0.5 0.5 0.5, 0.5 0.5 0.5
+        ]
+      }
       solid FALSE
     }
   }
@@ -527,10 +539,14 @@ Transform {
     appearance USE Col5App
     geometry QuadSet {
       coord USE QuadSetCoord
-      normal Normal { vector [ 1 0 0, 0 0 1, 0 0 1, 0 0 1,
-                               0 0 1, 0 0 1, 0 0 1, 1 0 0,
-                               # normal vectors for excessive coords
-                               0 1 0, 0 1 0 ] }
+      normal Normal {
+        vector [
+          1 0 0, 0 0 1, 0 0 1, 0 0 1,
+          0 0 1, 0 0 1, 0 0 1, 1 0 0,
+          # normal vectors for excessive coords
+          0 1 0, 0 1 0
+        ]
+      }
       solid FALSE
     }
   }
