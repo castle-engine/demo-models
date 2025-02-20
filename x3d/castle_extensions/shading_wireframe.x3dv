@@ -327,3 +327,39 @@ TestGeometryShading {
     coord USE QuadSetCoord
   }
 }
+
+# ------------------------------------------------------------------------------
+# 2D geometry shapes with shading=WIREFRAME
+
+TestGeometryShading {
+  translation 0 -30 0
+  geometryScale 0.3 0.3 0.3
+  geometry Rectangle2D {
+  }
+}
+
+# Note that Circle2D is always wireframe
+TestGeometryShading {
+  translation 0 -32 0
+  geometryScale 0.3 0.3 0.3
+  geometry Circle2D {
+  }
+}
+
+TestGeometryShading {
+  translation 0 -34 0
+  geometryScale 0.3 0.3 0.3
+  geometry Disk2D {
+  }
+}
+
+TestGeometryShading {
+  translation 0 -36 0
+  geometryScale 0.3 0.3 0.3
+  geometry TriangleSet2D {
+    vertices [
+      0 0, 1 0, 1 1,
+      0 2, 1 2, 1 3
+    ]
+  }
+}
