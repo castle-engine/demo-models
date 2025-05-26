@@ -1,0 +1,54 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# -------------------------------------------------------------------------
+# Effect using shader library "castle-shader:/EyeWorldSpace.glsl"
+# to have vertex position in world space,
+# and apply fog effect based on that position.
+#
+# Testcase for Effect.shaderLibraries field.
+# -------------------------------------------------------------------------
+
+Effect {
+  language "GLSL"
+  shaderLibraries "castle-shader:/EyeWorldSpace.glsl"
+  parts [
+    EffectPart {
+      type "FRAGMENT"
+      url "data:text/plain,
+        vec4 position_eye_to_world_space(vec4 position_eye);
+
+        // Save value obtained in PLUG_fragment_eye_space to use in PLUG_fragment_modify.
+        vec4 vertex_world;
+
+        // Get the vertex position in world space.
+        void PLUG_fragment_eye_space(
+          const vec4 vertex_eye,
+          inout vec3 normal_eye)
+        {
+          vertex_world = position_eye_to_world_space(vertex_eye);
+        }
+
+        // Make lower things enveloped in fog (turn into gray).
+        void PLUG_fragment_modify(
+          inout vec4 fragment_color)
+        {
+          // TODO test vertex_world makes sense
+          // fragment_color = vertex_world;
+
+          const float fog_y_start = 0.5;
+          const float fog_y_max = -5.0;
+
+          if (vertex_world.y < fog_y_start) {
+            const vec4 bottom_fog_color = vec4(0.1, 0.1, 0.5, 1);
+            float factor = max(0.0,
+              (vertex_world.y - fog_y_max) /
+              (fog_y_start - fog_y_max));
+            fragment_color = mix(bottom_fog_color, fragment_color, factor);
+          }
+        }"
+    }
+  ]
+}
+
+Inline { url "../castle/castle.gltf" }
