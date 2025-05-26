@@ -33,7 +33,7 @@ Effect {
         void PLUG_fragment_modify(
           inout vec4 fragment_color)
         {
-          // TODO test vertex_world makes sense
+          // Quick test that vertex_world makes sense
           // fragment_color = vertex_world;
 
           const float fog_y_start = 0.5;
