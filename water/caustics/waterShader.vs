@@ -3,7 +3,7 @@
    that does the actual work.
 
    Uses Castle Game Engine shader effects
-   ( https://castle-engine.sourceforge.io/compositing_shaders.php )
+   ( https://castle-engine.io/shaders )
    to cooperate with engine shaders.
 */
 

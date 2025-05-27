@@ -1,7 +1,7 @@
 Water caustics demo by Victor Amat (thousand thanks!).
 
 Remade later by Michalis Kamburelis to use Castle Game Engine
-shader effects ( https://castle-engine.sourceforge.io/compositing_shaders.php )
+shader effects ( https://castle-engine.io/shaders )
 to cooperate with engine shaders.
 
 Available under a modified LGPL license: it's the same license

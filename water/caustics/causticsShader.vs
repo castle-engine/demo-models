@@ -2,7 +2,7 @@
    It merely passes values to fragment shader.
 
    Uses Castle Game Engine shader effects
-   ( https://castle-engine.sourceforge.io/compositing_shaders.php )
+   ( https://castle-engine.io/shaders )
    to cooperate with engine shaders.
 */
 

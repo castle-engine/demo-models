@@ -3,7 +3,7 @@ PROFILE Interchange
 COMPONENT Shaders:1
 
 # Demonstrate integration of our Effects
-# (see http://castle-engine.sourceforge.net/compositing_shaders.php)
+# (see https://castle-engine.io/shaders )
 # with geometry shaders.
 
 # Camera settings "encoded" in the VRML/X3D declaration below :

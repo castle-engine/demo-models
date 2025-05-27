@@ -3,7 +3,7 @@ PROFILE Interchange
 
 # Implement some tone-mapping-like operations using
 # Castle Game Engine compositing shaders extensions (Effect node)
-# documented on https://castle-engine.io/compositing_shaders.php .
+# documented on https://castle-engine.io/shaders .
 # In particular use PLUG_fog_apply (see https://castle-engine.io/compositing_shaders_doc/html/section.fragment_plugs.html )
 # to modify colors just before the monitor gamma is applied, and after everything else.
 #

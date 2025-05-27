@@ -5,7 +5,7 @@ COMPONENT CubeMapTexturing:3
 # ----------------------------------------------------------------------------
 # Water effect (like in water_shaders) and a volumetric fog effect (like
 # in volumetric_animated_fog) used on the same shape.
-# Combined using our compositing shader effects (https://castle-engine.io/compositing_shaders.php )
+# Combined using our shader effects ( https://castle-engine.io/shaders )
 # i.e. Effect node.
 #
 # Use Shift to toggle on/off fog effect.

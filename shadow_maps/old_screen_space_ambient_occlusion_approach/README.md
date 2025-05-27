@@ -4,7 +4,7 @@ The main code is inside the fragment shader in myssao.fs .
 
 Started by Victor Amat (thousand thanks!),
 somewhat adjusted later by Michalis Kambrelis (to work with shader effects,
-https://castle-engine.sourceforge.io/compositing_shaders.php ).
+https://castle-engine.io/shaders ).
 
 **This approach is now deprecated.**
 
