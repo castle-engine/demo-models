@@ -21,6 +21,14 @@
   ----------------------------------------------------------------------------
 }
 
+{ Process VRML produced by Blender ( castle_with_trees.wrl ) into X3D with
+  shadow maps nodes ( castle_with_trees_processed.x3dv ).
+  Run like
+
+    castle-engine compile
+    ./castle_with_trees_process castle_with_trees.wrl  > castle_with_trees_processed.x3dv
+}
+
 uses SysUtils, CastleUtils, CastleClassUtils, X3DNodes, X3DLoad,
   CastleStringUtils, X3DFields, CastleParameters,
   CastleURIUtils, CastleApplicationProperties;
@@ -33,26 +41,26 @@ const
 procedure SetLightProjection(Model: TX3DNode;
   const LightName: string;
   const ProjectionNear, ProjectionFar: Single;
-  out L: TAbstractLightNode);
+  out L: TAbstractPunctualLightNode);
 var
   SM: TGeneratedShadowMapNode;
 begin
-  L := Model.FindNodeByName(TAbstractLightNode, LightName, false)
-    as TAbstractLightNode;
+  L := Model.FindNodeByName(TAbstractPunctualLightNode, LightName, false)
+    as TAbstractPunctualLightNode;
   L.FdProjectionNear.Value := ProjectionNear;
   L.FdProjectionFar.Value := ProjectionFar;
 
   { add defaultShadowMap, to set size to ShadowMapSize }
   SM := TGeneratedShadowMapNode.Create;
   L.FdDefaultShadowMap.Value := SM;
-  SM.FdUpdate.Value := upAlways;
+  SM.Update := upAlways;
   SM.FdSize.Value := ShadowMapSize;
 end;
 
 { Find the given Blender mesh, and set corresponding VRML Shapes
   to receive shadows from the given light. }
 procedure MakeShadowMapReceiver(Model: TX3DNode;
-  const MeshName: string; Light: TAbstractLightNode);
+  const MeshName: string; Light: TAbstractPunctualLightNode);
 var
   Group: TGroupNode;
   ShapeNum: Integer;
@@ -83,14 +91,14 @@ end;
 var
   URL: string;
   Model: TX3DRootNode;
-  Light: TAbstractLightNode;
+  Light: TAbstractPunctualLightNode;
 begin
   Parameters.CheckHigh(1);
   URL := Parameters[1];
 
   ApplicationProperties.OnWarning.Add(@ApplicationProperties.WriteWarningOnConsole);
 
-  Model := Load3D(URL);
+  Model := LoadNode(URL);
   try
     Model.ForceSaveAsX3D;
 
@@ -111,7 +119,8 @@ begin
     //   MakeShadowMapReceiver(Model, 'wall1_001', Light);
     //   MakeShadowMapReceiver(Model, 'oak', Light); {< oak leaves }
 
-    Save3D(Model, StdOutStream, 'castle_with_trees_process (from Castle Game Engine demo models)',
-      ExtractURIName(URL), xeClassic);
+    SaveNode(Model, StdOutStream, 'model/x3d+vrml',
+      'castle_with_trees_process (from Castle Game Engine demo models)',
+      ExtractURIName(URL));
   finally FreeAndNil(Model) end;
 end.
