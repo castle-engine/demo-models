@@ -1,5 +1,11 @@
 #VRML V2.0 utf8
 
+# ----------------------------------------------------------------
+# Test animating the Background by animating the Transform node
+# surrounding it.
+# TODO: This doesn't work in latest Castle Model Viewer.
+# ----------------------------------------------------------------
+
 Group {
   children [
     DEF MyBackgroundTransform Transform {
