@@ -30,7 +30,7 @@ Group {
         leftUrl "../skies/sky_red_left.ppm"
 
         # Note: using RGBE format for storing simple textures is usually
-        # nonsense, it's here only to test view3dscene.
+        # nonsense, it's here only to test Castle Model Viewer.
         rightUrl "../skies/sky_red_right.rgbe"
 
         topUrl "../skies/sky_red_top.png"

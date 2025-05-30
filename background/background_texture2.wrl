@@ -13,7 +13,7 @@ Group {
         topUrl "../skies/sky_lake_top.png"
       }
     }
-    
+
     # Camera settings "encoded" in the VRML declaration below :
     # direction 0 0.700684607028961 0.000241928064497
     # up 0 -0.000345317530446 0.999999940395355
@@ -32,10 +32,10 @@ Group {
     # Making screenshot for freshmeat (must be 800x600) :
     # - use sky_lake_2_xxx.png above, to have higher-quality skies
     # - open this by
-    #     view3dscene background_texture2.wrl --geometry 790x543
+    #     castle-model-viewer background_texture2.wrl --geometry 790x543
     #   ...or something like this, depending on your theme.
     # - jump to viewpoint below
-    # - take a screenshot of view3dscene window by GIMP
+    # - take a screenshot of Castle Model Viewer window by GIMP
     #   (we take a screenshot from GIMP because we want to show our
     #   menu bar and window frame)
     #

@@ -11,7 +11,7 @@ ImageBackground {
       #
       # It allows the movie to utilize alpha channel. That is, underneath the movie,
       # the background color will be visible if PNG images are partially-transparent.
-      # Set the background e.g. in view3dscene using
+      # Set the background e.g. in Castle Model Viewer using
       # "Preferences -> Default Background Color".
       "../../movie_texture/flame/seamless/@counter(4).png"
 

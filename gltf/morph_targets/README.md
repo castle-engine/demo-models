@@ -1,6 +1,6 @@
 # Shape Keys (Blender name) aka Morph Targets (glTF name) test
 
-Note that _Castle Game Engine_ and _Castle Model Viewer_  ( https://castle-engine.io/view3dscene.php ) do not support morph targets yet.
+Note that _Castle Game Engine_ and _Castle Model Viewer_  ( https://castle-engine.io/castle-model-viewer ) do not support morph targets yet.
 
 See https://castle-engine.io/gltf :
 

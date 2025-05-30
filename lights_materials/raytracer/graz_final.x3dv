@@ -2,7 +2,7 @@
 PROFILE Interchange
 
 # four point lights under the ceiling
-# (positions determined by mouse-picking in view3dscene)
+# (positions determined by mouse-picking in Castle Model Viewer.)
 
 NavigationInfo { headlight FALSE }
 

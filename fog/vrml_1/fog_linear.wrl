@@ -1,7 +1,10 @@
 #VRML V1.0 ascii
 
-# Demonstrates Fog node, I allows this in view3dscene for VRML 1.0 too.
+# ----------------------------------------------------------
+# Demonstrates Fog node.
+# Castle Model Viewer allows this in VRML 1.0 too.
 # The fog handling is the same as in VRML 97.
+# ----------------------------------------------------------
 
 Group {
   # Camera settings "encoded" in the VRML declaration below :

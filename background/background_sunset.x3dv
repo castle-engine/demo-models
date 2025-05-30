@@ -20,7 +20,7 @@ Transform {
 Viewpoint {
   position -37.91656494140625 -115.01443481445313 39.221107482910156
   orientation 0.9754984378814697 -0.1246128901839256 -0.1813133209943771 1.5294609069824219
-  description "For view3dscene webpage"
+  description "For Castle Model Viewer webpage"
 }
 
 SpotLight {

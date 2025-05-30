@@ -23,7 +23,7 @@ Group {
             backUrl "../skies/sky_lake_back.png"
           }
           Background {
-            # This (one simple color for sky) should be rendered with view3dscene
+            # This (one simple color for sky) should be rendered with Castle Model Viewer
             # using simple glClearColor. Check it using wireframe view.
             skyColor 0 1 1
           }

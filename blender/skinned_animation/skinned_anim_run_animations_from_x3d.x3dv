@@ -9,9 +9,9 @@ PROFILE Interchange
 #   with name corresponding to the glTF animation name.
 #   The TimeSensors are EXPORTed using X3D mechanism.
 #
-#   You can test it: just open "skinned_anim.glb" in view3dscene,
-#   and save as X3D using view3dscene "File -> Save As..." menu item.
-#   Note that you can also run glTF animations in view3dscene using "Animations" panel.
+#   You can test it: just open "skinned_anim.glb" in Castle Model Viewer,
+#   and save as X3D using Castle Model Viewer "File -> Save As..." menu item.
+#   Note that you can also run glTF animations in Castle Model Viewer using "Animations" panel.
 #
 # - You can Inline the glTF file,
 #   and use IMPORT to access these animations,

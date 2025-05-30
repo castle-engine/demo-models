@@ -7,7 +7,7 @@ Group {
       geometry Text { string [
         "This text should be displayed",
         "on one-coloured lightblue background.",
-        "In view3dscene you can see",
+        "In Castle Model Viewer you can see",
         "(switch to wireframe view)",
         "that this case is optimized and",
         "it is implemented by one simple",

@@ -18,10 +18,10 @@ NavigationInfo {
 # own extension, it matters only when you use this SpotLight as
 # a projector (for example for shadow maps).
 #
-# You can get sample orientation values e.g. by using view3dscene
+# You can get sample orientation values e.g. by using Castle Model Viewer
 # "Console -> Print Current Camera Node". Values sensible for
 # Viewpoint.orientation are also suitable for this SpotLightWithOrientation.
-# (Yeah, this view3dscene command also gives you explicit direction, up
+# (Yeah, this Castle Model Viewer command also gives you explicit direction, up
 # vectors that you could use directly, without any need for this
 # PROTO and script... But this is just for the sake of test.)
 #

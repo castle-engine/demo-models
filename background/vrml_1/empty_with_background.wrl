@@ -1,8 +1,8 @@
 #VRML V1.0 ascii
 
-# This is an empty scene (i.e., no triangles defined, empty bounding 
+# This is an empty scene (i.e., no triangles defined, empty bounding
 # box etc.). But it has defined Background node.
-# My view3dscene should not fail on such scene. 
+# Castle Model Viewer should not fail on such scene.
 # User should be able to view and navigate (to watch Background).
 
 Group {
