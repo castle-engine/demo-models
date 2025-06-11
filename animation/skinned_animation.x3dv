@@ -5,19 +5,17 @@ PROFILE Interchange
 # Demo of Skin node implemented in Castle Game Engine
 # (not in the X3D standard).
 # This defines skin (for skinned animation) in a way very consistent with glTF.
+#
+# See https://castle-engine.io/skin for detailed information about
+# the meaning of the fields in Skin.
 # -------------------------------------------------------------------------
 
-# -------------------------------------------------------------------------
-# First, define joints (hierarchy of Transform nodes)
-# and shapes (meshes) affected by them.
-
-# Root joint will later be specified as the Skin.skeleton
-DEF RootJoint Transform {
-  children [
-
-    # Shapes that are affected by the skinned animation,
-    # will be listed in Skin.shapes later.
-    # These are direct children of the root joint.
+Skin {
+  # Shapes that are affected by the skinned animation.
+  # They are displayed as part of displaying the Skin node.
+  # Note that this list can only contain Shape nodes, not more
+  # complicated compositions like transformations of them.
+  shapes [
     DEF SkinnedMeshShape1 Shape {
       geometry IndexedFaceSet {
         coord Coordinate {
@@ -75,44 +73,39 @@ DEF RootJoint Transform {
         ]
       }
     }
-
-    # Rest of the RootJoint children are joint hierarchy.
-    # The hierarchy below is *just a trivial example*,
-    # not a proper example of how joints for a typical humanoid
-    # look like. Follow H-Anim conventions for joints to define
-    # typical humanoid joints hierarchy.
-    DEF Body Transform {
-      children [
-        DEF LeftThigh Transform {
-          children [
-            DEF LeftShin Transform {
-              children [
-                DEF LeftFoot Transform {
-                }
-              ]
-            }
-          ]
-        }
-        DEF RightThigh Transform {
-          children [
-            DEF RightShin Transform {
-              children [
-                DEF RightFoot Transform {
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
   ]
-}
 
-# --------------------------------------------------------------------------
-# Define Skin node that connects joints with affected shapes.
+  # Joints hierarchy, starting from root node.
+  skeleton DEF RootJoint Transform {
+    children [
+      DEF Body Transform {
+        children [
+          DEF LeftThigh Transform {
+            children [
+              DEF LeftShin Transform {
+                children [
+                  DEF LeftFoot Transform {
+                  }
+                ]
+              }
+            ]
+          }
+          DEF RightThigh Transform {
+            children [
+              DEF RightShin Transform {
+                children [
+                  DEF RightFoot Transform {
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 
-Skin {
-  skeleton USE RootJoint
+  # List of joints.
   joints [
     USE RootJoint
     USE Body
@@ -122,10 +115,6 @@ Skin {
     USE RightThigh
     USE RightShin
     USE RightFoot
-  ]
-  shapes [
-    USE SkinnedMeshShape1
-    USE SkinnedMeshShape2
   ]
 }
 
