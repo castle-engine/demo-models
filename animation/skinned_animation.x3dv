@@ -1,0 +1,175 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# -------------------------------------------------------------------------
+# Demo of Skin node implemented in Castle Game Engine
+# (not in the X3D standard).
+# This defines skin (for skinned animation) in a way very consistent with glTF.
+# -------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------
+# First, define joints (hierarchy of Transform nodes)
+# and shapes (meshes) affected by them.
+
+# Root joint will later be specified as the Skin.skeleton
+DEF RootJoint Transform {
+  children [
+
+    # Shapes that are affected by the skinned animation,
+    # will be listed in Skin.shapes later.
+    # These are direct children of the root joint.
+    DEF SkinnedMeshShape1 Shape {
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            0 0 0
+            1 0 0
+            1 1 0
+            0 1 0
+          ]
+        }
+        coordIndex [
+          0 1 2 -1
+          0 2 3 -1
+        ]
+        skinWeights0 [
+          # first vertex is affected by 1st joint
+          1 0 0 0
+          # 2nd vertex is affected by 1st and 2nd joint
+          1 1 0 0
+          # 3rd vertex is affected by 3rd joint
+          0 0 1 0
+          # 4th vertex is affected by no joint
+          0 0 0 0
+        ]
+        skinJoints0 [
+          # 1st and 2nd vertexes are affected by joints LeftThigh, LeftShin, LeftFoot
+          2 3 4 0
+          2 3 4 0
+          # 3rd and 4th vertexes are affected by joints RightThigh, RightShin, RightFoot
+          5 6 7 0
+          5 6 7 0
+        ]
+      }
+    }
+
+    DEF SkinnedMeshShape2 Shape {
+      geometry LineSet {
+        coord Coordinate {
+          point [
+            3 0 0
+            4 0 0
+          ]
+        }
+        vertexCount [ 2 ]
+        skinWeights0 [
+          # first vertex is affected by 1st joint
+          1 0 0 0
+          # 2nd vertex is affected by 1st and 2nd joint
+          1 1 0 0
+        ]
+        skinJoints0 [
+          # 1st and 2nd vertexes are affected by joints LeftThigh, LeftShin, LeftFoot
+          2 3 4 0
+          2 3 4 0
+        ]
+      }
+    }
+
+    # Rest of the RootJoint children are joint hierarchy.
+    # The hierarchy below is *just a trivial example*,
+    # not a proper example of how joints for a typical humanoid
+    # look like. Follow H-Anim conventions for joints to define
+    # typical humanoid joints hierarchy.
+    DEF Body Transform {
+      children [
+        DEF LeftThigh Transform {
+          children [
+            DEF LeftShin Transform {
+              children [
+                DEF LeftFoot Transform {
+                }
+              ]
+            }
+          ]
+        }
+        DEF RightThigh Transform {
+          children [
+            DEF RightShin Transform {
+              children [
+                DEF RightFoot Transform {
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+# --------------------------------------------------------------------------
+# Define Skin node that connects joints with affected shapes.
+
+Skin {
+  skeleton USE RootJoint
+  joints [
+    USE RootJoint
+    USE Body
+    USE LeftThigh
+    USE LeftShin
+    USE LeftFoot
+    USE RightThigh
+    USE RightShin
+    USE RightFoot
+  ]
+  shapes [
+    USE SkinnedMeshShape1
+    USE SkinnedMeshShape2
+  ]
+}
+
+# --------------------------------------------------------------------------
+# Define some actual animations.
+# These are just regular X3D animations that animate Transform nodes.
+# The Skin node will take care of propagating the animation
+# to the affected shapes.
+
+DEF LeftLegAnimationInterpolator OrientationInterpolator {
+  key [ 0 0.25 0.5 0.75 1 ]
+  keyValue [
+    0 0 1 0,
+    0 0 1 0.5,
+    0 0 1 1,
+    0 0 1 1.5,
+    0 0 1 2
+  ]
+}
+ROUTE LeftLegAnimationInterpolator.value_changed TO LeftThigh.rotation
+
+DEF RightLegAnimationInterpolator OrientationInterpolator {
+  key [ 0 0.25 0.5 0.75 1 ]
+  keyValue [
+    0 0 1 0,
+    0 0 1 0.5,
+    0 0 1 1,
+    0 0 1 1.5,
+    0 0 1 2
+  ]
+}
+ROUTE RightLegAnimationInterpolator.value_changed TO RightThigh.rotation
+
+# This animates the whole skeleton.
+DEF SkeletonAnimation TimeSensor {
+  cycleInterval 2
+  #loop TRUE
+}
+ROUTE SkeletonAnimation.fraction_changed TO LeftLegAnimationInterpolator.set_fraction
+ROUTE SkeletonAnimation.fraction_changed TO RightLegAnimationInterpolator.set_fraction
+
+# This animates just the left leg.
+DEF LeftLegAnimation TimeSensor {
+  cycleInterval 2
+#  loop TRUE
+}
+ROUTE LeftLegAnimation.fraction_changed TO LeftLegAnimationInterpolator.set_fraction
