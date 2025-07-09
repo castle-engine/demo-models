@@ -26,6 +26,6 @@ Note: The conversion glTF -> X3D was done using _modified_ version of [Castle Mo
 
 ## See also Khronos tests
 
-- https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentMirrorTest : tests using tangent vectors information from glTF. You can convert it to X3D and thus have an equivalent test of `Tangent` node. Though, admittedly, it's hard to interpret results without [EnvironmentLight](https://castle-engine.io/roadmap#_environment_lighting) support, which is assumes by the screenshots in the testcase.
+- https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentMirrorTest : tests using tangent vectors information from glTF. You can convert it to X3D and thus have an equivalent test of `Tangent` node. Though some parts are hard to interpret without [EnvironmentLight](https://castle-engine.io/roadmap#_environment_lighting) support, but other parts are useful to test `Tangent` in X3D already, and [Castle Model Viewer](https://castle-engine.io/castle-model-viewer) is OK with them.
 
 - https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentTest : tests auto-generating tangent vectors by the engine. (Loosely related to this. This is what happens if model, glTF or X3D, does not provide tangent vectors.)
