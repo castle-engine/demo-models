@@ -1,6 +1,14 @@
-# glTF models (converted to X3D) with tangent vectors
+# Test models with tangent vectors
 
-This directory contains 3 models downloaded from [Sketchfab](https://castle-engine.io/sketchfab) and available on various _Creative Commons_ license variants (consult the files `license.txt` or `license.md` in subdirectories for details).
+## 3 models from Sketchfab, in glTF and X3D formats, with tangent vectors
+
+These subdirectories:
+
+- `cat-...`
+- `halloween-pumpkin-lantern-knight-...`
+- `jetpack-cat`
+
+contain 3 models downloaded from [Sketchfab](https://castle-engine.io/sketchfab) and available on various _Creative Commons_ license variants (consult the files `license.txt` or `license.md` in subdirectories for details).
 
 The original download from Sketchfab contained glTF files with explicit (provided in file) _tangent_ vectors.
 
@@ -24,8 +32,10 @@ Note: The conversion glTF -> X3D was done using _modified_ version of [Castle Mo
 
     Since the animation was not the point of this demo (`Tangent` node was), we just removed it from `scene.x3d` files in subdirectories here.
 
-## See also Khronos tests
+## More: see also Khronos tests
 
-- https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentMirrorTest : tests using tangent vectors information from glTF. You can convert it to X3D and thus have an equivalent test of `Tangent` node. Though some parts are hard to interpret without [EnvironmentLight](https://castle-engine.io/roadmap#_environment_lighting) support, but other parts are useful to test `Tangent` in X3D already, and [Castle Model Viewer](https://castle-engine.io/castle-model-viewer) is OK with them.
+Khronos [glTF-Sample-Assets](https://github.com/KhronosGroup/glTF-Sample-Assets/) also provide useful tests:
 
-- https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentTest : tests auto-generating tangent vectors by the engine. (Loosely related to this. This is what happens if model, glTF or X3D, does not provide tangent vectors.)
+- [NormalTangentMirrorTest](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentMirrorTest): tests using tangent vectors information from glTF. You can convert it to X3D and thus have an equivalent test of `Tangent` node. Though some parts are hard to interpret without [EnvironmentLight](https://castle-engine.io/roadmap#_environment_lighting) support, but other parts are useful to test `Tangent` in X3D already, and [Castle Model Viewer](https://castle-engine.io/castle-model-viewer) is OK with them.
+
+- [NormalTangentTest](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/NormalTangentTest) : tests auto-generating tangent vectors by the engine. (Loosely related to this. This is what happens if model, glTF or X3D, does not provide tangent vectors.)
