@@ -1,0 +1,284 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "filename",
+          "@content": "axis.x3d"
+        },
+        {
+          "@name": "generator",
+          "@content": "Blender 245"
+        },
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "translator",
+          "@content": "X3D exporter v1.55 (2006/01/17)"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:07:18 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "ObY",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@DEF": "MA_MatY",
+                                "@ambientIntensity": 0.167,
+                                "@diffuseColor": [ 0, 1, 0 ],
+                                "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                "@shininess": 0.098
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              5,
+                              4,
+                              3,
+                              -1,
+                              7,
+                              0,
+                              3,
+                              4,
+                              -1,
+                              0,
+                              7,
+                              6,
+                              1,
+                              -1,
+                              1,
+                              6,
+                              5,
+                              2,
+                              -1,
+                              5,
+                              6,
+                              7,
+                              4,
+                              -1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@DEF": "coord_ObY",
+                                "@point": [
+                                  0.2, 0.2, -2,
+                                  0.2, -0.2, -2,
+                                  -0.2, -0.2, -2,
+                                  -0.2, 0.2, -2,
+                                  -0.2, 0.2, 2,
+                                  -0.2, -0.2, 2,
+                                  0.2, -0.2, 2,
+                                  0.2, 0.2, 2
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "ObX",
+                  "@rotation": [ -0.57735, 0.57735, -0.57735, 2.094395 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@DEF": "MA_MatX",
+                                "@ambientIntensity": 0.167,
+                                "@diffuseColor": [ 1, 0, 0 ],
+                                "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                "@shininess": 0.098
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              5,
+                              4,
+                              3,
+                              -1,
+                              7,
+                              0,
+                              3,
+                              4,
+                              -1,
+                              0,
+                              7,
+                              6,
+                              1,
+                              -1,
+                              1,
+                              6,
+                              5,
+                              2,
+                              -1,
+                              5,
+                              6,
+                              7,
+                              4,
+                              -1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@DEF": "coord_ObX",
+                                "@point": [
+                                  0.2, 0.2, -2,
+                                  0.2, -0.2, -2,
+                                  -0.2, -0.2, -2,
+                                  -0.2, 0.2, -2,
+                                  -0.2, 0.2, 2,
+                                  -0.2, -0.2, 2,
+                                  0.2, -0.2, 2,
+                                  0.2, 0.2, 2
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "ObZ",
+                  "@rotation": [ -1, 0, 0, 1.570796 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@DEF": "MA_MatZ",
+                                "@ambientIntensity": 0.167,
+                                "@diffuseColor": [ 0, 0, 1 ],
+                                "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                "@shininess": 0.098
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              5,
+                              4,
+                              3,
+                              -1,
+                              7,
+                              0,
+                              3,
+                              4,
+                              -1,
+                              0,
+                              7,
+                              6,
+                              1,
+                              -1,
+                              1,
+                              6,
+                              5,
+                              2,
+                              -1,
+                              5,
+                              6,
+                              7,
+                              4,
+                              -1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@DEF": "coord_ObZ",
+                                "@point": [
+                                  0.2, 0.2, -2,
+                                  0.2, -0.2, -2,
+                                  -0.2, -0.2, -2,
+                                  -0.2, 0.2, -2,
+                                  -0.2, 0.2, 2,
+                                  -0.2, -0.2, 2,
+                                  0.2, -0.2, 2,
+                                  0.2, 0.2, 2
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

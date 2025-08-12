@@ -1,0 +1,198 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:54 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "KeyDeviceSensor",
+          "@level": 2
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 9, -1, 16 ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "enteredText"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "finalText"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "isActive"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "string1"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "string2"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "string3"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "string4"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "    function initialize(timestamp)\r",
+              "      string1 := array(\r",
+              "        'Active: ' + string(isActive),\r",
+              "        'Entered text: \"' + enteredText + '\"',\r",
+              "        'Final text: \"' + finalText + '\"',\r",
+              "        'Press some keys. Enter acceps, backspace deletes.'\r",
+              "        )\r",
+              "\r",
+              "    function enteredText(value, timestamp)\r",
+              "      string2 := array(\r",
+              "        'Active: ' + string(isActive),\r",
+              "        'Entered text: \"' + enteredText + '\"',\r",
+              "        'Final text: \"' + finalText + '\"',\r",
+              "        'Press some keys. Enter acceps, backspace deletes.'\r",
+              "        )\r",
+              "\r",
+              "    function finalText(value, timestamp)\r",
+              "      string3 := array(\r",
+              "        'Active: ' + string(isActive),\r",
+              "        'Entered text: \"' + enteredText + '\"',\r",
+              "        'Final text: \"' + finalText + '\"',\r",
+              "        'Press some keys. Enter acceps, backspace deletes.'\r",
+              "        )\r",
+              "\r",
+              "    function isActive(value, timestamp)\r",
+              "      string4 := array(\r",
+              "        'Active: ' + string(isActive),\r",
+              "        'Entered text: \"' + enteredText + '\"',\r",
+              "        'Final text: \"' + finalText + '\"',\r",
+              "        'Press some keys. Enter acceps, backspace deletes.'\r",
+              "        )\r",
+              "     "
+            ]
+          }
+        },
+        { "StringSensor":
+          {
+            "@DEF": "StrSensor"
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@emissiveColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "Text":
+              {
+                "@DEF": "MyText"
+              }
+            }
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "StrSensor",
+            "@fromField": "enteredText",
+            "@toNode": "MyScript",
+            "@toField": "set_enteredText"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "StrSensor",
+            "@fromField": "finalText",
+            "@toNode": "MyScript",
+            "@toField": "set_finalText"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "StrSensor",
+            "@fromField": "isActive",
+            "@toNode": "MyScript",
+            "@toField": "set_isActive"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "string1",
+            "@toNode": "MyText",
+            "@toField": "set_string"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "string2",
+            "@toNode": "MyText",
+            "@toField": "set_string"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "string3",
+            "@toNode": "MyText",
+            "@toField": "set_string"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "string4",
+            "@toNode": "MyText",
+            "@toField": "set_string"
+          }
+        }
+      ]
+    }
+  }
+}

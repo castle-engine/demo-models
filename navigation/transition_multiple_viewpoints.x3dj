@@ -1,0 +1,144 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:15 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@DEF": "MyNavigationInfo1To2",
+            "@type": [
+              "NONE"
+            ],
+            "@transitionTime": 2
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "MyNavigationInfo2To3",
+            "@type": [
+              "NONE"
+            ],
+            "@transitionTime": 4
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "MyViewpoint1",
+                  "@position": [ 0, 0, 0 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 63.42953, -22.39927, 6.331068 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "MyViewpoint2",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -1.16009334300352e-13, 1, 0, 1.3187620639801 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 169.376, -49.68154, 117.1023 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "MyViewpoint3",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.259749948978424, 0.944454193115234, 0.201335802674294, 1.37447202205658 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "TouchSensor":
+          {
+            "@DEF": "MyTouchSensor"
+          }
+        },
+        { "BooleanTrigger":
+          {
+            "@DEF": "MyBooleanTrigger"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyTouchSensor",
+            "@fromField": "touchTime",
+            "@toNode": "MyBooleanTrigger",
+            "@toField": "set_triggerTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyBooleanTrigger",
+            "@fromField": "triggerTrue",
+            "@toNode": "MyNavigationInfo1To2",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyBooleanTrigger",
+            "@fromField": "triggerTrue",
+            "@toNode": "MyViewpoint2",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyNavigationInfo1To2",
+            "@fromField": "transitionComplete",
+            "@toNode": "MyNavigationInfo2To3",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyNavigationInfo1To2",
+            "@fromField": "transitionComplete",
+            "@toNode": "MyViewpoint3",
+            "@toField": "set_bind"
+          }
+        }
+      ]
+    }
+  }
+}

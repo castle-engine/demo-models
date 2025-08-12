@@ -1,0 +1,361 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:57 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"TextLight",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFBool",
+                  "@name": "on"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFColor",
+                  "@name": "color"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "string",
+                  "@value": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                            "@DEF": "MyMaterial",
+                            "@ambientIntensity": 0.5,
+                            "@diffuseColor": [ 0, 0, 0 ]
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Text":
+                      {
+                        "-fontStyle": { "FontStyle":
+                          {
+                            "@size": 10
+                          }
+                        },
+                        "IS": {
+                          "connect": [
+                            {
+                              "@nodeField": "string",
+                              "@protoField": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                { "Script":
+                  {
+                    "@DEF": "MyScript",
+                    "field": [
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFBool",
+                        "@name": "on"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFColor",
+                        "@name": "color"
+                      },
+                      {
+                        "@accessType": "outputOnly",
+                        "@type": "SFColor",
+                        "@name": "materialColor"
+                      }
+                    ],
+                    "#sourceCode": [
+                      "castlescript:\r",
+                      "    function initialize(timestamp)\r",
+                      "      materialColor := color * int(on)\r",
+                      "\r",
+                      "    function on(value, timestamp)\r",
+                      "      materialColor := color * int(on)\r",
+                      "\r",
+                      "    function color(value, timestamp)\r",
+                      "      materialColor := color * int(on)\r",
+                      "    "
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "on",
+                          "@protoField": "on"
+                        },
+                        {
+                          "@nodeField": "color",
+                          "@protoField": "color"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "MyScript",
+                    "@fromField": "materialColor",
+                    "@toNode": "MyMaterial",
+                    "@toField": "set_diffuseColor"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              },
+              { "PlaneSensor":
+                {
+                  "@DEF": "PS",
+                  "@maxPosition": [ 100, 100 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 140, 40 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "ActiveText_1",
+                  "@name": "TextLight",
+                  "fieldValue": [
+                    {
+                      "@name": "on",
+                      "@value": true
+                    },
+                    {
+                      "@name": "color",
+                      "@value": [ 1, 0, 0 ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "Note: When Shift key is down, enabled is false"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 100, 40 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "ActiveText",
+                  "@name": "TextLight",
+                  "fieldValue": [
+                    {
+                      "@name": "color",
+                      "@value": [ 1, 1, 0 ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "PlaneSensor active"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 120, 40 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "OverText",
+                  "@name": "TextLight",
+                  "fieldValue": [
+                    {
+                      "@name": "color",
+                      "@value": [ 0.5, 0.5, 1 ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "PlaneSensor over"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "TrackPointVisualize",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 10
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "TranslationVisualize",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 10
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0, 0, 400 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "EXAMINE"
+            ],
+            "@speed": 100
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KS"
+          }
+        },
+        { "BooleanFilter":
+          {
+            "@DEF": "BF"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS",
+            "@fromField": "isActive",
+            "@toNode": "ActiveText",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS",
+            "@fromField": "isOver",
+            "@toNode": "OverText",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS",
+            "@fromField": "trackPoint_changed",
+            "@toNode": "TrackPointVisualize",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS",
+            "@fromField": "translation_changed",
+            "@toNode": "TranslationVisualize",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "shiftKey",
+            "@toNode": "BF",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BF",
+            "@fromField": "inputNegate",
+            "@toNode": "PS",
+            "@toField": "set_enabled"
+          }
+        }
+      ]
+    }
+  }
+}

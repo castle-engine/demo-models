@@ -1,0 +1,309 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:26 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "NURBS",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-geometry": { "NurbsCurve":
+              {
+                "@tessellation": 100,
+                "-controlPoint": { "Coordinate":
+                  {
+                    "@DEF": "Coord",
+                    "@point": [
+                      -2.285389, 1.235778, 1.63609,
+                      -1, 0, 0,
+                      1.141864, 1.003204, -1.775073,
+                      1, 0, 0,
+                      3.120634, 1.865495, 2.322197
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Trans",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 0.2
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "TransOrient",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 0.02, 0.02, 2 ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "NurbsPositionInterpolator":
+          {
+            "@DEF": "Interp",
+            "-controlPoint": { "Coordinate":
+              {
+                "@USE": "Coord"
+              }
+            }
+          }
+        },
+        { "NurbsOrientationInterpolator":
+          {
+            "@DEF": "OrientInterp",
+            "-controlPoint": { "Coordinate":
+              {
+                "@USE": "Coord"
+              }
+            }
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KeySens"
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Time",
+            "@cycleInterval": 10000000,
+            "@loop": true
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "position"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "min_position"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "max_position",
+                "@value": 1
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "left_pressed"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "right_pressed"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyRelease"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "previousTime"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "timeDiff",
+                "@value": 0
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "time"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function initialize(time)\r",
+              "  { send initial output position event, to set initial sphere position. }\r",
+              "  position := min_position\r",
+              "\r",
+              "function keyPress(value, time)\r",
+              "  when (value = 'l', left_pressed  := true);\r",
+              "  when (value = 'r', right_pressed := true)\r",
+              "\r",
+              "function keyRelease(value, time)\r",
+              "  when (value = 'l', left_pressed  := false);\r",
+              "  when (value = 'r', right_pressed := false)\r",
+              "\r",
+              "function time(value, timestamp)\r",
+              "  { calculate timeDiff, to scale animations\r",
+              "    (so that it runs with the same speed on every system) }\r",
+              "  timeDiff := if (previousTime >= 0, value - previousTime, 0);\r",
+              "\r",
+              "  { update previousTime }\r",
+              "  previousTime := value;\r",
+              "\r",
+              "  { this is the key point of the script: move position,\r",
+              "    if left/right is pressed. Move length is scaled by timeDiff,\r",
+              "    so it works the same on all computers. }\r",
+              "  when (left_pressed , position := max(position - 0.2 * timeDiff, min_position));\r",
+              "  when (right_pressed, position := min(position + 0.2 * timeDiff, max_position))\r",
+              ""
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.4, -1, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Press L / R keys to move left / right along the curve"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 0.4,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0.5693149, -3.521272e-8, 7.104947 ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "position_changed",
+            "@toNode": "Interp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp",
+            "@fromField": "value_changed",
+            "@toNode": "Trans",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "position_changed",
+            "@toNode": "OrientInterp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "OrientInterp",
+            "@fromField": "value_changed",
+            "@toNode": "TransOrient",
+            "@toField": "set_rotation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeySens",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeySens",
+            "@fromField": "keyRelease",
+            "@toNode": "Scr",
+            "@toField": "keyRelease"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Time",
+            "@fromField": "time",
+            "@toNode": "Scr",
+            "@toField": "time"
+          }
+        }
+      ]
+    }
+  }
+}

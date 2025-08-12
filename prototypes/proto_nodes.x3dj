@@ -1,0 +1,399 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:16:53 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"MaterialSphere",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFNode",
+                  "@name": "material"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "IS": {
+                          "connect": [
+                            {
+                              "@nodeField": "material",
+                              "@protoField": "material"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "-geometry": { "Sphere":
+                      {
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"MaterialSphereDefaultRed",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFNode",
+                  "@name": "material",
+                  "-children": [
+                    { "Material":
+                      {
+                        "@DEF": "_1",
+                        "@diffuseColor": [ 1, 0, 0 ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "IS": {
+                          "connect": [
+                            {
+                              "@nodeField": "material",
+                              "@protoField": "material"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "-geometry": { "Sphere":
+                      {
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"MaterialSphereDefaultYellow",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFNode",
+                  "@name": "app",
+                  "-children": [
+                    { "Appearance":
+                      {
+                        "@DEF": "_2",
+                        "-material": { "Material":
+                          {
+                            "@DEF": "YellowMat",
+                            "@diffuseColor": [ 1, 1, 0 ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-geometry": { "Sphere":
+                      {
+                      }
+                    },
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "appearance",
+                          "@protoField": "app"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MaterialSphere",
+                  "fieldValue": [
+                    {
+                      "@name": "material",
+                      "-children": [
+                        { "Material":
+                          {
+                            "@DEF": "_3",
+                            "@diffuseColor": [ 1, 1, 0 ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "unlit white"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MaterialSphere"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MaterialSphereDefaultRed",
+                  "fieldValue": [
+                    {
+                      "@name": "material",
+                      "-children": [
+                        { "Material":
+                          {
+                            "@USE": "YellowMat"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "red"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MaterialSphereDefaultRed"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "blue"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MaterialSphereDefaultYellow",
+                  "fieldValue": [
+                    {
+                      "@name": "app",
+                      "-children": [
+                        { "Appearance":
+                          {
+                            "@DEF": "_4",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 30, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MaterialSphereDefaultYellow"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

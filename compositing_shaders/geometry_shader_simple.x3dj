@@ -1,0 +1,199 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:52 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "@DEF": "App1",
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 1, 1, 0 ]
+                  }
+                },
+                "-texture": { "ImageTexture":
+                  {
+                    "@url": [
+                      "../textures/test_texture.png"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -9, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App2",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App2"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App2"
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -9, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App2"
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

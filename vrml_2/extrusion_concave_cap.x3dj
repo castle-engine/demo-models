@@ -1,0 +1,204 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:18:37 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 0, 100, 0 ],
+            "@rotation": [ 1, 0, 0, -1.5707963268 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Extrusion":
+                    {
+                      "@ccw": false,
+                      "@convex": false,
+                      "@crossSection": [
+                        -1.09, 133.72,
+                        -1.09, 65.09,
+                        20.21, 65.09,
+                        20.21, 44.84,
+                        28.71, 44.84,
+                        28.71, 73.59,
+                        7.42, 73.59,
+                        7.42, 133.72,
+                        -1.09, 133.72
+                      ],
+                      "@spine": [
+                        0, -50, 0,
+                        0, 0, 0
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Extrusion":
+                    {
+                      "@ccw": false,
+                      "@convex": false,
+                      "@crossSection": [
+                        57.4, 112.55,
+                        57.4, 103.8,
+                        71.35, 103.8,
+                        71.35, 98.25,
+                        80.7, 98.25,
+                        80.7, 107.15,
+                        66.45, 107.15,
+                        66.45, 112.4,
+                        57.4, 112.55
+                      ],
+                      "@spine": [
+                        0, -50, 0,
+                        0, 0, 0
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@convex": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  -1
+                ],
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      -1.09, 133.72, 0,
+                      -1.09, 65.09, 0,
+                      20.21, 65.09, 0,
+                      20.21, 44.84, 0,
+                      28.71, 44.84, 0,
+                      28.71, 73.59, 0,
+                      7.42, 73.59, 0,
+                      7.42, 133.72, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@convex": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  -1
+                ],
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      57.4, 112.55, 0,
+                      57.4, 103.8, 0,
+                      71.35, 103.8, 0,
+                      71.35, 98.25, 0,
+                      80.7, 98.25, 0,
+                      80.7, 107.15, 0,
+                      66.45, 107.15, 0,
+                      66.45, 112.4, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

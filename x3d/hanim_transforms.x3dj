@@ -1,0 +1,232 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:24 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "HAnimHumanoid":
+          {
+            "@DEF": "AnimatedHumanoid",
+            "@version": "",
+            "@translation": [ 0.9280002, 0, 0 ],
+            "-skeleton": [
+              { "HAnimJoint":
+                {
+                  "@DEF": "AnimatedJoint",
+                  "@translation": [ 0, 0.9280002, 0 ],
+                  "-children": [
+                    { "HAnimSegment":
+                      {
+                        "@DEF": "AnimatedSegment",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Cylinder":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "HAnimSite":
+                      {
+                        "@DEF": "AnimatedSite",
+                        "@rotation": [ 0.605430882226133, 0.576879429665443, 0.548327977104753, 0.225593704391631 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "-joints": [
+              { "HAnimJoint":
+                {
+                  "@USE": "AnimatedJoint"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp1",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              10, 0, 0,
+              0, 0, 0
+            ]
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp2",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              0, 10, 0,
+              0, 0, 0
+            ]
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp3",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              0, 0, 10,
+              0, 0, 0
+            ]
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "Interp4",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0.3, 0.4, 0.5, 0.1,
+              0.5, 0.4, 0.3, 1.5,
+              0.3, 0.4, 0.5, 6.3831853072
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 6.100478, 20.9507, 16.46462 ],
+            "@orientation": [ -0.96567165851593, 0.25844269990921, 0.0261864904314279, 0.866622626781464 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "axis_simple.x3d"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp1",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp2",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp3",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp4",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp1",
+            "@fromField": "value_changed",
+            "@toNode": "AnimatedHumanoid",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp2",
+            "@fromField": "value_changed",
+            "@toNode": "AnimatedJoint",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp4",
+            "@fromField": "value_changed",
+            "@toNode": "AnimatedSite",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

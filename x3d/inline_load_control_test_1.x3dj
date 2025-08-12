@@ -1,0 +1,105 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:34 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-geometry": { "Text":
+              {
+                "@string": [
+                  "press Control to load the inlined file"
+                ]
+              }
+            }
+          }
+        },
+        { "Inline":
+          {
+            "@DEF": "I",
+            "@global": true,
+            "@load": false,
+            "@url": [
+              "inline_load_control_test_2.x3dv"
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KS"
+          }
+        },
+        { "BooleanFilter":
+          {
+            "@DEF": "BFCtrl"
+          }
+        },
+        { "BooleanFilter":
+          {
+            "@DEF": "BFShift1"
+          }
+        },
+        { "BooleanFilter":
+          {
+            "@DEF": "BFShift2"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "controlKey",
+            "@toNode": "BFCtrl",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BFCtrl",
+            "@fromField": "inputTrue",
+            "@toNode": "I",
+            "@toField": "set_load"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "shiftKey",
+            "@toNode": "BFShift1",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BFShift1",
+            "@fromField": "inputNegate",
+            "@toNode": "BFShift2",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BFShift2",
+            "@fromField": "inputFalse",
+            "@toNode": "I",
+            "@toField": "set_load"
+          }
+        }
+      ]
+    }
+  }
+}

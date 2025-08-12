@@ -1,0 +1,76 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:13:42 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Background":
+                {
+                  "@skyColor": [
+                    0.2, 0.2, 1
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "This text should be displayed",
+                        "on one-coloured lightblue background.",
+                        "In Castle Model Viewer you can see",
+                        "(switch to wireframe view)",
+                        "that this case is optimized and",
+                        "it is implemented by one simple",
+                        "glClearColor call to OpenGL"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

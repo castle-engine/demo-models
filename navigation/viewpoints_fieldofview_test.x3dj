@@ -1,0 +1,376 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:17 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ],
+            "@speed": 10
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V1",
+                        "@description": "45 degrees (default) field of view",
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V2",
+                        "@description": "MIN field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": -10000
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V3",
+                        "@description": "5 degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 0.08726646
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V4",
+                        "@description": "20 degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 0.3490659
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V5",
+                        "@description": "60 degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 1.04
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V6",
+                        "@description": "90 degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 1.57
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V7",
+                        "@description": "120 degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 2.094395
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V8",
+                        "@description": "150 degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 2.617994
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V9",
+                        "@description": "180 (Pi) degress field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 3.141593
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "V10",
+                        "@description": "MAX field of view",
+                        "@position": [ 0, 0, 0 ],
+                        "@fieldOfView": 10000
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "MyKeySensor"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v1"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v2"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v3"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v4"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v5"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v6"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v7"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v8"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v9"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind_v10"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function keyPress(value, timestamp)\r",
+              "  when (value = '1', set_bind_v1 := true);\r",
+              "  when (value = '2', set_bind_v2 := true);\r",
+              "  when (value = '3', set_bind_v3 := true);\r",
+              "  when (value = '4', set_bind_v4 := true);\r",
+              "  when (value = '5', set_bind_v5 := true);\r",
+              "  when (value = '6', set_bind_v6 := true);\r",
+              "  when (value = '7', set_bind_v7 := true);\r",
+              "  when (value = '8', set_bind_v8 := true);\r",
+              "  when (value = '9', set_bind_v9 := true);\r",
+              "  when (value = '0', set_bind_v10 := true)\r",
+              ""
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyKeySensor",
+            "@fromField": "keyPress",
+            "@toNode": "MyScript",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v1",
+            "@toNode": "V1",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v2",
+            "@toNode": "V2",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v3",
+            "@toNode": "V3",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v4",
+            "@toNode": "V4",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v5",
+            "@toNode": "V5",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v6",
+            "@toNode": "V6",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v7",
+            "@toNode": "V7",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v8",
+            "@toNode": "V8",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v9",
+            "@toNode": "V9",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "set_bind_v10",
+            "@toNode": "V10",
+            "@toField": "set_bind"
+          }
+        }
+      ]
+    }
+  }
+}

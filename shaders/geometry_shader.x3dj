@@ -1,0 +1,322 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:12 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-shaders": [
+                  { "ComposedShader":
+                    {
+                      "@language": "GLSL",
+                      "-parts": [
+                        { "ShaderPart":
+                          {
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          uniform mat4 castle_ModelViewMatrix;\r",
+                              "          uniform mat4 castle_ProjectionMatrix;\r",
+                              "          attribute vec4 castle_Vertex;\r",
+                              "          void main(void)\r",
+                              "          {\r",
+                              "            gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);\r",
+                              "          }"
+                            ]
+                          }
+                        },
+                        { "ShaderPart":
+                          {
+                            "@type": "GEOMETRY",
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          /* Your geometry shaders must declare GLSL version 1.50 or higher.\r",
+                              "             Earlier versions of GLSL geometry shaders are not supported\r",
+                              "             by view3dscene, see\r",
+                              "             http://castle-engine.sourceforge.net/x3d_implementation_shaders.php#section_geometry_old\r",
+                              "          */\r",
+                              "          #version 150\r",
+                              "\r",
+                              "          /* Note that 'in' type must match the rendered X3D geometry type.\r",
+                              "             - For filled shapes, you want 'triangles'.\r",
+                              "             - For line sets, you want 'lines'.\r",
+                              "             - For point sets, you want 'points'.\r",
+                              "             - GLSL also allows 'lines_adjacency', 'triangles_adjacency'\r",
+                              "               types as input. But they need special support from\r",
+                              "               the OpenGL application (our X3D browser), and are simply\r",
+                              "               not implemented in view3dscene for now. They will require\r",
+                              "               adding ComposedShader.geometryInputType field\r",
+                              "               (or maybe just SFBool ComposedShader.adjacency) to cause\r",
+                              "               special primitive generation code.\r",
+                              "             If you specify an invalid 'in' type, right now you will get\r",
+                              "             ugly OpenGL errors 'invalid operation'. */\r",
+                              "          layout(triangles) in;\r",
+                              "\r",
+                              "          /* On the other hand, the 'out' type is completely under your\r",
+                              "             (shader author) control.\r",
+                              "             Allowed values (as of GLSL 1.50) are\r",
+                              "             'points', 'line_strip', 'triangle_strip'. */\r",
+                              "          /* layout(triangle_strip, max_vertices = 3) out; */\r",
+                              "          layout(points, max_vertices = 3) out;\r",
+                              "\r",
+                              "          void main() {\r",
+                              "            for(int i = 0; i < gl_in.length(); i++) {\r",
+                              "              gl_Position = gl_in[i].gl_Position;\r",
+                              "              /* do anything, just to see that geometry shader works */\r",
+                              "              gl_Position.y += 2.0;\r",
+                              "              EmitVertex();\r",
+                              "            }\r",
+                              "            EndPrimitive();\r",
+                              "          }"
+                            ]
+                          }
+                        },
+                        { "ShaderPart":
+                          {
+                            "@type": "FRAGMENT",
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          void main(void)\r",
+                              "          {\r",
+                              "            gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);\r",
+                              "          }"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          uniform mat4 castle_ModelViewMatrix;\r",
+                                    "          uniform mat4 castle_ProjectionMatrix;\r",
+                                    "          attribute vec4 castle_Vertex;\r",
+                                    "          varying vec2 tex_coord;\r",
+                                    "          void main(void)\r",
+                                    "          {\r",
+                                    "            tex_coord = castle_Vertex.xy * 2.0;\r",
+                                    "            gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);\r",
+                                    "          }"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "GEOMETRY",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          #version 150\r",
+                                    "\r",
+                                    "          layout(triangles) in;\r",
+                                    "          layout(triangle_strip, max_vertices = 3) out;\r",
+                                    "\r",
+                                    "          in vec2 tex_coord[CASTLE_GEOMETRY_INPUT_SIZE];\r",
+                                    "          out vec2 frag_tex_coord;\r",
+                                    "\r",
+                                    "          void main() {\r",
+                                    "            for(int i = 0; i < gl_in.length(); i++) {\r",
+                                    "              gl_Position = gl_in[i].gl_Position;\r",
+                                    "              /* gl_Position.y += 2.0; */\r",
+                                    "\r",
+                                    "              /* pass through other vertex data */\r",
+                                    "              frag_tex_coord = tex_coord[i];\r",
+                                    "\r",
+                                    "              EmitVertex();\r",
+                                    "            }\r",
+                                    "            EndPrimitive();\r",
+                                    "          }"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          uniform sampler2D myTexture;\r",
+                                    "          varying vec2 frag_tex_coord;\r",
+                                    "          void main(void)\r",
+                                    "          {\r",
+                                    "            gl_FragColor = texture2D(myTexture, frag_tex_coord);\r",
+                                    "          }"
+                                  ]
+                                }
+                              }
+                            ],
+                            "field": [
+                              {
+                                "@accessType": "inputOutput",
+                                "@type": "SFNode",
+                                "@name": "myTexture",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          /* For demo, this example has all shaders on GLSL 1.50 level. */\r",
+                                    "          #version 150\r",
+                                    "          attribute vec4 castle_Vertex;\r",
+                                    "          out vec2 tex_coord;\r",
+                                    "          void main(void)\r",
+                                    "          {\r",
+                                    "            tex_coord = castle_Vertex.xy * 2.0;\r",
+                                    "            gl_Position = castle_Vertex;\r",
+                                    "          }"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "GEOMETRY",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          #version 150\r",
+                                    "\r",
+                                    "          uniform mat4 castle_ModelViewMatrix;\r",
+                                    "          uniform mat4 castle_ProjectionMatrix;\r",
+                                    "\r",
+                                    "          layout(triangles) in;\r",
+                                    "          layout(triangle_strip, max_vertices = 3) out;\r",
+                                    "\r",
+                                    "          in vec2 tex_coord[CASTLE_GEOMETRY_INPUT_SIZE];\r",
+                                    "          out vec2 frag_tex_coord;\r",
+                                    "\r",
+                                    "          void main() {\r",
+                                    "            for(int i = 0; i < gl_in.length(); i++) {\r",
+                                    "              gl_Position = gl_in[i].gl_Position;\r",
+                                    "              gl_Position.xy = vec2(gl_Position.y, -gl_Position.x);\r",
+                                    "              /* for demo, this transforms by projection + modelview in geometry shader */\r",
+                                    "              gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * gl_Position);\r",
+                                    "\r",
+                                    "              /* pass through other vertex data */\r",
+                                    "              frag_tex_coord = tex_coord[i];\r",
+                                    "\r",
+                                    "              EmitVertex();\r",
+                                    "            }\r",
+                                    "            EndPrimitive();\r",
+                                    "          }"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          #version 150\r",
+                                    "          /* PLUG-DECLARATIONS */\r",
+                                    "          uniform sampler2D myTexture;\r",
+                                    "          in vec2 frag_tex_coord;\r",
+                                    "          void main(void)\r",
+                                    "          {\r",
+                                    "            gl_FragColor = texture2D(myTexture, frag_tex_coord);\r",
+                                    "          }"
+                                  ]
+                                }
+                              }
+                            ],
+                            "field": [
+                              {
+                                "@accessType": "inputOutput",
+                                "@type": "SFNode",
+                                "@name": "myTexture",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:07:35 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Background":
+          {
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "blablah"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@DEF": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "blablah"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "blablah"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "You will see quotes \"around this string\""
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -8, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "You will see quotes \"around this string\""
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "You will see quotes \"around this string\""
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -12, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "You will see quotes \"around this string\""
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -14, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "You will see quotes \"around this string\""
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@USE": "MyFontStyle"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 10.23684, -6.657895, 23.7193 ]
+          }
+        }
+      ]
+    }
+  }
+}

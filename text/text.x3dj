@@ -1,0 +1,591 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:33 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, -1 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, -10, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "RedApp",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is sans-serif"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "SANS"
+                                ],
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -20, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is sans-serif italic"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "SANS"
+                                ],
+                                "@style": "ITALIC",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -30, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is sans-serif bold"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "SANS"
+                                ],
+                                "@style": "BOLD",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -40, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is sans-serif italic+bold"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "SANS"
+                                ],
+                                "@style": "BOLDITALIC",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -50, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is SERIF"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -60, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is SERIF italic"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@style": "ITALIC",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -70, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is SERIF bold"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@style": "BOLD",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -80, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is SERIF italic+bold"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@style": "BOLDITALIC",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -90, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is TYPEWRITER"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "TYPEWRITER"
+                                ],
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -100, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is TYPEWRITER italic"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "TYPEWRITER"
+                                ],
+                                "@style": "ITALIC",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -110, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is TYPEWRITER bold"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "TYPEWRITER"
+                                ],
+                                "@style": "BOLD",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -120, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is TYPEWRITER italic+bold"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "TYPEWRITER"
+                                ],
+                                "@style": "BOLDITALIC",
+                                "@size": 10
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -130, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "RedApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "this is two times smaller than above"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@DEF": "FS5",
+                                "@family": [
+                                  "TYPEWRITER"
+                                ],
+                                "@style": "BOLDITALIC",
+                                "@size": 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -140, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "GreenApp",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "and here we have",
+                              "a few lines",
+                              "all in one Text node"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@USE": "FS5"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -160, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "GreenApp"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "and a few more lines",
+                              "but now",
+                              "with different spacing"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@family": [
+                                  "TYPEWRITER"
+                                ],
+                                "@style": "BOLDITALIC",
+                                "@size": 5,
+                                "@spacing": 0.5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -180, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "And here we have",
+                              "a few lines",
+                              "using MIDDLE justification.",
+                              "This text is white and uses FontStyle",
+                              "such that it's normal serif font, 10 units tall."
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 10,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -235, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "And a few more lines",
+                              "with some unimportant text",
+                              "using END justification."
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 10,
+                                "@justify": [
+                                  "END"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "WorldInfo":
+                {
+                  "@info": [
+                    "by the way :\r\nyou should note\r\nthat newlines (#10, #13 's) are also allowed in VRML's strings"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

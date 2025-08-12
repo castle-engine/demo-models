@@ -1,0 +1,513 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:17 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -0.5356799, 0.6991479, 0.5529592 ],
+            "@orientation": [ -0.936880052089691, 0.326005458831787, 0.126397639513016, 0.784756064414978 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                }
+              }
+            },
+            "-geometry": { "Box":
+              {
+                "@size": [ 2.4, 2.4, 2.4 ]
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -0.5, 0, -0.5 ],
+            "@rotation": [ 0, 0, 1, 1.57 ],
+            "@scale": [ 0.1, 0.1, 0.1 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../animation/simple_tests_interpolation_and_time/worm_crawl.x3dv"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "PointLight":
+          {
+            "@DEF": "Light",
+            "@location": [ 0, 1, 0 ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "LightIndicator",
+            "@translation": [ 0, 1, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "fieldValue": [
+                        {
+                          "@name": "material",
+                          "-children": [
+                            { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@name": "shadowCaster",
+                          "@value": false
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 0.1
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@loop": true
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KeySens"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "time"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFVec3f",
+                "@name": "mainLightLoc"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadows",
+                "@value": true
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "{ We animate light location by script, as opposed to placing light within\r",
+              "  a transform and rotating that transform. The reason is historic:\r",
+              "  animating light's transform was not optimized as well as it should be\r",
+              "  in Castle Game Engine. This is fixed in Castle Game Engine since a long time,\r",
+              "  and we could as well reimplement it now using Transform to rotate. }\r",
+              "\r",
+              "function time(value, timestamp)\r",
+              "  mainLightLoc := vector(\r",
+              "    sin(value) * 0.3,\r",
+              "    1,\r",
+              "    cos(value) * 0.3)\r",
+              "\r",
+              "function keyPress(value, timestamp)\r",
+              "  when (value = 's', shadows := not(shadows))\r",
+              ""
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerYellow",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "InterpYellow",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              0, 1, 0, 0,
+              0, 1, 0, 6.2831853072
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "SpYellow",
+            "@translation": [ -0.5, -0.5, -0.5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0.3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerBlue",
+            "@cycleInterval": 3,
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "InterpBlue",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              0, 1, 0, 0,
+              0, 1, 0, 6.2831853072
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "SpBlue",
+            "@translation": [ -0.5, -0.7, -0.5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0.4, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "ProtoInstance":
+                          {
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                      "@diffuseColor": [ 0.1, 0.1, 1 ],
+                                      "@transparency": 0.5
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "blendMode",
+                                "-children": [
+                                  null
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.15
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerRed",
+            "@cycleInterval": 3,
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "InterpRed",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              1, 1, 1, 0,
+              1, 1, 1, 6.2831853072
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "BoxRed",
+            "@translation": [ -0.5, 0.3, -0.7 ],
+            "-children": [
+              { "Transform":
+                {
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "ProtoInstance":
+                          {
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 0.1, 0.1 ],
+                                      "@transparency": 0.5
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "blendMode",
+                                "-children": [
+                                  null
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 0.2, 0.2, 0.2 ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "time",
+            "@toNode": "Scr",
+            "@toField": "time"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "mainLightLoc",
+            "@toNode": "Light",
+            "@toField": "set_location"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "mainLightLoc",
+            "@toNode": "LightIndicator",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeySens",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerYellow",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpYellow",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpYellow",
+            "@fromField": "value_changed",
+            "@toNode": "SpYellow",
+            "@toField": "set_rotation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerBlue",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpBlue",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpBlue",
+            "@fromField": "value_changed",
+            "@toNode": "SpBlue",
+            "@toField": "set_rotation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerRed",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpRed",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpRed",
+            "@fromField": "value_changed",
+            "@toNode": "BoxRed",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

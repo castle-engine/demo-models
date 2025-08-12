@@ -1,0 +1,150 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:38 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.25,
+              2,
+              0.75
+            ],
+            "@speed": 10,
+            "@headlight": false
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.508279, 10.71904, 1.442471 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.0928203389048576, 0.994701266288757, 0.0442038848996162, 0.893088102340698 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -5.627371, 18.22261, 6.130131 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@description": "close-up on a tree shadow",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.213565304875374, 0.966218948364258, 0.144259437918663, 1.22025668621063 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 21.32257, -21.32996, 29.79068 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@description": "view from above",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.347156375646591, 0.921888709068298, 0.172057077288628, 0.986565589904785 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10.06911, 11.71677, 15.41306 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@description": "view for depths_camera_mapped screen",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.323666781187058, 0.922382295131683, 0.210833564400673, 1.22976768016815 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -18.6564, 58.61098, 25.67172 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@description": "right tower view (for scale_bias_xxx screenshots)",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.0393113233149051, 0.989839732646942, 0.136646434664726, 2.58675384521484 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Background":
+                {
+                  "@frontUrl": [
+                    "lake_sky_front.png"
+                  ],
+                  "@backUrl": [
+                    "lake_sky_back.png"
+                  ],
+                  "@leftUrl": [
+                    "lake_sky_left.png"
+                  ],
+                  "@rightUrl": [
+                    "lake_sky_right.png"
+                  ],
+                  "@topUrl": [
+                    "lake_sky_top.png"
+                  ],
+                  "@bottomUrl": [
+                    "lake_sky_bottom.png"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "castle_with_trees_processed.x3dv"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

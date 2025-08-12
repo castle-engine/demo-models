@@ -1,0 +1,944 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:50 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"SimpleText",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "string",
+                  "@value": [
+                    ""
+                  ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFColor",
+                  "@name": "color",
+                  "@value": [ 1, 1, 1 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                            "IS": {
+                              "connect": [
+                                {
+                                  "@nodeField": "diffuseColor",
+                                  "@protoField": "color"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Text":
+                      {
+                        "IS": {
+                          "connect": [
+                            {
+                              "@nodeField": "string",
+                              "@protoField": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"PressedText",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "string",
+                  "@value": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "ProtoInstance":
+                  {
+                    "@name": "SimpleText",
+                    "fieldValue": [
+                      {
+                        "@name": "color",
+                        "@value": [ 1, 1, 0 ]
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "string",
+                          "@protoField": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"ReleasedText",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "string",
+                  "@value": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "ProtoInstance":
+                  {
+                    "@name": "SimpleText",
+                    "fieldValue": [
+                      {
+                        "@name": "color",
+                        "@value": [ 0.4, 0.4, 1 ]
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "string",
+                          "@protoField": "string"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK"
+            ],
+            "@speed": 0,
+            "@headlight": false
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 1.613385, 3.222273e-7, 11.11166 ],
+            "@orientation": [ -0.939429104328156, -0.342623919248581, -0.0081093152984976, 0.0601937063038349 ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 1.2, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 1, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Pressed:"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Switch":
+                {
+                  "@DEF": "SPressed",
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "zero"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F1"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F2"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F3"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F4"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F5"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F6"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F7"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F8"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F9"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F10"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F11"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F12"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Home"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "End"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "PgUp"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "PgDown"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Up"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Down"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Left"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "PressedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Right"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -1.2, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 1, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Released:"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Switch":
+                {
+                  "@DEF": "SReleased",
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "zero"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F1"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F2"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F3"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F4"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F5"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F6"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F7"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F8"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F9"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F10"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F11"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "F12"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Home"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "End"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "PgUp"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "PgDown"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Up"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Down"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Left"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    { "ProtoInstance":
+                      {
+                        "@name": "ReleasedText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "Right"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "alt"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "LightAlt",
+                  "@on": false
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "control"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "LightControl",
+                  "@on": false
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 0, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "shift"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "LightShift",
+                  "@on": false
+                }
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "K"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "actionKeyPress",
+            "@toNode": "SPressed",
+            "@toField": "set_whichChoice"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "actionKeyRelease",
+            "@toNode": "SReleased",
+            "@toField": "set_whichChoice"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "altKey",
+            "@toNode": "LightAlt",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "controlKey",
+            "@toNode": "LightControl",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "shiftKey",
+            "@toNode": "LightShift",
+            "@toField": "set_on"
+          }
+        }
+      ]
+    }
+  }
+}

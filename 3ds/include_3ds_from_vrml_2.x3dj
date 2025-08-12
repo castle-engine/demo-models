@@ -1,0 +1,95 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:13:27 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 178.3546, -222.2999, -27.88305 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -5.84071984e-7, 1, 0, 0.653128743171692 ]
+                }
+              }
+            ]
+          }
+        },
+        { "PointLight":
+          {
+            "@intensity": 0.5,
+            "@ambientIntensity": 0.5,
+            "@location": [ 65.78905, -142.1214, 405.1419 ]
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "Background":
+                {
+                  "@skyAngle": [
+                    1.57,
+                    3
+                  ],
+                  "@skyColor": [
+                    0, 1, 1,
+                    0.5, 0.5, 1,
+                    0, 0, 0.5
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "p47d.3ds"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

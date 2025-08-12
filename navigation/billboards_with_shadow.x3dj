@@ -1,0 +1,63 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:04 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ -3.240172, 1.192234, 3.148017 ],
+            "@orientation": [ -0.0819418281316757, -0.994225382804871, -0.0692924559116364, 1.40962588787079 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 5
+          }
+        },
+        { "SpotLight":
+          {
+            "@location": [ 7.790809, 5.665462, 6.379447 ],
+            "@direction": [ -0.6111664, -0.5911151, -0.5263636 ],
+            "@beamWidth": 1.5708,
+            "@cutOffAngle": 0.785398,
+            "@shadows": true
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "SpotLight Viewpoint",
+            "@position": [ 7.790809, 5.665462, 6.379447 ],
+            "@orientation": [ -0.646196663379669, 0.755362987518311, 0.108886674046516, 1.02314841747284 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "billboards.x3dv"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

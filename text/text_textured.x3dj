@@ -1,0 +1,256 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:39 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/bricks2.jpg"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "A three",
+                        "lines",
+                        "of textured text."
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@DEF": "FS",
+                          "@style": "BOLD",
+                          "@size": 10
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -40, 0 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  },
+                                  "-texture": { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "More lines",
+                                    "of textured text",
+                                    "with different texture."
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@USE": "FS"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -80, 0 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  },
+                                  "-texture": { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  },
+                                  "-textureTransform": { "TextureTransform":
+                                    {
+                                      "@scale": [ 10, 10 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "More lines",
+                                    "of textured text,",
+                                    "now with TextureTransform."
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@USE": "FS"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -120, 0 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  },
+                                  "-texture": { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ],
+                                      "@repeatS": false,
+                                      "@repeatT": false
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "And yet more lines",
+                                    "of textured text,",
+                                    "now with non-repeated texture."
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@USE": "FS"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -160, 0 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  },
+                                  "-texture": { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "And yet more lines",
+                                    "of textured text,",
+                                    "with TextureCoordinateGenerator."
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@USE": "FS"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

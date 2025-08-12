@@ -1,0 +1,186 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:15:12 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 2.978011, 2.892504, 6.258865 ],
+                  "@orientation": [ -0.828563451766968, 0.537907838821411, 0.155361413955688, 0.670826137065887 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ -3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "SNormal",
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@DEF": "STransp",
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@transparency": 0.5
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@global": true,
+                  "@color": [ 1, 0, 0 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "LowerTransform",
+                  "@translation": [ 0, -3, 0 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@translation": [ -3, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "SNormal"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "@USE": "STransp"
+                      }
+                    },
+                    { "DirectionalLight":
+                      {
+                        "@global": true,
+                        "@color": [ 0, 0, 1 ],
+                        "@ambientIntensity": 0.5,
+                        "@direction": [ 1, 0, 0 ]
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "@DEF": "SSmall",
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.5
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 3, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "SNormal"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@USE": "SSmall"
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "SNormal"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

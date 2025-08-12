@@ -1,0 +1,343 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:44 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 10.34426, -1.863408e-6, -20.48685 ],
+            "@orientation": [ 2.89506460831e-5, 1, -0.0001726334885461, 2.80928444862366 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.25,
+              1.75,
+              0.75
+            ],
+            "@speed": 10
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "ProxSensTransform",
+            "@translation": [ 0, 2.4, 0 ],
+            "@scale": [ 5, 5, 5 ],
+            "-children": [
+              { "ProximitySensor":
+                {
+                  "@DEF": "ProxSens",
+                  "@size": [ 1, 1, 1 ]
+                }
+              },
+              { "Collision":
+                {
+                  "@enabled": false,
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "ProtoInstance":
+                          {
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                      "@diffuseColor": [ 2, 2, 0 ],
+                                      "@transparency": 0.5
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "blendMode",
+                                "-children": [
+                                  null
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 1, 1, 1 ],
+                            "@solid": false
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp",
+            "@key": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              10, 0, 0,
+              10, 10, 0,
+              0, 10, 0,
+              0, 0, 0
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "AnotherProxSensTransform",
+            "@translation": [ 10, 0, 0 ],
+            "-children": [
+              { "ProximitySensor":
+                {
+                  "@USE": "ProxSens"
+                }
+              },
+              { "Collision":
+                {
+                  "@enabled": false,
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "ProtoInstance":
+                          {
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                      "@diffuseColor": [ 2, 2, 0 ],
+                                      "@transparency": 0.5
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "blendMode",
+                                "-children": [
+                                  null
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 1, 1, 1 ],
+                            "@solid": false
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "BigBoxToVisualizePosition",
+            "@translation": [ 0, 0, 15 ],
+            "@scale": [ 5, 5, 5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "SmallBoxToVisualizePosition",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "fieldValue": [
+                        {
+                          "@name": "material",
+                          "-children": [
+                            { "Material":
+                              {
+                                "@diffuseColor": [ 0.2, 0.2, 0.9 ],
+                                "@transparency": 0.1
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@name": "blendMode",
+                          "-children": [
+                            null
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1, 1, 1 ],
+                      "@solid": false
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp",
+            "@fromField": "value_changed",
+            "@toNode": "ProxSensTransform",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ProxSens",
+            "@fromField": "position_changed",
+            "@toNode": "SmallBoxToVisualizePosition",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

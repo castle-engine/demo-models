@@ -1,0 +1,248 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:02 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Rendering",
+          "@level": 5
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ClipPlane":
+          {
+          }
+        },
+        { "ClipPlane":
+          {
+            "@enabled": false,
+            "@plane": [ 0, -1, 0, 0 ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -1.5, 0, -1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "MyTeapotShape",
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.5, 0, -1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "MyTeapotShape"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Tea1Trnsf",
+            "@translation": [ 1.5, 0, 1 ],
+            "@rotation": [ 0, 1, 0, 0.728211274539128 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "MyTeapotShape"
+                }
+              },
+              { "ClipPlane":
+                {
+                  "@plane": [ 1, 0, 0, 0 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -1.5, 0, 1 ],
+            "-children": [
+              { "ClipPlane":
+                {
+                  "@plane": [ 1, 0, 0, 0 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "Tea2Trnsf",
+                  "@rotation": [ 0, 1, 0, 0.728211274539128 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyTeapotShape"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ClipPlane":
+          {
+            "@DEF": "AnimatedPlane",
+            "@plane": [ 1, 0, 0, 1 ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 4,
+            "@loop": true
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Vec4Interpolator",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFFloat",
+                "@name": "set_fraction"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFVec4f",
+                "@name": "value_changed"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "val"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec4f",
+                "@name": "keyValue0",
+                "@value": [ 1, 0, 0, 1 ]
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec4f",
+                "@name": "keyValue1",
+                "@value": [ 0, 0, 1, 1 ]
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec4f",
+                "@name": "keyValue2",
+                "@value": [ -1, 0, 0, 1 ]
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec4f",
+                "@name": "keyValue3",
+                "@value": [ 0, 0, -1, 1 ]
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function set_fraction(value, timestamp)\r",
+              "  val := value * 4;\r",
+              "  if (val <= 1, val := val    ; value_changed := (1-val) * keyValue0 + val * keyValue1,\r",
+              "  if (val <= 2, val := val - 1; value_changed := (1-val) * keyValue1 + val * keyValue2,\r",
+              "  if (val <= 3, val := val - 2; value_changed := (1-val) * keyValue2 + val * keyValue3,\r",
+              "                val := val - 3; value_changed := (1-val) * keyValue3 + val * keyValue0)))\r",
+              ""
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Clock",
+            "@cycleInterval": 20,
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "rotPath",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0, 1, 0, -6.28,
+              0, 1, 0, -3.14,
+              0, 1, 0, 0
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Vec4Interpolator",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vec4Interpolator",
+            "@fromField": "value_changed",
+            "@toNode": "AnimatedPlane",
+            "@toField": "set_plane"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Clock",
+            "@fromField": "fraction_changed",
+            "@toNode": "rotPath",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "rotPath",
+            "@fromField": "value_changed",
+            "@toNode": "Tea1Trnsf",
+            "@toField": "set_rotation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "rotPath",
+            "@fromField": "value_changed",
+            "@toNode": "Tea2Trnsf",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

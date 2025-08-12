@@ -1,0 +1,157 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:11 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"TesselatedPlane",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "../prototypes/tesselated_plane.wrl#TesselatedPlane"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"EditableTransform",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "children"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "scale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "description"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#EditableTransform"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 13.08631, 0.8104792, 28.41121 ],
+            "@orientation": [ -0.0852522701025009, 0.996095240116119, 0.0229517575353384, 0.528296589851379 ]
+          }
+        },
+        null,
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "SpotLight":
+                    {
+                      "@DEF": "MySpot",
+                      "@location": [ 0, 2, 100 ],
+                      "@radius": 200,
+                      "@beamWidth": 1.5708,
+                      "@cutOffAngle": 0.785398
+                    }
+                  },
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "ProtoInstance":
+                        {
+                          "@name": "TesselatedPlane"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "description",
+                "@value": "spot shadow receiver"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 0, 0, 2 ]
+              },
+              {
+                "@name": "description",
+                "@value": "shadow caster middle"
+              }
+            ]
+          }
+        },
+        { "Background":
+          {
+            "@skyColor": [
+              1, 1, 1
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

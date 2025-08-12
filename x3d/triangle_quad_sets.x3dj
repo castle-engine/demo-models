@@ -1,0 +1,1732 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:11 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Col1App",
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "FanSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0.5, 1.5, 0.5,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            0.5, 3.5, 0.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "StripSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            1.5, 0.5, 0.5,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            1.5, 2.5, 0.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col1App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Col2App",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "@solid": false,
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col2App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Col3App",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0.5, 0.5, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@ccw": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "@ccw": false,
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@ccw": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@ccw": false,
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@ccw": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@ccw": false,
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col3App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Col4App",
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "@solid": false,
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0.5, 1.5,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0.5, 1.5
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0.5, 1.5,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0.5, 1.5
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            1.5, 0.5,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            1.5, 0.5
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            1.5, 0.5,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            1.5, 0.5
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col4App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Col5App",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 1, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "@solid": false,
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            0, 0, 1,
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col5App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Col6App",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 1, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@DEF": "Colors6",
+                          "@color": [
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1,
+                            1, 1, 0,
+                            0, 1, 1,
+                            1, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "@solid": false,
+                      "-color": { "Color":
+                        {
+                          "@USE": "Colors6"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@DEF": "Colors8",
+                          "@color": [
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1,
+                            1, 1, 1,
+                            1, 1, 0,
+                            0, 1, 1,
+                            1, 0, 1,
+                            1, 1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@solid": false,
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@USE": "Colors8"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@USE": "Colors8"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@solid": false,
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@USE": "Colors8"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 25, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "Col6App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

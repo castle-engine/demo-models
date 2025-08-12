@@ -1,0 +1,648 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:03 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiNavigationInfo",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFFloat",
+                "@name": "avatarSize"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "headlight"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "speed"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFTime",
+                "@name": "transitionTime"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "transitionType"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "type"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "visibilityLimit"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFTime",
+                "@name": "bindTime"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "isBound"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "transitionComplete"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "timeOriginAtLoad"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeRendering"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeDynamicCollisions"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeVisibleTriangles"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeStaticCollisions"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
+              "../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiNavigationInfo"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 31.94905, 27.90537, 0.8999972 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "ViewAtChinchilla",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -1.49272025851133e-7, 1.00000202655792, 0, 0.00799351371824741 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 91.5005, 91.68867, 0.9 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "FarFromChinchilla",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -1.69941205552249e-9, 1, 0, 2.36263012886047 ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "KambiNavigationInfo",
+            "fieldValue": [
+              {
+                "@name": "avatarSize",
+                "@value": [
+                  0.1,
+                  1
+                ]
+              },
+              {
+                "@name": "headlight",
+                "@value": true
+              },
+              {
+                "@name": "speed",
+                "@value": 4
+              },
+              {
+                "@name": "type",
+                "@value": [
+                  "FLY",
+                  "ANY"
+                ]
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "regular_labirynth.x3d"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "BoundingBox",
+            "@translation": [ 42, 42, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1, 1, 104 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Chin",
+            "@scale": [ 2, 2, 2 ],
+            "-children": [
+              { "Collision":
+                {
+                  "@enabled": false,
+                  "-children": [
+                    { "Inline":
+                      {
+                        "@global": true,
+                        "@url": [
+                          "regular_labirynth_chinchilla.wrl.gz"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 16, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 24, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 32, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 16, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 24, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 32, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 16, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 16, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 16, 16, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 24, 16, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 32, 16, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 16, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 24, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 24, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 16, 24, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 24, 24, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 32, 24, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 24, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 32, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 32, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 16, 32, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 24, 32, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 32, 32, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 32, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 40, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 40, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 16, 40, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 24, 40, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 32, 40, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 40, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Chin"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

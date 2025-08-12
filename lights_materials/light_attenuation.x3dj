@@ -1,0 +1,343 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:12 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "Shape":
+          {
+            "@DEF": "MyShape",
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 1, 1, 1 ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Column",
+            "-children": [
+              { "Transform":
+                {
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 2, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 4, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 5, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 7, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 8, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 9, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 1, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 2, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 4, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 5, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 6, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 7, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 9, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@USE": "Column"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 5, 1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 0.1
+                    }
+                  }
+                }
+              },
+              { "PointLight":
+                {
+                  "@color": [ 1, 0, 0 ],
+                  "@attenuation": [ 0, 1, 0 ],
+                  "@radius": 3
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 0, 0, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 0.1
+                    }
+                  }
+                }
+              },
+              { "SpotLight":
+                {
+                  "@color": [ 0, 0, 1 ],
+                  "@attenuation": [ 0, 0, 0.1 ],
+                  "@direction": [ -1, 0, 0 ],
+                  "@beamWidth": 1.5708,
+                  "@cutOffAngle": 0.785398
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

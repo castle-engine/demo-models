@@ -1,0 +1,587 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:45 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@DEF": "MyMaterial"
+                        }
+                      },
+                      "-texture": { "PixelTexture":
+                        {
+                          "@image": [
+                            2, 2, 1,
+                              0, 80,
+                              255, 160
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@DEF": "MyTexturePropertiesRepeat",
+                              "@minificationFilter": "FASTEST",
+                              "@magnificationFilter": "NEAREST_PIXEL",
+                              "@textureCompression": "FASTEST"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@DEF": "TexRgb4x3_Repeat",
+                                "@image": [
+                                  4, 3, 3,
+                                    16711680, 16777215, 16777215, 255,
+                                    0, 65280, 65280, 0,
+                                    16776960, 65535, 65535, 16711935
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesRepeat"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@USE": "TexRgb4x3_Repeat"
+                              }
+                            },
+                            "-textureTransform": { "TextureTransform":
+                              {
+                                "@scale": [ 2, 2 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 9, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@image": [
+                                  2, 2, 2,
+                                    255, 20480,
+                                    65280, 41215
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesRepeat"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 12, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@image": [
+                                  4, 3, 4,
+                                    4278190335, 4294967040, 4294967040, 65535,
+                                    0, 16711680, 16711680, 0,
+                                    4294902015, 16776960, 16776960, 4278255615
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesRepeat"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@USE": "MyMaterial"
+                        }
+                      },
+                      "-texture": { "PixelTexture":
+                        {
+                          "@image": [
+                            2, 2, 1,
+                              0, 80,
+                              255, 160
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@DEF": "MyTexturePropertiesClamp",
+                              "@minificationFilter": "FASTEST",
+                              "@magnificationFilter": "NEAREST_PIXEL",
+                              "@boundaryModeS": "CLAMP_TO_EDGE",
+                              "@boundaryModeT": "CLAMP_TO_EDGE",
+                              "@textureCompression": "FASTEST"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@DEF": "TexRgb4x3_Clamp",
+                                "@image": [
+                                  4, 3, 3,
+                                    16711680, 16777215, 16777215, 255,
+                                    0, 65280, 65280, 0,
+                                    16776960, 65535, 65535, 16711935
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesClamp"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@USE": "TexRgb4x3_Clamp"
+                              }
+                            },
+                            "-textureTransform": { "TextureTransform":
+                              {
+                                "@scale": [ 2, 2 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 9, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@image": [
+                                  2, 2, 2,
+                                    255, 20480,
+                                    65280, 41215
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesClamp"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 12, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@image": [
+                                  4, 3, 4,
+                                    4278190335, 4294967040, 4294967040, 65535,
+                                    0, 16711680, 16711680, 0,
+                                    4294902015, 16776960, 16776960, 4278255615
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesClamp"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@USE": "MyMaterial"
+                        }
+                      },
+                      "-texture": { "PixelTexture":
+                        {
+                          "@image": [
+                            2, 2, 1,
+                              0, 80,
+                              255, 160
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@USE": "MyTexturePropertiesClamp"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@USE": "TexRgb4x3_Clamp"
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@USE": "TexRgb4x3_Clamp"
+                              }
+                            },
+                            "-textureTransform": { "TextureTransform":
+                              {
+                                "@scale": [ 2, 2 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 9, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@image": [
+                                  2, 2, 2,
+                                    255, 20480,
+                                    65280, 41215
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesClamp"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 12, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@USE": "MyMaterial"
+                              }
+                            },
+                            "-texture": { "PixelTexture":
+                              {
+                                "@image": [
+                                  4, 3, 4,
+                                    4278190335, 4294967040, 4294967040, 65535,
+                                    0, 16711680, 16711680, 0,
+                                    4294902015, 16776960, 16776960, 4278255615
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@USE": "MyTexturePropertiesClamp"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cone":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

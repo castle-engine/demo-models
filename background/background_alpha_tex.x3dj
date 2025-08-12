@@ -1,0 +1,118 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:13:33 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@rotation": [ 1, 0, 0, 1.57 ],
+                  "-children": [
+                    { "Background":
+                      {
+                        "@frontUrl": [
+                          "../skies/alpha_sky_front.png"
+                        ],
+                        "@backUrl": [
+                          "../skies/alpha_sky_back.png"
+                        ],
+                        "@leftUrl": [
+                          "../skies/alpha_sky_left.png"
+                        ],
+                        "@rightUrl": [
+                          "../skies/alpha_sky_right.png"
+                        ],
+                        "@topUrl": [
+                          "../skies/alpha_sky_top.png"
+                        ],
+                        "@bottomUrl": [
+                          "../skies/alpha_sky_bottom.png"
+                        ],
+                        "@skyAngle": [
+                          0.78,
+                          1.57
+                        ],
+                        "@skyColor": [
+                          0.5, 0.5, 1,
+                          1, 1, 1,
+                          0, 0, 0.5
+                        ],
+                        "@groundAngle": [
+                          1.57
+                        ],
+                        "@groundColor": [
+                          0, 0.5, 0,
+                          0.25, 1, 0.25
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

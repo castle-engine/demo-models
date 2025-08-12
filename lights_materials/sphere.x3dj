@@ -1,0 +1,82 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:29 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 3.648453, 1.940541, -6.63175 ],
+            "@orientation": [ -0.374710351228714, 0.925372779369354, 0.0572497881948948, 2.69614553451538 ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@direction": [ 1, 1, 1 ]
+          }
+        }
+      ]
+    }
+  }
+}

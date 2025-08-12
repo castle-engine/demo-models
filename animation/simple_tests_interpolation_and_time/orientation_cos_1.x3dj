@@ -1,0 +1,76 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:05:34 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "TimeSensor":
+          {
+            "@DEF": "TIME",
+            "@cycleInterval": 3,
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "ORIENTATION",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              -1.428, 0, -0.08672, 2.342,
+              -1.428, 0, -0.087, 2.342
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "ORIENT",
+            "@rotation": [ -0.998153768798508, 0, -0.0607375817211577, 2.34199999677736 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TIME",
+            "@fromField": "fraction_changed",
+            "@toNode": "ORIENTATION",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ORIENTATION",
+            "@fromField": "value_changed",
+            "@toNode": "ORIENT",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

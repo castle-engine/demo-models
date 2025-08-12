@@ -1,0 +1,243 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:59 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"ViewportInfo",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "info"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#ViewportInfo"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -6.774638, 1.582597, 3.385821 ],
+            "@orientation": [ 0, -1, 0, 1.58670091629028 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NavInfo2",
+            "@type": [
+              "WALK"
+            ],
+            "@speed": 5
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NavInfo0",
+            "@type": [
+              "WALK"
+            ],
+            "@avatarSize": [
+              0.25,
+              1.6,
+              0
+            ],
+            "@speed": 5
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NavInfo1",
+            "@type": [
+              "WALK"
+            ],
+            "@avatarSize": [
+              0.25,
+              1.6,
+              0.1
+            ],
+            "@speed": 5
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NavInfo3",
+            "@type": [
+              "WALK"
+            ],
+            "@avatarSize": [
+              0.25,
+              1.6,
+              0.9
+            ],
+            "@speed": 5
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NavInfo4",
+            "@type": [
+              "WALK"
+            ],
+            "@avatarSize": [
+              0.25,
+              1.6,
+              2
+            ],
+            "@speed": 5
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "ViewportInfo",
+            "fieldValue": [
+              {
+                "@name": "info",
+                "@value": [
+                  "",
+                  "Test of NavigationInfo.avatarSize[2]",
+                  "(height of the tallest object you can climb) feature.",
+                  "",
+                  "Press keys 1,2,3,4 to have larger and larger values",
+                  "of avatarSize[2], which will allow you to climb",
+                  "taller and taller stairs.",
+                  "",
+                  "Press key 0 to set avatarSize[2] to zero,",
+                  "which disables this limit (you will then be able",
+                  "to climb as long as you can move forward).",
+                  "",
+                  "Press key h (help) to hide/show this text at any time."
+                ]
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind0"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind1"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind2"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind3"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind4"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "    function keyPress(value, timestamp)\r",
+              "      when (value = '0', bind0 := TRUE);\r",
+              "      when (value = '1', bind1 := TRUE);\r",
+              "      when (value = '2', bind2 := TRUE);\r",
+              "      when (value = '3', bind3 := TRUE);\r",
+              "      when (value = '4', bind4 := TRUE)\r",
+              "    "
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "avatar_climb_stairs_geometry.x3d"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind0",
+            "@toNode": "NavInfo0",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind1",
+            "@toNode": "NavInfo1",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind2",
+            "@toNode": "NavInfo2",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind3",
+            "@toNode": "NavInfo3",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind4",
+            "@toNode": "NavInfo4",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "keyPress",
+            "@toNode": "MyScript",
+            "@toField": "keyPress"
+          }
+        }
+      ]
+    }
+  }
+}

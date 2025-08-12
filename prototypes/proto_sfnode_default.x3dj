@@ -1,0 +1,279 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:42 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"AppearanceYellowByDefault",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFNode",
+                  "@name": "mat",
+                  "-children": [
+                    { "Material":
+                      {
+                        "@DEF": "XXXMat_1",
+                        "@diffuseColor": [ 1, 1, 0 ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Appearance":
+                  {
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "material",
+                          "@protoField": "mat"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"AppearanceBlueByDefault",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFNode",
+                  "@name": "mat",
+                  "-children": [
+                    { "Material":
+                      {
+                        "@DEF": "XXXMat",
+                        "@diffuseColor": [ 0, 0, 1 ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Appearance":
+                  {
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "material",
+                          "@protoField": "mat"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "TouchSensor":
+                      {
+                        "@DEF": "XXXTouch_1"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@USE": "XXXMat_1"
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "TouchSensor":
+                      {
+                        "@DEF": "XXXTouch_2"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "blue"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@USE": "XXXMat"
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "TouchSensor":
+                      {
+                        "@DEF": "XXXTouch_3"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "AppearanceYellowByDefault"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "TouchSensor":
+                      {
+                        "@DEF": "XXXTouch"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "blue"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "AppearanceBlueByDefault"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

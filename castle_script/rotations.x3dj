@@ -1,0 +1,276 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:10 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"SpotLightWithOrientation",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFRotation",
+                  "@name": "orientation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFColor",
+                  "@name": "color",
+                  "@value": [ 1, 1, 1 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "location"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFFloat",
+                  "@name": "cutOffAngle",
+                  "@value": 0.7853982
+                },
+                {
+                  "@accessType": "inputOnly",
+                  "@type": "SFTime",
+                  "@name": "animationStartTime"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "SpotLight":
+                  {
+                    "@DEF": "MySpot",
+                    "@beamWidth": 1.5708,
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "color",
+                          "@protoField": "color"
+                        },
+                        {
+                          "@nodeField": "location",
+                          "@protoField": "location"
+                        },
+                        {
+                          "@nodeField": "cutOffAngle",
+                          "@protoField": "cutOffAngle"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "Script":
+                  {
+                    "@DEF": "MyScript",
+                    "field": [
+                      {
+                        "@accessType": "initializeOnly",
+                        "@type": "SFRotation",
+                        "@name": "orientation"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFVec3f",
+                        "@name": "direction",
+                        "@value": [ 0, 0, -1 ]
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFVec3f",
+                        "@name": "up",
+                        "@value": [ 0, 1, 0 ]
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFVec3f",
+                        "@name": "initialUp",
+                        "@value": [ 0, 1, 0 ]
+                      },
+                      {
+                        "@accessType": "inputOnly",
+                        "@type": "SFTime",
+                        "@name": "time"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFTime",
+                        "@name": "animationStartTime"
+                      }
+                    ],
+                    "#sourceCode": [
+                      "castlescript:\r",
+                      "\r",
+                      "function initialize(timestamp)\r",
+                      "  { Test orientation_to_direction/up }\r",
+                      "  direction := orientation_to_direction(orientation);\r",
+                      "  initialUp := orientation_to_up(orientation);\r",
+                      "  up := initialUp;\r",
+                      "\r",
+                      "  { Now we're just screwing around, converting dir/up to orientation and back.\r",
+                      "    This code doesn't achieve anything, it just tests orientation functions. }\r",
+                      "  orientation := orientation_from_direction_up(direction, up);\r",
+                      "  direction := orientation_to_direction(orientation);\r",
+                      "  up := orientation_to_up(orientation)\r",
+                      "\r",
+                      "function time(value, timestamp)\r",
+                      "  { Debug: writeln('time is ' + string(value - animationStartTime)); }\r",
+                      "\r",
+                      "  { Simple version }\r",
+                      "  { up := rotate(vector(\r",
+                      "    vector_get(direction, 0),\r",
+                      "    vector_get(direction, 1),\r",
+                      "    vector_get(direction, 2),\r",
+                      "    value - animationStartTime), initialUp) }\r",
+                      "\r",
+                      "  { A dummy code for achieving something trivial by a complicated operation :)\r",
+                      "    Achieve the above rotate() by a slerp(), just to test slerp().\r",
+                      "    In more sane circumstances, slerp is useful only when rotation axis\r",
+                      "    is not (necessarily) constant...  }\r",
+                      "  up := rotate(slerp(value - animationStartTime,\r",
+                      "    vector(\r",
+                      "      vector_get(direction, 0),\r",
+                      "      vector_get(direction, 1),\r",
+                      "      vector_get(direction, 2), 0),\r",
+                      "    vector(\r",
+                      "      vector_get(direction, 0),\r",
+                      "      vector_get(direction, 1),\r",
+                      "      vector_get(direction, 2), 1)), initialUp)\r",
+                      ""
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "orientation",
+                          "@protoField": "orientation"
+                        },
+                        {
+                          "@nodeField": "animationStartTime",
+                          "@protoField": "animationStartTime"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "TimeSensor":
+                  {
+                    "@DEF": "MyTimer",
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "startTime",
+                          "@protoField": "animationStartTime"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "MyScript",
+                    "@fromField": "direction_changed",
+                    "@toNode": "MySpot",
+                    "@toField": "set_direction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "MyTimer",
+                    "@fromField": "time",
+                    "@toNode": "MyScript",
+                    "@toField": "time"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "MySpot",
+            "@name": "SpotLightWithOrientation",
+            "fieldValue": [
+              {
+                "@name": "orientation",
+                "@value": [ -0.557969033718109, 0.817338705062866, 0.143623828887939, 1.19044768810272 ]
+              },
+              {
+                "@name": "location",
+                "@value": [ 3.602038, 3.056333, 2.104918 ]
+              },
+              {
+                "@name": "cutOffAngle",
+                "@value": 0.1
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "Same view as SpotLight",
+            "@position": [ 3.602038, 3.056333, 2.104918 ],
+            "@orientation": [ -0.557969033718109, 0.817338705062866, 0.143623828887939, 1.19044768810272 ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@ambientIntensity": 1
+                  }
+                },
+                "-texture": { "ImageTexture":
+                  {
+                    "@url": [
+                      "../textures/test_texture.png"
+                    ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "Box":
+              {
+              }
+            }
+          }
+        },
+        { "TouchSensor":
+          {
+            "@DEF": "MyTouch"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyTouch",
+            "@fromField": "touchTime",
+            "@toNode": "MySpot",
+            "@toField": "animationStartTime"
+          }
+        }
+      ]
+    }
+  }
+}

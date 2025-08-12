@@ -1,0 +1,229 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:45 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"BlueGeometry",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "sphereTexture"
+              }
+            ],
+            "@url": [
+              "blue/prototype.x3dv#BlueGeometry"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"RedGeometry",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "sphereTexture"
+              }
+            ],
+            "@url": [
+              "red/prototype.x3dv#RedGeometry"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"YellowGeometry",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "sphereTextureNode"
+              }
+            ],
+            "@url": [
+              "yellow/prototype.x3dv#YellowGeometry"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"GreenGeometry",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "sphereTexture"
+              }
+            ],
+            "@url": [
+              "green/prototype.x3dv#GreenGeometry"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"GrayGeometry",
+            "@url": [
+              "gray/prototype.x3dv#GrayGeometry"
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "BlueGeometry",
+            "fieldValue": [
+              {
+                "@name": "sphereTexture",
+                "@value": [
+                  "texture.png"
+                ]
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 2, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "RedGeometry",
+                  "fieldValue": [
+                    {
+                      "@name": "sphereTexture",
+                      "@value": [
+                        "texture.png"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "YellowGeometry",
+                  "fieldValue": [
+                    {
+                      "@name": "sphereTextureNode",
+                      "-children": [
+                        { "ImageTexture":
+                          {
+                            "@url": [
+                              "texture.png"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "YellowGeometry",
+                  "fieldValue": [
+                    {
+                      "@name": "sphereTextureNode",
+                      "-children": [
+                        { "ImageTexture":
+                          {
+                            "@url": [
+                              "texture.png"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "GreenGeometry",
+                  "fieldValue": [
+                    {
+                      "@name": "sphereTexture",
+                      "@value": [
+                        "texture.png"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -8, 0 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "green/include_green_geometry.x3dv"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -10, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "GrayGeometry"
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 4.152777, -3.750002, 20.86666 ]
+          }
+        }
+      ]
+    }
+  }
+}

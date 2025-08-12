@@ -1,0 +1,53 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:30 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "OrthoViewpoint":
+          {
+            "@DEF": "MyViewpoint",
+            "@position": [ 0.03612445, -0.03612445, 10 ],
+            "@centerOfRotation": [ 0.03612445, -0.03612445, 0 ],
+            "@fieldOfView": [
+              -0.03612445,
+              -0.03612445,
+              0.03612445,
+              0.03612445
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "EXAMINE"
+            ]
+          }
+        },
+        null,
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "cge_logo_fixed_z.x3d"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

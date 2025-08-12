@@ -1,0 +1,77 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:13 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "TimeSensor":
+          {
+            "@DEF": "Time",
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "Orient",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0.3, 0.4, 0.5, 0.1,
+              0.5, 0.4, 0.3, 1.5,
+              0.3, 0.4, 0.5, 6.3831853072
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Transf",
+            "@rotation": [ 0.650469026364588, 0.573960794514242, 0.497452562663897, 0.355449206084177 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "IkeaTable.x3dv"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Time",
+            "@fromField": "fraction_changed",
+            "@toNode": "Orient",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Orient",
+            "@fromField": "value_changed",
+            "@toNode": "Transf",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

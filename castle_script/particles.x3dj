@@ -1,0 +1,379 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:08 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFVec3f",
+                "@name": "coords"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFColor",
+                "@name": "colors"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "MFVec3f",
+                "@name": "speeds"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "MFVec3f",
+                "@name": "last_coord_change"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFInt32",
+                "@name": "line_coordIndex"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFInt32",
+                "@name": "line_colorIndex"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFVec3f",
+                "@name": "line_coords"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFColor",
+                "@name": "line_colors"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "previousTime"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "timeDiff",
+                "@value": 0
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "time"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "count",
+                "@value": 1000
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "speed_horiz_const",
+                "@value": 1.25
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "speed_horiz_rand",
+                "@value": 0.5
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "speed_vert_const",
+                "@value": 12.5
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "speed_vert_rand",
+                "@value": 5
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "i"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec3f",
+                "@name": "v"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "update_lines"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function initialize(timestamp)\r",
+              "\r",
+              "  { Initialize starting coords position. }\r",
+              "  array_set_count(coords, count);\r",
+              "  for (i, 0, count - 1,\r",
+              "    array_set(coords, i, vector(\r",
+              "      sin(i * 2 * Pi / count) * 2.0,\r",
+              "      cos(i * 2 * Pi / count) * 2.0,\r",
+              "      0)));\r",
+              "\r",
+              "  { Starting speeds. }\r",
+              "  array_set_count(speeds, count);\r",
+              "  for (i, 0, count - 1,\r",
+              "    array_set(speeds, i,\r",
+              "      { Speed slightly outside of the circle and much up. }\r",
+              "      vector(\r",
+              "        vector_get(array_get(coords, i), 0) * (speed_horiz_const + speed_horiz_rand * random()),\r",
+              "        vector_get(array_get(coords, i), 1) * (speed_horiz_const + speed_horiz_rand * random()),\r",
+              "        speed_vert_const + random() * speed_vert_rand)));\r",
+              "\r",
+              "  { Initialize colors. }\r",
+              "  array_set_count(colors, count);\r",
+              "  for (i, 0, count - 1,\r",
+              "    array_set(colors, i,\r",
+              "      { random blueish color }\r",
+              "      vector(random() * 0.2, random() * 0.2, 1 - random() * 0.2)));\r",
+              "\r",
+              "  { Initialize last_coord_change. }\r",
+              "  array_set_count(last_coord_change, count);\r",
+              "  for (i, 0, count - 1,\r",
+              "    array_set(last_coord_change, i, vector(0, 0, 0)));\r",
+              "\r",
+              "  update_lines := TRUE\r",
+              "\r",
+              "function time(value, timestamp)\r",
+              "  { calculate timeDiff, to scale animations\r",
+              "    (so that it runs with the same speed on every system) }\r",
+              "  timeDiff := if (previousTime >= 0, value - previousTime, 0);\r",
+              "\r",
+              "  { update previousTime }\r",
+              "  previousTime := value;\r",
+              "\r",
+              "  { update positions }\r",
+              "  for (i, 0, count - 1,\r",
+              "    v := array_get(coords, i);\r",
+              "    { increase positions by speed }\r",
+              "    v := v + array_get(speeds, i) * timeDiff;\r",
+              "    { fall down by gravity }\r",
+              "    vector_set(v, 2, vector_get(v, 2) - timeDiff * 5);\r",
+              "    array_set(last_coord_change, i,\r",
+              "      array_get(speeds, i) + vector(0, 0, -5));\r",
+              "    { when particle falls down on the ground --- initialize new }\r",
+              "    when (vector_get(v, 2) < 0,\r",
+              "      v := vector(\r",
+              "        sin(i * 2 * Pi / count) * 2.0,\r",
+              "        cos(i * 2 * Pi / count) * 2.0,\r",
+              "        0);\r",
+              "      array_set(speeds, i,\r",
+              "        vector(\r",
+              "          vector_get(v, 0) * (speed_horiz_const + speed_horiz_rand * random()),\r",
+              "          vector_get(v, 1) * (speed_horiz_const + speed_horiz_rand * random()),\r",
+              "          speed_vert_const + random() * speed_vert_rand));\r",
+              "      array_set(last_coord_change, i, vector(0, 0, 0))\r",
+              "    );\r",
+              "    array_set(coords, i, v));\r",
+              "\r",
+              "  { decrease speeds by time }\r",
+              "  for (i, 0, count - 1,\r",
+              "    v := array_get(speeds, i);\r",
+              "    v := v * power(0.5, timeDiff);\r",
+              "    array_set(speeds, i, v));\r",
+              "\r",
+              "  update_lines := TRUE\r",
+              "\r",
+              "{ initialize LineSet properties, based on coords, speeds, colors }\r",
+              "function update_lines(value, timestamp)\r",
+              "  array_set_count(line_coords, count * 2);\r",
+              "  array_set_count(line_colors, count * 2);\r",
+              "  array_set_count(line_coordIndex, count * 3);\r",
+              "  array_set_count(line_colorIndex, count * 3);\r",
+              "  for (i, 0, count - 1,\r",
+              "    v := array_get(coords, i);\r",
+              "    array_set(line_coords, 2 * i    , v - array_get(last_coord_change, i) / 10);\r",
+              "    array_set(line_coords, 2 * i + 1, v + array_get(last_coord_change, i) / 10);\r",
+              "    array_set(line_colors, 2 * i    , array_get(colors, i));\r",
+              "    array_set(line_colors, 2 * i + 1, array_get(colors, i));\r",
+              "    array_set(line_colorIndex, 3 * i    , 2 * i);\r",
+              "    array_set(line_colorIndex, 3 * i + 1, 2 * i + 1);\r",
+              "    array_set(line_colorIndex, 3 * i + 2, -1);\r",
+              "    array_set(line_coordIndex, 3 * i    , 2 * i);\r",
+              "    array_set(line_coordIndex, 3 * i + 1, 2 * i + 1);\r",
+              "    array_set(line_coordIndex, 3 * i + 2, -1))\r",
+              ""
+            ]
+          }
+        },
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@DEF": "LnSet",
+                      "-color": { "Color":
+                        {
+                          "@DEF": "LnColor"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "LnCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "PointSet":
+                    {
+                      "-color": { "Color":
+                        {
+                          "@DEF": "PtColor"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "PtCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Time",
+            "@loop": true
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                }
+              }
+            },
+            "-geometry": { "Box":
+              {
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 21.56876, 5.896982e-9, 4.704486 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.057063028216362, 0.996738433837891, 0.0570633709430694, 1.57406330108643 ]
+                }
+              }
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "line_colors_changed",
+            "@toNode": "LnColor",
+            "@toField": "set_color"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "line_coords_changed",
+            "@toNode": "LnCoord",
+            "@toField": "set_point"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "line_colorIndex_changed",
+            "@toNode": "LnSet",
+            "@toField": "set_colorIndex"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "line_coordIndex_changed",
+            "@toNode": "LnSet",
+            "@toField": "set_coordIndex"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "colors_changed",
+            "@toNode": "PtColor",
+            "@toField": "set_color"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "coords_changed",
+            "@toNode": "PtCoord",
+            "@toField": "set_point"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Time",
+            "@fromField": "time",
+            "@toNode": "Scr",
+            "@toField": "time"
+          }
+        }
+      ]
+    }
+  }
+}

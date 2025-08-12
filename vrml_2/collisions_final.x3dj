@@ -1,0 +1,69 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:18:24 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ -5.5231, -10.13438, 1.557463 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ 0.0838931798934936, -0.99583911895752, 0.035591147840023, 0.805493354797363 ]
+                }
+              }
+            ]
+          }
+        },
+        null,
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "collisions.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

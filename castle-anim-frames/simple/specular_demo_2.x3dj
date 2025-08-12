@@ -1,0 +1,202 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:14:29 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ],
+            "@headlight": false
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 0, 0, 1, 6.2831853072 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 10, 0, 10 ],
+                  "-children": [
+                    { "PointLight":
+                      {
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "PointSet":
+                          {
+                            "-color": { "Color":
+                              {
+                                "@color": [
+                                  1, 1, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@point": [
+                                  0, 0, 0
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0, -2.2e-14, 13.2298 ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Group":
+                {
+                  "@DEF": "Row",
+                  "-children": [
+                    { "Transform":
+                      {
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@DEF": "App",
+                                  "-material": { "Material":
+                                    {
+                                      "@ambientIntensity": 0,
+                                      "@diffuseColor": [ 0, 0, 1 ],
+                                      "@specularColor": [ 1, 1, 1 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ -3, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "App"
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 3, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "App"
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3, 0 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "Row"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "Row"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

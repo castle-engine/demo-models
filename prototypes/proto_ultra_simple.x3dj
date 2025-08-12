@@ -1,0 +1,249 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:16:58 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"MySphere_1",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                            "@diffuseColor": [ 1, 1, 0 ]
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Sphere":
+                      {
+                        "@radius": 5
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"MySphere",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFFloat",
+                  "@name": "whatever",
+                  "@value": 123
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                            "@diffuseColor": [ 0, 1, 0 ]
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Sphere":
+                      {
+                        "@radius": 3
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"RedMaterial",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Material":
+                  {
+                    "@diffuseColor": [ 1, 0, 0 ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "MySphere_1"
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 0, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 4
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 10, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MySphere",
+                        "fieldValue": [
+                          {
+                            "@name": "whatever",
+                            "@value": 456
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 20, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "AWithMaterial",
+                            "-material": { "ProtoInstance":
+                              {
+                                "@name": "RedMaterial"
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 2
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "AWithMaterial"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 50, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "ProtoInstance":
+                        {
+                          "@name": "RedMaterial"
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 0.5
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:26 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+          }
+        },
+        { "Sound":
+          {
+            "@DEF": "TheSound",
+            "@location": [ 1.02, 0, 0 ],
+            "@maxFront": 30,
+            "-source": { "AudioClip":
+              {
+                "@url": [
+                  "intro_music_mono.ogg"
+                ],
+                "@pitch": 0.5,
+                "@loop": true
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "TheTransform",
+            "@translation": [ 1.02, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "LocationTimer",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "LocationInterp",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              -5, 0, 0,
+              5, 0, 0,
+              -5, 0, 0
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "LocationTimer",
+            "@fromField": "fraction_changed",
+            "@toNode": "LocationInterp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "LocationInterp",
+            "@fromField": "value_changed",
+            "@toNode": "TheSound",
+            "@toField": "set_location"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "LocationInterp",
+            "@fromField": "value_changed",
+            "@toNode": "TheTransform",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

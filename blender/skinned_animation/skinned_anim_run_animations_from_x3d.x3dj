@@ -1,0 +1,152 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:49 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Inline":
+          {
+            "@DEF": "InlinedAnimations",
+            "@global": true,
+            "@url": [
+              "skinned_anim.glb"
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 10
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 10, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click this text to jump"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "TouchJump",
+                  "@description": "Click to jump"
+                }
+              }
+            ]
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 12, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click this text to walk"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "TouchWalk",
+                  "@description": "Click to walk"
+                }
+              }
+            ]
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "InlinedAnimations",
+            "@importedDEF": "walk"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "InlinedAnimations",
+            "@importedDEF": "jump"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchJump",
+            "@fromField": "touchTime",
+            "@toNode": "jump",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchWalk",
+            "@fromField": "touchTime",
+            "@toNode": "walk",
+            "@toField": "set_startTime"
+          }
+        }
+      ]
+    }
+  }
+}

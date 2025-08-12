@@ -1,0 +1,311 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:18:28 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Group":
+                {
+                  "@DEF": "RenderBefore",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@emissiveColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedLineSet":
+                          {
+                            "@coordIndex": [
+                              0,
+                              1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@point": [
+                                  0, -2, 0,
+                                  0, 2, 0
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, -1, 0 ],
+                        "-children": [
+                          { "Group":
+                            {
+                              "@DEF": "Krzyzyk",
+                              "-children": [
+                                { "Shape":
+                                  {
+                                    "-appearance": { "Appearance":
+                                      {
+                                        "-material": { "Material":
+                                          {
+                                            "@emissiveColor": [ 0, 0, 1 ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "-geometry": { "IndexedLineSet":
+                                      {
+                                        "@coordIndex": [
+                                          0,
+                                          1,
+                                          -1,
+                                          2,
+                                          3
+                                        ],
+                                        "-coord": { "Coordinate":
+                                          {
+                                            "@DEF": "KrzyzykCoord",
+                                            "@point": [
+                                              -2, 0, 0,
+                                              2, 0, 0,
+                                              0, 0, -2,
+                                              0, 0, 2
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                { "Shape":
+                                  {
+                                    "-appearance": { "Appearance":
+                                      {
+                                        "-material": { "Material":
+                                          {
+                                            "@emissiveColor": [ 1, 1, 1 ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "-geometry": { "PointSet":
+                                      {
+                                        "-coord": { "Coordinate":
+                                          {
+                                            "@USE": "KrzyzykCoord"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 1, 0 ],
+                        "-children": [
+                          { "Group":
+                            {
+                              "@USE": "Krzyzyk"
+                            }
+                          },
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 0, 0 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "We are above... I hope so"
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@size": 0.5
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Cylinder":
+                    {
+                      "@DEF": "cyl1"
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 5, 0, 0 ],
+                  "-children": [
+                    { "Group":
+                      {
+                        "@USE": "RenderBefore"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cone":
+                          {
+                            "@DEF": "cone1",
+                            "@side": false
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 10, 0, 0 ],
+                  "-children": [
+                    { "Group":
+                      {
+                        "@USE": "RenderBefore"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cone":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 15, 0, 0 ],
+                  "-children": [
+                    { "Group":
+                      {
+                        "@USE": "RenderBefore"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                            "@side": false
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "WorldInfo":
+                {
+                  "@info": [
+                    "blah blah;\n      this is a test of string reading. In VRML, string can occupy multiple\n      lines (because #13 and #10 chars are just normal characters inside string).\n      String in VRML is enclosed by \" chars, like : \"I'm a string\".\n\n      If you want to write \" literally in string you have to use backslash,\n      like \"This is a quote : \\\"\" (this string means This is a quote : \").\n\n      If you want to write \\ in the string, you have to write two :\n      \"This is a backslash : \\\\\" (that string means This is a backslash : \\).\n\n      Windows users that want to write paths in Texture2.filename or WWWInline.name\n      fields should be careful : every backslash must be doubled, like\n      \"c:\\\\myfiles\\\\whatever.wrl\". But you can also use slashes \"/\"\n      in paths, Windows allows this."
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

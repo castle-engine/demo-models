@@ -1,0 +1,149 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:18 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"TesselatedPlane",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "../prototypes/tesselated_plane.wrl#TesselatedPlane"
+            ]
+          }
+        },
+        null,
+        { "Transform":
+          {
+            "@translation": [ 24.79192, -0.7671794, 24.29511 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.926626265048981, 0.31385737657547, -0.20701989531517, 1.60504865646362 ]
+                }
+              }
+            ]
+          }
+        },
+        { "SpotLight":
+          {
+            "@DEF": "MySpot",
+            "@location": [ -0, 0, 3 ],
+            "@direction": [ 0.5, 0.5, -1 ],
+            "@beamWidth": 1.5708,
+            "@cutOffAngle": 0.785398
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                },
+                "-texture": { "ImageTexture":
+                  {
+                    "@DEF": "Tex",
+                    "@url": [
+                      "../textures/test_texture.png"
+                    ],
+                    "@repeatS": false,
+                    "@repeatT": false
+                  }
+                }
+              }
+            },
+            "-geometry": { "ProtoInstance":
+              {
+                "@name": "TesselatedPlane",
+                "fieldValue": [
+                  {
+                    "@name": "texCoord",
+                    "-children": [
+                      { "TextureCoordinateGenerator":
+                        {
+                          "@mode": "PROJECTION"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 0, 0 ],
+            "-children": [
+              { "DirectionalLight":
+                {
+                  "@DEF": "MyDir",
+                  "@direction": [ -1, 0, 0 ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@USE": "Tex"
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "TesselatedPlane",
+                      "fieldValue": [
+                        {
+                          "@name": "texCoord",
+                          "-children": [
+                            { "TextureCoordinateGenerator":
+                              {
+                                "@mode": "PROJECTION"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

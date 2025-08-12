@@ -1,0 +1,557 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:16:49 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"Table",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFColor",
+                  "@name": "color",
+                  "@value": [ 1, 1, 0 ]
+                },
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFColor",
+                  "@name": "legColor",
+                  "@value": [ 0, 0, 1 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "ProtoDeclare":
+                  {
+                    "@name":"Leg",
+                    "ProtoInterface": {
+                      "field": [
+                        {
+                          "@accessType": "initializeOnly",
+                          "@type": "SFColor",
+                          "@name": "color",
+                          "@value": [ 1, 1, 0 ]
+                        }
+                      ]
+                    },
+                    "ProtoBody": {
+                      "-children": [
+                        { "Transform":
+                          {
+                            "@scale": [ 0.1, 1, 0.1 ],
+                            "-children": [
+                              { "Shape":
+                                {
+                                  "-appearance": { "Appearance":
+                                    {
+                                      "-material": { "Material":
+                                        {
+                                          "IS": {
+                                            "connect": [
+                                              {
+                                                "@nodeField": "diffuseColor",
+                                                "@protoField": "color"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "-geometry": { "Box":
+                                    {
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "Group":
+                  {
+                    "-children": [
+                      { "Transform":
+                        {
+                          "@translation": [ 1, 0, -1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 1, 0, 1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ -1, 0, -1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ -1, 0, 1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 0, 1, 0 ],
+                          "@scale": [ 1, 0.1, 1 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                    "-material": { "Material":
+                                      {
+                                        "IS": {
+                                          "connect": [
+                                            {
+                                              "@nodeField": "diffuseColor",
+                                              "@protoField": "color"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "-geometry": { "Box":
+                                  {
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"Leg2",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFColor",
+                  "@name": "color",
+                  "@value": [ 1, 1, 0 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "@scale": [ 0.1, 1, 0.1 ],
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-appearance": { "Appearance":
+                            {
+                              "-material": { "Material":
+                                {
+                                  "IS": {
+                                    "connect": [
+                                      {
+                                        "@nodeField": "diffuseColor",
+                                        "@protoField": "color"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "Box":
+                            {
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"Table2",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFColor",
+                  "@name": "color",
+                  "@value": [ 1, 1, 0 ]
+                },
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFColor",
+                  "@name": "legColor",
+                  "@value": [ 0, 0, 1 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Group":
+                  {
+                    "-children": [
+                      { "Transform":
+                        {
+                          "@translation": [ 1, 0, -1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg2",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 1, 0, 1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg2",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ -1, 0, -1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg2",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ -1, 0, 1 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "Leg2",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "color",
+                                      "@protoField": "legColor"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 0, 1, 0 ],
+                          "@scale": [ 1, 0.1, 1 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                    "-material": { "Material":
+                                      {
+                                        "IS": {
+                                          "connect": [
+                                            {
+                                              "@nodeField": "diffuseColor",
+                                              "@protoField": "color"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "-geometry": { "Box":
+                                  {
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Table"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Table",
+                  "fieldValue": [
+                    {
+                      "@name": "color",
+                      "@value": [ 1, 0, 0 ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Table",
+                  "fieldValue": [
+                    {
+                      "@name": "color",
+                      "@value": [ 1, 0, 0 ]
+                    },
+                    {
+                      "@name": "legColor",
+                      "@value": [ 1, 1, 1 ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, -5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "Table2"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 5, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "Table2",
+                        "fieldValue": [
+                          {
+                            "@name": "color",
+                            "@value": [ 1, 0, 0 ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 10, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "Table2",
+                        "fieldValue": [
+                          {
+                            "@name": "color",
+                            "@value": [ 1, 0, 0 ]
+                          },
+                          {
+                            "@name": "legColor",
+                            "@value": [ 1, 1, 1 ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

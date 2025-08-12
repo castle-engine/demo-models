@@ -1,0 +1,279 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:16:42 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"StrawberryGroup",
+            "field": [
+              {
+                "@accessType": "initializeOnly",
+                "@type": "MFNode",
+                "@name": "children"
+              }
+            ],
+            "@url": [
+              "not_existing.wrl",
+              "urn:not_existing",
+              "urn:web3d:vrml97:node:Transform"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"CherryShape",
+            "field": [
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "appearance"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "geometry"
+              }
+            ],
+            "@url": [
+              "urn:web3d:vrml97:node:Shape"
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "StrawberryGroup",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Switch":
+                    {
+                      "-children": [
+                        { "DirectionalLight":
+                          {
+                            "@global": true
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "ProtoInstance":
+                    {
+                      "@name": "CherryShape",
+                      "fieldValue": [
+                        {
+                          "@name": "appearance",
+                          "-children": [
+                            { "Appearance":
+                              {
+                                "-material": { "Material":
+                                  {
+                                  }
+                                },
+                                "-texture": { "ImageTexture":
+                                  {
+                                    "@url": [
+                                      "../textures/crown.png"
+                                    ],
+                                    "@repeatT": false
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@name": "geometry",
+                          "-children": [
+                            { "Cylinder":
+                              {
+                                "@top": false,
+                                "@bottom": false
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  { "Transform":
+                    {
+                      "@translation": [ 0, -2, 0 ],
+                      "-children": [
+                        { "Transform":
+                          {
+                            "@scale": [ 1.2, 2, 1.2 ],
+                            "-children": [
+                              { "ProtoInstance":
+                                {
+                                  "@name": "CherryShape",
+                                  "fieldValue": [
+                                    {
+                                      "@name": "appearance",
+                                      "-children": [
+                                        { "Appearance":
+                                          {
+                                            "-material": { "Material":
+                                              {
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "@name": "geometry",
+                                      "-children": [
+                                        { "Sphere":
+                                          {
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "Transform":
+                          {
+                            "@translation": [ 0.8, 0.4, 0.8 ],
+                            "-children": [
+                              { "ProtoInstance":
+                                {
+                                  "@DEF": "KingsEye",
+                                  "@name": "CherryShape",
+                                  "fieldValue": [
+                                    {
+                                      "@name": "appearance",
+                                      "-children": [
+                                        { "Appearance":
+                                          {
+                                            "-material": { "Material":
+                                              {
+                                                "@diffuseColor": [ 1, 0, 0 ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "@name": "geometry",
+                                      "-children": [
+                                        { "Sphere":
+                                          {
+                                            "@radius": 0.2
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "Transform":
+                          {
+                            "@translation": [ -0.8, 0.4, 0.8 ],
+                            "-children": [
+                              { "ProtoInstance":
+                                {
+                                  "@name": "CherryShape",
+                                  "@USE": "KingsEye"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "Transform":
+                          {
+                            "@DEF": "KingsNose",
+                            "@translation": [ 0, 0, 1.3 ],
+                            "-children": [
+                              { "ProtoInstance":
+                                {
+                                  "@name": "CherryShape",
+                                  "fieldValue": [
+                                    {
+                                      "@name": "appearance",
+                                      "-children": [
+                                        { "Appearance":
+                                          {
+                                            "-material": { "Material":
+                                              {
+                                                "@diffuseColor": [ 0, 0, 1 ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "@name": "geometry",
+                                      "-children": [
+                                        { "Sphere":
+                                          {
+                                            "@radius": 0.4
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,397 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:12 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@DEF": "Col1App",
+                      "@name": "KambiAppearance",
+                      "fieldValue": [
+                        {
+                          "@name": "material",
+                          "-children": [
+                            { "Material":
+                              {
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@name": "texture",
+                          "-children": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/lion.png"
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@name": "normalMap",
+                          "-children": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/lion_normal_height_maps.png"
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@name": "heightMapScale",
+                          "@value": 0.02
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "TriangleSet":
+                    {
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 10, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleFanSet":
+                    {
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "FanSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0.5, 1.5, 0.5,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            0.5, 3.5, 0.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 15, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "TriangleFanSet":
+                    {
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 20, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleStripSet":
+                    {
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "StripSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            1.5, 0.5, 0.5,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            1.5, 2.5, 0.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 25, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  },
+                  "-geometry": { "TriangleStripSet":
+                    {
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 30, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 35, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "ProtoInstance":
+                    {
+                      "@name": "KambiAppearance",
+                      "@USE": "Col1App"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

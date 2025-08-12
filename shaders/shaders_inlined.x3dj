@@ -1,0 +1,142 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:20 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "@DEF": "App",
+                "-texture": { "ImageTexture":
+                  {
+                    "@url": [
+                      "../textures/bricks2.jpg"
+                    ]
+                  }
+                },
+                "-shaders": [
+                  { "ComposedShader":
+                    {
+                      "@language": "GLSL",
+                      "-parts": [
+                        { "ShaderPart":
+                          {
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "\r",
+                              "              uniform mat4 castle_ModelViewMatrix;\r",
+                              "              uniform mat4 castle_ProjectionMatrix;\r",
+                              "              attribute vec4 castle_Vertex;\r",
+                              "              attribute vec4 castle_MultiTexCoord0;\r",
+                              "\r",
+                              "              varying vec4 tex_coord;\r",
+                              "\r",
+                              "              void main(void)\r",
+                              "              {\r",
+                              "                tex_coord = castle_MultiTexCoord0;\r",
+                              "                gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);\r",
+                              "              }\r",
+                              "              "
+                            ]
+                          }
+                        },
+                        { "ShaderPart":
+                          {
+                            "@type": "FRAGMENT",
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "\r",
+                              "              uniform sampler2D tex;\r",
+                              "              varying vec4 tex_coord;\r",
+                              "\r",
+                              "              void main()\r",
+                              "              {\r",
+                              "                vec4 texColor = texture2D(tex, tex_coord.st);\r",
+                              "                gl_FragColor = texColor;\r",
+                              "\r",
+                              "                // do some color modification\r",
+                              "                //gl_FragColor.r = 1.0 - gl_FragColor.r;\r",
+                              "                //gl_FragColor.gb = vec2(0.0, 0.0);\r",
+                              "                gl_FragColor.rgb = pow(gl_FragColor.rgb + vec3(0.1), vec3(4.0));\r",
+                              "              }"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "-geometry": { "Sphere":
+              {
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

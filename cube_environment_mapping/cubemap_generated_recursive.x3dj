@@ -1,0 +1,515 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:22:30 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"ViewportInfo",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "info"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#ViewportInfo"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"EditableTransform",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "children"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "scale"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#EditableTransform"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -2.736825, 2.310148, 3.480566 ],
+            "@orientation": [ -0.209359005093575, -0.976344525814056, -0.0540447756648063, 0.517005503177643 ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@direction": [ 1, 1, 1 ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@direction": [ -1, -1, -1 ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@direction": [ -1, -1, 1 ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@direction": [ 1, 1, -1 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../x3d/test_world.x3d"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -4.119383, 2.124269, -2.697342 ],
+            "@orientation": [ -0.0845913738012313, -0.991505861282349, -0.0987935662269592, 1.73379898071289 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.1,
+              2
+            ],
+            "@speed": 5
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "ViewportInfo",
+            "fieldValue": [
+              {
+                "@name": "info",
+                "@value": [
+                  "Demo of recursive mirror reflections by GeneratedCubeMapTexture.",
+                  "",
+                  "Textures are *not* automatically generated, instead each",
+                  "press of [g] key will trigger one generation pass.",
+                  "By pressing [g] repeatedly you should see how recursive",
+                  "mirror reflections are propagated through the textures.",
+                  "",
+                  "You can edit the world like in dynamic_world.x3dv,",
+                  "so you can move / rotate / scale everything by clicking",
+                  "(hold Shift for rotating, Ctrl for scaling) and dragging.",
+                  "",
+                  "Press key h (help) to hide/show this help text at any time.",
+                  "",
+                  "Note that recursive reflections between two boxes have",
+                  "some \"blind spot\", because opposite boxes faces are",
+                  "positioned exactly analogously to each other. Rotate",
+                  "one of the boxes, even very slightly, to make this \"blind spot\"",
+                  "disappear."
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "ProtoInstance":
+                        {
+                          "@name": "KambiAppearance",
+                          "fieldValue": [
+                            {
+                              "@name": "material",
+                              "-children": [
+                                { "Material":
+                                  {
+                                    "@diffuseColor": [ 1, 1, 1 ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "texture",
+                              "-children": [
+                                { "GeneratedCubeMapTexture":
+                                  {
+                                    "@DEF": "GenTex1",
+                                    "@size": 512
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "-geometry": { "Box":
+                        {
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 2, 2, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "ProtoInstance":
+                        {
+                          "@name": "KambiAppearance",
+                          "fieldValue": [
+                            {
+                              "@name": "material",
+                              "-children": [
+                                { "Material":
+                                  {
+                                    "@diffuseColor": [ 1, 1, 1 ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "texture",
+                              "-children": [
+                                { "GeneratedCubeMapTexture":
+                                  {
+                                    "@DEF": "GenTex2",
+                                    "@size": 512
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "-geometry": { "Box":
+                        {
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -5, 2, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "ProtoInstance":
+                        {
+                          "@name": "KambiAppearance",
+                          "fieldValue": [
+                            {
+                              "@name": "material",
+                              "-children": [
+                                { "Material":
+                                  {
+                                    "@diffuseColor": [ 1, 1, 1 ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "texture",
+                              "-children": [
+                                { "GeneratedCubeMapTexture":
+                                  {
+                                    "@DEF": "GenTex3",
+                                    "@size": 512
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "shadowCaster",
+                              "@value": false
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -1.5, 2, -2.5 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "ProtoInstance":
+                        {
+                          "@name": "KambiAppearance",
+                          "fieldValue": [
+                            {
+                              "@name": "material",
+                              "-children": [
+                                { "Material":
+                                  {
+                                    "@diffuseColor": [ 1, 1, 1 ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "texture",
+                              "-children": [
+                                { "GeneratedCubeMapTexture":
+                                  {
+                                    "@DEF": "GenTex4",
+                                    "@size": 512
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "shadowCaster",
+                              "@value": false
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 1.5, 2, -2.5 ]
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KeyS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFString",
+                "@name": "tex1_update"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFString",
+                "@name": "tex2_update"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFString",
+                "@name": "tex3_update"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFString",
+                "@name": "tex4_update"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  when (value = 'g',\r",
+              "    tex1_update := 'NEXT_FRAME_ONLY';\r",
+              "    tex2_update := 'NEXT_FRAME_ONLY';\r",
+              "    tex3_update := 'NEXT_FRAME_ONLY';\r",
+              "    tex4_update := 'NEXT_FRAME_ONLY'\r",
+              "  )\r",
+              ""
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeyS",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "key_press"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex1_update",
+            "@toNode": "GenTex1",
+            "@toField": "set_update"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex2_update",
+            "@toNode": "GenTex2",
+            "@toField": "set_update"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex3_update",
+            "@toNode": "GenTex3",
+            "@toField": "set_update"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex4_update",
+            "@toNode": "GenTex4",
+            "@toField": "set_update"
+          }
+        }
+      ]
+    }
+  }
+}

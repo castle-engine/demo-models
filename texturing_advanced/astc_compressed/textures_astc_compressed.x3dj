@@ -1,0 +1,112 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:41 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "-diffuseTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "concrete.png.astc"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "-geometry": { "Sphere":
+              {
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "stone_wall_4.png.astc"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "tilable-img_0044.png.astc"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

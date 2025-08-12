@@ -1,0 +1,77 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:27 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "PointLight":
+          {
+            "@location": [ 0.1364749, 2.596213, 6.521912 ]
+          }
+        },
+        { "PointLight":
+          {
+            "@color": [ 1, 1, 0 ],
+            "@intensity": 0.5,
+            "@location": [ -1.847546, 2.173195, 0.3257598 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "1",
+            "@position": [ 2.193998, 2.53365, 0.6781099 ],
+            "@orientation": [ -7.01670558100886e-7, 0.999999940395355, 0, 1.78568375110626 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "2",
+            "@position": [ 2.04757, 2.53365, 1.15289 ],
+            "@orientation": [ -6.44771716906689e-7, 0.999999940395355, 0, 1.47531414031982 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "3",
+            "@position": [ -1.841751, 2.392414, 2.139986 ],
+            "@orientation": [ -0.619470119476318, -0.776415348052979, -0.115911304950714, 0.472966998815537 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "4",
+            "@position": [ -1.841751, 2.392414, 2.139986 ],
+            "@orientation": [ 0.00103860278613865, -0.999998688697815, 0.000922626408282667, 0.369944125413895 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "office.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

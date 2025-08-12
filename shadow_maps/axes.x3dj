@@ -1,0 +1,120 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:36 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "@DEF": "Axes",
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "X_axis",
+                  "@translation": [ 0.5, 0, 0 ],
+                  "@rotation": [ 0, 0, 1, -1.570795 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@ambientIntensity": 0,
+                                "@diffuseColor": [ 0, 0, 0 ],
+                                "@emissiveColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                            "@height": 1,
+                            "@radius": 0.0025
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "Y_axis",
+                  "@translation": [ 0, 0.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@ambientIntensity": 0,
+                                "@diffuseColor": [ 0, 0, 0 ],
+                                "@emissiveColor": [ 0, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                            "@height": 1,
+                            "@radius": 0.0025
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "Z_axis",
+                  "@translation": [ 0, 0, 0.5 ],
+                  "@rotation": [ 1, 0, 0, 1.570795 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@ambientIntensity": 0,
+                                "@diffuseColor": [ 0, 0, 0 ],
+                                "@emissiveColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                            "@height": 1,
+                            "@radius": 0.0025
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

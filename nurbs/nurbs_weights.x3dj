@@ -1,0 +1,182 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:32 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "NURBS",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@emissiveColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "NurbsCurve":
+              {
+                "@tessellation": 40,
+                "@weight": [
+                  1,
+                  0.25,
+                  1,
+                  1,
+                  1
+                ],
+                "-controlPoint": { "Coordinate":
+                  {
+                    "@point": [
+                      -5, 0, 2,
+                      -2.5, 5, 2,
+                      0, 0, 2,
+                      2.5, -5, 2,
+                      5, 0, 2
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@emissiveColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "NurbsCurve":
+              {
+                "@tessellation": 40,
+                "@weight": [
+                  1,
+                  0.25,
+                  1,
+                  1,
+                  1
+                ],
+                "-controlPoint": { "Coordinate":
+                  {
+                    "@point": [
+                      -5, 0, 2,
+                      -0.625, 1.25, 0.5,
+                      0, 0, 2,
+                      2.5, -5, 2,
+                      5, 0, 2
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@emissiveColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "NurbsPatchSurface":
+              {
+                "@uTessellation": 40,
+                "@vTessellation": 40,
+                "@solid": false,
+                "@vOrder": 2,
+                "@uDimension": 5,
+                "@vDimension": 2,
+                "@weight": [
+                  1,
+                  0.25,
+                  1,
+                  1,
+                  1,
+                  1,
+                  0.25,
+                  1,
+                  1,
+                  1
+                ],
+                "-controlPoint": { "Coordinate":
+                  {
+                    "@point": [
+                      -5, 0, 0,
+                      -2.5, 5, 0,
+                      0, 0, 0,
+                      2.5, -5, 0,
+                      5, 0, 0,
+                      -5, 0, 1,
+                      -2.5, 5, 1,
+                      0, 0, 1,
+                      2.5, -5, 1,
+                      5, 0, 1
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -2.5, 5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "S",
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 0.1, 0.1, 0.1 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2.5, -5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "S"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

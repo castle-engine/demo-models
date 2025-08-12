@@ -1,0 +1,118 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:06:20 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Background":
+          {
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0, 0, 4 ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "light",
+            "@translation": [ -0.4208002, 1, 2 ],
+            "-children": [
+              { "PointLight":
+                {
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 0.8, 0.8, 0.8 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 0.02
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+              }
+            },
+            "-geometry": { "Box":
+              {
+              }
+            }
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TS",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "MOVER",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              -2, 1, 2,
+              2, 1, 2,
+              -2, 1, 2
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TS",
+            "@fromField": "fraction_changed",
+            "@toNode": "MOVER",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MOVER",
+            "@fromField": "value_changed",
+            "@toNode": "light",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,597 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:46 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"ViewportInfo",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "info"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#ViewportInfo"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5.6, 1, -4.8 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1, 1, 1 ]
+                    }
+                  }
+                }
+              },
+              { "VisibilitySensor":
+                {
+                  "@DEF": "Vis1",
+                  "@size": [ 1, 1, 1 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 1, -1.3 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 3, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "Box2",
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 1, 1, 1 ]
+                          }
+                        }
+                      }
+                    },
+                    { "VisibilitySensor":
+                      {
+                        "@DEF": "Vis2",
+                        "@size": [ 1, 1, 1 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@USE": "Box2"
+                }
+              },
+              { "VisibilitySensor":
+                {
+                  "@USE": "Vis2"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3.4, 1, 1.9 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -0.5, 0.5, -0.5 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "Box3",
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 1, 1, 1 ]
+                          }
+                        }
+                      }
+                    },
+                    { "VisibilitySensor":
+                      {
+                        "@DEF": "Vis3",
+                        "@size": [ 1, 1, 1 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@USE": "Box3"
+                }
+              },
+              { "VisibilitySensor":
+                {
+                  "@USE": "Vis3"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1, 1, 4 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Box4Transform",
+                  "@translation": [ 0.6520004, 1, 0 ],
+                  "@scale": [ 0.5869999, 0.5869999, 0.5869999 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 1, 1, 1 ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "VisibilitySensor":
+                {
+                  "@DEF": "Vis4",
+                  "@size": [ 0.5869999, 0.5869999, 0.5869999 ],
+                  "@center": [ 0.6520004, 1, 0 ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer4",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "PositionInterpolator4",
+            "@key": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              1, 0, 0,
+              1, 1, 0,
+              0, 1, 0,
+              0, 0, 0
+            ]
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "ScaleInterpolator4",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              1, 1, 1,
+              0.5, 0.5, 0.5,
+              1, 1, 1
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -2, 1, 5.3 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Vis5Transform",
+                  "@translation": [ 0.6520004, 1, 0 ],
+                  "@scale": [ 0.5869999, 0.5869999, 0.5869999 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 1, 1, 1 ]
+                          }
+                        }
+                      }
+                    },
+                    { "VisibilitySensor":
+                      {
+                        "@DEF": "Vis5",
+                        "@size": [ 1, 1, 1 ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer5",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "PositionInterpolator5",
+            "@key": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              1, 0, 0,
+              1, 1, 0,
+              0, 1, 0,
+              0, 0, 0
+            ]
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "ScaleInterpolator5",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              1, 1, 1,
+              0.5, 0.5, 0.5,
+              1, 1, 1
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -5.3, 1, 5.2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1, 1, 1 ]
+                    }
+                  }
+                }
+              },
+              { "VisibilitySensor":
+                {
+                  "@DEF": "Vis6",
+                  "@enabled": false,
+                  "@size": [ 1, 1, 1 ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "MyViewportInfo",
+            "@name": "ViewportInfo"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "VisualizeVisibility",
+            "field": [
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "info"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "visible1"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "visible2"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "visible3"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "visible4"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "visible5"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "visible6"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "recalculateInfo"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "{ Recalculate output 'info' text at initialization, and each time\r",
+              "  some VisibilitySensor sends isActive event. }\r",
+              "function initialize(     time) recalculateInfo := true\r",
+              "function visible1(value, time) recalculateInfo := true\r",
+              "function visible2(value, time) recalculateInfo := true\r",
+              "function visible3(value, time) recalculateInfo := true\r",
+              "function visible4(value, time) recalculateInfo := true\r",
+              "function visible5(value, time) recalculateInfo := true\r",
+              "function visible6(value, time) recalculateInfo := true\r",
+              "\r",
+              "function recalculateInfo(value, time)\r",
+              "  info := array(\r",
+              "    '',\r",
+              "    'Walk close and look at each test chamber,',\r",
+              "    'and notice how VisibilitySensor reports whether',\r",
+              "    'the white box inside is visible:',\r",
+              "    '',\r",
+              "    'Test chambers, as seen from left to right:',\r",
+              "    '- Simple box visible: ' + string(visible1),\r",
+              "    '- Two non-overlapping boxes visible: ' + string(visible2),\r",
+              "    '- Two overlapping boxes visible: ' + string(visible3),\r",
+              "    '- Box with animated center/size: ' + string(visible4),\r",
+              "    '- Box under animated transform: ' + string(visible5),\r",
+              "    '- Box with VisibilitySensor disabled: ' + string(visible6),\r",
+              "    '',\r",
+              "    'Press key h (help) to hide/show this text at any time.'\r",
+              "  )\r",
+              ""
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -5.612966, 1.728904, -5.522793 ],
+            "@orientation": [ 0.0001725890033413, -1, -0.0001429827243555, 1.75813770294189 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ],
+            "@speed": 10
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "visibility_sensor_geometry.x3d"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer4",
+            "@fromField": "fraction_changed",
+            "@toNode": "PositionInterpolator4",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PositionInterpolator4",
+            "@fromField": "value_changed",
+            "@toNode": "Box4Transform",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PositionInterpolator4",
+            "@fromField": "value_changed",
+            "@toNode": "Vis4",
+            "@toField": "set_center"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer4",
+            "@fromField": "fraction_changed",
+            "@toNode": "ScaleInterpolator4",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScaleInterpolator4",
+            "@fromField": "value_changed",
+            "@toNode": "Box4Transform",
+            "@toField": "set_scale"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScaleInterpolator4",
+            "@fromField": "value_changed",
+            "@toNode": "Vis4",
+            "@toField": "set_size"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer5",
+            "@fromField": "fraction_changed",
+            "@toNode": "PositionInterpolator5",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PositionInterpolator5",
+            "@fromField": "value_changed",
+            "@toNode": "Vis5Transform",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer5",
+            "@fromField": "fraction_changed",
+            "@toNode": "ScaleInterpolator5",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScaleInterpolator5",
+            "@fromField": "value_changed",
+            "@toNode": "Vis5Transform",
+            "@toField": "set_scale"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vis1",
+            "@fromField": "isActive",
+            "@toNode": "VisualizeVisibility",
+            "@toField": "set_visible1"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vis2",
+            "@fromField": "isActive",
+            "@toNode": "VisualizeVisibility",
+            "@toField": "set_visible2"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vis3",
+            "@fromField": "isActive",
+            "@toNode": "VisualizeVisibility",
+            "@toField": "set_visible3"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vis4",
+            "@fromField": "isActive",
+            "@toNode": "VisualizeVisibility",
+            "@toField": "set_visible4"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vis5",
+            "@fromField": "isActive",
+            "@toNode": "VisualizeVisibility",
+            "@toField": "set_visible5"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Vis6",
+            "@fromField": "isActive",
+            "@toNode": "VisualizeVisibility",
+            "@toField": "set_visible6"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "VisualizeVisibility",
+            "@fromField": "info",
+            "@toNode": "MyViewportInfo",
+            "@toField": "set_info"
+          }
+        }
+      ]
+    }
+  }
+}

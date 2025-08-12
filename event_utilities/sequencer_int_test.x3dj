@@ -1,0 +1,292 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:22:43 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EventUtilities",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiNavigationInfo",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFFloat",
+                "@name": "avatarSize"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "headlight"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "speed"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "type"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "visibilityLimit"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "isBound"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "timeOriginAtLoad"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
+              "../../www/htdocs/fallback_prototypes.x3dv#KambiNavigationInfo",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3d#KambiNavigationInfo"
+            ]
+          }
+        },
+        { "Switch":
+          {
+            "@DEF": "S",
+            "@whichChoice": 0,
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "0"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "1"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "2"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "3"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "4"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "5"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "6"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "7"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "8"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "9"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "10"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "IntegerSequencer":
+          {
+            "@DEF": "BS",
+            "@key": [
+              0,
+              0.05,
+              0.1,
+              0.15,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8
+            ],
+            "@keyValue": [
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 4,
+            "@loop": true
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "KambiNavigationInfo",
+            "fieldValue": [
+              {
+                "@name": "headlight",
+                "@value": true
+              },
+              {
+                "@name": "type",
+                "@value": [
+                  "FLY",
+                  "ANY"
+                ]
+              },
+              {
+                "@name": "timeOriginAtLoad",
+                "@value": true
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0.305061, 0.199481, 1.836988 ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "BS",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BS",
+            "@fromField": "value_changed",
+            "@toNode": "S",
+            "@toField": "set_whichChoice"
+          }
+        }
+      ]
+    }
+  }
+}

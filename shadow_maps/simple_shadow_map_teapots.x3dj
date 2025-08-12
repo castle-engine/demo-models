@@ -1,0 +1,387 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:08 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"TesselatedPlane",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "../prototypes/tesselated_plane.wrl#TesselatedPlane"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"ShadowMapReceiver",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "simple_shadow_map_receiver.wrl#ShadowMapReceiver"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"EditableTransform",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "children"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "scale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "description"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxPosition"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#EditableTransform"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 13.08631, 0.8104792, 28.41121 ],
+            "@orientation": [ -0.0852522701025009, 0.996095240116119, 0.0229517575353384, 0.528296589851379 ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -4.229355, 3.642751, 15.12952 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.514571189880371, -0.680773019790649, -0.521310389041901, 1.95825815200806 ]
+                }
+              }
+            ]
+          }
+        },
+        null,
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "SpotLight":
+                    {
+                      "@DEF": "MySpot",
+                      "@location": [ 0, 0, 10 ],
+                      "@beamWidth": 1.5708,
+                      "@cutOffAngle": 0.785398
+                    }
+                  },
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "ProtoInstance":
+                        {
+                          "@name": "TesselatedPlane"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "description",
+                "@value": "spot shadow receiver"
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -30, -10 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 30, 10 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "SpotLight":
+                    {
+                      "@DEF": "MySpot2",
+                      "@location": [ 0, 0, 10 ],
+                      "@beamWidth": 1.5708,
+                      "@cutOffAngle": 0.785398
+                    }
+                  },
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "ProtoInstance":
+                        {
+                          "@name": "ShadowMapReceiver"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -20, 0, 0 ]
+              },
+              {
+                "@name": "description",
+                "@value": "spot shadow complicated receiver"
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -30, -10 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 30, 10 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "DirectionalLight":
+                    {
+                      "@DEF": "MyDir"
+                    }
+                  },
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "ProtoInstance":
+                        {
+                          "@name": "TesselatedPlane"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 20, 0, 0 ]
+              },
+              {
+                "@name": "description",
+                "@value": "directional shadow receiver"
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -30, -10 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 30, 10 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 0, 0, 2 ]
+              },
+              {
+                "@name": "description",
+                "@value": "shadow caster middle"
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -30, -10 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 30, 10 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -20, 0, 2 ]
+              },
+              {
+                "@name": "description",
+                "@value": "shadow caster left"
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -30, -10 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 30, 10 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 20, 0, 2 ]
+              },
+              {
+                "@name": "description",
+                "@value": "shadow caster right"
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -30, -10 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 30, 10 ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

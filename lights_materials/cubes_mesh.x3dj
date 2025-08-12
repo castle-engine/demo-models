@@ -1,0 +1,6781 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:15:03 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@avatarSize": [
+              0.25,
+              1.75,
+              0.75
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_511",
+            "@translation": [ -5, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@DEF": "ME_Cube",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@DEF": "MA_Material",
+                                "@ambientIntensity": 0.1666667,
+                                "@specularColor": [ 0.4012008, 0.4012008, 0.4012008 ],
+                                "@shininess": 0.0976563,
+                                "@transparency": 0.3429425
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              4,
+                              7,
+                              6,
+                              5,
+                              -1,
+                              0,
+                              4,
+                              5,
+                              1,
+                              -1,
+                              1,
+                              5,
+                              6,
+                              2,
+                              -1,
+                              2,
+                              6,
+                              7,
+                              3,
+                              -1,
+                              4,
+                              0,
+                              3,
+                              7,
+                              -1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@DEF": "coord_Cube",
+                                "@point": [
+                                  1, -1, -0.9999999,
+                                  1, -1, 1,
+                                  -1, -1, 0.9999998,
+                                  -0.9999996, -1, -1,
+                                  1, 1, -0.9999995,
+                                  0.9999993, 1, 1.000001,
+                                  -1, 1, 0.9999996,
+                                  -0.9999999, 1, -1
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_510",
+            "@translation": [ -15, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_509",
+            "@translation": [ -25, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_508",
+            "@translation": [ -35, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_507",
+            "@translation": [ -35, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_506",
+            "@translation": [ -25, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_505",
+            "@translation": [ -15, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_504",
+            "@translation": [ -5, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_503",
+            "@translation": [ -5, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_502",
+            "@translation": [ -15, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_501",
+            "@translation": [ -25, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_500",
+            "@translation": [ -35, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_499",
+            "@translation": [ -35, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_498",
+            "@translation": [ -25, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_497",
+            "@translation": [ -15, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_496",
+            "@translation": [ -5, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_495",
+            "@translation": [ -5, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_494",
+            "@translation": [ -15, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_493",
+            "@translation": [ -25, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_492",
+            "@translation": [ -35, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_491",
+            "@translation": [ -35, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_490",
+            "@translation": [ -25, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_489",
+            "@translation": [ -15, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_488",
+            "@translation": [ -5, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_487",
+            "@translation": [ -5, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_486",
+            "@translation": [ -15, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_485",
+            "@translation": [ -25, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_484",
+            "@translation": [ -35, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_483",
+            "@translation": [ -35, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_482",
+            "@translation": [ -25, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_481",
+            "@translation": [ -15, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_480",
+            "@translation": [ -5, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_479",
+            "@translation": [ -5, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_478",
+            "@translation": [ -15, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_477",
+            "@translation": [ -25, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_476",
+            "@translation": [ -35, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_475",
+            "@translation": [ -35, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_474",
+            "@translation": [ -25, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_473",
+            "@translation": [ -15, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_472",
+            "@translation": [ -5, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_471",
+            "@translation": [ -5, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_470",
+            "@translation": [ -15, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_469",
+            "@translation": [ -25, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_468",
+            "@translation": [ -35, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_467",
+            "@translation": [ -35, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_466",
+            "@translation": [ -25, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_465",
+            "@translation": [ -15, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_464",
+            "@translation": [ -5, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_463",
+            "@translation": [ -5, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_462",
+            "@translation": [ -15, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_461",
+            "@translation": [ -25, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_460",
+            "@translation": [ -35, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_459",
+            "@translation": [ -35, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_458",
+            "@translation": [ -25, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_457",
+            "@translation": [ -15, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_456",
+            "@translation": [ -5, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_455",
+            "@translation": [ -5, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_454",
+            "@translation": [ -15, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_453",
+            "@translation": [ -25, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_452",
+            "@translation": [ -35, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_451",
+            "@translation": [ -35, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_450",
+            "@translation": [ -25, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_449",
+            "@translation": [ -15, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_448",
+            "@translation": [ -5, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_447",
+            "@translation": [ -5, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_446",
+            "@translation": [ -15, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_445",
+            "@translation": [ -25, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_444",
+            "@translation": [ -35, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_443",
+            "@translation": [ -35, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_442",
+            "@translation": [ -25, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_441",
+            "@translation": [ -15, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_440",
+            "@translation": [ -5, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_439",
+            "@translation": [ -5, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_438",
+            "@translation": [ -15, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_437",
+            "@translation": [ -25, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_436",
+            "@translation": [ -35, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_435",
+            "@translation": [ -35, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_434",
+            "@translation": [ -25, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_433",
+            "@translation": [ -15, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_432",
+            "@translation": [ -5, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_431",
+            "@translation": [ -5, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_430",
+            "@translation": [ -15, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_429",
+            "@translation": [ -25, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_428",
+            "@translation": [ -35, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_427",
+            "@translation": [ -35, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_426",
+            "@translation": [ -25, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_425",
+            "@translation": [ -15, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_424",
+            "@translation": [ -5, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_423",
+            "@translation": [ -5, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_422",
+            "@translation": [ -15, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_421",
+            "@translation": [ -25, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_420",
+            "@translation": [ -35, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_419",
+            "@translation": [ -35, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_418",
+            "@translation": [ -25, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_417",
+            "@translation": [ -15, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_416",
+            "@translation": [ -5, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_415",
+            "@translation": [ -5, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_414",
+            "@translation": [ -15, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_413",
+            "@translation": [ -25, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_412",
+            "@translation": [ -35, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_411",
+            "@translation": [ -35, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_410",
+            "@translation": [ -25, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_409",
+            "@translation": [ -15, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_408",
+            "@translation": [ -5, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_407",
+            "@translation": [ -5, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_406",
+            "@translation": [ -15, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_405",
+            "@translation": [ -25, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_404",
+            "@translation": [ -35, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_403",
+            "@translation": [ -35, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_402",
+            "@translation": [ -25, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_401",
+            "@translation": [ -15, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_400",
+            "@translation": [ -5, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_399",
+            "@translation": [ -5, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_398",
+            "@translation": [ -15, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_397",
+            "@translation": [ -25, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_396",
+            "@translation": [ -35, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_395",
+            "@translation": [ -35, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_394",
+            "@translation": [ -25, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_393",
+            "@translation": [ -15, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_392",
+            "@translation": [ -5, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_391",
+            "@translation": [ -5, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_390",
+            "@translation": [ -15, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_389",
+            "@translation": [ -25, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_388",
+            "@translation": [ -35, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_387",
+            "@translation": [ -35, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_386",
+            "@translation": [ -25, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_385",
+            "@translation": [ -15, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_384",
+            "@translation": [ -5, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_383",
+            "@translation": [ 35, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_382",
+            "@translation": [ 25, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_381",
+            "@translation": [ 15, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_380",
+            "@translation": [ 5, 5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_379",
+            "@translation": [ 5, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_378",
+            "@translation": [ 15, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_377",
+            "@translation": [ 25, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_376",
+            "@translation": [ 35, 5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_375",
+            "@translation": [ 35, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_374",
+            "@translation": [ 25, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_373",
+            "@translation": [ 15, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_372",
+            "@translation": [ 5, 5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_371",
+            "@translation": [ 5, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_370",
+            "@translation": [ 15, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_369",
+            "@translation": [ 25, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_368",
+            "@translation": [ 35, 5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_367",
+            "@translation": [ 35, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_366",
+            "@translation": [ 25, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_365",
+            "@translation": [ 15, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_364",
+            "@translation": [ 5, 15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_363",
+            "@translation": [ 5, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_362",
+            "@translation": [ 15, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_361",
+            "@translation": [ 25, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_360",
+            "@translation": [ 35, 15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_359",
+            "@translation": [ 35, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_358",
+            "@translation": [ 25, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_357",
+            "@translation": [ 15, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_356",
+            "@translation": [ 5, 15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_355",
+            "@translation": [ 5, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_354",
+            "@translation": [ 15, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_353",
+            "@translation": [ 25, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_352",
+            "@translation": [ 35, 15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_351",
+            "@translation": [ 35, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_350",
+            "@translation": [ 25, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_349",
+            "@translation": [ 15, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_348",
+            "@translation": [ 5, 25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_347",
+            "@translation": [ 5, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_346",
+            "@translation": [ 15, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_345",
+            "@translation": [ 25, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_344",
+            "@translation": [ 35, 25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_343",
+            "@translation": [ 35, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_342",
+            "@translation": [ 25, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_341",
+            "@translation": [ 15, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_340",
+            "@translation": [ 5, 25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_339",
+            "@translation": [ 5, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_338",
+            "@translation": [ 15, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_337",
+            "@translation": [ 25, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_336",
+            "@translation": [ 35, 25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_335",
+            "@translation": [ 35, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_334",
+            "@translation": [ 25, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_333",
+            "@translation": [ 15, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_332",
+            "@translation": [ 5, 35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_331",
+            "@translation": [ 5, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_330",
+            "@translation": [ 15, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_329",
+            "@translation": [ 25, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_328",
+            "@translation": [ 35, 35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_327",
+            "@translation": [ 35, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_326",
+            "@translation": [ 25, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_325",
+            "@translation": [ 15, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_324",
+            "@translation": [ 5, 35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_323",
+            "@translation": [ 5, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_322",
+            "@translation": [ 15, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_321",
+            "@translation": [ 25, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_320",
+            "@translation": [ 35, 35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_319",
+            "@translation": [ 35, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_318",
+            "@translation": [ 25, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_317",
+            "@translation": [ 15, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_316",
+            "@translation": [ 5, 35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_315",
+            "@translation": [ 5, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_314",
+            "@translation": [ 15, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_313",
+            "@translation": [ 25, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_312",
+            "@translation": [ 35, 35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_311",
+            "@translation": [ 35, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_310",
+            "@translation": [ 25, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_309",
+            "@translation": [ 15, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_308",
+            "@translation": [ 5, 35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_307",
+            "@translation": [ 5, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_306",
+            "@translation": [ 15, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_305",
+            "@translation": [ 25, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_304",
+            "@translation": [ 35, 35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_303",
+            "@translation": [ 35, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_302",
+            "@translation": [ 25, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_301",
+            "@translation": [ 15, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_300",
+            "@translation": [ 5, 25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_299",
+            "@translation": [ 5, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_298",
+            "@translation": [ 15, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_297",
+            "@translation": [ 25, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_296",
+            "@translation": [ 35, 25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_295",
+            "@translation": [ 35, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_294",
+            "@translation": [ 25, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_293",
+            "@translation": [ 15, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_292",
+            "@translation": [ 5, 25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_291",
+            "@translation": [ 5, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_290",
+            "@translation": [ 15, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_289",
+            "@translation": [ 25, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_288",
+            "@translation": [ 35, 25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_287",
+            "@translation": [ 35, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_286",
+            "@translation": [ 25, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_285",
+            "@translation": [ 15, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_284",
+            "@translation": [ 5, 15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_283",
+            "@translation": [ 5, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_282",
+            "@translation": [ 15, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_281",
+            "@translation": [ 25, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_280",
+            "@translation": [ 35, 15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_279",
+            "@translation": [ 35, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_278",
+            "@translation": [ 25, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_277",
+            "@translation": [ 15, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_276",
+            "@translation": [ 5, 15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_275",
+            "@translation": [ 5, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_274",
+            "@translation": [ 15, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_273",
+            "@translation": [ 25, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_272",
+            "@translation": [ 35, 15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_271",
+            "@translation": [ 35, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_270",
+            "@translation": [ 25, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_269",
+            "@translation": [ 15, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_268",
+            "@translation": [ 5, 5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_267",
+            "@translation": [ 5, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_266",
+            "@translation": [ 15, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_265",
+            "@translation": [ 25, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_264",
+            "@translation": [ 35, 5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_263",
+            "@translation": [ 35, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_262",
+            "@translation": [ 25, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_261",
+            "@translation": [ 15, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_260",
+            "@translation": [ 5, 5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_259",
+            "@translation": [ 5, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_258",
+            "@translation": [ 15, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_257",
+            "@translation": [ 25, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_256",
+            "@translation": [ 35, 5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_255",
+            "@translation": [ 35, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_254",
+            "@translation": [ 25, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_253",
+            "@translation": [ 15, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_252",
+            "@translation": [ 5, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_251",
+            "@translation": [ 5, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_250",
+            "@translation": [ 15, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_249",
+            "@translation": [ 25, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_248",
+            "@translation": [ 35, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_247",
+            "@translation": [ 35, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_246",
+            "@translation": [ 25, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_245",
+            "@translation": [ 15, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_244",
+            "@translation": [ 5, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_243",
+            "@translation": [ 5, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_242",
+            "@translation": [ 15, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_241",
+            "@translation": [ 25, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_240",
+            "@translation": [ 35, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_239",
+            "@translation": [ 35, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_238",
+            "@translation": [ 25, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_237",
+            "@translation": [ 15, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_236",
+            "@translation": [ 5, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_235",
+            "@translation": [ 5, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_234",
+            "@translation": [ 15, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_233",
+            "@translation": [ 25, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_232",
+            "@translation": [ 35, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_231",
+            "@translation": [ 35, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_230",
+            "@translation": [ 25, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_229",
+            "@translation": [ 15, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_228",
+            "@translation": [ 5, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_227",
+            "@translation": [ 5, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_226",
+            "@translation": [ 15, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_225",
+            "@translation": [ 25, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_224",
+            "@translation": [ 35, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_223",
+            "@translation": [ 35, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_222",
+            "@translation": [ 25, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_221",
+            "@translation": [ 15, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_220",
+            "@translation": [ 5, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_219",
+            "@translation": [ 5, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_218",
+            "@translation": [ 15, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_217",
+            "@translation": [ 25, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_216",
+            "@translation": [ 35, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_215",
+            "@translation": [ 35, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_214",
+            "@translation": [ 25, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_213",
+            "@translation": [ 15, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_212",
+            "@translation": [ 5, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_211",
+            "@translation": [ 5, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_210",
+            "@translation": [ 15, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_209",
+            "@translation": [ 25, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_208",
+            "@translation": [ 35, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_207",
+            "@translation": [ 35, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_206",
+            "@translation": [ 25, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_205",
+            "@translation": [ 15, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_204",
+            "@translation": [ 5, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_203",
+            "@translation": [ 5, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_202",
+            "@translation": [ 15, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_201",
+            "@translation": [ 25, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_200",
+            "@translation": [ 35, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_199",
+            "@translation": [ 35, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_198",
+            "@translation": [ 25, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_197",
+            "@translation": [ 15, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_196",
+            "@translation": [ 5, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_195",
+            "@translation": [ 5, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_194",
+            "@translation": [ 15, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_193",
+            "@translation": [ 25, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_192",
+            "@translation": [ 35, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_191",
+            "@translation": [ 35, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_190",
+            "@translation": [ 25, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_189",
+            "@translation": [ 15, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_188",
+            "@translation": [ 5, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_187",
+            "@translation": [ 5, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_186",
+            "@translation": [ 15, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_185",
+            "@translation": [ 25, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_184",
+            "@translation": [ 35, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_183",
+            "@translation": [ 35, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_182",
+            "@translation": [ 25, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_181",
+            "@translation": [ 15, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_180",
+            "@translation": [ 5, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_179",
+            "@translation": [ 5, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_178",
+            "@translation": [ 15, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_177",
+            "@translation": [ 25, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_176",
+            "@translation": [ 35, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_175",
+            "@translation": [ 35, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_174",
+            "@translation": [ 25, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_173",
+            "@translation": [ 15, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_172",
+            "@translation": [ 5, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_171",
+            "@translation": [ 5, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_170",
+            "@translation": [ 15, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_169",
+            "@translation": [ 25, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_168",
+            "@translation": [ 35, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_167",
+            "@translation": [ 35, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_166",
+            "@translation": [ 25, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_165",
+            "@translation": [ 15, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_164",
+            "@translation": [ 5, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_163",
+            "@translation": [ 5, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_162",
+            "@translation": [ 15, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_161",
+            "@translation": [ 25, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_160",
+            "@translation": [ 35, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_159",
+            "@translation": [ 35, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_158",
+            "@translation": [ 25, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_157",
+            "@translation": [ 15, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_156",
+            "@translation": [ 5, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_155",
+            "@translation": [ 5, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_154",
+            "@translation": [ 15, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_153",
+            "@translation": [ 25, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_152",
+            "@translation": [ 35, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_151",
+            "@translation": [ 35, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_150",
+            "@translation": [ 25, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_149",
+            "@translation": [ 15, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_148",
+            "@translation": [ 5, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_147",
+            "@translation": [ 5, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_146",
+            "@translation": [ 15, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_145",
+            "@translation": [ 25, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_144",
+            "@translation": [ 35, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_143",
+            "@translation": [ 35, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_142",
+            "@translation": [ 25, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_141",
+            "@translation": [ 15, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_140",
+            "@translation": [ 5, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_139",
+            "@translation": [ 5, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_138",
+            "@translation": [ 15, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_137",
+            "@translation": [ 25, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_136",
+            "@translation": [ 35, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_135",
+            "@translation": [ 35, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_134",
+            "@translation": [ 25, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_133",
+            "@translation": [ 15, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_132",
+            "@translation": [ 5, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_131",
+            "@translation": [ 5, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_130",
+            "@translation": [ 15, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_129",
+            "@translation": [ 25, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_128",
+            "@translation": [ 35, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_127",
+            "@translation": [ -5, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_126",
+            "@translation": [ -15, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_125",
+            "@translation": [ -25, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_124",
+            "@translation": [ -35, -35, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_123",
+            "@translation": [ -35, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_122",
+            "@translation": [ -25, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_121",
+            "@translation": [ -15, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_120",
+            "@translation": [ -5, -35, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_119",
+            "@translation": [ -5, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_118",
+            "@translation": [ -15, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_117",
+            "@translation": [ -25, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_116",
+            "@translation": [ -35, -35, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_115",
+            "@translation": [ -35, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_114",
+            "@translation": [ -25, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_113",
+            "@translation": [ -15, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_112",
+            "@translation": [ -5, -35, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_111",
+            "@translation": [ -5, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_110",
+            "@translation": [ -15, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_109",
+            "@translation": [ -25, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_108",
+            "@translation": [ -35, -25, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_107",
+            "@translation": [ -35, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_106",
+            "@translation": [ -25, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_105",
+            "@translation": [ -15, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_104",
+            "@translation": [ -5, -25, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_103",
+            "@translation": [ -5, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_102",
+            "@translation": [ -15, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_101",
+            "@translation": [ -25, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_100",
+            "@translation": [ -35, -25, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_099",
+            "@translation": [ -35, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_098",
+            "@translation": [ -25, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_097",
+            "@translation": [ -15, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_096",
+            "@translation": [ -5, -25, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_095",
+            "@translation": [ -5, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_094",
+            "@translation": [ -15, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_093",
+            "@translation": [ -25, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_092",
+            "@translation": [ -35, -15, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_091",
+            "@translation": [ -35, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_090",
+            "@translation": [ -25, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_089",
+            "@translation": [ -15, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_088",
+            "@translation": [ -5, -15, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_087",
+            "@translation": [ -5, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_086",
+            "@translation": [ -15, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_085",
+            "@translation": [ -25, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_084",
+            "@translation": [ -35, -15, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_083",
+            "@translation": [ -35, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_082",
+            "@translation": [ -25, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_081",
+            "@translation": [ -15, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_080",
+            "@translation": [ -5, -15, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_079",
+            "@translation": [ -5, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_078",
+            "@translation": [ -15, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_077",
+            "@translation": [ -25, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_076",
+            "@translation": [ -35, -5, 5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_075",
+            "@translation": [ -35, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_074",
+            "@translation": [ -25, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_073",
+            "@translation": [ -15, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_072",
+            "@translation": [ -5, -5, 15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_071",
+            "@translation": [ -5, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_070",
+            "@translation": [ -15, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_069",
+            "@translation": [ -25, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_068",
+            "@translation": [ -35, -5, 25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_067",
+            "@translation": [ -35, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_066",
+            "@translation": [ -25, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_065",
+            "@translation": [ -15, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_064",
+            "@translation": [ -5, -5, 35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_063",
+            "@translation": [ -5, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_062",
+            "@translation": [ -15, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_061",
+            "@translation": [ -25, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_060",
+            "@translation": [ -35, -5, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_059",
+            "@translation": [ -35, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_058",
+            "@translation": [ -25, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_057",
+            "@translation": [ -15, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_056",
+            "@translation": [ -5, -5, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_055",
+            "@translation": [ -5, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_054",
+            "@translation": [ -15, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_053",
+            "@translation": [ -25, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_052",
+            "@translation": [ -35, -5, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_051",
+            "@translation": [ -35, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_050",
+            "@translation": [ -25, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_049",
+            "@translation": [ -15, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_048",
+            "@translation": [ -5, -5, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_047",
+            "@translation": [ -5, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_046",
+            "@translation": [ -15, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_045",
+            "@translation": [ -25, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_044",
+            "@translation": [ -35, -15, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_043",
+            "@translation": [ -35, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_042",
+            "@translation": [ -25, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_041",
+            "@translation": [ -15, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_040",
+            "@translation": [ -5, -15, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_039",
+            "@translation": [ -5, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_038",
+            "@translation": [ -15, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_037",
+            "@translation": [ -25, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_036",
+            "@translation": [ -35, -15, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_035",
+            "@translation": [ -35, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_034",
+            "@translation": [ -25, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_033",
+            "@translation": [ -15, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_032",
+            "@translation": [ -5, -15, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_031",
+            "@translation": [ -5, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_030",
+            "@translation": [ -15, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_029",
+            "@translation": [ -25, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_028",
+            "@translation": [ -35, -25, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_027",
+            "@translation": [ -35, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_026",
+            "@translation": [ -25, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_025",
+            "@translation": [ -15, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_024",
+            "@translation": [ -5, -25, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_023",
+            "@translation": [ -5, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_022",
+            "@translation": [ -15, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_021",
+            "@translation": [ -25, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_020",
+            "@translation": [ -35, -25, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_019",
+            "@translation": [ -35, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_018",
+            "@translation": [ -25, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_017",
+            "@translation": [ -15, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_016",
+            "@translation": [ -5, -25, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_015",
+            "@translation": [ -5, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_014",
+            "@translation": [ -15, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_013",
+            "@translation": [ -25, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_012",
+            "@translation": [ -35, -35, -35 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_011",
+            "@translation": [ -35, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_010",
+            "@translation": [ -25, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_009",
+            "@translation": [ -15, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_008",
+            "@translation": [ -5, -35, -25 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_007",
+            "@translation": [ -5, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_006",
+            "@translation": [ -15, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_005",
+            "@translation": [ -25, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_004",
+            "@translation": [ -35, -35, -15 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_003",
+            "@translation": [ -35, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_002",
+            "@translation": [ -25, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube_001",
+            "@translation": [ -15, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "OB_Cube",
+            "@translation": [ -5, -35, -5 ],
+            "-children": [
+              { "Group":
+                {
+                  "@USE": "ME_Cube"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

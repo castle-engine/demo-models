@@ -1,0 +1,207 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:35 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "press 'q' to   bind the 1st background",
+                        "press 'w' to unbind the 1st background"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0.2, 0.2, 0.2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "press 'e' to   bind the 2nd background",
+                        "press 'r' to unbind the 2nd background"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Background":
+          {
+            "@DEF": "Background1",
+            "@frontUrl": [
+              "../skies/sky_lake_back.png"
+            ],
+            "@rightUrl": [
+              "../skies/sky_lake_left.png"
+            ],
+            "@skyAngle": [
+              0.8,
+              2,
+              2.5,
+              2.6,
+              2.7,
+              2.8,
+              2.9
+            ],
+            "@skyColor": [
+              1, 0, 0,
+              1, 1, 0,
+              0, 1, 0,
+              0, 0, 1,
+              1, 1, 1,
+              0, 0, 0,
+              1, 1, 1,
+              0, 0, 0
+            ],
+            "@groundAngle": [
+              1
+            ],
+            "@groundColor": [
+              0, 0.5, 0,
+              0, 0.25, 0.25
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "Background":
+                {
+                  "@DEF": "Background2",
+                  "@frontUrl": [
+                    "../skies/sky_red_front.png"
+                  ],
+                  "@backUrl": [
+                    "../skies/sky_red_back.png"
+                  ],
+                  "@leftUrl": [
+                    "../skies/sky_red_left.png"
+                  ],
+                  "@rightUrl": [
+                    "../skies/sky_red_right.png"
+                  ],
+                  "@topUrl": [
+                    "../skies/sky_red_top.png"
+                  ],
+                  "@bottomUrl": [
+                    "../skies/sky_red_bottom.png"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind1"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind2"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "    function keyPress(value, timestamp)\r",
+              "      when (value = 'q', bind1 := true);\r",
+              "      when (value = 'w', bind1 := false);\r",
+              "      when (value = 'e', bind2 := true);\r",
+              "      when (value = 'r', bind2 := false)"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "keyPress",
+            "@toNode": "MyScript",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind1",
+            "@toNode": "Background1",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind2",
+            "@toNode": "Background2",
+            "@toField": "set_bind"
+          }
+        }
+      ]
+    }
+  }
+}

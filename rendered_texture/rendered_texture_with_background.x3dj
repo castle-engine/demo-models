@@ -1,0 +1,84 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:20 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Background":
+          {
+            "@frontUrl": [
+              "../skies/sky_lake_front.png"
+            ],
+            "@backUrl": [
+              "../skies/sky_lake_back.png"
+            ],
+            "@leftUrl": [
+              "../skies/sky_lake_left.png"
+            ],
+            "@rightUrl": [
+              "../skies/sky_lake_right.png"
+            ],
+            "@topUrl": [
+              "../skies/sky_lake_top.png"
+            ],
+            "@bottomUrl": [
+              "../skies/sky_lake_bottom.png"
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 1, 1, 0 ]
+                  }
+                },
+                "-texture": { "GeneratedCubeMapTexture":
+                  {
+                    "@update": "ALWAYS",
+                    "@size": 1024
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

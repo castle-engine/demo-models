@@ -1,0 +1,375 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:05 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@solid": false,
+                "@convex": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1
+                ],
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      -1, 0, 0,
+                      0, 1, 0,
+                      1, -1, 0,
+                      0, 0, 0,
+                      -1, 0, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        4,
+                        1,
+                        0,
+                        2,
+                        3,
+                        0,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            -1, 0, 0,
+                            0, 1, 0,
+                            1, 0, 0,
+                            0, -1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0.5, 0,
+                            2.5, 0.5, 0,
+                            2.5, 1.85, 0,
+                            2.85, 1.85, 0,
+                            2.85, 0.15, 0,
+                            0, 0.15, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0.5, 0,
+                            2.5, 0.5, 0,
+                            2.5, 0.5, 0,
+                            2.5, 0.5, 0,
+                            2.5, 0.5, 0,
+                            2.5, 1.85, 0,
+                            2.85, 1.85, 0,
+                            2.85, 0.15, 0,
+                            0, 0.15, 0,
+                            0, 0.15, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            0.25, 0.25, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            1, 0, 0,
+                            0.25, 0.25, 0,
+                            0, 1, 0,
+                            0, 0, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0.25, 0.25, 0,
+                            0, 1, 0,
+                            0, 0, 0,
+                            1, 0, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@convex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 1, 0,
+                            0, 0, 0,
+                            1, 0, 0,
+                            0.25, 0.25, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

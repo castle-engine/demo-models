@@ -1,0 +1,188 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:21 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ]
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@description": "same as next one, but with fixed gravityUp",
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Viewpoint":
+                {
+                  "@position": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@orientation": [ 1, 0, 0, 1.57114160060883 ]
+                }
+              },
+              { "Viewpoint":
+                {
+                  "@description": "0 0 0 viewpoint",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ 1, 0, 0, 1.57114160060883 ]
+                }
+              },
+              { "Viewpoint":
+                {
+                  "@DEF": "V1",
+                  "@description": "Some viewpoint on position 1,1,1",
+                  "@position": [ 1, 1, 1 ],
+                  "@orientation": [ 1, 0, 0, 1.57114160060883 ]
+                }
+              },
+              { "Viewpoint":
+                {
+                  "@description": "Yet another viewpoint on z = 10\r\nwith a dummy descriptio, that is very long and\r\nspans multiple lines. VRML browser should still show a sensible\r\nUI for this viewpoint, right ?\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\nMore text... More text... More text... More text... More text... More text...\r\n",
+                  "@position": [ 1, 1, 10 ],
+                  "@orientation": [ 1, 0, 0, 1.57114160060883 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 10, 10, 10 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@description": "translated viewpoint",
+                        "@position": [ 2, 2, 2 ],
+                        "@orientation": [ 1, 0, 0, 1.57114160060883 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ViewpointGroup":
+                {
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@USE": "V1"
+                      }
+                    },
+                    { "Viewpoint":
+                      {
+                        "@USE": "V1"
+                      }
+                    },
+                    { "Viewpoint":
+                      {
+                        "@USE": "V1"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ViewpointGroup":
+                {
+                  "@DEF": "SampleViewpointGroup",
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@description": "sample 0 0 0",
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    },
+                    { "Viewpoint":
+                      {
+                        "@description": "sample 1 1 1",
+                        "@position": [ 1, 1, 1 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ViewpointGroup":
+                {
+                  "@DEF": "SampleViewpointGroup2",
+                  "@description": "Viewpoint group submenu",
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@description": "sample 0 0 0",
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    },
+                    { "Viewpoint":
+                      {
+                        "@description": "sample 1 1 1",
+                        "@position": [ 1, 1, 1 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ViewpointGroup":
+                {
+                  "@DEF": "SampleViewpointGroup3",
+                  "@description": "Viewpoint group submenu",
+                  "@displayed": false,
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@description": "sample 2 2 2",
+                        "@position": [ 2, 2, 2 ]
+                      }
+                    },
+                    { "Viewpoint":
+                      {
+                        "@description": "sample 3 3 3",
+                        "@position": [ 3, 3, 3 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ViewpointGroup":
+                {
+                  "@DEF": "SampleViewpointGroup4",
+                  "@description": "Viewpoint group submenu"
+                }
+              },
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

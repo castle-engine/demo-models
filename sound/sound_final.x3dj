@@ -1,0 +1,525 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:24 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"JukeboxScript",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFTime",
+                  "@name": "touchTime",
+                  "@value": 0
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFTime",
+                  "@name": "startTime",
+                  "@value": 0
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFTime",
+                  "@name": "stopTime",
+                  "@value": 0
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFBool",
+                  "@name": "isActive"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Script":
+                  {
+                    "field": [
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFTime",
+                        "@name": "touchTime"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFTime",
+                        "@name": "startTime"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFTime",
+                        "@name": "stopTime"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFBool",
+                        "@name": "isActive"
+                      }
+                    ],
+                    "#sourceCode": [
+                      "castlescript:\r",
+                      "\r",
+                      "function touchTime(value, timestamp)\r",
+                      "  if (isActive, stopTime := value, startTime := value)\r",
+                      ""
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "touchTime",
+                          "@protoField": "touchTime"
+                        },
+                        {
+                          "@nodeField": "startTime",
+                          "@protoField": "startTime"
+                        },
+                        {
+                          "@nodeField": "stopTime",
+                          "@protoField": "stopTime"
+                        },
+                        {
+                          "@nodeField": "isActive",
+                          "@protoField": "isActive"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4.758579, 4.768372e-7, 2.205687 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.0702559947967529, 0.995051801204681, 0.0702563822269439, 1.57575678825378 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Background":
+          {
+            "@skyColor": [
+              0.0565629, 0.2208154, 0.4
+            ],
+            "@groundColor": [
+              0.0565629, 0.2208154, 0.4
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ],
+            "@avatarSize": [
+              0.1,
+              4
+            ],
+            "@speed": 10,
+            "@headlight": false
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "TransformInline",
+            "@center": [ 5, 0, 0 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@DEF": "TheInline",
+                  "@global": true,
+                  "@url": [
+                    "sound.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "ScriptRightBottom",
+            "@name": "JukeboxScript"
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "ScriptRightTop",
+            "@name": "JukeboxScript"
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "ScriptLeftBottom",
+            "@name": "JukeboxScript"
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "ScriptLeftTop",
+            "@name": "JukeboxScript"
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -2, 0, 1.5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@rotation": [ 1, 0, 0, 1.57 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@rotation": [ 0, 1, 0, 1.57 ],
+                        "-children": [
+                          { "TouchSensor":
+                            {
+                              "@DEF": "RotateTouch"
+                            }
+                          },
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 1, 0 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "Click jukeboxes to play.",
+                                    "Click this text to rotate scene."
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@size": 0.3,
+                                      "@justify": [
+                                        "MIDDLE"
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "RotateTimer",
+            "@cycleInterval": 5
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "RotateOrient",
+            "@key": [
+              0,
+              0.333,
+              0.666,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 1, 0,
+              0, 0, 1, 2.094395102,
+              0, 0, 1, 4.188790205,
+              0, 0, 1, 6.283185307
+            ]
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "TouchRightBottom"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "TouchRightTop"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "TouchLeftBottom"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "TouchLeftTop"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "AudioRightBottom"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "AudioRightTop"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "AudioLeftBottom"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "AudioLeftTop"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "LightRightBottom"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "LightRightTop"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "LightLeftBottom"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "TheInline",
+            "@importedDEF": "LightLeftTop"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchRightBottom",
+            "@fromField": "touchTime",
+            "@toNode": "ScriptRightBottom",
+            "@toField": "set_touchTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchRightTop",
+            "@fromField": "touchTime",
+            "@toNode": "ScriptRightTop",
+            "@toField": "set_touchTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchLeftBottom",
+            "@fromField": "touchTime",
+            "@toNode": "ScriptLeftBottom",
+            "@toField": "set_touchTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchLeftTop",
+            "@fromField": "touchTime",
+            "@toNode": "ScriptLeftTop",
+            "@toField": "set_touchTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptRightBottom",
+            "@fromField": "startTime_changed",
+            "@toNode": "AudioRightBottom",
+            "@toField": "startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptRightTop",
+            "@fromField": "startTime_changed",
+            "@toNode": "AudioRightTop",
+            "@toField": "startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptLeftBottom",
+            "@fromField": "startTime_changed",
+            "@toNode": "AudioLeftBottom",
+            "@toField": "startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptLeftTop",
+            "@fromField": "startTime_changed",
+            "@toNode": "AudioLeftTop",
+            "@toField": "startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptRightBottom",
+            "@fromField": "stopTime_changed",
+            "@toNode": "AudioRightBottom",
+            "@toField": "stopTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptRightTop",
+            "@fromField": "stopTime_changed",
+            "@toNode": "AudioRightTop",
+            "@toField": "stopTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptLeftBottom",
+            "@fromField": "stopTime_changed",
+            "@toNode": "AudioLeftBottom",
+            "@toField": "stopTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptLeftTop",
+            "@fromField": "stopTime_changed",
+            "@toNode": "AudioLeftTop",
+            "@toField": "stopTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioRightBottom",
+            "@fromField": "isActive",
+            "@toNode": "ScriptRightBottom",
+            "@toField": "set_isActive"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioRightTop",
+            "@fromField": "isActive",
+            "@toNode": "ScriptRightTop",
+            "@toField": "set_isActive"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioLeftBottom",
+            "@fromField": "isActive",
+            "@toNode": "ScriptLeftBottom",
+            "@toField": "set_isActive"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioLeftTop",
+            "@fromField": "isActive",
+            "@toNode": "ScriptLeftTop",
+            "@toField": "set_isActive"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioRightBottom",
+            "@fromField": "isActive",
+            "@toNode": "LightRightBottom",
+            "@toField": "on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioRightTop",
+            "@fromField": "isActive",
+            "@toNode": "LightRightTop",
+            "@toField": "on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioLeftBottom",
+            "@fromField": "isActive",
+            "@toNode": "LightLeftBottom",
+            "@toField": "on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "AudioLeftTop",
+            "@fromField": "isActive",
+            "@toNode": "LightLeftTop",
+            "@toField": "on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "RotateTouch",
+            "@fromField": "touchTime",
+            "@toNode": "RotateTimer",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "RotateTimer",
+            "@fromField": "fraction_changed",
+            "@toNode": "RotateOrient",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "RotateOrient",
+            "@fromField": "value_changed",
+            "@toNode": "TransformInline",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

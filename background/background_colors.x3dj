@@ -1,0 +1,269 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:13:40 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@rotation": [ 1, 0, 0, 1.57 ],
+                  "-children": [
+                    { "Switch":
+                      {
+                        "@whichChoice": 8,
+                        "-children": [
+                          { "Background":
+                            {
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@backUrl": [
+                                "../skies/sky_lake_back.png"
+                              ],
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@skyColor": [
+                                0, 1, 1
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@frontUrl": [
+                                "../skies/sky_lake_front.png"
+                              ],
+                              "@leftUrl": [
+                                "../skies/sky_lake_left.png"
+                              ],
+                              "@skyColor": [
+                                0, 1, 1
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1
+                              ],
+                              "@groundColor": [
+                                1, 0, 0
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1
+                              ],
+                              "@groundAngle": [
+                                1
+                              ],
+                              "@groundColor": [
+                                0, 0.5, 0,
+                                0, 0.25, 0.25
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5,
+                                2.6,
+                                2.7,
+                                2.8,
+                                2.9
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1,
+                                1, 1, 1,
+                                0, 0, 0,
+                                1, 1, 1,
+                                0, 0, 0
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5,
+                                2.6,
+                                2.7,
+                                2.8,
+                                2.9
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1,
+                                1, 1, 1,
+                                0, 0, 0,
+                                1, 1, 1,
+                                0, 0, 0
+                              ],
+                              "@groundAngle": [
+                                1
+                              ],
+                              "@groundColor": [
+                                0, 0.5, 0,
+                                0, 0.25, 0.25
+                              ]
+                            }
+                          },
+                          { "Background":
+                            {
+                              "@backUrl": [
+                                "../skies/sky_lake_back.png"
+                              ],
+                              "@leftUrl": [
+                                "../skies/sky_lake_left.png"
+                              ],
+                              "@skyAngle": [
+                                0.8,
+                                2,
+                                2.5,
+                                2.6,
+                                2.7,
+                                2.8,
+                                2.9
+                              ],
+                              "@skyColor": [
+                                1, 0, 0,
+                                1, 1, 0,
+                                0, 1, 0,
+                                0, 0, 1,
+                                1, 1, 1,
+                                0, 0, 0,
+                                1, 1, 1,
+                                0, 0, 0
+                              ],
+                              "@groundAngle": [
+                                1
+                              ],
+                              "@groundColor": [
+                                0, 0.5, 0,
+                                0, 0.25, 0.25
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

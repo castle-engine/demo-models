@@ -1,0 +1,126 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:03 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 2, 3, 4 ],
+            "@rotation": [ 1, 1, 1, 0.5 ],
+            "@scale": [ 0.5, 0.5, 0.5 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              },
+              { "SphereSensor":
+                {
+                  "@DEF": "SS"
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "TrackPointVisualize",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 10
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "RotationVisualize",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 50, 50, 50 ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ],
+            "@speed": 100
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 15.81068, -106.9262, 140.8753 ],
+            "@orientation": [ 0.949354350566864, 0.298688501119614, -0.0975234284996986, 0.662499487400055 ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "SS",
+            "@fromField": "trackPoint_changed",
+            "@toNode": "TrackPointVisualize",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "SS",
+            "@fromField": "rotation_changed",
+            "@toNode": "RotationVisualize",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

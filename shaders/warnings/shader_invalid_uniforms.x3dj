@@ -1,0 +1,184 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:33 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-shaders": [
+                  { "ComposedShader":
+                    {
+                      "@DEF": "MyShader",
+                      "@language": "GLSL",
+                      "-parts": [
+                        { "ShaderPart":
+                          {
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          void main(void)\r",
+                              "          {\r",
+                              "            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;\r",
+                              "            gl_Position = ftransform();\r",
+                              "          }"
+                            ]
+                          }
+                        },
+                        { "ShaderPart":
+                          {
+                            "@type": "FRAGMENT",
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          uniform sampler2D tex;\r",
+                              "          uniform vec4 color;\r",
+                              "          uniform float color_scale;\r",
+                              "          void main(void)\r",
+                              "          {\r",
+                              "            gl_FragColor = texture2D(tex, gl_TexCoord[0].st) * color * (1.0 - color_scale);\r",
+                              "          }"
+                            ]
+                          }
+                        }
+                      ],
+                      "field": [
+                        {
+                          "@accessType": "inputOutput",
+                          "@type": "SFNode",
+                          "@name": "tex",
+                          "-children": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../../textures/bricks2.jpg"
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@accessType": "inputOutput",
+                          "@type": "SFColor",
+                          "@name": "color",
+                          "@value": [ 1, 1, 0 ]
+                        },
+                        {
+                          "@accessType": "inputOutput",
+                          "@type": "SFVec3f",
+                          "@name": "color_scale",
+                          "@value": [ 0.6528, 0.6528, 0.6528 ]
+                        },
+                        {
+                          "@accessType": "inputOutput",
+                          "@type": "SFVec3f",
+                          "@name": "not_existing",
+                          "@value": [ 0.6528, 0.6528, 0.6528 ]
+                        },
+                        {
+                          "@accessType": "inputOnly",
+                          "@type": "SFVec3f",
+                          "@name": "not_existing_event"
+                        },
+                        {
+                          "@accessType": "inputOutput",
+                          "@type": "SFNode",
+                          "@name": "tex_not_existing",
+                          "-children": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../../textures/bricks2.jpg"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "-geometry": { "Sphere":
+              {
+              }
+            }
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "PosInterp",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              1, 1, 1
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "PosInterp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PosInterp",
+            "@fromField": "value_changed",
+            "@toNode": "MyShader",
+            "@toField": "set_color_scale"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PosInterp",
+            "@fromField": "value_changed",
+            "@toNode": "MyShader",
+            "@toField": "set_not_existing"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PosInterp",
+            "@fromField": "value_changed",
+            "@toNode": "MyShader",
+            "@toField": "not_existing_event"
+          }
+        }
+      ]
+    }
+  }
+}

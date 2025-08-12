@@ -1,0 +1,96 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:16:47 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"ProximitySensorProto",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "outputOnly",
+                  "@type": "SFBool",
+                  "@name": "isActive"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "ProximitySensor":
+                  {
+                    "@size": [ 100, 100, 100 ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "isActive",
+                          "@protoField": "isActive"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "PROX_SENSOR",
+            "@name": "ProximitySensorProto"
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TIME"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PROX_SENSOR",
+            "@fromField": "isActive",
+            "@toNode": "TIME",
+            "@toField": "set_loop"
+          }
+        }
+      ]
+    }
+  }
+}

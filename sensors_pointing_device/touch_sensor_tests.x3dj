@@ -1,0 +1,512 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:05 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ 6.097697, -8.453396, 26.89923 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "viewpoint to see both TouchSensors overlapping",
+            "@position": [ 0.4795918, 10.81985, 0.6583906 ],
+            "@orientation": [ -0.0805612504482269, -0.766335546970367, -0.637369275093079, 2.94847226142883 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 10,
+            "@headlight": false
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "DirectionalLight":
+                {
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App1",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "      Mouse over me and click/drag on me",
+                        "      to turn on/off the light"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "TouchTracker1",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.1
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch1",
+                  "@description": "First testing toucher"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "DirectionalLight":
+                {
+                  "@DEF": "LightOver1",
+                  "@on": false
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Mouse over touch sensor"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "DirectionalLight":
+                {
+                  "@DEF": "LightActive1",
+                  "@on": false
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Active touch sensor"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "TimeSensor":
+                {
+                  "@DEF": "Timer1",
+                  "@cycleInterval": 0.5,
+                  "@startTime": -1,
+                  "@stopTime": -1
+                }
+              },
+              { "ColorInterpolator":
+                {
+                  "@DEF": "Interp1",
+                  "@key": [
+                    0,
+                    0.5,
+                    1
+                  ],
+                  "@keyValue": [
+                    1, 1, 0,
+                    0, 0, 0,
+                    1, 1, 0
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "MySphere1",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@DEF": "SphereMat1",
+                                "@emissiveColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -10, 0 ],
+            "-children": [
+              { "Group":
+                {
+                  "-children": [
+                    { "DirectionalLight":
+                      {
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App2",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Mouse over me and click/drag on me",
+                              "      to turn on/off the light"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App2"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 2
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@DEF": "TouchTracker2",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 1, 0 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                  "@radius": 0.1
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "TouchSensor":
+                      {
+                        "@DEF": "Touch2",
+                        "@description": "Second testing toucher"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -2, 0 ],
+                  "-children": [
+                    { "DirectionalLight":
+                      {
+                        "@DEF": "LightOver2",
+                        "@on": false
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App2"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Mouse over touch sensor"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -4, 0 ],
+                  "-children": [
+                    { "DirectionalLight":
+                      {
+                        "@DEF": "LightActive2",
+                        "@on": false
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App2"
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Active touch sensor"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -6, 0 ],
+                  "-children": [
+                    { "TimeSensor":
+                      {
+                        "@DEF": "Timer2",
+                        "@cycleInterval": 0.5,
+                        "@startTime": -1,
+                        "@stopTime": -1
+                      }
+                    },
+                    { "ColorInterpolator":
+                      {
+                        "@DEF": "Interp2",
+                        "@key": [
+                          0,
+                          0.5,
+                          1
+                        ],
+                        "@keyValue": [
+                          0, 0, 1,
+                          0, 0, 0,
+                          0, 0, 1
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@DEF": "MySphere2",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "SphereMat2",
+                                      "@emissiveColor": [ 0, 0, 1 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer1",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp1",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp1",
+            "@fromField": "value_changed",
+            "@toNode": "SphereMat1",
+            "@toField": "set_emissiveColor"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch1",
+            "@fromField": "isOver",
+            "@toNode": "LightOver1",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch1",
+            "@fromField": "isActive",
+            "@toNode": "LightActive1",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch1",
+            "@fromField": "touchTime",
+            "@toNode": "Timer1",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer2",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp2",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp2",
+            "@fromField": "value_changed",
+            "@toNode": "SphereMat2",
+            "@toField": "set_emissiveColor"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch2",
+            "@fromField": "isOver",
+            "@toNode": "LightOver2",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch2",
+            "@fromField": "isActive",
+            "@toNode": "LightActive2",
+            "@toField": "set_on"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch2",
+            "@fromField": "touchTime",
+            "@toNode": "Timer2",
+            "@toField": "set_startTime"
+          }
+        }
+      ]
+    }
+  }
+}

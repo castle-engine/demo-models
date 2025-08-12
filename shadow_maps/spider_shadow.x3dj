@@ -1,0 +1,127 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:10 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"PlaneNotTesselated",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "solid"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_proto_plane_tess.x3dv#PlaneNotTesselated"
+            ]
+          }
+        },
+        { "Background":
+          {
+            "@skyColor": [
+              0.8, 0.8, 0.8
+            ]
+          }
+        },
+        null,
+        { "SpotLight":
+          {
+            "@DEF": "MySpot",
+            "@location": [ 0, 0, 3 ],
+            "@beamWidth": 1.5708,
+            "@cutOffAngle": 0.785398
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.768875, -1.584299, 1.372083 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.450499206781387, 0.873083829879761, 0.186481863260269, 0.885461032390594 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@scale": [ 10, 10, 10 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/016marbre.jpg"
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@anisotropicDegree": 32,
+                              "@minificationFilter": "NICEST",
+                              "@magnificationFilter": "NICEST",
+                              "@textureCompression": "FASTEST"
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 10, 10 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "PlaneNotTesselated",
+                      "fieldValue": [
+                        {
+                          "@name": "solid",
+                          "@value": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "spider_stand_without_shadow.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

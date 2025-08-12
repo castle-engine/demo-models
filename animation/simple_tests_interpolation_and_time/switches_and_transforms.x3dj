@@ -1,0 +1,386 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:16 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"ArrowVertical",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Extrusion":
+                      {
+                        "@scale": [
+                          0, 0,
+                          1, 1,
+                          0.75, 0.75,
+                          0.75, 0.75,
+                          1, 1,
+                          0, 0
+                        ],
+                        "@spine": [
+                          0, 0, 0,
+                          0, 1.5, 0,
+                          0, 1.5, 0,
+                          0, 4.5, 0,
+                          0, 4.5, 0,
+                          0, 6, 0
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"ArrowHorizontal",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "@rotation": [ 0, 0, 1, 1.5707963268 ],
+                    "@center": [ 0, 3, 0 ],
+                    "-children": [
+                      { "ProtoInstance":
+                        {
+                          "@name": "ArrowVertical"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Left",
+            "@translation": [ -4, 0, 0 ],
+            "-children": [
+              { "Switch":
+                {
+                  "@DEF": "LeftSwitch",
+                  "@whichChoice": 0,
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@DEF": "LeftHoriz",
+                        "@translation": [ -0.046, 0, 0 ],
+                        "-children": [
+                          { "ProtoInstance":
+                            {
+                              "@name": "ArrowHorizontal"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@DEF": "LeftVert",
+                        "@translation": [ 0, -0.046, 0 ],
+                        "-children": [
+                          { "ProtoInstance":
+                            {
+                              "@name": "ArrowVertical"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Right",
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Switch":
+                {
+                  "@DEF": "RightSwitch",
+                  "@whichChoice": 0,
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@DEF": "RightHoriz",
+                        "@translation": [ -0.046, 0, 0 ],
+                        "-children": [
+                          { "ProtoInstance":
+                            {
+                              "@name": "ArrowHorizontal"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@DEF": "RightVert",
+                        "@translation": [ 0, -0.046, 0 ],
+                        "-children": [
+                          { "ProtoInstance":
+                            {
+                              "@name": "ArrowVertical"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerLeftHoriz",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "InterpLeftHoriz",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              -0.5, 0, 0,
+              0.5, 0, 0,
+              -0.5, 0, 0
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerRightHoriz",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "InterpRightHoriz",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              -0.5, 0, 0,
+              0.5, 0, 0,
+              -0.5, 0, 0
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerLeftVert",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "InterpLeftVert",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0, -0.5, 0,
+              0, 0.5, 0,
+              0, -0.5, 0
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TimerRightVert",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "InterpRightVert",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              0, -0.5, 0,
+              0, 0.5, 0,
+              0, -0.5, 0
+            ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFInt32",
+                "@name": "leftChoice"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFInt32",
+                "@name": "rightChoice"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function keyPress(value, time)\r",
+              "  when(value = '1', leftChoice := 0);\r",
+              "  when(value = '2', leftChoice := 1);\r",
+              "  when(value = '3', rightChoice := 0);\r",
+              "  when(value = '4', rightChoice := 1)\r",
+              ""
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "K"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerLeftHoriz",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpLeftHoriz",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpLeftHoriz",
+            "@fromField": "value_changed",
+            "@toNode": "LeftHoriz",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerRightHoriz",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpRightHoriz",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpRightHoriz",
+            "@fromField": "value_changed",
+            "@toNode": "RightHoriz",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerLeftVert",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpLeftVert",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpLeftVert",
+            "@fromField": "value_changed",
+            "@toNode": "LeftVert",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerRightVert",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpRightVert",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpRightVert",
+            "@fromField": "value_changed",
+            "@toNode": "RightVert",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "leftChoice_changed",
+            "@toNode": "LeftSwitch",
+            "@toField": "set_whichChoice"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "rightChoice_changed",
+            "@toNode": "RightSwitch",
+            "@toField": "set_whichChoice"
+          }
+        }
+      ]
+    }
+  }
+}

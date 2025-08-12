@@ -1,0 +1,227 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "title",
+          "@content": "IkeaTable.x3d"
+        },
+        {
+          "@name": "description",
+          "@content": "X3D example Model of an Ikea Table"
+        },
+        {
+          "@name": "created",
+          "@content": "03 March 2004"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:11 GMT"
+        },
+        {
+          "@name": "creator",
+          "@content": "Vaughn Pangelinan"
+        },
+        {
+          "@name": "identifier",
+          "@content": "http://www.web3d.org/x3d/content/examples/Basic/StudentProjects/IkeaTable.x3d"
+        },
+        {
+          "@name": "generator",
+          "@content": "X3D-Edit, http://www.web3d.org/x3d/content/README.X3D-Edit.html"
+        },
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "license",
+          "@content": "../../license.html"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Group":
+                {
+                  "@DEF": "IkeaTable",
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@DEF": "AboveTable",
+                        "@description": "Above Table",
+                        "@position": [ 0, 1.1, 1.2 ],
+                        "@orientation": [ 1, 0, 0, -0.65 ]
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "Green",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0.6, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                            "@size": [ 0.9, 0.02, 0.6 ]
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0.4, -0.31, 0.25 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@DEF": "TableLeg",
+                              "-appearance": { "Appearance":
+                                {
+                                  "@DEF": "Yellow",
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 0.8, 0.8, 0 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                  "@size": [ 0.05, 0.6, 0.05 ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ -0.4, -0.31, 0.25 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "TableLeg"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0.4, -0.31, -0.25 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "TableLeg"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ -0.4, -0.31, -0.25 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "TableLeg"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, -0.05, 0.25 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@DEF": "LongBeam",
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "Yellow"
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                  "@size": [ 0.75, 0.08, 0.02 ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, -0.05, -0.25 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "LongBeam"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0.4, -0.05, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@DEF": "ShortBeam",
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "Yellow"
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                  "@size": [ 0.02, 0.08, 0.45 ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ -0.4, -0.05, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "ShortBeam"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

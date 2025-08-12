@@ -1,0 +1,556 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:06 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "ProtoInstance":
+              {
+                "@name": "KambiAppearance",
+                "fieldValue": [
+                  {
+                    "@name": "texture",
+                    "-children": [
+                      { "PixelTexture":
+                        {
+                          "@DEF": "Tex"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "@name": "blendMode",
+                    "-children": [
+                      null
+                    ]
+                  }
+                ]
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@solid": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1
+                ],
+                "-texCoord": { "TextureCoordinate":
+                  {
+                    "@point": [
+                      0, 0,
+                      1, 0,
+                      1, 1,
+                      0, 1
+                    ]
+                  }
+                },
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      0, 0, 0,
+                      256, 0, 0,
+                      256, 256, 0,
+                      0, 256, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "CrossHair",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Circle2D":
+                    {
+                      "@radius": 20
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "crosshair_pos",
+                "@value": [ 128, 128, 10 ]
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFImage",
+                "@name": "tex"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFInt32",
+                "@name": "action_key_press"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "radius",
+                "@value": 20
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "smooth_size",
+                "@value": 3
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "crosshair_x"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "crosshair_y"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "i"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "j"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "k"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "l"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFColor",
+                "@name": "col"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFImage",
+                "@name": "new_image",
+                "@value": [
+                  0, 0, 1,
+                ]
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "gradient_x"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "gradient_y"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFFloat",
+                "@name": "gradient_len"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function initialize(timestamp)\r",
+              "  { Dummy assignment to set initial CrossHair.translation }\r",
+              "  crosshair_pos := crosshair_pos;\r",
+              "  { Load initial texture. We had to use PixelTexture for this\r",
+              "    (ImageTexture doesn't give us SFImage field to work with),\r",
+              "    so loading it must be done from script. }\r",
+              "  tex := image_load('../textures/test_texture.png')\r",
+              "\r",
+              "function action_key_press(value, timestamp)\r",
+              "  if (value = ACTION_KEY_UP,\r",
+              "    vector_set(crosshair_pos, 1, vector_get(crosshair_pos, 1) + 3),\r",
+              "  if (value = ACTION_KEY_DOWN,\r",
+              "    vector_set(crosshair_pos, 1, vector_get(crosshair_pos, 1) - 3),\r",
+              "  if (value = ACTION_KEY_RIGHT,\r",
+              "    vector_set(crosshair_pos, 0, vector_get(crosshair_pos, 0) + 3),\r",
+              "  when (value = ACTION_KEY_LEFT,\r",
+              "    vector_set(crosshair_pos, 0, vector_get(crosshair_pos, 0) - 3)\r",
+              "  ))))\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  crosshair_x := round(vector_get(crosshair_pos, 0));\r",
+              "  crosshair_y := round(vector_get(crosshair_pos, 1));\r",
+              "\r",
+              "  when (value = 'c',\r",
+              "    for (i, max(crosshair_x - radius, 0),\r",
+              "            min(crosshair_x + radius, image_width(tex) - 1),\r",
+              "      for (j, max(crosshair_y - radius, 0),\r",
+              "              min(crosshair_y + radius, image_height(tex) - 1),\r",
+              "        when( sqr(crosshair_x - i) +\r",
+              "              sqr(crosshair_y - j) < sqr(radius),\r",
+              "          image_set_color(tex, i, j,\r",
+              "            image_get_color(tex, i, j) - vector(0.2, 0.2, 0.2))))));\r",
+              "\r",
+              "  when (value = 'C',\r",
+              "    for (i, max(crosshair_x - radius, 0),\r",
+              "            min(crosshair_x + radius, image_width(tex) - 1),\r",
+              "      for (j, max(crosshair_y - radius, 0),\r",
+              "              min(crosshair_y + radius, image_height(tex) - 1),\r",
+              "        when( sqr(crosshair_x - i) +\r",
+              "              sqr(crosshair_y - j) < sqr(radius),\r",
+              "          image_set_color(tex, i, j,\r",
+              "            image_get_color(tex, i, j) + vector(0.2, 0.2, 0.2))))));\r",
+              "\r",
+              "  when (value = 'a',\r",
+              "    for (i, max(crosshair_x - radius, 0),\r",
+              "            min(crosshair_x + radius, image_width(tex) - 1),\r",
+              "      for (j, max(crosshair_y - radius, 0),\r",
+              "              min(crosshair_y + radius, image_height(tex) - 1),\r",
+              "        when( sqr(crosshair_x - i) +\r",
+              "              sqr(crosshair_y - j) < sqr(radius),\r",
+              "          image_set_alpha(tex, i, j,\r",
+              "            image_get_alpha(tex, i, j) - 0.2 )))));\r",
+              "\r",
+              "  when (value = 'A',\r",
+              "    for (i, max(crosshair_x - radius, 0),\r",
+              "            min(crosshair_x + radius, image_width(tex) - 1),\r",
+              "      for (j, max(crosshair_y - radius, 0),\r",
+              "              min(crosshair_y + radius, image_height(tex) - 1),\r",
+              "        when( sqr(crosshair_x - i) +\r",
+              "              sqr(crosshair_y - j) < sqr(radius),\r",
+              "          image_set_alpha(tex, i, j,\r",
+              "            image_get_alpha(tex, i, j) + 0.2 )))));\r",
+              "\r",
+              "  when (value = 's',\r",
+              "    { Smoothing changes new_image, taking pixels from original tex,\r",
+              "      this way we don't take partially smoothed colors into account when\r",
+              "      calculating new smoothed colors. }\r",
+              "    new_image := tex;\r",
+              "    for (i, max(crosshair_x - radius, 0),\r",
+              "            min(crosshair_x + radius, image_width(tex) - 1),\r",
+              "      for (j, max(crosshair_y - radius, 0),\r",
+              "              min(crosshair_y + radius, image_height(tex) - 1),\r",
+              "        when( sqr(crosshair_x - i) +\r",
+              "              sqr(crosshair_y - j) < sqr(radius),\r",
+              "          { smooth pixel (i, j) }\r",
+              "          col := vector(0, 0, 0);\r",
+              "          for (k, max(i - smooth_size , 0),\r",
+              "                  min(i + smooth_size, image_width(tex) - 1),\r",
+              "            for (l, max(j - smooth_size, 0),\r",
+              "                    min(j + smooth_size, image_height(tex) - 1),\r",
+              "              col := col + image_get_color(tex, k, l) / sqr(2*smooth_size+1)));\r",
+              "          image_set_color(new_image, i, j, col))));\r",
+              "    tex := new_image);\r",
+              "\r",
+              "  when (value = 'e',\r",
+              "    { A simple edge-detection by calculating gradient (actually,\r",
+              "      the length of the gradient vector) with Sobel operator, in CastleScript.\r",
+              "      See [http://en.wikipedia.org/wiki/Sobel_operator].\r",
+              "      See also another CastleScript implementation in\r",
+              "      castle_game_engine/examples/castlescript/mkimage_sobel_edge.castlescript }\r",
+              "\r",
+              "    { copy tex, to copy it's size and alpha channel }\r",
+              "    new_image := tex;\r",
+              "\r",
+              "    for (i, 0, image_width(new_image) - 1,\r",
+              "      for (j, 0, image_height(new_image) - 1,\r",
+              "        gradient_x :=\r",
+              "          if(i > 0,\r",
+              "            if (j > 0, grayscale(image_get_color(tex, i-1, j-1)), 0) +\r",
+              "            2 * grayscale(image_get_color(tex, i-1, j)) +\r",
+              "            if (j < image_height(new_image) - 1, grayscale(image_get_color(tex, i-1, j+1)), 0),\r",
+              "            0) -\r",
+              "          if(i < image_width(new_image) - 1,\r",
+              "            if (j > 0, grayscale(image_get_color(tex, i+1, j-1)), 0) +\r",
+              "            2 * grayscale(image_get_color(tex, i+1, j)) +\r",
+              "            if (j < image_height(new_image) - 1, grayscale(image_get_color(tex, i+1, j+1)), 0),\r",
+              "            0);\r",
+              "        gradient_y :=\r",
+              "          if(j > 0,\r",
+              "            if (i > 0, grayscale(image_get_color(tex, i-1, j-1)), 0) +\r",
+              "            2 * grayscale(image_get_color(tex, i, j-1)) +\r",
+              "            if (i < image_width(new_image) - 1, grayscale(image_get_color(tex, i+1, j-1)), 0),\r",
+              "            0) -\r",
+              "          if(j < image_height(new_image) - 1,\r",
+              "            if (i > 0, grayscale(image_get_color(tex, i-1, j+1)), 0) +\r",
+              "            2 * grayscale(image_get_color(tex, i, j+1)) +\r",
+              "            if (i < image_width(new_image) - 1, grayscale(image_get_color(tex, i+1, j+1)), 0),\r",
+              "            0);\r",
+              "        gradient_len := sqrt(sqr(gradient_x) + sqr(gradient_y));\r",
+              "        image_set_color(new_image, i, j, vector(gradient_len, gradient_len, gradient_len))));\r",
+              "\r",
+              "    tex := new_image)\r",
+              ""
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "K"
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 131.5426, 90.59233, 474.9946 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "NONE"
+            ],
+            "@avatarSize": [
+              10
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 128, -15, 2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "A toy in pure X3D using Script (in CastleScript language)",
+                        "to edit the texture (X3D SFImage field).",
+                        "Arrows move the cursor. 'c' / 'C' darken / lighten color.",
+                        "'a' / 'A' decrease / increase alpha (opacity).",
+                        "'s' smooths the image. 'e' makes edge detection."
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 20,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-texture": { "PixelTexture":
+                  {
+                    "@image": [
+                      2, 2, 1,
+                        0, 255,
+                        255, 0
+                    ],
+                    "-textureProperties": { "TextureProperties":
+                      {
+                        "@minificationFilter": "NEAREST_PIXEL",
+                        "@magnificationFilter": "NEAREST_PIXEL",
+                        "@textureCompression": "FASTEST"
+                      }
+                    }
+                  }
+                },
+                "-textureTransform": { "TextureTransform":
+                  {
+                    "@scale": [ 20, 20 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@solid": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1
+                ],
+                "-texCoord": { "TextureCoordinate":
+                  {
+                    "@point": [
+                      0, 0,
+                      1, 0,
+                      1, 1,
+                      0, 1
+                    ]
+                  }
+                },
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      -128, 0, -10,
+                      384, 0, -10,
+                      384, 384, -10,
+                      -128, 384, -10
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "crosshair_pos_changed",
+            "@toNode": "CrossHair",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex",
+            "@toNode": "Tex",
+            "@toField": "set_image"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "actionKeyPress",
+            "@toNode": "Scr",
+            "@toField": "action_key_press"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "K",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "key_press"
+          }
+        }
+      ]
+    }
+  }
+}

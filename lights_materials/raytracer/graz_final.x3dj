@@ -1,0 +1,89 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:25 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "PointLight":
+          {
+            "@intensity": 0.7,
+            "@location": [ 1.5, 1.54, 2.46 ]
+          }
+        },
+        { "PointLight":
+          {
+            "@intensity": 0.7,
+            "@location": [ 1.5, 2.94, 2.46 ]
+          }
+        },
+        { "PointLight":
+          {
+            "@intensity": 0.7,
+            "@location": [ 3.5, 2.94, 2.46 ]
+          }
+        },
+        { "PointLight":
+          {
+            "@intensity": 0.7,
+            "@location": [ 3.5, 1.54, 2.46 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "1",
+            "@position": [ 2.072555, 0.3734508, 1.370098 ],
+            "@orientation": [ 0.985629677772522, 0.113783657550812, 0.124849058687687, 1.49254012107849 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "2",
+            "@position": [ 4.361203, 0.05522317, 2.035503 ],
+            "@orientation": [ 0.980814456939697, 0.113926954567432, 0.158188283443451, 1.26673126220703 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "3",
+            "@position": [ 3.699085, 4.197395, 2.564287 ],
+            "@orientation": [ 0.323259085416794, 0.553179979324341, 0.767786204814911, 2.29810094833374 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "4 (ray-tracer with depth >= 6)",
+            "@position": [ -2.525339, 2.119072, 1.641382 ],
+            "@orientation": [ 0.591591894626617, -0.542565286159515, -0.596357345581055, 1.98850011825562 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "graz.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

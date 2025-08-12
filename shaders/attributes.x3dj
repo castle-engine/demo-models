@@ -1,0 +1,171 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:07 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 1, 1, 0 ]
+                  }
+                },
+                "-shaders": [
+                  { "ComposedShader":
+                    {
+                      "@language": "GLSL",
+                      "-parts": [
+                        { "ShaderPart":
+                          {
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          uniform mat4 castle_ModelViewMatrix;\r",
+                              "          uniform mat4 castle_ProjectionMatrix;\r",
+                              "          uniform mat3 castle_NormalMatrix;\r",
+                              "          attribute vec4 castle_Vertex;\r",
+                              "          attribute vec3 castle_Normal;\r",
+                              "\r",
+                              "          varying vec4 color;\r",
+                              "\r",
+                              "          attribute float height;\r",
+                              "\r",
+                              "          void main(void)\r",
+                              "          {\r",
+                              "            vec4 localv = castle_Vertex;\r",
+                              "            localv.y += height;\r",
+                              "            vec3 v = vec3(castle_ModelViewMatrix * localv);\r",
+                              "\r",
+                              "            vec3 normal = normalize(castle_NormalMatrix * castle_Normal);\r",
+                              "            vec3 light = normalize(-v);\r",
+                              "\r",
+                              "            color =\r",
+                              "              vec4(1.0, 1.0, 0.0, 1.0) * max(dot(normal, light), 0.0);\r",
+                              "\r",
+                              "            gl_Position = castle_ProjectionMatrix * vec4(v, 1.0);\r",
+                              "          }"
+                            ]
+                          }
+                        },
+                        { "ShaderPart":
+                          {
+                            "@type": "FRAGMENT",
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "          varying vec4 color;\r",
+                              "          void main(void)\r",
+                              "          {\r",
+                              "            gl_FragColor = color;\r",
+                              "          }"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "-geometry": { "ElevationGrid":
+              {
+                "@xDimension": 3,
+                "@zDimension": 3,
+                "@creaseAngle": 4,
+                "-attrib": [
+                  { "FloatVertexAttribute":
+                    {
+                      "@name": "height",
+                      "@numComponents": 1,
+                      "@value": [
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.1,
+                        0.7,
+                        0.2,
+                        0.4,
+                        0.3,
+                        0.1
+                      ]
+                    }
+                  }
+                ],
+                "@height": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "ElevationGrid":
+                    {
+                      "@xDimension": 3,
+                      "@zDimension": 3,
+                      "@creaseAngle": 4,
+                      "@height": [
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.1,
+                        0.7,
+                        0.2,
+                        0.4,
+                        0.3,
+                        0.1
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

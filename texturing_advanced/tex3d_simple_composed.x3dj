@@ -1,0 +1,141 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:56 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing3D",
+          "@level": 2
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                },
+                "-texture": { "ComposedTexture3D":
+                  {
+                    "-textureProperties": { "TextureProperties":
+                      {
+                        "@minificationFilter": "AVG_PIXEL",
+                        "@magnificationFilter": "AVG_PIXEL",
+                        "@boundaryModeS": "CLAMP_TO_EDGE",
+                        "@boundaryModeT": "CLAMP_TO_EDGE",
+                        "@boundaryModeR": "CLAMP_TO_EDGE",
+                        "@textureCompression": "FASTEST"
+                      }
+                    },
+                    "-texture": [
+                      { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/brick_1.png"
+                          ]
+                        }
+                      },
+                      { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/016marbre.jpg"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "-textureTransform": { "TextureTransform3D":
+                  {
+                    "@translation": [ 0.5, 0.5, 0.5 ],
+                    "@scale": [ 0.5, 0.5, 0.5 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@solid": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1,
+                  4,
+                  5,
+                  6,
+                  7,
+                  -1,
+                  8,
+                  9,
+                  10,
+                  11,
+                  -1,
+                  12,
+                  13,
+                  14,
+                  15,
+                  -1,
+                  16,
+                  17,
+                  18,
+                  19,
+                  -1
+                ],
+                "-texCoord": { "TextureCoordinateGenerator":
+                  {
+                    "@mode": "COORD"
+                  }
+                },
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      1, 1, -1,
+                      1, -1, -1,
+                      -1, -1, -1,
+                      -1, 1, -1,
+                      1, 1, -0.5,
+                      1, -1, -0.5,
+                      -1, -1, -0.5,
+                      -1, 1, -0.5,
+                      1, 1, 0,
+                      1, -1, 0,
+                      -1, -1, 0,
+                      -1, 1, 0,
+                      1, 1, 0.5,
+                      1, -1, 0.5,
+                      -1, -1, 0.5,
+                      -1, 1, 0.5,
+                      1, 1, 1,
+                      1, -1, 1,
+                      -1, -1, 1,
+                      -1, 1, 1
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

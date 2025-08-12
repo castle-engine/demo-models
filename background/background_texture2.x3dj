@@ -1,0 +1,117 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:13:46 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@rotation": [ 1, 0, 0, 1.57 ],
+                  "-children": [
+                    { "Background":
+                      {
+                        "@frontUrl": [
+                          "../skies/sky_lake_front.png"
+                        ],
+                        "@backUrl": [
+                          "../skies/sky_lake_back.png"
+                        ],
+                        "@leftUrl": [
+                          "../skies/sky_lake_left.png"
+                        ],
+                        "@rightUrl": [
+                          "../skies/sky_lake_right.png"
+                        ],
+                        "@topUrl": [
+                          "../skies/sky_lake_top.png"
+                        ],
+                        "@bottomUrl": [
+                          "../skies/sky_lake_bottom.png"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@position": [ 0, 0, 0 ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ -52.59613, -106.2681, 3.55791 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@description": "Viewpoint for freshmeat screenshot",
+                        "@position": [ 0, 0, 0 ],
+                        "@orientation": [ 0.303630799055099, -0.950506031513214, 0.065905719995499, 0.451166689395905 ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

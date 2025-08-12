@@ -1,0 +1,199 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:04 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@DEF": "Mat"
+                  }
+                }
+              }
+            },
+            "-geometry": { "Box":
+              {
+              }
+            }
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@loop": true
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "time"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "previousTime",
+                "@value": 0
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFColor",
+                "@name": "col",
+                "@value": [ 0.5, 0.5, 0.5 ]
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function initialize(timestamp)\r",
+              "  previousTime := timestamp\r",
+              "\r",
+              "function time(value, timestamp)\r",
+              "  col := min( col + vector(1, 1, 1) * (timestamp - previousTime), vector(1, 1, 1));\r",
+              "  previousTime := timestamp\r",
+              ""
+            ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "ScrManager",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "script_url"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  if (value = 'a',\r",
+              "    script_url := array('castlescript:\r",
+              "\r",
+              "      function initialize(timestamp)\r",
+              "        previousTime := timestamp\r",
+              "\r",
+              "      function time(value, timestamp)\r",
+              "        col := min( col + vector(1, 1, 1) * (timestamp - previousTime), vector(1, 1, 1));\r",
+              "        previousTime := timestamp\r",
+              "      '),\r",
+              "  when (value = 'z',\r",
+              "    script_url := array('castlescript:\r",
+              "\r",
+              "      function initialize(timestamp)\r",
+              "        previousTime := timestamp\r",
+              "\r",
+              "      function time(value, timestamp)\r",
+              "        col := max( col - vector(1, 1, 1) * (timestamp - previousTime), vector(0, 0, 0));\r",
+              "        previousTime := timestamp\r",
+              "      ')))\r",
+              ""
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "Key"
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 1.5, 2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Simple demo of changing Script URL from another Script.",
+                        "Press 'a' to use a script that increases color.",
+                        "Press 'z' to use a script that decreases color."
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 0.2,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "time",
+            "@toNode": "Scr",
+            "@toField": "time"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "col_changed",
+            "@toNode": "Mat",
+            "@toField": "set_diffuseColor"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Key",
+            "@fromField": "keyPress",
+            "@toNode": "ScrManager",
+            "@toField": "key_press"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScrManager",
+            "@fromField": "script_url",
+            "@toNode": "Scr",
+            "@toField": "set_url"
+          }
+        }
+      ]
+    }
+  }
+}

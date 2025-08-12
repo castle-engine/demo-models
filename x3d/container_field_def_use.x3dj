@@ -1,0 +1,92 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:07:21 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Collision":
+          {
+            "-proxy": { "Shape":
+              {
+                "@DEF": "MyShape",
+                "-appearance": { "Appearance":
+                  {
+                    "-material": { "Material":
+                      {
+                      }
+                    }
+                  }
+                },
+                "-geometry": { "Sphere":
+                  {
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Collision":
+                {
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@USE": "MyShape"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 2, 0, 6 ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

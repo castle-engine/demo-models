@@ -1,0 +1,68 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:14:19 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "PointLight":
+          {
+            "@color": [ 1, 0.5, 0.5 ],
+            "@ambientIntensity": 1,
+            "@location": [ -0.4842447, 2.030554, 5.987204 ]
+          }
+        },
+        { "PointLight":
+          {
+            "@color": [ 0.8, 0.8, 0.8 ],
+            "@ambientIntensity": 1,
+            "@location": [ -11.10921, -36.4515, 88.17569 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "castle.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

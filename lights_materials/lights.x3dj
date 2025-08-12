@@ -1,0 +1,290 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:10 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 26.03755, -1.17057e-6, 37.54255 ],
+            "@orientation": [ 0.010424139909446, 0.999979853630066, -0.000200989466975, 0.033117223531008 ]
+          }
+        },
+        { "Switch":
+          {
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "LightPointPos",
+                  "-geometry": { "PointSet":
+                    {
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 0, 0
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            10, 0, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "PointLight":
+                {
+                  "@DEF": "LightPoint",
+                  "@global": false,
+                  "@color": [ 1, 0, 0 ],
+                  "@ambientIntensity": 1,
+                  "@location": [ 10, 0, 0 ]
+                }
+              },
+              { "Shape":
+                {
+                  "@DEF": "LightSpotPos",
+                  "-geometry": { "PointSet":
+                    {
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            4, 1.6, 1
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "SpotLight":
+                {
+                  "@DEF": "LightSpot",
+                  "@global": false,
+                  "@color": [ 0, 0, 1 ],
+                  "@ambientIntensity": 1,
+                  "@location": [ 4, 1.6, 1 ],
+                  "@direction": [ -0.2, 0, -1 ],
+                  "@beamWidth": 1.5708,
+                  "@cutOffAngle": 0.1
+                }
+              },
+              { "Group":
+                {
+                  "@DEF": "Objects",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 4, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@DEF": "DefLitAppearance",
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 1, 1 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 4, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "DefLitAppearance"
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 0, 4 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 1, 1 ]
+                                    }
+                                  },
+                                  "-texture": { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/bricks2.jpg"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Cone":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 0, -16 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "DefLitAppearance"
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                  "@radius": 4
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 20, 0, 0 ],
+            "-children": [
+              { "DirectionalLight":
+                {
+                  "@DEF": "LightDir",
+                  "@color": [ 0, 1, 0 ],
+                  "@ambientIntensity": 1,
+                  "@direction": [ 1, 0, -1 ]
+                }
+              },
+              { "Group":
+                {
+                  "@USE": "Objects"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 40, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "LightPointPos"
+                }
+              },
+              { "PointLight":
+                {
+                  "@USE": "LightPoint"
+                }
+              },
+              { "Shape":
+                {
+                  "@USE": "LightSpotPos"
+                }
+              },
+              { "SpotLight":
+                {
+                  "@USE": "LightSpot"
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@USE": "LightDir"
+                }
+              },
+              { "Group":
+                {
+                  "@USE": "Objects"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

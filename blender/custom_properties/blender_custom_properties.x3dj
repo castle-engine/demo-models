@@ -1,0 +1,347 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:48 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "WorldInfo":
+          {
+            "@title": "blender_custom_properties.gltf",
+            "@info": [
+              "generator: Khronos glTF Blender I/O v1.4.40",
+              "version: 2.0"
+            ]
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "Cube_1",
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Material",
+                      "@alphaMode": "OPAQUE",
+                      "-material": { "PhysicalMaterial":
+                        {
+                          "@baseColor": [ 0.8, 0.8, 0.8 ],
+                          "@metallic": 0,
+                          "@roughness": 0.4
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        1,
+                        14,
+                        20,
+                        1,
+                        20,
+                        7,
+                        10,
+                        6,
+                        19,
+                        10,
+                        19,
+                        23,
+                        21,
+                        18,
+                        12,
+                        21,
+                        12,
+                        15,
+                        16,
+                        3,
+                        9,
+                        16,
+                        9,
+                        22,
+                        5,
+                        2,
+                        8,
+                        5,
+                        8,
+                        11,
+                        17,
+                        13,
+                        0,
+                        17,
+                        0,
+                        4
+                      ],
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            0, 0, -1,
+                            0, 1, 0,
+                            1, 0, 0,
+                            0, -1, -0,
+                            0, 0, -1,
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 1, 0,
+                            1, 0, 0,
+                            0, -1, -0,
+                            0, 0, 1,
+                            1, 0, 0,
+                            -1, 0, 0,
+                            0, 0, -1,
+                            0, 1, 0,
+                            -1, 0, 0,
+                            0, -1, -0,
+                            0, 0, -1,
+                            -1, 0, 0,
+                            0, 0, 1,
+                            0, 1, 0,
+                            -1, 0, 0,
+                            0, -1, -0,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            1, 1, -1,
+                            1, 1, -1,
+                            1, 1, -1,
+                            1, -1, -1,
+                            1, -1, -1,
+                            1, -1, -1,
+                            1, 1, 1,
+                            1, 1, 1,
+                            1, 1, 1,
+                            1, -1, 1,
+                            1, -1, 1,
+                            1, -1, 1,
+                            -1, 1, -1,
+                            -1, 1, -1,
+                            -1, 1, -1,
+                            -1, -1, -1,
+                            -1, -1, -1,
+                            -1, -1, -1,
+                            -1, 1, 1,
+                            -1, 1, 1,
+                            -1, 1, 1,
+                            -1, -1, 1,
+                            -1, -1, 1,
+                            -1, -1, 1
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "PointLight":
+                {
+                  "@DEF": "Light",
+                  "@intensity": 1000,
+                  "@location": [ 4.076245, 5.903862, -1.005454 ],
+                  "@radius": -1
+                }
+              },
+              { "Viewpoint":
+                {
+                  "@DEF": "Camera",
+                  "@description": "Camera",
+                  "@position": [ 7.358891, 4.958309, 6.925791 ],
+                  "@orientation": [ -0.468195029174418, 0.860207082800698, 0.20208213517251, 0.930113043297867 ],
+                  "@centerOfRotation": [ 0.5432476, 1.286515, -2.815695 ],
+                  "@fieldOfView": 0.3995965,
+                  "@nearDistance": 0.1,
+                  "@farDistance": 100
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "Cube-001",
+                  "@translation": [ 1.086495, 2.57303, -5.63139 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "Cube-001_1",
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "Material"
+                          }
+                        },
+                        "-geometry": { "IndexedTriangleSet":
+                          {
+                            "@solid": false,
+                            "@index": [
+                              1,
+                              14,
+                              20,
+                              1,
+                              20,
+                              7,
+                              10,
+                              6,
+                              19,
+                              10,
+                              19,
+                              23,
+                              21,
+                              18,
+                              12,
+                              21,
+                              12,
+                              15,
+                              16,
+                              3,
+                              9,
+                              16,
+                              9,
+                              22,
+                              5,
+                              2,
+                              8,
+                              5,
+                              8,
+                              11,
+                              17,
+                              13,
+                              0,
+                              17,
+                              0,
+                              4
+                            ],
+                            "-normal": { "Normal":
+                              {
+                                "@vector": [
+                                  0, 0, -1,
+                                  0, 1, 0,
+                                  1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, -1,
+                                  1, 0, 0,
+                                  0, 0, 1,
+                                  0, 1, 0,
+                                  1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, 1,
+                                  1, 0, 0,
+                                  -1, 0, 0,
+                                  0, 0, -1,
+                                  0, 1, 0,
+                                  -1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, -1,
+                                  -1, 0, 0,
+                                  0, 0, 1,
+                                  0, 1, 0,
+                                  -1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@point": [
+                                  1, 1, -1,
+                                  1, 1, -1,
+                                  1, 1, -1,
+                                  1, -1, -1,
+                                  1, -1, -1,
+                                  1, -1, -1,
+                                  1, 1, 1,
+                                  1, 1, 1,
+                                  1, 1, 1,
+                                  1, -1, 1,
+                                  1, -1, 1,
+                                  1, -1, 1,
+                                  -1, 1, -1,
+                                  -1, 1, -1,
+                                  -1, 1, -1,
+                                  -1, -1, -1,
+                                  -1, -1, -1,
+                                  -1, -1, -1,
+                                  -1, 1, 1,
+                                  -1, 1, 1,
+                                  -1, 1, 1,
+                                  -1, -1, 1,
+                                  -1, -1, 1,
+                                  -1, -1, 1
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Group":
+          {
+            "@DEF": "Viewpoints",
+            "@visible": false,
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@USE": "Camera"
+                }
+              }
+            ]
+          }
+        },
+        { "Group":
+          {
+            "@DEF": "Lights",
+            "@visible": false,
+            "-children": [
+              { "PointLight":
+                {
+                  "@USE": "Light"
+                }
+              }
+            ]
+          }
+        },
+        { "EXPORT":
+          {
+            "@localDEF": "Light"
+          }
+        },
+        { "EXPORT":
+          {
+            "@localDEF": "Camera"
+          }
+        },
+        { "EXPORT":
+          {
+            "@localDEF": "Viewpoints"
+          }
+        },
+        { "EXPORT":
+          {
+            "@localDEF": "Lights"
+          }
+        }
+      ]
+    }
+  }
+}

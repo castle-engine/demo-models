@@ -1,0 +1,137 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:01 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Background":
+          {
+            "@frontUrl": [
+              "../skies/sky_red_front.png"
+            ],
+            "@backUrl": [
+              "../skies/sky_red_back.png"
+            ],
+            "@leftUrl": [
+              "../skies/sky_red_left.png"
+            ],
+            "@rightUrl": [
+              "../skies/sky_red_right.png"
+            ],
+            "@topUrl": [
+              "../skies/sky_red_top.png"
+            ],
+            "@bottomUrl": [
+              "../skies/sky_red_bottom.png"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "TeapotBlendMode1",
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ],
+                          "@transparency": 0.8
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, 2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "TeapotBlendMode1"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, 4 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "TeapotBlendMode1"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "TeapotBlendModeDefault",
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ],
+                          "@transparency": 0.8
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.5, 0, 2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "TeapotBlendModeDefault"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.5, 0, 4 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "TeapotBlendModeDefault"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:32 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ 25.27516, -6.709458, 40.90567 ],
+            "@orientation": [ 0.481830507516861, -0.876271069049835, 0, 0.0136893289163708 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-geometry": { "Text":
+              {
+                "@DEF": "MyText",
+                "@string": [
+                  ""
+                ],
+                "-fontStyle": { "FontStyle":
+                  {
+                    "@family": [
+                      "TYPEWRITER"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "ProximitySensor":
+          {
+            "@DEF": "MyProx",
+            "@size": [ 1e7, 1e7, 1e7 ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "generate_now"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "generated"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "i"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFInt32",
+                "@name": "j"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFString",
+                "@name": "line"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFString",
+                "@name": "char"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "function generate_now(value, timestamp)\r",
+              "  array_set_count(generated, 16);\r",
+              "\r",
+              "  for(i, 0, 15,\r",
+              "    line := '';\r",
+              "    for(j, 0, 15,\r",
+              "      char := string(i * 16 + j);\r",
+              "      { pad number to 3 dcharacters }\r",
+              "      while (array_get_count(char) < 4, char := ' ' + char);\r",
+              "      line := line + char + ': ' + character_from_code(i * 16 + j)  + ' ');\r",
+              "    array_set(generated, i, line)\r",
+              "  )\r",
+              ""
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyProx",
+            "@fromField": "enterTime",
+            "@toNode": "MyScript",
+            "@toField": "generate_now"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "generated",
+            "@toNode": "MyText",
+            "@toField": "set_string"
+          }
+        }
+      ]
+    }
+  }
+}

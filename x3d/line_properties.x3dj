@@ -1,0 +1,405 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:43 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ -3, 1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@applied": false,
+                          "@linetype": 5,
+                          "@linewidthScaleFactor": 10
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "LineSet":
+                    {
+                      "@vertexCount": [
+                        5,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "C",
+                          "@point": [
+                            0, 0, 0,
+                            1, 1, 0,
+                            2, 0, 0,
+                            1, -1, 0,
+                            0, 0, 0,
+                            0.1, 0, 0,
+                            1.1, 1, 0,
+                            2.1, 0, 0,
+                            1.1, -1, 0,
+                            0.1, 0, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -3, -1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@linewidthScaleFactor": 2
+                        }
+                      },
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "LineSet":
+                    {
+                      "@vertexCount": [
+                        5,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -3, 4.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@linetype": 2,
+                          "@linewidthScaleFactor": 2
+                        }
+                      },
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "LineSet":
+                    {
+                      "@vertexCount": [
+                        5,
+                        5
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 0, 0,
+                            0.75, 0, 0,
+                            0.5, 0, 0,
+                            0.25, 0, 0,
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 0, 0.75,
+                            0, 0, 0.5,
+                            0, 0, 0.25,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@linetype": 3,
+                          "@linewidthScaleFactor": 2
+                        }
+                      },
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@colorPerVertex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        0,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        4
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 0, 0,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "C2",
+                          "@point": [
+                            0, 0, 0,
+                            1, 1, 0,
+                            2, 0, 0,
+                            1, -1, 0,
+                            0.1, 0, 0,
+                            1.1, 1, 0,
+                            2.1, 0, 0,
+                            1.1, -1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@linetype": 4,
+                          "@linewidthScaleFactor": 2
+                        }
+                      },
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@colorIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        0,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        4
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 1, 0,
+                            1, 1, 1,
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C2"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 4.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@linetype": 5,
+                          "@linewidthScaleFactor": 2
+                        }
+                      },
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@colorIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        -1,
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        0,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        4
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 1, 0,
+                            1, 1, 1,
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C2"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-lineProperties": { "LineProperties":
+                        {
+                          "@linetype": 2,
+                          "@linewidthScaleFactor": 2
+                        }
+                      },
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

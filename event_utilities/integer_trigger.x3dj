@@ -1,0 +1,170 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:22:39 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch"
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        null,
+        { "BooleanFilter":
+          {
+            "@DEF": "BFilter"
+          }
+        },
+        { "IntegerTrigger":
+          {
+            "@DEF": "IGenerate0",
+            "@integerKey": 0
+          }
+        },
+        { "IntegerTrigger":
+          {
+            "@DEF": "IGenerate1",
+            "@integerKey": 1
+          }
+        },
+        { "Switch":
+          {
+            "@DEF": "SText",
+            "@whichChoice": 0,
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "mouse NOT over the box"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "mouse over the box"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch",
+            "@fromField": "isOver",
+            "@toNode": "BFilter",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BFilter",
+            "@fromField": "inputFalse",
+            "@toNode": "IGenerate0",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "BFilter",
+            "@fromField": "inputTrue",
+            "@toNode": "IGenerate1",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "IGenerate0",
+            "@fromField": "triggerValue",
+            "@toNode": "SText",
+            "@toField": "set_whichChoice"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "IGenerate1",
+            "@fromField": "triggerValue",
+            "@toNode": "SText",
+            "@toField": "set_whichChoice"
+          }
+        }
+      ]
+    }
+  }
+}

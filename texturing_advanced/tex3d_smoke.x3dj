@@ -1,0 +1,309 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:00 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing3D",
+          "@level": 2
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 0, -0.5 ],
+                  "@scale": [ 500, 500, 2 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@ambientIntensity": 1,
+                                "@transparency": 0.5
+                              }
+                            },
+                            "-texture": { "ImageTexture3D":
+                              {
+                                "@DEF": "Tex3D",
+                                "@url": [
+                                  "../textures/random3d.dds"
+                                ],
+                                "-textureProperties": { "TextureProperties":
+                                  {
+                                    "@minificationFilter": "NICEST",
+                                    "@magnificationFilter": "NICEST",
+                                    "@textureCompression": "FASTEST"
+                                  }
+                                }
+                              }
+                            },
+                            "-textureTransform": { "TextureTransform3D":
+                              {
+                                "@DEF": "TexTrans",
+                                "@translation": [ 0.60068, 0.60068, 6.0068 ],
+                                "@scale": [ 20, 20, 20 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@coordIndex": [
+                              0,
+                              3,
+                              2,
+                              1,
+                              -1,
+                              5,
+                              6,
+                              7,
+                              4,
+                              -1,
+                              10,
+                              9,
+                              8,
+                              11,
+                              -1,
+                              13,
+                              14,
+                              15,
+                              12,
+                              -1,
+                              18,
+                              17,
+                              16,
+                              19,
+                              -1,
+                              21,
+                              22,
+                              23,
+                              20,
+                              -1
+                            ],
+                            "-texCoord": { "TextureCoordinateGenerator":
+                              {
+                                "@mode": "COORD"
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@point": [
+                                  1, 0.9999999, 0,
+                                  1, -1, 0,
+                                  -1, -0.9999998, 0,
+                                  -0.9999996, 1, 0,
+                                  -0.9999996, 1, 0.2,
+                                  -1, -0.9999998, 0.2,
+                                  1, -1, 0.2,
+                                  1, 0.9999999, 0.2,
+                                  1, 0.9999999, 0.4,
+                                  1, -1, 0.4,
+                                  -1, -0.9999998, 0.4,
+                                  -0.9999996, 1, 0.4,
+                                  -0.9999996, 1, 0.6,
+                                  -1, -0.9999998, 0.6,
+                                  1, -1, 0.6,
+                                  1, 0.9999999, 0.6,
+                                  1, 0.9999999, 0.8,
+                                  1, -1, 0.8,
+                                  -1, -0.9999998, 0.8,
+                                  -0.9999996, 1, 0.8,
+                                  -0.9999996, 1, 1,
+                                  -1, -0.9999998, 1,
+                                  1, -1, 1,
+                                  1, 0.9999999, 1
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 3, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@ambientIntensity": 1
+                                    }
+                                  },
+                                  "-texture": { "ImageTexture3D":
+                                    {
+                                      "@USE": "Tex3D"
+                                    }
+                                  },
+                                  "-textureTransform": { "TextureTransform3D":
+                                    {
+                                      "@USE": "TexTrans"
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 50,
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp",
+            "@key": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              0.2, 0.2, 2,
+              0.4, 0.4, 4,
+              0.6, 0.6, 6,
+              0.8, 0.8, 8,
+              1, 1, 10
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK"
+            ],
+            "@avatarSize": [
+              0.5,
+              2
+            ],
+            "@speed": 20
+          }
+        },
+        { "PointLight":
+          {
+            "@color": [ 0.9, 0.9, 1 ],
+            "@location": [ 10, 10, 100 ],
+            "@radius": 1000000
+          }
+        },
+        { "PointLight":
+          {
+            "@color": [ 1, 0, 0 ],
+            "@intensity": 0.3,
+            "@ambientIntensity": 0.02000042,
+            "@location": [ -215.2547, -28.8001, -29.86233 ],
+            "@radius": 1000000
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "Background":
+                {
+                  "@frontUrl": [
+                    "../skies/sunset_front.png"
+                  ],
+                  "@backUrl": [
+                    "../skies/sunset_back.png"
+                  ],
+                  "@leftUrl": [
+                    "../skies/sunset_left.png"
+                  ],
+                  "@rightUrl": [
+                    "../skies/sunset_right.png"
+                  ],
+                  "@topUrl": [
+                    "../skies/sunset_top.png"
+                  ],
+                  "@bottomUrl": [
+                    "../skies/sunset_bottom.png"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.004618315, -94.83733, 6.331068 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp",
+            "@fromField": "value_changed",
+            "@toNode": "TexTrans",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

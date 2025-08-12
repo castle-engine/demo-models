@@ -1,0 +1,84 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:18 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Rendering",
+          "@level": 5
+        }
+      ],
+      "unit": [
+        {
+          "@category": "angle",
+          "@name": "degrees",
+          "@conversionFactor": 0.017453293
+        },
+        {
+          "@category": "force",
+          "@name": "foo",
+          "@conversionFactor": 123.456
+        },
+        {
+          "@category": "length",
+          "@name": "km",
+          "@conversionFactor": 1000
+        },
+        {
+          "@category": "mass",
+          "@name": "bar",
+          "@conversionFactor": 789
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 0.001, 0, 0, 90 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Cylinder":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "units_helper.x3dv"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

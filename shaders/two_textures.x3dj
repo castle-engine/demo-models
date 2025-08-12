@@ -1,0 +1,169 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:29 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-shaders": [
+                  { "ComposedShader":
+                    {
+                      "@language": "GLSL",
+                      "-parts": [
+                        { "ShaderPart":
+                          {
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "\r",
+                              "            uniform mat4 castle_ModelViewMatrix;\r",
+                              "            uniform mat4 castle_ProjectionMatrix;\r",
+                              "            attribute vec4 castle_Vertex;\r",
+                              "\r",
+                              "            // texture coords\r",
+                              "            attribute vec4 castle_MultiTexCoord0;\r",
+                              "            attribute vec4 castle_MultiTexCoord1;\r",
+                              "            varying vec4 tex_coord0;\r",
+                              "            varying vec4 tex_coord1;\r",
+                              "\r",
+                              "            void main(void)\r",
+                              "            {\r",
+                              "              tex_coord0 = castle_MultiTexCoord0;\r",
+                              "              tex_coord1 = castle_MultiTexCoord1;\r",
+                              "              gl_Position = castle_ProjectionMatrix * (castle_ModelViewMatrix * castle_Vertex);\r",
+                              "            }"
+                            ]
+                          }
+                        },
+                        { "ShaderPart":
+                          {
+                            "@type": "FRAGMENT",
+                            "#sourceCode": [
+                              "data:text/plain,\r",
+                              "\r",
+                              "            uniform sampler2D texture_one;\r",
+                              "            uniform sampler2D texture_two;\r",
+                              "\r",
+                              "            varying vec4 tex_coord0;\r",
+                              "            varying vec4 tex_coord1;\r",
+                              "\r",
+                              "            void main()\r",
+                              "            {\r",
+                              "              gl_FragColor =\r",
+                              "                texture2D(texture_one, tex_coord0.xy) *\r",
+                              "                texture2D(texture_two, tex_coord1.xy);\r",
+                              "            }"
+                            ]
+                          }
+                        }
+                      ],
+                      "field": [
+                        {
+                          "@accessType": "initializeOnly",
+                          "@type": "SFNode",
+                          "@name": "texture_one",
+                          "-children": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/bricks2.jpg"
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "@accessType": "initializeOnly",
+                          "@type": "SFNode",
+                          "@name": "texture_two",
+                          "-children": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/test_texture.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1
+                ],
+                "-texCoord": { "MultiTextureCoordinate":
+                  {
+                    "-texCoord": [
+                      { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      0, 0, 0,
+                      1, 0, 0,
+                      1, 1, 0,
+                      0, 1, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

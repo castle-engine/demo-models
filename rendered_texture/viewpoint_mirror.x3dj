@@ -1,0 +1,222 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:22 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, -1.57079637050629 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Background":
+          {
+            "@frontUrl": [
+              "../skies/sky_lake_front.png"
+            ],
+            "@backUrl": [
+              "../skies/sky_lake_back.png"
+            ],
+            "@leftUrl": [
+              "../skies/sky_lake_left.png"
+            ],
+            "@rightUrl": [
+              "../skies/sky_lake_right.png"
+            ],
+            "@topUrl": [
+              "../skies/sky_lake_top.png"
+            ],
+            "@bottomUrl": [
+              "../skies/sky_lake_bottom.png"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, -100 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinateGenerator":
+                        {
+                          "@mode": "MIRROR-PLANE"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            100, 0, 0,
+                            100, 100, 0,
+                            0, 100, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, 100 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinateGenerator":
+                        {
+                          "@mode": "MIRROR-PLANE"
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            50, 0, 0,
+                            50, 50, 0,
+                            0, 50, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -100, 0, -50 ],
+            "@rotation": [ 0, 1, 0, 0.4 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/test_texture.png"
+                                ]
+                              }
+                            },
+                            null
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "MultiTextureCoordinate":
+                        {
+                          "-texCoord": [
+                            { "TextureCoordinateGenerator":
+                              {
+                                "@mode": "BOUNDS"
+                              }
+                            },
+                            { "TextureCoordinateGenerator":
+                              {
+                                "@mode": "MIRROR-PLANE"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            100, 0, 0,
+                            100, 100, 0,
+                            0, 100, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

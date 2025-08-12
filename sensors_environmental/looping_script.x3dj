@@ -1,0 +1,532 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:39 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"Door",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Group":
+                  {
+                    "-children": [
+                      { "TimeSensor":
+                        {
+                          "@DEF": "TimerOpen"
+                        }
+                      },
+                      { "OrientationInterpolator":
+                        {
+                          "@DEF": "OrientOpen",
+                          "@key": [
+                            0,
+                            1
+                          ],
+                          "@keyValue": [
+                            0, 0, 1, 0,
+                            0, 0, 1, 1.57
+                          ]
+                        }
+                      },
+                      { "TimeSensor":
+                        {
+                          "@DEF": "TimerClose"
+                        }
+                      },
+                      { "OrientationInterpolator":
+                        {
+                          "@DEF": "OrientClose",
+                          "@key": [
+                            0,
+                            1
+                          ],
+                          "@keyValue": [
+                            0, 0, 1, 1.57,
+                            0, 0, 1, 0
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@DEF": "DoorTransform",
+                          "@center": [ 0, -1, 0 ],
+                          "-children": [
+                            { "Inline":
+                              {
+                                "@global": true,
+                                "@url": [
+                                  "deranged_house_door.wrl"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ -1, 0, 1.3 ],
+                          "-children": [
+                            { "ProximitySensor":
+                              {
+                                "@DEF": "ProxSens",
+                                "@size": [ 5, 2, 2.5 ]
+                              }
+                            },
+                            { "Switch":
+                              {
+                                "@DEF": "ProxSensVisualize",
+                                "-children": [
+                                  { "Collision":
+                                    {
+                                      "@enabled": false,
+                                      "-children": [
+                                        { "Shape":
+                                          {
+                                            "-appearance": { "Appearance":
+                                              {
+                                                "-material": { "Material":
+                                                  {
+                                                    "@diffuseColor": [ 2, 2, 0 ],
+                                                    "@transparency": 0.5
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "-geometry": { "Box":
+                                              {
+                                                "@size": [ 5, 2, 2.5 ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "KeySensor":
+                        {
+                          "@DEF": "K"
+                        }
+                      },
+                      { "BooleanToggle":
+                        {
+                          "@DEF": "BToggle"
+                        }
+                      },
+                      { "BooleanFilter":
+                        {
+                          "@DEF": "BFilter"
+                        }
+                      },
+                      { "IntegerTrigger":
+                        {
+                          "@DEF": "IGenerateM1"
+                        }
+                      },
+                      { "IntegerTrigger":
+                        {
+                          "@DEF": "IGenerate0",
+                          "@integerKey": 0
+                        }
+                      },
+                      { "Script":
+                        {
+                          "@DEF": "Scr",
+                          "field": [
+                            {
+                              "@accessType": "inputOutput",
+                              "@type": "SFBool",
+                              "@name": "open_animation_plays"
+                            },
+                            {
+                              "@accessType": "inputOutput",
+                              "@type": "SFBool",
+                              "@name": "closing_animation_plays"
+                            },
+                            {
+                              "@accessType": "inputOutput",
+                              "@type": "SFBool",
+                              "@name": "anything"
+                            },
+                            {
+                              "@accessType": "inputOnly",
+                              "@type": "SFTime",
+                              "@name": "start_open"
+                            },
+                            {
+                              "@accessType": "inputOnly",
+                              "@type": "SFTime",
+                              "@name": "start_closing"
+                            },
+                            {
+                              "@accessType": "outputOnly",
+                              "@type": "SFTime",
+                              "@name": "open_start_time"
+                            },
+                            {
+                              "@accessType": "outputOnly",
+                              "@type": "SFTime",
+                              "@name": "closing_start_time"
+                            }
+                          ],
+                          "#sourceCode": [
+                            "castlescript:\r",
+                            "          { This causes looping. On receive of open_animation_plays,\r",
+                            "            we change open_animation_plays, and so the same script is called\r",
+                            "            once again.\r",
+                            "\r",
+                            "            In the Castle Game Engine code: Field.EventIn is called\r",
+                            "            from AfterExecute, which triggers script callback OnReceive,\r",
+                            "            which fires the script again.\r",
+                            "            We protect against this by LastEventTimes. }\r",
+                            "          function open_animation_plays(value, timestamp)\r",
+                            "            open_animation_plays := false\r",
+                            "\r",
+                            "          function start_open(value, timestamp)\r",
+                            "            if(open_animation_plays, 1,\r",
+                            "              if(closing_animation_plays,\r",
+                            "                open_start_time := timestamp,\r",
+                            "                open_start_time := timestamp))\r",
+                            "\r",
+                            "          function start_closing(value, timestamp)\r",
+                            "            if(closing_animation_plays, 1,\r",
+                            "              if(open_animation_plays,\r",
+                            "                closing_start_time := timestamp,\r",
+                            "                closing_start_time := timestamp))\r",
+                            "\r",
+                            "        "
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "ProxSens",
+                    "@fromField": "enterTime",
+                    "@toNode": "Scr",
+                    "@toField": "start_open"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "open_start_time",
+                    "@toNode": "TimerOpen",
+                    "@toField": "set_startTime"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimerOpen",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "OrientOpen",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "OrientOpen",
+                    "@fromField": "value_changed",
+                    "@toNode": "DoorTransform",
+                    "@toField": "set_rotation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimerOpen",
+                    "@fromField": "isActive",
+                    "@toNode": "Scr",
+                    "@toField": "set_open_animation_plays"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "ProxSens",
+                    "@fromField": "exitTime",
+                    "@toNode": "Scr",
+                    "@toField": "start_closing"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "closing_start_time",
+                    "@toNode": "TimerClose",
+                    "@toField": "set_startTime"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimerClose",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "OrientClose",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "OrientClose",
+                    "@fromField": "value_changed",
+                    "@toNode": "DoorTransform",
+                    "@toField": "set_rotation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimerClose",
+                    "@fromField": "isActive",
+                    "@toNode": "Scr",
+                    "@toField": "set_closing_animation_plays"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "K",
+                    "@fromField": "controlKey",
+                    "@toNode": "BToggle",
+                    "@toField": "set_boolean"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "BToggle",
+                    "@fromField": "toggle_changed",
+                    "@toNode": "BFilter",
+                    "@toField": "set_boolean"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "BFilter",
+                    "@fromField": "inputFalse",
+                    "@toNode": "IGenerateM1",
+                    "@toField": "set_boolean"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "BFilter",
+                    "@fromField": "inputTrue",
+                    "@toNode": "IGenerate0",
+                    "@toField": "set_boolean"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "IGenerateM1",
+                    "@fromField": "triggerValue",
+                    "@toNode": "ProxSensVisualize",
+                    "@toField": "set_whichChoice"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "IGenerate0",
+                    "@fromField": "triggerValue",
+                    "@toNode": "ProxSensVisualize",
+                    "@toField": "set_whichChoice"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5.936634, 6.2475, 1.575 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -1.02208502994472e-6, 0.999999940395355, 0, 3.0978422164917 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0.4, 0.3, 1 ],
+                  "@rotation": [ -1.02208502994472e-6, 0.999999940395355, 0, 3.0978422164917 ],
+                  "@scale": [ 0.06, 0.06, 0.06 ],
+                  "-children": [
+                    { "Collision":
+                      {
+                        "@enabled": false,
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 0.5, 0.5, 0.5 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "Simple ProximitySensor demo.",
+                                    "Pressing Ctrl toggles displaying",
+                                    "of the yellow (non-collidable) boxes",
+                                    "that visualize ProximitySensors."
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.25,
+              1.75,
+              0.75
+            ],
+            "@speed": 10
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "deranged_house.wrl"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3.1, 4, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3.1, -4, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -11.8, -4, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5.1, -8, 0 ],
+            "@rotation": [ 0, 0, 1, 1.5707963268 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9.1, -8, 0 ],
+            "@rotation": [ 0, 0, 1, 1.5707963268 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 11.3, -6.2, 0 ],
+            "@rotation": [ 0, 0, 1, 3.1415926536 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10.55, -3.1, 0 ],
+            "@rotation": [ 0, 0, 1, 3.1415926536 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Door"
+                }
+              }
+            ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@intensity": 0,
+            "@ambientIntensity": 1
+          }
+        }
+      ]
+    }
+  }
+}

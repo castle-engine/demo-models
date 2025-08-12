@@ -1,0 +1,206 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:22 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ],
+            "@avatarSize": [
+              0.5,
+              2,
+              0.5
+            ],
+            "@speed": 20
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "Viewpoint1",
+                  "@description": "Down",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -3.5324712371e-5, -0.999984502792358, -0, 0.046436563134193 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ -5, 1, -15 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "- Press '1' to   bind the 1st Viewpoint",
+                              "- Press '2' to unbind the 1st Viewpoint",
+                              "- Press '3' to   bind the 2nd Viewpoint",
+                              "- Press '4' to unbind the 2nd Viewpoint"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -4.511138, -9.566962, 62.81708 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "Viewpoint2",
+                  "@description": "Up",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.0880664512515068, 0.884690642356872, 0.457784414291382, 2.80444002151489 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 2, -10, 13 ],
+                  "@rotation": [ -0.0880664512515068, 0.884690642356872, 0.457784414291382, 2.80444002151489 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "DON'T LOOK DOWN! Too late...",
+                              "- Press '1' to   bind the 1st Viewpoint",
+                              "- Press '2' to unbind the 1st Viewpoint",
+                              "- Press '3' to   bind the 2nd Viewpoint",
+                              "- Press '4' to unbind the 2nd Viewpoint"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Fog":
+          {
+            "@fogType": "EXPONENTIAL",
+            "@color": [ 0, 0, 0 ],
+            "@visibilityRange": 200
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind1"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind2"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "    function keyPress(value, timestamp)\r",
+              "      when (value = '1', bind1 := true);\r",
+              "      when (value = '2', bind1 := false);\r",
+              "      when (value = '3', bind2 := true);\r",
+              "      when (value = '4', bind2 := false)"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "keyPress",
+            "@toNode": "MyScript",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind1",
+            "@toNode": "Viewpoint1",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind2",
+            "@toNode": "Viewpoint2",
+            "@toField": "set_bind"
+          }
+        }
+      ]
+    }
+  }
+}

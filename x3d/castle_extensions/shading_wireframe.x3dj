@@ -1,0 +1,970 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:53 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"TestGeometryShading",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "translation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "geometryScale",
+                  "@value": [ 1, 1, 1 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFNode",
+                  "@name": "geometry"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Transform":
+                        {
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                    "-material": { "Material":
+                                      {
+                                      }
+                                    }
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 2, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                    "-material": { "Material":
+                                      {
+                                      }
+                                    }
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 4, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 6, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 8, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 10, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                    "-material": { "Material":
+                                      {
+                                        "@emissiveColor": [ 1, 1, 0 ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 12, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "geometry",
+                                      "@protoField": "geometry"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "geometryScale"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "translation",
+                          "@protoField": "translation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "IndexedFaceSet":
+                    {
+                      "@DEF": "_1",
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        6,
+                        5,
+                        4,
+                        3,
+                        2,
+                        -1,
+                        1,
+                        0,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "Coord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0,
+                            -0.5, 1.5, 0,
+                            0.5, 2, 0,
+                            1.5, 1.5, 0,
+                            0.5, -0.25, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -2, 0 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Sphere":
+                    {
+                      "@DEF": "_2",
+                      "@radius": 0.5
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -4, 0 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Cylinder":
+                    {
+                      "@DEF": "_3",
+                      "@radius": 0.5
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -6, 0 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Box":
+                    {
+                      "@DEF": "_4",
+                      "@size": [ 0.5, 0.5, 0.5 ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -8, 0 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Cone":
+                    {
+                      "@DEF": "_5",
+                      "@height": 1,
+                      "@bottomRadius": 0.5
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -10, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Extrusion":
+                    {
+                      "@DEF": "_6",
+                      "@crossSection": [
+                        2, 1,
+                        2, -1,
+                        0, -3,
+                        -2, -1,
+                        -2, 1,
+                        0, 1,
+                        2, 1
+                      ],
+                      "@orientation": [
+                        0, 1, 0, 0,
+                        1, 0, 0, 0,
+                        1, 0, 0, 0
+                      ],
+                      "@scale": [
+                        1, 1,
+                        1, 1,
+                        1, 1
+                      ],
+                      "@spine": [
+                        0, 0, 0,
+                        0, 0, -4,
+                        4, 0, -4
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -12, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "ElevationGrid":
+                    {
+                      "@DEF": "_7",
+                      "@xDimension": 3,
+                      "@zDimension": 3,
+                      "@creaseAngle": 4,
+                      "@height": [
+                        0.1,
+                        0.2,
+                        0.3,
+                        0.1,
+                        0.7,
+                        0.2,
+                        0.4,
+                        0.3,
+                        0.1
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -14, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "IndexedTriangleSet":
+                    {
+                      "@DEF": "_8",
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -16, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "TriangleSet":
+                    {
+                      "@DEF": "_9",
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -18, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "IndexedTriangleFanSet":
+                    {
+                      "@DEF": "_10",
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "FanSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0.5, 1.5, 0.5,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            0.5, 3.5, 0.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -20, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "TriangleFanSet":
+                    {
+                      "@DEF": "_11",
+                      "@fanCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "FanSetCoord"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -22, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "IndexedTriangleStripSet":
+                    {
+                      "@DEF": "_12",
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "StripSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            1.5, 0.5, 0.5,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            1.5, 2.5, 0.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -24, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "TriangleStripSet":
+                    {
+                      "@DEF": "_13",
+                      "@stripCount": [
+                        4,
+                        4
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "StripSetCoord"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -26, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "IndexedQuadSet":
+                    {
+                      "@DEF": "_14",
+                      "@index": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        2,
+                        1,
+                        8,
+                        9
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "QuadSetCoord",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0,
+                            1, 3, 0,
+                            0, 3, 0,
+                            2, 0, 1,
+                            2, 1, 1
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -28, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "QuadSet":
+                    {
+                      "@DEF": "_15",
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "QuadSetCoord"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -30, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Rectangle2D":
+                    {
+                      "@DEF": "_16"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -32, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Circle2D":
+                    {
+                      "@DEF": "_17"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -34, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "Disk2D":
+                    {
+                      "@DEF": "_18"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestGeometryShading",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, -36, 0 ]
+              },
+              {
+                "@name": "geometryScale",
+                "@value": [ 0.3, 0.3, 0.3 ]
+              },
+              {
+                "@name": "geometry",
+                "-children": [
+                  { "TriangleSet2D":
+                    {
+                      "@DEF": "_19",
+                      "@vertices": [
+                        0, 0,
+                        1, 0,
+                        1, 1,
+                        0, 2,
+                        1, 2,
+                        1, 3
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:05 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "A",
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@DEF": "TestTex",
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 2, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "A"
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 2, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "@USE": "A"
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          },
+                          { "Transform":
+                            {
+                              "@translation": [ 2, 0, 0 ],
+                              "-children": [
+                                { "Shape":
+                                  {
+                                    "-appearance": { "Appearance":
+                                      {
+                                        "-material": { "Material":
+                                          {
+                                            "@diffuseColor": [ 1, 0, 0 ]
+                                          }
+                                        },
+                                        "-texture": { "ImageTexture":
+                                          {
+                                            "@USE": "TestTex"
+                                          }
+                                        },
+                                        "-textureTransform": { "TextureTransform":
+                                          {
+                                            "@scale": [ 2, 2 ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "-geometry": { "Box":
+                                      {
+                                      }
+                                    }
+                                  }
+                                },
+                                { "Transform":
+                                  {
+                                    "@translation": [ 2, -1, 0 ],
+                                    "-children": [
+                                      { "Shape":
+                                        {
+                                          "-appearance": { "Appearance":
+                                            {
+                                              "-material": { "Material":
+                                                {
+                                                  "@diffuseColor": [ 0, 1, 0 ]
+                                                }
+                                              },
+                                              "-texture": { "ImageTexture":
+                                                {
+                                                  "@USE": "TestTex"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "-geometry": { "IndexedFaceSet":
+                                            {
+                                              "@solid": false,
+                                              "@coordIndex": [
+                                                0,
+                                                1,
+                                                2,
+                                                3,
+                                                4,
+                                                -1
+                                              ],
+                                              "-coord": { "Coordinate":
+                                                {
+                                                  "@point": [
+                                                    0, 0, 0,
+                                                    2, 0, 0,
+                                                    3, 2, 0,
+                                                    2, 4, 0,
+                                                    0, 4, 0
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 12, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

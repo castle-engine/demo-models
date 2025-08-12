@@ -1,0 +1,177 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:35 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@alphaMode": "BLEND",
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "DOTPRODUCT3"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@alphaMode": "BLEND",
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "DOTPRODUCT3 / REPLACE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@alphaMode": "BLEND",
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 0, 0 ],
+                          "@alpha": 0.5,
+                          "@mode": [
+                            "DOTPRODUCT3"
+                          ],
+                          "@source": [
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@alphaMode": "BLEND",
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 0, 0 ],
+                          "@alpha": 0.5,
+                          "@mode": [
+                            "DOTPRODUCT3 / REPLACE"
+                          ],
+                          "@source": [
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:42 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.5,
+              2,
+              0.5
+            ],
+            "@speed": 20
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -3.5324712371e-5, -0.999984502792358, -0, 0.046436563134193 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "PlayerSurrounding",
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 0, -15 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 2, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 1, 0 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "Whatever you do, this text and sphere will",
+                                    "always be in the middle of the screen",
+                                    "(although they are 3D,",
+                                    "and may be hidden by other 3D objects)"
+                                  ],
+                                  "-fontStyle": { "FontStyle":
+                                    {
+                                      "@justify": [
+                                        "MIDDLE"
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ],
+                                "@transparency": 0.5
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProximitySensor":
+          {
+            "@DEF": "MyProx",
+            "@size": [ 1e7, 1e7, 1e7 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyProx",
+            "@fromField": "orientation_changed",
+            "@toNode": "PlayerSurrounding",
+            "@toField": "set_rotation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyProx",
+            "@fromField": "position_changed",
+            "@toNode": "PlayerSurrounding",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

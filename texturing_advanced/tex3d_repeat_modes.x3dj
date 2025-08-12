@@ -1,0 +1,263 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:52 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing3D",
+          "@level": 2
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"TestTex3DRepeats",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "translation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFString",
+                  "@name": "boundaryModeS",
+                  "@value": "REPEAT"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFString",
+                  "@name": "boundaryModeT",
+                  "@value": "REPEAT"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFString",
+                  "@name": "boundaryModeR",
+                  "@value": "REPEAT"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-appearance": { "Appearance":
+                            {
+                              "-material": { "Material":
+                                {
+                                }
+                              },
+                              "-texture": { "ImageTexture3D":
+                                {
+                                  "@url": [
+                                    "../textures/trivial_3d_tex.dds"
+                                  ],
+                                  "-textureProperties": { "TextureProperties":
+                                    {
+                                      "@minificationFilter": "NEAREST_PIXEL",
+                                      "@magnificationFilter": "NEAREST_PIXEL",
+                                      "@textureCompression": "FASTEST",
+                                      "IS": {
+                                        "connect": [
+                                          {
+                                            "@nodeField": "boundaryModeS",
+                                            "@protoField": "boundaryModeS"
+                                          },
+                                          {
+                                            "@nodeField": "boundaryModeT",
+                                            "@protoField": "boundaryModeT"
+                                          },
+                                          {
+                                            "@nodeField": "boundaryModeR",
+                                            "@protoField": "boundaryModeR"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "-textureTransform": { "TextureTransform3D":
+                                {
+                                  "@scale": [ 4.1, 4.1, 4.1 ]
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "Box":
+                            {
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "translation",
+                          "@protoField": "translation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "boundaryModeS",
+                "@value": "CLAMP_TO_EDGE"
+              },
+              {
+                "@name": "boundaryModeT",
+                "@value": "CLAMP_TO_EDGE"
+              },
+              {
+                "@name": "boundaryModeR",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 3, 0, 0 ]
+              },
+              {
+                "@name": "boundaryModeT",
+                "@value": "CLAMP_TO_EDGE"
+              },
+              {
+                "@name": "boundaryModeR",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, 3, 0 ]
+              },
+              {
+                "@name": "boundaryModeS",
+                "@value": "CLAMP_TO_EDGE"
+              },
+              {
+                "@name": "boundaryModeR",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 3, 3, 0 ]
+              },
+              {
+                "@name": "boundaryModeR",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, 0, 3 ]
+              },
+              {
+                "@name": "boundaryModeS",
+                "@value": "CLAMP_TO_EDGE"
+              },
+              {
+                "@name": "boundaryModeT",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 3, 0, 3 ]
+              },
+              {
+                "@name": "boundaryModeT",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 0, 3, 3 ]
+              },
+              {
+                "@name": "boundaryModeS",
+                "@value": "CLAMP_TO_EDGE"
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "TestTex3DRepeats",
+            "fieldValue": [
+              {
+                "@name": "translation",
+                "@value": [ 3, 3, 3 ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

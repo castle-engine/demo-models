@@ -1,0 +1,158 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:49 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing",
+          "@level": 3
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App",
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/bricks.jpg"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "-textureTransform": { "MultiTextureTransform":
+                        {
+                          "-textureTransform": [
+                            { "TextureTransform":
+                              {
+                                "@scale": [ 2, 2 ]
+                              }
+                            },
+                            { "TextureTransform":
+                              {
+                                "@scale": [ 2, 2 ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 2.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2.5, 2.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "Cylinder":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 1.25, 1.25, 8.333334 ]
+          }
+        }
+      ]
+    }
+  }
+}

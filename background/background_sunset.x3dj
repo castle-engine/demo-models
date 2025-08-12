@@ -1,0 +1,77 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:37 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "Background":
+                {
+                  "@frontUrl": [
+                    "../skies/sunset_front.png"
+                  ],
+                  "@backUrl": [
+                    "../skies/sunset_back.png"
+                  ],
+                  "@leftUrl": [
+                    "../skies/sunset_left.png"
+                  ],
+                  "@rightUrl": [
+                    "../skies/sunset_right.png"
+                  ],
+                  "@topUrl": [
+                    "../skies/sunset_top.png"
+                  ],
+                  "@bottomUrl": [
+                    "../skies/sunset_bottom.png"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@description": "For Castle Model Viewer webpage",
+            "@position": [ -37.91656, -115.0144, 39.22111 ],
+            "@orientation": [ 0.97549843788147, -0.124612890183926, -0.181313320994377, 1.52946090698242 ]
+          }
+        },
+        { "SpotLight":
+          {
+            "@color": [ 1, 0.5, 0.5 ],
+            "@location": [ 0, 0, 100 ],
+            "@radius": 10000,
+            "@beamWidth": 0.5,
+            "@cutOffAngle": 0.785398
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

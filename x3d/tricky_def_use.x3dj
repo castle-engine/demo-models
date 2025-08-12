@@ -1,0 +1,272 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:14 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"YellowSphereByDefault",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFNode",
+                  "@name": "node",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "XXX_1",
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@DEF": "XXXMat",
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Group":
+                  {
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "children",
+                          "@protoField": "node"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"BlueSphereByDefault",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFNode",
+                  "@name": "node",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "XXX",
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Group":
+                  {
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "children",
+                          "@protoField": "node"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "XXXTransform_1",
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "TouchSensor":
+                      {
+                        "@DEF": "XXXTouch_1"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@USE": "XXX_1"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "XXXTransform",
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "TouchSensor":
+                      {
+                        "@DEF": "XXXTouch"
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "blue"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@USE": "XXX"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "yellow"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "YellowSphereByDefault"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "blue"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "BlueSphereByDefault"
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "XXXTouch_1",
+            "@fromField": "hitPoint_changed",
+            "@toNode": "XXXTransform_1",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "XXXTouch",
+            "@fromField": "hitPoint_changed",
+            "@toNode": "XXXTransform",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:48 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing",
+          "@level": 3
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@DEF": "I1",
+                          "@url": [
+                            "data/squirrel.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@DEF": "I2",
+                          "@url": [
+                            "data/bricks.jpg"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@USE": "I1"
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@USE": "I2"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@USE": "I2"
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@USE": "I1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 4.5, 0, 12.49999 ]
+          }
+        }
+      ]
+    }
+  }
+}

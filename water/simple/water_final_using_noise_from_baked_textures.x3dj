@@ -1,0 +1,115 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:27 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ -0.1127169, 1.724361, -7.907201 ],
+            "@orientation": [ 0.000172335057868622, -1, -1.27109287859639e-5, 2.99459958076477 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK",
+              "ANY"
+            ],
+            "@speed": 10,
+            "@headlight": false
+          }
+        },
+        { "Background":
+          {
+            "@frontUrl": [
+              "../../skies/foggy_sky_front.png"
+            ],
+            "@backUrl": [
+              "../../skies/foggy_sky_back.png"
+            ],
+            "@leftUrl": [
+              "../../skies/foggy_sky_left.png"
+            ],
+            "@rightUrl": [
+              "../../skies/foggy_sky_right.png"
+            ],
+            "@topUrl": [
+              "../../skies/foggy_sky_top.png"
+            ],
+            "@bottomUrl": [
+              "../../skies/foggy_sky_bottom.png"
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "water_simple_scene.x3d"
+            ]
+          }
+        },
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "WaterTransform",
+                  "@translation": [ -10, -0.1, -10 ],
+                  "@scale": [ 20, 20, 20 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@point": [
+                                  0, 0, 0,
+                                  0, 0, 1,
+                                  1, 0, 1,
+                                  1, 0, 0
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

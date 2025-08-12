@@ -1,0 +1,187 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:42 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "PointLight":
+          {
+            "@location": [ 4, 4, 0 ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "data/squirrel.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1, 1, 1 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture_grayscale.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1, 1, 1 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "data/squirrel.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@DEF": "MyIFS",
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 1, 1,
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "data/squirrel_grayscale.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@USE": "MyIFS"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 1, -0.5, 6.099999 ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:01 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                }
+              }
+            },
+            "-geometry": { "QuadSet":
+              {
+                "-color": { "Color":
+                  {
+                    "@color": [
+                      1, 0, 0,
+                      0, 1, 0,
+                      0, 0, 1,
+                      1, 1, 1
+                    ]
+                  }
+                },
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      0, 0, 0,
+                      1, 0, 0,
+                      1, 1, 0,
+                      0, 1, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "QuadSet":
+                    {
+                      "-color": { "ColorRGBA":
+                        {
+                          "@color": [
+                            1, 0, 0, 1,
+                            0, 1, 0, 0.5,
+                            0, 0, 1, 1,
+                            1, 1, 1, 0.5
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, -0.1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "PixelTexture":
+                        {
+                          "@image": [
+                            2, 2, 1,
+                              0, 255,
+                              255, 0
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@minificationFilter": "NEAREST_PIXEL",
+                              "@magnificationFilter": "NEAREST_PIXEL",
+                              "@textureCompression": "FASTEST"
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 20, 20 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "QuadSet":
+                    {
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            3, 0,
+                            3, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            3, 0, 0,
+                            3, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

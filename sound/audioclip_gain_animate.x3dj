@@ -1,0 +1,77 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:22 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Sound":
+          {
+            "@spatialize": false,
+            "-source": { "AudioClip":
+              {
+                "@DEF": "MyAudioClip",
+                "@url": [
+                  "werewolf_howling.wav"
+                ],
+                "@gain": 0.1531999,
+                "@loop": true
+              }
+            }
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "GainAnimationTimer",
+            "@cycleInterval": 5,
+            "@loop": true
+          }
+        },
+        { "ScalarInterpolator":
+          {
+            "@DEF": "GainAnimationInterpolator",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "GainAnimationTimer",
+            "@fromField": "fraction_changed",
+            "@toNode": "GainAnimationInterpolator",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "GainAnimationInterpolator",
+            "@fromField": "value_changed",
+            "@toNode": "MyAudioClip",
+            "@toField": "set_gain"
+          }
+        }
+      ]
+    }
+  }
+}

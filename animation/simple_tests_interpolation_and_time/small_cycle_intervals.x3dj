@@ -1,0 +1,285 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:14 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ 3.887159, -1.8433, 21.6424 ],
+            "@orientation": [ 0.0269699487835168, -0.999488949775696, 0.0173515267670154, 0.0107643725350499 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 10
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "MovingSphere",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                      "@radius": 3
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 0, 0 ],
+                          "@emissiveColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "move up"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "TouchUp"
+                }
+              },
+              { "TimeSensor":
+                {
+                  "@DEF": "TimerUp",
+                  "@cycleInterval": 0.0001
+                }
+              },
+              { "PositionInterpolator":
+                {
+                  "@DEF": "InterpUp",
+                  "@key": [
+                    0,
+                    1
+                  ],
+                  "@keyValue": [
+                    0, 0, 0,
+                    0, 5, 0
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -7, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 0, 0 ],
+                          "@emissiveColor": [ 0, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "move down"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "TouchDown"
+                }
+              },
+              { "TimeSensor":
+                {
+                  "@DEF": "TimerDown",
+                  "@cycleInterval": 0.0001
+                }
+              },
+              { "PositionInterpolator":
+                {
+                  "@DEF": "InterpDown",
+                  "@key": [
+                    0,
+                    1
+                  ],
+                  "@keyValue": [
+                    0, 5, 0,
+                    0, 0, 0
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@DEF": "MovieTex",
+                          "@url": [
+                            "../../movie_texture/test_video.avi"
+                          ],
+                          "@speed": 10000
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 3, 3, 3 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, -6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 0, 0 ],
+                          "@emissiveColor": [ 0, 0, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "play"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "TouchPlay"
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchUp",
+            "@fromField": "touchTime",
+            "@toNode": "TimerUp",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerUp",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpUp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpUp",
+            "@fromField": "value_changed",
+            "@toNode": "MovingSphere",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchDown",
+            "@fromField": "touchTime",
+            "@toNode": "TimerDown",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TimerDown",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpDown",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpDown",
+            "@fromField": "value_changed",
+            "@toNode": "MovingSphere",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchPlay",
+            "@fromField": "touchTime",
+            "@toNode": "MovieTex",
+            "@toField": "set_startTime"
+          }
+        }
+      ]
+    }
+  }
+}

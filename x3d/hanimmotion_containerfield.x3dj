@@ -1,0 +1,44 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:07:23 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "HAnimHumanoid":
+          {
+            "-motions": [
+              { "HAnimMotion":
+                {
+                  "@endFrame": -1
+                }
+              }
+            ]
+          }
+        },
+        { "Group":
+          {
+          }
+        },
+        { "HAnimMotion":
+          {
+            "@endFrame": -1
+          }
+        }
+      ]
+    }
+  }
+}

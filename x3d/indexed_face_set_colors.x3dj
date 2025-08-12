@@ -1,0 +1,726 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:32 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ -3, 1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@DEF": "C",
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0,
+                            0, 2, 0,
+                            1, 2, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1,
+                            1, 1, 0,
+                            0, 1, 1,
+                            1, 1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@colorPerVertex": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 1, 0,
+                            1, 1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@colorIndex": [
+                        0,
+                        1,
+                        2,
+                        0,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 0, 0,
+                            0, 1, 0,
+                            0, 0, 1,
+                            1, 1, 0,
+                            0, 1, 1,
+                            1, 1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@colorPerVertex": false,
+                      "@colorIndex": [
+                        1,
+                        0
+                      ],
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-color": { "Color":
+                        {
+                          "@color": [
+                            1, 1, 0,
+                            1, 1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@colorIndex": [
+                        0,
+                        1,
+                        2,
+                        0,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ],
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-color": { "ColorRGBA":
+                        {
+                          "@color": [
+                            1, 0, 0, 0.2,
+                            0, 1, 0, 0.4,
+                            0, 0, 1, 0.6,
+                            1, 1, 0, 0.8,
+                            0, 1, 1, 0.9,
+                            1, 1, 1, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, -1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@colorPerVertex": false,
+                      "@colorIndex": [
+                        1,
+                        0
+                      ],
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        -1
+                      ],
+                      "-color": { "ColorRGBA":
+                        {
+                          "@color": [
+                            1, 1, 0, 0.5,
+                            1, 1, 1, 0.75
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@USE": "C"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, 10 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -3, 1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App",
+                            "-material": { "Material":
+                              {
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App"
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-color": { "Color":
+                              {
+                                "@color": [
+                                  1, 0, 0,
+                                  0, 1, 0,
+                                  0, 0, 1,
+                                  1, 1, 0,
+                                  0, 1, 1,
+                                  1, 1, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App"
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@colorPerVertex": false,
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-color": { "Color":
+                              {
+                                "@color": [
+                                  1, 1, 0,
+                                  1, 1, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App"
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@colorIndex": [
+                              0,
+                              1,
+                              2,
+                              0,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5
+                            ],
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-color": { "Color":
+                              {
+                                "@color": [
+                                  1, 0, 0,
+                                  0, 1, 0,
+                                  0, 0, 1,
+                                  1, 1, 0,
+                                  0, 1, 1,
+                                  1, 1, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, -1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App"
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@colorPerVertex": false,
+                            "@colorIndex": [
+                              1,
+                              0
+                            ],
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-color": { "Color":
+                              {
+                                "@color": [
+                                  1, 1, 0,
+                                  1, 1, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App"
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@colorIndex": [
+                              0,
+                              1,
+                              2,
+                              0,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5
+                            ],
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-color": { "ColorRGBA":
+                              {
+                                "@color": [
+                                  1, 0, 0, 0.2,
+                                  0, 1, 0, 0.4,
+                                  0, 0, 1, 0.6,
+                                  1, 1, 0, 0.8,
+                                  0, 1, 1, 0.9,
+                                  1, 1, 1, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, -1.5, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App"
+                          }
+                        },
+                        "-geometry": { "IndexedFaceSet":
+                          {
+                            "@solid": false,
+                            "@colorPerVertex": false,
+                            "@colorIndex": [
+                              1,
+                              0
+                            ],
+                            "@coordIndex": [
+                              0,
+                              1,
+                              2,
+                              3,
+                              -1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              -1
+                            ],
+                            "-color": { "ColorRGBA":
+                              {
+                                "@color": [
+                                  1, 1, 0, 0.5,
+                                  1, 1, 1, 0.75
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@USE": "C"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

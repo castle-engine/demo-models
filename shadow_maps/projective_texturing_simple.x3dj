@@ -1,0 +1,138 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:06 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ 1.820007, -4.139333, 6.342193 ],
+            "@orientation": [ 0.924562036991119, -0.178793638944626, -0.336477726697922, 0.71193265914917 ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-texture": { "ImageTexture":
+                  {
+                    "@url": [
+                      "../textures/test_texture.png"
+                    ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@solid": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1
+                ],
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      0, 0, 0,
+                      2, 0, 0,
+                      2, 2, 0,
+                      0, 2, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1.5, 1.5, 1.5 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/brick_1.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/test_texture.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 1.5, 1.5, 1.5 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

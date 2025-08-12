@@ -1,0 +1,105 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:54 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "OrthoViewpoint":
+          {
+            "@fieldOfView": [
+              -3,
+              -3,
+              3,
+              3
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@emissiveColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedLineSet":
+              {
+                "@coordIndex": [
+                  0,
+                  1,
+                  -1,
+                  2,
+                  3,
+                  -1,
+                  4,
+                  5,
+                  -1
+                ],
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      -1.5, 0, 0,
+                      1.5, 0, 0,
+                      0, -1.5, 0,
+                      0, 1.5, 0,
+                      0, 0, -1.5,
+                      0, 0, 1.5
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 0.4, 0, 0 ],
+                    "@transparency": 0.5
+                  }
+                }
+              }
+            },
+            "-geometry": { "Box":
+              {
+                "@size": [ 3, 3, 3 ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

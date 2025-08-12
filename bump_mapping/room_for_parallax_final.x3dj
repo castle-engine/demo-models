@@ -1,0 +1,107 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:14:06 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 0.09371045, -2.896052, 1.379369 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.770070016384125, -0.634886920452118, -0.0625092908740043, 0.254381746053696 ]
+                }
+              }
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.1,
+              1,
+              0.1
+            ],
+            "@speed": 3
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "Background":
+                {
+                  "@skyAngle": [
+                    1.57
+                  ],
+                  "@skyColor": [
+                    0.1, 0.1, 0.1,
+                    0.0922368, 0.3600824, 0.6522775
+                  ],
+                  "@groundAngle": [
+                    1.57
+                  ],
+                  "@groundColor": [
+                    0.1, 0.1, 0.1,
+                    0.0922368, 0.3600824, 0.6522775
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "room_for_parallax.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

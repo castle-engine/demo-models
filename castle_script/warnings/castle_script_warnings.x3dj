@@ -1,0 +1,86 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:15 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 1, 1, 0 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "Text":
+              {
+                "@string": [
+                  "Click this to send \"touch\" to Script"
+                ]
+              }
+            }
+          }
+        },
+        { "TouchSensor":
+          {
+            "@DEF": "TouchStartAnim"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "@url": [
+              "ecmascript: blah blah",
+              "some_script.js",
+              "castlescript: function ()",
+              "castlescript: function (asd)",
+              "castlescript: ff (asd)",
+              "castlescript:\r\nfunction foo(value, timestamp)\r\nvalue + 1;\r\nblahblahblah\r\n",
+              "castlescript: function touch(value, timestamp)\r\nfunction foo(value, timestamp)",
+              "castlescript: function foo(asd,)",
+              "castlescript: function foo(asd,",
+              "castlescript:\r\nfunction foo(value, timestamp)\r\nvalue + 1;\r\nblahblahblah := 2\r\n",
+              "castlescript:\r\nfunction foo(value, timestamp)\r\nvalue + 1;\r\n2 := 3\r\n",
+              "castlescript:\r\nfunction foo(value, timestamp)\r\nvalue + 1;\r\n2 := value\r\n",
+              "1.kscript",
+              "castlescript: ",
+              "castlescript:\r\nfunction foo(value, timestamp)\r\nvalue\r\n"
+            ],
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "touch"
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchStartAnim",
+            "@fromField": "touchTime",
+            "@toNode": "Scr",
+            "@toField": "touch"
+          }
+        }
+      ]
+    }
+  }
+}

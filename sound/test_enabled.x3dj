@@ -1,0 +1,160 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:28 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Sound":
+          {
+            "@DEF": "MySound",
+            "@spatialize": false,
+            "-source": { "AudioClip":
+              {
+                "@DEF": "MyAudioClip",
+                "@url": [
+                  "werewolf_howling.wav"
+                ],
+                "@loop": true
+              }
+            }
+          }
+        },
+        { "Shape":
+          {
+            "-geometry": { "Text":
+              {
+                "@DEF": "SoundStatus",
+                "@string": [
+                  "Sound.enabled = true"
+                ]
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -1.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@DEF": "AudioClipStatus",
+                      "@string": [
+                        "AudioClip.enabled = true"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "MyKeySensor"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "ScriptKeyProcessor",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "soundEnabled",
+                "@value": true
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "audioClipEnabled",
+                "@value": true
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "soundStatus"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "audioStatus"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "    function keyPress(value, timestamp)\r",
+              "      when(value = 'z', soundEnabled := true);\r",
+              "      when(value = 'x', soundEnabled := false);\r",
+              "      when(value = 'c', audioClipEnabled := true);\r",
+              "      when(value = 'v', audioClipEnabled := false);\r",
+              "      soundStatus := array('Sound.enabled = ' + string(soundEnabled));\r",
+              "      audioStatus := array('AudioClip.enabled = ' + string(audioClipEnabled))\r",
+              "    "
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyKeySensor",
+            "@fromField": "keyPress",
+            "@toNode": "ScriptKeyProcessor",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptKeyProcessor",
+            "@fromField": "soundEnabled_changed",
+            "@toNode": "MySound",
+            "@toField": "set_enabled"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptKeyProcessor",
+            "@fromField": "audioClipEnabled_changed",
+            "@toNode": "MyAudioClip",
+            "@toField": "set_enabled"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptKeyProcessor",
+            "@fromField": "soundStatus",
+            "@toNode": "SoundStatus",
+            "@toField": "set_string"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "ScriptKeyProcessor",
+            "@fromField": "audioStatus",
+            "@toNode": "AudioClipStatus",
+            "@toField": "set_string"
+          }
+        }
+      ]
+    }
+  }
+}

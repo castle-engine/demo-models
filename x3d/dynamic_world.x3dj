@@ -1,0 +1,433 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:13 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"ViewportInfo",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "info"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#ViewportInfo"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"EditableTransformXZ",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "children"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "scale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "center"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFRotation",
+                "@name": "rotation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "description"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxScale"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#EditableTransformXZ"
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "test_world.x3d"
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.1,
+              2
+            ],
+            "@speed": 5
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 3.759518, 1.815493, -4.429601 ],
+            "@orientation": [ -0.0273569524288177, 0.996313393115997, 0.0813096836209297, 2.49470329284668 ]
+          }
+        },
+        { "PointLight":
+          {
+            "@DEF": "Light",
+            "@location": [ 0, 4, 0 ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "ViewportInfo",
+            "fieldValue": [
+              {
+                "@name": "info",
+                "@value": [
+                  "Usage:",
+                  "- Click on any editable shape, and drag with mouse to move",
+                  "- Hold down Shift when clicking (and dragging) to rotate",
+                  "- Hold down Ctrl when clicking (and dragging) to scale",
+                  "",
+                  "Note that the collisions between avatar and objects,",
+                  "checked when the avatar moves (but not when objects move)",
+                  "work all the time for current geometry.",
+                  "",
+                  "As a bonus, you can see dynamic shadows from everything.",
+                  "",
+                  "Press key h (help) to hide/show this text at any time."
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                              "@diffuseColor": [ 1, 1, 0 ]
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "Box":
+                        {
+                          "@DEF": "B",
+                          "@size": [ 1, 1.5, 1 ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 0, 0.5, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                              "@diffuseColor": [ 0, 1, 0 ]
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "Box":
+                        {
+                          "@USE": "B"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -2, 0.5, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                              "@diffuseColor": [ 1, 1, 1 ]
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "Box":
+                        {
+                          "@USE": "B"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -4, 0.5, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                              "@diffuseColor": [ 1, 1, 0 ]
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "Sphere":
+                        {
+                          "@DEF": "S",
+                          "@radius": 0.5
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -1, 0.5, 1 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                              "@diffuseColor": [ 0, 1, 0 ]
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "Sphere":
+                        {
+                          "@USE": "S"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -2, 0.5, 1 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "Appearance":
+                        {
+                          "-material": { "Material":
+                            {
+                              "@diffuseColor": [ 1, 1, 1 ]
+                            }
+                          }
+                        }
+                      },
+                      "-geometry": { "Sphere":
+                        {
+                          "@USE": "S"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -3, 0.5, 1 ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

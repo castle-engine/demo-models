@@ -1,0 +1,114 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:13 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 6.60693, 24.17793, 9.336539 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.0320611074566841, 0.990871965885162, 0.130938485264778, 2.6656231880188 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -13.45766, -15.67068, 25.69329 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@description": "SpotLight viewpoint",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.84477299451828, -0.471813648939133, -0.252488762140274, 1.12932372093201 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 21.01509, -19.95555, 41.17867 ],
+            "@rotation": [ 1, 0, -0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@description": "DirectionalLight viewpoint",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.62385618686676, 0.716868937015533, 0.311291128396988, 1.21616661548615 ]
+                }
+              }
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 10
+          }
+        },
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "Background":
+                {
+                  "@frontUrl": [
+                    "../skies/foggy_sky_front.png"
+                  ],
+                  "@backUrl": [
+                    "../skies/foggy_sky_back.png"
+                  ],
+                  "@leftUrl": [
+                    "../skies/foggy_sky_left.png"
+                  ],
+                  "@rightUrl": [
+                    "../skies/foggy_sky_right.png"
+                  ],
+                  "@topUrl": [
+                    "../skies/foggy_sky_top.png"
+                  ],
+                  "@bottomUrl": [
+                    "../skies/foggy_sky_bottom.png"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "trees_river.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

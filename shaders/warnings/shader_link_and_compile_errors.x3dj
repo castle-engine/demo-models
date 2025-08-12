@@ -1,0 +1,328 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:35 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App1_WithTexture",
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../../textures/bricks2.jpg"
+                          ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ProgramShader":
+                          {
+                            "@DEF": "TestHLSL",
+                            "@language": "HLSL",
+                            "-programs": [
+                              { "ShaderProgram":
+                                {
+                                }
+                              },
+                              { "ShaderProgram":
+                                {
+                                  "@type": "FRAGMENT"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "ComposedShader":
+                          {
+                            "@DEF": "TestGLSLIncorrect",
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "glsl_deliberately_incorrect.vs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "../glsl/simple.fs"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "ComposedShader":
+                          {
+                            "@DEF": "TestGLSLNotExisting",
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "glsl_not_existing.vs"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        { "ComposedShader":
+                          {
+                            "@DEF": "TestGLSLNoParts",
+                            "@language": "GLSL"
+                          }
+                        },
+                        { "ComposedShader":
+                          {
+                            "@DEF": "CompShader1",
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "@type": "SOMETHING-STRANGE",
+                                  "#sourceCode": [
+                                    "../glsl/simple.vs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "../glsl/negative.fs"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App1_WithTexture"
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App1_NoTexture",
+                            "-material": { "Material":
+                              {
+                              }
+                            },
+                            "-shaders": [
+                              { "ComposedShader":
+                                {
+                                  "@USE": "CompShader1"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App2_WithTexture",
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../../textures/bricks2.jpg"
+                          ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@DEF": "CompShader2",
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "../glsl/simple.fs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "../glsl/simple.fs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "../glsl/simple.vs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "../glsl/simple.fs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "../glsl/simple.vs"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App2_WithTexture"
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App2_NoTexture",
+                            "-material": { "Material":
+                              {
+                              }
+                            },
+                            "-shaders": [
+                              { "ComposedShader":
+                                {
+                                  "@USE": "CompShader2"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "-geometry": { "Cylinder":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

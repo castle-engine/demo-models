@@ -1,0 +1,245 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:39 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@DEF": "MyShader",
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "uniform mat4 castle_ModelViewMatrix;\r",
+                                    "uniform mat4 castle_ProjectionMatrix;\r",
+                                    "uniform mat3 castle_NormalMatrix;\r",
+                                    "attribute vec4 castle_Vertex;\r",
+                                    "attribute vec3 castle_Normal;\r",
+                                    "\r",
+                                    "/* PLUG-DECLARATIONS */\r",
+                                    "\r",
+                                    "void main(void)\r",
+                                    "{\r",
+                                    "  vec4 vertex_object = castle_Vertex;\r",
+                                    "  vec4 vertex_eye = castle_ModelViewMatrix * vertex_object;\r",
+                                    "  vec3 normal_eye = normalize(castle_NormalMatrix * castle_Normal);\r",
+                                    "\r",
+                                    "  /* PLUG: vertex_eye_space (vertex_eye, normal_eye) */\r",
+                                    "\r",
+                                    "  gl_Position = castle_ProjectionMatrix * vertex_eye;\r",
+                                    "}"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "/* PLUG-DECLARATIONS */\r",
+                                    "\r",
+                                    "void main(void)\r",
+                                    "{\r",
+                                    "  gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);\r",
+                                    "\r",
+                                    "  vec4 fragment_color = gl_FragColor;\r",
+                                    "  /* PLUG: texture_apply (fragment_color) */\r",
+                                    "  gl_FragColor = fragment_color;\r",
+                                    "}"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0.5, 0.5, 1 ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "MyShader"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 2.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "MyShader"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2.5, 2.5, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "MyShader"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Cylinder":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "MyShader"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

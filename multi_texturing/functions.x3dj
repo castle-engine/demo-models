@@ -1,0 +1,246 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:37 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@function": [
+                            "COMPLEMENT"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@DEF": "TextureSquirrelAlpha",
+                                "@url": [
+                                  "data/squirrel_alpha.png"
+                                ],
+                                "@repeatS": false,
+                                "@repeatT": false
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2.2, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@function": [
+                            "",
+                            "COMPLEMENT"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@USE": "TextureSquirrelAlpha"
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4.4, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@function": [
+                            "COMPLEMENT",
+                            "COMPLEMENT"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@USE": "TextureSquirrelAlpha"
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6.6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@function": [
+                            "ALPHAREPLICATE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8.8, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 0, 0, 1 ],
+                          "@alpha": 0.5,
+                          "@mode": [
+                            "SELECTARG2"
+                          ],
+                          "@source": [
+                            "FACTOR"
+                          ],
+                          "@function": [
+                            "ALPHAREPLICATE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 4.4, 0, 11.656 ]
+          }
+        }
+      ]
+    }
+  }
+}

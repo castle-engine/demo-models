@@ -1,0 +1,538 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:15:58 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiNavigationInfo",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFFloat",
+                "@name": "avatarSize"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "headlight"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "speed"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "type"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "visibilityLimit"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "isBound"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "timeOriginAtLoad"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
+              "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "KambiNavigationInfo",
+            "fieldValue": [
+              {
+                "@name": "headlight",
+                "@value": true
+              },
+              {
+                "@name": "type",
+                "@value": [
+                  "EXAMINE",
+                  "ANY"
+                ]
+              },
+              {
+                "@name": "timeOriginAtLoad",
+                "@value": true
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@loop": true
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@stopTime": 1
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@stopTime": 10
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@loop": true,
+                          "@startTime": 5,
+                          "@stopTime": 7
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 6, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@loop": true,
+                          "@stopTime": 10
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 9, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@pauseTime": 1
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 9, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@loop": true,
+                          "@pauseTime": 10
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 1, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": 0.25
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 1, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": -0.25
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": 2,
+                          "@loop": true
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": -2,
+                          "@loop": true
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 8, 7, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": 1.5,
+                          "@loop": true,
+                          "@startTime": 5,
+                          "@stopTime": 15
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 7, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": -1.5,
+                          "@loop": true,
+                          "@startTime": 5,
+                          "@stopTime": 15
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MovieTexture":
+                        {
+                          "@url": [
+                            "test_video.avi"
+                          ],
+                          "@speed": 0,
+                          "@loop": true,
+                          "@startTime": 5,
+                          "@stopTime": 15
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

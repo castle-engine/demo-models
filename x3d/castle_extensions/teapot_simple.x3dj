@@ -1,0 +1,189 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:56 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"Teapot",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec3f",
+                "@name": "size"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "solid"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "manifold"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:Teapot",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App",
+                      "-material": { "Material":
+                        {
+                          "@ambientIntensity": 0.1666667,
+                          "@specularColor": [ 0.4012008, 0.4012008, 0.4012008 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "Teapot",
+                      "fieldValue": [
+                        {
+                          "@name": "solid",
+                          "@value": false
+                        },
+                        {
+                          "@name": "manifold",
+                          "@value": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "Teapot",
+                      "fieldValue": [
+                        {
+                          "@name": "solid",
+                          "@value": false
+                        },
+                        {
+                          "@name": "manifold",
+                          "@value": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "Teapot",
+                      "fieldValue": [
+                        {
+                          "@name": "solid",
+                          "@value": true
+                        },
+                        {
+                          "@name": "manifold",
+                          "@value": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4, 4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App"
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "Teapot",
+                      "fieldValue": [
+                        {
+                          "@name": "solid",
+                          "@value": true
+                        },
+                        {
+                          "@name": "manifold",
+                          "@value": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

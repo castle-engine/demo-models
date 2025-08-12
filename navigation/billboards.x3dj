@@ -1,0 +1,439 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:00 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ -3.240172, 1.192234, 3.148017 ],
+            "@orientation": [ -0.0819418281316757, -0.994225382804871, -0.0692924559116364, 1.40962588787079 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 5
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@ambientIntensity": 1,
+                    "@diffuseColor": [ 0.5, 1, 0.5 ]
+                  }
+                },
+                "-texture": { "ImageTexture":
+                  {
+                    "@url": [
+                      "../textures/chequered.png"
+                    ]
+                  }
+                },
+                "-textureTransform": { "TextureTransform":
+                  {
+                    "@scale": [ 10, 10 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "IndexedFaceSet":
+              {
+                "@solid": false,
+                "@coordIndex": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  -1
+                ],
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      -5, 0, -5,
+                      -5, 0, 5,
+                      5, 0, 5,
+                      5, 0, -5
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1, 0, 1 ],
+            "@scale": [ 0.8, 1.1, 0.7 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "Tree",
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@ambientIntensity": 1
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/tree_sprite.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            -0.5, 0, 0,
+                            0.5, 0, 0,
+                            0.5, 1, 0,
+                            -0.5, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3.1, 0, 3 ],
+            "@scale": [ 1.2, 0.8, 0.9 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "Tree"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.2, 0, 3.1 ],
+            "@scale": [ 1, 0.9, 1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "Tree"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3.9, 0, 1 ],
+            "@scale": [ 0.8, 1.1, 1.2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "Tree"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.9, 0, 2.05 ],
+            "@scale": [ 1.2, 0.8, 0.9 ],
+            "-children": [
+              { "Shape":
+                {
+                  "@USE": "Tree"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -5, 0, -5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 1, 0, 1 ],
+                  "@scale": [ 0.8, 1.1, 0.7 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@DEF": "Billboard1Tree",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "Tree"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3.1, 0, 3 ],
+                  "@scale": [ 1.2, 0.8, 0.9 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard1Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.2, 0, 3.1 ],
+                  "@scale": [ 1, 0.9, 1 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard1Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3.9, 0, 1 ],
+                  "@scale": [ 0.8, 1.1, 1.2 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard1Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.9, 0, 2.05 ],
+                  "@scale": [ 1.2, 0.8, 0.9 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard1Tree"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -5, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 1, 0, 1 ],
+                  "@scale": [ 0.8, 1.1, 0.7 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@DEF": "Billboard2Tree",
+                        "@axisOfRotation": [ 0, 0, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "Tree"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3.1, 0, 3 ],
+                  "@scale": [ 1.2, 0.8, 0.9 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard2Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.2, 0, 3.1 ],
+                  "@scale": [ 1, 0.9, 1 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard2Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3.9, 0, 1 ],
+                  "@scale": [ 0.8, 1.1, 1.2 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard2Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.9, 0, 2.05 ],
+                  "@scale": [ 1.2, 0.8, 0.9 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard2Tree"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, -5 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ 1, 0, 1 ],
+                  "@scale": [ 0.8, 1.1, 0.7 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@DEF": "Billboard3Tree",
+                        "@axisOfRotation": [ 0, -1, 0 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@USE": "Tree"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3.1, 0, 3 ],
+                  "@scale": [ 1.2, 0.8, 0.9 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard3Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.2, 0, 3.1 ],
+                  "@scale": [ 1, 0.9, 1 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard3Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3.9, 0, 1 ],
+                  "@scale": [ 0.8, 1.1, 1.2 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard3Tree"
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.9, 0, 2.05 ],
+                  "@scale": [ 1.2, 0.8, 0.9 ],
+                  "-children": [
+                    { "Billboard":
+                      {
+                        "@USE": "Billboard3Tree"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

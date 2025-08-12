@@ -1,0 +1,128 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:37 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Inline":
+          {
+            "@DEF": "MyInline",
+            "@global": true
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 1.5, 2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Simple demo of changing Inline.url from a CastleScript.",
+                        "Press '1' to load IkeaTable.x3dv.",
+                        "Press '2' to load worm_crawl.x3dv.",
+                        "Press '0' to unload a scene."
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 0.2,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "inline_url"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "inline_load"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  when (value = '1', inline_load := TRUE ; inline_url := array('../animation/simple_tests_interpolation_and_time/IkeaTable.x3dv'));\r",
+              "  when (value = '2', inline_load := TRUE ; inline_url := array('../animation/simple_tests_interpolation_and_time/worm_crawl.x3dv'));\r",
+              "  when (value = '0', inline_load := FALSE)\r",
+              ""
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "MyKeySensor"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyKeySensor",
+            "@fromField": "keyPress",
+            "@toNode": "MyScript",
+            "@toField": "key_press"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "inline_url",
+            "@toNode": "MyInline",
+            "@toField": "set_url"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "inline_load",
+            "@toNode": "MyInline",
+            "@toField": "set_load"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:13:31 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@position": [ 0, 0, 0.5 ]
+          }
+        },
+        { "WorldInfo":
+          {
+            "@info": [
+              "Converted by wcvt2pov v2.6c"
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@avatarSize": [
+              0.24,
+              1.6,
+              0.75
+            ],
+            "@headlight": false
+          }
+        },
+        { "Background":
+          {
+            "@skyColor": [
+              0.5, 0.5, 0.5
+            ]
+          }
+        },
+        { "Collision":
+          {
+            "@enabled": false,
+            "-children": [
+              { "DirectionalLight":
+                {
+                  "@DEF": "light_1",
+                  "@global": true,
+                  "@color": [ 0.713, 0.933, 0.961 ],
+                  "@direction": [ 0, -1, 0 ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "light_2",
+                  "@global": true,
+                  "@color": [ 0.87, 0.718, 0.545 ],
+                  "@direction": [ -1, 3, -1 ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "light_3",
+                  "@global": true,
+                  "@color": [ 0.5, 0.5, 0.5 ],
+                  "@direction": [ -3, -1, -0 ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "light_4",
+                  "@global": true,
+                  "@color": [ 0.604, 0.812, 0.761 ],
+                  "@direction": [ 4, -1, 1 ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "light_5",
+                  "@global": true,
+                  "@color": [ 0.839, 0.651, 0.572 ],
+                  "@direction": [ -1, 0, -4 ]
+                }
+              },
+              { "DirectionalLight":
+                {
+                  "@DEF": "light_6",
+                  "@global": true,
+                  "@color": [ 0.557, 0.784, 0.851 ],
+                  "@direction": [ 1, 1, 3 ]
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "TTR",
+                  "@rotation": [ 0, 1, 0, 5.42549329077775 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@rotation": [ 0, 0, 1, 0.5 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "@DEF": "torus",
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@ambientIntensity": 0,
+                                      "@diffuseColor": [ 0, 0, 0 ],
+                                      "@specularColor": [ 1, 1, 1 ],
+                                      "@emissiveColor": [ 0.25, 0.25, 0.25 ],
+                                      "@shininess": 0.15
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Box":
+                                {
+                                  "@size": [ 0.1, 0.1, 0.1 ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TS",
+            "@cycleInterval": 4,
+            "@loop": true
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "OI",
+            "@key": [
+              0,
+              0.33,
+              0.66,
+              1
+            ],
+            "@keyValue": [
+              0, 1, 0, 0,
+              0, 1, 0, 2.094,
+              0, 1, 0, 4.189,
+              0, 1, 0, 0
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TS",
+            "@fromField": "fraction_changed",
+            "@toNode": "OI",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "OI",
+            "@fromField": "value_changed",
+            "@toNode": "TTR",
+            "@toField": "set_rotation"
+          }
+        }
+      ]
+    }
+  }
+}

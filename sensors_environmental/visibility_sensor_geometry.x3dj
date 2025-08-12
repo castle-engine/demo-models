@@ -1,0 +1,1018 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "filename",
+          "@content": "visibility_sensor_geometry.x3d"
+        },
+        {
+          "@name": "generator",
+          "@content": "Blender 2.62 (sub 0)"
+        },
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:07:06 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@avatarSize": [
+              0.25,
+              1.75,
+              0.75
+            ],
+            "@headlight": false
+          }
+        },
+        { "Background":
+          {
+            "@DEF": "WO_World",
+            "@skyColor": [
+              0.051, 0.051, 0.051
+            ],
+            "@groundColor": [
+              0.051, 0.051, 0.051
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Cube_005_TRANSFORM",
+            "@translation": [ 0.950071, 1, 3.940047 ],
+            "@rotation": [ -0.185547, -0.694828, -0.694828, 2.774671 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Cube_005_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Cube_000",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_000",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.8, 0.664, 0.58 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    0,
+                                    4,
+                                    5,
+                                    1,
+                                    -1,
+                                    2,
+                                    6,
+                                    7,
+                                    3,
+                                    -1,
+                                    4,
+                                    0,
+                                    3,
+                                    7,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Cube_000",
+                                      "@point": [
+                                        1, 1, -1,
+                                        1, -1, -1,
+                                        -1, -1, -1,
+                                        -1, 1, -1,
+                                        1, 0.999999, 1,
+                                        0.999999, -1.000001, 1,
+                                        -1, -1, 1,
+                                        -1, 1, 1
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Lamp_002_TRANSFORM",
+            "@translation": [ 3.275054, 5.903862, -6.417216 ],
+            "@rotation": [ -0.498084, -0.762016, -0.413815, 1.513875 ],
+            "-children": [
+              { "PointLight":
+                {
+                  "@DEF": "LA_Lamp_002",
+                  "@intensity": 0.5714,
+                  "@radius": 30
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Lamp_001_TRANSFORM",
+            "@translation": [ 5.630324, 5.903862, 5.93011 ],
+            "@rotation": [ -0.498084, -0.762016, -0.413815, 1.513875 ],
+            "-children": [
+              { "PointLight":
+                {
+                  "@DEF": "LA_Lamp_001",
+                  "@intensity": 0.5714,
+                  "@radius": 30
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Cube_004_TRANSFORM",
+            "@translation": [ -5.38566, 1, 5.507267 ],
+            "@rotation": [ 0, 0.707107, 0.707107, 3.141593 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Cube_004_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Cube_005",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_006",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.8, 0.702, 0.783 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    0,
+                                    4,
+                                    5,
+                                    1,
+                                    -1,
+                                    2,
+                                    6,
+                                    7,
+                                    3,
+                                    -1,
+                                    4,
+                                    0,
+                                    3,
+                                    7,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Cube_005",
+                                      "@point": [
+                                        1, 1, -1,
+                                        1, -1, -1,
+                                        -1, -1, -1,
+                                        -1, 1, -1,
+                                        1, 0.999999, 1,
+                                        0.999999, -1.000001, 1,
+                                        -1, -1, 1,
+                                        -1, 1, 1
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Cube_003_TRANSFORM",
+            "@translation": [ -2.083232, 1, 5.153368 ],
+            "@rotation": [ -0.105942, -0.703127, -0.703127, 2.930497 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Cube_003_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Cube_004",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_005",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.378, 0.181, 0.8 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    0,
+                                    4,
+                                    5,
+                                    1,
+                                    -1,
+                                    2,
+                                    6,
+                                    7,
+                                    3,
+                                    -1,
+                                    4,
+                                    0,
+                                    3,
+                                    7,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Cube_004",
+                                      "@point": [
+                                        1, 1, -1,
+                                        1, -1, -1,
+                                        -1, -1, -1,
+                                        -1, 1, -1,
+                                        1, 0.999999, 1,
+                                        0.999999, -1.000001, 1,
+                                        -1, -1, 1,
+                                        -1, 1, 1
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Cube_002_TRANSFORM",
+            "@translation": [ 3.415888, 1, 1.87229 ],
+            "@rotation": [ -0.269668, -0.680911, -0.680911, 2.614789 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Cube_002_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Cube_003",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_004",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.8, 0.437, 0.447 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    0,
+                                    4,
+                                    5,
+                                    1,
+                                    -1,
+                                    2,
+                                    6,
+                                    7,
+                                    3,
+                                    -1,
+                                    4,
+                                    0,
+                                    3,
+                                    7,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Cube_003",
+                                      "@point": [
+                                        1, 1, -1,
+                                        1, -1, -1,
+                                        -1, -1, -1,
+                                        -1, 1, -1,
+                                        1, 0.999999, 1,
+                                        0.999999, -1.000001, 1,
+                                        -1, -1, 1,
+                                        -1, 1, 1
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Cube_001_TRANSFORM",
+            "@translation": [ 5.033035, 1, -1.433098 ],
+            "@rotation": [ -0.43131, -0.637954, -0.637954, 2.327186 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Cube_001_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Cube_002",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_003",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.585, 0.8, 0.207 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    0,
+                                    4,
+                                    5,
+                                    1,
+                                    -1,
+                                    2,
+                                    6,
+                                    7,
+                                    3,
+                                    -1,
+                                    4,
+                                    0,
+                                    3,
+                                    7,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Cube_002",
+                                      "@point": [
+                                        1, 1, -1,
+                                        1, -1, -1,
+                                        -1, -1, -1,
+                                        -1, 1, -1,
+                                        1, 0.999999, 1,
+                                        0.999999, -1.000001, 1,
+                                        -1, -1, 1,
+                                        -1, 1, 1
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Cube_TRANSFORM",
+            "@translation": [ 5.534412, 1, -4.86658 ],
+            "@rotation": [ -0.509697, -0.608362, -0.608362, 2.198843 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Cube_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Cube_001",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_002",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.292, 0, 0.8 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    0,
+                                    4,
+                                    5,
+                                    1,
+                                    -1,
+                                    2,
+                                    6,
+                                    7,
+                                    3,
+                                    -1,
+                                    4,
+                                    0,
+                                    3,
+                                    7,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Cube_001",
+                                      "@point": [
+                                        1, 1, -1,
+                                        1, -1, -1,
+                                        -1, -1, -1,
+                                        -1, 1, -1,
+                                        1, 0.999999, 1,
+                                        0.999999, -1.000001, 1,
+                                        -1, -1, 1,
+                                        -1, 1, 1
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Plane_TRANSFORM",
+            "@rotation": [ -0, 0.707107, 0.707107, 3.141593 ],
+            "@scale": [ -7.72608, -7.72608, -7.72608 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "Plane_ifs_TRANSFORM",
+                  "-children": [
+                    { "Group":
+                      {
+                        "@DEF": "group_ME_Plane",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@DEF": "MA_Material_001",
+                                      "@ambientIntensity": 0.333,
+                                      "@diffuseColor": [ 0.354, 1, 0.12 ],
+                                      "@specularColor": [ 0.401, 0.401, 0.401 ],
+                                      "@shininess": 0.098
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "IndexedFaceSet":
+                                {
+                                  "@solid": false,
+                                  "@coordIndex": [
+                                    35,
+                                    3,
+                                    39,
+                                    65,
+                                    -1,
+                                    14,
+                                    35,
+                                    65,
+                                    50,
+                                    -1,
+                                    65,
+                                    39,
+                                    16,
+                                    49,
+                                    -1,
+                                    50,
+                                    65,
+                                    49,
+                                    21,
+                                    -1,
+                                    36,
+                                    14,
+                                    50,
+                                    66,
+                                    -1,
+                                    6,
+                                    36,
+                                    66,
+                                    43,
+                                    -1,
+                                    66,
+                                    50,
+                                    21,
+                                    51,
+                                    -1,
+                                    43,
+                                    66,
+                                    51,
+                                    18,
+                                    -1,
+                                    49,
+                                    16,
+                                    40,
+                                    67,
+                                    -1,
+                                    21,
+                                    49,
+                                    67,
+                                    52,
+                                    -1,
+                                    67,
+                                    40,
+                                    7,
+                                    41,
+                                    -1,
+                                    52,
+                                    67,
+                                    41,
+                                    17,
+                                    -1,
+                                    51,
+                                    21,
+                                    52,
+                                    68,
+                                    -1,
+                                    18,
+                                    51,
+                                    68,
+                                    44,
+                                    -1,
+                                    68,
+                                    52,
+                                    17,
+                                    42,
+                                    -1,
+                                    44,
+                                    68,
+                                    42,
+                                    8,
+                                    -1,
+                                    34,
+                                    6,
+                                    43,
+                                    69,
+                                    -1,
+                                    13,
+                                    34,
+                                    69,
+                                    54,
+                                    -1,
+                                    69,
+                                    43,
+                                    18,
+                                    53,
+                                    -1,
+                                    54,
+                                    69,
+                                    53,
+                                    22,
+                                    -1,
+                                    33,
+                                    13,
+                                    54,
+                                    70,
+                                    -1,
+                                    0,
+                                    33,
+                                    70,
+                                    29,
+                                    -1,
+                                    70,
+                                    54,
+                                    22,
+                                    55,
+                                    -1,
+                                    29,
+                                    70,
+                                    55,
+                                    11,
+                                    -1,
+                                    53,
+                                    18,
+                                    44,
+                                    71,
+                                    -1,
+                                    22,
+                                    53,
+                                    71,
+                                    56,
+                                    -1,
+                                    71,
+                                    44,
+                                    8,
+                                    45,
+                                    -1,
+                                    56,
+                                    71,
+                                    45,
+                                    19,
+                                    -1,
+                                    55,
+                                    22,
+                                    56,
+                                    72,
+                                    -1,
+                                    11,
+                                    55,
+                                    72,
+                                    30,
+                                    -1,
+                                    72,
+                                    56,
+                                    19,
+                                    46,
+                                    -1,
+                                    30,
+                                    72,
+                                    46,
+                                    5,
+                                    -1,
+                                    41,
+                                    7,
+                                    38,
+                                    73,
+                                    -1,
+                                    17,
+                                    41,
+                                    73,
+                                    58,
+                                    -1,
+                                    73,
+                                    38,
+                                    15,
+                                    57,
+                                    -1,
+                                    58,
+                                    73,
+                                    57,
+                                    23,
+                                    -1,
+                                    42,
+                                    17,
+                                    58,
+                                    74,
+                                    -1,
+                                    8,
+                                    42,
+                                    74,
+                                    48,
+                                    -1,
+                                    74,
+                                    58,
+                                    23,
+                                    59,
+                                    -1,
+                                    48,
+                                    74,
+                                    59,
+                                    20,
+                                    -1,
+                                    57,
+                                    15,
+                                    37,
+                                    75,
+                                    -1,
+                                    23,
+                                    57,
+                                    75,
+                                    60,
+                                    -1,
+                                    75,
+                                    37,
+                                    2,
+                                    27,
+                                    -1,
+                                    60,
+                                    75,
+                                    27,
+                                    10,
+                                    -1,
+                                    59,
+                                    23,
+                                    60,
+                                    76,
+                                    -1,
+                                    20,
+                                    59,
+                                    76,
+                                    47,
+                                    -1,
+                                    76,
+                                    60,
+                                    10,
+                                    28,
+                                    -1,
+                                    47,
+                                    76,
+                                    28,
+                                    4,
+                                    -1,
+                                    45,
+                                    8,
+                                    48,
+                                    77,
+                                    -1,
+                                    19,
+                                    45,
+                                    77,
+                                    62,
+                                    -1,
+                                    77,
+                                    48,
+                                    20,
+                                    61,
+                                    -1,
+                                    62,
+                                    77,
+                                    61,
+                                    24,
+                                    -1,
+                                    46,
+                                    19,
+                                    62,
+                                    78,
+                                    -1,
+                                    5,
+                                    46,
+                                    78,
+                                    32,
+                                    -1,
+                                    78,
+                                    62,
+                                    24,
+                                    63,
+                                    -1,
+                                    32,
+                                    78,
+                                    63,
+                                    12,
+                                    -1,
+                                    61,
+                                    20,
+                                    47,
+                                    79,
+                                    -1,
+                                    24,
+                                    61,
+                                    79,
+                                    64,
+                                    -1,
+                                    79,
+                                    47,
+                                    4,
+                                    26,
+                                    -1,
+                                    64,
+                                    79,
+                                    26,
+                                    9,
+                                    -1,
+                                    63,
+                                    24,
+                                    64,
+                                    80,
+                                    -1,
+                                    12,
+                                    63,
+                                    80,
+                                    31,
+                                    -1,
+                                    80,
+                                    64,
+                                    9,
+                                    25,
+                                    -1,
+                                    31,
+                                    80,
+                                    25,
+                                    1,
+                                    -1
+                                  ],
+                                  "-coord": { "Coordinate":
+                                    {
+                                      "@DEF": "coords_ME_Plane",
+                                      "@point": [
+                                        1, 1, 0,
+                                        1, -1, 0,
+                                        -1, -1, 0,
+                                        -1, 1, 0,
+                                        -0, -1, 0,
+                                        1, 0, 0,
+                                        0, 1, 0,
+                                        -1, 0, 0,
+                                        0, 0, 0,
+                                        0.5, -1, 0,
+                                        -0.5, -1, 0,
+                                        1, 0.5, 0,
+                                        1, -0.5, 0,
+                                        0.5, 1, 0,
+                                        -0.5, 1, 0,
+                                        -1, -0.5, 0,
+                                        -1, 0.5, 0,
+                                        -0.5, 0, 0,
+                                        0, 0.5, 0,
+                                        0.5, 0, 0,
+                                        -0, -0.5, 0,
+                                        -0.5, 0.5, 0,
+                                        0.5, 0.5, 0,
+                                        -0.5, -0.5, 0,
+                                        0.5, -0.5, 0,
+                                        0.75, -1, 0,
+                                        0.25, -1, 0,
+                                        -0.75, -1, 0,
+                                        -0.25, -1, 0,
+                                        1, 0.75, 0,
+                                        1, 0.25, 0,
+                                        1, -0.75, 0,
+                                        1, -0.25, 0,
+                                        0.75, 1, 0,
+                                        0.25, 1, 0,
+                                        -0.75, 1, 0,
+                                        -0.25, 1, 0,
+                                        -1, -0.75, 0,
+                                        -1, -0.25, 0,
+                                        -1, 0.75, 0,
+                                        -1, 0.25, 0,
+                                        -0.75, 0, 0,
+                                        -0.25, 0, 0,
+                                        0, 0.75, 0,
+                                        0, 0.25, 0,
+                                        0.25, 0, 0,
+                                        0.75, 0, 0,
+                                        -0, -0.75, 0,
+                                        0, -0.25, 0,
+                                        -0.75, 0.5, 0,
+                                        -0.5, 0.75, 0,
+                                        -0.25, 0.5, 0,
+                                        -0.5, 0.25, 0,
+                                        0.25, 0.5, 0,
+                                        0.5, 0.75, 0,
+                                        0.75, 0.5, 0,
+                                        0.5, 0.25, 0,
+                                        -0.75, -0.5, 0,
+                                        -0.5, -0.25, 0,
+                                        -0.25, -0.5, 0,
+                                        -0.5, -0.75, 0,
+                                        0.25, -0.5, 0,
+                                        0.5, -0.25, 0,
+                                        0.75, -0.5, 0,
+                                        0.5, -0.75, 0,
+                                        -0.75, 0.75, 0,
+                                        -0.25, 0.75, 0,
+                                        -0.75, 0.25, 0,
+                                        -0.25, 0.25, 0,
+                                        0.25, 0.75, 0,
+                                        0.75, 0.75, 0,
+                                        0.25, 0.25, 0,
+                                        0.75, 0.25, 0,
+                                        -0.75, -0.25, 0,
+                                        -0.25, -0.25, 0,
+                                        -0.75, -0.75, 0,
+                                        -0.25, -0.75, 0,
+                                        0.25, -0.25, 0,
+                                        0.75, -0.25, 0,
+                                        0.25, -0.75, 0,
+                                        0.75, -0.75, 0
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "Lamp_TRANSFORM",
+            "@translation": [ -6.717003, 5.903862, 6.358341 ],
+            "@rotation": [ -0.498084, -0.762016, -0.413815, 1.513875 ],
+            "-children": [
+              { "PointLight":
+                {
+                  "@DEF": "LA_Lamp",
+                  "@intensity": 0.5714,
+                  "@radius": 30
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

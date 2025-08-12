@@ -1,0 +1,530 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:24 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.5,
+              2,
+              0.5
+            ],
+            "@speed": 20
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "VpTransform",
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@DEF": "Vp",
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -3.5324712371e-5, -0.999984502792358, -0, 0.046436563134193 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -5, 0, -15 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click me to move viewpoint by it's transform"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch_TransformMove"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer_TransformMove",
+            "@cycleInterval": 3
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp_TransformMove",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              -12.04191, -61.64065, 2,
+              -12.04191, -71.64065, 2,
+              -12.04191, -61.64065, 2
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -5, -1, -15 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click me to move viewpoint by it's position"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch_PositionMove"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer_PositionMove",
+            "@cycleInterval": 3
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp_PositionMove",
+            "@key": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              0, 1, 1,
+              0, 0, 2,
+              0, -1, 1,
+              0, 0, 0
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -5, 3, -15 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0.5 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click me to rotate viewpoint by it's transform"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch_TransformRotate"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer_TransformRotate",
+            "@cycleInterval": 3
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "Interp_TransformRotate",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              1, 0, 0, 1.57079637050629,
+              1, 0, 0, 7.8539816777
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -5, 2, -15 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0.5, 1, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click me to rotate viewpoint by it's orientation"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch_OrientationRotate"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer_OrientationRotate",
+            "@cycleInterval": 3
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "Interp_OrientationRotate",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              -3.5324712371e-5, -0.999984502792358, -0, 0.046436563134193,
+              -3.5324712371e-5, -0.999984502792358, -0, 6.3296218703
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -5, 5, -15 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0.5, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "Click me for a walk tour (rotate + move viewpoint through some locations)"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch_WalkTour"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer_WalkTour",
+            "@cycleInterval": 10
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "Interp_WalkTourOrient",
+            "@key": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1
+            ],
+            "@keyValue": [
+              0.0074005359783768, -0.999984443187714, -2.62576086242e-5, 0.0464365631341934,
+              -4.55411736766109e-6, 1.00000023841858, 0, 0.259784787893295,
+              -1.32612794914e-5, 1.00001442432404, 0, 0.0883280634880065,
+              0.00029221130535, 0.99999988079071, 0.0013254274381324, 0.254886835813522,
+              -2.37293297686e-5, 0.999999940395355, 0, 3.0922737121582,
+              -2.37293297686e-5, 0.999999940395355, 0, 3.0922737121582
+            ]
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp_WalkTourPosition",
+            "@key": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1
+            ],
+            "@keyValue": [
+              -12.04191, -61.64065, 2,
+              7.878207, -58.48255, 2,
+              1.202965, -22.11624, 2.479255,
+              0.04210708, -9.008135, 1.822073,
+              0.04210708, -9.008135, 1.822073,
+              -1.141226, -32.98217, 1.831355
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch_TransformMove",
+            "@fromField": "touchTime",
+            "@toNode": "Timer_TransformMove",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer_TransformMove",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp_TransformMove",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp_TransformMove",
+            "@fromField": "value_changed",
+            "@toNode": "VpTransform",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch_PositionMove",
+            "@fromField": "touchTime",
+            "@toNode": "Timer_PositionMove",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer_PositionMove",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp_PositionMove",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp_PositionMove",
+            "@fromField": "value_changed",
+            "@toNode": "Vp",
+            "@toField": "set_position"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch_TransformRotate",
+            "@fromField": "touchTime",
+            "@toNode": "Timer_TransformRotate",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer_TransformRotate",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp_TransformRotate",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp_TransformRotate",
+            "@fromField": "value_changed",
+            "@toNode": "VpTransform",
+            "@toField": "set_rotation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch_OrientationRotate",
+            "@fromField": "touchTime",
+            "@toNode": "Timer_OrientationRotate",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer_OrientationRotate",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp_OrientationRotate",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp_OrientationRotate",
+            "@fromField": "value_changed",
+            "@toNode": "Vp",
+            "@toField": "set_orientation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch_WalkTour",
+            "@fromField": "touchTime",
+            "@toNode": "Timer_WalkTour",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer_WalkTour",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp_WalkTourPosition",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp_WalkTourPosition",
+            "@fromField": "value_changed",
+            "@toNode": "VpTransform",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer_WalkTour",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp_WalkTourOrient",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp_WalkTourOrient",
+            "@fromField": "value_changed",
+            "@toNode": "Vp",
+            "@toField": "set_orientation"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3078 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:44 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"MyText",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "MFString",
+                  "@name": "string",
+                  "@value": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "@translation": [ 0, 1.5, 0 ],
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-appearance": { "Appearance":
+                            {
+                              "-material": { "Material":
+                                {
+                                  "@diffuseColor": [ 1, 1, 0 ]
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "Text":
+                            {
+                              "-fontStyle": { "FontStyle":
+                                {
+                                  "@size": 0.15
+                                }
+                              },
+                              "IS": {
+                                "connect": [
+                                  {
+                                    "@nodeField": "string",
+                                    "@protoField": "string"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -0.25, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "modulate"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 1.5, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "add 2nd tex"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 3, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "replace 2nd tex"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 4.5, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "subtract"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 6, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "modulate 2x"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 7.5, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "modulate 4x"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 9, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "add signed"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 10.5, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "add signed 2x"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 12, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "select arg1"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 13.5, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "select arg2"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 15, 0, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "off 2nd tex"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -1.5, -1, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "pattern texture",
+                              "mixed with",
+                              "squirrel texture"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "REPLACE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "SUBTRACT"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE2X"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 7.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE4X"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADDSIGNED"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADDSIGNED2X"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "SELECTARG1"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 13.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "SELECTARG2"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "OFF"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -1.5, -1, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "material diffuse",
+                              "mixed with",
+                              "squirrel texture"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.5, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "REPLACE"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4.5, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "SUBTRACT"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE2X"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 7.5, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE4X"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADDSIGNED"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10.5, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "ADDSIGNED2X"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "SELECTARG1"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 13.5, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "SELECTARG2"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, -2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "MODULATE",
+                            "OFF"
+                          ],
+                          "@source": [
+                            "",
+                            "DIFFUSE"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -1.5, -1, 0 ],
+                  "-children": [
+                    { "ProtoInstance":
+                      {
+                        "@name": "MyText",
+                        "fieldValue": [
+                          {
+                            "@name": "string",
+                            "@value": [
+                              "constant yellow",
+                              "mixed with",
+                              "squirrel texture"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.5, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "ADD"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "REPLACE"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4.5, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "SUBTRACT"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE2X"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 7.5, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "MODULATE4X"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "ADDSIGNED"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 10.5, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "ADDSIGNED2X"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "SELECTARG1"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 13.5, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "SELECTARG2"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, -4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@color": [ 1, 1, 0 ],
+                          "@mode": [
+                            "MODULATE",
+                            "OFF"
+                          ],
+                          "@source": [
+                            "",
+                            "FACTOR"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 8.243334, -1.163333, 16.80467 ]
+          }
+        }
+      ]
+    }
+  }
+}

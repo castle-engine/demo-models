@@ -1,0 +1,139 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:40 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, -1.57079637050629 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "../castle/old/vrml_2/castle_with_lights.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@DEF": "MyViewpoint",
+            "@position": [ 0.2837448, 31.0098, 309.634 ],
+            "@orientation": [ -0.999994559758903, -0.000172633179177175, -0.00329403132716252, 0.00823802104347635 ]
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "MyCameraPositionInterpolator",
+            "@key": [
+              0,
+              0.15,
+              0.3,
+              0.45,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "@keyValue": [
+              0.2837448, 31.0098, 326.1702,
+              0.2837448, 31.0098, 115.9647,
+              102.9002, 45.5331, 114.1252,
+              145.5522, 50.30351, -106.7673,
+              -131.7912, 101.3549, -115.7833,
+              -134.9958, 70.43916, 118.2429,
+              -2.428004, 14.53552, 129.1675,
+              0.9550548, 4.807536, 94.55472,
+              0.1920233, 2.675924, 24.34037
+            ]
+          }
+        },
+        { "OrientationInterpolator":
+          {
+            "@DEF": "MyCameraOrientationInterpolator",
+            "@key": [
+              0,
+              0.15,
+              0.3,
+              0.45,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 1, 0,
+              -0.99998927116394, -0.000172632266185246, -0.00329401390627027, 0.104720689356327,
+              -0.186158984899521, 0.979490876197815, 0.0770856365561485, 0.799955368041992,
+              -0.0351958721876144, 0.996299624443054, 0.0784099847078323, 2.30053186416626,
+              -0.0818101614713669, -0.974868893623352, -0.207213997840881, 2.40676999092102,
+              -0.289179265499115, -0.949085474014282, -0.124948486685753, 0.854438841342926,
+              -0.743788599967957, 0.668178200721741, 0.0169868897646666, 0.0703805312514305,
+              -0.743781447410584, 0.668204307556152, 0.0176805164664984, 0.0703805312514305,
+              5.47220333828591e-5, 0.999988317489624, 0, 0.0470385625958443
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "MyTimer",
+            "@cycleInterval": 10,
+            "@loop": true
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyTimer",
+            "@fromField": "fraction_changed",
+            "@toNode": "MyCameraPositionInterpolator",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyTimer",
+            "@fromField": "fraction_changed",
+            "@toNode": "MyCameraOrientationInterpolator",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyCameraPositionInterpolator",
+            "@fromField": "value_changed",
+            "@toNode": "MyViewpoint",
+            "@toField": "set_position"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyCameraOrientationInterpolator",
+            "@fromField": "value_changed",
+            "@toNode": "MyViewpoint",
+            "@toField": "set_orientation"
+          }
+        }
+      ]
+    }
+  }
+}

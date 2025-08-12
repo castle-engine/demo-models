@@ -1,0 +1,672 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:05 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"ViewportInfo",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "info",
+                  "@value": [
+                    "information"
+                  ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFColor",
+                  "@name": "textColor"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Group":
+                  {
+                    "-children": [
+                      { "Switch":
+                        {
+                          "@DEF": "SwitchInfoText",
+                          "@whichChoice": 0,
+                          "-children": [
+                            { "Collision":
+                              {
+                                "@enabled": false,
+                                "-children": [
+                                  { "Transform":
+                                    {
+                                      "@DEF": "InfoText",
+                                      "-children": [
+                                        { "Transform":
+                                          {
+                                            "@translation": [ -0.1, 0.07, -0.2 ],
+                                            "-children": [
+                                              { "Shape":
+                                                {
+                                                  "-geometry": { "Text":
+                                                    {
+                                                      "-fontStyle": { "FontStyle":
+                                                        {
+                                                          "@style": "BOLD",
+                                                          "@size": 0.006
+                                                        }
+                                                      },
+                                                      "IS": {
+                                                        "connect": [
+                                                          {
+                                                            "@nodeField": "string",
+                                                            "@protoField": "info"
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "ProximitySensor":
+                        {
+                          "@DEF": "Prox",
+                          "@size": [ 10000, 10000, 10000 ]
+                        }
+                      },
+                      { "KeySensor":
+                        {
+                          "@DEF": "KeyInfoText"
+                        }
+                      },
+                      { "Script":
+                        {
+                          "@DEF": "ScrInfoText",
+                          "field": [
+                            {
+                              "@accessType": "inputOnly",
+                              "@type": "SFString",
+                              "@name": "keyPress"
+                            },
+                            {
+                              "@accessType": "outputOnly",
+                              "@type": "SFInt32",
+                              "@name": "infoTextVisible"
+                            }
+                          ],
+                          "#sourceCode": [
+                            "castlescript:\r",
+                            "\r",
+                            "      function keyPress(value, time)\r",
+                            "        when(value = 'h',\r",
+                            "          infoTextVisible := if (infoTextVisible = 0, -1, 0))\r",
+                            "      "
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Prox",
+                    "@fromField": "position_changed",
+                    "@toNode": "InfoText",
+                    "@toField": "set_translation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Prox",
+                    "@fromField": "orientation_changed",
+                    "@toNode": "InfoText",
+                    "@toField": "set_rotation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "KeyInfoText",
+                    "@fromField": "keyPress",
+                    "@toNode": "ScrInfoText",
+                    "@toField": "keyPress"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "ScrInfoText",
+                    "@fromField": "infoTextVisible",
+                    "@toNode": "SwitchInfoText",
+                    "@toField": "set_whichChoice"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"EditableTransform",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFNode",
+                  "@name": "children"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "translation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "scale",
+                  "@value": [ 1, 1, 1 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "center"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFRotation",
+                  "@name": "rotation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFString",
+                  "@name": "description"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "minPosition",
+                  "@value": [ -10, -10 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "maxPosition",
+                  "@value": [ 10, 10 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "minScale",
+                  "@value": [ 0.1, 0.1 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "maxScale",
+                  "@value": [ 10, 10 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Transform":
+                        {
+                          "@DEF": "Trans",
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "translation",
+                                "@protoField": "translation"
+                              },
+                              {
+                                "@nodeField": "rotation",
+                                "@protoField": "rotation"
+                              },
+                              {
+                                "@nodeField": "scale",
+                                "@protoField": "scale"
+                              },
+                              {
+                                "@nodeField": "center",
+                                "@protoField": "center"
+                              },
+                              {
+                                "@nodeField": "children",
+                                "@protoField": "children"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "PlaneSensor":
+                        {
+                          "@DEF": "MoveSensor",
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "offset",
+                                "@protoField": "translation"
+                              },
+                              {
+                                "@nodeField": "minPosition",
+                                "@protoField": "minPosition"
+                              },
+                              {
+                                "@nodeField": "maxPosition",
+                                "@protoField": "maxPosition"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "SphereSensor":
+                        {
+                          "@DEF": "RotateSensor",
+                          "@enabled": false,
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "offset",
+                                "@protoField": "rotation"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "PlaneSensor":
+                        {
+                          "@DEF": "ScaleSensor",
+                          "@enabled": false,
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "offset",
+                                "@protoField": "scale"
+                              },
+                              {
+                                "@nodeField": "minPosition",
+                                "@protoField": "minScale"
+                              },
+                              {
+                                "@nodeField": "maxPosition",
+                                "@protoField": "maxScale"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "KeySensor":
+                        {
+                          "@DEF": "Key"
+                        }
+                      },
+                      { "Script":
+                        {
+                          "@DEF": "Scr",
+                          "field": [
+                            {
+                              "@accessType": "inputOutput",
+                              "@type": "SFBool",
+                              "@name": "shiftKey"
+                            },
+                            {
+                              "@accessType": "inputOutput",
+                              "@type": "SFBool",
+                              "@name": "controlKey"
+                            },
+                            {
+                              "@accessType": "outputOnly",
+                              "@type": "SFBool",
+                              "@name": "moveSensorEnabled"
+                            },
+                            {
+                              "@accessType": "outputOnly",
+                              "@type": "SFBool",
+                              "@name": "rotateSensorEnabled"
+                            },
+                            {
+                              "@accessType": "outputOnly",
+                              "@type": "SFBool",
+                              "@name": "scaleSensorEnabled"
+                            }
+                          ],
+                          "#sourceCode": [
+                            "castlescript:\r",
+                            "\r",
+                            "function shiftKey(value, time)\r",
+                            "  moveSensorEnabled   := and(not(value), not(controlKey));\r",
+                            "  rotateSensorEnabled := and(value     , not(controlKey));\r",
+                            "  scaleSensorEnabled  := and(not(value), controlKey)\r",
+                            "\r",
+                            "function controlKey(value, time)\r",
+                            "  moveSensorEnabled   := and(not(shiftKey), not(value));\r",
+                            "  rotateSensorEnabled := and(shiftKey     , not(value));\r",
+                            "  scaleSensorEnabled  := and(not(shiftKey), value)\r",
+                            ""
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Key",
+                    "@fromField": "shiftKey",
+                    "@toNode": "Scr",
+                    "@toField": "set_shiftKey"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Key",
+                    "@fromField": "controlKey",
+                    "@toNode": "Scr",
+                    "@toField": "set_controlKey"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "moveSensorEnabled",
+                    "@toNode": "MoveSensor",
+                    "@toField": "set_enabled"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "rotateSensorEnabled",
+                    "@toNode": "RotateSensor",
+                    "@toField": "set_enabled"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "scaleSensorEnabled",
+                    "@toNode": "ScaleSensor",
+                    "@toField": "set_enabled"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "MoveSensor",
+                    "@fromField": "translation_changed",
+                    "@toNode": "Trans",
+                    "@toField": "set_translation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "ScaleSensor",
+                    "@fromField": "translation_changed",
+                    "@toNode": "Trans",
+                    "@toField": "set_scale"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "RotateSensor",
+                    "@fromField": "rotation_changed",
+                    "@toNode": "Trans",
+                    "@toField": "set_rotation"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"EditableTransformXZ",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFNode",
+                  "@name": "children"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "translation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "scale",
+                  "@value": [ 1, 1, 1 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "center"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFRotation",
+                  "@name": "rotation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFString",
+                  "@name": "description"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "minPosition",
+                  "@value": [ -10, -10 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "maxPosition",
+                  "@value": [ 10, 10 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "minScale",
+                  "@value": [ 0.1, 0.1 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec2f",
+                  "@name": "maxScale",
+                  "@value": [ 10, 10 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Transform":
+                        {
+                          "@rotation": [ 0, 1, 0, 1.570796327 ],
+                          "-children": [
+                            { "ProtoInstance":
+                              {
+                                "@name": "EditableTransform",
+                                "fieldValue": [
+                                ],
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "children",
+                                      "@protoField": "children"
+                                    },
+                                    {
+                                      "@nodeField": "scale",
+                                      "@protoField": "scale"
+                                    },
+                                    {
+                                      "@nodeField": "center",
+                                      "@protoField": "center"
+                                    },
+                                    {
+                                      "@nodeField": "rotation",
+                                      "@protoField": "rotation"
+                                    },
+                                    {
+                                      "@nodeField": "description",
+                                      "@protoField": "description"
+                                    },
+                                    {
+                                      "@nodeField": "minPosition",
+                                      "@protoField": "minPosition"
+                                    },
+                                    {
+                                      "@nodeField": "maxPosition",
+                                      "@protoField": "maxPosition"
+                                    },
+                                    {
+                                      "@nodeField": "minScale",
+                                      "@protoField": "minScale"
+                                    },
+                                    {
+                                      "@nodeField": "maxScale",
+                                      "@protoField": "maxScale"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "translation",
+                          "@protoField": "translation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"BoxWithTexCoord",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFBool",
+                  "@name": "solid",
+                  "@value": true
+                },
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFNode",
+                  "@name": "texCoord"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "IndexedFaceSet":
+                  {
+                    "@coordIndex": [
+                      0,
+                      1,
+                      2,
+                      3,
+                      -1,
+                      4,
+                      7,
+                      6,
+                      5,
+                      -1,
+                      0,
+                      4,
+                      5,
+                      1,
+                      -1,
+                      1,
+                      5,
+                      6,
+                      2,
+                      -1,
+                      2,
+                      6,
+                      7,
+                      3,
+                      -1,
+                      4,
+                      0,
+                      3,
+                      7,
+                      -1
+                    ],
+                    "-coord": { "Coordinate":
+                      {
+                        "@point": [
+                          1, 1, -1,
+                          1, -1, -1,
+                          -1, -1, -1,
+                          -1, 1, -1,
+                          1, 1, 1,
+                          1, -1, 1,
+                          -1, -1, 1,
+                          -1, 1, 1
+                        ]
+                      }
+                    },
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "solid",
+                          "@protoField": "solid"
+                        },
+                        {
+                          "@nodeField": "texCoord",
+                          "@protoField": "texCoord"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

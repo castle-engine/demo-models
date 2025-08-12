@@ -1,0 +1,198 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:09 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"BlueCone",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                            "@diffuseColor": [ 0, 0, 1 ]
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Cone":
+                      {
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"ProtoBasedOnBlueConeTransform",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFNode",
+                  "@name": "defaultContents",
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@DEF": "BlueConeTransform",
+                        "@translation": [ 4, 0.141, 0 ],
+                        "-children": [
+                          { "ProtoInstance":
+                            {
+                              "@name": "BlueCone"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "@translation": [ 2, 0, 0 ],
+                    "@rotation": [ 1, 0, 0, 3.14 ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "children",
+                          "@protoField": "defaultContents"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 2, 0, 0 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Box":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              { "Transform":
+                {
+                  "@USE": "BlueConeTransform"
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ProtoBasedOnBlueConeTransform"
+                }
+              },
+              { "TimeSensor":
+                {
+                  "@DEF": "TS",
+                  "@loop": true
+                }
+              },
+              { "PositionInterpolator":
+                {
+                  "@DEF": "PI",
+                  "@key": [
+                    0,
+                    1
+                  ],
+                  "@keyValue": [
+                    4, 0, 0,
+                    4, 0.5, 0
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TS",
+            "@fromField": "fraction_changed",
+            "@toNode": "PI",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PI",
+            "@fromField": "value_changed",
+            "@toNode": "BlueConeTransform",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

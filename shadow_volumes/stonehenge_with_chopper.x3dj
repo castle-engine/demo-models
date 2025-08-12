@@ -1,0 +1,181 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:21 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"EditableTransform",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "children"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "scale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "description"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxScale"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#EditableTransform"
+            ]
+          }
+        },
+        { "PointLight":
+          {
+            "@location": [ -5.38, 20, 0 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@speed": 10
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -2.41432, 21.86419, -19.0744 ],
+            "@orientation": [ -0.218312859535217, 0.947898149490356, 0.232009649276733, 2.41772985458374 ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -50, 0, 20 ],
+            "@rotation": [ 1, 0, 0, -1.57 ],
+            "@scale": [ 0.1, 0.1, 0.1 ],
+            "-children": [
+              { "Inline":
+                {
+                  "@global": true,
+                  "@url": [
+                    "stonehenge.wrl"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransform",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Inline":
+                    {
+                      "@DEF": "Chopper",
+                      "@global": true,
+                      "@url": [
+                        "chopper/chopper.gltf"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -20, 7.5, 2.5 ]
+              },
+              {
+                "@name": "minPosition",
+                "@value": [ -40, -40 ]
+              },
+              {
+                "@name": "maxPosition",
+                "@value": [ 40, 40 ]
+              }
+            ]
+          }
+        },
+        { "ProximitySensor":
+          {
+            "@DEF": "MyProximitySensor",
+            "@size": [ 1e7, 1e7, 1e7 ]
+          }
+        },
+        { "BooleanTrigger":
+          {
+            "@DEF": "MyBooleanTrigger"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "Chopper",
+            "@importedDEF": "fly"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyProximitySensor",
+            "@fromField": "enterTime",
+            "@toNode": "fly",
+            "@toField": "startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyProximitySensor",
+            "@fromField": "enterTime",
+            "@toNode": "MyBooleanTrigger",
+            "@toField": "set_triggerTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyBooleanTrigger",
+            "@fromField": "triggerTrue",
+            "@toNode": "fly",
+            "@toField": "loop"
+          }
+        }
+      ]
+    }
+  }
+}

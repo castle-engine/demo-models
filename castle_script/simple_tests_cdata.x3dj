@@ -1,0 +1,123 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:06:03 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@translation": [ 0, 0, -2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 0, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@DEF": "ConeMat",
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "Touch"
+                }
+              }
+            ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFBool",
+                "@name": "over"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFFloat",
+                "@name": "transp"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:",
+              "function over(value, timestamp)",
+              "  transp := 0.5 - (1 - float(value)) / 2",
+              ""
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Touch",
+            "@fromField": "isOver",
+            "@toNode": "Scr",
+            "@toField": "over"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "transp",
+            "@toNode": "ConeMat",
+            "@toField": "set_transparency"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,443 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:14 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Shaders",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@DEF": "SmoothingShader",
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          attribute vec4 castle_Vertex;\r",
+                                    "          attribute vec3 castle_Normal;\r",
+                                    "\r",
+                                    "          varying vec3 normal;\r",
+                                    "\r",
+                                    "          void main(void)\r",
+                                    "          {\r",
+                                    "            normal = castle_Normal;\r",
+                                    "            gl_Position = castle_Vertex;\r",
+                                    "          }"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "GEOMETRY",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          #version 150\r",
+                                    "\r",
+                                    "          uniform mat4 castle_ModelViewMatrix;\r",
+                                    "          uniform mat4 castle_ProjectionMatrix;\r",
+                                    "          uniform mat3 castle_NormalMatrix;\r",
+                                    "          uniform float smooth_scale;\r",
+                                    "\r",
+                                    "          layout(triangles) in;\r",
+                                    "          layout(triangle_strip, max_vertices = 12) out;\r",
+                                    "\r",
+                                    "          in vec3 normal[CASTLE_GEOMETRY_INPUT_SIZE];\r",
+                                    "          out float light_intensity;\r",
+                                    "\r",
+                                    "          vec3 vertex_normal;\r",
+                                    "\r",
+                                    "          /* Use non-interpolated vertex. */\r",
+                                    "          void set_vertex(int i)\r",
+                                    "          {\r",
+                                    "            gl_Position = gl_in[i].gl_Position;\r",
+                                    "            vertex_normal = normal[i];\r",
+                                    "          }\r",
+                                    "\r",
+                                    "          /* Use interpolated vertex. */\r",
+                                    "          void set_vertex(int i, int j)\r",
+                                    "          {\r",
+                                    "            gl_Position = (gl_in[i].gl_Position + gl_in[j].gl_Position) / 2.0;\r",
+                                    "            vertex_normal = normalize((normal[i] + normal[j]) / 2.0);\r",
+                                    "\r",
+                                    "            /* smooth gl_Position, shifting it a little along the normal vector.\r",
+                                    "\r",
+                                    "               Without doing this, the whole tesselation would just replace 1 flat\r",
+                                    "               triangle with 4 flat coplanar triangles, which doesn't\r",
+                                    "               improve the look of the object (at least, not too much ---\r",
+                                    "               it causes Gouraud shading to look a little closer to Phong shading,\r",
+                                    "               but that's an awfully little improvement).\r",
+                                    "\r",
+                                    "               To really improve the look, one has to actually smooth the surface.\r",
+                                    "               - A more elaborate way for this would use 'triangles with adjacency',\r",
+                                    "                 when you get enough information to really smooth the surface\r",
+                                    "                 nicely, but view3dscene doesn't support primitives with adjacency\r",
+                                    "                 yet.\r",
+                                    "               - A simpler way for this would use the knowledge that this is\r",
+                                    "                 a sphere... But I didn't want it here (when you know\r",
+                                    "                 the geometry is a sphere, you could actually simplify\r",
+                                    "                 much other parts of this shader too).\r",
+                                    "               - So using the normal vector is a lame-but-working\r",
+                                    "                 attempt at smoothing an arbitrary shape.\r",
+                                    "            */\r",
+                                    "            gl_Position.xyz += vertex_normal * 0.04 * smooth_scale;\r",
+                                    "          }\r",
+                                    "\r",
+                                    "          /* Calculate lighting and emit vertex.\r",
+                                    "             Common code for both interpolated and not vertexes. */\r",
+                                    "          void finish_vertex()\r",
+                                    "          {\r",
+                                    "            /* go to eye space */\r",
+                                    "            gl_Position = castle_ModelViewMatrix * gl_Position;\r",
+                                    "\r",
+                                    "            /* diffuse lighting equation.\r",
+                                    "               Note: we just *assume* here that light 0 == headlight\r",
+                                    "               in view3dscene. This is not really guaranteed, if you don't\r",
+                                    "               like this see our \"compositing shaders\" effects instead\r",
+                                    "               of messing with ComposedShader :) */\r",
+                                    "            light_intensity = max(dot(\r",
+                                    "              normalize(- gl_Position.xyz),\r",
+                                    "              normalize(castle_NormalMatrix * vertex_normal)), 0.0);\r",
+                                    "\r",
+                                    "            /* go to clip space */\r",
+                                    "            gl_Position = castle_ProjectionMatrix * gl_Position;\r",
+                                    "\r",
+                                    "            EmitVertex();\r",
+                                    "          }\r",
+                                    "\r",
+                                    "          void main()\r",
+                                    "          {\r",
+                                    "            /* 3 corner triangles */\r",
+                                    "            set_vertex(2, 0);  finish_vertex();\r",
+                                    "            set_vertex(0);     finish_vertex();\r",
+                                    "            set_vertex(0, 1);  finish_vertex();\r",
+                                    "            EndPrimitive();\r",
+                                    "\r",
+                                    "            set_vertex(0, 1);  finish_vertex();\r",
+                                    "            set_vertex(1);     finish_vertex();\r",
+                                    "            set_vertex(1, 2);  finish_vertex();\r",
+                                    "            EndPrimitive();\r",
+                                    "\r",
+                                    "            set_vertex(1, 2);  finish_vertex();\r",
+                                    "            set_vertex(2);     finish_vertex();\r",
+                                    "            set_vertex(2, 0);  finish_vertex();\r",
+                                    "            EndPrimitive();\r",
+                                    "\r",
+                                    "            /* middle triangle */\r",
+                                    "            set_vertex(0, 1);  finish_vertex();\r",
+                                    "            set_vertex(1, 2);  finish_vertex();\r",
+                                    "            set_vertex(2, 0);  finish_vertex();\r",
+                                    "            EndPrimitive();\r",
+                                    "          }"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "          varying float light_intensity;\r",
+                                    "          void main(void)\r",
+                                    "          {\r",
+                                    "            gl_FragColor = vec4(vec3(light_intensity), 1.0);\r",
+                                    "          }"
+                                  ]
+                                }
+                              }
+                            ],
+                            "field": [
+                              {
+                                "@accessType": "inputOutput",
+                                "@type": "SFFloat",
+                                "@name": "smooth_scale",
+                                "@value": 1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "SmoothingShader"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Cylinder":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "SmoothingShader"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "SmoothingShader"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, -3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@USE": "SmoothingShader"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 4, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@DEF": "ControllerText",
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 0.4,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "MFString",
+                "@name": "controllerString"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFFloat",
+                "@name": "scale"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "function initialize(timestamp)\r",
+              "  translation := vector(0, 0, 0)\r",
+              "\r",
+              "function translation(value, timestamp)\r",
+              "  scale := (vector_get(translation, 0) + 1) / 2;\r",
+              "  controllerString := array(\r",
+              "    'Drag the blue ball to control the amount of smoothing.',\r",
+              "    'Now: ' + string(scale),\r",
+              "    '0 is no smoothing.',\r",
+              "    '1 is somewhat sensible smoothing, at least for the sphere shape.',\r",
+              "    'Values outside the [0, 1] range are for fun :)'\r",
+              "  )\r",
+              "  "
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 1.8, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "ScaleController",
+                  "-children": [
+                    { "PlaneSensor":
+                      {
+                        "@DEF": "MySensor",
+                        "@minPosition": [ -30, 0 ],
+                        "@maxPosition": [ 30, 0 ]
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0.3, 0.3, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.6
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "controllerString",
+            "@toNode": "ControllerText",
+            "@toField": "set_string"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "scale",
+            "@toNode": "SmoothingShader",
+            "@toField": "set_smooth_scale"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MySensor",
+            "@fromField": "translation_changed",
+            "@toNode": "ScaleController",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MySensor",
+            "@fromField": "translation_changed",
+            "@toNode": "MyScript",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

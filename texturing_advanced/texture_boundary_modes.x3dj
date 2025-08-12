@@ -1,0 +1,424 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:03 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "../textures/test_texture.png"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 1 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "S, T = repeat",
+                              "(default without",
+                              "TextureProperties)"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 0.2,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "../textures/test_texture.png"
+                              ],
+                              "@repeatT": false
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 1 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "S = repeat, T = clamp",
+                              "(without",
+                              "TextureProperties)"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 0.2,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 6, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "../textures/test_texture.png"
+                              ],
+                              "-textureProperties": { "TextureProperties":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 1 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "S, T = repeat",
+                              "(default with",
+                              "TextureProperties)"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 0.2,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 9, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "../textures/test_texture.png"
+                              ],
+                              "-textureProperties": { "TextureProperties":
+                                {
+                                  "@boundaryModeT": "CLAMP_TO_EDGE"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 1 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "S = repeat, T = clamp",
+                              "(with",
+                              "TextureProperties)"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 0.2,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 12, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "../textures/test_texture.png"
+                              ],
+                              "-textureProperties": { "TextureProperties":
+                                {
+                                  "@boundaryModeT": "MIRRORED_REPEAT"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 1 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "S = repeat,",
+                              "T = mirror repeat",
+                              "(with",
+                              "TextureProperties)"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 0.2,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 15, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "-diffuseTexture": { "ImageTexture":
+                            {
+                              "@url": [
+                                "../textures/test_texture.png"
+                              ],
+                              "-textureProperties": { "TextureProperties":
+                                {
+                                  "@boundaryModeS": "MIRRORED_REPEAT",
+                                  "@boundaryModeT": "MIRRORED_REPEAT"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@scale": [ 2, 2 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, 2, 1 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "S = mirror repeat,",
+                              "T = mirror repeat",
+                              "(with",
+                              "TextureProperties)"
+                            ],
+                            "-fontStyle": { "FontStyle":
+                              {
+                                "@size": 0.2,
+                                "@justify": [
+                                  "MIDDLE"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

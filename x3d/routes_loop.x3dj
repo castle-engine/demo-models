@@ -1,0 +1,175 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:07 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"SimpleBox",
+            "ProtoInterface": {
+
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "-material": { "Material":
+                          {
+                          }
+                        }
+                      }
+                    },
+                    "-geometry": { "Box":
+                      {
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "T1",
+            "@translation": [ 0.4059999, 0.4059999, 0.4059999 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "SimpleBox"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "T2",
+            "@translation": [ 0.4059999, 0.4059999, 0.4059999 ],
+            "@scale": [ 0.4059999, 0.4059999, 0.4059999 ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "T3",
+            "@translation": [ 0.4059999, 0.4059999, 0.4059999 ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "T4",
+            "@translation": [ 0.4059999, 0.4059999, 0.4059999 ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "TS",
+            "@loop": true
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "PI",
+            "@key": [
+              0,
+              1
+            ],
+            "@keyValue": [
+              0, 0, 0,
+              1, 1, 1
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "T1",
+            "@fromField": "translation_changed",
+            "@toNode": "T1",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "T2",
+            "@fromField": "scale_changed",
+            "@toNode": "T2",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "T2",
+            "@fromField": "translation_changed",
+            "@toNode": "T2",
+            "@toField": "set_scale"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "T3",
+            "@fromField": "translation_changed",
+            "@toNode": "T4",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "T4",
+            "@fromField": "translation_changed",
+            "@toNode": "T3",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TS",
+            "@fromField": "fraction_changed",
+            "@toNode": "PI",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PI",
+            "@fromField": "value_changed",
+            "@toNode": "T1",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PI",
+            "@fromField": "value_changed",
+            "@toNode": "T2",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PI",
+            "@fromField": "value_changed",
+            "@toNode": "T3",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,331 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:25:37 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"ThingRotatingAroundPlayer",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFRotation",
+                  "@name": "orbitOrientation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFTime",
+                  "@name": "cycleInterval",
+                  "@value": 1
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Transform":
+                        {
+                          "@DEF": "Rotating",
+                          "-children": [
+                            { "Transform":
+                              {
+                                "@translation": [ 5, 0, 0 ],
+                                "-children": [
+                                  { "Shape":
+                                    {
+                                      "-appearance": { "Appearance":
+                                        {
+                                          "-material": { "Material":
+                                            {
+                                              "@diffuseColor": [ 0.1, 1, 0.1 ],
+                                              "@transparency": 0.5
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "-geometry": { "Sphere":
+                                        {
+                                          "@radius": 0.3
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "rotation",
+                          "@protoField": "orbitOrientation"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "OrientationInterpolator":
+                  {
+                    "@DEF": "Orient",
+                    "@key": [
+                      0,
+                      1
+                    ],
+                    "@keyValue": [
+                      0, 0, 1, 0,
+                      0, 0, 1, 6.2831853072
+                    ]
+                  }
+                },
+                { "TimeSensor":
+                  {
+                    "@DEF": "Timer",
+                    "@loop": true,
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "cycleInterval",
+                          "@protoField": "cycleInterval"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Timer",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "Orient",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Orient",
+                    "@fromField": "value_changed",
+                    "@toNode": "Rotating",
+                    "@toField": "set_rotation"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.5,
+              2,
+              0.5
+            ],
+            "@speed": 20
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -3.5324712371e-5, -0.999984502792358, -0, 0.046436563134193 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "PlayerSurrounding",
+            "@translation": [ -12.04191, -61.64065, 2 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 0, 1, 0, 0.6 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 5
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 0.51, 1, 0, 2.4 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 4
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 1, 0.6, 0, 4.5 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 6
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 1, 1, 0, 6.7 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 7
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 1, 0.9, 0, 10.99 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 3
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 0.3, 1, 0, 66.6 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 4
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 0.9, 0.4, 0, 3.1 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 5
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 1, 1, 0, 0.33 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 6
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "ThingRotatingAroundPlayer",
+                  "fieldValue": [
+                    {
+                      "@name": "orbitOrientation",
+                      "@value": [ 0.2, 0.6, 0, 1.11 ]
+                    },
+                    {
+                      "@name": "cycleInterval",
+                      "@value": 5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProximitySensor":
+          {
+            "@DEF": "MyProx",
+            "@size": [ 1e7, 1e7, 1e7 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyProx",
+            "@fromField": "position_changed",
+            "@toNode": "PlayerSurrounding",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

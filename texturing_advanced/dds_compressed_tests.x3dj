@@ -1,0 +1,386 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:43 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"Test",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "url"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "translation"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "name",
+                  "@value": [
+                    "Uncompressed"
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-appearance": { "Appearance":
+                            {
+                              "-material": { "Material":
+                                {
+                                }
+                              },
+                              "-texture": { "ImageTexture":
+                                {
+                                  "@repeatS": false,
+                                  "@repeatT": false,
+                                  "IS": {
+                                    "connect": [
+                                      {
+                                        "@nodeField": "url",
+                                        "@protoField": "url"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "QuadSet":
+                            {
+                              "@solid": false,
+                              "-texCoord": { "TextureCoordinate":
+                                {
+                                  "@DEF": "TexCoord",
+                                  "@point": [
+                                    0, 0,
+                                    1, 0,
+                                    1, 1,
+                                    0, 1
+                                  ]
+                                }
+                              },
+                              "-coord": { "Coordinate":
+                                {
+                                  "@point": [
+                                    0, 0, 0,
+                                    2, 0, 0,
+                                    2, 2, 0,
+                                    0, 2, 0
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 0, 2, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-appearance": { "Appearance":
+                                  {
+                                    "-material": { "Material":
+                                      {
+                                        "@diffuseColor": [ 1, 1, 0 ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "-geometry": { "Text":
+                                  {
+                                    "-fontStyle": { "FontStyle":
+                                      {
+                                        "@size": 0.5
+                                      }
+                                    },
+                                    "IS": {
+                                      "connect": [
+                                        {
+                                          "@nodeField": "string",
+                                          "@protoField": "name"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "translation",
+                          "@protoField": "translation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Background":
+          {
+            "@skyColor": [
+              0.5, 0.5, 1
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "TranAll",
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/sky_red_back_dds_tests/32bits_abgr8.dds"
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/sky_red_back_dds_tests/compressed_bc3_dxt5.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 3, 0, 0 ]
+                    },
+                    {
+                      "@name": "name",
+                      "@value": [
+                        "DXT5"
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/sky_red_back_dds_tests/compressed_bc2_dxt3.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 6, 0, 0 ]
+                    },
+                    {
+                      "@name": "name",
+                      "@value": [
+                        "DXT3"
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/sky_red_back_dds_tests/compressed_bc1_dxt1.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 9, 0, 0 ]
+                    },
+                    {
+                      "@name": "name",
+                      "@value": [
+                        "DXT1"
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/metal_decal.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 0, 3, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/metal_decal_dxt5.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 3, 3, 0 ]
+                    },
+                    {
+                      "@name": "name",
+                      "@value": [
+                        "DXT5"
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/metal_decal_dxt3.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 6, 3, 0 ]
+                    },
+                    {
+                      "@name": "name",
+                      "@value": [
+                        "DXT3"
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "Test",
+                  "fieldValue": [
+                    {
+                      "@name": "url",
+                      "@value": [
+                        "../textures/metal_decal_dxt1.dds"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 9, 3, 0 ]
+                    },
+                    {
+                      "@name": "name",
+                      "@value": [
+                        "DXT1"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KeyS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "shift"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  when (value = 'a', vector_set(shift, 0, vector_get(shift, 0) - 3));\r",
+              "  when (value = 'd', vector_set(shift, 0, vector_get(shift, 0) + 3))\r",
+              ""
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeyS",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "key_press"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "shift_changed",
+            "@toNode": "TranAll",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

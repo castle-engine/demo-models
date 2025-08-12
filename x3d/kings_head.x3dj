@@ -1,0 +1,172 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:39 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Group":
+          {
+            "-children": [
+              { "Switch":
+                {
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/crown.png"
+                          ],
+                          "@repeatT": false
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Cylinder":
+                    {
+                      "@top": false,
+                      "@bottom": false,
+                      "@solid": false
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@translation": [ 0, -2, 0 ],
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@scale": [ 1.2, 2, 1.2 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ 0.8, 0.4, 0.8 ],
+                        "-children": [
+                          { "Transform":
+                            {
+                              "@DEF": "KingsEye",
+                              "-children": [
+                                { "Shape":
+                                  {
+                                    "-appearance": { "Appearance":
+                                      {
+                                        "-material": { "Material":
+                                          {
+                                            "@diffuseColor": [ 1, 0, 0 ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "-geometry": { "Sphere":
+                                      {
+                                        "@radius": 0.2
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ -0.8, 0.4, 0.8 ],
+                        "-children": [
+                          { "Transform":
+                            {
+                              "@USE": "KingsEye"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@DEF": "KingsNose",
+                        "@translation": [ 0, 0, 1.3 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 0, 0, 1 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                  "@radius": 0.4
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "EXPORT":
+          {
+            "@localDEF": "KingsNose",
+            "@AS": "Nose"
+          }
+        },
+        { "EXPORT":
+          {
+            "@localDEF": "KingsEye"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "title",
+          "@content": "*Squirrel house, sort of*"
+        },
+        {
+          "@name": "description",
+          "@content": "*shows cross-section not limited to four sides*"
+        },
+        {
+          "@name": "creator",
+          "@content": "*Stephen H. France*"
+        },
+        {
+          "@name": "created",
+          "@content": "*October 1 , 2010*"
+        },
+        {
+          "@name": "image",
+          "@content": "*test_texture.png*"
+        },
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:22 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture":
+                        {
+                          "@url": [
+                            "../textures/test_texture.png"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Extrusion":
+                    {
+                      "@convex": false,
+                      "@crossSection": [
+                        2, 1,
+                        2, -1,
+                        0, -3,
+                        -2, -1,
+                        -2, 1,
+                        0, 1,
+                        2, 1
+                      ],
+                      "@orientation": [
+                        0, 1, 0, 0,
+                        1, 0, 0, 0,
+                        1, 0, 0, 0
+                      ],
+                      "@scale": [
+                        1, 1,
+                        1, 1,
+                        1, 1
+                      ],
+                      "@spine": [
+                        0, 0, 0,
+                        0, 0, -4,
+                        4, 0, -4
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

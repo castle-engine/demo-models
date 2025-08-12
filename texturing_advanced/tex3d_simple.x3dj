@@ -1,0 +1,226 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:54 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing3D",
+          "@level": 2
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"BoxWithTexCoord",
+            "field": [
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "solid"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#BoxWithTexCoord"
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                  }
+                },
+                "-texture": { "ImageTexture3D":
+                  {
+                    "@url": [
+                      "../textures/trivial_3d_tex.dds"
+                    ],
+                    "-textureProperties": { "TextureProperties":
+                      {
+                        "@minificationFilter": "NEAREST_PIXEL",
+                        "@magnificationFilter": "NEAREST_PIXEL",
+                        "@boundaryModeS": "CLAMP_TO_EDGE",
+                        "@boundaryModeT": "CLAMP_TO_EDGE",
+                        "@boundaryModeR": "CLAMP_TO_EDGE",
+                        "@textureCompression": "FASTEST"
+                      }
+                    }
+                  }
+                },
+                "-textureTransform": { "TextureTransform3D":
+                  {
+                    "@translation": [ 0.5, 0.5, 0.5 ],
+                    "@scale": [ 0.5, 0.5, 0.5 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "ProtoInstance":
+              {
+                "@name": "BoxWithTexCoord",
+                "fieldValue": [
+                  {
+                    "@name": "texCoord",
+                    "-children": [
+                      { "TextureCoordinateGenerator":
+                        {
+                          "@mode": "COORD"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture3D":
+                        {
+                          "@url": [
+                            "../textures/trivial_3d_tex.dds"
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@minificationFilter": "NEAREST_PIXEL",
+                              "@magnificationFilter": "NEAREST_PIXEL",
+                              "@boundaryModeS": "CLAMP_TO_EDGE",
+                              "@boundaryModeT": "CLAMP_TO_EDGE",
+                              "@boundaryModeR": "CLAMP_TO_EDGE",
+                              "@textureCompression": "FASTEST"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "BoxWithTexCoord",
+                      "fieldValue": [
+                        {
+                          "@name": "texCoord",
+                          "-children": [
+                            { "TextureCoordinate3D":
+                              {
+                                "@point": [
+                                  1, 1, 0,
+                                  1, 0, 0,
+                                  0, 0, 0,
+                                  0, 1, 0,
+                                  1, 1, 1,
+                                  1, 0, 1,
+                                  0, 0, 1,
+                                  0, 1, 1
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "ImageTexture3D":
+                        {
+                          "@url": [
+                            "../textures/trivial_3d_tex.dds"
+                          ],
+                          "-textureProperties": { "TextureProperties":
+                            {
+                              "@minificationFilter": "NEAREST_PIXEL",
+                              "@magnificationFilter": "NEAREST_PIXEL",
+                              "@boundaryModeS": "CLAMP_TO_EDGE",
+                              "@boundaryModeT": "CLAMP_TO_EDGE",
+                              "@boundaryModeR": "CLAMP_TO_EDGE",
+                              "@textureCompression": "FASTEST"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "ProtoInstance":
+                    {
+                      "@name": "BoxWithTexCoord",
+                      "fieldValue": [
+                        {
+                          "@name": "texCoord",
+                          "-children": [
+                            { "TextureCoordinate4D":
+                              {
+                                "@point": [
+                                  2, 2, 0, 2,
+                                  2, 0, 0, 2,
+                                  0, 0, 0, 2,
+                                  0, 2, 0, 2,
+                                  2, 2, 2, 2,
+                                  2, 0, 2, 2,
+                                  0, 0, 2, 2,
+                                  0, 2, 2, 2
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

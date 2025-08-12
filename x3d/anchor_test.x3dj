@@ -1,0 +1,597 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:28:38 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Viewpoint":
+          {
+            "@DEF": "FrontView",
+            "@description": "Default Front View",
+            "@position": [ 7.016763, -8.246725, 26.88695 ],
+            "@orientation": [ 0.0008564154268242, -0.999940097332001, -0.0125247593969106, 0.0477379597723484 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@DEF": "SideView",
+            "@description": "Side View",
+            "@position": [ 18.88906, -1.618473, 4.15803 ],
+            "@orientation": [ -0.0001506769476691, 1, -0.0002477127709426, 1.21737432479858 ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@speed": 10
+          }
+        },
+        { "Anchor":
+          {
+            "@url": [
+              "../sensors_pointing_device/touch_sensor_tests.x3dv"
+            ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "App1",
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "      Click me for TouchSensor test"
+                      ]
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "@USE": "App1"
+                    }
+                  },
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@description": "Description for Anchor leading to KeySensor",
+                  "@url": [
+                    "../sensors_key/key_sensor.x3dv"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App2",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for KeySensor test"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App2"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "castle_static_group_ortho_view.x3dv#SomeNonOrthoViewpoint"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App3",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0, 0, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for castle_static_group_ortho_view.x3dv,",
+                              "      but with non-default camera"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App3"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -6, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "castle_static_group_ortho_view.x3dv#NotExisting"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App4",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for castle_static_group_ortho_view.x3dv, ",
+                              "      but with non-existing camera (should load default)"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App4"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -8, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "non_existing.wrl",
+                    "#NotExisting",
+                    "#SideView"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App5",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0.5, 0.5, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for warning + side view of the same file"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App5"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -10, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "anchor_test.x3dv#FrontView"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App6",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 0.5, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for front view of the same file, with reload"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App6"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -12, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "#NotExisting"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App7",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for nothing (invalid viewpoint in self)"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App7"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -14, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "../collada/humanoid-collada140.dae"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App8",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Click me for a Collada 3D model"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App8"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -16, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "http://castle-engine.sourceforge.net/view3dscene.php"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App9",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Open view3dscene website in WWW browser"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App9"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -18, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "http://www.web3d.org/files/specifications/19775-1/V3.2/Part01/components/networking.html#Anchor"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App10",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Open X3D specification for Anchor node in WWW browser"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App10"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -20, 0 ],
+            "-children": [
+              { "Anchor":
+                {
+                  "@url": [
+                    "../textures/test_texture.png"
+                  ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "App11",
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Text":
+                          {
+                            "@string": [
+                              "      Open test_texture.png in default program for PNG"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "@USE": "App11"
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

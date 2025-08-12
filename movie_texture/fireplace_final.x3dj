@@ -1,0 +1,180 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:15:56 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiNavigationInfo",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFBool",
+                "@name": "set_bind"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFFloat",
+                "@name": "avatarSize"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "headlight"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "speed"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFString",
+                "@name": "type"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "visibilityLimit"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "isBound"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "timeOriginAtLoad"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeRendering"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeDynamicCollisions"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeVisibleTriangles"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFNode",
+                "@name": "octreeStaticCollisions"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiNavigationInfo",
+              "../../../www/htdocs/fallback_prototypes.wrl#KambiNavigationInfo",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiNavigationInfo"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0.2157838, -4.377248, 1.159191 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ -0.649927735328674, 0.759797513484955, 0.0139061501249671, 0.0607967898249626 ]
+                }
+              }
+            ]
+          }
+        },
+        { "DirectionalLight":
+          {
+            "@global": true,
+            "@intensity": 0.5,
+            "@direction": [ 0, 1, 0 ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "KambiNavigationInfo",
+            "fieldValue": [
+              {
+                "@name": "headlight",
+                "@value": false
+              },
+              {
+                "@name": "type",
+                "@value": [
+                  "FLY",
+                  "ANY"
+                ]
+              },
+              {
+                "@name": "timeOriginAtLoad",
+                "@value": true
+              }
+            ]
+          }
+        },
+        { "Background":
+          {
+            "@skyAngle": [
+              1.57
+            ],
+            "@skyColor": [
+              0.1, 0.1, 0.1,
+              0.0627654, 0.0998349, 0.1402743
+            ],
+            "@groundAngle": [
+              1.57
+            ],
+            "@groundColor": [
+              0.0255309, 0.0996698, 0.1805486,
+              0.0627654, 0.0998349, 0.1402743
+            ]
+          }
+        },
+        null
+      ]
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:13 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-texture": { "ImageTexture":
+                  {
+                    "@url": [
+                      "../textures/test_texture.png"
+                    ]
+                  }
+                },
+                "-textureTransform": { "TextureTransformMatrix3D":
+                  {
+                    "@DEF": "TexTransf",
+                    "@matrix": [ 3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1 ]
+                  }
+                }
+              }
+            },
+            "-geometry": { "Box":
+              {
+              }
+            }
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFMatrix4f",
+                "@name": "tex_matrix"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "scaling",
+                "@value": 3
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function initialize(timestamp)\r",
+              "  { Dummy assignment, to initialize and send tex_matrix }\r",
+              "  scaling := scaling\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  if (value = 'w',\r",
+              "    scaling := scaling * 1.2,\r",
+              "    when (value = 's',\r",
+              "      scaling := scaling / 1.2))\r",
+              "\r",
+              "function scaling(value, timestamp)\r",
+              "  tex_matrix := matrix(vector(scaling, 0, 0, 0),\r",
+              "                       vector(0, scaling, 0, 0),\r",
+              "                       vector(0, 0, scaling, 0),\r",
+              "                       vector(0, 0, 0, 1) )\r",
+              ""
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "Key"
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 1.2, 2 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Simple demo of CastleScript using matrix type.",
+                        "Press 'w' to scale texture coords up, 's' to scale down."
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 0.2,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex_matrix",
+            "@toNode": "TexTransf",
+            "@toField": "set_matrix"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Key",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "key_press"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:21:00 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Switch":
+          {
+            "@DEF": "animation_switch",
+            "@whichChoice": 0,
+            "-children": [
+              { "Inline":
+                {
+                  "@DEF": "flying_inline",
+                  "@global": true,
+                  "@url": [
+                    "cube_opening.castle-anim-frames"
+                  ]
+                }
+              },
+              { "Inline":
+                {
+                  "@DEF": "dying_inline",
+                  "@global": true,
+                  "@url": [
+                    "sphere_x3d.castle-anim-frames"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "BooleanFilter":
+          {
+            "@DEF": "flying_filter"
+          }
+        },
+        { "IntegerTrigger":
+          {
+            "@DEF": "flying_trigger",
+            "@integerKey": 0
+          }
+        },
+        { "BooleanFilter":
+          {
+            "@DEF": "dying_filter"
+          }
+        },
+        { "IntegerTrigger":
+          {
+            "@DEF": "dying_trigger",
+            "@integerKey": 1
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "flying_inline",
+            "@importedDEF": "animation",
+            "@AS": "flying"
+          }
+        },
+        { "IMPORT":
+          {
+            "@inlineDEF": "dying_inline",
+            "@importedDEF": "animation",
+            "@AS": "dying"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "flying",
+            "@fromField": "isActive",
+            "@toNode": "flying_filter",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "flying_filter",
+            "@fromField": "inputTrue",
+            "@toNode": "flying_trigger",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "flying_trigger",
+            "@fromField": "triggerValue",
+            "@toNode": "animation_switch",
+            "@toField": "set_whichChoice"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "dying",
+            "@fromField": "isActive",
+            "@toNode": "dying_filter",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "dying_filter",
+            "@fromField": "inputTrue",
+            "@toNode": "dying_trigger",
+            "@toField": "set_boolean"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "dying_trigger",
+            "@fromField": "triggerValue",
+            "@toNode": "animation_switch",
+            "@toField": "set_whichChoice"
+          }
+        }
+      ]
+    }
+  }
+}

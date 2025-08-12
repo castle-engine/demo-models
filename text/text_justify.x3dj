@@ -1,0 +1,565 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:27:37 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"JustifyTest",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "justify"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "MFString",
+                  "@name": "string"
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFVec3f",
+                  "@name": "translation"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-geometry": { "Box":
+                            {
+                              "@size": [ 0.2, 0.2, 0.2 ]
+                            }
+                          }
+                        }
+                      },
+                      { "Shape":
+                        {
+                          "-appearance": { "Appearance":
+                            {
+                              "-material": { "Material":
+                                {
+                                  "@diffuseColor": [ 1, 1, 0 ]
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "Text":
+                            {
+                              "-fontStyle": { "FontStyle":
+                                {
+                                  "IS": {
+                                    "connect": [
+                                      {
+                                        "@nodeField": "justify",
+                                        "@protoField": "justify"
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              "IS": {
+                                "connect": [
+                                  {
+                                    "@nodeField": "string",
+                                    "@protoField": "string"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "translation",
+                          "@protoField": "translation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "JustifyTest",
+            "fieldValue": [
+              {
+                "@name": "string",
+                "@value": [
+                  "Default justify",
+                  "2nd line",
+                  "3rd line",
+                  "(should look like BEGIN FIRST)"
+                ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "JustifyTest",
+            "fieldValue": [
+              {
+                "@name": "justify",
+                "@value": [
+                  "FIRST",
+                  "FIRST"
+                ]
+              },
+              {
+                "@name": "string",
+                "@value": [
+                  "FIRST FIRST justify",
+                  "2nd line",
+                  "3rd line"
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 20, 0, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "JustifyTest",
+            "fieldValue": [
+              {
+                "@name": "justify",
+                "@value": [
+                  "BEGIN",
+                  "FIRST"
+                ]
+              },
+              {
+                "@name": "string",
+                "@value": [
+                  "BEGIN FIRST justify",
+                  "2nd line",
+                  "3rd line"
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 40, 0, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "JustifyTest",
+            "fieldValue": [
+              {
+                "@name": "justify",
+                "@value": [
+                  "MIDDLE",
+                  "FIRST"
+                ]
+              },
+              {
+                "@name": "string",
+                "@value": [
+                  "MIDDLE FIRST justify",
+                  "2nd line",
+                  "3rd line"
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 60, 0, 0 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "JustifyTest",
+            "fieldValue": [
+              {
+                "@name": "justify",
+                "@value": [
+                  "END",
+                  "FIRST"
+                ]
+              },
+              {
+                "@name": "string",
+                "@value": [
+                  "END FIRST justify",
+                  "2nd line",
+                  "3rd line"
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ 80, 0, 0 ]
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -5, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "FIRST",
+                        "BEGIN"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "FIRST BEGIN justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 20, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "BEGIN",
+                        "BEGIN"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BEGIN BEGIN justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 40, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "MIDDLE",
+                        "BEGIN"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "MIDDLE BEGIN justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 60, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "END",
+                        "BEGIN"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "END BEGIN justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 80, 0, 0 ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -10, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "FIRST",
+                        "MIDDLE"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "FIRST MIDDLE justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 20, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "BEGIN",
+                        "MIDDLE"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BEGIN MIDDLE justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 40, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "MIDDLE",
+                        "MIDDLE"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "MIDDLE MIDDLE justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 60, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "END",
+                        "MIDDLE"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "END MIDDLE justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 80, 0, 0 ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -15, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "FIRST",
+                        "END"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "FIRST END justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 20, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "BEGIN",
+                        "END"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BEGIN END justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 40, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "MIDDLE",
+                        "END"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "MIDDLE END justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 60, 0, 0 ]
+                    }
+                  ]
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "JustifyTest",
+                  "fieldValue": [
+                    {
+                      "@name": "justify",
+                      "@value": [
+                        "END",
+                        "END"
+                      ]
+                    },
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "END END justify",
+                        "2nd line",
+                        "3rd line"
+                      ]
+                    },
+                    {
+                      "@name": "translation",
+                      "@value": [ 80, 0, 0 ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

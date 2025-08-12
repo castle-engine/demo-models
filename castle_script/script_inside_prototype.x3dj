@@ -1,0 +1,254 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:14:34 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"calculateIntermediateLocation",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOnly",
+                  "@type": "SFVec3f",
+                  "@name": "location1"
+                },
+                {
+                  "@accessType": "inputOnly",
+                  "@type": "SFVec3f",
+                  "@name": "location2"
+                },
+                {
+                  "@accessType": "outputOnly",
+                  "@type": "SFVec3f",
+                  "@name": "intermediateLocation"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Script":
+                  {
+                    "@DEF": "Scr",
+                    "field": [
+                      {
+                        "@accessType": "inputOnly",
+                        "@type": "SFVec3f",
+                        "@name": "location1"
+                      },
+                      {
+                        "@accessType": "inputOnly",
+                        "@type": "SFVec3f",
+                        "@name": "location2"
+                      },
+                      {
+                        "@accessType": "outputOnly",
+                        "@type": "SFVec3f",
+                        "@name": "intermediateLocation"
+                      },
+                      {
+                        "@accessType": "initializeOnly",
+                        "@type": "SFVec3f",
+                        "@name": "loc1",
+                        "@value": [ -1, 0, 0 ]
+                      },
+                      {
+                        "@accessType": "initializeOnly",
+                        "@type": "SFVec3f",
+                        "@name": "loc2",
+                        "@value": [ 1, 0, 0 ]
+                      }
+                    ],
+                    "#sourceCode": [
+                      "castlescript:\r",
+                      "function location1(value,ts)\r",
+                      "loc1:=value;\r",
+                      "intermediateLocation := loc1/2 + loc2/2\r",
+                      "\r",
+                      "function location2(value,ts)\r",
+                      "loc2:=value;\r",
+                      "intermediateLocation := loc1/2 + loc2/2\r",
+                      "\r",
+                      ""
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "location1",
+                          "@protoField": "location1"
+                        },
+                        {
+                          "@nodeField": "location2",
+                          "@protoField": "location2"
+                        },
+                        {
+                          "@nodeField": "intermediateLocation",
+                          "@protoField": "intermediateLocation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "obj1",
+            "@translation": [ -1, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Sphere":
+                    {
+                    }
+                  }
+                }
+              },
+              { "PlaneSensor":
+                {
+                  "@DEF": "PS1",
+                  "@offset": [ -1, 0, 0 ],
+                  "@minPosition": [ -10, -10 ],
+                  "@maxPosition": [ 10, 10 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "obj2",
+            "@translation": [ 1, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Cylinder":
+                    {
+                    }
+                  }
+                }
+              },
+              { "PlaneSensor":
+                {
+                  "@DEF": "PS2",
+                  "@offset": [ 1, 0, 0 ],
+                  "@minPosition": [ -10, -10 ],
+                  "@maxPosition": [ 10, 10 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "obj3",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@transparency": 0.5
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "calculateIntermediateLocation1",
+            "@name": "calculateIntermediateLocation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS1",
+            "@fromField": "translation_changed",
+            "@toNode": "obj1",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS2",
+            "@fromField": "translation_changed",
+            "@toNode": "obj2",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS1",
+            "@fromField": "translation_changed",
+            "@toNode": "calculateIntermediateLocation1",
+            "@toField": "location1"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS2",
+            "@fromField": "translation_changed",
+            "@toNode": "calculateIntermediateLocation1",
+            "@toField": "location2"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "calculateIntermediateLocation1",
+            "@fromField": "intermediateLocation",
+            "@toNode": "obj3",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

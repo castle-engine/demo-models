@@ -1,0 +1,111 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:33 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.57 ],
+            "-children": [
+              { "TextureBackground":
+                {
+                  "@skyAngle": [
+                    0.8,
+                    2,
+                    2.5
+                  ],
+                  "@skyColor": [
+                    1, 0, 0,
+                    1, 1, 0,
+                    0, 1, 0,
+                    0, 0, 1
+                  ],
+                  "-frontTexture": { "MovieTexture":
+                    {
+                      "@DEF": "MovieTex",
+                      "@url": [
+                        "../movie_texture/test_video.avi"
+                      ],
+                      "@loop": true,
+                      "-textureProperties": { "TextureProperties":
+                        {
+                          "@minificationFilter": "NEAREST_PIXEL",
+                          "@magnificationFilter": "NEAREST_PIXEL",
+                          "@boundaryModeS": "CLAMP_TO_EDGE",
+                          "@boundaryModeT": "CLAMP_TO_EDGE",
+                          "@textureCompression": "FASTEST"
+                        }
+                      }
+                    }
+                  },
+                  "-backTexture": { "MovieTexture":
+                    {
+                      "@USE": "MovieTex"
+                    }
+                  },
+                  "-leftTexture": { "MovieTexture":
+                    {
+                      "@USE": "MovieTex"
+                    }
+                  },
+                  "-rightTexture": { "MovieTexture":
+                    {
+                      "@USE": "MovieTex"
+                    }
+                  },
+                  "-topTexture": { "MovieTexture":
+                    {
+                      "@USE": "MovieTex"
+                    }
+                  },
+                  "-bottomTexture": { "MovieTexture":
+                    {
+                      "@USE": "MovieTex"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -0.9723544, -91.9128, 3.460424 ],
+            "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+            "-children": [
+              { "Viewpoint":
+                {
+                  "@position": [ 0, 0, 0 ],
+                  "@orientation": [ 0.999987840652466, 0.00468936236575246, -0.0013066022656858, 0.262726217508316 ]
+                }
+              }
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle.wrl"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

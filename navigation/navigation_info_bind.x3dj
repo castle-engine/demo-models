@@ -1,0 +1,187 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interactive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:10 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@DEF": "NI1",
+            "@type": [
+              "FLY"
+            ],
+            "@avatarSize": [
+              5,
+              20,
+              5
+            ],
+            "@speed": 100
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NI2",
+            "@type": [
+              "WALK"
+            ],
+            "@avatarSize": [
+              0.1,
+              0.2,
+              0.1
+            ],
+            "@speed": 4.623399,
+            "@headlight": false
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@DEF": "NI3",
+            "@type": [
+              "EXAMINE"
+            ],
+            "@avatarSize": [
+              0.1,
+              0.2,
+              0.1
+            ],
+            "@speed": 8,
+            "@transitionType": [
+              "TELEPORT"
+            ]
+          }
+        },
+        { "ScalarInterpolator":
+          {
+            "@DEF": "InterpolateSpeed",
+            "@key": [
+              0,
+              0.5,
+              1
+            ],
+            "@keyValue": [
+              1,
+              100,
+              1
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "InterpolateSpeedTimer",
+            "@cycleInterval": 10,
+            "@loop": true
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "MyScript",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind1"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind2"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFBool",
+                "@name": "bind3"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "    function keyPress(value, timestamp)\r",
+              "      when (value = '1', bind1 := TRUE);\r",
+              "      when (value = '2', bind2 := TRUE);\r",
+              "      when (value = '3', bind3 := TRUE)"
+            ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpolateSpeedTimer",
+            "@fromField": "fraction_changed",
+            "@toNode": "InterpolateSpeed",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "InterpolateSpeed",
+            "@fromField": "value_changed",
+            "@toNode": "NI2",
+            "@toField": "set_speed"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind1",
+            "@toNode": "NI1",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind2",
+            "@toNode": "NI2",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "MyScript",
+            "@fromField": "bind3",
+            "@toNode": "NI3",
+            "@toField": "set_bind"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KS",
+            "@fromField": "keyPress",
+            "@toNode": "MyScript",
+            "@toField": "keyPress"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:22:27 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Lighting",
+          "@level": 2
+        },
+        {
+          "@name": "CubeMapTexturing",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-texture": { "ComposedCubeMapTexture":
+                  {
+                    "-frontTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "../skies/sky_lake_front.png"
+                        ]
+                      }
+                    },
+                    "-backTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "../skies/sky_lake_back.png"
+                        ]
+                      }
+                    },
+                    "-leftTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "../skies/sky_lake_left.png"
+                        ]
+                      }
+                    },
+                    "-rightTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "../skies/sky_lake_right.png"
+                        ]
+                      }
+                    },
+                    "-topTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "../skies/sky_lake_top.png"
+                        ]
+                      }
+                    },
+                    "-bottomTexture": { "ImageTexture":
+                      {
+                        "@url": [
+                          "../skies/sky_lake_bottom.png"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

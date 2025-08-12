@@ -1,0 +1,281 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Full",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d test tool"
+        },
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "keywords",
+          "@content": "x3d test keywords"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:07:04 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Background":
+          {
+            "@skyColor": [
+              0.8, 0.8, 0.8
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 0, -1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Cone":
+                    {
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 1, 0, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@coordIndex": [
+                        0,
+                        1,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            3, 0, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 0, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@coordIndex": [
+                        0,
+                        1,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            0, 3, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@emissiveColor": [ 0, 0, 1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedLineSet":
+                    {
+                      "@coordIndex": [
+                        0,
+                        1,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            0, 0, 3
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Group":
+                {
+                  "-children": [
+                    { "Transform":
+                      {
+                        "@translation": [ 0, 2, 0 ],
+                        "@scale": [ 0.5, 0.5, 0.5 ],
+                        "-children": [
+                          { "Billboard":
+                            {
+                              "@axisOfRotation": [ 0, 0, 0 ],
+                              "-children": [
+                                { "Shape":
+                                  {
+                                    "-appearance": { "Appearance":
+                                      {
+                                        "-material": { "Material":
+                                          {
+                                            "@diffuseColor": [ 0, 1, 0 ],
+                                            "@specularColor": [ 1, 1, 1 ],
+                                            "@shininess": 50
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "-geometry": { "IndexedFaceSet":
+                                      {
+                                        "@solid": false,
+                                        "@normalIndex": [
+                                          0,
+                                          0,
+                                          0,
+                                          0,
+                                          -1,
+                                          1,
+                                          1,
+                                          1,
+                                          1,
+                                          -1,
+                                          2,
+                                          2,
+                                          2,
+                                          2,
+                                          -1,
+                                          3,
+                                          3,
+                                          3,
+                                          3,
+                                          -1,
+                                          4,
+                                          4,
+                                          4,
+                                          4,
+                                          -1,
+                                          5,
+                                          5,
+                                          5,
+                                          5,
+                                          -1
+                                        ],
+                                        "@coordIndex": [
+                                          0,
+                                          1,
+                                          2,
+                                          3,
+                                          -1,
+                                          1,
+                                          4,
+                                          5,
+                                          2,
+                                          -1,
+                                          3,
+                                          2,
+                                          5,
+                                          6,
+                                          -1,
+                                          0,
+                                          7,
+                                          4,
+                                          1,
+                                          -1,
+                                          0,
+                                          3,
+                                          6,
+                                          7,
+                                          -1,
+                                          7,
+                                          6,
+                                          5,
+                                          4,
+                                          -1
+                                        ],
+                                        "-normal": { "Normal":
+                                          {
+                                            "@vector": [
+                                              0, 0, -1,
+                                              -0, 1, 0,
+                                              1, 0, -0,
+                                              -1, 0, 0,
+                                              0, -1, 0,
+                                              0, -0, 1
+                                            ]
+                                          }
+                                        },
+                                        "-coord": { "Coordinate":
+                                          {
+                                            "@point": [
+                                              -1, -1, -1,
+                                              -1, 1, -1,
+                                              1, 1, -1,
+                                              1, -1, -1,
+                                              -1, 1, 1,
+                                              1, 1, 1,
+                                              1, -1, 1,
+                                              -1, -1, 1
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

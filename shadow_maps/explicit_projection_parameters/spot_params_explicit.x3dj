@@ -1,0 +1,52 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:48 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "base.gltf"
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@headlight": false
+          }
+        },
+        { "SpotLight":
+          {
+            "@location": [ 0, 10, 10 ],
+            "@direction": [ 0, -1, -1 ],
+            "@beamWidth": 1.5708,
+            "@cutOffAngle": 0.785398,
+            "@shadows": true
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -5.837736, 5.874678, 8.071204 ],
+            "@orientation": [ -0.405976206064224, -0.845742464065552, -0.346270442008972, 0.578554749488831 ]
+          }
+        }
+      ]
+    }
+  }
+}

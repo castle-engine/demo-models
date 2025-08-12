@@ -1,0 +1,381 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:46 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"MyText",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "MFString",
+                  "@name": "string",
+                  "@value": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "@translation": [ 0.6, 0.2, 0 ],
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-appearance": { "Appearance":
+                            {
+                              "-material": { "Material":
+                                {
+                                  "@diffuseColor": [ 1, 1, 0 ]
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "Text":
+                            {
+                              "-fontStyle": { "FontStyle":
+                                {
+                                  "@size": 0.2
+                                }
+                              },
+                              "IS": {
+                                "connect": [
+                                  {
+                                    "@nodeField": "string",
+                                    "@protoField": "string"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@transparency": 0.5
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "REPLACE",
+                            "BLENDDIFFUSEALPHA"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@DEF": "MyQuad",
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@point": [
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1,
+                            0, 0,
+                            1, 0,
+                            1, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            -0.5, -0.5, 0,
+                            0.5, -0.5, 0,
+                            0.5, 0.5, 0,
+                            -0.5, 0.5, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MyText",
+                  "fieldValue": [
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BLENDDIFFUSEALPHA",
+                        "Blends 2 textures using Material.transparency.",
+                        "In this case: 0.5 * squirrel + 0.5 * pattern"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -1.1, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "REPLACE",
+                            "BLENDTEXTUREALPHA"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@USE": "MyQuad"
+                    }
+                  }
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MyText",
+                  "fieldValue": [
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BLENDTEXTUREALPHA",
+                        "Blends 2 textures using current texture alpha.",
+                        "In this case: should be equal to just pattern texture",
+                        "(as it is opaque, alpha = 1 everywhere)"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -2.2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@alpha": 0.2,
+                          "@mode": [
+                            "REPLACE",
+                            "BLENDFACTORALPHA"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@USE": "MyQuad"
+                    }
+                  }
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MyText",
+                  "fieldValue": [
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BLENDFACTORALPHA",
+                        "Blends 2 textures using MultiTexture.alpha.",
+                        "In this case: 0.2 * pattern + 0.8 * squirrel"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -3.3, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      },
+                      "-texture": { "MultiTexture":
+                        {
+                          "@mode": [
+                            "REPLACE",
+                            "BLENDCURRENTALPHA"
+                          ],
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/squirrel.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "data/pattern.png"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@USE": "MyQuad"
+                    }
+                  }
+                }
+              },
+              { "ProtoInstance":
+                {
+                  "@name": "MyText",
+                  "fieldValue": [
+                    {
+                      "@name": "string",
+                      "@value": [
+                        "BLENDCURRENTALPHA",
+                        "Blends 2 textures using previous texture alpha.",
+                        "(Yes, the name is misleading, better name would be BLENDPREVIOUSALPHA.)",
+                        "In this case: should be equal to just pattern texture",
+                        "(as squirrel texture is opaque, alpha = 1 everywhere)"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 2.69, -1.713333, 7.204444 ]
+          }
+        }
+      ]
+    }
+  }
+}

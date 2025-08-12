@@ -1,0 +1,64 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:23:08 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "PointLight":
+          {
+            "@location": [ -0.42, 1.53, 0.76 ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -1.159283, 0.4935553, 1.227067 ],
+            "@orientation": [ -0.254779130220413, -0.962442398071289, -0.0937665849924087, 0.787952184677124 ]
+          }
+        },
+        { "Shape":
+          {
+            "-appearance": { "Appearance":
+              {
+                "-material": { "Material":
+                  {
+                    "@diffuseColor": [ 0.300722, 0.658765, 1 ],
+                    "@specularColor": [ 0.488773, 0.488724, 0.488724 ],
+                    "@shininess": 0.5,
+                    "@transparency": 0.57554
+                  }
+                }
+              }
+            },
+            "-geometry": { "Sphere":
+              {
+                "@radius": 0.562
+              }
+            }
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "house_behind_the_glass_base.glb"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

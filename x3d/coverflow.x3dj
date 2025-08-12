@@ -1,0 +1,429 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:29:09 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"Album",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFBool",
+                  "@name": "openByDefault"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Transform":
+                  {
+                    "@DEF": "AlbumRectangle",
+                    "@center": [ 0, 0.5, 0.5 ],
+                    "-children": [
+                      { "Shape":
+                        {
+                          "@DEF": "MyShape",
+                          "-appearance": { "Appearance":
+                            {
+                              "@DEF": "App",
+                              "-texture": { "ImageTexture":
+                                {
+                                  "@url": [
+                                    "../textures/test_texture.png"
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "-geometry": { "IndexedFaceSet":
+                            {
+                              "@solid": false,
+                              "@coordIndex": [
+                                0,
+                                1,
+                                2,
+                                3
+                              ],
+                              "-coord": { "Coordinate":
+                                {
+                                  "@point": [
+                                    0, 0, 0,
+                                    0, 0, 1,
+                                    0, 1, 1,
+                                    0, 1, 0
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      { "TouchSensor":
+                        {
+                          "@DEF": "Touch"
+                        }
+                      }
+                    ]
+                  }
+                },
+                { "OrientationInterpolator":
+                  {
+                    "@DEF": "RotateOpen",
+                    "@key": [
+                      0,
+                      1
+                    ],
+                    "@keyValue": [
+                      0, 1, 0, 0,
+                      0, 1, 0, 1.5707963268
+                    ]
+                  }
+                },
+                { "PositionInterpolator":
+                  {
+                    "@DEF": "TranslateOpen",
+                    "@key": [
+                      0,
+                      1
+                    ],
+                    "@keyValue": [
+                      0, 0, 0,
+                      0, 0, 1
+                    ]
+                  }
+                },
+                { "TimeSensor":
+                  {
+                    "@DEF": "TimeOpen"
+                  }
+                },
+                { "OrientationInterpolator":
+                  {
+                    "@DEF": "RotateClose",
+                    "@key": [
+                      0,
+                      1
+                    ],
+                    "@keyValue": [
+                      0, 1, 0, 1.5707963268,
+                      0, 1, 0, 0
+                    ]
+                  }
+                },
+                { "PositionInterpolator":
+                  {
+                    "@DEF": "TranslateClose",
+                    "@key": [
+                      0,
+                      1
+                    ],
+                    "@keyValue": [
+                      0, 0, 1,
+                      0, 0, 0
+                    ]
+                  }
+                },
+                { "TimeSensor":
+                  {
+                    "@DEF": "TimeClose"
+                  }
+                },
+                { "Script":
+                  {
+                    "@DEF": "Scr",
+                    "field": [
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFTime",
+                        "@name": "touchTime",
+                        "@value": 0
+                      },
+                      {
+                        "@accessType": "outputOnly",
+                        "@type": "SFTime",
+                        "@name": "startOpen"
+                      },
+                      {
+                        "@accessType": "outputOnly",
+                        "@type": "SFTime",
+                        "@name": "startClose"
+                      },
+                      {
+                        "@accessType": "outputOnly",
+                        "@type": "SFBool",
+                        "@name": "enableOpen"
+                      },
+                      {
+                        "@accessType": "outputOnly",
+                        "@type": "SFBool",
+                        "@name": "enableClose"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFBool",
+                        "@name": "open"
+                      },
+                      {
+                        "@accessType": "inputOutput",
+                        "@type": "SFBool",
+                        "@name": "openByDefault"
+                      }
+                    ],
+                    "#sourceCode": [
+                      "castlescript:\r",
+                      "\r",
+                      "function touchTime(value, timestamp)\r",
+                      "  if (open,\r",
+                      "    { Make sure we not only start new animations, but also we stop\r",
+                      "      previous animatin --- just in case user opens an album that is already\r",
+                      "      during animation. }\r",
+                      "    enableOpen  := false; enableClose := true ; startClose := value; open := false,\r",
+                      "    enableOpen  := true ; enableClose := false; startOpen  := value; open := true\r",
+                      "  )\r",
+                      "\r",
+                      "function initialize(timestamp)\r",
+                      "  { Simulate clicking on an album *now*, if album should be open by default. }\r",
+                      "  when (openByDefault, touchTime := timestamp)\r",
+                      ""
+                    ],
+                    "IS": {
+                      "connect": [
+                        {
+                          "@nodeField": "openByDefault",
+                          "@protoField": "openByDefault"
+                        }
+                      ]
+                    }
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimeOpen",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "RotateOpen",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "RotateOpen",
+                    "@fromField": "value_changed",
+                    "@toNode": "AlbumRectangle",
+                    "@toField": "set_rotation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimeOpen",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "TranslateOpen",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TranslateOpen",
+                    "@fromField": "value_changed",
+                    "@toNode": "AlbumRectangle",
+                    "@toField": "set_translation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimeClose",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "RotateClose",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "RotateClose",
+                    "@fromField": "value_changed",
+                    "@toNode": "AlbumRectangle",
+                    "@toField": "set_rotation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TimeClose",
+                    "@fromField": "fraction_changed",
+                    "@toNode": "TranslateClose",
+                    "@toField": "set_fraction"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "TranslateClose",
+                    "@fromField": "value_changed",
+                    "@toNode": "AlbumRectangle",
+                    "@toField": "set_translation"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Touch",
+                    "@fromField": "touchTime",
+                    "@toNode": "Scr",
+                    "@toField": "set_touchTime"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "startOpen",
+                    "@toNode": "TimeOpen",
+                    "@toField": "set_startTime"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "enableOpen",
+                    "@toNode": "TimeOpen",
+                    "@toField": "set_enabled"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "startClose",
+                    "@toNode": "TimeClose",
+                    "@toField": "set_startTime"
+                  }
+                },
+                { "ROUTE":
+                  {
+                    "@fromNode": "Scr",
+                    "@fromField": "enableClose",
+                    "@toNode": "TimeClose",
+                    "@toField": "set_enabled"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY"
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0, 0.5, 7 ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@DEF": "Album0",
+            "@name": "Album",
+            "fieldValue": [
+              {
+                "@name": "openByDefault",
+                "@value": true
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -1, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "AlbumM1",
+                  "@name": "Album"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -2, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "AlbumM2",
+                  "@name": "Album"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ -3, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "AlbumM3",
+                  "@name": "Album"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "AlbumP1",
+                  "@name": "Album"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 2, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "AlbumP2",
+                  "@name": "Album"
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@DEF": "AlbumP3",
+                  "@name": "Album"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

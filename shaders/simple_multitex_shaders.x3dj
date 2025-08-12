@@ -1,0 +1,356 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:26:22 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "Texturing",
+          "@level": 3
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "glsl/simple_multitex_shaders.vs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "glsl/simple_multitex_shaders.fs"
+                                  ]
+                                }
+                              }
+                            ],
+                            "field": [
+                              {
+                                "@accessType": "initializeOnly",
+                                "@type": "SFNode",
+                                "@name": "texture_squirrel",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@accessType": "initializeOnly",
+                                "@type": "SFNode",
+                                "@name": "texture_brick",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/bricks2.jpg"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "MultiTextureCoordinate":
+                        {
+                          "-texCoord": [
+                            { "TextureCoordinate":
+                              {
+                                "@point": [
+                                  0, 0,
+                                  1, 0,
+                                  1, 1,
+                                  0, 1
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 1.5, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "glsl/simple_multitex_shaders.vs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "data:text/plain,\r",
+                                    "\r",
+                                    "              uniform sampler2D textures[2];\r",
+                                    "              varying vec4 tex_coord;\r",
+                                    "\r",
+                                    "              void main()\r",
+                                    "              {\r",
+                                    "                gl_FragColor = max(\r",
+                                    "                  texture2D(textures[0], tex_coord.st),\r",
+                                    "                  texture2D(textures[1], tex_coord.st));\r",
+                                    "              }"
+                                  ]
+                                }
+                              }
+                            ],
+                            "field": [
+                              {
+                                "@accessType": "initializeOnly",
+                                "@type": "MFNode",
+                                "@name": "textures",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/test_texture.png"
+                                      ]
+                                    }
+                                  },
+                                  { "ImageTexture":
+                                    {
+                                      "@url": [
+                                        "../textures/bricks2.jpg"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "MultiTextureCoordinate":
+                        {
+                          "-texCoord": [
+                            { "TextureCoordinate":
+                              {
+                                "@point": [
+                                  0, 0,
+                                  1, 0,
+                                  1, 1,
+                                  0, 1
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 3, 0, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-texture": { "MultiTexture":
+                        {
+                          "-texture": [
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/test_texture.png"
+                                ]
+                              }
+                            },
+                            { "ImageTexture":
+                              {
+                                "@url": [
+                                  "../textures/bricks2.jpg"
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "-shaders": [
+                        { "ComposedShader":
+                          {
+                            "@language": "GLSL",
+                            "-parts": [
+                              { "ShaderPart":
+                                {
+                                  "#sourceCode": [
+                                    "glsl/simple_multitex_shaders.vs"
+                                  ]
+                                }
+                              },
+                              { "ShaderPart":
+                                {
+                                  "@type": "FRAGMENT",
+                                  "#sourceCode": [
+                                    "glsl/simple_multitex_shaders.fs"
+                                  ]
+                                }
+                              }
+                            ],
+                            "field": [
+                              {
+                                "@accessType": "initializeOnly",
+                                "@type": "SFInt32",
+                                "@name": "texture_squirrel"
+                              },
+                              {
+                                "@accessType": "initializeOnly",
+                                "@type": "SFInt32",
+                                "@name": "texture_brick",
+                                "@value": 1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-texCoord": { "MultiTextureCoordinate":
+                        {
+                          "-texCoord": [
+                            { "TextureCoordinate":
+                              {
+                                "@point": [
+                                  0, 0,
+                                  1, 0,
+                                  1, 1,
+                                  0, 1
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            0, 0, 0,
+                            1, 0, 0,
+                            1, 1, 0,
+                            0, 1, 0
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

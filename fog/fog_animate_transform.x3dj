@@ -1,0 +1,174 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:22:48 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "NavigationInfo":
+          {
+            "@type": [
+              "FLY",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.5,
+              2,
+              0.5
+            ],
+            "@speed": 20
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../castle/old/vrml_2/castle_with_lights.wrl"
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "FogTransform",
+            "-children": [
+              { "Fog":
+                {
+                  "@DEF": "Fog",
+                  "@color": [ 0.2, 0.4, 0.5 ],
+                  "@visibilityRange": 100
+                }
+              }
+            ]
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Transform":
+                {
+                  "@translation": [ -12.04191, -61.64065, 2 ],
+                  "@rotation": [ 1, 0, 0, 1.57079637050629 ],
+                  "-children": [
+                    { "Viewpoint":
+                      {
+                        "@position": [ 0, 0, 0 ],
+                        "@orientation": [ -3.5324712371e-5, -0.999984502792358, -0, 0.046436563134193 ]
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@translation": [ -5, 0, -15 ],
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 1, 1, 0 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Text":
+                                {
+                                  "@string": [
+                                    "Click this to animate fog visibilityRange",
+                                    "(by transforming, that is scaling, it)"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              { "TouchSensor":
+                {
+                  "@DEF": "TouchStartAnim"
+                }
+              }
+            ]
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Timer",
+            "@cycleInterval": 5
+          }
+        },
+        { "PositionInterpolator":
+          {
+            "@DEF": "Interp",
+            "@key": [
+              0,
+              0.1,
+              0.2,
+              0.3,
+              0.4,
+              0.5,
+              0.6,
+              0.7,
+              0.8,
+              0.9,
+              1
+            ],
+            "@keyValue": [
+              1, 1, 1,
+              2, 2, 2,
+              0.5, 0.5, 0.5,
+              2, 2, 2,
+              2, 2, 2,
+              0.5, 0.5, 0.5,
+              2, 2, 2,
+              2, 2, 2,
+              0.5, 0.5, 0.5,
+              2, 2, 2,
+              1, 1, 1
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TouchStartAnim",
+            "@fromField": "touchTime",
+            "@toNode": "Timer",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Timer",
+            "@fromField": "fraction_changed",
+            "@toNode": "Interp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp",
+            "@fromField": "value_changed",
+            "@toNode": "FogTransform",
+            "@toField": "set_scale"
+          }
+        }
+      ]
+    }
+  }
+}

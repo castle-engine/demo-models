@@ -1,0 +1,427 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:22:28 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"EditableTransformXZ",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "children"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "translation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "scale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec3f",
+                "@name": "center"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFRotation",
+                "@name": "rotation"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFString",
+                "@name": "description"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxPosition"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "minScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "maxScale"
+              }
+            ],
+            "@url": [
+              "../prototypes/useful_prototypes.x3dv#EditableTransformXZ"
+            ]
+          }
+        },
+        { "ExternProtoDeclare":
+          {
+            "@name":"Teapot",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec3f",
+                "@name": "size"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "solid"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "manifold"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texCoord"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:Teapot",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#Teapot"
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "ProtoInstance":
+                        {
+                          "@name": "KambiAppearance",
+                          "fieldValue": [
+                            {
+                              "@name": "material",
+                              "-children": [
+                                { "Material":
+                                  {
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "texture",
+                              "-children": [
+                                { "GeneratedCubeMapTexture":
+                                  {
+                                    "@DEF": "GenTex1",
+                                    "@update": "ALWAYS"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "shadowCaster",
+                              "@value": false
+                            }
+                          ]
+                        }
+                      },
+                      "-geometry": { "ProtoInstance":
+                        {
+                          "@name": "Teapot",
+                          "fieldValue": [
+                            {
+                              "@name": "solid",
+                              "@value": false
+                            },
+                            {
+                              "@name": "texCoord",
+                              "-children": [
+                                { "TextureCoordinateGenerator":
+                                  {
+                                    "@mode": "WORLDSPACEREFLECTIONVECTOR"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -1.5, 1, 2.5 ]
+              }
+            ]
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "EditableTransformXZ",
+            "fieldValue": [
+              {
+                "@name": "children",
+                "-children": [
+                  { "Shape":
+                    {
+                      "-appearance": { "ProtoInstance":
+                        {
+                          "@name": "KambiAppearance",
+                          "fieldValue": [
+                            {
+                              "@name": "material",
+                              "-children": [
+                                { "Material":
+                                  {
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "texture",
+                              "-children": [
+                                { "MultiTexture":
+                                  {
+                                    "@mode": [
+                                      "MODULATE",
+                                      "ADD"
+                                    ],
+                                    "-texture": [
+                                      { "GeneratedCubeMapTexture":
+                                        {
+                                          "@DEF": "GenTex2",
+                                          "@update": "ALWAYS"
+                                        }
+                                      },
+                                      { "ImageTexture":
+                                        {
+                                          "@url": [
+                                            "../textures/17_gris_vert.jpg"
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@name": "shadowCaster",
+                              "@value": false
+                            }
+                          ]
+                        }
+                      },
+                      "-geometry": { "Box":
+                        {
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "@name": "translation",
+                "@value": [ -2, 2, -2.5 ]
+              },
+              {
+                "@name": "scale",
+                "@value": [ 1, 1, 1 ]
+              }
+            ]
+          }
+        },
+        { "NavigationInfo":
+          {
+            "@type": [
+              "WALK",
+              "ANY"
+            ],
+            "@avatarSize": [
+              0.1,
+              2
+            ],
+            "@speed": 5
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 3.759518, 1.815493, -4.429601 ],
+            "@orientation": [ -0.0273569524288177, 0.996313393115997, 0.0813096836209297, 2.49470329284668 ]
+          }
+        },
+        { "Inline":
+          {
+            "@global": true,
+            "@url": [
+              "../x3d/dynamic_world.x3dv"
+            ]
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KeyS"
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "key_press"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFString",
+                "@name": "tex1_update"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFString",
+                "@name": "tex2_update"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function key_press(value, timestamp)\r",
+              "  when (value = 'g',\r",
+              "    tex1_update := 'NEXT_FRAME_ONLY';\r",
+              "    tex2_update := 'NEXT_FRAME_ONLY'\r",
+              "  )\r",
+              ""
+            ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeyS",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "key_press"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex1_update",
+            "@toNode": "GenTex1",
+            "@toField": "set_update"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "tex2_update",
+            "@toNode": "GenTex2",
+            "@toField": "set_update"
+          }
+        }
+      ]
+    }
+  }
+}

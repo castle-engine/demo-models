@@ -1,0 +1,61 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:30:00 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Background":
+          {
+            "@skyColor": [
+              0.5, 0.5, 0.5
+            ]
+          }
+        },
+        { "Shape":
+          {
+            "-geometry": { "PointSet":
+              {
+                "-color": { "ColorRGBA":
+                  {
+                    "@color": [
+                      1, 1, 0, 0,
+                      1, 1, 0, 0.2,
+                      1, 1, 0, 0.4,
+                      1, 1, 0, 0.6,
+                      1, 1, 0, 1
+                    ]
+                  }
+                },
+                "-coord": { "Coordinate":
+                  {
+                    "@point": [
+                      0, 0, 0,
+                      1, 0, 0,
+                      2, 0, 0,
+                      3, 0, 0,
+                      4, 0, 0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,395 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:31:19 GMT"
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "WorldInfo":
+          {
+            "@title": "texture_filtering.gltf",
+            "@info": [
+              "generator: Khronos glTF Blender I/O v1.5.17",
+              "version: 2.0"
+            ]
+          }
+        },
+        { "Group":
+          {
+            "-children": [
+              { "Shape":
+                {
+                  "@DEF": "Cube_1",
+                  "-appearance": { "Appearance":
+                    {
+                      "@DEF": "Material",
+                      "@alphaMode": "OPAQUE",
+                      "-material": { "PhysicalMaterial":
+                        {
+                          "@baseTextureMapping": "TEXCOORD_0",
+                          "-baseTexture": { "ImageTexture":
+                            {
+                              "@DEF": "low-res-texture",
+                              "@url": [
+                                "low_res_texture.png"
+                              ],
+                              "@colorSpaceConversion": false,
+                              "-textureProperties": { "TextureProperties":
+                                {
+                                  "@generateMipMaps": true,
+                                  "@minificationFilter": "AVG_PIXEL_AVG_MIPMAP",
+                                  "@magnificationFilter": "AVG_PIXEL"
+                                }
+                              }
+                            }
+                          },
+                          "@metallic": 0,
+                          "@roughness": 0.4
+                        }
+                      },
+                      "-textureTransform": { "TextureTransform":
+                        {
+                          "@DEF": "_1",
+                          "@translation": [ 0, -1 ],
+                          "@scale": [ 1, -1 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedTriangleSet":
+                    {
+                      "@solid": false,
+                      "@index": [
+                        1,
+                        14,
+                        20,
+                        1,
+                        20,
+                        7,
+                        10,
+                        6,
+                        19,
+                        10,
+                        19,
+                        23,
+                        21,
+                        18,
+                        12,
+                        21,
+                        12,
+                        15,
+                        16,
+                        3,
+                        9,
+                        16,
+                        9,
+                        22,
+                        5,
+                        2,
+                        8,
+                        5,
+                        8,
+                        11,
+                        17,
+                        13,
+                        0,
+                        17,
+                        0,
+                        4
+                      ],
+                      "-texCoord": { "TextureCoordinate":
+                        {
+                          "@mapping": "TEXCOORD_0",
+                          "@point": [
+                            1, 0,
+                            1, 0,
+                            1, 0,
+                            1, 0,
+                            1, 1,
+                            1, 1,
+                            1, 0,
+                            1, 1,
+                            0, 0,
+                            1, 1,
+                            1, 1,
+                            0, 1,
+                            1, 0,
+                            0, 0,
+                            0, 0,
+                            1, 1,
+                            0, 0,
+                            0, 1,
+                            0, 0,
+                            0, 0,
+                            0, 1,
+                            0, 1,
+                            0, 1,
+                            0, 1
+                          ]
+                        }
+                      },
+                      "-normal": { "Normal":
+                        {
+                          "@vector": [
+                            0, 0, -1,
+                            0, 1, 0,
+                            1, 0, 0,
+                            0, -1, -0,
+                            0, 0, -1,
+                            1, 0, 0,
+                            0, 0, 1,
+                            0, 1, 0,
+                            1, 0, 0,
+                            0, -1, -0,
+                            0, 0, 1,
+                            1, 0, 0,
+                            -1, 0, 0,
+                            0, 0, -1,
+                            0, 1, 0,
+                            -1, 0, 0,
+                            0, -1, -0,
+                            0, 0, -1,
+                            -1, 0, 0,
+                            0, 0, 1,
+                            0, 1, 0,
+                            -1, 0, 0,
+                            0, -1, -0,
+                            0, 0, 1
+                          ]
+                        }
+                      },
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            1, 1, -1,
+                            1, 1, -1,
+                            1, 1, -1,
+                            1, -1, -1,
+                            1, -1, -1,
+                            1, -1, -1,
+                            1, 1, 1,
+                            1, 1, 1,
+                            1, 1, 1,
+                            1, -1, 1,
+                            1, -1, 1,
+                            1, -1, 1,
+                            -1, 1, -1,
+                            -1, 1, -1,
+                            -1, 1, -1,
+                            -1, -1, -1,
+                            -1, -1, -1,
+                            -1, -1, -1,
+                            -1, 1, 1,
+                            -1, 1, 1,
+                            -1, 1, 1,
+                            -1, -1, 1,
+                            -1, -1, 1,
+                            -1, -1, 1
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "Cube-001",
+                  "@translation": [ 0.1390523, 2.578291, -0.2104121 ],
+                  "-children": [
+                    { "Shape":
+                      {
+                        "@DEF": "Cube-002",
+                        "-appearance": { "Appearance":
+                          {
+                            "@DEF": "Material-001",
+                            "@alphaMode": "OPAQUE",
+                            "-material": { "PhysicalMaterial":
+                              {
+                                "@baseTextureMapping": "TEXCOORD_0",
+                                "-baseTexture": { "ImageTexture":
+                                  {
+                                    "@DEF": "low-res-texture_1",
+                                    "@url": [
+                                      "low_res_texture.png"
+                                    ],
+                                    "@colorSpaceConversion": false,
+                                    "-textureProperties": { "TextureProperties":
+                                      {
+                                        "@generateMipMaps": true,
+                                        "@minificationFilter": "NEAREST_PIXEL_NEAREST_MIPMAP",
+                                        "@magnificationFilter": "NEAREST_PIXEL"
+                                      }
+                                    }
+                                  }
+                                },
+                                "@metallic": 0,
+                                "@roughness": 0.4
+                              }
+                            },
+                            "-textureTransform": { "TextureTransform":
+                              {
+                                "@USE": "_1"
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "IndexedTriangleSet":
+                          {
+                            "@solid": false,
+                            "@index": [
+                              1,
+                              14,
+                              20,
+                              1,
+                              20,
+                              7,
+                              10,
+                              6,
+                              19,
+                              10,
+                              19,
+                              23,
+                              21,
+                              18,
+                              12,
+                              21,
+                              12,
+                              15,
+                              16,
+                              3,
+                              9,
+                              16,
+                              9,
+                              22,
+                              5,
+                              2,
+                              8,
+                              5,
+                              8,
+                              11,
+                              17,
+                              13,
+                              0,
+                              17,
+                              0,
+                              4
+                            ],
+                            "-texCoord": { "TextureCoordinate":
+                              {
+                                "@mapping": "TEXCOORD_0",
+                                "@point": [
+                                  1, 0,
+                                  1, 0,
+                                  1, 0,
+                                  1, 0,
+                                  1, 1,
+                                  1, 1,
+                                  1, 0,
+                                  1, 1,
+                                  0, 0,
+                                  1, 1,
+                                  1, 1,
+                                  0, 1,
+                                  1, 0,
+                                  0, 0,
+                                  0, 0,
+                                  1, 1,
+                                  0, 0,
+                                  0, 1,
+                                  0, 0,
+                                  0, 0,
+                                  0, 1,
+                                  0, 1,
+                                  0, 1,
+                                  0, 1
+                                ]
+                              }
+                            },
+                            "-normal": { "Normal":
+                              {
+                                "@vector": [
+                                  0, 0, -1,
+                                  0, 1, 0,
+                                  1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, -1,
+                                  1, 0, 0,
+                                  0, 0, 1,
+                                  0, 1, 0,
+                                  1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, 1,
+                                  1, 0, 0,
+                                  -1, 0, 0,
+                                  0, 0, -1,
+                                  0, 1, 0,
+                                  -1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, -1,
+                                  -1, 0, 0,
+                                  0, 0, 1,
+                                  0, 1, 0,
+                                  -1, 0, 0,
+                                  0, -1, -0,
+                                  0, 0, 1
+                                ]
+                              }
+                            },
+                            "-coord": { "Coordinate":
+                              {
+                                "@point": [
+                                  1, 1, -1,
+                                  1, 1, -1,
+                                  1, 1, -1,
+                                  1, -1, -1,
+                                  1, -1, -1,
+                                  1, -1, -1,
+                                  1, 1, 1,
+                                  1, 1, 1,
+                                  1, 1, 1,
+                                  1, -1, 1,
+                                  1, -1, 1,
+                                  1, -1, 1,
+                                  -1, 1, -1,
+                                  -1, 1, -1,
+                                  -1, 1, -1,
+                                  -1, -1, -1,
+                                  -1, -1, -1,
+                                  -1, -1, -1,
+                                  -1, 1, 1,
+                                  -1, 1, 1,
+                                  -1, 1, 1,
+                                  -1, -1, 1,
+                                  -1, -1, 1,
+                                  -1, -1, 1
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

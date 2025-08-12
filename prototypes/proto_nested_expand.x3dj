@@ -1,0 +1,160 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:16:51 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ProtoDeclare":
+          {
+            "@name":"MatLib",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFNode",
+                  "@name": "matrose"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Shape":
+                  {
+                    "-appearance": { "Appearance":
+                      {
+                        "IS": {
+                          "connect": [
+                            {
+                              "@nodeField": "material",
+                              "@protoField": "matrose"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "-geometry": { "Sphere":
+                      {
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"T813blatnikZ",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFColor",
+                  "@name": "barva",
+                  "@value": [ 1, 1, 0 ]
+                },
+                {
+                  "@accessType": "inputOutput",
+                  "@type": "SFColor",
+                  "@name": "specular",
+                  "@value": [ 1, 0, 0 ]
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "ProtoInstance":
+                  {
+                    "@name": "MatLib",
+                    "fieldValue": [
+                      {
+                        "@name": "matrose",
+                        "-children": [
+                          { "Material":
+                            {
+                              "IS": {
+                                "connect": [
+                                  {
+                                    "@nodeField": "diffuseColor",
+                                    "@protoField": "barva"
+                                  },
+                                  {
+                                    "@nodeField": "specularColor",
+                                    "@protoField": "specular"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "T813blatnikZ"
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 2, 0 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "sphere should be yellow"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

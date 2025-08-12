@@ -1,0 +1,517 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:14:01 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "EnvironmentalSensor",
+          "@level": 3
+        },
+        {
+          "@name": "PointingDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "Scripting",
+          "@level": 1
+        },
+        {
+          "@name": "Sound",
+          "@level": 3
+        },
+        {
+          "@name": "Text",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "ExternProtoDeclare":
+          {
+            "@name":"KambiAppearance",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "material"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "texture"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "textureTransform"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "fillProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "lineProperties"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "metadata"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "MFNode",
+                "@name": "shaders"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "normalMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "heightMap"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFFloat",
+                "@name": "heightMapScale"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFNode",
+                "@name": "blendMode"
+              },
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFBool",
+                "@name": "shadowCaster"
+              }
+            ],
+            "@url": [
+              "urn:castle-engine.sourceforge.net:node:KambiAppearance",
+              "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance"
+            ]
+          }
+        },
+        { "ProtoDeclare":
+          {
+            "@name":"Row",
+            "ProtoInterface": {
+              "field": [
+                {
+                  "@accessType": "initializeOnly",
+                  "@type": "SFNode",
+                  "@name": "appearance"
+                }
+              ]
+            },
+            "ProtoBody": {
+              "-children": [
+                { "Group":
+                  {
+                    "-children": [
+                      { "Shape":
+                        {
+                          "-geometry": { "Cone":
+                            {
+                            }
+                          },
+                          "IS": {
+                            "connect": [
+                              {
+                                "@nodeField": "appearance",
+                                "@protoField": "appearance"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 3, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-geometry": { "Box":
+                                  {
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "appearance",
+                                      "@protoField": "appearance"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 6, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-geometry": { "Sphere":
+                                  {
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "appearance",
+                                      "@protoField": "appearance"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      { "Transform":
+                        {
+                          "@translation": [ 9, 0, 0 ],
+                          "-children": [
+                            { "Shape":
+                              {
+                                "-geometry": { "IndexedFaceSet":
+                                  {
+                                    "@solid": false,
+                                    "@coordIndex": [
+                                      0,
+                                      1,
+                                      2,
+                                      3
+                                    ],
+                                    "-coord": { "Coordinate":
+                                      {
+                                        "@point": [
+                                          -1, -1, 0,
+                                          1, -1, 0,
+                                          1, 1, 0,
+                                          -1, 1, 0
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "IS": {
+                                  "connect": [
+                                    {
+                                      "@nodeField": "appearance",
+                                      "@protoField": "appearance"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        { "ProtoInstance":
+          {
+            "@name": "Row",
+            "fieldValue": [
+              {
+                "@name": "appearance",
+                "-children": [
+                  { "Appearance":
+                    {
+                      "@DEF": "_1",
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 4, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Row",
+                  "fieldValue": [
+                    {
+                      "@name": "appearance",
+                      "-children": [
+                        { "Appearance":
+                          {
+                            "@DEF": "_2",
+                            "-material": { "Material":
+                              {
+                              }
+                            },
+                            "-texture": { "ImageTexture":
+                              {
+                                "@DEF": "MyTex",
+                                "@url": [
+                                  "../textures/leaf.png"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 8, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Row",
+                  "fieldValue": [
+                    {
+                      "@name": "appearance",
+                      "-children": [
+                        { "ProtoInstance":
+                          {
+                            "@DEF": "_3",
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "texture",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@USE": "MyTex"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "normalMap",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@DEF": "MyNormalTex",
+                                      "@url": [
+                                        "../textures/leaf_normal_map.png"
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 12, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Row",
+                  "fieldValue": [
+                    {
+                      "@name": "appearance",
+                      "-children": [
+                        { "ProtoInstance":
+                          {
+                            "@DEF": "_4",
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "texture",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@USE": "MyTex"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "textureTransform",
+                                "-children": [
+                                  { "TextureTransform":
+                                    {
+                                      "@scale": [ 2, 2 ]
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "normalMap",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@USE": "MyNormalTex"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, 16, 0 ],
+            "-children": [
+              { "ProtoInstance":
+                {
+                  "@name": "Row",
+                  "fieldValue": [
+                    {
+                      "@name": "appearance",
+                      "-children": [
+                        { "ProtoInstance":
+                          {
+                            "@DEF": "_5",
+                            "@name": "KambiAppearance",
+                            "fieldValue": [
+                              {
+                                "@name": "material",
+                                "-children": [
+                                  { "Material":
+                                    {
+                                      "@transparency": 0.5
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "texture",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@USE": "MyTex"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "@name": "normalMap",
+                                "-children": [
+                                  { "ImageTexture":
+                                    {
+                                      "@USE": "MyNormalTex"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              { "Shape":
+                {
+                  "@DEF": "BackWall",
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "IndexedFaceSet":
+                    {
+                      "@solid": false,
+                      "@coordIndex": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        -1
+                      ],
+                      "-coord": { "Coordinate":
+                        {
+                          "@point": [
+                            -1, -1, -2,
+                            10, -1, -2,
+                            10, 1, -2,
+                            -1, 1, -2
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

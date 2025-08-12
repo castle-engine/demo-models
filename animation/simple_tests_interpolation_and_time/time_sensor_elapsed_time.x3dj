@@ -1,0 +1,187 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Interchange",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:20:25 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "KeyDeviceSensor",
+          "@level": 1
+        },
+        {
+          "@name": "EventUtilities",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "TimeSensor":
+          {
+            "@DEF": "TS",
+            "@cycleInterval": 4,
+            "@loop": true,
+            "@startTime": -1,
+            "@stopTime": -0.5
+          }
+        },
+        { "Transform":
+          {
+            "@DEF": "FractionVisualize",
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                          "@diffuseColor": [ 1, 1, 0 ]
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "Box":
+                    {
+                      "@size": [ 2, 0.1, 0.1 ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 4, 0, 0 ],
+            "-children": [
+              { "Transform":
+                {
+                  "@DEF": "ElapsedTimeVisualize",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 0.5, 0.5, 1 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "ProximitySensor":
+          {
+            "@DEF": "PS",
+            "@size": [ 1000, 1000, 1000 ]
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFFloat",
+                "@name": "fraction"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "elapsedTime"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFVec3f",
+                "@name": "FractionVisualize_position"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFVec3f",
+                "@name": "ElapsedTimeVisualize_position"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "    function fraction(value, timestamp)\r",
+              "      FractionVisualize_position := vector(0, value, 0)\r",
+              "\r",
+              "    function elapsedTime(value, timestamp)\r",
+              "      ElapsedTimeVisualize_position := vector(0, 0, -value)\r",
+              "    "
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ -0.0001793994, 0.3259674, 2.632309 ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "PS",
+            "@fromField": "enterTime",
+            "@toNode": "TS",
+            "@toField": "set_startTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TS",
+            "@fromField": "fraction_changed",
+            "@toNode": "Scr",
+            "@toField": "fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "TS",
+            "@fromField": "elapsedTime",
+            "@toNode": "Scr",
+            "@toField": "elapsedTime"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "FractionVisualize_position",
+            "@toNode": "FractionVisualize",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "ElapsedTimeVisualize_position",
+            "@toNode": "ElapsedTimeVisualize",
+            "@toField": "set_translation"
+          }
+        }
+      ]
+    }
+  }
+}

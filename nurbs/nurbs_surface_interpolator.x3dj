@@ -1,0 +1,417 @@
+{ "X3D": {
+    "encoding": "UTF-8",
+    "@profile": "Immersive",
+    "@version": "4.0",
+    "@xsd:noNamespaceSchemaLocation": "https://www.web3d.org/specifications/x3d-4.0.xsd",
+    "JSON schema": "https://www.web3d.org/specifications/x3d-4.0-JSONSchema.json",
+    "head": {
+      "meta": [
+        {
+          "@name": "generator",
+          "@content": "x3d-tidy V2.1.21, https://www.npmjs.com/package/x3d-tidy"
+        },
+        {
+          "@name": "modified",
+          "@content": "Tue, 12 Aug 2025 06:24:30 GMT"
+        }
+      ],
+      "component": [
+        {
+          "@name": "NURBS",
+          "@level": 1
+        }
+      ]
+    },
+    "Scene": {
+      "-children": [
+        { "Transform":
+          {
+            "@rotation": [ 1, 0, 0, 1.5707963268 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-appearance": { "Appearance":
+                    {
+                      "-material": { "Material":
+                        {
+                        }
+                      }
+                    }
+                  },
+                  "-geometry": { "NurbsPatchSurface":
+                    {
+                      "@uTessellation": 50,
+                      "@vTessellation": 50,
+                      "@solid": false,
+                      "@uOrder": 4,
+                      "@vOrder": 4,
+                      "@uDimension": 8,
+                      "@vDimension": 8,
+                      "-controlPoint": { "Coordinate":
+                        {
+                          "@DEF": "Coord",
+                          "@point": [
+                            -3.5, 0, -3.5,
+                            -2.5, 0, -3.5,
+                            -1.5, 0, -3.5,
+                            -0.5, 0, -3.5,
+                            0.5, 0, -3.5,
+                            1.290466, 1.240563, -4.096785,
+                            1.879569, 1.929874, -4.459244,
+                            2.987109, 2.680929, -5.083985,
+                            -3.5, 0, -2.5,
+                            -2.5, 0, -2.5,
+                            -1.5, 0, -2.5,
+                            -0.5, 0, -2.5,
+                            0.5, 0, -2.5,
+                            1.482221, 0.8842, -2.932595,
+                            2.332081, 1.314465, -3.155402,
+                            3.161473, 1.570384, -3.453897,
+                            -3.5, 0, -1.5,
+                            -2.5, 0, -1.5,
+                            -1.5, 0, -1.5,
+                            -0.5, 0, -1.5,
+                            0.5, 0, -1.5,
+                            1.5, 0, -1.5,
+                            2.5, 0, -1.5,
+                            3.5, 0, -1.5,
+                            -3.5, 0, -0.5,
+                            -2.5, 0, -0.5,
+                            -1.5, 0, -0.5,
+                            -1.007258, 2.285442, -1.864698,
+                            0.5, 0, -0.5,
+                            1.617411, -0.951524, 0.233153,
+                            2.5, 0, -0.5,
+                            3.5, 0, -0.5,
+                            -3.5, 0, 0.5,
+                            -2.5, 0, 0.5,
+                            -1.5, 0, 0.5,
+                            -0.5, 0, 0.5,
+                            0.5, 0, 0.5,
+                            1.800015, -2.115854, 1.607666,
+                            2.5, 0, 0.5,
+                            3.5, 0, 0.5,
+                            -3.5, 0, 1.5,
+                            -2.5, 0, 1.5,
+                            -1.5, 0, 1.5,
+                            -1.161361, 2.837375, -0.184846,
+                            0.5, 0, 1.5,
+                            1.457466, -0.760719, 2.20836,
+                            2.5, 0, 1.5,
+                            3.5, 0, 1.5,
+                            -3.5, 0, 2.5,
+                            -2.5, 0, 2.5,
+                            -1.5, 0, 2.5,
+                            -0.5, 0, 2.5,
+                            0.5, 0, 2.5,
+                            1.5, 0, 2.5,
+                            2.5, 0, 2.5,
+                            3.5, 0, 2.5,
+                            -3.5, 0, 3.5,
+                            -2.5, 0, 3.5,
+                            -1.5, 0, 3.5,
+                            -0.5, 0, 3.5,
+                            0.5, 0, 3.5,
+                            1.5, 0, 3.5,
+                            2.5, 0, 3.5,
+                            3.5, 0, 3.5
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              { "Transform":
+                {
+                  "@DEF": "Trans",
+                  "-children": [
+                    { "Shape":
+                      {
+                        "-appearance": { "Appearance":
+                          {
+                            "-material": { "Material":
+                              {
+                                "@diffuseColor": [ 1, 1, 0 ]
+                              }
+                            }
+                          }
+                        },
+                        "-geometry": { "Sphere":
+                          {
+                            "@radius": 0.2
+                          }
+                        }
+                      }
+                    },
+                    { "Transform":
+                      {
+                        "@DEF": "TransNormal",
+                        "-children": [
+                          { "Shape":
+                            {
+                              "-appearance": { "Appearance":
+                                {
+                                  "-material": { "Material":
+                                    {
+                                      "@diffuseColor": [ 0, 0, 1 ]
+                                    }
+                                  }
+                                }
+                              },
+                              "-geometry": { "Sphere":
+                                {
+                                  "@radius": 0.2
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "NurbsSurfaceInterpolator":
+          {
+            "@DEF": "Interp",
+            "@uOrder": 4,
+            "@vOrder": 4,
+            "@uDimension": 8,
+            "@vDimension": 8,
+            "-controlPoint": { "Coordinate":
+              {
+                "@USE": "Coord"
+              }
+            }
+          }
+        },
+        { "KeySensor":
+          {
+            "@DEF": "KeySens"
+          }
+        },
+        { "TimeSensor":
+          {
+            "@DEF": "Time",
+            "@cycleInterval": 10000000,
+            "@loop": true
+          }
+        },
+        { "Script":
+          {
+            "@DEF": "Scr",
+            "field": [
+              {
+                "@accessType": "inputOutput",
+                "@type": "SFVec2f",
+                "@name": "position"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec2f",
+                "@name": "min_position"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFVec2f",
+                "@name": "max_position",
+                "@value": [ 1, 1 ]
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "left_pressed"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "right_pressed"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "up_pressed"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFBool",
+                "@name": "down_pressed"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyPress"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFString",
+                "@name": "keyRelease"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "previousTime"
+              },
+              {
+                "@accessType": "initializeOnly",
+                "@type": "SFTime",
+                "@name": "timeDiff",
+                "@value": 0
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFTime",
+                "@name": "time"
+              },
+              {
+                "@accessType": "inputOnly",
+                "@type": "SFVec3f",
+                "@name": "revert_normal"
+              },
+              {
+                "@accessType": "outputOnly",
+                "@type": "SFVec3f",
+                "@name": "reverted_normal"
+              }
+            ],
+            "#sourceCode": [
+              "castlescript:\r",
+              "\r",
+              "function initialize(time)\r",
+              "  { send initial output position event, to set initial sphere position. }\r",
+              "  position := (min_position + max_position) / 2\r",
+              "\r",
+              "function keyPress(value, time)\r",
+              "  when (value = 'a', left_pressed  := true);\r",
+              "  when (value = 'd', right_pressed := true);\r",
+              "  when (value = 'w', up_pressed    := true);\r",
+              "  when (value = 's', down_pressed  := true)\r",
+              "\r",
+              "function keyRelease(value, time)\r",
+              "  when (value = 'a', left_pressed  := false);\r",
+              "  when (value = 'd', right_pressed := false);\r",
+              "  when (value = 'w', up_pressed    := false);\r",
+              "  when (value = 's', down_pressed  := false)\r",
+              "\r",
+              "function time(value, timestamp)\r",
+              "  { calculate timeDiff, to scale animations\r",
+              "    (so that it runs with the same speed on every system) }\r",
+              "  timeDiff := if (previousTime >= 0, value - previousTime, 0);\r",
+              "\r",
+              "  { update previousTime }\r",
+              "  previousTime := value;\r",
+              "\r",
+              "  { this is the key point of the script: move position,\r",
+              "    if left/right/up/down is pressed. Move length is scaled by timeDiff,\r",
+              "    so it works the same on all computers. }\r",
+              "  when (left_pressed , vector_set(position, 0, vector_get(position, 0) - 0.2 * timeDiff));\r",
+              "  when (right_pressed, vector_set(position, 0, vector_get(position, 0) + 0.2 * timeDiff));\r",
+              "  when (up_pressed   , vector_set(position, 1, vector_get(position, 1) - 0.2 * timeDiff));\r",
+              "  when (down_pressed , vector_set(position, 1, vector_get(position, 1) + 0.2 * timeDiff));\r",
+              "\r",
+              "  when (or(left_pressed, right_pressed, up_pressed, down_pressed),\r",
+              "    position := min(position, max_position);\r",
+              "    position := max(position, min_position))\r",
+              "\r",
+              "function revert_normal(value, timestamp)\r",
+              "  reverted_normal := -value\r",
+              ""
+            ]
+          }
+        },
+        { "Transform":
+          {
+            "@translation": [ 0, -4, 1 ],
+            "-children": [
+              { "Shape":
+                {
+                  "-geometry": { "Text":
+                    {
+                      "@string": [
+                        "Press A/W/S/D keys to move left/up/down/right along the surface"
+                      ],
+                      "-fontStyle": { "FontStyle":
+                        {
+                          "@size": 0.6,
+                          "@justify": [
+                            "MIDDLE"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        { "Viewpoint":
+          {
+            "@position": [ 0.7350757, -0.7437645, 17.48694 ],
+            "@orientation": [ -0.0028367645572871, 0.99953281879425, -0.0216976981610059, 0.0159123186022043 ]
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "position_changed",
+            "@toNode": "Interp",
+            "@toField": "set_fraction"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp",
+            "@fromField": "position_changed",
+            "@toNode": "Trans",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Interp",
+            "@fromField": "normal_changed",
+            "@toNode": "Scr",
+            "@toField": "revert_normal"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Scr",
+            "@fromField": "reverted_normal",
+            "@toNode": "TransNormal",
+            "@toField": "set_translation"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeySens",
+            "@fromField": "keyPress",
+            "@toNode": "Scr",
+            "@toField": "keyPress"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "KeySens",
+            "@fromField": "keyRelease",
+            "@toNode": "Scr",
+            "@toField": "keyRelease"
+          }
+        },
+        { "ROUTE":
+          {
+            "@fromNode": "Time",
+            "@fromField": "time",
+            "@toNode": "Scr",
+            "@toField": "time"
+          }
+        }
+      ]
+    }
+  }
+}
