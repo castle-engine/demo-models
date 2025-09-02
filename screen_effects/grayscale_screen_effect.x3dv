@@ -1,6 +1,7 @@
 #X3D V4.0 utf8
 PROFILE Interchange
 
+# ------------------------------------------------------------------------
 # Screen effect making grayscale.
 #
 # Note that in actual game using Castle Game Engine, you don't need to place both screen effect
@@ -8,6 +9,7 @@ PROFILE Interchange
 # In the game, you would usually create one X3D file only with ScreenEffect node,
 # and call AddScreenEffect to make it happen (on TCastleViewport or TCastleScreeneEffect).
 # See CGE examples/screen_effects_demo.
+# ------------------------------------------------------------------------
 
 ScreenEffect {
   shaders ComposedShader {
