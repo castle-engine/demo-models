@@ -1,37 +1,60 @@
 #VRML V2.0 utf8
 
-# Simple shadow map test from Jan Adamec.
+# ----------------------------------------------------------------------
+# Simple shadow map test.
 # SpotLight looks directly at box side.
+# By Jan Adamec + tweaks by Michalis.
+# ----------------------------------------------------------------------
 
 NavigationInfo {
 	headlight FALSE
 }
 
-#box - shadow caster
-Transform
-{
+# box - shadow caster
+DEF TransformShadowCaster Transform {
 	translation	0 1 0
 	scale .5 .5 .5
 	children Shape {
-	    geometry Box {}
-	    appearance	Appearance { material Material { diffuseColor .8 .8 .1 }}}
+		geometry Box {}
+		appearance	Appearance {
+			material Material { diffuseColor .8 .8 .1 }
+		}
+	}
 }
 
-#box - shadow receiver
+# Animate shadow caster rotation, to keep it interesting
+DEF Timer TimeSensor { loop TRUE }
+DEF Interp OrientationInterpolator {
+	# note: we need to have a few keyframes in the middle to keep rotation interpolation defined
+  key [ 0 0.25 0.5 0.75 1 ]
+  keyValue [
+    0 1 0 0,
+    0 1 0 1.57, # 0.5 * pi
+    0 1 0 3.14, # pi
+    0 1 0 4.71, # 1.5 * pi
+    0 1 0 0
+  ]
+}
+ROUTE Timer.fraction_changed TO Interp.set_fraction
+ROUTE Interp.value_changed TO TransformShadowCaster.rotation
+
+# box - shadow receiver
 Transform
 {
 	scale 2 .1 2
 	children Shape {
-	    geometry Box {}
-	    appearance	Appearance { material Material { diffuseColor .1 .8 .1 }}}
+		geometry Box {}
+		appearance	Appearance {
+			material Material { diffuseColor .1 .8 .1 }
+		}
+	}
 }
 
-#light source
+# light source
 SpotLight
 {
 	location 0 4 0
 	direction 0 -1 0
 	ambientIntensity .4
-
 	shadows TRUE
 }
