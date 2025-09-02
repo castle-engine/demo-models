@@ -1,0 +1,98 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------------
+# Add viewpoints, lights, background to rhan_shrine.x3d .
+# Here we code (in X3D classic encoding) things that are easier to code
+# in X3D by hand than generating them from Blender now.
+# -----------------------------------------------------------------------------
+
+Viewpoint {
+	position -4.0504660606384277 5.1951932907104492 11.140466690063477
+	orientation -0.6068037748336792 -0.78953772783279419 -0.091752037405967712 0.54067420959472656
+}
+
+NavigationInfo {
+  headlight FALSE
+}
+
+Background {
+	skyColor 1 1 1
+}
+
+DEF SpotLight1Transform Transform {
+  children DEF SpotLight1 SpotLight {
+    global TRUE
+    radius 26.549999237060547
+    shadows TRUE
+    location 8.2620000839233398 7.119999885559082 -17.091999053955078
+    beamWidth 0.48399999737739563
+    direction -0.22800000011920929 -0.30500000715255737 0.92500001192092896
+    intensity 1
+    cutOffAngle 0.62999999523162842
+    defaultShadowMap GeneratedShadowMap {
+      size 1024
+      update "ALWAYS"
+    }
+  }
+}
+
+PointLight {
+	global TRUE
+	color 1 0.74400001764297485 0.71899998188018799
+	radius 29.999982833862305
+	location 0.11400000005960464 2.4719998836517334 0.056000001728534698
+	intensity 1
+}
+
+DEF SpotLight2 SpotLight {
+	global TRUE
+	projectionNear 3.7475478649139404
+	projectionFar 43.149383544921875
+	radius 26.549999237060547
+	shadows TRUE
+	location 6.8179998397827148 6.6880002021789551 13.282999992370605
+	beamWidth 0.48399999737739563
+	direction -0.31200000643730164 -0.37799999117851257 -0.87199997901916504
+	intensity 1
+	cutOffAngle 0.62999999523162842
+	defaultShadowMap GeneratedShadowMap {
+		size 1024
+		update "ALWAYS"
+	}
+}
+Viewpoint {
+	position 12.180000305175781 4.2399997711181641 10.989999771118164
+	description "Alternative Camera"
+	fieldOfView 0.85799998044967651
+	orientation -0.17000000178813934 0.98000001907348633 0.070000000298023224 0.82999998331069946
+}
+
+# Animation spot light 1 location, to see that it works and shadow change.
+# Works, but looks somewhat poor, so commented out by default.
+# DEF SpotLight1Animation TimeSensor { loop TRUE cycleInterval 10 }
+# DEF SpotLight1AnimationInterpolator PositionInterpolator {
+#   key [ 0 0.5 1 ]
+#   keyValue [
+#     8.2620000839233398 7.119999885559082 -17.091999053955078,
+#     8.2620000839233398 17.119999885559082 -17.091999053955078,
+#     8.2620000839233398 7.119999885559082 -17.091999053955078
+#   ]
+# }
+# ROUTE SpotLight1Animation.fraction_changed TO SpotLight1AnimationInterpolator.set_fraction
+# ROUTE SpotLight1AnimationInterpolator.value_changed TO SpotLight1.location
+
+# Animate spot light 2 rotation, to see that it works and shadow change.
+DEF SpotLight2Animation TimeSensor { loop TRUE cycleInterval 10 }
+DEF SpotLight2AnimationInterpolator OrientationInterpolator {
+  key [ 0 0.5 1 ]
+  keyValue [
+    0 0 1 0,
+    0 0 1 1,
+    0 0 1 0
+  ]
+}
+ROUTE SpotLight2Animation.fraction_changed TO SpotLight2AnimationInterpolator.set_fraction
+ROUTE SpotLight2AnimationInterpolator.value_changed TO SpotLight1Transform.rotation
+
+Inline { url "rhan_shrine.x3d" }
