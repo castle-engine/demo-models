@@ -27,9 +27,7 @@ Viewpoint {
 # Shadow receiver
 Transform {
   translation -50  0 20
-  scale 0.1 0.1 0.1
-  rotation 1 0 0 -1.57
-  children Inline { url "stonehenge.wrl" }
+  children Inline { url "stonehenge.gltf" }
 }
 
 # Shadow caster (and receiver) too -------------------------------------------
