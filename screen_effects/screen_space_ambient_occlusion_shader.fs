@@ -81,7 +81,10 @@ void main(void)
   //gl_FragColor = vec4(color*mix(vec3(ao),vec3(1.0),luminance),1.0);
 
   ao = ao * 0.8 + 0.2;
-  ao = pow(ao, 2); // make the effect deliberately more emphasized
+
+  // make the effect deliberately more emphasized
+  // ao = pow(ao, 2); // no pow on OpenGLES
+  ao = ao * ao;
 
   gl_FragColor = vec4(color*vec3(ao),1.0);
   //gl_FragColor = vec4(vec3(ao), 1.0);  // ssao only
