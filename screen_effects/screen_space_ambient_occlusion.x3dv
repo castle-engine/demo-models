@@ -39,4 +39,63 @@ Viewpoint {
   orientation 0.0058075031265616417 -0.99988412857055664 0.014075176790356636 2.3396065235137939
 }
 
+# Touch sensor to toggle the effect --------------------------------------------
+
+DEF UiRelativeToViewpoint Transform {
+  children Collision {
+    #enabled FALSE # cannot have disabled collision, or TouchSensor will not work
+    children Transform {
+      translation 0 0.3 -1 # place button relative to viewpoint
+      children [
+        Transform { # text transform
+          translation 0 0 0.01 # text in front of rectangle
+          children Shape {
+            appearance Appearance {
+              material UnlitMaterial { emissiveColor 0.1 0.1 0.1  }
+            }
+            geometry Text {
+              fontStyle FontStyle {
+                size 0.02
+                justify [ "MIDDLE" "MIDDLE" ]
+              }
+              string "Click to toggle SSAO effect"
+            }
+          }
+        }
+        Transform { # rectangle transform
+          translation 0 0 0
+          children Shape {
+            appearance Appearance {
+              #material UnlitMaterial { emissiveColor 0 0 0 }
+            }
+            geometry Rectangle2D { size 0.5 0.1 }
+          }
+        }
+        DEF TouchSensorToggleSSAO TouchSensor { }
+      ]
+    }
+  }
+}
+DEF ProximitySensorAlwaysActive ProximitySensor {
+  size 10000 10000 10000
+}
+ROUTE ProximitySensorAlwaysActive.position_changed TO UiRelativeToViewpoint.translation
+ROUTE ProximitySensorAlwaysActive.orientation_changed TO UiRelativeToViewpoint.rotation
+
+DEF ToggleSSAO BooleanToggle {
+  toggle TRUE # initially effect is enabled, this matches MyScreenEffect.enabled
+}
+DEF ToggleSSAOTrigger BooleanTrigger {
+}
+# DEF MyLogger Logger {
+#   enabled TRUE
+#   level 3
+# }
+ROUTE TouchSensorToggleSSAO.touchTime TO ToggleSSAOTrigger.set_triggerTime
+# ROUTE TouchSensorToggleSSAO.touchTime TO MyLogger.write
+ROUTE ToggleSSAOTrigger.triggerTrue TO ToggleSSAO.set_boolean
+ROUTE ToggleSSAO.toggle_changed TO MyScreenEffect.enabled
+
+# Inline main geometry designed in Blender -------------------------------------
+
 Inline { url "sterile_room.gltf" }
