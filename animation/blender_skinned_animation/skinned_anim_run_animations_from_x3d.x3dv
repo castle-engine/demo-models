@@ -87,3 +87,20 @@ Group {
 
 ROUTE TouchJump.touchTime TO jump.set_startTime
 ROUTE TouchWalk.touchTime TO walk.set_startTime
+
+# -------------------------------------------------------------
+# running animations should also set their loop fields to TRUE
+
+DEF BooleanTriggerWalkAnimationLoop BooleanTrigger { }
+ROUTE TouchWalk.touchTime TO BooleanTriggerWalkAnimationLoop.set_triggerTime
+ROUTE BooleanTriggerWalkAnimationLoop.triggerTrue TO walk.loop
+
+DEF BooleanTriggerJumpAnimationLoop BooleanTrigger { }
+ROUTE TouchJump.touchTime TO BooleanTriggerJumpAnimationLoop.set_triggerTime
+ROUTE BooleanTriggerJumpAnimationLoop.triggerTrue TO jump.loop
+
+# ------------------------------------------------------------
+# stop the other animation
+
+ROUTE TouchJump.touchTime TO walk.set_stopTime
+ROUTE TouchWalk.touchTime TO jump.set_stopTime
