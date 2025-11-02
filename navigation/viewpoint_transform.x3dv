@@ -1,6 +1,15 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
+# ---------------------------------------------------------------------
+# Test that animating Viewpoint works to move the camera that shows
+# the scene.
+# We test various ways to do this:
+# - animating Viewpoint.position, Viewpoint.orientation
+# - animating Transform.translation, Transform.rotation for Transform that
+#   contains Viewpoint as a child
+# ---------------------------------------------------------------------
+
 NavigationInfo {
   type [ "FLY", "ANY" ]
   avatarSize [ 0.5 2 0.5 ]
@@ -19,7 +28,7 @@ DEF VpTransform Transform {
 }
 
 # ----------------------------------------------------------------------------
-# Test 1: move viewpoint by it's transfom
+# Test 1: move viewpoint by animating Transform.translation
 
 Transform {
   # same transform as initial viewpoint, to make the text visible
@@ -53,7 +62,7 @@ ROUTE Timer_TransformMove.fraction_changed TO Interp_TransformMove.set_fraction
 ROUTE Interp_TransformMove.value_changed TO VpTransform.set_translation
 
 # ----------------------------------------------------------------------------
-# Test 2: move viewpoint by it's position
+# Test 2: move viewpoint by animating Viewpoint.position
 
 Transform {
   # same transform as initial viewpoint, to make the text visible
@@ -85,7 +94,7 @@ ROUTE Timer_PositionMove.fraction_changed TO Interp_PositionMove.set_fraction
 ROUTE Interp_PositionMove.value_changed TO Vp.position
 
 # ----------------------------------------------------------------------------
-# Test 3: rotate viewpoint by it's transfom
+# Test 3: rotate viewpoint by animating Transform.rotation
 
 Transform {
   # same transform as initial viewpoint, to make the text visible
@@ -108,9 +117,21 @@ Transform {
 DEF Timer_TransformRotate TimeSensor { cycleInterval 3 }
 
 DEF Interp_TransformRotate OrientationInterpolator {
-  key [ 0 1 ]
-  keyValue [ 1 0 0 1.570796370506287,
-             1 0 0 7.8539816777 ]
+  key [
+    0
+    # intermediate keyframes are necessary to keep rotation interpolation defined
+    0.25
+    0.5
+    0.75
+    1
+  ]
+  keyValue [
+    1 0 0 1.570796370,
+    1 0 0 2.641592697,
+    1 0 0 4.712389024,
+    1 0 0 6.283185351,
+    1 0 0 7.853981677
+  ]
 }
 
 ROUTE Touch_TransformRotate.touchTime TO Timer_TransformRotate.set_startTime
@@ -118,7 +139,7 @@ ROUTE Timer_TransformRotate.fraction_changed TO Interp_TransformRotate.set_fract
 ROUTE Interp_TransformRotate.value_changed TO VpTransform.set_rotation
 
 # ----------------------------------------------------------------------------
-# Test 4: rotate viewpoint by it's position
+# Test 4: rotate viewpoint by it's Viewpoint.orientation
 
 Transform {
   # same transform as initial viewpoint, to make the text visible
@@ -141,9 +162,21 @@ Transform {
 DEF Timer_OrientationRotate TimeSensor { cycleInterval 3 }
 
 DEF Interp_OrientationRotate OrientationInterpolator {
-  key [ 0 1 ]
-  keyValue [ -0.000035324712371 -0.999984502792358 -0 0.046436563134193,
-             -0.000035324712371 -0.999984502792358 -0 6.3296218703 ]
+  key [
+    0
+    # intermediate keyframes are necessary to keep rotation interpolation defined
+    0.25
+    0.5
+    0.75
+    1
+  ]
+  keyValue [
+    -0.000035324712371 -0.999984502792358 -0 0.0464365631,
+    -0.000035324712371 -0.999984502792358 -0 1.5707963705,
+    -0.000035324712371 -0.999984502792358 -0 3.1415926535,
+    -0.000035324712371 -0.999984502792358 -0 4.7123889803,
+    -0.000035324712371 -0.999984502792358 -0 6.3296218703
+  ]
 }
 
 ROUTE Touch_OrientationRotate.touchTime TO Timer_OrientationRotate.set_startTime
