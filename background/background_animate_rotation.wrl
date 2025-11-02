@@ -3,7 +3,6 @@
 # ----------------------------------------------------------------
 # Test animating the Background by animating the Transform node
 # surrounding it.
-# TODO: This doesn't work in latest Castle Model Viewer.
 # ----------------------------------------------------------------
 
 Group {
@@ -38,13 +37,22 @@ Group {
 }
 
 DEF SkyRotationInterpolator OrientationInterpolator {
-  key [ 0.0, 1.0 ]
+  key [
+    0.0,
+    # intermediate keyframes are necessary to keep rotation interpolation defined
+    0.25,
+    0.5,
+    0.75,
+    1.0 ]
   keyValue [
     1 0 0 0,
+    1 0 0 1.5707963268, # Pi / 2
+    1 0 0 3.1415926536, # Pi
+    1 0 0 4.7123889804, # Pi * 3 / 2
     1 0 0 6.2831853072 # Pi * 2
   ]
 }
 
-DEF Timer TimeSensor { loop TRUE cycleInterval 2 }
+DEF Timer TimeSensor { loop TRUE cycleInterval 4 }
 ROUTE Timer.fraction_changed TO SkyRotationInterpolator.set_fraction
 ROUTE SkyRotationInterpolator.value_changed TO MyBackgroundTransform.rotation
