@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile="Interchange" version="3.0"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+     xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+</head>
+<Scene>
+	<ProtoDeclare name="MaterialWithDescription">
+		<ProtoInterface>
+			<field accessType="inputOutput" type="SFColor" name="diffuseColor" value='1 1 1' />
+      <field accessType="inputOutput" type="SFColor" name="emissiveColor" value='0 0 0' />
+      <field accessType="inputOutput" type="SFString" name="description" value='' />
+		</ProtoInterface>
+		<ProtoBody>
+      <!--
+        The first node in <ProtoBody> determines where this prototype
+        can be used.
+      -->
+      <Material>
+        <IS>
+          <connect nodeField="diffuseColor" protoField="diffuseColor" />
+        </IS>
+        <IS>
+          <connect nodeField="emissiveColor" protoField="emissiveColor" />
+        </IS>
+      </Material>
+      <!--
+        Additional nodes in ProtoBody do not determine where
+        the proto instance can be inserted.
+        They are typically some "helper" nodes, like sensors or scripts,
+        to behave together with the main node.
+      -->
+      <TimeSensor>
+      </TimeSensor>
+		</ProtoBody>
+	</ProtoDeclare>
+  <Shape>
+    <Appearance>
+      <!--
+        ProtoBody of this has <Material> as the first node.
+        So this ProtoInstance behaves like <Material>,
+        in particular it will be inserted into Appearance.material.
+      -->
+      <ProtoInstance name="MaterialWithDescription">
+        <fieldValue name="diffuseColor" value='1 0 0' />
+        <fieldValue name="description" value='red material' />
+      </ProtoInstance>
+    </Appearance>
+    <Box />
+  </Shape>
+</Scene>
+</X3D>
