@@ -6,13 +6,13 @@
 <head>
 </head>
 <Scene>
-	<ProtoDeclare name="MaterialWithDescription">
-		<ProtoInterface>
-			<field accessType="inputOutput" type="SFColor" name="diffuseColor" value='1 1 1' />
+  <ProtoDeclare name="MaterialWithDescription">
+    <ProtoInterface>
+      <field accessType="inputOutput" type="SFColor" name="diffuseColor" value='1 1 1' />
       <field accessType="inputOutput" type="SFColor" name="emissiveColor" value='0 0 0' />
       <field accessType="inputOutput" type="SFString" name="description" value='' />
-		</ProtoInterface>
-		<ProtoBody>
+    </ProtoInterface>
+    <ProtoBody>
       <!--
         The first node in <ProtoBody> determines where this prototype
         can be used.
@@ -33,8 +33,8 @@
       -->
       <TimeSensor>
       </TimeSensor>
-		</ProtoBody>
-	</ProtoDeclare>
+    </ProtoBody>
+  </ProtoDeclare>
   <Shape>
     <Appearance>
       <!--
