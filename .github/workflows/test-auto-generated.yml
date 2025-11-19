@@ -40,7 +40,11 @@ jobs:
         make clean
         make all
 
-    # Test everything looks clean, according to git status.
+    # Test everything looks clean, according to git diff.
+    #
+    # We need to add dir to safe.directory, otherwise "git diff" refuses with message
+    # "warning: Not a git repository" (unsure why; actions/checkout didn't use
+    # any special user to do the checkout, from what we know).
     - run: |
         git config --global --add safe.directory "${GITHUB_WORKSPACE}"
         git diff --exit-code
