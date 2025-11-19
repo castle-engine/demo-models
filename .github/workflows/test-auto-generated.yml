@@ -4,8 +4,12 @@
 # ----------------------------------------------------------------------------
 
 name: Test Auto-Generated Stuff is Up-To-Date
-
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+  # React to cge-docker-unstable-changed, dispatched from castle-engine-docker
+  repository_dispatch:
+    types: [cge-docker-unstable-changed]
 
 defaults:
   run:
