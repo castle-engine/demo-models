@@ -18,6 +18,20 @@ jobs:
     steps:
     - uses: actions/checkout@v5
 
+    - name: Checkout castle-model-viewer (with castle-model-converter)
+      uses: actions/checkout@v5
+      with:
+        repository: castle-engine/castle-model-viewer
+        path: castle-model-viewer
+
+    - name: Build castle-model-converter
+      run: |
+        cd castle-model-viewer/
+        castle-engine compile --mode=debug --manifest-name=CastleEngineManifest.converter.xml
+
+    - name: Put castle-model-converter on $PATH
+      run: echo "PATH=${PATH}:${GITHUB_WORKSPACE}/castle-model-viewer/" >> $GITHUB_ENV
+
     - run: |
         make clean
         make all
