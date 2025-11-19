@@ -37,4 +37,6 @@ jobs:
         make all
 
     # Test everything looks clean, according to git status.
-    - run: git diff --exit-code .
+    - run: |
+        ls -Flah
+        git diff --exit-code .
