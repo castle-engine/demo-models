@@ -49,6 +49,9 @@ Skin {
           5 6 7 0
         ]
       }
+      # Specify explicit bounding box for shapes in Skin, see https://castle-engine.io/skin#_we_need_to_know_the_bounding_box_of_the_shapes_affected_by_skin_animation
+      bboxCenter 0 1 0
+      bboxSize 3 2 0
     }
 
     DEF SkinnedMeshShape2 Shape {
@@ -72,6 +75,9 @@ Skin {
           2 3 4 0
         ]
       }
+      # Specify explicit bounding box for shapes in Skin, see https://castle-engine.io/skin#_we_need_to_know_the_bounding_box_of_the_shapes_affected_by_skin_animation
+      bboxCenter 2 2 0
+      bboxSize 8 4 0
     }
   ]
 
