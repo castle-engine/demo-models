@@ -1,0 +1,26 @@
+# ----------------------------------------------------------------------------
+# GitHub Actions workflow to test auto-generated stuff in demo-models
+# is still up-to-date.
+# ----------------------------------------------------------------------------
+
+name: Test Auto-Generated Stuff is Up-To-Date
+
+on: [push, pull_request]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test_auto_generated:
+    runs-on: ubuntu-latest
+    container: kambi/castle-engine-cloud-builds-tools:cge-unstable
+    steps:
+    - uses: actions/checkout@v5
+
+    - run: |
+        make clean
+        make all
+
+    # Test everything looks clean, according to git status.
+    - run: git diff --exit-code .
