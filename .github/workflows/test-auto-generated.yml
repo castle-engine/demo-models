@@ -36,7 +36,8 @@ jobs:
     - name: Put castle-model-converter on $PATH
       run: echo "PATH=${PATH}:${GITHUB_WORKSPACE}/castle-model-viewer/" >> $GITHUB_ENV
 
-    - run: |
+    - name: Regenerate auto-generated stuff
+      run: |
         make clean
         make all
 
@@ -45,6 +46,7 @@ jobs:
     # We need to add dir to safe.directory, otherwise "git diff" refuses with message
     # "warning: Not a git repository" (unsure why; actions/checkout didn't use
     # any special user to do the checkout, from what we know).
-    - run: |
+    - name: Compare auto-generated stuff with last committed
+      run: |
         git config --global --add safe.directory "${GITHUB_WORKSPACE}"
         git diff --exit-code
