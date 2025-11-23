@@ -1,0 +1,60 @@
+#X3D V3.0 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------
+# Test MatrixTransform node, which is not in X3D standard, but is a common
+# extension, implemented at least by
+#
+# - Castle Game Engine ( https://castle-engine.io/x3d_extensions.php#section_ext_matrix_transform )
+# - X3DOM ( https://doc.x3dom.org/author/Grouping/MatrixTransform.html )
+# - Instant Reality ( https://doc.instantreality.org/documentation/nodetype/MatrixTransform/index.html )
+#
+# It is one of the few nodes in X3D that actually uses the SFMatrix* field type,
+# so this is also a good test for it.
+# See https://github.com/castle-engine/castle-engine/tree/master/tests/data/matrix_vrml_x3d_format
+# for how matrix should be specified in X3D.
+#
+# This file is deliberately at X3D version 3, not 4, to enable testing
+# everywhere possible.
+#
+# Proper display should show red, green, blue spheres from left to right.
+# -----------------------------------------------------------------------
+
+PointLight {
+  location 0 3 0
+}
+
+Shape {
+  appearance Appearance {
+    material Material { diffuseColor 1 0 0 }
+  }
+  geometry Sphere { }
+}
+
+MatrixTransform {
+  matrix
+    1 0 0 2
+    0 1 0 0
+    0 0 1 0
+    0 0 0 1
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 0 1 0 }
+    }
+    geometry Sphere { }
+  }
+}
+
+MatrixTransform {
+  matrix
+    1 0 0 4
+    0 1 0 0
+    0 0 1 0
+    0 0 0 1
+  children Shape {
+    appearance Appearance {
+      material Material { diffuseColor 0 0 1 }
+    }
+    geometry Sphere { }
+  }
+}
