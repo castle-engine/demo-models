@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<!--
+  Testcase from matrix_transform.x3dv expressed for X3DOM:
+  - node names lowercase
+  - closing tags explicit, like <tag></tag>
+  - Looks like X3DOM expects SFMatrix4f transposed from what X3D spec says:
+    https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/EncodingOfFields.html#SFMatrix4f
+-->
+
+<html>
+  <head>
+    <title>X3DOM test</title>
+    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+  </head>
+  <body>
+    <h1>MatrixTransform - X3DOM test</h1>
+    <x3d width='600px' height='400px'>
+      <scene>
+        <pointlight
+          global="true"
+          location="0.0000 3.0000 0.0000"></pointlight>
+        <shape>
+          <appearance>
+            <material
+              diffusecolor="1.0000 0.0000 0.0000"></material>
+          </appearance>
+          <sphere></sphere>
+        </shape>
+        <matrixtransform
+          matrix="1.0000 0.0000 0.0000 0.0000
+            0.0000 1.0000 0.0000 0.0000
+            0.0000 0.0000 1.0000 0.0000
+            2.0000 0.0000 0.0000 1.0000
+          ">
+          <shape>
+            <appearance>
+              <material
+                diffusecolor="0.0000 1.0000 0.0000"></material>
+            </appearance>
+            <sphere></sphere>
+          </shape>
+        </matrixtransform>
+        <matrixtransform
+          matrix="1.0000 0.0000 0.0000 0.0000
+            0.0000 1.0000 0.0000 0.0000
+            0.0000 0.0000 1.0000 0.0000
+            4.0000 0.0000 0.0000 1.0000
+          ">
+          <shape>
+            <appearance>
+              <material
+                diffusecolor="0.0000 0.0000 1.0000"></material>
+            </appearance>
+            <sphere></sphere>
+          </shape>
+        </matrixtransform>
+      </scene>
+    </x3d>
+  </body>
+</html>
