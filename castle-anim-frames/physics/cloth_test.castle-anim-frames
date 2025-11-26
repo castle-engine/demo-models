@@ -3,7 +3,7 @@
   <frame time="0.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -275,7 +275,7 @@
   <frame time="0.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -547,7 +547,7 @@
   <frame time="0.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -819,7 +819,7 @@
   <frame time="0.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1091,7 +1091,7 @@
   <frame time="0.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1363,7 +1363,7 @@
   <frame time="1.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1635,7 +1635,7 @@
   <frame time="1.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1907,7 +1907,7 @@
   <frame time="1.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -2179,7 +2179,7 @@
   <frame time="1.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -2451,7 +2451,7 @@
   <frame time="1.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -2723,7 +2723,7 @@
   <frame time="2.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -2995,7 +2995,7 @@
   <frame time="2.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -3267,7 +3267,7 @@
   <frame time="2.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -3539,7 +3539,7 @@
   <frame time="2.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -3811,7 +3811,7 @@
   <frame time="2.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -4083,7 +4083,7 @@
   <frame time="3.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -4355,7 +4355,7 @@
   <frame time="3.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -4627,7 +4627,7 @@
   <frame time="3.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -4899,7 +4899,7 @@
   <frame time="3.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -5171,7 +5171,7 @@
   <frame time="3.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -5443,7 +5443,7 @@
   <frame time="4.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -5715,7 +5715,7 @@
   <frame time="4.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -5987,7 +5987,7 @@
   <frame time="4.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -6259,7 +6259,7 @@
   <frame time="4.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -6531,7 +6531,7 @@
   <frame time="4.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -6803,7 +6803,7 @@
   <frame time="5.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -7075,7 +7075,7 @@
   <frame time="5.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -7347,7 +7347,7 @@
   <frame time="5.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -7619,7 +7619,7 @@
   <frame time="5.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -7891,7 +7891,7 @@
   <frame time="5.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -8163,7 +8163,7 @@
   <frame time="6.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -8435,7 +8435,7 @@
   <frame time="6.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -8707,7 +8707,7 @@
   <frame time="6.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -8979,7 +8979,7 @@
   <frame time="6.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -9251,7 +9251,7 @@
   <frame time="6.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -9523,7 +9523,7 @@
   <frame time="7.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -9795,7 +9795,7 @@
   <frame time="7.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -10067,7 +10067,7 @@
   <frame time="7.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -10339,7 +10339,7 @@
   <frame time="7.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -10611,7 +10611,7 @@
   <frame time="7.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -10883,7 +10883,7 @@
   <frame time="8.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -11155,7 +11155,7 @@
   <frame time="8.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -11427,7 +11427,7 @@
   <frame time="8.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -11699,7 +11699,7 @@
   <frame time="8.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -11971,7 +11971,7 @@
   <frame time="8.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -12243,7 +12243,7 @@
   <frame time="9.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -12515,7 +12515,7 @@
   <frame time="9.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -12787,7 +12787,7 @@
   <frame time="9.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -13059,7 +13059,7 @@
   <frame time="9.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -13331,7 +13331,7 @@
   <frame time="9.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -13603,7 +13603,7 @@
   <frame time="9.960000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="cloth_test_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />

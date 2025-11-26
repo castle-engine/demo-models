@@ -5,7 +5,7 @@
 
 PROFILE Interchange
 # [X3D] version=3.0
-# [X3D] noNamespaceSchemaLocation=http://www.web3d.org/specifications/x3d-3.0.xsd
+# [X3D] noNamespaceSchemaLocation=https://www.web3d.org/specifications/x3d-3.0.xsd
 # [head]
 
 META "title" "IkeaTable.x3d"

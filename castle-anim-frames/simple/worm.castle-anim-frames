@@ -3,7 +3,7 @@
   <frame time="0.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -82,7 +82,7 @@
   <frame time="0.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -161,7 +161,7 @@
   <frame time="0.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -240,7 +240,7 @@
   <frame time="0.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -319,7 +319,7 @@
   <frame time="0.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -398,7 +398,7 @@
   <frame time="1.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -477,7 +477,7 @@
   <frame time="1.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -556,7 +556,7 @@
   <frame time="1.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -635,7 +635,7 @@
   <frame time="1.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -714,7 +714,7 @@
   <frame time="1.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -793,7 +793,7 @@
   <frame time="2.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -872,7 +872,7 @@
   <frame time="2.200000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -951,7 +951,7 @@
   <frame time="2.400000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1030,7 +1030,7 @@
   <frame time="2.600000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1109,7 +1109,7 @@
   <frame time="2.800000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1188,7 +1188,7 @@
   <frame time="3.000000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
@@ -1267,7 +1267,7 @@
   <frame time="3.120000">
 
 
-<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="https://www.web3d.org/specifications/x3d-3.0.xsd">
 	<head>
 		<meta name="filename" content="worm_tmp.x3d" />
 		<meta name="generator" content="Blender 2.78 (sub 0)" />
