@@ -28,9 +28,9 @@ Note: The conversion glTF -> X3D was done using _modified_ version of [Castle Mo
 
     So glTF models (downloaded from Sketchfab) look wrong out of the box, you need to disable "View->Blending". The X3D models have been already corrected by us, so no need to worry about it.
 
-- We removed animation from the conversion process, because the engine `master` branch has a naive conversion of glTF skinned animation -> X3D that results in huge X3D files. We have a proper solution implemented for this (see [skinned animation on GPU, new Skin node](https://castle-engine.io/skin)) but it's not yet merged to engine `master`, as of 2025-07-08, we're finalizing both implementation and docs to make it really good.
+- We removed animation from the conversion process, to make the resulting X3D models portable across X3D browsers.
 
-    Since the animation was not the point of this demo (`Tangent` node was), we just removed it from `scene.x3d` files in subdirectories here.
+    Reason: _Castle Game Engine_ (and _Castle Model Viewer_) convert glTF animation into [Skin node](https://castle-engine.io/skin) which is only supported by CGE now. Since the animation was not the point of this demo (`Tangent` node was), we just removed it from `scene.x3d` files in subdirectories here.
 
 ## More: see also Khronos tests
 
