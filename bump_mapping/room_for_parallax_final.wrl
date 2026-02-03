@@ -16,7 +16,7 @@ Transform {
 NavigationInfo {
 	headlight TRUE
 	visibilityLimit 0.0
-	type ["WALK", "ANY"]
+	type ["FLY", "ANY"]
 	avatarSize [0.1, 1, 0.1]
         speed 3
 }

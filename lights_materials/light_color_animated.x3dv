@@ -10,23 +10,6 @@ PROFILE Interactive
 
 NavigationInfo { headlight FALSE }
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
-]
-
 Shape {
   appearance Appearance { material Material { diffuseColor 1 1 0 } }
   geometry Sphere { }
@@ -58,7 +41,7 @@ DEF LColor PointLight { location 0 3 0 }
 Transform {
   translation 0 3 0
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material DEF LColorIndicator Material { diffuseColor 0 0 0 }
       shadowCaster FALSE
     }

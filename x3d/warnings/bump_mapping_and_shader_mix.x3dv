@@ -1,25 +1,30 @@
-#X3D V3.2 utf8
+#X3D V4.0 utf8
 PROFILE Interchange
 
 Shape {
-  appearance KambiAppearance {
-    texture ImageTexture {
-      url "../../textures/leaf.png"
+  appearance Appearance {
+    # otherwise leaf.png implies to use blending, even though our shader
+    # ignores the leaf.png RGBA values.
+    alphaMode "OPAQUE"
+    material Material {
+      diffuseTexture ImageTexture {
+        url "../../textures/leaf.png"
+      }
+      normalTexture ImageTexture {
+        url "../../textures/leaf_normal_map.png"
+      }
     }
-    normalMap ImageTexture {
-      url "../../textures/leaf_normal_map.png"
+    textureTransform TextureTransform {
+      scale 10 10
     }
-    material Material { }
-    textureTransform TextureTransform { scale 10 10 }
     shaders ComposedShader {
       language "GLSL"
       parts [
-        ShaderPart { type "VERTEX" url "../shaders/glsl_toon_shading.vs" }
-        ShaderPart { type "FRAGMENT" url "../shaders/glsl_toon_shading_2_main.fs" }
-        ShaderPart { type "FRAGMENT" url "../shaders/glsl_toon_shading_2_helper.fs" }
+        ShaderPart { type "VERTEX" url "../../shaders/glsl/toon_shading.vs" }
+        ShaderPart { type "FRAGMENT" url "../../shaders/glsl/toon_shading_2_main.fs" }
+        ShaderPart { type "FRAGMENT" url "../../shaders/glsl/toon_shading_2_helper.fs" }
       ]
     }
-
   }
   geometry Teapot { }
 }

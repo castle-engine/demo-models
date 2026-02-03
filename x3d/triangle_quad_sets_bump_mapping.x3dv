@@ -1,32 +1,17 @@
-#X3D V3.0 utf8
+#X3D V4.0 utf8
 PROFILE Interchange
 
 # Test for [Indexed][Triangle/Quad][Fan/Strip]Set (8 nodes total)
 # bump mapping (Castle Game Engine extension).
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance" ]
-
 Transform {
   translation 0 0 0
   children Shape {
-    appearance DEF Col1App KambiAppearance { material Material { }
-      texture   ImageTexture { url "../textures/lion.png" }
-      normalMap ImageTexture { url "../textures/lion_normal_height_maps.png" }
-      heightMapScale 0.02
+    appearance DEF Col1App Appearance {
+      material Material {
+        diffuseTexture ImageTexture { url "../textures/lion.png" }
+        normalTexture ImageTexture { url "../textures/lion_normal_height_maps.png" }
+      }
     }
     geometry IndexedTriangleSet {
       coord Coordinate { point [ 0 0 0, 1 0 0, 1 1 0,

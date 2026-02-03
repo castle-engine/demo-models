@@ -5,23 +5,6 @@
 # Blender file collisions.blend
 # Exported using VRML97 exporter v1.55-kambi4
 
-
-EXTERNPROTO KambiAppearance [
-  exposedField SFNode material
-  exposedField SFNode texture
-  exposedField SFNode textureTransform
-  exposedField SFNode fillProperties
-  exposedField SFNode lineProperties
-  exposedField SFNode metadata
-  exposedField MFNode shaders
-  exposedField SFNode normalMap
-  exposedField SFNode heightMap
-  exposedField SFFloat heightMapScale
-  exposedField SFNode blendMode
-  exposedField SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
-
 NavigationInfo {
 	headlight TRUE
 	visibilityLimit 0.0
@@ -21806,12 +21789,12 @@ DEF OB_NotCollidable Transform {
 		DEF ME_MOD_NotCollidable Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
+					appearance Appearance {
 						material USE MA_Material
-                                                # Kambi+
-                                                blendMode BlendMode {
-                                                  destFactor "ONE"
-                                                }
+						# Kambi+
+						blendMode BlendMode {
+							destFactor "ONE"
+						}
 					}
 					geometry IndexedFaceSet {
 						solid FALSE # Kambi*

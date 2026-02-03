@@ -8,23 +8,6 @@ PROFILE Interchange
 # And shadows work, everything is both shadow caster and receiver.
 # Press 's' (handled by KeySensor) to turn shadows on/off.
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
-]
-
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.0039148419164121 -0.0134819848462939 -0.01424465700984
 # up -0.1786381602287292 0.7386409640312194 -0.6499983668327331
@@ -65,7 +48,7 @@ DEF LightIndicator Transform {
     # otherwise the whole scene could be in shadow
     # (actually, it will not necessarily happen due to silhouette optimizations,
     # but still...).
-    appearance KambiAppearance {
+    appearance Appearance {
       material Material { diffuseColor 1 1 0 }
       shadowCaster FALSE
     }
@@ -142,7 +125,7 @@ DEF SpBlue Transform {
     translation 0.4 0 0
     children [
       Shape {
-        appearance KambiAppearance { material Material { diffuseColor 0.1 0.1 1
+        appearance Appearance { material Material { diffuseColor 0.1 0.1 1
           transparency 0.5 }
           blendMode BlendMode { srcFactor "SRC_ALPHA" }
         }
@@ -165,7 +148,7 @@ DEF BoxRed Transform {
   children Transform {
     children [
       Shape {
-        appearance KambiAppearance {
+        appearance Appearance {
           material Material { diffuseColor 1 0.1 0.1
             transparency 0.5 }
           blendMode BlendMode { srcFactor "SRC_ALPHA" }

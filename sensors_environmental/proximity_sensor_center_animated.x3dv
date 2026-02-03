@@ -15,23 +15,6 @@ PROFILE Interactive
 # is generated in local ProximitySensor coordinate system --- it depends
 # on ProximitySensor parent transforms, but not on ProximitySensor.center.
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
-]
-
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.0075572188943624 1.3101623608235968E-007 0.1998573392629623
 # up -6.1215524738145177E-007 0.9999997615814209 -6.7614365661938791E-007
@@ -56,7 +39,7 @@ DEF ProxSensTransform Transform {
     Collision {
       enabled FALSE
       children Shape {
-        appearance KambiAppearance {
+        appearance Appearance {
           material Material {
             transparency 0.5
             diffuseColor 2 2 0
@@ -93,12 +76,12 @@ DEF BigBoxToVisualizePosition Transform {
     }
 
     Shape {
-      appearance KambiAppearance {
+      appearance Appearance {
         material Material {
           transparency 0.1
           diffuseColor 0.2 0.2 0.9
         }
-	blendMode BlendMode { destFactor "ONE" }
+	      blendMode BlendMode { destFactor "ONE" }
       }
       geometry Box { size 1 1 1 solid FALSE }
     }

@@ -1,22 +1,6 @@
 #X3D V3.2 utf8
 PROFILE Interactive
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
-
 # background just copied from ../background_texture1.wrl, to show
 # that teapots are transparent.
 Background {
@@ -59,7 +43,7 @@ Transform {
   translation 3 0 0
   scale 10 10 10
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material USE MA_Material_001
       blendMode BlendMode {
         destFactor "ONE"
@@ -73,7 +57,7 @@ Transform {
   translation 6 0 0
   scale 10 10 10
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material USE MA_Material_001
       blendMode BlendMode {
         srcFactor "CONSTANT_COLOR"
@@ -89,7 +73,7 @@ Transform {
   translation 9 0 0
   scale 10 10 10
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material USE MA_Material_001
       blendMode BlendMode {
         srcFactor "CONSTANT_COLOR"
@@ -105,7 +89,7 @@ Transform {
   translation 12 0 0
   scale 10 10 10
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material USE MA_Material_001
       blendMode BlendMode {
         srcFactor "CONSTANT_ALPHA"
@@ -121,7 +105,7 @@ Transform {
   translation 15 0 0
   scale 10 10 10
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material USE MA_Material_001
       blendMode BlendMode {
         srcFactor "CONSTANT_ALPHA"

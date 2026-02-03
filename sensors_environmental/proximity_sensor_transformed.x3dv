@@ -10,23 +10,6 @@ PROFILE Interactive
 # position_changed (visualized by YELLOW SPHERE in the BLUE BOX)
 # reflects your position in the current ProximitySensor.
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
-]
-
 # Camera settings "encoded" in the VRML declaration below :
 # direction -0.0182686317712068 0 0.0529363304376602
 # up 1.4259776470737506E-008 0.9999999403953552 -4.1320017629686845E-008
@@ -50,7 +33,7 @@ DEF ProxSensTransform Transform {
     Collision {
       enabled FALSE
       children Shape {
-        appearance KambiAppearance { material Material {
+        appearance Appearance { material Material {
             transparency 0.5
             diffuseColor 2 2 0
           }
@@ -78,7 +61,7 @@ DEF AnotherProxSensTransform Transform {
     Collision {
       enabled FALSE
       children Shape {
-        appearance KambiAppearance { material Material {
+        appearance Appearance { material Material {
             transparency 0.5
             diffuseColor 2 2 0
           }
@@ -103,7 +86,7 @@ DEF BigBoxToVisualizePosition Transform {
     }
 
     Shape {
-      appearance KambiAppearance { material Material {
+      appearance Appearance { material Material {
           transparency 0.1
           diffuseColor 0.2 0.2 0.9
         }

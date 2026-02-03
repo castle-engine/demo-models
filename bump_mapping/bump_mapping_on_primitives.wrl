@@ -1,30 +1,17 @@
 #VRML V2.0 utf8
 
-# Demo that bump mapping works on geometry handled by Proxy.
-
-EXTERNPROTO KambiAppearance [
-  exposedField SFNode material
-  exposedField SFNode texture
-  exposedField SFNode textureTransform
-  exposedField SFNode fillProperties
-  exposedField SFNode lineProperties
-  exposedField SFNode metadata
-  exposedField MFNode shaders
-  exposedField SFNode normalMap
-  exposedField SFNode heightMap
-  exposedField SFFloat heightMapScale
-  exposedField SFNode blendMode
-  exposedField SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
+# ----------------------------------------------------------------------------
+# Demo that bump mapping works on VRML 2.0 models with geometry nodes
+# handled internally by Castle Game Engine "proxy" mechanism.
+# ----------------------------------------------------------------------------
 
 Transform {
   children Shape {
-    appearance DEF App KambiAppearance {
-      material Material { }
+    appearance DEF App Appearance {
+      material Material {
+        normalTexture ImageTexture { url "cloth/rock_d01_normal_height_maps.png" }
+      }
       texture DEF rock_d01_png ImageTexture { url "cloth/rock_d01.png" }
-      normalMap ImageTexture { url "cloth/rock_d01_normal_height_maps.png" }
-      heightMapScale 0.01
     }
     geometry Box { }
   }

@@ -22,25 +22,26 @@
 -->
 
 <Scene>
-<NavigationInfo headlight="false" />
-<Background />
+  <NavigationInfo headlight="false" />
+  <Background />
 
-<DirectionalLight/>
-<DirectionalLight/>
-<SpotLight shadows="TRUE" />
-<PointLight />
-<SpotLight shadows="TRUE" />
+  <DirectionalLight/>
+  <DirectionalLight/>
+  <SpotLight shadows="TRUE" />
+  <PointLight />
+  <SpotLight shadows="TRUE" />
 
-<Transform>
-<Shape>
-	<KambiAppearance>
-        	<ImageTexture url='"../textures/leaf_normal_map.png"' containerField="normalMap" />
-		<Material />
-		<ImageTexture url='"../textures/leaf.png"' />
-	</KambiAppearance>
-        <Sphere/>
-</Shape>
-</Transform>
+  <Transform>
+    <Shape>
+      <Appearance>
+        <Material>
+          <ImageTexture url='"../textures/leaf_normal_map.png"' containerField="normalTexture" />
+        </Material>
+        <ImageTexture url='"../textures/leaf.png"' />
+      </Appearance>
+      <Sphere/>
+    </Shape>
+  </Transform>
 
 </Scene>
 </X3D>

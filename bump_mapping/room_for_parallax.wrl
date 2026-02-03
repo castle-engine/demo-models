@@ -1,31 +1,18 @@
 #VRML V2.0 utf8
 
+# --------------------------------------------------------------------------
 # This file was authored with Blender (http://www.blender.org/)
+# and then edited by hand.
+#
 # Blender version 245
 # Blender file room_for_parallax.blend
 # Exported using VRML97 exporter v1.55-kambi4
-
-EXTERNPROTO KambiAppearance [
-  exposedField SFNode material
-  exposedField SFNode texture
-  exposedField SFNode textureTransform
-  exposedField SFNode fillProperties
-  exposedField SFNode lineProperties
-  exposedField SFNode metadata
-  exposedField MFNode shaders
-  exposedField SFNode normalMap
-  exposedField SFNode heightMap
-  exposedField SFFloat heightMapScale
-  exposedField SFNode blendMode
-  exposedField SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.wrl#KambiAppearance" ]
-
+# --------------------------------------------------------------------------
 
 NavigationInfo {
 	headlight TRUE
 	visibilityLimit 0.0
-	type ["EXAMINE", "ANY"]
+	type ["FLY", "ANY"]
 	avatarSize [0.25, 1.75, 0.75]
 }
 
@@ -709,7 +696,7 @@ DEF OB_TableTop_002 Transform {
 		DEF ME_Cube_009 Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
+					appearance Appearance {
 						material DEF MA_MatWhiteUnderTexture Material {
 							diffuseColor 1.0 1.0 1.0
 							ambientIntensity 0.1666667
@@ -717,14 +704,13 @@ DEF OB_TableTop_002 Transform {
 							emissiveColor  0.0 0.0 0.0
 							shininess 0.0976563
 							transparency 0.0
+							normalTexture DEF bois5_normalMap ImageTexture {
+								url "../textures/bois5_normal_and_height_maps.png"
+							}
 						}
 						texture DEF bois5_jpg ImageTexture {
 							url "../textures/bois5.png"
 						}
-                                                normalMap DEF bois5_normalMap ImageTexture {
-							url "../textures/bois5_normal_and_height_maps.png"
-						}
-                                                heightMapScale 0.05
 					}
 					geometry IndexedFaceSet {
 						solid TRUE
@@ -782,7 +768,7 @@ DEF OB_Cube_002 Transform {
 		DEF ME_Cube_008 Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
+					appearance Appearance {
 						material DEF MA_Material Material {
 							diffuseColor 0.8 0.8 0.8
 							ambientIntensity 0.1666667
@@ -790,11 +776,9 @@ DEF OB_Cube_002 Transform {
 							emissiveColor  0.0 0.0 0.0
 							shininess 0.0976563
 							transparency 0.0
+							normalTexture USE bois5_normalMap
 						}
 						texture USE bois5_jpg
-                                                normalMap USE bois5_normalMap
-                                                heightMapScale 0.05
-
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -912,16 +896,22 @@ DEF OB_Cube_001 Transform {
 		DEF ME_Cube_007 Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
-						material USE MA_Material
+					appearance Appearance {
+						material Material {
+							# like MA_Material but customize normalTexture
+							diffuseColor 0.8 0.8 0.8
+							ambientIntensity 0.1666667
+							specularColor 0.4012008 0.4012008 0.4012008
+							emissiveColor  0.0 0.0 0.0
+							shininess 0.0976563
+							transparency 0.0
+							normalTexture ImageTexture {
+								url "../textures/bumps_normal_and_height_maps.png"
+							}
+						}
 						texture DEF bumps_png ImageTexture {
 							url "../textures/bumps.png"
 						}
-                                                normalMap ImageTexture {
-							url "../textures/bumps_normal_and_height_maps.png"
-						}
-                                                heightMapScale 0.05
-
 					}
 					geometry IndexedFaceSet {
 						solid FALSE
@@ -1039,12 +1029,18 @@ DEF OB_TableTop_001 Transform {
 		DEF ME_Cube_006 Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
-						material USE MA_MatWhiteUnderTexture
+					appearance Appearance {
+						material Material {
+							# like MA_MatWhiteUnderTexture but customize normalTexture
+							diffuseColor 1.0 1.0 1.0
+							ambientIntensity 0.1666667
+							specularColor 0.0565128 0.0565128 0.0565128
+							emissiveColor  0.0 0.0 0.0
+							shininess 0.0976563
+							transparency 0.0
+							normalTexture USE bois5_normalMap
+						}
 						texture USE bois5_jpg
-                                                normalMap USE bois5_normalMap
-                                                heightMapScale 0.05
-
 					}
 					geometry IndexedFaceSet {
 						solid TRUE
@@ -2390,14 +2386,20 @@ DEF OB_TableTop Transform {
 		DEF ME_Cube_001 Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
-						material USE MA_MatWhiteUnderTexture
-						texture USE bois5_jpg
-                                                normalMap ImageTexture {
-							url "../textures/bois5_normal_and_height_maps.png"
+					appearance Appearance {
+						material Material {
+							# like MA_MatWhiteUnderTexture but customize normalTexture
+							diffuseColor 1.0 1.0 1.0
+							ambientIntensity 0.1666667
+							specularColor 0.0565128 0.0565128 0.0565128
+							emissiveColor  0.0 0.0 0.0
+							shininess 0.0976563
+							transparency 0.0
+							normalTexture ImageTexture {
+								url "../textures/bois5_normal_and_height_maps.png"
+							}
 						}
-                                                heightMapScale 0.05
-
+						texture USE bois5_jpg
 					}
 					geometry IndexedFaceSet {
 						solid TRUE
@@ -2455,16 +2457,22 @@ DEF OB_Cube Transform {
 		DEF ME_Cube Group {
 			children [
 				Shape {
-					appearance KambiAppearance {
-						material USE MA_Material
+					appearance Appearance {
+						material Material {
+							# like MA_Material but customize normalTexture
+							diffuseColor 0.8 0.8 0.8
+							ambientIntensity 0.1666667
+							specularColor 0.4012008 0.4012008 0.4012008
+							emissiveColor  0.0 0.0 0.0
+							shininess 0.0976563
+							transparency 0.0
+							normalTexture ImageTexture {
+								url "../textures/brick_1_normal_and_height_maps.png"
+							}
+						}
 						texture DEF brick_1_png ImageTexture {
 							url "../textures/brick_1.png"
 						}
-                                                normalMap ImageTexture {
-							url "../textures/brick_1_normal_and_height_maps.png"
-						}
-                                                heightMapScale 0.02
-
 					}
 					geometry IndexedFaceSet {
 						solid FALSE

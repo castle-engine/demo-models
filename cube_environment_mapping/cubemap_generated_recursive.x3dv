@@ -1,23 +1,6 @@
 #X3D V3.2 utf8
 PROFILE Interchange
 
-EXTERNPROTO KambiAppearance [
-  inputOutput SFNode material
-  inputOutput SFNode texture
-  inputOutput SFNode textureTransform
-  inputOutput SFNode fillProperties
-  inputOutput SFNode lineProperties
-  inputOutput SFNode metadata
-  inputOutput MFNode shaders
-  inputOutput SFNode normalMap
-  inputOutput SFNode heightMap
-  inputOutput SFFloat heightMapScale
-  inputOutput SFNode blendMode
-  inputOutput SFBool shadowCaster
-] [ "urn:castle-engine.sourceforge.net:node:KambiAppearance",
-    "http://castle-engine.sourceforge.net/fallback_prototypes.x3dv#KambiAppearance"
-]
-
 # Camera settings "encoded" in the VRML declaration below :
 # direction 0.0481109097599983 -0.0110378451645374 -0.0869686901569366
 # up 0.0534305498003959 0.9938884377479553 -0.0965841114521026
@@ -113,7 +96,7 @@ EXTERNPROTO EditableTransform [
 EditableTransform {
   translation 2 2 0
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material Material { diffuseColor 1 1 1 }
       texture DEF GenTex1 GeneratedCubeMapTexture {
         update "NONE"
@@ -129,7 +112,7 @@ EditableTransform {
 EditableTransform {
   translation -5 2 0
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material Material { diffuseColor 1 1 1 }
       texture DEF GenTex2 GeneratedCubeMapTexture {
         update "NONE"
@@ -145,7 +128,7 @@ EditableTransform {
 EditableTransform {
   translation -1.5 2 -2.5
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material Material { diffuseColor 1 1 1 }
       texture DEF GenTex3 GeneratedCubeMapTexture {
         update "NONE"
@@ -163,7 +146,7 @@ EditableTransform {
 EditableTransform {
   translation 1.5 2 -2.5
   children Shape {
-    appearance KambiAppearance {
+    appearance Appearance {
       material Material { diffuseColor 1 1 1 }
       texture DEF GenTex4 GeneratedCubeMapTexture {
         update "NONE"
