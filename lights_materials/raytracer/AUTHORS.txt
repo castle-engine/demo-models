@@ -9,7 +9,7 @@
   http://radsite.lbl.gov/mgf/scenes.html
 
   They were converted to VRML 1.0 using
-  http://castle-engine.sourceforge.net/kambi_mgf2inv.php
+  https://github.com/michaliskambi/kambi_mgf2inv
 
   The license of the original MGF models is unclear,
   but I assume that the models are free to be distributed,
