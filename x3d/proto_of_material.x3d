@@ -46,6 +46,23 @@
         <fieldValue name="diffuseColor" value='1 0 0' />
         <fieldValue name="description" value='red material' />
       </ProtoInstance>
+
+      <!--
+        Note: It would be tempting to use the MaterialWithDescription
+        as a regular node name, and diffuseColor as a regular field name,
+        and write something like this:
+
+        <MaterialWithDescription diffuseColor="1 0 0" description="red material" />
+
+        It is tempting, as
+        - defining a prototype does conceptually mean "creating a new node type",
+        - and such thing is allowed X3D classic encoding, where prototype
+          instance looks just like using a regular built-in node.
+
+        However, we cannot allow it in X3D XML. It cannot be validated
+        using tools like DTD or XML Schema (XSD), since the "MaterialWithDescription"
+        name was just "invented" in this document.
+      -->
     </Appearance>
     <Box />
   </Shape>
