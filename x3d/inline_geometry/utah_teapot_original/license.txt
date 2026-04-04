@@ -1,0 +1,11 @@
+Model Information:
+* title:	Utah Teapot Continous Quads
+* source:	https://sketchfab.com/3d-models/utah-teapot-continous-quads-a358f40a15294e9bb19b6ca6e41d37d1
+* author:	saw (https://sketchfab.com/saw)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Utah Teapot Continous Quads" (https://sketchfab.com/3d-models/utah-teapot-continous-quads-a358f40a15294e9bb19b6ca6e41d37d1) by saw (https://sketchfab.com/saw) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

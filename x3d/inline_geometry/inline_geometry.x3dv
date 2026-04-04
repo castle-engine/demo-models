@@ -1,0 +1,122 @@
+#X3D V4.1 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------
+# Test InlineGeometry node, to get geometry from other files: X3D, glTF and STL.
+#
+# See:
+# - spec:
+# - other testcases:
+#   https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AdditiveManufacturing/CleatClampInlineGeometryIndex.html
+#   https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Bones/AllBonesSkeletonIndex.html
+# -----------------------------------------------------------------------
+
+Transform {
+  translation 2 0 0
+  children Shape {
+    geometry Text {
+      string [ "Red Teapot" "Geometry from X3D, first" ]
+      fontStyle FontStyle { size 0.5 }
+    }
+  }
+}
+Shape {
+  geometry InlineGeometry {
+    url "teapot_and_monkey.x3d#Teapot"
+  }
+  appearance Appearance {
+    material Material { diffuseColor 1 0 0 }
+  }
+}
+
+Transform {
+  translation 0 2 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Yellow Teapot" "Geometry from X3D, named" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Shape {
+      geometry InlineGeometry {
+        url "teapot_and_monkey.x3d#Teapot"
+      }
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 4 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Blue Monkey" "Geometry from X3D, named" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Shape {
+      geometry InlineGeometry {
+        url "teapot_and_monkey.x3d#Monkey"
+      }
+      appearance Appearance {
+        material Material { diffuseColor 0 0 1 }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 6 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Yellow Torus" "Geometry from glTF, first" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Shape {
+      geometry InlineGeometry {
+        url "torus.glb"
+      }
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 8 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Green Landscape" "Geometry from STL, first" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Shape {
+      geometry InlineGeometry {
+        url "landscape.stl"
+      }
+      appearance Appearance {
+        material Material { diffuseColor 0 1 0 }
+      }
+    }
+  ]
+}
