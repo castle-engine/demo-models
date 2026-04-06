@@ -1,8 +1,8 @@
 # Demo models of Castle Game Engine
 
-This is a collection of demo models (along with textures and some other media). Created to test [Castle Game Engine](https://castle-engine.io/) and CGE tools like [view3dscene](https://castle-engine.io/view3dscene.php).
+This is a collection of demo models (along with textures and some other media). Created to test [Castle Game Engine](https://castle-engine.io/) and our tools like [Castle Model Viewer](https://castle-engine.io/castle-model-viewer).
 
-Complete documentation on https://castle-engine.io/demo_models.php .
+Complete documentation on https://castle-engine.io/demo_models .
 
 ## License
 

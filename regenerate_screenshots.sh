@@ -62,7 +62,11 @@ do_dir ()
                     -iname '*.glb' -or \
                     -iname '*.plist' -or \
                     -iname '*.starling-xml' -or \
-                    -iname '*.ifcjson' ')' \
+                    -iname '*.ifcjson' -or \
+                    -iname '*.stl' -or \
+                    -iname '*.ply' -or \
+                    -iname '*.obj' -or \
+                    -iname '*.md3' ')' \
                 -print ')' > \
           /tmp/cge-demo-models-regenerate-screenshots.sh.txt
   echo 'Found files: '`wc -l < /tmp/cge-demo-models-regenerate-screenshots.sh.txt`
