@@ -36,7 +36,7 @@ Transform {
       translation 2 0 0
       children Shape {
         geometry Text {
-          string [ "Yellow Teapot" "Geometry from X3D, named" ]
+          string [ "Yellow Teapot" "Geometry from X3D, named, smooth shading" ]
           fontStyle FontStyle { size 0.5 }
         }
       }
@@ -59,6 +59,30 @@ Transform {
       translation 2 0 0
       children Shape {
         geometry Text {
+          string [ "Yellow Teapot" "Geometry from X3D, named, flat shaded" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Shape {
+      geometry InlineGeometry {
+        url "teapot_and_monkey.x3d#Teapot"
+        smooth FALSE
+      }
+      appearance Appearance {
+        material Material { diffuseColor 1 1 0 }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 6 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
           string [ "Blue Monkey" "Geometry from X3D, named" ]
           fontStyle FontStyle { size 0.5 }
         }
@@ -76,7 +100,7 @@ Transform {
 }
 
 Transform {
-  translation 0 6 0
+  translation 0 8 0
   children [
     Transform {
       translation 2 0 0
@@ -99,7 +123,7 @@ Transform {
 }
 
 Transform {
-  translation 0 8 0
+  translation 0 10 0
   children [
     Transform {
       translation 2 0 0
