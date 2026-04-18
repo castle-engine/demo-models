@@ -1,0 +1,115 @@
+#X3D V4.1 utf8
+PROFILE Interchange
+
+# -----------------------------------------------------------------------
+# Test InlineGeometry node, to get geometry from PLY,
+# and specify if it should be smooth or flat shaded.
+# -----------------------------------------------------------------------
+
+Transform {
+  translation 0 0 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Yellow, smooth shaded" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Transform {
+      scale 0.1 0.1 0.1
+      children Shape {
+        geometry InlineGeometry {
+          url "monkeys_on_landscape_binary_no_extra_attribs.ply"
+        }
+        appearance Appearance {
+          material Material { diffuseColor 1 1 0 }
+        }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 2 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Yellow, flat shaded" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Transform {
+      scale 0.1 0.1 0.1
+      children Shape {
+        geometry InlineGeometry {
+          url "monkeys_on_landscape_binary_no_extra_attribs.ply"
+          smooth FALSE
+        }
+        appearance Appearance {
+          material Material { diffuseColor 1 1 0 }
+        }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 4 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Red, smooth shaded" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Transform {
+      scale 0.1 0.1 0.1
+      children Shape {
+        geometry InlineGeometry {
+          url "monkeys_on_landscape_binary_with_normals_etc.ply"
+        }
+        appearance Appearance {
+          material Material { diffuseColor 1 0 0 }
+        }
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0 6 0
+  children [
+    Transform {
+      translation 2 0 0
+      children Shape {
+        geometry Text {
+          string [ "Red, smooth shaded" ]
+          fontStyle FontStyle { size 0.5 }
+        }
+      }
+    }
+    Transform {
+      scale 0.1 0.1 0.1
+      children Shape {
+        geometry InlineGeometry {
+          url "monkeys_on_landscape_binary_with_normals_etc.ply"
+          # smooth is ignored, as the PLY file contains normals, so it is always smooth shaded
+          smooth FALSE
+        }
+        appearance Appearance {
+          material Material { diffuseColor 1 0 0 }
+        }
+      }
+    }
+  ]
+}
+
