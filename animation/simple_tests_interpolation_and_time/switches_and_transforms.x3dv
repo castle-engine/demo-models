@@ -5,7 +5,7 @@ PROFILE Interchange
 # Test of Transform fields optimization with Switch.whichChoice optimization
 # (when they all change through events).
 #
-# Keys 1,2,3,4 change switches whichChoice values.
+# 4 keys QWER change switches whichChoice values.
 # Horizontal arrow should always move only horizontally,
 # vertical arrow --- only vertically.
 #
@@ -110,10 +110,10 @@ DEF Scr Script {
   url "castlescript:
 
 function keyPress(value, time)
-  when(value = '1', leftChoice := 0);
-  when(value = '2', leftChoice := 1);
-  when(value = '3', rightChoice := 0);
-  when(value = '4', rightChoice := 1)
+  when(value = 'q', leftChoice := 0);
+  when(value = 'w', leftChoice := 1);
+  when(value = 'e', rightChoice := 0);
+  when(value = 'r', rightChoice := 1)
 "
 }
 DEF K KeySensor { }
