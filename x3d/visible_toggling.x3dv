@@ -1,0 +1,210 @@
+#X3D V3.2 utf8
+PROFILE Interchange
+
+# ----------------------------------------------------------------------------
+# Test "visible" field on X3DGroupingNode (Transform, Group) and
+# Inline nodes.
+# See https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4.1-CD/Part01/components/grouping.html#X3DBoundedObject .
+#
+# We test that initial value of it (in file) is interpreted OK,
+# and that toggling the value (by KeySensor + BooleanToggle) works OK.
+# Press Ctrl to flip visibility of all tested nodes.
+#
+# This testcase deliberately doesn't use PROTOs (although it would make some
+# stuff easier to write) to be portable also to X3D players that don't support
+# PROTOs. (Castle Game Engine does, but not everyone else does.)
+# ----------------------------------------------------------------------------
+
+# Transform, initially visible
+Transform {
+  # No transformation here, we use this Transform only for consistency
+  # with other Transform for tests below that are translated down.
+  children [
+    Shape {
+      geometry Text {
+        string "Initially visible Transform"
+        fontStyle DEF MyFontStyle FontStyle { }
+      }
+    }
+    Transform {
+      translation -2 0 0
+      children [
+        DEF ToggableTransform1 Transform {
+          visible TRUE
+          children [
+            Shape {
+              geometry Sphere { }
+              appearance Appearance {
+                material Material { diffuseColor 1 0 0 }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+# Group, initially visible
+Transform {
+  translation 0 -2 0
+  children [
+    Shape {
+      geometry Text {
+        string "Initially visible Group"
+        fontStyle USE MyFontStyle
+      }
+    }
+    Transform {
+      translation -2 0 0
+      children [
+        DEF ToggableGroup1 Group {
+          visible TRUE
+          children [
+            Shape {
+              geometry Sphere { }
+              appearance Appearance {
+                material Material { diffuseColor 0 1 0 }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+# Inline, initially visible
+Transform {
+  translation 0 -4 0
+  children [
+    Shape {
+      geometry Text {
+        string "Initially visible Inline"
+        fontStyle USE MyFontStyle
+      }
+    }
+    Transform {
+      translation -2 0 0
+      children [
+        DEF ToggableInline1 Inline {
+          url "visible_toggling_helper_inline.x3dv"
+          visible TRUE
+        }
+      ]
+    }
+  ]
+}
+
+# Transform, initially invisible
+Transform {
+  translation 0 -6 0
+  children [
+    Shape {
+      geometry Text {
+        string "Initially invisible Transform"
+        fontStyle USE MyFontStyle
+      }
+    }
+    Transform {
+      translation -2 0 0
+      children [
+        DEF ToggableTransform2 Transform {
+          visible FALSE
+          children [
+            Shape {
+              geometry Sphere { }
+              appearance Appearance {
+                material Material { diffuseColor 1 1 0 }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+# Group, initially invisible
+Transform {
+  translation 0 -8 0
+  children [
+    Shape {
+      geometry Text {
+        string "Initially invisible Group"
+        fontStyle USE MyFontStyle
+      }
+    }
+    Transform {
+      translation -2 0 0
+      children [
+        DEF ToggableGroup2 Group {
+          visible FALSE
+          children [
+            Shape {
+              geometry Sphere { }
+              appearance Appearance {
+                material Material { diffuseColor 0 1 1 }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+# Inline, initially invisible
+Transform {
+  translation 0 -10 0
+  children [
+    Shape {
+      geometry Text {
+        string "Initially invisible Inline"
+        fontStyle USE MyFontStyle
+      }
+    }
+    Transform {
+      translation -2 0 0
+      children [
+        DEF ToggableInline2 Inline {
+          url "visible_toggling_helper_inline.x3dv"
+          visible FALSE
+        }
+      ]
+    }
+  ]
+}
+
+# informational text at the top
+
+Transform {
+  translation 0 2 0
+  children Shape {
+    geometry Text {
+      string "Press / release <Ctrl> key to toggle visibility of all tested spheres"
+      fontStyle FontStyle {
+        size 0.75
+      }
+    }
+    appearance Appearance {
+      material UnlitMaterial { emissiveColor 0 1 0 }
+    }
+  }
+}
+
+# toggle by key press
+DEF MyKeySensor KeySensor { }
+
+# pass non-negated values, so "ctrl pressed -> visible"
+ROUTE MyKeySensor.controlKey TO ToggableTransform2.visible
+ROUTE MyKeySensor.controlKey TO ToggableGroup2.visible
+ROUTE MyKeySensor.controlKey TO ToggableInline2.visible
+
+# pass negated values, so "ctrl pressed -> invisible"
+DEF MyBooleanFilter BooleanFilter { }
+ROUTE MyKeySensor.controlKey TO MyBooleanFilter.set_boolean
+ROUTE MyBooleanFilter.inputNegate TO ToggableTransform1.visible
+ROUTE MyBooleanFilter.inputNegate TO ToggableGroup1.visible
+ROUTE MyBooleanFilter.inputNegate TO ToggableInline1.visible
+
