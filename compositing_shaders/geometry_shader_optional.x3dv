@@ -122,8 +122,8 @@ Shape {
     effects [
       # Note: The effect with "layout(...) in" must be first, to avoid errors:
       #   error: unsized array index must be constant
-      USE GotoGrayscale,
-      USE TrianglesToLines
+      USE TrianglesToLines,
+      USE GotoGrayscale
     ]
     lineProperties LineProperties { linewidthScaleFactor 10 }
     texture ImageTexture { url "../textures/test_texture.png" }
