@@ -29,8 +29,6 @@ Shape {
       parts EffectPart {
         type "GEOMETRY"
         url "data:text/plain,
-          #version 150
-
           layout(triangles) in;
           layout(triangle_strip, max_vertices = 3) out;
 
@@ -73,7 +71,6 @@ Shape {
         EffectPart {
           type "VERTEX"
           url "data:text/plain,
-            #version 150
             out vec4 saved_vertex_object;
             void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
             {
@@ -83,8 +80,6 @@ Shape {
         EffectPart {
           type "GEOMETRY"
           url "data:text/plain,
-            #version 150
-
             layout(triangles) in;
             layout(line_strip, max_vertices = 10) out;
 
@@ -165,7 +160,6 @@ Shape {
         EffectPart {
           type "VERTEX"
           url "data:text/plain,
-            #version 150
             out vec4 saved_vertex_object;
             void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
             {
@@ -175,8 +169,6 @@ Shape {
         EffectPart {
           type "GEOMETRY"
           url "data:text/plain,
-            #version 150
-
             layout(triangles) in;
             layout(points, max_vertices = 36) out;
 

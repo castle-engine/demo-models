@@ -12,8 +12,6 @@ Shape {
       parts EffectPart {
         type "GEOMETRY"
         url "data:text/plain,
-          #version 150
-
           layout(triangles) in;
           layout(triangle_strip, max_vertices = 3) out;
 
@@ -49,8 +47,6 @@ Shape {
       parts EffectPart {
         type "GEOMETRY"
         url "data:text/plain,
-          #version 150
-
           layout(triangles) in;
           layout(points, max_vertices = 1) out;
 
