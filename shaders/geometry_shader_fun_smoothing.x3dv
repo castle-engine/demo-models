@@ -2,18 +2,25 @@
 PROFILE Interchange
 COMPONENT Shaders:1
 
-# Smooth by adding triangles inside,
+# ------------------------------------------------------------------------------
+# Geometry shaders in a ComposedShader node.
+# Smooth geometry by adding triangles inside,
 # and shifting points inside by their normals.
 #
 # This is quite poor, but fun, approach to smothing :)
-# It's really a test of geometry shaders, so don't treat this way
-# of "smoothing" as something really useful :)
+# It's really a test of geometry shaders, don't treat this as a proper way
+# of "smoothing".
+# ------------------------------------------------------------------------------
 
-# Smoothed objects -----------------------------------------------------------
+# ------------------------------------------------------------------------------
+# Smoothed objects.
+# 1st object defines a GLSL shader in ComposedShader, and the other objects
+# reuse it.
+# We transform in object space, see geometry_shader.x3dv for simpler demo.
 
 Transform { translation 0 0 0 children [
 Shape {
-  appearance Appearance {
+  appearance DEF SmoothingAppearance Appearance {
     shaders DEF SmoothingShader ComposedShader {
       language "GLSL"
       inputOutput SFFloat smooth_scale 1.0
@@ -30,8 +37,6 @@ Shape {
             gl_Position = castle_Vertex;
           }" }
         ShaderPart { type "GEOMETRY" url "data:text/plain,
-          #version 150
-
           uniform mat4 castle_ModelViewMatrix;
           uniform mat4 castle_ProjectionMatrix;
           uniform mat3 castle_NormalMatrix;
@@ -69,7 +74,7 @@ Shape {
                To really improve the look, one has to actually smooth the surface.
                - A more elaborate way for this would use 'triangles with adjacency',
                  when you get enough information to really smooth the surface
-                 nicely, but view3dscene doesn't support primitives with adjacency
+                 nicely, but Castle Model Viewer doesn't support primitives with adjacency
                  yet.
                - A simpler way for this would use the knowledge that this is
                  a sphere... But I didn't want it here (when you know
@@ -88,14 +93,20 @@ Shape {
             /* go to eye space */
             gl_Position = castle_ModelViewMatrix * gl_Position;
 
-            /* diffuse lighting equation.
-               Note: we just *assume* here that light 0 == headlight
-               in view3dscene. This is not really guaranteed, if you don't
-               like this see our \"compositing shaders\" effects instead
-               of messing with ComposedShader :) */
+            /* Diffuse lighting equation, assuming we have a single light source,
+               which is at the camera position (like a hadlight).
+
+               Note: To reuse the light calculation done by Castle Model Viewer,
+               and use existing lights, use Effect nodes instead of ComposedShader,
+               see https://castle-engine.io/shaders and
+               ../compositing_shaders/ demos.
+
+               If you use ComposedShader, you have to implement your own
+               lighting calculation, like this one. */
             light_intensity = max(dot(
               normalize(- gl_Position.xyz),
-              normalize(castle_NormalMatrix * vertex_normal)), 0.0);
+              normalize(castle_NormalMatrix * vertex_normal)
+            ), 0.0);
 
             /* go to clip space */
             gl_Position = castle_ProjectionMatrix * gl_Position;
@@ -135,6 +146,10 @@ Shape {
           }" }
       ]
     }
+    # Define any Material to make it "lit" for Castle Game Engine,
+    # so that engine provides normal vectors to the shader.
+    # The colors defined by this material are ignored by the shader.
+    material Material { }
   }
   geometry Sphere {
     # make geometry low-quality
@@ -146,7 +161,7 @@ Shape {
 
 Transform { translation 3 0 0 children [
 Shape {
-  appearance Appearance { shaders USE SmoothingShader }
+  appearance USE SmoothingAppearance
   geometry Cylinder {
     # make geometry low-quality
     slices 8
@@ -156,7 +171,7 @@ Shape {
 
 Transform { translation 6 0 0 children [
 Shape {
-  appearance Appearance { shaders USE SmoothingShader }
+  appearance USE SmoothingAppearance
   geometry Cone {
     # make geometry low-quality
     slices 8
@@ -167,7 +182,7 @@ Shape {
 
 Transform { translation 0 -3 0 children [
 Shape {
-  appearance Appearance { shaders USE SmoothingShader }
+  appearance USE SmoothingAppearance
   geometry Box {
   }
 }
@@ -175,7 +190,7 @@ Shape {
 
 Transform { translation 3 -3 0 children [
 Shape {
-  appearance Appearance { shaders USE SmoothingShader }
+  appearance USE SmoothingAppearance
   geometry Teapot {
   }
 }
