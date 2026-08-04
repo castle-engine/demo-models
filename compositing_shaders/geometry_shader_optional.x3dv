@@ -119,7 +119,12 @@ Shape {
 Transform { translation 0 2 0 children
 Shape {
   appearance Appearance {
-    effects [ USE TrianglesToLines, USE GotoGrayscale ]
+    effects [
+      # Note: The effect with "layout(...) in" must be first, to avoid errors:
+      #   error: unsized array index must be constant
+      USE GotoGrayscale,
+      USE TrianglesToLines
+    ]
     lineProperties LineProperties { linewidthScaleFactor 10 }
     texture ImageTexture { url "../textures/test_texture.png" }
   }
