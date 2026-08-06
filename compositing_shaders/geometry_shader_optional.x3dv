@@ -12,8 +12,11 @@ COMPONENT Shaders:1
 # ----------------------------------------------------------------------------
 # Create any effect that needs to pass an attribute from
 # vertex to fragment shader to work.
-# We override special "GEOMETRY" plugs to make this attribute correctly
-# passed though geometry shaders, and we use #ifdef HAS_GEOMETRY_SHADER.
+#
+# We use /* VARYING-PASSTHROUGH-GEOMETRY-SHADERS */ to pass-through
+# the attribute from vertex to fragment shader reliably, even if
+# a geometry shader is present in between.
+# See CGE src/scene/glsl/README.md for docs about this.
 #
 # The exact visual effect is not important here...
 # We just made the colors going to grayscale on the right side of the object,
@@ -25,38 +28,20 @@ Shape {
       language "GLSL"
       parts [
         EffectPart { type "VERTEX" url "data:text/plain,
-          out float vertex_x;
+
+          // See Castle Game Engine src/scene/glsl/README.md what the VARYING-... means
+          /* VARYING-PASSTHROUGH-GEOMETRY-SHADERS */
+          varying float vertex_x;
 
           void PLUG_vertex_object_space(const in vec4 vertex_object, const in vec3 normal_object)
           {
             vertex_x = vertex_object.x;
           }"
         }
-        EffectPart { type "GEOMETRY" url "data:text/plain,
-          in float vertex_x[CASTLE_GEOMETRY_INPUT_SIZE];
-          out float vertex_x_fragment;
-
-          void PLUG_geometry_vertex_set(const in int index)
-          {
-            vertex_x_fragment = vertex_x[index];
-          }
-
-          void PLUG_geometry_vertex_zero()
-          {
-            vertex_x_fragment = 0.0;
-          }
-
-          void PLUG_geometry_vertex_add(const in int index, const in float scale)
-          {
-            vertex_x_fragment += vertex_x[index] * scale;
-          }"
-        }
         EffectPart { type "FRAGMENT" url "data:text/plain,
           /* PLUG-DECLARATIONS */
-          #ifdef HAS_GEOMETRY_SHADER
-            #define vertex_x vertex_x_fragment
-          #endif
-          in float vertex_x;
+
+          varying float vertex_x;
 
           void PLUG_main_texture_apply(inout vec4 fragment_color, const in vec3 normal_eye)
           {
@@ -120,8 +105,13 @@ Transform { translation 0 2 0 children
 Shape {
   appearance Appearance {
     effects [
-      # Note: The effect with "layout(...) in" must be first, to avoid errors:
-      #   error: unsized array index must be constant
+      # Note: If both effects would have geometry shaders, then
+      # the order of effects would matter.
+      # The effect with "layout(...) in" must be first, to make
+      # later arrays with length gl_in.length() work correctly.
+      # As it happens, this doesn't matter for this demo (anymore)
+      # as only TrianglesToLines has a geometry shader.
+
       USE TrianglesToLines,
       USE GotoGrayscale
     ]
