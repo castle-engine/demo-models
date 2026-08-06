@@ -5,8 +5,9 @@ set -eu
 # Regenerate, using castle-model-viewer, proper screenshots for all models.
 # Run with
 # - no arguments (regenerate everything here)
-# - directory name as argument (regenerate everything there, recursively)
-# - file name as argument (regenerate this one file)
+# - arguments listing files and directories to process:
+#   - directory name as argument (regenerate everything there, recursively)
+#   - file name as argument (regenerate this one file)
 #
 # Resulting files are called _screenshot.png.
 # This makes their purpose more obvious, and also allows to easily find/delete them
@@ -80,9 +81,11 @@ do_dir ()
 if [ $# = 0 ]; then
   do_dir .
 else
-  if [ -f "$1" ]; then
-    do_file "$1"
-  else
-    do_dir "$1"
-  fi
+  for F in "$@"; do
+    if [ -f "$F" ]; then
+      do_file "$F"
+    else
+      do_dir "$F"
+    fi
+  done
 fi
