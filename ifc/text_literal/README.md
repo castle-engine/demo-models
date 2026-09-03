@@ -62,6 +62,8 @@ Opening `text_literal.ifc`: you will see 4 empties ("pivots") and no text.
 
 Reason: That's how BonsaiBIM handles `IfcTextLiteral` elements.
 
+TODO: Confirm all claims below with exact links to BonsaiBIM source code.
+
 - On import, an element whose only geometry is an `IfcTextLiteral` gets no mesh and becomes a plain Blender empty. See the comment in [bonsai/bim/import_ifc.py](https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.9.0/src/bonsai/bonsai/bim/import_ifc.py): _"Skip elements without geometry - e.g. annotations with IfcTextLiterals."_
 
 - Texts are instead drawn as a viewport overlay (a *decorator*), and only when *all* of these hold (see `object_decorators` in `bonsai/bim/module/drawing/data.py` and `bonsai/bim/module/drawing/decoration.py`):
@@ -82,63 +84,25 @@ The `text_literal.ifc` has no drawing, so nothing draws the texts. You can still
 
 ![BonsaiBIM 2](bonsai_bim_2.png)
 
-WARNING: Claude-generated description of `text_literal_visible_in_bonsai_bim.ifc` changes below, trust accordingly.
-
-Compared to `text_literal.ifc`, it adds:
-
-- an `IfcAnnotation` with `ObjectType = 'DRAWING'` (the camera), with a `Body`
-  representation in the Model / `MODEL_VIEW` context holding an `IfcCsgSolid`
-  of an `IfcBlock` --- that box is the camera volume,
-- an `EPset_Drawing` property set on it. It must be complete: BonsaiBIM's
-  *Activate Drawing* calls `bim.reload_drawing_styles`, which fails with
-  *"Could not find shading styles path in EPset_Drawing.ShadingStyles"* if
-  `ShadingStyles` is missing. So we write all 13 properties BonsaiBIM writes
-  (`TargetView`, `Scale`, `HumanScale`, `HasUnderlay`, `HasLinework`,
-  `HasAnnotation`, `GlobalReferencing`, `Stylesheet`, `Markers`, `Symbols`,
-  `Patterns`, `ShadingStyles`, `CurrentShadingStyle`). The resource paths are
-  relative to the IFC file and need not exist --- BonsaiBIM copies its own
-  defaults there, so activating the drawing creates a `drawings/assets/`
-  subdirectory next to this file,
-- an `IfcGroup` with `ObjectType = 'DRAWING'` that groups the drawing together
-  with all the texts (this is the link BonsaiBIM follows), and its parent
-  `IfcGroup` with `ObjectType = 'DRAWINGS'`,
-- an `IfcDocumentInformation` (with `Scope = 'DRAWING'`) associated with the
-  drawing, like BonsaiBIM does,
-- an `EPset_Annotation` property set on each text with `Classes = 'title'` ---
-  this is how BonsaiBIM expresses the font size (`small`, `regular`, `large`,
-  `header`, `title` = 1.8, 2.5, 3.5, 5, 7 mm on the paper).
-
-and changes:
-
-- all texts are `IfcTextLiteralWithExtent` (BonsaiBIM cannot cope with a plain
-  `IfcTextLiteral`, see above),
-- all texts are positioned by `IfcAnnotation.ObjectPlacement`, since BonsaiBIM
-  draws the text at the object origin and ignores the literal's placement,
-- the texts differ by `BoxAlignment` instead of by placement style.
-
-The drawing itself is deliberately *not* placed in the spatial structure ---
-just like BonsaiBIM does it --- which also keeps its camera volume out of
-viewers that display the whole spatial structure, like _Castle Game Engine_.
-
 ### FreeCAD
 
-WARNING: Claude-generated description below, trust accordingly. TODO: I could not find a way how to raise its `FontSize` (to e.g. 1000) to actually see it.
+Seems it doesn't load the texts as visible objects in the 3D view. I could only get them to load by choosing "Load each IFC object invidually" in the import options, and then they only overlap with each other.
 
-FreeCAD *does* create a `Draft Text` object for every literal
-(`get2DShape` in `importers/importIFCHelper.py`, TODO: link to line of code), but they are easy to miss:
+![FreeCAD 1](freecad_1.png)
 
-- They are created as a side effect, and the importer then returns nothing, so
-  they end up in no container --- look for them at the top of the model tree.
+![FreeCAD 2](freecad_2.png)
 
-- Their size comes from the Draft `textheight` preference, a few millimeters,
-  while the model is imported in millimeters and is 26000 mm wide. So the text
-  is there, but roughly a thousand times too small to see. Select a text object
-  and raise its `FontSize` (to e.g. 1000) to actually see it.
+TODO: Research below is mixed with Claude claims, trust it (not) accordingly (initial versions of this research had indeed mistakes). TODO: Confirm all claims below with links to FreeCAD source code:
 
-- FreeCAD reads only the `IfcTextLiteral.Placement` and ignores the placement of
+- FreeCAD *does* create a `Draft Text` object for every literal...
+
+- ...but they are created as a side effect, and the importer then returns nothing, so
+  they end up in no container. (This matches the behavior observed.)
+
+- Also note: FreeCAD reads only the `IfcTextLiteral.Placement` and ignores the placement of
   the containing `IfcAnnotation` --- the opposite of what FreeCAD itself writes
   on export. So only text *A* lands where it should, and *B*, *C*, *D* end up
   stacked at the origin.
 
-- FreeCAD treats `;` inside the literal as a line separator
+- Also note: FreeCAD treats `;` inside the literal as a line separator
   (we don't --- we honor only real newlines).

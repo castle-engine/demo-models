@@ -11,6 +11,8 @@ Afterwards convert to IFC JSON encoding using
 https://github.com/michaliskambi/ifcJSON :
 
   python ifcJSON/file_converters/ifc2json.py -i text_literal.ifc -o text_literal.ifcjson
+
+Claude generated, though reviewed. Trust this accordingly.
 """
 
 import time
