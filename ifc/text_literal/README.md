@@ -31,7 +31,7 @@ The texts are large (a few meters) because we display them with the default X3D 
 
 `text_literal.x3dv` is only a wrapper around IFC model, to add a good `Viewpoint` for the screenshot:
 
-![IfcTextLiteral screenshot](text_literal.x3dv_screenshot.png)
+![IfcTextLiteral screenshot](docs_images/castle_model_viewer.png)
 
 ## Regenerating
 
