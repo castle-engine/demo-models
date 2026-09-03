@@ -1,0 +1,16 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# Wrapper around text_literal.ifcjson, only to define a good Viewpoint
+# for the screenshot (regenerate_screenshots.sh).
+#
+# Without it, the default camera looks at the model from the front,
+# and the texts that lie flat (A, B, C) are then seen at a grazing angle.
+
+Viewpoint {
+  description "Look at all the texts from above and in front"
+  position -6 -13 10.5
+  orientation 1 0 0 0.854
+}
+
+Inline { url "text_literal.ifcjson" }
