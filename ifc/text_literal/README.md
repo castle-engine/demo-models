@@ -35,18 +35,18 @@ The texts are large (a few meters) because we display them with the default X3D 
 
 ## Regenerating
 
-`generate.py` creates `text_literal.ifc` using [IfcOpenShell](https://ifcopenshell.org/) (`pip install ifcopenshell`). We did it this way, as we wanted to test _IfcOpenShell_ BTW too (it is used underneath by BonsaiBIM).
+`text_literal_generate.py` creates `text_literal.ifc` using [IfcOpenShell](https://ifcopenshell.org/) (`pip install ifcopenshell`). We did it this way, as we wanted to test _IfcOpenShell_ BTW too (it is used underneath by BonsaiBIM).
 
 JSON encoding in `text_literal.ifcjson` was made by [our fork of the ifcJSON Python scripts](https://github.com/michaliskambi/ifcJSON).
 
 In total:
 
 ```
-python3 generate.py
+python3 text_literal_generate.py
 python3 ifcJSON/file_converters/ifc2json.py -i text_literal.ifc -o text_literal.ifcjson
 ```
 
-`generate_visible_in_bonsai_bim.py` creates the BonsaiBIM variant in an analogous way.
+`text_literal_visible_in_bonsai_bim_generate.py` creates the variant `text_literal_visible_in_bonsai_bim.ifc`, with annotations actually visible in Blender, in an analogous way.
 
 Note that the generators make new GUIDs on every run.
 
@@ -58,7 +58,7 @@ Neither [BonsaiBIM](https://bonsaibim.org/) nor [FreeCAD](https://www.freecad.or
 
 Opening `text_literal.ifc`: you will see 4 empties ("pivots") and no text.
 
-![BonsaiBIM 1](bonsai_bim_1.png)
+![BonsaiBIM 1](docs_images/bonsai_bim_1.png)
 
 Reason: That's how BonsaiBIM handles `IfcTextLiteral` elements.
 
@@ -82,15 +82,15 @@ The `text_literal.ifc` has no drawing, so nothing draws the texts. You can still
 
 `text_literal_visible_in_bonsai_bim.ifc` (and `.ifcjson`) contains the same kind of texts, restructured to satisfy all the BonsaiBIM conditions listed above. To see the texts: open the file in Blender, go to the *Drawings* panel, and activate (double-click) the `PLAN` drawing.
 
-![BonsaiBIM 2](bonsai_bim_2.png)
+![BonsaiBIM 2](docs_images/bonsai_bim_2.png)
 
 ### FreeCAD
 
 Seems it doesn't load the texts as visible objects in the 3D view. I could only get them to load by choosing "Load each IFC object invidually" in the import options, and then they only overlap with each other.
 
-![FreeCAD 1](freecad_1.png)
+![FreeCAD 1](docs_images/freecad_1.png)
 
-![FreeCAD 2](freecad_2.png)
+![FreeCAD 2](docs_images/freecad_2.png)
 
 TODO: Research below is mixed with Claude claims, trust it (not) accordingly (initial versions of this research had indeed mistakes). TODO: Confirm all claims below with links to FreeCAD source code:
 
