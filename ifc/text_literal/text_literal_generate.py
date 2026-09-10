@@ -238,7 +238,6 @@ add_text(
     "Text B",
     "B: object placement",
     object_placement_at=(-12, 1.5, 0.01),
-    path="LEFT",
 )
 
 # C: IfcTextLiteralWithExtent, which is what BonsaiBIM writes.

@@ -1,0 +1,15 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# Wrapper around text_literal_alignment.ifcjson, only to define a good Viewpoint
+# for the screenshot (regenerate_screenshots.sh).
+#
+# The texts lie flat in the XY plane (as usual in IFC), so look at them
+# from above, straight down.
+
+Viewpoint {
+  description "Look at all the texts from above"
+  position 26 -19 55
+}
+
+Inline { url "text_literal_alignment.ifcjson" }

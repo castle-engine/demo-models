@@ -33,6 +33,20 @@ The texts are large (a few meters) because we display them with the default X3D 
 
 ![IfcTextLiteral screenshot](docs_images/castle_model_viewer.png)
 
+## Alignment: BoxAlignment and Path
+
+The model `text_literal_alignment.ifc` / `text_literal_alignment.ifcjson` shows all 9 possible [IfcBoxAlignment](https://standards.buildingsmart.org/IFC/RELEASE/IFC4_3/HTML/lexical/IfcBoxAlignment.htm) values, all 4 [IfcTextPath](https://standards.buildingsmart.org/IFC/RELEASE/IFC4_3/HTML/lexical/IfcTextPath.htm) values, and how multi-line texts grow.
+
+![IfcBoxAlignment screenshot](docs_images/castle_model_viewer_alignment.png)
+
+Every text is accompanied by 2 guides, drawn using `IfcPolyline`:
+
+- a *cross* at the text placement,
+
+- the *rectangle* of the `IfcTextLiteralWithExtent.Extent`, positioned as the `BoxAlignment` says.
+
+Note that our [X3D Text rendering](https://castle-engine.io/x3d_implementation_text.php) ignores some options: `horizontal`, `leftToRight`, `topToBottom`. So the tests with `Path` value different than `RIGHT` are not correct.
+
 ## Regenerating
 
 `text_literal_generate.py` creates `text_literal.ifc` using [IfcOpenShell](https://ifcopenshell.org/) (`pip install ifcopenshell`). We did it this way, as we wanted to test _IfcOpenShell_ BTW too (it is used underneath by BonsaiBIM).
@@ -44,6 +58,9 @@ In total:
 ```
 python3 text_literal_generate.py
 python3 ifcJSON/file_converters/ifc2json.py -i text_literal.ifc -o text_literal.ifcjson
+
+python3 text_literal_alignment_generate.py
+python3 ifcJSON/file_converters/ifc2json.py -i text_literal_alignment.ifc -o text_literal_alignment.ifcjson
 ```
 
 `text_literal_visible_in_bonsai_bim_generate.py` creates the variant `text_literal_visible_in_bonsai_bim.ifc`, with annotations actually visible in Blender, in an analogous way.
@@ -76,7 +93,9 @@ TODO: Confirm all claims below with exact links to BonsaiBIM source code.
 
     - the 3D viewport is in camera view.
 
-- Another BonsaiBIM limitation: it reads `BoxAlignment` unconditionally, so it only copes with `IfcTextLiteralWithExtent`, never with a plain `IfcTextLiteral`. (TODO: link to line of code as a proof.)
+- Another BonsaiBIM limitation: it reads `BoxAlignment` unconditionally, so it only copes with `IfcTextLiteralWithExtent`, never with a plain `IfcTextLiteral`. See [data.py](https://github.com/IfcOpenShell/IfcOpenShell/blob/v0.9.0/src/bonsai/bonsai/bim/module/drawing/data.py#L370): `"BoxAlignment": literal.BoxAlignment` (a plain `IfcTextLiteral` would raise `AttributeError` there).
+
+    This may be reasonable, as IFC spec says `IfcTextLiteral` is going to be deprecated, made abstract. So it makes sense to only deal with `IfcTextLiteralWithExtent`.
 
 The `text_literal.ifc` has no drawing, so nothing draws the texts. You can still confirm the text was read: select one of the empties and look at the *Text* panel in the BonsaiBIM properties, the literal is there.
 
