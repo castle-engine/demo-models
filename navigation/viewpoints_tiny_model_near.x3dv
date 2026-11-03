@@ -1,0 +1,34 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+
+# Test that projection near remains sensible after switching viewpoints,
+# for a tiny model.
+#
+# The model is tiny (0.01 units), there's no NavigationInfo and no
+# Viewpoint.nearDistance. So Castle Model Viewer
+# should calculate projection near based on the model size,
+# making it very small.
+#
+# Switch to the second viewpoint (using "Navigation -> Jump to Viewpoint"
+# in Castle Model Viewer). The box should remain visible.
+# Bug in the past: after switching, projection near was reset to default 0.06,
+# which is larger than the distance from viewpoint to the box,
+# and so the box was clipped (invisible).
+
+Shape {
+  appearance Appearance {
+    material Material { diffuseColor 1 0 0 }
+  }
+  geometry Box { size 0.01 0.01 0.01 }
+}
+
+Viewpoint {
+  position 0 0 0.03
+  description "First Viewpoint"
+}
+
+Viewpoint {
+  position 0.02 0 0
+  orientation 0 1 0 1.5708 # look along -X, at the box
+  description "Second Viewpoint"
+}
