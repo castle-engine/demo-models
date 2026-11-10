@@ -1,0 +1,106 @@
+#X3D V4.0 utf8
+PROFILE Interchange
+COMPONENT EnvironmentalSensor:1
+
+# Test TimeSensor.reverse field.
+#
+# Each bar rotates by full 360 degrees around its center, in 4 second cycle.
+# The red sphere marks one bar end, so you can see the rotation direction.
+# All bars start and end each cycle with red sphere on the right (+X) side.
+#
+# Correct effect:
+# - loop TRUE, reverse FALSE: rotates counter-clockwise, forever.
+# - loop TRUE, reverse TRUE: rotates clockwise, forever.
+# - loop FALSE, reverse FALSE: rotates counter-clockwise once, then stops.
+# - loop FALSE, reverse TRUE: rotates clockwise once, then stops.
+
+Transform {
+  translation 0 5 0
+  children Shape {
+    appearance Appearance { material Material { diffuseColor 1 1 0 } }
+    geometry Text {
+      string [
+        "TimeSensor.reverse test."
+        "Each bar rotates 360 degrees in 4 seconds, starting at load time."
+        "Red sphere marks the bar end."
+        "Reverse FALSE should rotate counter-clockwise,"
+        "reverse TRUE should rotate clockwise."
+        "Non-looping bars should stop after one full rotation."
+      ]
+      fontStyle FontStyle { justify "MIDDLE" size 0.4 }
+    }
+  }
+}
+
+# Bar rotating 360 degrees around its center, with "description" text below.
+# Red sphere at one end makes the bar orientation unambiguous.
+# The animation starts at load time, and follows given "loop" and "reverse".
+PROTO RotatingBar [
+  inputOutput SFVec3f translation 0 0 0
+  inputOutput SFBool loop FALSE
+  inputOutput SFBool reverse FALSE
+  inputOutput MFString description ""
+] {
+  Transform {
+    translation IS translation
+    children [
+      DEF BarRotation Transform {
+        children [
+          Shape {
+            appearance Appearance { material Material { diffuseColor 0.5 0.5 1 } }
+            geometry Box { size 3 0.3 0.3 }
+          }
+          Transform {
+            translation 1.5 0 0
+            children Shape {
+              appearance Appearance { material Material { diffuseColor 1 0 0 } }
+              geometry Sphere { radius 0.3 }
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 0 -2 0
+        children Shape {
+          geometry Text {
+            string IS description
+            fontStyle FontStyle { justify "MIDDLE" size 0.4 }
+          }
+        }
+      }
+
+      # TimeSensor is initially stopped: startTime is 0 by default,
+      # so stopTime 0.5 means it is stopped since long ago.
+      # It starts when ProximitySensor sends startTime at load (see below).
+      DEF TS TimeSensor {
+        cycleInterval 4
+        loop IS loop
+        reverse IS reverse
+        stopTime 0.5
+      }
+
+      DEF Interp OrientationInterpolator {
+        key [ 0 0.25 0.5 0.75 1 ]
+        keyValue [ 0 0 1 0, 0 0 1 1.5708, 0 0 1 3.14159, 0 0 1 4.71239, 0 0 1 6.28318 ]
+      }
+
+      # Start the animation at load time, using standard ProximitySensor trick
+      # (instead of our custom extension timeOriginAtLoad).
+      # ProximitySensor is practically infinite, so camera is always inside.
+      DEF PS ProximitySensor { size 1000000 1000000 1000000 }
+    ]
+  }
+
+  ROUTE PS.enterTime TO TS.startTime
+  ROUTE TS.fraction_changed TO Interp.set_fraction
+  ROUTE Interp.value_changed TO BarRotation.rotation
+}
+
+RotatingBar { translation -6 0 0 loop TRUE  reverse FALSE description [ "loop TRUE" "reverse FALSE" ] }
+RotatingBar { translation -2 0 0 loop TRUE  reverse TRUE  description [ "loop TRUE" "reverse TRUE" ] }
+RotatingBar { translation  2 0 0 loop FALSE reverse FALSE description [ "loop FALSE" "reverse FALSE" ] }
+RotatingBar { translation  6 0 0 loop FALSE reverse TRUE  description [ "loop FALSE" "reverse TRUE" ] }
+
+Viewpoint {
+  position 0 1 18
+}
